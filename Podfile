@@ -4,7 +4,10 @@
 # use_frameworks!
 
 target 'myOrgForum' do
-
+pod 'AFNetworking'
+pod 'MBProgressHUD'
+pod 'SDWebImage'
+pod 'FoundationExtension'
 end
 
 target 'myOrgForumTests' do
