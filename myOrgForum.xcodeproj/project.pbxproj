@@ -19,6 +19,10 @@
 		417F34D81CCA1D1F00F9714F /* LQSControllerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34D71CCA1D1F00F9714F /* LQSControllerTool.m */; };
 		417F34DB1CCA20EE00F9714F /* LQSTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34DA1CCA20EE00F9714F /* LQSTabBarViewController.m */; };
 		417F34DE1CCA21FA00F9714F /* LQSNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34DD1CCA21FA00F9714F /* LQSNewfeatureViewController.m */; };
+		417F34E71CCA29AD00F9714F /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34E01CCA29AD00F9714F /* Foundation+Log.m */; };
+		417F34E81CCA29AD00F9714F /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34E21CCA29AD00F9714F /* UIBarButtonItem+Extension.m */; };
+		417F34E91CCA29AD00F9714F /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34E41CCA29AD00F9714F /* UIView+Extension.m */; };
+		417F34EA1CCA29AD00F9714F /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34E61CCA29AD00F9714F /* UIWindow+Extension.m */; };
 		5644FDCF1734C13EC05FF770 /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD01C23D36F227CE16599BB8 /* libPods-myOrgForum.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +80,13 @@
 		417F34DA1CCA20EE00F9714F /* LQSTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSTabBarViewController.m; sourceTree = "<group>"; };
 		417F34DC1CCA21FA00F9714F /* LQSNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSNewfeatureViewController.h; sourceTree = "<group>"; };
 		417F34DD1CCA21FA00F9714F /* LQSNewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSNewfeatureViewController.m; sourceTree = "<group>"; };
+		417F34E01CCA29AD00F9714F /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		417F34E11CCA29AD00F9714F /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		417F34E21CCA29AD00F9714F /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		417F34E31CCA29AD00F9714F /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		417F34E41CCA29AD00F9714F /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		417F34E51CCA29AD00F9714F /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
+		417F34E61CCA29AD00F9714F /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		5AB9EA846926FEE35D61911D /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
 		DD01C23D36F227CE16599BB8 /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE2A64F0D63267E05D707FD5 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +143,7 @@
 		415C55511CC8CCEE00408B90 /* myOrgForum */ = {
 			isa = PBXGroup;
 			children = (
+				417F34DF1CCA299E00F9714F /* category */,
 				417F34B91CC9CF6400F9714F /* setting */,
 				417F34B81CC9CF5700F9714F /* discover */,
 				417F34B71CC9CF4B00F9714F /* forum */,
@@ -237,6 +249,20 @@
 				417F34CF1CCA034900F9714F /* coreHeader.h */,
 			);
 			name = configs;
+			sourceTree = "<group>";
+		};
+		417F34DF1CCA299E00F9714F /* category */ = {
+			isa = PBXGroup;
+			children = (
+				417F34E01CCA29AD00F9714F /* Foundation+Log.m */,
+				417F34E11CCA29AD00F9714F /* UIBarButtonItem+Extension.h */,
+				417F34E21CCA29AD00F9714F /* UIBarButtonItem+Extension.m */,
+				417F34E31CCA29AD00F9714F /* UIView+Extension.h */,
+				417F34E41CCA29AD00F9714F /* UIView+Extension.m */,
+				417F34E51CCA29AD00F9714F /* UIWindow+Extension.h */,
+				417F34E61CCA29AD00F9714F /* UIWindow+Extension.m */,
+			);
+			name = category;
 			sourceTree = "<group>";
 		};
 		D2FF60D40CEE75621BCC406D /* Frameworks */ = {
@@ -440,13 +466,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				417F34E91CCA29AD00F9714F /* UIView+Extension.m in Sources */,
 				417F34DE1CCA21FA00F9714F /* LQSNewfeatureViewController.m in Sources */,
 				417F34BC1CC9D0FF00F9714F /* rootViewController.m in Sources */,
 				417F34DB1CCA20EE00F9714F /* LQSTabBarViewController.m in Sources */,
 				415C55541CC8CCEE00408B90 /* main.m in Sources */,
 				417F34BF1CC9D12900F9714F /* LQSIntroduceViewController.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
+				417F34EA1CCA29AD00F9714F /* UIWindow+Extension.m in Sources */,
+				417F34E81CCA29AD00F9714F /* UIBarButtonItem+Extension.m in Sources */,
 				417F34D81CCA1D1F00F9714F /* LQSControllerTool.m in Sources */,
+				417F34E71CCA29AD00F9714F /* Foundation+Log.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
