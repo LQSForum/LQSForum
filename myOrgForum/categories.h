@@ -9,5 +9,5 @@
 #ifndef categories_h
 #define categories_h
 
-
+#import "LQSAppDelegate.h"
 #endif /* categories_h */

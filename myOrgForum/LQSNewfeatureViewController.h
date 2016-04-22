@@ -1,13 +1,13 @@
 //
-//  LQSIntroduceViewController.h
+//  LQSNewfeatureViewController.h
 //  myOrgForum
 //
 //  Created by SkyAndSea on 16/4/22.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
 
-#import "rootViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface LQSIntroduceViewController : UIViewController
+@interface LQSNewfeatureViewController : UIViewController
 
 @end

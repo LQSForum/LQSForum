@@ -20,6 +20,7 @@
 + (LQSAppDelegate *)shareAppDelegate
 {
     return (LQSAppDelegate *)[UIApplication sharedApplication].delegate;
+    
 }
 
 - (void)showHUDMessage:(NSString *)message hideDelay:(NSTimeInterval *)delay

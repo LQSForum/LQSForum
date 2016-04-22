@@ -9,5 +9,7 @@
 #ifndef vcsHeader_h
 #define vcsHeader_h
 
-
+#import "LQSIntroduceViewController.h"
+#import "UIViewController.h"
+#import "LQSTabBarViewController.h"
 #endif /* vcsHeader_h */

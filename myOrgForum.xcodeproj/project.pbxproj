@@ -16,6 +16,9 @@
 		417F34BC1CC9D0FF00F9714F /* rootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34BB1CC9D0FF00F9714F /* rootViewController.m */; };
 		417F34BF1CC9D12900F9714F /* LQSIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34BE1CC9D12900F9714F /* LQSIntroduceViewController.m */; };
 		417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */; };
+		417F34D81CCA1D1F00F9714F /* LQSControllerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34D71CCA1D1F00F9714F /* LQSControllerTool.m */; };
+		417F34DB1CCA20EE00F9714F /* LQSTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34DA1CCA20EE00F9714F /* LQSTabBarViewController.m */; };
+		417F34DE1CCA21FA00F9714F /* LQSNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34DD1CCA21FA00F9714F /* LQSNewfeatureViewController.m */; };
 		5644FDCF1734C13EC05FF770 /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD01C23D36F227CE16599BB8 /* libPods-myOrgForum.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +70,12 @@
 		417F34CD1CCA032C00F9714F /* imagesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imagesHeader.h; sourceTree = "<group>"; };
 		417F34CE1CCA033B00F9714F /* paramsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = paramsHeader.h; sourceTree = "<group>"; };
 		417F34CF1CCA034900F9714F /* coreHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coreHeader.h; sourceTree = "<group>"; };
+		417F34D61CCA1D1F00F9714F /* LQSControllerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSControllerTool.h; sourceTree = "<group>"; };
+		417F34D71CCA1D1F00F9714F /* LQSControllerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSControllerTool.m; sourceTree = "<group>"; };
+		417F34D91CCA20EE00F9714F /* LQSTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSTabBarViewController.h; sourceTree = "<group>"; };
+		417F34DA1CCA20EE00F9714F /* LQSTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSTabBarViewController.m; sourceTree = "<group>"; };
+		417F34DC1CCA21FA00F9714F /* LQSNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSNewfeatureViewController.h; sourceTree = "<group>"; };
+		417F34DD1CCA21FA00F9714F /* LQSNewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSNewfeatureViewController.m; sourceTree = "<group>"; };
 		5AB9EA846926FEE35D61911D /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
 		DD01C23D36F227CE16599BB8 /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE2A64F0D63267E05D707FD5 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +181,10 @@
 			children = (
 				417F34BA1CC9D0FF00F9714F /* rootViewController.h */,
 				417F34BB1CC9D0FF00F9714F /* rootViewController.m */,
+				417F34D61CCA1D1F00F9714F /* LQSControllerTool.h */,
+				417F34D71CCA1D1F00F9714F /* LQSControllerTool.m */,
+				417F34DC1CCA21FA00F9714F /* LQSNewfeatureViewController.h */,
+				417F34DD1CCA21FA00F9714F /* LQSNewfeatureViewController.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -202,6 +215,8 @@
 		417F34B91CC9CF6400F9714F /* setting */ = {
 			isa = PBXGroup;
 			children = (
+				417F34D91CCA20EE00F9714F /* LQSTabBarViewController.h */,
+				417F34DA1CCA20EE00F9714F /* LQSTabBarViewController.m */,
 			);
 			name = setting;
 			sourceTree = "<group>";
@@ -425,10 +440,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				417F34DE1CCA21FA00F9714F /* LQSNewfeatureViewController.m in Sources */,
 				417F34BC1CC9D0FF00F9714F /* rootViewController.m in Sources */,
+				417F34DB1CCA20EE00F9714F /* LQSTabBarViewController.m in Sources */,
 				415C55541CC8CCEE00408B90 /* main.m in Sources */,
 				417F34BF1CC9D12900F9714F /* LQSIntroduceViewController.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
+				417F34D81CCA1D1F00F9714F /* LQSControllerTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

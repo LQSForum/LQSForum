@@ -21,3 +21,4 @@
 #import "imagesHeader.h"
 #import "paramsHeader.h"
 #import "coreHeader.h"
+#import "UIManager.h"
