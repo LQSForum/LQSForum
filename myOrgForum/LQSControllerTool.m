@@ -25,7 +25,7 @@
     
     UIWindow *window = (UIWindow *)[UIApplication sharedApplication].keyWindow;
     if ([currentVersion isEqualToString:lastVersion]) {
-        // 当前版本号 == 上次使用的版本：显示HMTabBarViewController
+        // 当前版本号 == 上次使用的版本：显示LQSTabBarViewController
         [UIApplication sharedApplication].statusBarHidden = NO;
         window.rootViewController = [[LQSTabBarViewController alloc] init];
     } else { // 当前版本号 != 上次使用的版本：显示版本新特性

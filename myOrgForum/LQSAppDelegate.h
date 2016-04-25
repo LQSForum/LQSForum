@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
 @interface LQSAppDelegate : UIResponder
 @property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) MBProgressHUD *viewHUD;
 
 + (LQSAppDelegate *)shareAppDelegate;
 
-//显示HUD内容
-- (void)showHUDMessage:(NSString *)message hideDelay:(NSTimeInterval *)delay;
-//去掉HUD内容
-- (void)removeHUDDelay:(NSTimeInterval *)delay;
 @end

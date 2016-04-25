@@ -7,12 +7,8 @@
 //
 
 #import "LQSAppDelegate.h"
-
 @interface LQSAppDelegate()
-{
-//    MBProgressHUD *_hud;
 
-}
 
 @end
 
@@ -21,23 +17,6 @@
 {
     return (LQSAppDelegate *)[UIApplication sharedApplication].delegate;
     
-}
-
-- (void)showHUDMessage:(NSString *)message hideDelay:(NSTimeInterval *)delay
-{
-    [self removeHUDDelay:0];
-    
-
-
-}
-
-- (void)removeHUDDelay:(NSTimeInterval *)delay
-{
-
-
-
-
-
 }
 
 
