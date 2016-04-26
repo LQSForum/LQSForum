@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@class LQSTabBar;
+@protocol LQSTabBarDelegate<UITabBarDelegate>
+@optional
+- (void)tabBarDidClickPlusButton:(LQSTabBar *)tabBar;
+
+@end
+
+
+
 
 @interface LQSTabBar : UITabBar
+@property (nonatomic, weak) id<LQSTabBarDelegate>delegate;
 
 @end
