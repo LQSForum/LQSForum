@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
 
-@interface LQSAppDelegate : UIResponder
+@interface LQSAppDelegate : UIResponder<UIApplicationDelegate>
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) MBProgressHUD *viewHUD;
 

@@ -7,7 +7,11 @@
 //
 
 #import "LQSTabBarViewController.h"
-
+#import "LQSForumViewController.h"
+#import "LQSIntroduceViewController.h"
+#import "LQSSettingViewController.h"
+#import "LQSDiscoverViewController.h"
+#import "LQSNavigationController.h"
 @interface LQSTabBarViewController ()
 
 @end
@@ -16,12 +20,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor purpleColor];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //初始化子控制器
+    LQSIntroduceViewController *introduceVc = [[LQSIntroduceViewController alloc] init];
+    [self addChileVc:introduceVc title:@"推荐" image:@"tab_introduce_common" selectedImage:@"tab_introduce_hilighted"];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    LQSForumViewController *forumVc = [[LQSForumViewController alloc] init];
+    [self addChileVc:forumVc title:@"论坛" image:@"tab_forum_common" selectedImage:@"tab_forum_hilighted"];
+    
+    LQSDiscoverViewController *discoverVc = [[LQSDiscoverViewController alloc] init];
+    [self addChileVc:discoverVc title:@"发现" image:@"tab_discover_common" selectedImage:@"tab_discover_hilighted"];
+    
+    LQSSettingViewController *settingVc = [[LQSSettingViewController alloc] init];
+    [self addChileVc:settingVc title:@"设置" image:@"tab_setting_hilighted" selectedImage:@"tab_setting_common"];
+//    
+}
+
+- (void)addChileVc:(UIViewController *)chileVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage{
+//设置子控制器的文字
+    chileVc.title = title;
+//    设置子控制器的图片
+    chileVc.tabBarItem.image = [UIImage imageNamed:image];
+    chileVc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
+    
+//    设置文字样式
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    textAttrs[NSForegroundColorAttributeName] = LQSColor(123, 123, 123);
+    NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
+    selectTextAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    [chileVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
+    [chileVc.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
+    
+    LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:chileVc];
+    [self addChildViewController:navVc];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,70 +62,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

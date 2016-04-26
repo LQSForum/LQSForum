@@ -12,4 +12,22 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+#ifdef DEBUG//调试状态，打开LOG功能
+#define LQSLog(...) NSLog(__VA_ARGS__)
+#else//发布状态，关闭LOG功能
+#define LQSLog(...)
+#endif
+
+
+
+
+
+
+
+//颜色
+#define LQSColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+//全局背景色
+#define LQSGlobalBg LQSColor(211,211,211)
 #endif /* LQSPrefixHeader_pch */
+
+

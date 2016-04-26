@@ -7,6 +7,7 @@
 //
 
 #import "LQSAppDelegate.h"
+#import "UIWindow+Extension.h"
 @interface LQSAppDelegate()
 
 
@@ -17,6 +18,15 @@
 {
     return (LQSAppDelegate *)[UIApplication sharedApplication].delegate;
     
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+   [self.window chooseRootViewController];
+
+    [self.window makeKeyAndVisible];
+    return YES;
 }
 
 
