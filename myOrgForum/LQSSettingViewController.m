@@ -7,8 +7,9 @@
 //
 
 #import "LQSSettingViewController.h"
-
-@interface LQSSettingViewController ()
+#import "LQSUITableView.h"
+@interface LQSSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong)LQSUITableView *tableView;
 
 @end
 
@@ -16,6 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView = [[LQSUITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64) style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    [self.view addSubview:self.tableView];
+    [self.tableView setRefresh];
+    
     self.view.backgroundColor = [UIColor blueColor];
     // Do any additional setup after loading the view.
 }

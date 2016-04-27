@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		410D46571CD0B7DD00C86FF8 /* LQSUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410D46561CD0B7DD00C86FF8 /* LQSUITableView.m */; };
+		410D465A1CD0C2E700C86FF8 /* LQSRootTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410D46591CD0C2E700C86FF8 /* LQSRootTableViewCell.m */; };
 		410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */; };
 		410FBB771CCE0FEE00761192 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FBB761CCE0FEE00761192 /* UIWindow+Extension.m */; };
 		410FBB7A1CCE20E700761192 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FBB791CCE20E700761192 /* UIView+Extension.m */; };
@@ -48,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		410D46551CD0B7DD00C86FF8 /* LQSUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSUITableView.h; sourceTree = "<group>"; };
+		410D46561CD0B7DD00C86FF8 /* LQSUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSUITableView.m; sourceTree = "<group>"; };
+		410D46581CD0C2E700C86FF8 /* LQSRootTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRootTableViewCell.h; sourceTree = "<group>"; };
+		410D46591CD0C2E700C86FF8 /* LQSRootTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRootTableViewCell.m; sourceTree = "<group>"; };
 		410FBB711CCDEDB400761192 /* LQSAppDelegate+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LQSAppDelegate+HUD.h"; sourceTree = "<group>"; };
 		410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LQSAppDelegate+HUD.m"; sourceTree = "<group>"; };
 		410FBB751CCE0FEE00761192 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
@@ -226,6 +232,10 @@
 				4166DF741CCF3CC900187CC4 /* LQSNavigationController.m */,
 				41EF29C21CCF71200067E87E /* LQSTabBar.h */,
 				41EF29C31CCF71200067E87E /* LQSTabBar.m */,
+				410D46551CD0B7DD00C86FF8 /* LQSUITableView.h */,
+				410D46561CD0B7DD00C86FF8 /* LQSUITableView.m */,
+				410D46581CD0C2E700C86FF8 /* LQSRootTableViewCell.h */,
+				410D46591CD0C2E700C86FF8 /* LQSRootTableViewCell.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -478,6 +488,7 @@
 				410FBB7A1CCE20E700761192 /* UIView+Extension.m in Sources */,
 				417F34DE1CCA21FA00F9714F /* LQSNewfeatureViewController.m in Sources */,
 				411F91521CCF614200342FA2 /* LQSDiscoverViewController.m in Sources */,
+				410D465A1CD0C2E700C86FF8 /* LQSRootTableViewCell.m in Sources */,
 				417F34BC1CC9D0FF00F9714F /* rootViewController.m in Sources */,
 				417F34DB1CCA20EE00F9714F /* LQSTabBarViewController.m in Sources */,
 				411F91551CCF617900342FA2 /* LQSSettingViewController.m in Sources */,
@@ -486,6 +497,7 @@
 				4166DF781CCF4F8600187CC4 /* UIBarButtonItem+Extension.m in Sources */,
 				411F914F1CCF60F000342FA2 /* LQSForumViewController.m in Sources */,
 				417F34BF1CC9D12900F9714F /* LQSIntroduceViewController.m in Sources */,
+				410D46571CD0B7DD00C86FF8 /* LQSUITableView.m in Sources */,
 				410FBB771CCE0FEE00761192 /* UIWindow+Extension.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,

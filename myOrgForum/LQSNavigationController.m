@@ -16,6 +16,12 @@
 
 + (void)initialize{
 
+    
+    
+    
+    
+    
+    
 //    设置整个项目所有item的主题样式
     UIBarButtonItem *item = [UIBarButtonItem appearance];
 //    设置普通状态
@@ -30,8 +36,6 @@
     [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
     
 }
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];

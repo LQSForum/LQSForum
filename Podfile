@@ -8,6 +8,7 @@ pod 'AFNetworking'
 pod 'MBProgressHUD'
 pod 'SDWebImage'
 pod 'FoundationExtension'
+pod 'MJRefresh'
 end
 
 target 'myOrgForumTests' do
