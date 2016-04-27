@@ -12,7 +12,8 @@
 #import "LQSSettingViewController.h"
 #import "LQSDiscoverViewController.h"
 #import "LQSNavigationController.h"
-@interface LQSTabBarViewController ()
+#import "LQSTabBar.h"
+@interface LQSTabBarViewController ()<LQSTabBarDelegate>
 
 @end
 
@@ -34,7 +35,9 @@
     
     LQSSettingViewController *settingVc = [[LQSSettingViewController alloc] init];
     [self addChileVc:settingVc title:@"设置" image:@"tab_setting_hilighted" selectedImage:@"tab_setting_common"];
-//    
+//更换系统自带的tabbar
+    LQSTabBar *tabBar = [[LQSTabBar alloc] init];
+    [self setValue:tabBar forKeyPath:@"tabBar"];
 }
 
 - (void)addChileVc:(UIViewController *)chileVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage{
@@ -54,6 +57,18 @@
     
     LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:chileVc];
     [self addChildViewController:navVc];
+
+}
+
+#pragma mark -m LQSTabBarDelegate
+
+- (void)tabBarDidClickPlusButton:(LQSTabBar *)tabBar
+{
+
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = [UIColor redColor];
+    [self presentViewController:vc animated:YES completion:nil];
+
 
 }
 

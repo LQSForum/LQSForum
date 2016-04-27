@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LQSTabBarViewController : UITableViewController
+@interface LQSTabBarViewController : UITabBarController
 
 @end

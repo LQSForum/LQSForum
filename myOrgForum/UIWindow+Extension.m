@@ -23,9 +23,7 @@
     
     if ([lastVersion isEqualToString:currentVersion]) {
         self.rootViewController = [[LQSTabBarViewController alloc] init];
-        
     }else{
-    
         self.rootViewController = [[LQSNewfeatureViewController alloc] init];
         //将当前的版本号存到沙盒里面
         [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];

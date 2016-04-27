@@ -14,10 +14,7 @@
 
 @end
 
-
-
-
 @interface LQSTabBar : UITabBar
-@property (nonatomic, weak) id<LQSTabBarDelegate>delegate;
+@property (nonatomic, weak) id<LQSTabBarDelegate> delegate;
 
 @end

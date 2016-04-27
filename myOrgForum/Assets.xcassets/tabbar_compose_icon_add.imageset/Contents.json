@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tab_add_common.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "tabbar_compose_icon_add@2x.png",
       "scale" : "2x"
     },
     {

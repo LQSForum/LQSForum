@@ -100,7 +100,7 @@
 
 - (void)start{
     [UIApplication sharedApplication].statusBarHidden = NO;
-    [UIApplication sharedApplication].keyWindow.rootViewController = [LQSTabBarViewController new];
+    [UIApplication sharedApplication].keyWindow.rootViewController = [[LQSTabBarViewController alloc] init];
 
 
 
