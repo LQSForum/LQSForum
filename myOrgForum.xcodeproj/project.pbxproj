@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		410D46571CD0B7DD00C86FF8 /* LQSUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410D46561CD0B7DD00C86FF8 /* LQSUITableView.m */; };
 		410D465A1CD0C2E700C86FF8 /* LQSRootTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410D46591CD0C2E700C86FF8 /* LQSRootTableViewCell.m */; };
+		410D465D1CD0C91600C86FF8 /* LQSSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410D465C1CD0C91600C86FF8 /* LQSSettingCell.m */; };
+		410D46601CD0CA4A00C86FF8 /* LQSSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410D465F1CD0CA4A00C86FF8 /* LQSSettingModel.m */; };
 		410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */; };
 		410FBB771CCE0FEE00761192 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FBB761CCE0FEE00761192 /* UIWindow+Extension.m */; };
 		410FBB7A1CCE20E700761192 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FBB791CCE20E700761192 /* UIView+Extension.m */; };
@@ -54,6 +56,10 @@
 		410D46561CD0B7DD00C86FF8 /* LQSUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSUITableView.m; sourceTree = "<group>"; };
 		410D46581CD0C2E700C86FF8 /* LQSRootTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRootTableViewCell.h; sourceTree = "<group>"; };
 		410D46591CD0C2E700C86FF8 /* LQSRootTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRootTableViewCell.m; sourceTree = "<group>"; };
+		410D465B1CD0C91600C86FF8 /* LQSSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSettingCell.h; sourceTree = "<group>"; };
+		410D465C1CD0C91600C86FF8 /* LQSSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSettingCell.m; sourceTree = "<group>"; };
+		410D465E1CD0CA4A00C86FF8 /* LQSSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSettingModel.h; sourceTree = "<group>"; };
+		410D465F1CD0CA4A00C86FF8 /* LQSSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSettingModel.m; sourceTree = "<group>"; };
 		410FBB711CCDEDB400761192 /* LQSAppDelegate+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LQSAppDelegate+HUD.h"; sourceTree = "<group>"; };
 		410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LQSAppDelegate+HUD.m"; sourceTree = "<group>"; };
 		410FBB751CCE0FEE00761192 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
@@ -272,6 +278,10 @@
 			children = (
 				411F91531CCF617900342FA2 /* LQSSettingViewController.h */,
 				411F91541CCF617900342FA2 /* LQSSettingViewController.m */,
+				410D465B1CD0C91600C86FF8 /* LQSSettingCell.h */,
+				410D465C1CD0C91600C86FF8 /* LQSSettingCell.m */,
+				410D465E1CD0CA4A00C86FF8 /* LQSSettingModel.h */,
+				410D465F1CD0CA4A00C86FF8 /* LQSSettingModel.m */,
 			);
 			name = setting;
 			sourceTree = "<group>";
@@ -499,8 +509,10 @@
 				417F34BF1CC9D12900F9714F /* LQSIntroduceViewController.m in Sources */,
 				410D46571CD0B7DD00C86FF8 /* LQSUITableView.m in Sources */,
 				410FBB771CCE0FEE00761192 /* UIWindow+Extension.m in Sources */,
+				410D465D1CD0C91600C86FF8 /* LQSSettingCell.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
+				410D46601CD0CA4A00C86FF8 /* LQSSettingModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
