@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface LQSSettingModel : NSObject
-
+@property (nonatomic , weak) NSString *iamge;
+@property (nonatomic , weak) NSString *title;
 @end

@@ -8,6 +8,8 @@
 
 #import "LQSSettingViewController.h"
 #import "LQSUITableView.h"
+#import "LQSSettingCell.h"
+#import "LQSSettingModel.h"
 @interface LQSSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)LQSUITableView *tableView;
 
@@ -22,8 +24,6 @@
     [self.view addSubview:self.tableView];
     [self.tableView setRefresh];
     
-    self.view.backgroundColor = [UIColor blueColor];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,14 +31,40 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark -m tableViewDelegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+
+    return 2;
+
+
 }
-*/
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 1;
+    }else{
+        return 2;
+    }
+
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+NSString *identifier = @"settingCellIdentifier";
+
+    LQSSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[LQSSettingCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+
+
+
+    return cell;
+
+}
 @end
