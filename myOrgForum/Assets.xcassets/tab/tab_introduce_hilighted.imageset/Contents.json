@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tab_setting_hilighted.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "tab_introduce_hilighted.png",
       "scale" : "2x"
     },
     {
