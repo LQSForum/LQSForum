@@ -7,23 +7,49 @@
 //
 
 #import "LQSSettingViewController.h"
-#import "LQSUITableView.h"
+
 @interface LQSSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)LQSUITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 
 @end
 
 @implementation LQSSettingViewController
 
+- (NSMutableArray *)dataSource
+{
+
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+        LQSSettingModel *model = [[LQSSettingModel alloc] init];
+        model.iamge = @"";//
+        model.title = @"CCC";//
+        LQSSettingModel *model2 = [[LQSSettingModel alloc] init];
+        model2.iamge = @"";
+        model2.title = @"消息";
+        LQSSettingModel *model3 = [[LQSSettingModel alloc] init];
+        model3.iamge = @"setting_setting";
+        model3.title = @"设置";
+        
+        [self.dataSource addObject:model];
+        [self.dataSource addObject:model2];
+        [self.dataSource addObject:model3];
+    }
+
+    return _dataSource;
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView = [[LQSUITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64) style:UITableViewStylePlain];
+    self.tableView = [[LQSUITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
+    self.tableView.tableHeaderView.frame = CGRectMake(0, 1, self.view.width, 1);
+    self.tableView.tableHeaderView.backgroundColor = [UIColor redColor];
     [self.tableView setRefresh];
     
-    self.view.backgroundColor = [UIColor blueColor];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,14 +57,55 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark -m tableViewDelegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+
+    return 2;
+
+
 }
-*/
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+        return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 1;
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 1;
+    }else{
+        return 2;
+    }
+
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+NSString *identifier = @"settingCellIdentifier";
+
+    LQSSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[LQSSettingCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    if (indexPath.section == 0) {
+        [cell pushSettingModel:self.dataSource[indexPath.row]];
+    }else if (indexPath.section == 1){
+        [cell pushSettingModel:self.dataSource[indexPath.row + 1]];
+    
+    }
+
+
+    return cell;
+
+}
 @end

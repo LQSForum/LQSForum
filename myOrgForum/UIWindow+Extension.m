@@ -7,8 +7,6 @@
 //
 
 #import "UIWindow+Extension.h"
-#import "LQSNewfeatureViewController.h"
-#import "LQSTabBarViewController.h"
 @implementation UIWindow (Extension)
 
 - (void)chooseRootViewController{

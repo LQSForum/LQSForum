@@ -9,7 +9,6 @@
 //
 
 #import "LQSUITableView.h"
-#import "MJRefresh.h"
 @implementation LQSUITableView
 
 - (instancetype)initWithFrame:(CGRect)frame

@@ -7,12 +7,6 @@
 //
 
 #import "LQSTabBarViewController.h"
-#import "LQSForumViewController.h"
-#import "LQSIntroduceViewController.h"
-#import "LQSSettingViewController.h"
-#import "LQSDiscoverViewController.h"
-#import "LQSNavigationController.h"
-#import "LQSTabBar.h"
 @interface LQSTabBarViewController ()<LQSTabBarDelegate>
 
 @end
@@ -21,7 +15,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor purpleColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     //初始化子控制器
     LQSIntroduceViewController *introduceVc = [[LQSIntroduceViewController alloc] init];

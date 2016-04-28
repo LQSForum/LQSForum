@@ -18,16 +18,12 @@
 #define LQSLog(...)
 #endif
 
-
-
-
-
-
-
 //颜色
 #define LQSColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 //全局背景色
 #define LQSGlobalBg LQSColor(211,211,211)
+
+#import "Header.h"
 #endif /* LQSPrefixHeader_pch */
 
 

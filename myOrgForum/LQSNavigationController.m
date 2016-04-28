@@ -7,7 +7,6 @@
 //
 
 #import "LQSNavigationController.h"
-#import "UIBarButtonItem+Extension.h"
 @interface LQSNavigationController ()
 
 @end

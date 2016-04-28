@@ -8,7 +8,6 @@
 //
 
 #import "LQSTabBar.h"
-#import "UIView+Extension.h"
 
 @interface LQSTabBar()
 @property (nonatomic, weak) UIButton *plusBtn;

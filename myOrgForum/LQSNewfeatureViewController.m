@@ -8,9 +8,6 @@
 #define LQSNewFeatureImageCount 4
 
 #import "LQSNewfeatureViewController.h"
-#import "LQSTabBarViewController.h"
-#import "UIView+Extension.h"
-#import "LQSAppDelegate.h"
 #define HWNewfeatureCount 4
 
 @interface LQSNewfeatureViewController () <UIScrollViewDelegate>
