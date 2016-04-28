@@ -15,7 +15,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setRefresh];
+//        [self setRefresh];
+        [self setup];
     }
     return self;
 
@@ -25,8 +26,9 @@
 {
     self = [super initWithFrame:frame style:style];
     if (self) {
-        [self setRefresh];
-    } 
+        [self setup];
+//        [self setRefresh];
+    }
     return self;
 
 
@@ -35,8 +37,7 @@
 
 - (void)setup
 {
-    self.backgroundColor = LQSColor(234, 37, 37);
-    self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleWidth;
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.contentInset = UIEdgeInsetsZero;
     }
 

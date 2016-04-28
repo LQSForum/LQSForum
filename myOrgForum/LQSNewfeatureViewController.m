@@ -20,7 +20,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
     //添加UIScrollview
     [self setupScrollView];
 //    添加pageControl

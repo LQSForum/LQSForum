@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface LQSForumViewController : UIViewController
+#import "rootViewController.h"
+@interface LQSForumViewController : rootViewController
 
 @end

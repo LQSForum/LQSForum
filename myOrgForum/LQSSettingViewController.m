@@ -46,9 +46,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
-    self.tableView.tableHeaderView.frame = CGRectMake(0, 1, self.view.width, 1);
-    self.tableView.tableHeaderView.backgroundColor = [UIColor redColor];
-    
+//    [self.tableView setRefresh];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -122,4 +120,6 @@ NSString *identifier = @"settingCellIdentifier";
     }
     [self.navigationController pushViewController:vc animated:NO];
 }
+
+
 @end

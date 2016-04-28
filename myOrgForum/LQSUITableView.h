@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LQSUITableView : UITableView
-- (void)setup;
 - (void)setRefresh;
 @end

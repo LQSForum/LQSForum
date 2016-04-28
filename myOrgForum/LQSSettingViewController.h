@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface LQSSettingViewController : UIViewController
+#import "rootViewController.h"
+@interface LQSSettingViewController : rootViewController
 
 @end

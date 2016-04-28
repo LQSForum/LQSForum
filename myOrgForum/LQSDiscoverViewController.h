@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface LQSDiscoverViewController : UIViewController
+#import "rootViewController.h"
+@interface LQSDiscoverViewController : rootViewController
 
 @end

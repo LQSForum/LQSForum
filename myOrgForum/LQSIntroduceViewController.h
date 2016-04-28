@@ -7,7 +7,7 @@
 //
 
 #import "rootViewController.h"
-
-@interface LQSIntroduceViewController : UIViewController
+#import "rootViewController.h"
+@interface LQSIntroduceViewController : rootViewController
 
 @end
