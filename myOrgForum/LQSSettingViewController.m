@@ -48,7 +48,6 @@
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView.frame = CGRectMake(0, 1, self.view.width, 1);
     self.tableView.tableHeaderView.backgroundColor = [UIColor redColor];
-    [self.tableView setRefresh];
     
 }
 
@@ -104,8 +103,23 @@ NSString *identifier = @"settingCellIdentifier";
     
     }
 
-
+    cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 
+}
+
+#pragma mark -m TableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIViewController *vc = [[UIViewController alloc] init];
+    if (indexPath.section == 0) {
+      vc =  [[LQSMyHomePageViewController alloc] init];
+    }else if (indexPath.section == 1 && indexPath.row == 0){
+        vc = [[LQSMessageViewController alloc] init];
+    }else{
+        vc = [[LQSDetailSettingViewController alloc] init];
+    }
+    [self.navigationController pushViewController:vc animated:NO];
 }
 @end

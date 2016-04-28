@@ -24,23 +24,30 @@
 }
 
 - (void)awakeFromNib {
-    [super awakeFromNib];
     [self setup];
     [self loadSubViews];
     // Initialization code
 }
 
+- (void)dealloc
+{
+    [LQSNotificationCenter removeObserver:self];
+
+}
+
 - (void)setup{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.separatorInset = UIEdgeInsetsZero;
-    
+    if (kios8System) {
+        self.layoutMargins = UIEdgeInsetsZero;
+    }
+
 
 }
 
 - (void)loadSubViews
 {
 
-    [self layoutIfNeeded];
 
 }
 

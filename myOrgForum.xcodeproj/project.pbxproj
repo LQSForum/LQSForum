@@ -17,6 +17,9 @@
 		411F914F1CCF60F000342FA2 /* LQSForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411F914E1CCF60F000342FA2 /* LQSForumViewController.m */; };
 		411F91521CCF614200342FA2 /* LQSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411F91511CCF614200342FA2 /* LQSDiscoverViewController.m */; };
 		411F91551CCF617900342FA2 /* LQSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411F91541CCF617900342FA2 /* LQSSettingViewController.m */; };
+		412FF2691CD1D91C005F39AB /* LQSMyHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 412FF2681CD1D91C005F39AB /* LQSMyHomePageViewController.m */; };
+		412FF26C1CD1D945005F39AB /* LQSMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 412FF26B1CD1D945005F39AB /* LQSMessageViewController.m */; };
+		412FF26F1CD1DC33005F39AB /* LQSDetailSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 412FF26E1CD1DC33005F39AB /* LQSDetailSettingViewController.m */; };
 		415C55541CC8CCEE00408B90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55531CC8CCEE00408B90 /* main.m */; };
 		415C555D1CC8CCEE00408B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415C555B1CC8CCEE00408B90 /* Main.storyboard */; };
 		415C555F1CC8CCEE00408B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415C555E1CC8CCEE00408B90 /* Assets.xcassets */; };
@@ -80,6 +83,13 @@
 		412FF2621CD1A1B6005F39AB /* utilityHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utilityHeader.h; sourceTree = "<group>"; };
 		412FF2631CD1A456005F39AB /* thirdHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thirdHeader.h; sourceTree = "<group>"; };
 		412FF2641CD1AE46005F39AB /* configHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = configHeader.h; sourceTree = "<group>"; };
+		412FF2651CD1D5FB005F39AB /* notificationHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notificationHeader.h; sourceTree = "<group>"; };
+		412FF2671CD1D91C005F39AB /* LQSMyHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMyHomePageViewController.h; sourceTree = "<group>"; };
+		412FF2681CD1D91C005F39AB /* LQSMyHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMyHomePageViewController.m; sourceTree = "<group>"; };
+		412FF26A1CD1D945005F39AB /* LQSMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessageViewController.h; sourceTree = "<group>"; };
+		412FF26B1CD1D945005F39AB /* LQSMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageViewController.m; sourceTree = "<group>"; };
+		412FF26D1CD1DC33005F39AB /* LQSDetailSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDetailSettingViewController.h; sourceTree = "<group>"; };
+		412FF26E1CD1DC33005F39AB /* LQSDetailSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSDetailSettingViewController.m; sourceTree = "<group>"; };
 		415C554F1CC8CCEE00408B90 /* myOrgForum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myOrgForum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		415C55531CC8CCEE00408B90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		415C555C1CC8CCEE00408B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,8 +186,22 @@
 				412FF2621CD1A1B6005F39AB /* utilityHeader.h */,
 				412FF2631CD1A456005F39AB /* thirdHeader.h */,
 				412FF2641CD1AE46005F39AB /* configHeader.h */,
+				412FF2651CD1D5FB005F39AB /* notificationHeader.h */,
 			);
 			name = config;
+			sourceTree = "<group>";
+		};
+		412FF2661CD1D8EC005F39AB /* set */ = {
+			isa = PBXGroup;
+			children = (
+				412FF2671CD1D91C005F39AB /* LQSMyHomePageViewController.h */,
+				412FF2681CD1D91C005F39AB /* LQSMyHomePageViewController.m */,
+				412FF26A1CD1D945005F39AB /* LQSMessageViewController.h */,
+				412FF26B1CD1D945005F39AB /* LQSMessageViewController.m */,
+				412FF26D1CD1DC33005F39AB /* LQSDetailSettingViewController.h */,
+				412FF26E1CD1DC33005F39AB /* LQSDetailSettingViewController.m */,
+			);
+			name = set;
 			sourceTree = "<group>";
 		};
 		415C55461CC8CCEE00408B90 = {
@@ -299,6 +323,7 @@
 		417F34B91CC9CF6400F9714F /* setting */ = {
 			isa = PBXGroup;
 			children = (
+				412FF2661CD1D8EC005F39AB /* set */,
 				411F91531CCF617900342FA2 /* LQSSettingViewController.h */,
 				411F91541CCF617900342FA2 /* LQSSettingViewController.m */,
 				410D465B1CD0C91600C86FF8 /* LQSSettingCell.h */,
@@ -518,15 +543,18 @@
 				417F34BC1CC9D0FF00F9714F /* rootViewController.m in Sources */,
 				417F34DB1CCA20EE00F9714F /* LQSTabBarViewController.m in Sources */,
 				411F91551CCF617900342FA2 /* LQSSettingViewController.m in Sources */,
+				412FF26F1CD1DC33005F39AB /* LQSDetailSettingViewController.m in Sources */,
 				41EF29C41CCF71200067E87E /* LQSTabBar.m in Sources */,
 				415C55541CC8CCEE00408B90 /* main.m in Sources */,
 				4166DF781CCF4F8600187CC4 /* UIBarButtonItem+Extension.m in Sources */,
+				412FF2691CD1D91C005F39AB /* LQSMyHomePageViewController.m in Sources */,
 				411F914F1CCF60F000342FA2 /* LQSForumViewController.m in Sources */,
 				417F34BF1CC9D12900F9714F /* LQSIntroduceViewController.m in Sources */,
 				410D46571CD0B7DD00C86FF8 /* LQSUITableView.m in Sources */,
 				410FBB771CCE0FEE00761192 /* UIWindow+Extension.m in Sources */,
 				410D465D1CD0C91600C86FF8 /* LQSSettingCell.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
+				412FF26C1CD1D945005F39AB /* LQSMessageViewController.m in Sources */,
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
 				410D46601CD0CA4A00C86FF8 /* LQSSettingModel.m in Sources */,
 			);

@@ -13,4 +13,7 @@
 #import "LQSDiscoverViewController.h"
 #import "LQSForumViewController.h"
 #import "LQSIntroduceViewController.h"
+#import "LQSMyHomePageViewController.h"
+#import "LQSMessageViewController.h"
+#import "LQSDetailSettingViewController.h"
 #endif /* vcHeader_h */
