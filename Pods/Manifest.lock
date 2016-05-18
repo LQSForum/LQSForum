@@ -31,6 +31,9 @@ PODS:
     - FoundationExtension/FoundationExtension
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.0)
+  - Realm (0.102.1):
+    - Realm/Headers (= 0.102.1)
+  - Realm/Headers (0.102.1)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
@@ -40,6 +43,7 @@ DEPENDENCIES:
   - FoundationExtension
   - MBProgressHUD
   - MJRefresh
+  - Realm
   - SDWebImage
 
 SPEC CHECKSUMS:
@@ -48,6 +52,7 @@ SPEC CHECKSUMS:
   FoundationExtension: 09439c8a1d1cd7b33b54bda3581ebfff9cc1bafa
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  Realm: 5254be610db3e5024879684717bf038990bb59ec
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
 
 COCOAPODS: 0.39.0

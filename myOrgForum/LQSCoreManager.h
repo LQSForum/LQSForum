@@ -10,4 +10,15 @@
 
 @interface LQSCoreManager : NSObject
 
+
+
+
+
+
+
+
+
+
+
+
 @end

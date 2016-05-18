@@ -9,6 +9,7 @@ pod 'MBProgressHUD'
 pod 'SDWebImage'
 pod 'FoundationExtension'
 pod 'MJRefresh'
+pod 'Realm'
 end
 
 target 'myOrgForumTests' do
