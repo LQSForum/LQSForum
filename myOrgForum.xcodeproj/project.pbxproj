@@ -20,6 +20,14 @@
 		412FF2691CD1D91C005F39AB /* LQSMyHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 412FF2681CD1D91C005F39AB /* LQSMyHomePageViewController.m */; };
 		412FF26C1CD1D945005F39AB /* LQSMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 412FF26B1CD1D945005F39AB /* LQSMessageViewController.m */; };
 		412FF26F1CD1DC33005F39AB /* LQSDetailSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 412FF26E1CD1DC33005F39AB /* LQSDetailSettingViewController.m */; };
+		4144070F1CEEA7EA00CD2F84 /* LQSHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4144070E1CEEA7EA00CD2F84 /* LQSHotViewController.m */; };
+		414407121CEEA7FC00CD2F84 /* LQSLatestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 414407111CEEA7FC00CD2F84 /* LQSLatestViewController.m */; };
+		414407151CEEA80A00CD2F84 /* LQSJingHuaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 414407141CEEA80A00CD2F84 /* LQSJingHuaViewController.m */; };
+		414407181CEEA81B00CD2F84 /* LQSTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 414407171CEEA81B00CD2F84 /* LQSTopViewController.m */; };
+		414407251CEEE19800CD2F84 /* UIBarButtonItem+LQSConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 414407241CEEE19800CD2F84 /* UIBarButtonItem+LQSConst.m */; };
+		414407281CEEE5B700CD2F84 /* LQSTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 414407271CEEE5B700CD2F84 /* LQSTitleButton.m */; };
+		4144072B1CEEF43C00CD2F84 /* LQSSpecifyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4144072A1CEEF43C00CD2F84 /* LQSSpecifyHeader.m */; };
+		4144072E1CEEF58B00CD2F84 /* LQSSpecifyFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4144072D1CEEF58B00CD2F84 /* LQSSpecifyFooter.m */; };
 		415C55541CC8CCEE00408B90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55531CC8CCEE00408B90 /* main.m */; };
 		415C555D1CC8CCEE00408B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415C555B1CC8CCEE00408B90 /* Main.storyboard */; };
 		415C555F1CC8CCEE00408B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415C555E1CC8CCEE00408B90 /* Assets.xcassets */; };
@@ -91,6 +99,22 @@
 		412FF26B1CD1D945005F39AB /* LQSMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageViewController.m; sourceTree = "<group>"; };
 		412FF26D1CD1DC33005F39AB /* LQSDetailSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDetailSettingViewController.h; sourceTree = "<group>"; };
 		412FF26E1CD1DC33005F39AB /* LQSDetailSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSDetailSettingViewController.m; sourceTree = "<group>"; };
+		4144070D1CEEA7EA00CD2F84 /* LQSHotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHotViewController.h; sourceTree = "<group>"; };
+		4144070E1CEEA7EA00CD2F84 /* LQSHotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHotViewController.m; sourceTree = "<group>"; };
+		414407101CEEA7FC00CD2F84 /* LQSLatestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSLatestViewController.h; sourceTree = "<group>"; };
+		414407111CEEA7FC00CD2F84 /* LQSLatestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSLatestViewController.m; sourceTree = "<group>"; };
+		414407131CEEA80A00CD2F84 /* LQSJingHuaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSJingHuaViewController.h; sourceTree = "<group>"; };
+		414407141CEEA80A00CD2F84 /* LQSJingHuaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSJingHuaViewController.m; sourceTree = "<group>"; };
+		414407161CEEA81B00CD2F84 /* LQSTopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSTopViewController.h; sourceTree = "<group>"; };
+		414407171CEEA81B00CD2F84 /* LQSTopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSTopViewController.m; sourceTree = "<group>"; };
+		414407231CEEE19800CD2F84 /* UIBarButtonItem+LQSConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+LQSConst.h"; sourceTree = "<group>"; };
+		414407241CEEE19800CD2F84 /* UIBarButtonItem+LQSConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+LQSConst.m"; sourceTree = "<group>"; };
+		414407261CEEE5B700CD2F84 /* LQSTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSTitleButton.h; sourceTree = "<group>"; };
+		414407271CEEE5B700CD2F84 /* LQSTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSTitleButton.m; sourceTree = "<group>"; };
+		414407291CEEF43C00CD2F84 /* LQSSpecifyHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSpecifyHeader.h; sourceTree = "<group>"; };
+		4144072A1CEEF43C00CD2F84 /* LQSSpecifyHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSpecifyHeader.m; sourceTree = "<group>"; };
+		4144072C1CEEF58B00CD2F84 /* LQSSpecifyFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSpecifyFooter.h; sourceTree = "<group>"; };
+		4144072D1CEEF58B00CD2F84 /* LQSSpecifyFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSpecifyFooter.m; sourceTree = "<group>"; };
 		415C554F1CC8CCEE00408B90 /* myOrgForum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myOrgForum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		415C55531CC8CCEE00408B90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		415C555C1CC8CCEE00408B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +200,8 @@
 				410FBB791CCE20E700761192 /* UIView+Extension.m */,
 				4166DF761CCF4F8600187CC4 /* UIBarButtonItem+Extension.h */,
 				4166DF771CCF4F8600187CC4 /* UIBarButtonItem+Extension.m */,
+				414407231CEEE19800CD2F84 /* UIBarButtonItem+LQSConst.h */,
+				414407241CEEE19800CD2F84 /* UIBarButtonItem+LQSConst.m */,
 			);
 			name = categories;
 			sourceTree = "<group>";
@@ -209,6 +235,21 @@
 				412FF26E1CD1DC33005F39AB /* LQSDetailSettingViewController.m */,
 			);
 			name = set;
+			sourceTree = "<group>";
+		};
+		4144070C1CEEA7B900CD2F84 /* topic */ = {
+			isa = PBXGroup;
+			children = (
+				4144070D1CEEA7EA00CD2F84 /* LQSHotViewController.h */,
+				4144070E1CEEA7EA00CD2F84 /* LQSHotViewController.m */,
+				414407101CEEA7FC00CD2F84 /* LQSLatestViewController.h */,
+				414407111CEEA7FC00CD2F84 /* LQSLatestViewController.m */,
+				414407131CEEA80A00CD2F84 /* LQSJingHuaViewController.h */,
+				414407141CEEA80A00CD2F84 /* LQSJingHuaViewController.m */,
+				414407161CEEA81B00CD2F84 /* LQSTopViewController.h */,
+				414407171CEEA81B00CD2F84 /* LQSTopViewController.m */,
+			);
+			name = topic;
 			sourceTree = "<group>";
 		};
 		415C55461CC8CCEE00408B90 = {
@@ -296,6 +337,12 @@
 				410D46561CD0B7DD00C86FF8 /* LQSUITableView.m */,
 				410D46581CD0C2E700C86FF8 /* LQSRootTableViewCell.h */,
 				410D46591CD0C2E700C86FF8 /* LQSRootTableViewCell.m */,
+				414407261CEEE5B700CD2F84 /* LQSTitleButton.h */,
+				414407271CEEE5B700CD2F84 /* LQSTitleButton.m */,
+				414407291CEEF43C00CD2F84 /* LQSSpecifyHeader.h */,
+				4144072A1CEEF43C00CD2F84 /* LQSSpecifyHeader.m */,
+				4144072C1CEEF58B00CD2F84 /* LQSSpecifyFooter.h */,
+				4144072D1CEEF58B00CD2F84 /* LQSSpecifyFooter.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -303,6 +350,7 @@
 		417F34B61CC9CF1A00F9714F /* introduce */ = {
 			isa = PBXGroup;
 			children = (
+				4144070C1CEEA7B900CD2F84 /* topic */,
 				417F34BD1CC9D12900F9714F /* LQSIntroduceViewController.h */,
 				417F34BE1CC9D12900F9714F /* LQSIntroduceViewController.m */,
 			);
@@ -553,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41852FC41CE31D4D003CD9D4 /* LQSCoreManager.m in Sources */,
+				4144070F1CEEA7EA00CD2F84 /* LQSHotViewController.m in Sources */,
 				4166DF751CCF3CC900187CC4 /* LQSNavigationController.m in Sources */,
 				410FBB7A1CCE20E700761192 /* UIView+Extension.m in Sources */,
 				417F34DE1CCA21FA00F9714F /* LQSNewfeatureViewController.m in Sources */,
@@ -564,16 +613,23 @@
 				412FF26F1CD1DC33005F39AB /* LQSDetailSettingViewController.m in Sources */,
 				41EF29C41CCF71200067E87E /* LQSTabBar.m in Sources */,
 				415C55541CC8CCEE00408B90 /* main.m in Sources */,
+				414407251CEEE19800CD2F84 /* UIBarButtonItem+LQSConst.m in Sources */,
+				414407121CEEA7FC00CD2F84 /* LQSLatestViewController.m in Sources */,
+				414407281CEEE5B700CD2F84 /* LQSTitleButton.m in Sources */,
 				4166DF781CCF4F8600187CC4 /* UIBarButtonItem+Extension.m in Sources */,
 				412FF2691CD1D91C005F39AB /* LQSMyHomePageViewController.m in Sources */,
 				411F914F1CCF60F000342FA2 /* LQSForumViewController.m in Sources */,
 				417F34BF1CC9D12900F9714F /* LQSIntroduceViewController.m in Sources */,
+				414407181CEEA81B00CD2F84 /* LQSTopViewController.m in Sources */,
 				410D46571CD0B7DD00C86FF8 /* LQSUITableView.m in Sources */,
 				410FBB771CCE0FEE00761192 /* UIWindow+Extension.m in Sources */,
+				4144072B1CEEF43C00CD2F84 /* LQSSpecifyHeader.m in Sources */,
 				410D465D1CD0C91600C86FF8 /* LQSSettingCell.m in Sources */,
+				414407151CEEA80A00CD2F84 /* LQSJingHuaViewController.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				412FF26C1CD1D945005F39AB /* LQSMessageViewController.m in Sources */,
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
+				4144072E1CEEF58B00CD2F84 /* LQSSpecifyFooter.m in Sources */,
 				410D46601CD0CA4A00C86FF8 /* LQSSettingModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

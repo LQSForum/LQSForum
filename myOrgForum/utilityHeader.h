@@ -16,5 +16,8 @@
 #import "LQSTabBar.h"
 #import "LQSUITableView.h"
 #import "LQSRootTableViewCell.h"
-
+#import "UIBarButtonItem+LQSConst.h"
+#import "LQSTitleButton.h"
+#import "LQSSpecifyFooter.h"
+#import "LQSSpecifyHeader.h"
 #endif /* utilityHeader_h */

@@ -16,4 +16,10 @@
 #import "LQSMyHomePageViewController.h"
 #import "LQSMessageViewController.h"
 #import "LQSDetailSettingViewController.h"
+
+//推荐
+#import "LQSTopViewController.h"
+#import "LQSHotViewController.h"
+#import "LQSLatestViewController.h"
+#import "LQSJingHuaViewController.h"
 #endif /* vcHeader_h */
