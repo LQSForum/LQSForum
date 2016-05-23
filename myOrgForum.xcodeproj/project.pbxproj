@@ -28,6 +28,9 @@
 		414407281CEEE5B700CD2F84 /* LQSTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 414407271CEEE5B700CD2F84 /* LQSTitleButton.m */; };
 		4144072B1CEEF43C00CD2F84 /* LQSSpecifyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4144072A1CEEF43C00CD2F84 /* LQSSpecifyHeader.m */; };
 		4144072E1CEEF58B00CD2F84 /* LQSSpecifyFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4144072D1CEEF58B00CD2F84 /* LQSSpecifyFooter.m */; };
+		414600F41CEF2C8600628B60 /* LQSMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 414600F31CEF2C8600628B60 /* LQSMessageTableViewCell.m */; };
+		414600F71CEF2CA000628B60 /* LQSHomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 414600F61CEF2CA000628B60 /* LQSHomePageTableViewCell.m */; };
+		414600FA1CEF2CB300628B60 /* LQSDetailSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 414600F91CEF2CB300628B60 /* LQSDetailSettingTableViewCell.m */; };
 		415C55541CC8CCEE00408B90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55531CC8CCEE00408B90 /* main.m */; };
 		415C555D1CC8CCEE00408B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415C555B1CC8CCEE00408B90 /* Main.storyboard */; };
 		415C555F1CC8CCEE00408B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415C555E1CC8CCEE00408B90 /* Assets.xcassets */; };
@@ -115,6 +118,12 @@
 		4144072A1CEEF43C00CD2F84 /* LQSSpecifyHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSpecifyHeader.m; sourceTree = "<group>"; };
 		4144072C1CEEF58B00CD2F84 /* LQSSpecifyFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSpecifyFooter.h; sourceTree = "<group>"; };
 		4144072D1CEEF58B00CD2F84 /* LQSSpecifyFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSpecifyFooter.m; sourceTree = "<group>"; };
+		414600F21CEF2C8600628B60 /* LQSMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessageTableViewCell.h; sourceTree = "<group>"; };
+		414600F31CEF2C8600628B60 /* LQSMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageTableViewCell.m; sourceTree = "<group>"; };
+		414600F51CEF2CA000628B60 /* LQSHomePageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePageTableViewCell.h; sourceTree = "<group>"; };
+		414600F61CEF2CA000628B60 /* LQSHomePageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePageTableViewCell.m; sourceTree = "<group>"; };
+		414600F81CEF2CB300628B60 /* LQSDetailSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDetailSettingTableViewCell.h; sourceTree = "<group>"; };
+		414600F91CEF2CB300628B60 /* LQSDetailSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSDetailSettingTableViewCell.m; sourceTree = "<group>"; };
 		415C554F1CC8CCEE00408B90 /* myOrgForum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myOrgForum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		415C55531CC8CCEE00408B90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		415C555C1CC8CCEE00408B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -227,12 +236,9 @@
 		412FF2661CD1D8EC005F39AB /* set */ = {
 			isa = PBXGroup;
 			children = (
-				412FF2671CD1D91C005F39AB /* LQSMyHomePageViewController.h */,
-				412FF2681CD1D91C005F39AB /* LQSMyHomePageViewController.m */,
-				412FF26A1CD1D945005F39AB /* LQSMessageViewController.h */,
-				412FF26B1CD1D945005F39AB /* LQSMessageViewController.m */,
-				412FF26D1CD1DC33005F39AB /* LQSDetailSettingViewController.h */,
-				412FF26E1CD1DC33005F39AB /* LQSDetailSettingViewController.m */,
+				414600F11CEF2C2500628B60 /* Model */,
+				414600F01CEF2C1C00628B60 /* View */,
+				414600EF1CEF2C0500628B60 /* ViewController */,
 			);
 			name = set;
 			sourceTree = "<group>";
@@ -250,6 +256,39 @@
 				414407171CEEA81B00CD2F84 /* LQSTopViewController.m */,
 			);
 			name = topic;
+			sourceTree = "<group>";
+		};
+		414600EF1CEF2C0500628B60 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				412FF2671CD1D91C005F39AB /* LQSMyHomePageViewController.h */,
+				412FF2681CD1D91C005F39AB /* LQSMyHomePageViewController.m */,
+				412FF26A1CD1D945005F39AB /* LQSMessageViewController.h */,
+				412FF26B1CD1D945005F39AB /* LQSMessageViewController.m */,
+				412FF26D1CD1DC33005F39AB /* LQSDetailSettingViewController.h */,
+				412FF26E1CD1DC33005F39AB /* LQSDetailSettingViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		414600F01CEF2C1C00628B60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				414600F21CEF2C8600628B60 /* LQSMessageTableViewCell.h */,
+				414600F31CEF2C8600628B60 /* LQSMessageTableViewCell.m */,
+				414600F51CEF2CA000628B60 /* LQSHomePageTableViewCell.h */,
+				414600F61CEF2CA000628B60 /* LQSHomePageTableViewCell.m */,
+				414600F81CEF2CB300628B60 /* LQSDetailSettingTableViewCell.h */,
+				414600F91CEF2CB300628B60 /* LQSDetailSettingTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		414600F11CEF2C2500628B60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		415C55461CC8CCEE00408B90 = {
@@ -612,6 +651,7 @@
 				411F91551CCF617900342FA2 /* LQSSettingViewController.m in Sources */,
 				412FF26F1CD1DC33005F39AB /* LQSDetailSettingViewController.m in Sources */,
 				41EF29C41CCF71200067E87E /* LQSTabBar.m in Sources */,
+				414600F41CEF2C8600628B60 /* LQSMessageTableViewCell.m in Sources */,
 				415C55541CC8CCEE00408B90 /* main.m in Sources */,
 				414407251CEEE19800CD2F84 /* UIBarButtonItem+LQSConst.m in Sources */,
 				414407121CEEA7FC00CD2F84 /* LQSLatestViewController.m in Sources */,
@@ -621,6 +661,7 @@
 				411F914F1CCF60F000342FA2 /* LQSForumViewController.m in Sources */,
 				417F34BF1CC9D12900F9714F /* LQSIntroduceViewController.m in Sources */,
 				414407181CEEA81B00CD2F84 /* LQSTopViewController.m in Sources */,
+				414600FA1CEF2CB300628B60 /* LQSDetailSettingTableViewCell.m in Sources */,
 				410D46571CD0B7DD00C86FF8 /* LQSUITableView.m in Sources */,
 				410FBB771CCE0FEE00761192 /* UIWindow+Extension.m in Sources */,
 				4144072B1CEEF43C00CD2F84 /* LQSSpecifyHeader.m in Sources */,
@@ -628,6 +669,7 @@
 				414407151CEEA80A00CD2F84 /* LQSJingHuaViewController.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				412FF26C1CD1D945005F39AB /* LQSMessageViewController.m in Sources */,
+				414600F71CEF2CA000628B60 /* LQSHomePageTableViewCell.m in Sources */,
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
 				4144072E1CEEF58B00CD2F84 /* LQSSpecifyFooter.m in Sources */,
 				410D46601CD0CA4A00C86FF8 /* LQSSettingModel.m in Sources */,

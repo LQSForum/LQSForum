@@ -164,6 +164,14 @@
 
 }
 
+#pragma  mark - scrollVIewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//根据scrollVIew的偏移量添加自控制器的VIew
+    [self addChildView];
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

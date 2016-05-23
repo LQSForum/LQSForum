@@ -9,6 +9,27 @@
 #ifndef viewHeader_h
 #define viewHeader_h
 #import "LQSSettingCell.h"
+//ingtroduce
+
+
+
+
+
+//forum
+
+
+
+
+//discover
+
+
+
+
+//setting
+
+#import "LQSMessageTableViewCell.h"
+#import "LQSHomePageTableViewCell.h"
+#import "LQSDetailSettingTableViewCell.h"
 
 
 #endif /* viewHeader_h */
