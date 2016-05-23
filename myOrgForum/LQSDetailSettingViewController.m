@@ -110,6 +110,13 @@
         cell = [[LQSSettingPersonalSettingViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     [cell pushesSettingPersonalSettingModel:[self.dataSource objectAtIndex:indexPath.row]];
+    if (indexPath.row == 1 || indexPath.row == 2 ||indexPath.row == 3||indexPath.row == 4) {
+
+    
+    
+    
+    
+    }
     return cell;
 
 
