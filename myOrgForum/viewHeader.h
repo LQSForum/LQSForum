@@ -30,6 +30,6 @@
 #import "LQSMessageTableViewCell.h"
 #import "LQSHomePageTableViewCell.h"
 #import "LQSDetailSettingTableViewCell.h"
-
+#import "LQSSettingPersonalSettingViewCell.h"
 
 #endif /* viewHeader_h */

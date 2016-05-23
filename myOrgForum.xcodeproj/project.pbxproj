@@ -49,6 +49,8 @@
 		4180A80D1CF2D9FA007F1B5E /* LQSMessageCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4180A80C1CF2D9FA007F1B5E /* LQSMessageCommentViewController.m */; };
 		4180A8101CF2DA12007F1B5E /* LQSMessageFriendsApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4180A80F1CF2DA12007F1B5E /* LQSMessageFriendsApplyViewController.m */; };
 		41852FC41CE31D4D003CD9D4 /* LQSCoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 41852FC31CE31D4D003CD9D4 /* LQSCoreManager.m */; };
+		41A40CDD1CF2EE9A004ADE1E /* LQSSettingPersonalSettingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A40CDC1CF2EE9A004ADE1E /* LQSSettingPersonalSettingViewCell.m */; };
+		41A40CE01CF2EF2A004ADE1E /* LQSSettingPersonalSettingDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A40CDF1CF2EF2A004ADE1E /* LQSSettingPersonalSettingDataModel.m */; };
 		41EF29C41CCF71200067E87E /* LQSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 41EF29C31CCF71200067E87E /* LQSTabBar.m */; };
 		5644FDCF1734C13EC05FF770 /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD01C23D36F227CE16599BB8 /* libPods-myOrgForum.a */; };
 /* End PBXBuildFile section */
@@ -167,6 +169,10 @@
 		41852FC21CE31D4D003CD9D4 /* LQSCoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCoreManager.h; sourceTree = "<group>"; };
 		41852FC31CE31D4D003CD9D4 /* LQSCoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSCoreManager.m; sourceTree = "<group>"; };
 		41852FC51CE320C2003CD9D4 /* parametersHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = parametersHeader.h; sourceTree = "<group>"; };
+		41A40CDB1CF2EE9A004ADE1E /* LQSSettingPersonalSettingViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSettingPersonalSettingViewCell.h; sourceTree = "<group>"; };
+		41A40CDC1CF2EE9A004ADE1E /* LQSSettingPersonalSettingViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSettingPersonalSettingViewCell.m; sourceTree = "<group>"; };
+		41A40CDE1CF2EF2A004ADE1E /* LQSSettingPersonalSettingDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSettingPersonalSettingDataModel.h; sourceTree = "<group>"; };
+		41A40CDF1CF2EF2A004ADE1E /* LQSSettingPersonalSettingDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSettingPersonalSettingDataModel.m; sourceTree = "<group>"; };
 		41EF29C21CCF71200067E87E /* LQSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSTabBar.h; sourceTree = "<group>"; };
 		41EF29C31CCF71200067E87E /* LQSTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSTabBar.m; sourceTree = "<group>"; };
 		5AB9EA846926FEE35D61911D /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
@@ -273,13 +279,9 @@
 		414600EF1CEF2C0500628B60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				41A40CDA1CF2ED2A004ADE1E /* Person */,
+				41A40CD91CF2ED22004ADE1E /* Setting */,
 				4180A8071CF2D98B007F1B5E /* Message */,
-				412FF2671CD1D91C005F39AB /* LQSMyHomePageViewController.h */,
-				412FF2681CD1D91C005F39AB /* LQSMyHomePageViewController.m */,
-				412FF26A1CD1D945005F39AB /* LQSMessageViewController.h */,
-				412FF26B1CD1D945005F39AB /* LQSMessageViewController.m */,
-				412FF26D1CD1DC33005F39AB /* LQSDetailSettingViewController.h */,
-				412FF26E1CD1DC33005F39AB /* LQSDetailSettingViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -446,6 +448,8 @@
 		4180A8071CF2D98B007F1B5E /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				412FF26A1CD1D945005F39AB /* LQSMessageViewController.h */,
+				412FF26B1CD1D945005F39AB /* LQSMessageViewController.m */,
 				4180A8081CF2D9E6007F1B5E /* LQSMessageMentionedMeViewController.h */,
 				4180A8091CF2D9E6007F1B5E /* LQSMessageMentionedMeViewController.m */,
 				4180A80B1CF2D9FA007F1B5E /* LQSMessageCommentViewController.h */,
@@ -463,6 +467,28 @@
 				41852FC31CE31D4D003CD9D4 /* LQSCoreManager.m */,
 			);
 			name = core;
+			sourceTree = "<group>";
+		};
+		41A40CD91CF2ED22004ADE1E /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				412FF26D1CD1DC33005F39AB /* LQSDetailSettingViewController.h */,
+				412FF26E1CD1DC33005F39AB /* LQSDetailSettingViewController.m */,
+				41A40CDB1CF2EE9A004ADE1E /* LQSSettingPersonalSettingViewCell.h */,
+				41A40CDC1CF2EE9A004ADE1E /* LQSSettingPersonalSettingViewCell.m */,
+				41A40CDE1CF2EF2A004ADE1E /* LQSSettingPersonalSettingDataModel.h */,
+				41A40CDF1CF2EF2A004ADE1E /* LQSSettingPersonalSettingDataModel.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		41A40CDA1CF2ED2A004ADE1E /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				412FF2671CD1D91C005F39AB /* LQSMyHomePageViewController.h */,
+				412FF2681CD1D91C005F39AB /* LQSMyHomePageViewController.m */,
+			);
+			name = Person;
 			sourceTree = "<group>";
 		};
 		D2FF60D40CEE75621BCC406D /* Frameworks */ = {
@@ -685,6 +711,7 @@
 				414407251CEEE19800CD2F84 /* UIBarButtonItem+LQSConst.m in Sources */,
 				414407121CEEA7FC00CD2F84 /* LQSLatestViewController.m in Sources */,
 				414407281CEEE5B700CD2F84 /* LQSTitleButton.m in Sources */,
+				41A40CE01CF2EF2A004ADE1E /* LQSSettingPersonalSettingDataModel.m in Sources */,
 				4180A8061CF2A40D007F1B5E /* LQSMessageDataModel.m in Sources */,
 				4180A80D1CF2D9FA007F1B5E /* LQSMessageCommentViewController.m in Sources */,
 				4166DF781CCF4F8600187CC4 /* UIBarButtonItem+Extension.m in Sources */,
@@ -704,6 +731,7 @@
 				414600F71CEF2CA000628B60 /* LQSHomePageTableViewCell.m in Sources */,
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
 				4144072E1CEEF58B00CD2F84 /* LQSSpecifyFooter.m in Sources */,
+				41A40CDD1CF2EE9A004ADE1E /* LQSSettingPersonalSettingViewCell.m in Sources */,
 				410D46601CD0CA4A00C86FF8 /* LQSSettingModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
