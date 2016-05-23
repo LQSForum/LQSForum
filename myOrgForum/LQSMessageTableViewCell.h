@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LQSMessageDataModel.h"
+@interface LQSMessageTableViewCell : LQSRootTableViewCell
 
-@interface LQSMessageTableViewCell : UITableViewCell
-
+- (void)PushesmessageTableViewModel:(LQSMessageDataModel *)model;
 @end

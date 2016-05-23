@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LQSHomePageTableViewCell : UITableViewCell
+@interface LQSHomePageTableViewCell : LQSRootTableViewCell
 
 @end

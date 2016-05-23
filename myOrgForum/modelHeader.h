@@ -9,5 +9,5 @@
 #ifndef modelHeader_h
 #define modelHeader_h
 #import "LQSSettingModel.h"
-
+#import "LQSMessageDataModel.h"
 #endif /* modelHeader_h */

@@ -44,6 +44,10 @@
 		417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */; };
 		417F34DB1CCA20EE00F9714F /* LQSTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34DA1CCA20EE00F9714F /* LQSTabBarViewController.m */; };
 		417F34DE1CCA21FA00F9714F /* LQSNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34DD1CCA21FA00F9714F /* LQSNewfeatureViewController.m */; };
+		4180A8061CF2A40D007F1B5E /* LQSMessageDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4180A8051CF2A40D007F1B5E /* LQSMessageDataModel.m */; };
+		4180A80A1CF2D9E6007F1B5E /* LQSMessageMentionedMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4180A8091CF2D9E6007F1B5E /* LQSMessageMentionedMeViewController.m */; };
+		4180A80D1CF2D9FA007F1B5E /* LQSMessageCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4180A80C1CF2D9FA007F1B5E /* LQSMessageCommentViewController.m */; };
+		4180A8101CF2DA12007F1B5E /* LQSMessageFriendsApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4180A80F1CF2DA12007F1B5E /* LQSMessageFriendsApplyViewController.m */; };
 		41852FC41CE31D4D003CD9D4 /* LQSCoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 41852FC31CE31D4D003CD9D4 /* LQSCoreManager.m */; };
 		41EF29C41CCF71200067E87E /* LQSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 41EF29C31CCF71200067E87E /* LQSTabBar.m */; };
 		5644FDCF1734C13EC05FF770 /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD01C23D36F227CE16599BB8 /* libPods-myOrgForum.a */; };
@@ -152,6 +156,14 @@
 		417F34DA1CCA20EE00F9714F /* LQSTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSTabBarViewController.m; sourceTree = "<group>"; };
 		417F34DC1CCA21FA00F9714F /* LQSNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSNewfeatureViewController.h; sourceTree = "<group>"; };
 		417F34DD1CCA21FA00F9714F /* LQSNewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSNewfeatureViewController.m; sourceTree = "<group>"; };
+		4180A8041CF2A40D007F1B5E /* LQSMessageDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessageDataModel.h; sourceTree = "<group>"; };
+		4180A8051CF2A40D007F1B5E /* LQSMessageDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageDataModel.m; sourceTree = "<group>"; };
+		4180A8081CF2D9E6007F1B5E /* LQSMessageMentionedMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessageMentionedMeViewController.h; sourceTree = "<group>"; };
+		4180A8091CF2D9E6007F1B5E /* LQSMessageMentionedMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageMentionedMeViewController.m; sourceTree = "<group>"; };
+		4180A80B1CF2D9FA007F1B5E /* LQSMessageCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessageCommentViewController.h; sourceTree = "<group>"; };
+		4180A80C1CF2D9FA007F1B5E /* LQSMessageCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageCommentViewController.m; sourceTree = "<group>"; };
+		4180A80E1CF2DA12007F1B5E /* LQSMessageFriendsApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessageFriendsApplyViewController.h; sourceTree = "<group>"; };
+		4180A80F1CF2DA12007F1B5E /* LQSMessageFriendsApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageFriendsApplyViewController.m; sourceTree = "<group>"; };
 		41852FC21CE31D4D003CD9D4 /* LQSCoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCoreManager.h; sourceTree = "<group>"; };
 		41852FC31CE31D4D003CD9D4 /* LQSCoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSCoreManager.m; sourceTree = "<group>"; };
 		41852FC51CE320C2003CD9D4 /* parametersHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = parametersHeader.h; sourceTree = "<group>"; };
@@ -261,6 +273,7 @@
 		414600EF1CEF2C0500628B60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4180A8071CF2D98B007F1B5E /* Message */,
 				412FF2671CD1D91C005F39AB /* LQSMyHomePageViewController.h */,
 				412FF2681CD1D91C005F39AB /* LQSMyHomePageViewController.m */,
 				412FF26A1CD1D945005F39AB /* LQSMessageViewController.h */,
@@ -287,6 +300,8 @@
 		414600F11CEF2C2500628B60 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4180A8041CF2A40D007F1B5E /* LQSMessageDataModel.h */,
+				4180A8051CF2A40D007F1B5E /* LQSMessageDataModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -426,6 +441,19 @@
 				410D465F1CD0CA4A00C86FF8 /* LQSSettingModel.m */,
 			);
 			name = setting;
+			sourceTree = "<group>";
+		};
+		4180A8071CF2D98B007F1B5E /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				4180A8081CF2D9E6007F1B5E /* LQSMessageMentionedMeViewController.h */,
+				4180A8091CF2D9E6007F1B5E /* LQSMessageMentionedMeViewController.m */,
+				4180A80B1CF2D9FA007F1B5E /* LQSMessageCommentViewController.h */,
+				4180A80C1CF2D9FA007F1B5E /* LQSMessageCommentViewController.m */,
+				4180A80E1CF2DA12007F1B5E /* LQSMessageFriendsApplyViewController.h */,
+				4180A80F1CF2DA12007F1B5E /* LQSMessageFriendsApplyViewController.m */,
+			);
+			name = Message;
 			sourceTree = "<group>";
 		};
 		41852FC11CE31D21003CD9D4 /* core */ = {
@@ -640,6 +668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41852FC41CE31D4D003CD9D4 /* LQSCoreManager.m in Sources */,
+				4180A80A1CF2D9E6007F1B5E /* LQSMessageMentionedMeViewController.m in Sources */,
 				4144070F1CEEA7EA00CD2F84 /* LQSHotViewController.m in Sources */,
 				4166DF751CCF3CC900187CC4 /* LQSNavigationController.m in Sources */,
 				410FBB7A1CCE20E700761192 /* UIView+Extension.m in Sources */,
@@ -656,10 +685,13 @@
 				414407251CEEE19800CD2F84 /* UIBarButtonItem+LQSConst.m in Sources */,
 				414407121CEEA7FC00CD2F84 /* LQSLatestViewController.m in Sources */,
 				414407281CEEE5B700CD2F84 /* LQSTitleButton.m in Sources */,
+				4180A8061CF2A40D007F1B5E /* LQSMessageDataModel.m in Sources */,
+				4180A80D1CF2D9FA007F1B5E /* LQSMessageCommentViewController.m in Sources */,
 				4166DF781CCF4F8600187CC4 /* UIBarButtonItem+Extension.m in Sources */,
 				412FF2691CD1D91C005F39AB /* LQSMyHomePageViewController.m in Sources */,
 				411F914F1CCF60F000342FA2 /* LQSForumViewController.m in Sources */,
 				417F34BF1CC9D12900F9714F /* LQSIntroduceViewController.m in Sources */,
+				4180A8101CF2DA12007F1B5E /* LQSMessageFriendsApplyViewController.m in Sources */,
 				414407181CEEA81B00CD2F84 /* LQSTopViewController.m in Sources */,
 				414600FA1CEF2CB300628B60 /* LQSDetailSettingTableViewCell.m in Sources */,
 				410D46571CD0B7DD00C86FF8 /* LQSUITableView.m in Sources */,

@@ -22,4 +22,9 @@
 #import "LQSHotViewController.h"
 #import "LQSLatestViewController.h"
 #import "LQSJingHuaViewController.h"
+
+//消息
+#import "LQSMessageMentionedMeViewController.h"
+#import "LQSMessageCommentViewController.h"
+#import "LQSMessageFriendsApplyViewController.h"
 #endif /* vcHeader_h */

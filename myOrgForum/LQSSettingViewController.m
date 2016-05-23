@@ -24,13 +24,14 @@
         LQSSettingModel *model = [[LQSSettingModel alloc] init];
         model.iamge = @"";//
         model.title = @"CCC";//
-        LQSSettingModel *model2 = [[LQSSettingModel alloc] init];
-        model2.iamge = @"";
-        model2.title = @"消息";
-        LQSSettingModel *model3 = [[LQSSettingModel alloc] init];
-        model3.iamge = @"setting_setting";
-        model3.title = @"设置";
         
+        LQSSettingModel *model2 = [[LQSSettingModel alloc] init];
+        model2.iamge = @"setting_setting";
+        model2.title = @"设置";
+        
+        LQSSettingModel *model3 = [[LQSSettingModel alloc] init];
+        model3.iamge = @"";
+        model3.title = @"消息";
         [self.dataSource addObject:model];
         [self.dataSource addObject:model2];
         [self.dataSource addObject:model3];
@@ -114,9 +115,9 @@ NSString *identifier = @"settingCellIdentifier";
     if (indexPath.section == 0) {
       vc =  [[LQSMyHomePageViewController alloc] init];
     }else if (indexPath.section == 1 && indexPath.row == 0){
-        vc = [[LQSMessageViewController alloc] init];
-    }else{
         vc = [[LQSDetailSettingViewController alloc] init];
+    }else{
+        vc = [[LQSMessageViewController alloc] init];
     }
     [self.navigationController pushViewController:vc animated:NO];
 }

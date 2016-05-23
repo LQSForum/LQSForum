@@ -8,17 +8,52 @@
 
 #import "LQSMessageTableViewCell.h"
 
+@interface LQSMessageTableViewCell()
+{
+    UIImageView *_imageView;
+    UILabel *_label;
+    LQSMessageDataModel *_model;
+
+
+}
+
+
+@end
+
 @implementation LQSMessageTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (void)loadSubViews
+{
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:_imageView];
+    _label = [[UILabel alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:_label];
+
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)PushesmessageTableViewModel:(LQSMessageDataModel *)model
+{
 
-    // Configure the view for the selected state
+    _model = model;
+    _imageView.image = [UIImage imageNamed:@""];
+    _label.text = model.title;
+    [self layoutIfNeeded];
+
 }
+
+
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    _imageView.frame = CGRectMake(LQSMargin, 0, self.width, self.height);
+    _label.frame = CGRectMake(LQSMargin *2 + 50, 0, self.width - LQSMargin * 2 - 50, self.height);
+    _label.textAlignment = NSTextAlignmentLeft;
+
+
+}
+
+
+
 
 @end
