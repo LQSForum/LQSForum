@@ -122,5 +122,9 @@ NSString *identifier = @"settingCellIdentifier";
     [self.navigationController pushViewController:vc animated:NO];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
+}
 
 @end

@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString *imageName;
 @property (nonatomic, strong) NSString *title;
 
+@property (nonatomic, strong) NSString *subTitle;
 
 @end

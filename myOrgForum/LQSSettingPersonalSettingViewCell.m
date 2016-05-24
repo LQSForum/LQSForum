@@ -11,7 +11,9 @@
 @interface LQSSettingPersonalSettingViewCell()
 {
     UIImageView *_imageView;
-    UILabel *_label;
+    UILabel *_titleLabel;
+    UILabel *_subTitleLabel;
+
 
 }
 @property (nonatomic, strong) LQSSettingPersonalSettingDataModel *model;
@@ -23,12 +25,14 @@
 
 - (void)loadSubViews
 {
-    _imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-    [self.contentView addSubview:_imageView];
+//    _imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+//    [self.contentView addSubview:_imageView];
     
-    _label = [[UILabel alloc] initWithFrame:CGRectZero];
-    [self.contentView addSubview:_label];
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:_titleLabel];
 
+    _subTitleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:_subTitleLabel];
 
 
 }
@@ -40,8 +44,8 @@
     _model = model;
     
     _imageView.image = [UIImage imageNamed:model.imageName];
-    _label.text = model.title;
-
+    _titleLabel.text = model.title;
+    _subTitleLabel.text = model.subTitle;
 
 
     [self setNeedsLayout];
@@ -51,11 +55,17 @@
 {
     [super layoutSubviews];
 
-    _imageView.frame = CGRectMake(LQSMargin, 0, 50, self.height);
-    _imageView.contentMode = UIViewContentModeCenter;
+//    _imageView.frame = CGRectMake(LQSMargin, 0, 50, self.height);
+//    _imageView.contentMode = UIViewContentModeCenter;
     
-    _label.frame = CGRectMake(LQSMargin *2 + 50, 0, self.width - LQSMargin *2 - 50, self.height);
-    _label.textAlignment =  NSTextAlignmentLeft;
+    _titleLabel.frame = CGRectMake(LQSMargin, 0, self.width - LQSMargin *2 - 50, self.height);
+    _titleLabel.textAlignment =  NSTextAlignmentLeft;
 
+    
+    _subTitleLabel.frame = CGRectMake(LQSMargin, self.height - 20, self.width - LQSMargin *2 - 50, 20);
+    _subTitleLabel.textAlignment = NSTextAlignmentCenter;
+    _subTitleLabel.textColor = [UIColor lightGrayColor];
+    _subTitleLabel.font = [UIFont systemFontOfSize:12];
+    _subTitleLabel.textAlignment =  NSTextAlignmentLeft;
 }
 @end

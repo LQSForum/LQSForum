@@ -12,4 +12,6 @@
 #import "LQSSettingPersonalSettingDataModel.h"
 #import "LQSSettingModel.h"
 #import "LQSMessageDataModel.h"
+
+#import "LQSHomePagePersonalMessageDataModel.h"
 #endif /* modelHeader_h */

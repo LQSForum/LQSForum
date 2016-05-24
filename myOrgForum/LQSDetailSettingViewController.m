@@ -43,7 +43,7 @@
         LQSSettingPersonalSettingDataModel *model5 = [[LQSSettingPersonalSettingDataModel alloc] init];
         model5.imageName = @"";
         model5.title = @"位置信息";
-
+        model5.subTitle = @"关闭后，您则不会出现在周边用户和周边帖子";
         LQSSettingPersonalSettingDataModel *model6 = [[LQSSettingPersonalSettingDataModel alloc] init];
         model6.imageName = @"";
         model6.title = @"分享";
@@ -112,12 +112,11 @@
     [cell pushesSettingPersonalSettingModel:[self.dataSource objectAtIndex:indexPath.row]];
     if (indexPath.row == 1 || indexPath.row == 2 ||indexPath.row == 3||indexPath.row == 4) {
 
-    
-    
-    
-    
+    UISwitch *switchButton = [[UISwitch alloc] initWithFrame:CGRectMake(50, 100, 20, 10)];
+            [switchButton setOn:YES];
+        cell.accessoryView = switchButton;
     }
-    return cell;
+        return cell;
 
 
 }

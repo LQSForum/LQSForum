@@ -29,8 +29,9 @@
 		4144072B1CEEF43C00CD2F84 /* LQSSpecifyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4144072A1CEEF43C00CD2F84 /* LQSSpecifyHeader.m */; };
 		4144072E1CEEF58B00CD2F84 /* LQSSpecifyFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4144072D1CEEF58B00CD2F84 /* LQSSpecifyFooter.m */; };
 		414600F41CEF2C8600628B60 /* LQSMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 414600F31CEF2C8600628B60 /* LQSMessageTableViewCell.m */; };
-		414600F71CEF2CA000628B60 /* LQSHomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 414600F61CEF2CA000628B60 /* LQSHomePageTableViewCell.m */; };
+		414600F71CEF2CA000628B60 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 414600F61CEF2CA000628B60 /* LQSHomePagePersonalMessageTableViewCell.m */; };
 		414600FA1CEF2CB300628B60 /* LQSDetailSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 414600F91CEF2CB300628B60 /* LQSDetailSettingTableViewCell.m */; };
+		4155180A1CF43AB70016E087 /* LQSHomePagePersonalMessageDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 415518091CF43AB70016E087 /* LQSHomePagePersonalMessageDataModel.m */; };
 		415C55541CC8CCEE00408B90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55531CC8CCEE00408B90 /* main.m */; };
 		415C555D1CC8CCEE00408B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415C555B1CC8CCEE00408B90 /* Main.storyboard */; };
 		415C555F1CC8CCEE00408B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415C555E1CC8CCEE00408B90 /* Assets.xcassets */; };
@@ -126,10 +127,12 @@
 		4144072D1CEEF58B00CD2F84 /* LQSSpecifyFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSpecifyFooter.m; sourceTree = "<group>"; };
 		414600F21CEF2C8600628B60 /* LQSMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessageTableViewCell.h; sourceTree = "<group>"; };
 		414600F31CEF2C8600628B60 /* LQSMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageTableViewCell.m; sourceTree = "<group>"; };
-		414600F51CEF2CA000628B60 /* LQSHomePageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePageTableViewCell.h; sourceTree = "<group>"; };
-		414600F61CEF2CA000628B60 /* LQSHomePageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePageTableViewCell.m; sourceTree = "<group>"; };
+		414600F51CEF2CA000628B60 /* LQSHomePagePersonalMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalMessageTableViewCell.h; sourceTree = "<group>"; };
+		414600F61CEF2CA000628B60 /* LQSHomePagePersonalMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalMessageTableViewCell.m; sourceTree = "<group>"; };
 		414600F81CEF2CB300628B60 /* LQSDetailSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDetailSettingTableViewCell.h; sourceTree = "<group>"; };
 		414600F91CEF2CB300628B60 /* LQSDetailSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSDetailSettingTableViewCell.m; sourceTree = "<group>"; };
+		415518081CF43AB70016E087 /* LQSHomePagePersonalMessageDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalMessageDataModel.h; sourceTree = "<group>"; };
+		415518091CF43AB70016E087 /* LQSHomePagePersonalMessageDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalMessageDataModel.m; sourceTree = "<group>"; };
 		415C554F1CC8CCEE00408B90 /* myOrgForum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myOrgForum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		415C55531CC8CCEE00408B90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		415C555C1CC8CCEE00408B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -291,8 +294,8 @@
 			children = (
 				414600F21CEF2C8600628B60 /* LQSMessageTableViewCell.h */,
 				414600F31CEF2C8600628B60 /* LQSMessageTableViewCell.m */,
-				414600F51CEF2CA000628B60 /* LQSHomePageTableViewCell.h */,
-				414600F61CEF2CA000628B60 /* LQSHomePageTableViewCell.m */,
+				414600F51CEF2CA000628B60 /* LQSHomePagePersonalMessageTableViewCell.h */,
+				414600F61CEF2CA000628B60 /* LQSHomePagePersonalMessageTableViewCell.m */,
 				414600F81CEF2CB300628B60 /* LQSDetailSettingTableViewCell.h */,
 				414600F91CEF2CB300628B60 /* LQSDetailSettingTableViewCell.m */,
 			);
@@ -304,6 +307,8 @@
 			children = (
 				4180A8041CF2A40D007F1B5E /* LQSMessageDataModel.h */,
 				4180A8051CF2A40D007F1B5E /* LQSMessageDataModel.m */,
+				415518081CF43AB70016E087 /* LQSHomePagePersonalMessageDataModel.h */,
+				415518091CF43AB70016E087 /* LQSHomePagePersonalMessageDataModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -728,7 +733,8 @@
 				414407151CEEA80A00CD2F84 /* LQSJingHuaViewController.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				412FF26C1CD1D945005F39AB /* LQSMessageViewController.m in Sources */,
-				414600F71CEF2CA000628B60 /* LQSHomePageTableViewCell.m in Sources */,
+				414600F71CEF2CA000628B60 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,
+				4155180A1CF43AB70016E087 /* LQSHomePagePersonalMessageDataModel.m in Sources */,
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
 				4144072E1CEEF58B00CD2F84 /* LQSSpecifyFooter.m in Sources */,
 				41A40CDD1CF2EE9A004ADE1E /* LQSSettingPersonalSettingViewCell.m in Sources */,

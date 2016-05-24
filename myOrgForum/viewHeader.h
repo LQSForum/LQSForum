@@ -28,7 +28,7 @@
 //setting
 
 #import "LQSMessageTableViewCell.h"
-#import "LQSHomePageTableViewCell.h"
+#import "LQSHomePagePersonalMessageTableViewCell.h"
 #import "LQSDetailSettingTableViewCell.h"
 #import "LQSSettingPersonalSettingViewCell.h"
 

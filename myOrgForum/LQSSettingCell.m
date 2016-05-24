@@ -45,10 +45,10 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    _imageView.frame = CGRectMake(10, 7, 30, 30);
+    _imageView.frame = CGRectMake(LQSMargin, 0, 30, self.height);
     _imageView.contentMode = UIViewContentModeCenter;
     
-    _titleLabel.frame = CGRectMake(50, 0, self.width - 100, 44);
+    _titleLabel.frame = CGRectMake(LQSMargin * 2 + 30, 0, self.width - 50 - LQSMargin * 2 - 10, self.height);
     _titleLabel.textAlignment = NSTextAlignmentLeft;
 
 
