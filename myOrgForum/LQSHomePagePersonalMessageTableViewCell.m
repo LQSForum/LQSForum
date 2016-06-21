@@ -1,5 +1,3 @@
-
-
 //
 //  LQSHomePageTableViewCell.m
 //  myOrgForum
