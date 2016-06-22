@@ -166,11 +166,40 @@
 
 #pragma  mark - scrollVIewDelegate
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//根据scrollVIew的偏移量添加自控制器的VIew
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+////根据scrollVIew的偏移量添加自控制器的VIew
+//    [self addChildView];
+//
+//}
+
+//通过setContentOffset:animated:让scrollView(进行了滚动动画),那么最后会在停止滚动时调用这个方法
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+//根据scrollView的偏移量添加子控制器的view
     [self addChildView];
 
 }
+
+//scrollView 停止滚动的时候会调用一次(人为拖拽导致的停止滚动才会触发这个方法)
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+
+//计算按钮的索引
+    NSUInteger index = scrollView.contentOffset.x / scrollView.width;
+    LQSTitleButton *titleButton = self.titleButtons[index];
+//   点击按钮
+    [self titleButtonClick:titleButton];
+//    根据scrollView的偏移量添加自控制器的view
+    [self addChildView];
+
+
+
+}
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
