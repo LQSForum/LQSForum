@@ -55,12 +55,17 @@
 }
 
 #pragma mark -m LQSTabBarDelegate
+// 弹出发微博控制器
+//HMComposeViewController *compose = [[HMComposeViewController alloc] init];
+//HMNavigationController *nav = [[HMNavigationController alloc] initWithRootViewController:compose];
+//[self presentViewController:nav animated:YES completion:nil];
 
 - (void)tabBarDidClickPlusButton:(LQSTabBar *)tabBar
 {
 
-    UIViewController *vc = [[UIViewController alloc] init];
-    [self presentViewController:vc animated:YES completion:nil];
+    LQSComposeViewController *vc = [[LQSComposeViewController alloc] init];
+    LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:navVc animated:YES completion:nil];
 
 
 }

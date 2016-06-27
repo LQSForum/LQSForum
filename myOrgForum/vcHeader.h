@@ -28,3 +28,5 @@
 #import "LQSMessageCommentViewController.h"
 #import "LQSMessageFriendsApplyViewController.h"
 #endif /* vcHeader_h */
+//main
+#import "LQSComposeViewController.h"

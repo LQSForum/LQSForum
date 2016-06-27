@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor yellowColor];
-//    添加自控制器
+//    添加子控制器
     [self setUpChildVc];
 //添加ScrollView
     [self setupScrollView];

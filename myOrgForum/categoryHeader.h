@@ -13,4 +13,5 @@
 #import "UIBarButtonItem+Extension.h"
 #import "LQSAppDelegate.h"
 #import "LQSAppDelegate+HUD.h"
+#import "UIImage+Extension.h"
 #endif /* categoryHeader_h */
