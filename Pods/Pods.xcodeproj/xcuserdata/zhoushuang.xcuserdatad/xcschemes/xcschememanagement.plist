@@ -29,6 +29,11 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -37,7 +42,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2E0A23FDC5B3DBC0099BAADA1BB5B7C4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3E602209861E098B9713BFA2564A6C2F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5BE6C9E47B8AF1D2C0A2C800EC42D48C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -58,6 +73,11 @@
 			<true/>
 		</dict>
 		<key>C82A4FE4E87186B5CBB5C0F5B28457F0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE20EAD5E376A13F825F440BA3AC07EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

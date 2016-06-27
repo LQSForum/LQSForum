@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C91BC051D215F620049FA5C /* viewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C91BC031D215F620049FA5C /* viewerViewController.m */; };
 		410D46571CD0B7DD00C86FF8 /* LQSUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410D46561CD0B7DD00C86FF8 /* LQSUITableView.m */; };
 		410D465A1CD0C2E700C86FF8 /* LQSRootTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410D46591CD0C2E700C86FF8 /* LQSRootTableViewCell.m */; };
 		410D465D1CD0C91600C86FF8 /* LQSSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410D465C1CD0C91600C86FF8 /* LQSSettingCell.m */; };
@@ -91,6 +92,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C91BC031D215F620049FA5C /* viewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewerViewController.m; sourceTree = "<group>"; };
+		2C91BC041D215F620049FA5C /* viewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewerViewController.h; sourceTree = "<group>"; };
 		410D46551CD0B7DD00C86FF8 /* LQSUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSUITableView.h; sourceTree = "<group>"; };
 		410D46561CD0B7DD00C86FF8 /* LQSUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSUITableView.m; sourceTree = "<group>"; };
 		410D46581CD0C2E700C86FF8 /* LQSRootTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRootTableViewCell.h; sourceTree = "<group>"; };
@@ -545,6 +548,8 @@
 		417F34B81CC9CF5700F9714F /* discover */ = {
 			isa = PBXGroup;
 			children = (
+				2C91BC031D215F620049FA5C /* viewerViewController.m */,
+				2C91BC041D215F620049FA5C /* viewerViewController.h */,
 				411F91501CCF614200342FA2 /* LQSDiscoverViewController.h */,
 				411F91511CCF614200342FA2 /* LQSDiscoverViewController.m */,
 			);
@@ -848,6 +853,7 @@
 				412FF2691CD1D91C005F39AB /* LQSMyHomePageViewController.m in Sources */,
 				411F914F1CCF60F000342FA2 /* LQSForumViewController.m in Sources */,
 				417F34BF1CC9D12900F9714F /* LQSIntroduceViewController.m in Sources */,
+				2C91BC051D215F620049FA5C /* viewerViewController.m in Sources */,
 				416072321D20F1190083229E /* LQSEmotionAttachment.m in Sources */,
 				4180A8101CF2DA12007F1B5E /* LQSMessageFriendsApplyViewController.m in Sources */,
 				414407181CEEA81B00CD2F84 /* LQSTopViewController.m in Sources */,
@@ -1017,7 +1023,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/skyandsea/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/zhoushuang/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1063,7 +1069,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/skyandsea/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/zhoushuang/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

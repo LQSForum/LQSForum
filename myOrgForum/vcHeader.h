@@ -30,3 +30,6 @@
 #endif /* vcHeader_h */
 //main
 #import "LQSComposeViewController.h"
+
+//discover
+#import "viewerViewController.h"
