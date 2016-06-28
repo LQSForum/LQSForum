@@ -12,4 +12,5 @@
 #import "MJRefresh.h"
 #import "MBProgressHUD.h"
 #import "AFNetworking.h"
+#import "MJExtension.h"
 #endif /* thirdHeader_h */

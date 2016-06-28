@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09DE74EE69E60578EF17616D /* libPods-myOrgForumUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */; };
 		2C91BC051D215F620049FA5C /* viewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C91BC031D215F620049FA5C /* viewerViewController.m */; };
 		410D46571CD0B7DD00C86FF8 /* LQSUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410D46561CD0B7DD00C86FF8 /* LQSUITableView.m */; };
 		410D465A1CD0C2E700C86FF8 /* LQSRootTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410D46591CD0C2E700C86FF8 /* LQSRootTableViewCell.m */; };
@@ -84,7 +85,8 @@
 		41C519681D224BFA00F05A24 /* compose_trendbutton_background_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C5195B1D224BFA00F05A24 /* compose_trendbutton_background_highlighted@2x.png */; };
 		41C519691D224BFA00F05A24 /* compose_trendbutton_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C5195C1D224BFA00F05A24 /* compose_trendbutton_background@2x.png */; };
 		41EF29C41CCF71200067E87E /* LQSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 41EF29C31CCF71200067E87E /* LQSTabBar.m */; };
-		5644FDCF1734C13EC05FF770 /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD01C23D36F227CE16599BB8 /* libPods-myOrgForum.a */; };
+		87DAAED4E77EE6DFE759E472 /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */; };
+		CF88EB46FF966494AB73F4FF /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14E37D8AF205E4AAC6AB2302 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2AEC7AB4431F7F14A52266D9 /* Pods-myOrgForumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2C91BC031D215F620049FA5C /* viewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewerViewController.m; sourceTree = "<group>"; };
 		2C91BC041D215F620049FA5C /* viewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewerViewController.h; sourceTree = "<group>"; };
 		410D46551CD0B7DD00C86FF8 /* LQSUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSUITableView.h; sourceTree = "<group>"; };
@@ -257,9 +261,13 @@
 		41C5195C1D224BFA00F05A24 /* compose_trendbutton_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compose_trendbutton_background@2x.png"; sourceTree = "<group>"; };
 		41EF29C21CCF71200067E87E /* LQSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSTabBar.h; sourceTree = "<group>"; };
 		41EF29C31CCF71200067E87E /* LQSTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSTabBar.m; sourceTree = "<group>"; };
-		5AB9EA846926FEE35D61911D /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
-		DD01C23D36F227CE16599BB8 /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE2A64F0D63267E05D707FD5 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
+		434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AE2DD1D148983B02A069CD4 /* Pods-myOrgForumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.release.xcconfig"; sourceTree = "<group>"; };
+		75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
+		9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
+		F1630D4AB3FA63EE16979A0E /* Pods-myOrgForumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,7 +275,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5644FDCF1734C13EC05FF770 /* libPods-myOrgForum.a in Frameworks */,
+				CF88EB46FF966494AB73F4FF /* libPods-myOrgForum.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +283,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87DAAED4E77EE6DFE759E472 /* libPods-myOrgForumTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +291,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09DE74EE69E60578EF17616D /* libPods-myOrgForumUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,8 +413,8 @@
 				415C556B1CC8CCEE00408B90 /* myOrgForumTests */,
 				415C55761CC8CCEE00408B90 /* myOrgForumUITests */,
 				415C55501CC8CCEE00408B90 /* Products */,
-				D9C5F8CB7A234C42B515CE78 /* Pods */,
 				D2FF60D40CEE75621BCC406D /* Frameworks */,
+				4FED8D2C2028EB0D0A4D261B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -663,22 +673,28 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		4FED8D2C2028EB0D0A4D261B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */,
+				75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */,
+				14E37D8AF205E4AAC6AB2302 /* Pods-myOrgForumTests.debug.xcconfig */,
+				6AE2DD1D148983B02A069CD4 /* Pods-myOrgForumTests.release.xcconfig */,
+				F1630D4AB3FA63EE16979A0E /* Pods-myOrgForumUITests.debug.xcconfig */,
+				2AEC7AB4431F7F14A52266D9 /* Pods-myOrgForumUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D2FF60D40CEE75621BCC406D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				417487F81CE99C0500B5E26C /* Reveal.framework */,
-				DD01C23D36F227CE16599BB8 /* libPods-myOrgForum.a */,
+				4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */,
+				434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */,
+				9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D9C5F8CB7A234C42B515CE78 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EE2A64F0D63267E05D707FD5 /* Pods-myOrgForum.debug.xcconfig */,
-				5AB9EA846926FEE35D61911D /* Pods-myOrgForum.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -688,12 +704,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 415C557C1CC8CCEE00408B90 /* Build configuration list for PBXNativeTarget "myOrgForum" */;
 			buildPhases = (
-				B0FDB8E41886DF5A2181EEFE /* Check Pods Manifest.lock */,
+				BE6A0856402362E4B251B0F3 /* [CP] Check Pods Manifest.lock */,
 				415C554B1CC8CCEE00408B90 /* Sources */,
 				415C554C1CC8CCEE00408B90 /* Frameworks */,
 				415C554D1CC8CCEE00408B90 /* Resources */,
-				39E07F79804B05FED2D54119 /* Embed Pods Frameworks */,
-				D4902F1D316F790953D32F30 /* Copy Pods Resources */,
+				A214BCF87EFBD6BBC3112273 /* [CP] Embed Pods Frameworks */,
+				C17B041A92AFEED641A445A6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -708,9 +724,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 415C557F1CC8CCEE00408B90 /* Build configuration list for PBXNativeTarget "myOrgForumTests" */;
 			buildPhases = (
+				A7248A2CF4B462B648EF971D /* [CP] Check Pods Manifest.lock */,
 				415C55641CC8CCEE00408B90 /* Sources */,
 				415C55651CC8CCEE00408B90 /* Frameworks */,
 				415C55661CC8CCEE00408B90 /* Resources */,
+				7B5D679E03BA9F01F2D43712 /* [CP] Embed Pods Frameworks */,
+				84AF4E65DCC6CD59908625AB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -726,9 +745,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 415C55821CC8CCEE00408B90 /* Build configuration list for PBXNativeTarget "myOrgForumUITests" */;
 			buildPhases = (
+				1AFF127DD8555FC28B0404A6 /* [CP] Check Pods Manifest.lock */,
 				415C556F1CC8CCEE00408B90 /* Sources */,
 				415C55701CC8CCEE00408B90 /* Frameworks */,
 				415C55711CC8CCEE00408B90 /* Resources */,
+				FA5D0E6C35B9C37F33A100A7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -827,29 +848,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		39E07F79804B05FED2D54119 /* Embed Pods Frameworks */ = {
+		1AFF127DD8555FC28B0404A6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B0FDB8E41886DF5A2181EEFE /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -857,19 +863,109 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D4902F1D316F790953D32F30 /* Copy Pods Resources */ = {
+		7B5D679E03BA9F01F2D43712 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84AF4E65DCC6CD59908625AB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A214BCF87EFBD6BBC3112273 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7248A2CF4B462B648EF971D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BE6A0856402362E4B251B0F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C17B041A92AFEED641A445A6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA5D0E6C35B9C37F33A100A7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1075,7 +1171,7 @@
 		};
 		415C557D1CC8CCEE00408B90 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE2A64F0D63267E05D707FD5 /* Pods-myOrgForum.debug.xcconfig */;
+			baseConfigurationReference = A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1121,7 +1217,7 @@
 		};
 		415C557E1CC8CCEE00408B90 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AB9EA846926FEE35D61911D /* Pods-myOrgForum.release.xcconfig */;
+			baseConfigurationReference = 75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1167,6 +1263,7 @@
 		};
 		415C55801CC8CCEE00408B90 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14E37D8AF205E4AAC6AB2302 /* Pods-myOrgForumTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = myOrgForumTests/Info.plist;
@@ -1179,6 +1276,7 @@
 		};
 		415C55811CC8CCEE00408B90 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AE2DD1D148983B02A069CD4 /* Pods-myOrgForumTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = myOrgForumTests/Info.plist;
@@ -1191,6 +1289,7 @@
 		};
 		415C55831CC8CCEE00408B90 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1630D4AB3FA63EE16979A0E /* Pods-myOrgForumUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = myOrgForumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1202,6 +1301,7 @@
 		};
 		415C55841CC8CCEE00408B90 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AEC7AB4431F7F14A52266D9 /* Pods-myOrgForumUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = myOrgForumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

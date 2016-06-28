@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E71D4D00183E4E811CFE2E56'
+               BlueprintIdentifier = '943239D93A5101D4A16C10CD0A056261'
                BlueprintName = 'FoundationExtension'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libFoundationExtension.a'>

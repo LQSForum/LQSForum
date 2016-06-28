@@ -19,12 +19,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MJExtension.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-myOrgForum.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-myOrgForumTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-myOrgForumUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,17 +57,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2E0A23FDC5B3DBC0099BAADA1BB5B7C4</key>
+		<key>05CA38AAE9CEEE668FBE950A7EDDE25C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5BE6C9E47B8AF1D2C0A2C800EC42D48C</key>
+		<key>0645ABCA66F516249CD9668D70D1BA96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F74D9EA91F4C43190670066BAC37D44</key>
+		<key>42336C98E40A5429AF8F4650AA9F3E3F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>499E667E4D7AD91F45AC2937635E82DF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>70BC44266C6FFE30D2C57129458E070B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79CEDEF65FF1A21DF19FC6176EB7B25D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,7 +97,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE20EAD5E376A13F825F440BA3AC07EC</key>
+		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -10,6 +10,7 @@ pod 'SDWebImage'
 pod 'FoundationExtension'
 pod 'MJRefresh'
 pod 'Realm'
+pod 'MJExtension'
 end
 
 target 'myOrgForumTests' do
