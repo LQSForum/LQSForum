@@ -38,6 +38,11 @@
     //    根据scrollView的偏移量添加自控制器的View
     [self addChildView];
     
+    
+    UIButton *button = [[UIButton alloc] init];
+    [button setFrame:CGRectMake(0, 200, 30, 30)];
+    [button setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:button];
 }
 
 //添加标题VIew
