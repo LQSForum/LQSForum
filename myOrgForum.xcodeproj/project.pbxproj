@@ -85,6 +85,15 @@
 		41C519681D224BFA00F05A24 /* compose_trendbutton_background_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C5195B1D224BFA00F05A24 /* compose_trendbutton_background_highlighted@2x.png */; };
 		41C519691D224BFA00F05A24 /* compose_trendbutton_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C5195C1D224BFA00F05A24 /* compose_trendbutton_background@2x.png */; };
 		41EF29C41CCF71200067E87E /* LQSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 41EF29C31CCF71200067E87E /* LQSTabBar.m */; };
+		563099381D2DEACA00FC9EE6 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 563099371D2DEACA00FC9EE6 /* NSDate+Extension.m */; };
+		5659AA711D2CF9B500470398 /* LQSSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5659AA701D2CF9B500470398 /* LQSSectionModel.m */; };
+		5659AA741D2D011900470398 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 5659AA731D2D011900470398 /* NSArray+Log.m */; };
+		5659AA7B1D2D021A00470398 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5659AA771D2D021A00470398 /* NSObject+YYModel.m */; };
+		5659AA7C1D2D021A00470398 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5659AA791D2D021A00470398 /* YYClassInfo.m */; };
+		5659AA7F1D2D042900470398 /* LQSForumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5659AA7E1D2D042900470398 /* LQSForumView.m */; };
+		5659AA841D2D34AE00470398 /* LQSCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5659AA831D2D34AE00470398 /* LQSCellModel.m */; };
+		565F21381D2BCD8700FD9ED8 /* LQSForumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 565F21371D2BCD8700FD9ED8 /* LQSForumCell.m */; };
+		565F213B1D2BD1AC00FD9ED8 /* LQSHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 565F213A1D2BD1AC00FD9ED8 /* LQSHeaderView.m */; };
 		87DAAED4E77EE6DFE759E472 /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */; };
 		CF88EB46FF966494AB73F4FF /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */; };
 /* End PBXBuildFile section */
@@ -263,6 +272,25 @@
 		41EF29C31CCF71200067E87E /* LQSTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSTabBar.m; sourceTree = "<group>"; };
 		434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		563099361D2DEACA00FC9EE6 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		563099371D2DEACA00FC9EE6 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		5659AA6F1D2CF9B500470398 /* LQSSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSectionModel.h; sourceTree = "<group>"; };
+		5659AA701D2CF9B500470398 /* LQSSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSectionModel.m; sourceTree = "<group>"; };
+		5659AA721D2D011900470398 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		5659AA731D2D011900470398 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		5659AA761D2D021A00470398 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
+		5659AA771D2D021A00470398 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
+		5659AA781D2D021A00470398 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
+		5659AA791D2D021A00470398 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
+		5659AA7A1D2D021A00470398 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
+		5659AA7D1D2D042900470398 /* LQSForumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSForumView.h; sourceTree = "<group>"; };
+		5659AA7E1D2D042900470398 /* LQSForumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSForumView.m; sourceTree = "<group>"; };
+		5659AA821D2D34AE00470398 /* LQSCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCellModel.h; sourceTree = "<group>"; };
+		5659AA831D2D34AE00470398 /* LQSCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSCellModel.m; sourceTree = "<group>"; };
+		565F21361D2BCD8700FD9ED8 /* LQSForumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSForumCell.h; sourceTree = "<group>"; };
+		565F21371D2BCD8700FD9ED8 /* LQSForumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSForumCell.m; sourceTree = "<group>"; };
+		565F21391D2BD1AC00FD9ED8 /* LQSHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHeaderView.h; sourceTree = "<group>"; };
+		565F213A1D2BD1AC00FD9ED8 /* LQSHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHeaderView.m; sourceTree = "<group>"; };
 		6AE2DD1D148983B02A069CD4 /* Pods-myOrgForumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.release.xcconfig"; sourceTree = "<group>"; };
 		75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
 		9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -315,6 +343,7 @@
 		410FBB741CCE0FCE00761192 /* categories */ = {
 			isa = PBXGroup;
 			children = (
+				5659AA751D2D021A00470398 /* YYModel */,
 				410FBB751CCE0FEE00761192 /* UIWindow+Extension.h */,
 				410FBB761CCE0FEE00761192 /* UIWindow+Extension.m */,
 				410FBB781CCE20E700761192 /* UIView+Extension.h */,
@@ -325,6 +354,10 @@
 				414407241CEEE19800CD2F84 /* UIBarButtonItem+LQSConst.m */,
 				4160720F1D20CA270083229E /* UIImage+Extension.h */,
 				416072101D20CA270083229E /* UIImage+Extension.m */,
+				5659AA721D2D011900470398 /* NSArray+Log.h */,
+				5659AA731D2D011900470398 /* NSArray+Log.m */,
+				563099361D2DEACA00FC9EE6 /* NSDate+Extension.h */,
+				563099371D2DEACA00FC9EE6 /* NSDate+Extension.m */,
 			);
 			name = categories;
 			sourceTree = "<group>";
@@ -578,6 +611,16 @@
 			children = (
 				411F914D1CCF60F000342FA2 /* LQSForumViewController.h */,
 				411F914E1CCF60F000342FA2 /* LQSForumViewController.m */,
+				5659AA7D1D2D042900470398 /* LQSForumView.h */,
+				5659AA7E1D2D042900470398 /* LQSForumView.m */,
+				565F21361D2BCD8700FD9ED8 /* LQSForumCell.h */,
+				565F21371D2BCD8700FD9ED8 /* LQSForumCell.m */,
+				565F21391D2BD1AC00FD9ED8 /* LQSHeaderView.h */,
+				565F213A1D2BD1AC00FD9ED8 /* LQSHeaderView.m */,
+				5659AA6F1D2CF9B500470398 /* LQSSectionModel.h */,
+				5659AA701D2CF9B500470398 /* LQSSectionModel.m */,
+				5659AA821D2D34AE00470398 /* LQSCellModel.h */,
+				5659AA831D2D34AE00470398 /* LQSCellModel.m */,
 			);
 			name = forum;
 			sourceTree = "<group>";
@@ -686,6 +729,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5659AA751D2D021A00470398 /* YYModel */ = {
+			isa = PBXGroup;
+			children = (
+				5659AA761D2D021A00470398 /* NSObject+YYModel.h */,
+				5659AA771D2D021A00470398 /* NSObject+YYModel.m */,
+				5659AA781D2D021A00470398 /* YYClassInfo.h */,
+				5659AA791D2D021A00470398 /* YYClassInfo.m */,
+				5659AA7A1D2D021A00470398 /* YYModel.h */,
+			);
+			path = YYModel;
+			sourceTree = "<group>";
+		};
 		D2FF60D40CEE75621BCC406D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,6 +765,7 @@
 				415C554D1CC8CCEE00408B90 /* Resources */,
 				A214BCF87EFBD6BBC3112273 /* [CP] Embed Pods Frameworks */,
 				C17B041A92AFEED641A445A6 /* [CP] Copy Pods Resources */,
+				CE2EAAC132AFFD3BF6A49F95 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -767,12 +823,13 @@
 		415C55471CC8CCEE00408B90 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LQS;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = SkyAndSea;
 				TargetAttributes = {
 					415C554E1CC8CCEE00408B90 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = VKS2SV893P;
+						DevelopmentTeam = SEU62D4LPE;
 					};
 					415C55671CC8CCEE00408B90 = {
 						CreatedOnToolsVersion = 7.3;
@@ -953,6 +1010,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CE2EAAC132AFFD3BF6A49F95 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FA5D0E6C35B9C37F33A100A7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -977,13 +1049,17 @@
 			files = (
 				416072291D20EF0E0083229E /* LQSTextView.m in Sources */,
 				41852FC41CE31D4D003CD9D4 /* LQSCoreManager.m in Sources */,
+				5659AA711D2CF9B500470398 /* LQSSectionModel.m in Sources */,
 				416072351D20F2BF0083229E /* NSString+Emoji.m in Sources */,
 				4180A80A1CF2D9E6007F1B5E /* LQSMessageMentionedMeViewController.m in Sources */,
+				563099381D2DEACA00FC9EE6 /* NSDate+Extension.m in Sources */,
 				4144070F1CEEA7EA00CD2F84 /* LQSHotViewController.m in Sources */,
 				4160720D1D20C5830083229E /* LQSComposePhotosView.m in Sources */,
 				4166DF751CCF3CC900187CC4 /* LQSNavigationController.m in Sources */,
 				410FBB7A1CCE20E700761192 /* UIView+Extension.m in Sources */,
+				5659AA7B1D2D021A00470398 /* NSObject+YYModel.m in Sources */,
 				417F34DE1CCA21FA00F9714F /* LQSNewfeatureViewController.m in Sources */,
+				5659AA7F1D2D042900470398 /* LQSForumView.m in Sources */,
 				4160722F1D20F0F70083229E /* LQSEmotion.m in Sources */,
 				411F91521CCF614200342FA2 /* LQSDiscoverViewController.m in Sources */,
 				410D465A1CD0C2E700C86FF8 /* LQSRootTableViewCell.m in Sources */,
@@ -1001,8 +1077,11 @@
 				414407121CEEA7FC00CD2F84 /* LQSLatestViewController.m in Sources */,
 				414407281CEEE5B700CD2F84 /* LQSTitleButton.m in Sources */,
 				41A40CE01CF2EF2A004ADE1E /* LQSSettingPersonalSettingDataModel.m in Sources */,
+				5659AA841D2D34AE00470398 /* LQSCellModel.m in Sources */,
+				5659AA7C1D2D021A00470398 /* YYClassInfo.m in Sources */,
 				416072211D20D2880083229E /* LQSEmotionView.m in Sources */,
 				416072151D20CF9E0083229E /* LQSEmotionKeyboard.m in Sources */,
+				5659AA741D2D011900470398 /* NSArray+Log.m in Sources */,
 				4180A8061CF2A40D007F1B5E /* LQSMessageDataModel.m in Sources */,
 				4180A80D1CF2D9FA007F1B5E /* LQSMessageCommentViewController.m in Sources */,
 				4166DF781CCF4F8600187CC4 /* UIBarButtonItem+Extension.m in Sources */,
@@ -1024,6 +1103,8 @@
 				410D465D1CD0C91600C86FF8 /* LQSSettingCell.m in Sources */,
 				416072051D20BE640083229E /* LQSComposeViewController.m in Sources */,
 				414407151CEEA80A00CD2F84 /* LQSJingHuaViewController.m in Sources */,
+				565F21381D2BCD8700FD9ED8 /* LQSForumCell.m in Sources */,
+				565F213B1D2BD1AC00FD9ED8 /* LQSHeaderView.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				412FF26C1CD1D945005F39AB /* LQSMessageViewController.m in Sources */,
 				414600F71CEF2CA000628B60 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,
@@ -1174,12 +1255,14 @@
 			baseConfigurationReference = A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/skyandsea/Desktop/yirenshuang/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/yuhan/github/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1210,8 +1293,9 @@
 					"-framework",
 					Reveal,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = temple.myOrgForums;
+				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForums;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1220,12 +1304,14 @@
 			baseConfigurationReference = 75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/skyandsea/Desktop/yirenshuang/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/yuhan/github/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1256,8 +1342,9 @@
 					"-framework",
 					Reveal,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = temple.myOrgForums;
+				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForums;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -13,4 +13,6 @@
 #import "MBProgressHUD.h"
 #import "AFNetworking.h"
 #import "MJExtension.h"
+#import "Masonry.h"
+#import "UIImageView+WebCache.h"
 #endif /* thirdHeader_h */

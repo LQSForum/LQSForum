@@ -11,6 +11,7 @@ pod 'FoundationExtension'
 pod 'MJRefresh'
 pod 'Realm'
 pod 'MJExtension'
+pod 'Masonry'
 end
 
 target 'myOrgForumTests' do
