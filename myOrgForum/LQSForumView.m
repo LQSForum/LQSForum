@@ -12,6 +12,7 @@
 #import "LQSSectionModel.h"
 #import "LQSCellModel.h"
 #import "YYModel.h"
+
 @interface LQSForumView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
@@ -45,11 +46,18 @@ static NSString *headerID = @"headerId";
     if (self) {
      
         self.backgroundColor = LQSColor(250, 248, 251);
+        self.showsVerticalScrollIndicator = NO;
         self.delegate = self;
         self.dataSource = self;
         [self registerClass:[LQSForumCell class] forCellWithReuseIdentifier:cellID];
         [self registerClass:[LQSHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerID];
-        
+        self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self.sections removeAllObjects];
+            [self.items removeAllObjects];
+            [self.mj_header beginRefreshing];
+            [self loadServerData];
+        }];
+
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [self loadServerData];
@@ -71,9 +79,9 @@ static NSString *headerID = @"headerId";
         NSData *data = responseObject;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
         
-        NSString *p = @"/Users/yuhan/Desktop/plist";
-        NSString *path = [p stringByAppendingPathComponent:@"forum.plist"];
-        [dict writeToFile:path atomically:YES];
+//        NSString *p = @"/Users/yuhan/Desktop/plist";
+//        NSString *path = [p stringByAppendingPathComponent:@"forum.plist"];
+//        [dict writeToFile:path atomically:YES];
 //        LQSLog(@"%@",dict);
         
         NSArray *listArr = dict[@"list"];
@@ -87,13 +95,13 @@ static NSString *headerID = @"headerId";
             }
 
         }
-
             [self reloadData];
+            [self.mj_header endRefreshing];
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        [self.mj_header endRefreshing];
         LQSLog(@"error%@",error);
-
+  
     }];
     
 }
@@ -147,7 +155,9 @@ static NSString *headerID = @"headerId";
     return _sections;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//点击cell
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
     
 }
 

@@ -104,7 +104,7 @@
     if (cellModel.td_posts_num == 0) {
         self.latestCountLbl.hidden = YES;
     }else{
-        
+        self.latestCountLbl.hidden = NO;
         self.latestCountLbl.text = [NSString stringWithFormat:@"(%zd)",cellModel.td_posts_num];
     }
 }
