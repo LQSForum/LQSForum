@@ -7,7 +7,13 @@
 //
 
 #import "LQSForumViewController.h"
+#import "LQSForumView.h"
+#import <QuartzCore/QuartzCore.h>
 @interface LQSForumViewController ()
+
+@property (nonatomic, strong) LQSForumView *forumView;
+@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
+
 
 @end
 
@@ -16,12 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor greenColor];
-    // Do any additional setup after loading the view.
-}
+    
+    self.flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    self.flowLayout.itemSize = CGSizeMake(LQSScreenW / 2, 80);
+    self.flowLayout.minimumInteritemSpacing = 0;
+    self.flowLayout.minimumLineSpacing = 0;
+    self.flowLayout.sectionHeadersPinToVisibleBounds = YES;
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.forumView = [[LQSForumView alloc]initWithFrame:[UIScreen mainScreen].bounds collectionViewLayout:self.flowLayout];
+    [self.view addSubview:self.forumView];
+
 }
 
 
