@@ -12,6 +12,14 @@
 static LQSUserBasicInfo * _sharedLQSUserBasicInfo = nil;
 @implementation LQSUserBasicInfo
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
 
 +(LQSUserBasicInfo *)sharedSouFunUserBasicInfo
 {
