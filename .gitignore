@@ -1,4 +1,4 @@
-
+*/xcodeproj/
 */xcshareddata/
 ld/
 *.pbxuser
@@ -26,3 +26,11 @@ DerivedData
 # http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
 #
 # Pods/
+
+*.xcworkspacedata
+
+*.xcworkspacedata
+
+myOrgForum.xcodeproj/xcuserdata/zhoushuang.xcuserdatad/xcschemes/myOrgForum.xcscheme
+
+myOrgForum.xcodeproj/xcuserdata/yuhan.xcuserdatad/xcschemes/myOrgForum.xcscheme
