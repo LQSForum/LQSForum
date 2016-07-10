@@ -10,8 +10,10 @@
 
 @interface LQSCoreManager : NSObject
 
-
-
+- (void)HttpsPost:(NSString *)URLStr
+           params:(id)params
+          success:(void (^)(id responseObject))success
+          failure:(void (^)(NSError *error))failure;
 
 
 
