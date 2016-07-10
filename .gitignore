@@ -1,5 +1,7 @@
+
 */xcodeproj/
 */xcshareddata/
+*.xcodeproj/xcshareddata/
 ld/
 *.pbxuser
 !default.pbxuser
