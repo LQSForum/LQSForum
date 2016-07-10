@@ -12,7 +12,7 @@ pod 'MJRefresh','3.1.0'
 pod 'Realm','~>0.102.1'
 pod 'MJExtension','~>3.0.10'
 pod 'Masonry','1.0.1'
-pod 'JSONKit', '~> 1.5pre' 
+#pod 'JSONKit', '~> 1.5pre' 
 
 end
 
