@@ -66,21 +66,14 @@
     
     [session POST:loginUrlStr parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"请求成功");
-        
+        NSDictionary *resultDic = [NSDictionary dictionaryWithDictionary:responseObject];
+        NSLog(@"请求数据：%@",resultDic);
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求成功");
     }];
     
-//    LQSCoreManager *lqsCM = [[LQSCoreManager alloc]init];
-//    [lqsCM HttpsPost:loginUrlStr params:params success:^(id responseObject) {
-//        
-//        NSLog(@"请求成功");
-//        
-//    } failure:^(NSError *error) {
-//        NSLog(@"请求失败");
-//    }];
     
 }
 

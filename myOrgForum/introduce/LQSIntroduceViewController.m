@@ -7,6 +7,8 @@
 //
 
 #import "LQSIntroduceViewController.h"
+#define KTITLEBTNTAGBEGAN 20160716
+
 
 @interface LQSIntroduceViewController ()<UIScrollViewDelegate>
 
@@ -56,7 +58,7 @@
     CGFloat titleButtonH = titleView.height;
     for (NSUInteger i = 0; i < count; i++) {
         LQSTitleButton *titleButton = [LQSTitleButton new];
-        titleButton.tag = i;
+        titleButton.tag = KTITLEBTNTAGBEGAN + i;
         [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [titleView addSubview:titleButton];
         [self.titleButtons addObject:titleButton];
