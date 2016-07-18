@@ -8,11 +8,17 @@
 
 #import "LQSDiscoverViewController.h"
 
-@interface LQSDiscoverViewController ()
+@interface LQSDiscoverViewController ()<LQSWaterFlowViewDelegate,LQSWaterFlowViewDataSource>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *titleButtons;
 @property (nonatomic, weak) UIView *titleIndicatorView;
 @property (nonatomic, weak) UIButton *selectedTitleButton;
+
+//tiezi
+@property (nonatomic, strong) NSMutableArray *discoriesArr;
+@property (nonatomic, weak) LQSWaterFlowView *waterFlowView;
+
+
 
 @end
 
@@ -26,10 +32,24 @@
     return _titleButtons;
 }
 
+
+- (NSMutableArray *)discoriesArr
+{
+    if (_discoriesArr == nil) {
+        self.discoriesArr = [NSMutableArray array];
+
+    }
+    return _discoriesArr;
+}
+
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor yellowColor];
-    //    添加自控制器
+//    添加自控制器
     [self setUpChildVc];
     //添加ScrollView
     [self setupScrollView];
@@ -39,11 +59,115 @@
     [self addChildView];
     
     
-    UIButton *button = [[UIButton alloc] init];
-    [button setFrame:CGRectMake(0, 200, 30, 30)];
-    [button setBackgroundColor:[UIColor redColor]];
-    [self.view addSubview:button];
+//    discovery
+//    初始化数据
+    
+    
+//    瀑布流控件
+    LQSWaterFlowView *waterFlowView = [[LQSWaterFlowView alloc] init];
+    waterFlowView.backgroundColor = [UIColor cyanColor];
+//    跟谁父控件的尺寸而自动伸缩
+    waterFlowView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    waterFlowView.frame = self.view.bounds;
+    waterFlowView.dataSource = self;
+    waterFlowView.delegate = self;
+    [self.view addSubview:waterFlowView];
+    self.waterFlowView = waterFlowView;
+    
+//    集成刷新控件下拉刷新
+    waterFlowView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [waterFlowView.mj_header endRefreshing];
+        
+        [self loadNewDiscoveries];
+        
+    }];
+    
+//    waterFlowView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewDiscoveries)];
+    
+    
+//    在导航栏下 main自动隐藏
+    waterFlowView.mj_header.automaticallyChangeAlpha = YES;
+//上拉加载
+    waterFlowView.mj_footer = [MJRefreshFooter footerWithRefreshingBlock:^{
+        [self loadMoreShops];
+        [waterFlowView.mj_footer endRefreshing];
+    }];
 }
+
+- (void)loadNewDiscoveries
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // 加载1.plist
+        NSArray *newShops = [LQSDiscover objectArrayWithFilename:@"1.plist"];
+        [self.discoriesArr insertObjects:newShops atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newShops.count)]];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 刷新瀑布流控件
+        [self.waterFlowView reloadData];
+        
+        // 停止刷新
+        [self.waterFlowView.mj_header endRefreshing];
+    });
+
+
+}
+
+- (void)loadMoreShops
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // 加载3.plist
+        NSArray *newShops = [LQSDiscover objectArrayWithFilename:@"3.plist"];
+        [self.discoriesArr addObjectsFromArray:newShops];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        // 刷新瀑布流控件
+        [self.waterFlowView reloadData];
+        
+        // 停止刷新
+        [self.waterFlowView.mj_footer endRefreshing];
+    });
+
+
+}
+
+
+#pragma mark - dataSource&delegate
+- (NSUInteger)numberOfCellsInWaterflowView:(LQSWaterFlowView *)waterflowView
+{
+    return self.discoriesArr.count;
+}
+
+- (LQSWaterFlowViewCell *)waterflowView:(LQSWaterFlowView *)waterflowView cellAtIndex:(NSUInteger)index
+{
+    LQSDiscoverCell *cell = [LQSDiscoverCell cellWithWaterflowView:waterflowView];
+    cell.discover = self.discoriesArr[index];
+    return cell;
+
+}
+
+- (NSUInteger)numberOfColumnsInWaterflowView:(LQSWaterFlowView *)waterflowView
+{
+        return 2;
+
+}
+
+- (CGFloat)waterflowView:(LQSWaterFlowView *)waterflowView heightAtIndex:(NSUInteger)index
+{
+    LQSDiscover *discover  = self.discoriesArr[index];
+    return waterflowView.cellWidth * discover.h / discover.w;
+
+}
+
+
+
+
+
+
 
 //添加标题VIew
 - (void)setupTitleView
