@@ -87,6 +87,10 @@
 		410FA2BF1D38EC9B0021B7E2 /* LQSLatestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2BA1D38EC9B0021B7E2 /* LQSLatestViewController.m */; };
 		410FA2C01D38EC9B0021B7E2 /* LQSTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2BC1D38EC9B0021B7E2 /* LQSTopViewController.m */; };
 		410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */; };
+		4156AB2A1D3CA63C009F5E01 /* LQSWaterFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4156AB261D3CA63C009F5E01 /* LQSWaterFlowView.m */; };
+		4156AB2B1D3CA63C009F5E01 /* LQSWaterFlowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4156AB281D3CA63C009F5E01 /* LQSWaterFlowViewCell.m */; };
+		4156AB2E1D3CABF3009F5E01 /* LQSDiscover.m in Sources */ = {isa = PBXBuildFile; fileRef = 4156AB2D1D3CABF3009F5E01 /* LQSDiscover.m */; };
+		4156AB311D3CAC28009F5E01 /* LQSDiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4156AB301D3CAC28009F5E01 /* LQSDiscoverCell.m */; };
 		415C55541CC8CCEE00408B90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55531CC8CCEE00408B90 /* main.m */; };
 		415C555D1CC8CCEE00408B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415C555B1CC8CCEE00408B90 /* Main.storyboard */; };
 		415C555F1CC8CCEE00408B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415C555E1CC8CCEE00408B90 /* Assets.xcassets */; };
@@ -273,6 +277,14 @@
 		410FBB711CCDEDB400761192 /* LQSAppDelegate+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LQSAppDelegate+HUD.h"; sourceTree = "<group>"; };
 		410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LQSAppDelegate+HUD.m"; sourceTree = "<group>"; };
 		412FF25C1CD1A0E0005F39AB /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		4156AB251D3CA63C009F5E01 /* LQSWaterFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSWaterFlowView.h; path = discover/View/LQSWaterFlowView.h; sourceTree = "<group>"; };
+		4156AB261D3CA63C009F5E01 /* LQSWaterFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSWaterFlowView.m; path = discover/View/LQSWaterFlowView.m; sourceTree = "<group>"; };
+		4156AB271D3CA63C009F5E01 /* LQSWaterFlowViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSWaterFlowViewCell.h; path = discover/View/LQSWaterFlowViewCell.h; sourceTree = "<group>"; };
+		4156AB281D3CA63C009F5E01 /* LQSWaterFlowViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSWaterFlowViewCell.m; path = discover/View/LQSWaterFlowViewCell.m; sourceTree = "<group>"; };
+		4156AB2C1D3CABF3009F5E01 /* LQSDiscover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDiscover.h; sourceTree = "<group>"; };
+		4156AB2D1D3CABF3009F5E01 /* LQSDiscover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSDiscover.m; sourceTree = "<group>"; };
+		4156AB2F1D3CAC28009F5E01 /* LQSDiscoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDiscoverCell.h; sourceTree = "<group>"; };
+		4156AB301D3CAC28009F5E01 /* LQSDiscoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSDiscoverCell.m; sourceTree = "<group>"; };
 		415C554F1CC8CCEE00408B90 /* myOrgForum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myOrgForum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		415C55531CC8CCEE00408B90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		415C555C1CC8CCEE00408B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -449,6 +461,21 @@
 				410FA2761D38EC230021B7E2 /* LQSMessageDataModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		4156AB191D3CA50D009F5E01 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4156AB251D3CA63C009F5E01 /* LQSWaterFlowView.h */,
+				4156AB261D3CA63C009F5E01 /* LQSWaterFlowView.m */,
+				4156AB271D3CA63C009F5E01 /* LQSWaterFlowViewCell.h */,
+				4156AB281D3CA63C009F5E01 /* LQSWaterFlowViewCell.m */,
+				4156AB2C1D3CABF3009F5E01 /* LQSDiscover.h */,
+				4156AB2D1D3CABF3009F5E01 /* LQSDiscover.m */,
+				4156AB2F1D3CAC28009F5E01 /* LQSDiscoverCell.h */,
+				4156AB301D3CAC28009F5E01 /* LQSDiscoverCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		415C55461CC8CCEE00408B90 = {
@@ -632,6 +659,7 @@
 		417F34B81CC9CF5700F9714F /* discover */ = {
 			isa = PBXGroup;
 			children = (
+				4156AB191D3CA50D009F5E01 /* View */,
 				410FA29A1D38EC630021B7E2 /* LQSDiscoverViewController.h */,
 				410FA29B1D38EC630021B7E2 /* LQSDiscoverViewController.m */,
 				410FA29C1D38EC630021B7E2 /* viewerViewController.h */,
@@ -1066,6 +1094,7 @@
 				410FA1F71D38EB7E0021B7E2 /* UIView+Extension.m in Sources */,
 				410FA2B11D38EC830021B7E2 /* LQSForumViewController.m in Sources */,
 				410FA2A61D38EC710021B7E2 /* LQSForumCell.m in Sources */,
+				4156AB311D3CAC28009F5E01 /* LQSDiscoverCell.m in Sources */,
 				410FA29E1D38EC630021B7E2 /* LQSDiscoverViewController.m in Sources */,
 				410FA2991D38EC4C0021B7E2 /* LQSMyHomePageViewController.m in Sources */,
 				410FA2781D38EC230021B7E2 /* LQSMessageDataModel.m in Sources */,
@@ -1074,6 +1103,7 @@
 				410FA23C1D38EBB60021B7E2 /* LQSEmotionGridView.m in Sources */,
 				410FA2241D38EBA30021B7E2 /* LQSSpecifyFooter.m in Sources */,
 				410FA2661D38EBF30021B7E2 /* LQSComposeViewController.m in Sources */,
+				4156AB2E1D3CABF3009F5E01 /* LQSDiscover.m in Sources */,
 				410FA2BD1D38EC9B0021B7E2 /* LQSHotViewController.m in Sources */,
 				410FA23E1D38EBB60021B7E2 /* LQSEmotionListView.m in Sources */,
 				410FA29F1D38EC630021B7E2 /* viewerViewController.m in Sources */,
@@ -1121,10 +1151,12 @@
 				410FA28B1D38EC390021B7E2 /* LQSMessageFriendsApplyViewController.m in Sources */,
 				410FA2961D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m in Sources */,
 				410FA2411D38EBB60021B7E2 /* LQSEmotionTextView.m in Sources */,
+				4156AB2B1D3CA63C009F5E01 /* LQSWaterFlowViewCell.m in Sources */,
 				410FA1F51D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m in Sources */,
 				410FA2801D38EC2D0021B7E2 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,
 				410FA2231D38EBA30021B7E2 /* LQSRootTableViewCell.m in Sources */,
 				410FA22C1D38EBA30021B7E2 /* rootViewController.m in Sources */,
+				4156AB2A1D3CA63C009F5E01 /* LQSWaterFlowView.m in Sources */,
 				410FA28D1D38EC390021B7E2 /* LQSMessageViewController.m in Sources */,
 				410FA23F1D38EBB60021B7E2 /* LQSEmotionPopView.m in Sources */,
 				410FA28A1D38EC390021B7E2 /* LQSMessageCommentViewController.m in Sources */,
