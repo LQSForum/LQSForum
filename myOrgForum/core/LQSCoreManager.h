@@ -10,6 +10,9 @@
 
 @interface LQSCoreManager : NSObject
 
++ (LQSCoreManager *)shareManager;
+#define IMTCoreManagerHandler [IMTCoreManager shareManager]
+
 - (void)HttpsPost:(NSString *)URLStr
            params:(id)params
           success:(void (^)(id responseObject))success

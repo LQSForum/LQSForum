@@ -9,11 +9,31 @@
 #import "LQSCoreManager.h"
 
 @implementation LQSCoreManager
+const static NSObject *lockObj = nil;
 
 
 #pragma mark - Http common 
 
++ (LQSCoreManager *)shareManager
+{
+    static LQSCoreManager *manager = nil;
+    static dispatch_once_t singleDialogCachepredicate;
+    dispatch_once(&singleDialogCachepredicate, ^{
+        manager = [[self alloc] init];
+    });
+    return manager;
+}
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        if (lockObj == nil) {
+            lockObj = [NSObject new];
+        }
+    }
+    return self;
+}
 
 
 
