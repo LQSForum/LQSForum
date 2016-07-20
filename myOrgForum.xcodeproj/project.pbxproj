@@ -98,6 +98,7 @@
 		415C556D1CC8CCEE00408B90 /* myOrgForumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C556C1CC8CCEE00408B90 /* myOrgForumTests.m */; };
 		415C55781CC8CCEE00408B90 /* myOrgForumUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55771CC8CCEE00408B90 /* myOrgForumUITests.m */; };
 		417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */; };
+		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
 		87DAAED4E77EE6DFE759E472 /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */; };
 		CF88EB46FF966494AB73F4FF /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */; };
 /* End PBXBuildFile section */
@@ -304,6 +305,9 @@
 		434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE2DD1D148983B02A069CD4 /* Pods-myOrgForumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.release.xcconfig"; sourceTree = "<group>"; };
+		6E75DCF91D3FB64F00C7BD82 /* LQSUserBasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSUserBasicInfo.h; path = core/LQSUserBasicInfo.h; sourceTree = "<group>"; };
+		6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSUserBasicInfo.m; path = core/LQSUserBasicInfo.m; sourceTree = "<group>"; };
+		6E75DCFD1D3FC0D900C7BD82 /* LQSCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCommonDefine.h; path = Utilities/LQSCommonDefine.h; sourceTree = "<group>"; };
 		75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
 		9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
@@ -600,6 +604,7 @@
 		417F34B01CC9CE1A00F9714F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				6E75DCFD1D3FC0D900C7BD82 /* LQSCommonDefine.h */,
 				410FA2001D38EBA30021B7E2 /* LQSEmotion.h */,
 				410FA2011D38EBA30021B7E2 /* LQSEmotion.m */,
 				410FA2021D38EBA30021B7E2 /* LQSEmotionAttachment.h */,
@@ -700,6 +705,8 @@
 		41852FC11CE31D21003CD9D4 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				6E75DCF91D3FB64F00C7BD82 /* LQSUserBasicInfo.h */,
+				6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */,
 				410FA2671D38EC010021B7E2 /* LQSCoreManager.h */,
 				410FA2681D38EC010021B7E2 /* LQSCoreManager.m */,
 			);
@@ -1093,6 +1100,7 @@
 			files = (
 				410FA1F71D38EB7E0021B7E2 /* UIView+Extension.m in Sources */,
 				410FA2B11D38EC830021B7E2 /* LQSForumViewController.m in Sources */,
+				6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */,
 				410FA2A61D38EC710021B7E2 /* LQSForumCell.m in Sources */,
 				4156AB311D3CAC28009F5E01 /* LQSDiscoverCell.m in Sources */,
 				410FA29E1D38EC630021B7E2 /* LQSDiscoverViewController.m in Sources */,
