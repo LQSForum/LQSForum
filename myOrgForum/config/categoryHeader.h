@@ -15,4 +15,5 @@
 #import "LQSAppDelegate+HUD.h"
 #import "UIImage+Extension.h"
 #import "NSDate+Extension.h"
+#import "LQSCoreManager.h"
 #endif /* categoryHeader_h */

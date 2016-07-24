@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface viewerViewController : UIViewController
+@interface horizonViewController : UIViewController
 
 @end

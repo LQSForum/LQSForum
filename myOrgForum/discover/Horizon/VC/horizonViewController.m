@@ -6,16 +6,16 @@
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
 
-#import "viewerViewController.h"
+#import "horizonViewController.h"
 
-@interface viewerViewController ()
+@interface horizonViewController ()<LQSWaterFlowViewDelegate,LQSWaterFlowViewDataSource>
 //tiezi
 @property (nonatomic, strong) NSMutableArray *discoriesArr;
 @property (nonatomic, weak) LQSWaterFlowView *waterFlowView;
 
 @end
 
-@implementation viewerViewController
+@implementation horizonViewController
 
 - (NSMutableArray *)discoriesArr
 {
@@ -47,9 +47,18 @@
     
     //    集成刷新控件下拉刷新
     waterFlowView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [waterFlowView.mj_header endRefreshing];
         
-        [self loadNewDiscoveries];
+        [self requestData:^{
+            
+            [waterFlowView.mj_header endRefreshing];
+            [self loadNewDiscoveries];
+            
+        }];
+        
+        
+        
+        
+        
         
     }];
     
@@ -63,6 +72,37 @@
         [self loadMoreShops];
         [waterFlowView.mj_footer endRefreshing];
     }];
+}
+
+- (void)requestData:(void (^)(void))callback
+{
+    [LQSCoreManagerHandler httpRequestHorizonSuccess:^(id responseObject) {
+        LQSHorizonDataModel *horizonModel = [LQSHorizonDataModel yy_modelWithDictionary:responseObject];
+        
+        
+        
+        
+        
+        
+        
+        if (callback) {
+            callback();
+        }
+    } failure:^(NSError *error) {
+        
+        if (callback) {
+            callback();
+        }
+        
+        
+        
+    }];
+    
+    
+    
+
+
+
 }
 
 - (void)loadNewDiscoveries

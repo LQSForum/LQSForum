@@ -35,7 +35,19 @@ const static NSObject *lockObj = nil;
     return self;
 }
 
+//视界
+- (void)httpRequestHorizonSuccess:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure
+{
 
+    LQSHorizonDataModel *param = [[LQSHorizonDataModel alloc] init];
+    
+    [self HttpsPost:kDiscoverUrl
+             params:param
+            success:success
+            failure:failure];
+
+}
 
 
 

@@ -11,18 +11,10 @@
 @interface LQSCoreManager : NSObject
 
 + (LQSCoreManager *)shareManager;
-#define IMTCoreManagerHandler [IMTCoreManager shareManager]
+#define LQSCoreManagerHandler [LQSCoreManager shareManager]
 
-- (void)HttpsPost:(NSString *)URLStr
-           params:(id)params
-          success:(void (^)(id responseObject))success
-          failure:(void (^)(NSError *error))failure;
-
-
-
-
-
-
+- (void)httpRequestHorizonSuccess:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure;
 
 
 
