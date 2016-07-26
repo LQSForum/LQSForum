@@ -19,6 +19,9 @@
 
 #define kNetworkNotReachedMessage  [kAppDelegate showHUDMessage:@"网络好像有点问题" hideDelay:1.0]
 
+/// 登陆数据是否合法
+#define kLoginDataValid(_loginName,_password) [Utils checkLoginParam:_loginName password:_password]
+
 //device uuid
 #define kUUID          [[UIDevice currentDevice] identifierForVendor].UUIDString
 
