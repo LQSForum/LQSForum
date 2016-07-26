@@ -8,10 +8,31 @@
 
 #ifndef modelHeader_h
 #define modelHeader_h
+
+
+//model
+#import "YYModel.h"
 //setting
 #import "LQSSettingPersonalSettingDataModel.h"
 #import "LQSSettingModel.h"
 #import "LQSMessageDataModel.h"
 
 #import "LQSHomePagePersonalMessageDataModel.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//discover
+#import "LQSHorizonDataModel.h"
 #endif /* modelHeader_h */

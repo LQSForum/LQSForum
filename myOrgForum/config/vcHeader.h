@@ -32,4 +32,4 @@
 #import "LQSComposeViewController.h"
 
 //discover
-#import "viewerViewController.h"
+#import "horizonViewController.h"

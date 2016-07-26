@@ -9,6 +9,12 @@
 #import "LQSIntroduceViewController.h"
 #define KTITLEBTNTAGBEGAN 20160716
 
+typedef enum {
+    EHotVC = 0,
+    ELastVC,
+    EJingHuaVC,
+    ETopVC
+}EVCTYPE;
 
 @interface LQSIntroduceViewController ()<UIScrollViewDelegate>
 
@@ -16,9 +22,11 @@
 @property (nonatomic, strong) NSMutableArray *titleButtons;
 @property (nonatomic, weak) UIView *titleIndicatorView;
 @property (nonatomic, weak) UIButton *selectedTitleButton;
-
+@property (nonatomic) EVCTYPE currentVCType;
 
 @end
+
+
 
 @implementation LQSIntroduceViewController
 
@@ -32,15 +40,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor yellowColor];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
 //    添加子控制器
+    self.currentVCType = EHotVC;
     [self setUpChildVc];
-//添加ScrollView
-    [self setupScrollView];
 //    添加标题栏
     [self setupTitleView];
-//    根据scrollView的偏移量添加自控制器的View
-    [self addChildView];
+    
     
 }
 
@@ -49,7 +56,7 @@
 {
     UIView *titleView = [[UIView alloc] init];
     titleView.frame = CGRectMake(0, LQSNavBarBottom, self.view.width, LQSTitleViewH);
-    titleView.backgroundColor = [UIColor yellowColor];
+    titleView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:titleView];
     
 //    添加标题
@@ -59,14 +66,14 @@
     for (NSUInteger i = 0; i < count; i++) {
         LQSTitleButton *titleButton = [LQSTitleButton new];
         titleButton.tag = KTITLEBTNTAGBEGAN + i;
-        [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [titleButton addTarget:self action:@selector(changeVCButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [titleView addSubview:titleButton];
         [self.titleButtons addObject:titleButton];
         
         titleButton.frame = CGRectMake(i *titleButtonW, 0, titleButtonW, titleButtonH);
         
         [titleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        [titleButton setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
         titleButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [titleButton setTitle:self.childViewControllers[i].title forState:UIControlStateNormal];
     }
@@ -91,59 +98,59 @@
 }
 
 
-- (void)titleButtonClick:(LQSTitleButton *)titleButton
+- (void)changeVCButtonClick:(LQSTitleButton *)sender
 {
 //当前选中的标题按钮便成以前的状态
     self.selectedTitleButton.selected = NO;
 
 //当前被点击的按钮便成选中状态
-    titleButton.selected  = YES;
+    sender.selected  = YES;
 //    获得当前被选中的按钮
-    self.selectedTitleButton = titleButton;
+    self.selectedTitleButton = sender;
 //    移动指示器
     [UIView animateWithDuration:0.25 animations:^{
-        self.titleIndicatorView.width = titleButton.titleLabel.width;
-        self.titleIndicatorView.centerX = titleButton.centerX;
-        
-        
+        self.titleIndicatorView.width = sender.titleLabel.width;
+        self.titleIndicatorView.centerX = sender.centerX;
     }];
 
 //    滚动scrollView
     CGPoint offSet = self.scrollView.contentOffset;
-    offSet.x = titleButton.tag * self.scrollView.width;
-    [self.scrollView setContentOffset:offSet animated:YES];
+    offSet.x = sender.tag * self.scrollView.width;
+//切换vc
+    NSInteger VCindex = sender.tag - KTITLEBTNTAGBEGAN;
+    if (VCindex != self.currentVCType) {
+        UIViewController *currentVC = self.childViewControllers[_currentVCType];
+        UIViewController *nextVC = self.childViewControllers[VCindex];
+        [self transitionFromViewController:currentVC toViewController:nextVC duration:1 options:UIViewAnimationOptionTransitionNone animations:^{
+            
+        } completion:^(BOOL finished) {
+           //切换完成
+            switch (VCindex) {
+                case 0:{
+                    self.currentVCType = EHotVC;
+                    break;
+                }case 1:{
+                    self.currentVCType = ELastVC;
+                    break;
+                }case 2:{
+                    self.currentVCType = EJingHuaVC;
+                    break;
+                }case 3:{
+                    self.currentVCType = ETopVC;
+                    break;
+                }
+                    
+                    
+                default:
+                    break;
+            }
+        }];
+    }
+    
+    
+    
 }
 
-- (void)addChildView
-{
-    UIScrollView *scrollView = self.scrollView;
-//    计算按钮索引
-    int index = scrollView.contentOffset.x / scrollView.width;
-//    添加对应的自控制器View
-    UIViewController *willShowVc = self.childViewControllers[index];
-    if (willShowVc.isViewLoaded) return;
-    [scrollView addSubview:willShowVc.view];
-//    设置自控制器View的frame
-    willShowVc.view.frame = scrollView.bounds;
-
-
-}
-
-- (void)setupScrollView
-{
-    UIScrollView *scrollView = [UIScrollView new];
-    scrollView.frame = self.view.bounds;
-    scrollView.pagingEnabled = YES;
-    scrollView.delegate = self;
-    [self.view addSubview:scrollView];
-    self.scrollView = scrollView;
-//    禁止掉［自动设置scrollView的内边距］
-    self.automaticallyAdjustsScrollViewInsets = NO;
-//    设置内容大小
-    scrollView.contentSize = CGSizeMake(self.childViewControllers.count * scrollView.width, 0);
-
-
-}
 
 - (void)setUpChildVc
 {
@@ -163,38 +170,11 @@
     LQSTopViewController *topVc = [LQSTopViewController new];
     topVc.title = @"置顶";
     [self addChildViewController:topVc];
-
-}
-
-#pragma  mark - scrollVIewDelegate
-
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-////根据scrollVIew的偏移量添加自控制器的VIew
-//    [self addChildView];
-//
-//}
-
-//通过setContentOffset:animated:让scrollView(进行了滚动动画),那么最后会在停止滚动时调用这个方法
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-{
-//根据scrollView的偏移量添加子控制器的view
-    [self addChildView];
-
-}
-
-//scrollView 停止滚动的时候会调用一次(人为拖拽导致的停止滚动才会触发这个方法)
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-
-//计算按钮的索引
-    NSUInteger index = scrollView.contentOffset.x / scrollView.width;
-    LQSTitleButton *titleButton = self.titleButtons[index];
-//   点击按钮
-    [self titleButtonClick:titleButton];
-//    根据scrollView的偏移量添加自控制器的view
-    [self addChildView];
-
-
+    
+    UIViewController *vc = self.childViewControllers[self.currentVCType];
+    UIView *contentView = [[UIView alloc] initWithFrame:self.view.frame];
+    [contentView addSubview:vc.view];
+    [self.view addSubview:contentView];
 
 }
 

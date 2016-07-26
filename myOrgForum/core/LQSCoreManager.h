@@ -25,7 +25,10 @@
 
 
 
+#define LQSCoreManagerHandler [LQSCoreManager shareManager]
 
+- (void)httpRequestHorizonSuccess:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure;
 
 
 
