@@ -31,5 +31,3 @@
 //main
 #import "LQSComposeViewController.h"
 
-//discover
-#import "horizonViewController.h"

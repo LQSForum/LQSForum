@@ -27,7 +27,7 @@
     self.flowLayout.itemSize = CGSizeMake(LQSScreenW / 2, 80);
     self.flowLayout.minimumInteritemSpacing = 0;
     self.flowLayout.minimumLineSpacing = 0;
-    self.flowLayout.sectionHeadersPinToVisibleBounds = YES;
+//    self.flowLayout.sectionHeadersPinToVisibleBounds = YES;
 
     self.forumView = [[LQSForumView alloc]initWithFrame:[UIScreen mainScreen].bounds collectionViewLayout:self.flowLayout];
     [self.view addSubview:self.forumView];

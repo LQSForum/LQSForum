@@ -12,7 +12,6 @@
 		2CA781431D438D7A00D35288 /* LQSWaterFlowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781411D438D7A00D35288 /* LQSWaterFlowViewCell.m */; };
 		2CA781481D438DEA00D35288 /* LQSDiscover.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781451D438DEA00D35288 /* LQSDiscover.m */; };
 		2CA781491D438DEA00D35288 /* LQSDiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781471D438DEA00D35288 /* LQSDiscoverCell.m */; };
-		2CA7814E1D438F5E00D35288 /* horizonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7814D1D438F5E00D35288 /* horizonViewController.m */; };
 		2CA781511D43B6BC00D35288 /* LQSHorizonDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781501D43B6BC00D35288 /* LQSHorizonDataModel.m */; };
 		410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E51D38EB7E0021B7E2 /* NSArray+Log.m */; };
 		410FA1F31D38EB7E0021B7E2 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E71D38EB7E0021B7E2 /* NSDate+Extension.m */; };
@@ -134,8 +133,6 @@
 		2CA781451D438DEA00D35288 /* LQSDiscover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDiscover.m; path = discover/Horizon/View/LQSDiscover.m; sourceTree = "<group>"; };
 		2CA781461D438DEA00D35288 /* LQSDiscoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDiscoverCell.h; path = discover/Horizon/View/LQSDiscoverCell.h; sourceTree = "<group>"; };
 		2CA781471D438DEA00D35288 /* LQSDiscoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDiscoverCell.m; path = discover/Horizon/View/LQSDiscoverCell.m; sourceTree = "<group>"; };
-		2CA7814C1D438F5E00D35288 /* horizonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = horizonViewController.h; path = discover/Horizon/VC/horizonViewController.h; sourceTree = "<group>"; };
-		2CA7814D1D438F5E00D35288 /* horizonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = horizonViewController.m; path = discover/Horizon/VC/horizonViewController.m; sourceTree = "<group>"; };
 		2CA7814F1D43B6BC00D35288 /* LQSHorizonDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHorizonDataModel.h; sourceTree = "<group>"; };
 		2CA781501D43B6BC00D35288 /* LQSHorizonDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHorizonDataModel.m; sourceTree = "<group>"; };
 		2CA781521D446A8000D35288 /* APIS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIS.h; sourceTree = "<group>"; };
@@ -372,8 +369,6 @@
 		2CA7814B1D438E7E00D35288 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				2CA7814C1D438F5E00D35288 /* horizonViewController.h */,
-				2CA7814D1D438F5E00D35288 /* horizonViewController.m */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -1159,7 +1154,6 @@
 				410FA23E1D38EBB60021B7E2 /* LQSEmotionListView.m in Sources */,
 				2CA781421D438D7A00D35288 /* LQSWaterFlowView.m in Sources */,
 				410FA2281D38EBA30021B7E2 /* LQSTextView.m in Sources */,
-				2CA7814E1D438F5E00D35288 /* horizonViewController.m in Sources */,
 				410FA21E1D38EBA30021B7E2 /* LQSEmotion.m in Sources */,
 				410FA2AE1D38EC790021B7E2 /* LQSSectionModel.m in Sources */,
 				410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */,
