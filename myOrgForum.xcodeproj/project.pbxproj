@@ -136,6 +136,7 @@
 		2CA7814F1D43B6BC00D35288 /* LQSHorizonDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHorizonDataModel.h; sourceTree = "<group>"; };
 		2CA781501D43B6BC00D35288 /* LQSHorizonDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHorizonDataModel.m; sourceTree = "<group>"; };
 		2CA781521D446A8000D35288 /* APIS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIS.h; sourceTree = "<group>"; };
+		2CAEB42F1D4DA21500BB164C /* XXXXdiscoverData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXdiscoverData.h; sourceTree = "<group>"; };
 		410FA1DB1D38EB6B0021B7E2 /* categoryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = categoryHeader.h; path = config/categoryHeader.h; sourceTree = "<group>"; };
 		410FA1DC1D38EB6B0021B7E2 /* configHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = configHeader.h; path = config/configHeader.h; sourceTree = "<group>"; };
 		410FA1DD1D38EB6B0021B7E2 /* modelHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = modelHeader.h; path = config/modelHeader.h; sourceTree = "<group>"; };
@@ -353,6 +354,7 @@
 				2CA7814B1D438E7E00D35288 /* VC */,
 				2CA7814A1D438E7100D35288 /* Model */,
 				4156AB191D3CA50D009F5E01 /* View */,
+				2CAEB42F1D4DA21500BB164C /* XXXXdiscoverData.h */,
 			);
 			name = Horizon;
 			sourceTree = "<group>";
@@ -1362,7 +1364,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/skyandsea/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/zhoushuang/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1412,7 +1414,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/skyandsea/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/zhoushuang/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
