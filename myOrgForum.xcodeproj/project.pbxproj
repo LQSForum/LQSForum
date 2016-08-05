@@ -102,6 +102,16 @@
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
 		87DAAED4E77EE6DFE759E472 /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */; };
 		CF88EB46FF966494AB73F4FF /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */; };
+		E4D8E1B91D54188500EE6171 /* LQSBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1B81D54188500EE6171 /* LQSBaseManager.m */; };
+		E4D8E1C51D54193000EE6171 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C01D54193000EE6171 /* AsyncSocket.m */; };
+		E4D8E1C61D54193000EE6171 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C21D54193000EE6171 /* GCDAsyncSocket.m */; };
+		E4D8E1C71D54193000EE6171 /* GCDMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C41D54193000EE6171 /* GCDMulticastDelegate.m */; };
+		E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C91D541B6700EE6171 /* LQSUserManager.m */; };
+		E4D8E1D11D54237200EE6171 /* LQSBaseRestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1D01D54237200EE6171 /* LQSBaseRestRequest.m */; };
+		E4D8E1D61D5423D700EE6171 /* LQSBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1D41D5423D700EE6171 /* LQSBaseModel.m */; };
+		E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1D81D5424CF00EE6171 /* LQSHttpsRequest.m */; };
+		E4D8E1DC1D542A2B00EE6171 /* LQSUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1DB1D542A2B00EE6171 /* LQSUserInfo.m */; };
+		E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1DE1D542A4C00EE6171 /* LQSUserRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -317,6 +327,28 @@
 		75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
 		9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
+		E4D8E1B71D54188500EE6171 /* LQSBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSBaseManager.h; path = core/LQSBaseManager.h; sourceTree = "<group>"; };
+		E4D8E1B81D54188500EE6171 /* LQSBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSBaseManager.m; path = core/LQSBaseManager.m; sourceTree = "<group>"; };
+		E4D8E1BF1D54193000EE6171 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		E4D8E1C01D54193000EE6171 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		E4D8E1C11D54193000EE6171 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		E4D8E1C21D54193000EE6171 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		E4D8E1C31D54193000EE6171 /* GCDMulticastDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDMulticastDelegate.h; sourceTree = "<group>"; };
+		E4D8E1C41D54193000EE6171 /* GCDMulticastDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDMulticastDelegate.m; sourceTree = "<group>"; };
+		E4D8E1C81D541B6700EE6171 /* LQSUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSUserManager.h; sourceTree = "<group>"; };
+		E4D8E1C91D541B6700EE6171 /* LQSUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSUserManager.m; sourceTree = "<group>"; };
+		E4D8E1CB1D541C1300EE6171 /* LQSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSConstants.h; path = core/LQSConstants.h; sourceTree = "<group>"; };
+		E4D8E1CF1D54237200EE6171 /* LQSBaseRestRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSBaseRestRequest.h; sourceTree = "<group>"; };
+		E4D8E1D01D54237200EE6171 /* LQSBaseRestRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSBaseRestRequest.m; sourceTree = "<group>"; };
+		E4D8E1D31D5423D700EE6171 /* LQSBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSBaseModel.h; sourceTree = "<group>"; };
+		E4D8E1D41D5423D700EE6171 /* LQSBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSBaseModel.m; sourceTree = "<group>"; };
+		E4D8E1D51D5423D700EE6171 /* LQSBaseModel_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSBaseModel_Private.h; sourceTree = "<group>"; };
+		E4D8E1D71D5424CF00EE6171 /* LQSHttpsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHttpsRequest.h; sourceTree = "<group>"; };
+		E4D8E1D81D5424CF00EE6171 /* LQSHttpsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHttpsRequest.m; sourceTree = "<group>"; };
+		E4D8E1DA1D542A2B00EE6171 /* LQSUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSUserInfo.h; sourceTree = "<group>"; };
+		E4D8E1DB1D542A2B00EE6171 /* LQSUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSUserInfo.m; sourceTree = "<group>"; };
+		E4D8E1DD1D542A4C00EE6171 /* LQSUserRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSUserRequest.h; sourceTree = "<group>"; };
+		E4D8E1DE1D542A4C00EE6171 /* LQSUserRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSUserRequest.m; sourceTree = "<group>"; };
 		F1630D4AB3FA63EE16979A0E /* Pods-myOrgForumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -412,6 +444,7 @@
 		410FBB6F1CCDEBC500761192 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				E4D8E1BA1D5418A400EE6171 /* User */,
 				41C5194F1D224B8800F05A24 /* images */,
 				416072021D20BE480083229E /* main */,
 				41852FC11CE31D21003CD9D4 /* core */,
@@ -542,6 +575,7 @@
 			isa = PBXGroup;
 			children = (
 				2CA7813C1D4388DE00D35288 /* myOrgForum.entitlements */,
+				E4D8E1BD1D54193000EE6171 /* ThirdParty */,
 				410FA1D91D38E9F10021B7E2 /* categories */,
 				417F34B01CC9CE1A00F9714F /* Utilities */,
 				410FBB6F1CCDEBC500761192 /* classes */,
@@ -738,12 +772,17 @@
 		41852FC11CE31D21003CD9D4 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				E4D8E1D21D5423D700EE6171 /* baseModel */,
+				E4D8E1CE1D54237200EE6171 /* RestRequset */,
+				E4D8E1B71D54188500EE6171 /* LQSBaseManager.h */,
+				E4D8E1B81D54188500EE6171 /* LQSBaseManager.m */,
 				6E75DCF91D3FB64F00C7BD82 /* LQSUserBasicInfo.h */,
 				6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */,
 				410FA2671D38EC010021B7E2 /* LQSCoreManager.h */,
 				410FA2681D38EC010021B7E2 /* LQSCoreManager.m */,
 				412E8C2D1D3DC6A4008C2553 /* LQSCore.h */,
 				412E8C2E1D3DC6A4008C2553 /* LQSCore.m */,
+				E4D8E1CB1D541C1300EE6171 /* LQSConstants.h */,
 			);
 			name = core;
 			sourceTree = "<group>";
@@ -838,6 +877,79 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E4D8E1BA1D5418A400EE6171 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8E1BB1D5418C400EE6171 /* Manager */,
+				E4D8E1BC1D5418C400EE6171 /* Model */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		E4D8E1BB1D5418C400EE6171 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8E1C81D541B6700EE6171 /* LQSUserManager.h */,
+				E4D8E1C91D541B6700EE6171 /* LQSUserManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		E4D8E1BC1D5418C400EE6171 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8E1DA1D542A2B00EE6171 /* LQSUserInfo.h */,
+				E4D8E1DB1D542A2B00EE6171 /* LQSUserInfo.m */,
+				E4D8E1DD1D542A4C00EE6171 /* LQSUserRequest.h */,
+				E4D8E1DE1D542A4C00EE6171 /* LQSUserRequest.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E4D8E1BD1D54193000EE6171 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8E1BE1D54193000EE6171 /* GCDAsyncSocket */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		E4D8E1BE1D54193000EE6171 /* GCDAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8E1BF1D54193000EE6171 /* AsyncSocket.h */,
+				E4D8E1C01D54193000EE6171 /* AsyncSocket.m */,
+				E4D8E1C11D54193000EE6171 /* GCDAsyncSocket.h */,
+				E4D8E1C21D54193000EE6171 /* GCDAsyncSocket.m */,
+				E4D8E1C31D54193000EE6171 /* GCDMulticastDelegate.h */,
+				E4D8E1C41D54193000EE6171 /* GCDMulticastDelegate.m */,
+			);
+			path = GCDAsyncSocket;
+			sourceTree = "<group>";
+		};
+		E4D8E1CE1D54237200EE6171 /* RestRequset */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8E1D71D5424CF00EE6171 /* LQSHttpsRequest.h */,
+				E4D8E1D81D5424CF00EE6171 /* LQSHttpsRequest.m */,
+				E4D8E1CF1D54237200EE6171 /* LQSBaseRestRequest.h */,
+				E4D8E1D01D54237200EE6171 /* LQSBaseRestRequest.m */,
+			);
+			name = RestRequset;
+			path = core/RestRequset;
+			sourceTree = "<group>";
+		};
+		E4D8E1D21D5423D700EE6171 /* baseModel */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8E1D31D5423D700EE6171 /* LQSBaseModel.h */,
+				E4D8E1D41D5423D700EE6171 /* LQSBaseModel.m */,
+				E4D8E1D51D5423D700EE6171 /* LQSBaseModel_Private.h */,
+			);
+			name = baseModel;
+			path = core/baseModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -915,7 +1027,7 @@
 				TargetAttributes = {
 					415C554E1CC8CCEE00408B90 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = VKS2SV893P;
+						DevelopmentTeam = 38TKCF33JX;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -1151,6 +1263,7 @@
 				410FA23C1D38EBB60021B7E2 /* LQSEmotionGridView.m in Sources */,
 				410FA2241D38EBA30021B7E2 /* LQSSpecifyFooter.m in Sources */,
 				2CA781481D438DEA00D35288 /* LQSDiscover.m in Sources */,
+				E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */,
 				410FA2661D38EBF30021B7E2 /* LQSComposeViewController.m in Sources */,
 				410FA2BD1D38EC9B0021B7E2 /* LQSHotViewController.m in Sources */,
 				410FA23E1D38EBB60021B7E2 /* LQSEmotionListView.m in Sources */,
@@ -1179,18 +1292,24 @@
 				410FA2631D38EBE80021B7E2 /* LQSCompostToolbar.m in Sources */,
 				410FA2211D38EBA30021B7E2 /* LQSNavigationController.m in Sources */,
 				410FA2951D38EC430021B7E2 /* LQSSettingPersonalSettingDataModel.m in Sources */,
+				E4D8E1B91D54188500EE6171 /* LQSBaseManager.m in Sources */,
 				410FA2431D38EBB60021B7E2 /* LQSEmotionView.m in Sources */,
+				E4D8E1DC1D542A2B00EE6171 /* LQSUserInfo.m in Sources */,
 				410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */,
 				410FA2771D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.m in Sources */,
+				E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */,
 				410FA2701D38EC100021B7E2 /* LQSSettingCell.m in Sources */,
 				410FA2A81D38EC710021B7E2 /* LQSHeaderView.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
+				E4D8E1D11D54237200EE6171 /* LQSBaseRestRequest.m in Sources */,
 				410FA28C1D38EC390021B7E2 /* LQSMessageMentionedMeViewController.m in Sources */,
 				412E8C2F1D3DC6A4008C2553 /* LQSCore.m in Sources */,
 				410FA2251D38EBA30021B7E2 /* LQSSpecifyHeader.m in Sources */,
+				E4D8E1C51D54193000EE6171 /* AsyncSocket.m in Sources */,
 				410FA2BF1D38EC9B0021B7E2 /* LQSLatestViewController.m in Sources */,
 				410FA2721D38EC100021B7E2 /* LQSSettingViewController.m in Sources */,
 				410FA2A71D38EC710021B7E2 /* LQSForumView.m in Sources */,
+				E4D8E1C61D54193000EE6171 /* GCDAsyncSocket.m in Sources */,
 				410FA2711D38EC100021B7E2 /* LQSSettingModel.m in Sources */,
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
 				410FA2B41D38EC910021B7E2 /* LQSIntroduceViewController.m in Sources */,
@@ -1200,6 +1319,7 @@
 				410FA21F1D38EBA30021B7E2 /* LQSEmotionAttachment.m in Sources */,
 				410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */,
 				410FA28B1D38EC390021B7E2 /* LQSMessageFriendsApplyViewController.m in Sources */,
+				E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */,
 				410FA2961D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m in Sources */,
 				410FA2411D38EBB60021B7E2 /* LQSEmotionTextView.m in Sources */,
 				410FA1F51D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m in Sources */,
@@ -1210,6 +1330,8 @@
 				410FA23F1D38EBB60021B7E2 /* LQSEmotionPopView.m in Sources */,
 				410FA28A1D38EC390021B7E2 /* LQSMessageCommentViewController.m in Sources */,
 				410FA1F61D38EB7E0021B7E2 /* UIImage+Extension.m in Sources */,
+				E4D8E1D61D5423D700EE6171 /* LQSBaseModel.m in Sources */,
+				E4D8E1C71D54193000EE6171 /* GCDMulticastDelegate.m in Sources */,
 				410FA2621D38EBE80021B7E2 /* LQSComposePhotosView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1364,7 +1486,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/zhoushuang/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/myOrgForum/LQSPrefixHeader.pch";
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1414,7 +1536,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/zhoushuang/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/myOrgForum/LQSPrefixHeader.pch";
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
