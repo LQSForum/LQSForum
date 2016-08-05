@@ -13,7 +13,6 @@
 @interface LQSBaseManager () {
 
 }
-@property (nonatomic, strong) id observerController;
 @end
 
 @implementation LQSBaseManager
