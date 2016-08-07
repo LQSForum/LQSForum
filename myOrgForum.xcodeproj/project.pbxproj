@@ -85,7 +85,6 @@
 		410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AA1D38EC790021B7E2 /* LQSCellModel.m */; };
 		410FA2AE1D38EC790021B7E2 /* LQSSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AC1D38EC790021B7E2 /* LQSSectionModel.m */; };
 		410FA2B11D38EC830021B7E2 /* LQSForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B01D38EC830021B7E2 /* LQSForumViewController.m */; };
-		410FA2B41D38EC910021B7E2 /* LQSIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B31D38EC910021B7E2 /* LQSIntroduceViewController.m */; };
 		410FA2BD1D38EC9B0021B7E2 /* LQSHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B61D38EC9B0021B7E2 /* LQSHotViewController.m */; };
 		410FA2BE1D38EC9B0021B7E2 /* LQSJingHuaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B81D38EC9B0021B7E2 /* LQSJingHuaViewController.m */; };
 		410FA2BF1D38EC9B0021B7E2 /* LQSLatestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2BA1D38EC9B0021B7E2 /* LQSLatestViewController.m */; };
@@ -99,6 +98,9 @@
 		415C556D1CC8CCEE00408B90 /* myOrgForumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C556C1CC8CCEE00408B90 /* myOrgForumTests.m */; };
 		415C55781CC8CCEE00408B90 /* myOrgForumUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55771CC8CCEE00408B90 /* myOrgForumUITests.m */; };
 		417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */; };
+		6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */; };
+		6E0476671D55B32600FD6CE0 /* LQSintroduceMainlistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476661D55B32600FD6CE0 /* LQSintroduceMainlistCell.m */; };
+		6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476691D55D7C300FD6CE0 /* LQSIntroduceMainList.m */; };
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
 		87DAAED4E77EE6DFE759E472 /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */; };
 		CF88EB46FF966494AB73F4FF /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */; };
@@ -299,8 +301,6 @@
 		410FA2AC1D38EC790021B7E2 /* LQSSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSectionModel.m; path = forum/Model/LQSSectionModel.m; sourceTree = "<group>"; };
 		410FA2AF1D38EC830021B7E2 /* LQSForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumViewController.h; path = forum/LQSForumViewController.h; sourceTree = "<group>"; };
 		410FA2B01D38EC830021B7E2 /* LQSForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumViewController.m; path = forum/LQSForumViewController.m; sourceTree = "<group>"; };
-		410FA2B21D38EC910021B7E2 /* LQSIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSIntroduceViewController.h; path = introduce/LQSIntroduceViewController.h; sourceTree = "<group>"; };
-		410FA2B31D38EC910021B7E2 /* LQSIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSIntroduceViewController.m; path = introduce/LQSIntroduceViewController.m; sourceTree = "<group>"; };
 		410FA2B51D38EC9B0021B7E2 /* LQSHotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSHotViewController.h; path = introduce/topic/LQSHotViewController.h; sourceTree = "<group>"; };
 		410FA2B61D38EC9B0021B7E2 /* LQSHotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSHotViewController.m; path = introduce/topic/LQSHotViewController.m; sourceTree = "<group>"; };
 		410FA2B71D38EC9B0021B7E2 /* LQSJingHuaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSJingHuaViewController.h; path = introduce/topic/LQSJingHuaViewController.h; sourceTree = "<group>"; };
@@ -333,6 +333,12 @@
 		434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE2DD1D148983B02A069CD4 /* Pods-myOrgForumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.release.xcconfig"; sourceTree = "<group>"; };
+		6E04765F1D55AE7000FD6CE0 /* LQSIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSIntroduceViewController.h; path = introduce/introduceVC/LQSIntroduceViewController.h; sourceTree = "<group>"; };
+		6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSIntroduceViewController.m; path = introduce/introduceVC/LQSIntroduceViewController.m; sourceTree = "<group>"; };
+		6E0476651D55B32600FD6CE0 /* LQSintroduceMainlistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSintroduceMainlistCell.h; path = introduce/introduceView/LQSintroduceMainlistCell.h; sourceTree = "<group>"; };
+		6E0476661D55B32600FD6CE0 /* LQSintroduceMainlistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSintroduceMainlistCell.m; path = introduce/introduceView/LQSintroduceMainlistCell.m; sourceTree = "<group>"; };
+		6E0476681D55D7C300FD6CE0 /* LQSIntroduceMainList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSIntroduceMainList.h; path = introduce/introduceModel/LQSIntroduceMainList.h; sourceTree = "<group>"; };
+		6E0476691D55D7C300FD6CE0 /* LQSIntroduceMainList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSIntroduceMainList.m; path = introduce/introduceModel/LQSIntroduceMainList.m; sourceTree = "<group>"; };
 		6E75DCF91D3FB64F00C7BD82 /* LQSUserBasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSUserBasicInfo.h; path = core/LQSUserBasicInfo.h; sourceTree = "<group>"; };
 		6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSUserBasicInfo.m; path = core/LQSUserBasicInfo.m; sourceTree = "<group>"; };
 		6E75DCFD1D3FC0D900C7BD82 /* LQSCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCommonDefine.h; path = Utilities/LQSCommonDefine.h; sourceTree = "<group>"; };
@@ -737,8 +743,9 @@
 		417F34B61CC9CF1A00F9714F /* introduce */ = {
 			isa = PBXGroup;
 			children = (
-				410FA2B21D38EC910021B7E2 /* LQSIntroduceViewController.h */,
-				410FA2B31D38EC910021B7E2 /* LQSIntroduceViewController.m */,
+				6E0476641D55AE9A00FD6CE0 /* introduceView */,
+				6E0476631D55AE8D00FD6CE0 /* introduceVC */,
+				6E0476621D55AE7C00FD6CE0 /* introduceModel */,
 				4144070C1CEEA7B900CD2F84 /* topic */,
 			);
 			name = introduce;
@@ -889,6 +896,33 @@
 				410FA2A51D38EC710021B7E2 /* LQSHeaderView.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		6E0476621D55AE7C00FD6CE0 /* introduceModel */ = {
+			isa = PBXGroup;
+			children = (
+				6E0476681D55D7C300FD6CE0 /* LQSIntroduceMainList.h */,
+				6E0476691D55D7C300FD6CE0 /* LQSIntroduceMainList.m */,
+			);
+			name = introduceModel;
+			sourceTree = "<group>";
+		};
+		6E0476631D55AE8D00FD6CE0 /* introduceVC */ = {
+			isa = PBXGroup;
+			children = (
+				6E04765F1D55AE7000FD6CE0 /* LQSIntroduceViewController.h */,
+				6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */,
+			);
+			name = introduceVC;
+			sourceTree = "<group>";
+		};
+		6E0476641D55AE9A00FD6CE0 /* introduceView */ = {
+			isa = PBXGroup;
+			children = (
+				6E0476651D55B32600FD6CE0 /* LQSintroduceMainlistCell.h */,
+				6E0476661D55B32600FD6CE0 /* LQSintroduceMainlistCell.m */,
+			);
+			name = introduceView;
 			sourceTree = "<group>";
 		};
 		D2FF60D40CEE75621BCC406D /* Frameworks */ = {
@@ -1317,14 +1351,17 @@
 				410FA1F71D38EB7E0021B7E2 /* UIView+Extension.m in Sources */,
 				410FA2B11D38EC830021B7E2 /* LQSForumViewController.m in Sources */,
 				6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */,
+				6E0476671D55B32600FD6CE0 /* LQSintroduceMainlistCell.m in Sources */,
 				2CA781491D438DEA00D35288 /* LQSDiscoverCell.m in Sources */,
 				410FA2A61D38EC710021B7E2 /* LQSForumCell.m in Sources */,
+				6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */,
 				410FA29E1D38EC630021B7E2 /* LQSDiscoverViewController.m in Sources */,
 				410FA2991D38EC4C0021B7E2 /* LQSMyHomePageViewController.m in Sources */,
 				410FA2781D38EC230021B7E2 /* LQSMessageDataModel.m in Sources */,
 				410FA2261D38EBA30021B7E2 /* LQSTabBar.m in Sources */,
 				410FA2201D38EBA30021B7E2 /* LQSEmotionTool.m in Sources */,
 				410FA23C1D38EBB60021B7E2 /* LQSEmotionGridView.m in Sources */,
+				6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainList.m in Sources */,
 				410FA2241D38EBA30021B7E2 /* LQSSpecifyFooter.m in Sources */,
 				2CA781481D438DEA00D35288 /* LQSDiscover.m in Sources */,
 				E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */,
@@ -1376,7 +1413,6 @@
 				E4D8E1C61D54193000EE6171 /* GCDAsyncSocket.m in Sources */,
 				410FA2711D38EC100021B7E2 /* LQSSettingModel.m in Sources */,
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
-				410FA2B41D38EC910021B7E2 /* LQSIntroduceViewController.m in Sources */,
 				410FA2421D38EBB60021B7E2 /* LQSEmotionToolbar.m in Sources */,
 				410FA1FE1D38EB8B0021B7E2 /* NSObject+YYModel.m in Sources */,
 				410FA2C01D38EC9B0021B7E2 /* LQSTopViewController.m in Sources */,
