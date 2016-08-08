@@ -10,4 +10,15 @@
 
 @implementation LQSintroduceMainlistCell
 
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier
+{
+    if (!self) {
+        self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    }
+    
+    
+    
+    return self;
+}
+
 @end

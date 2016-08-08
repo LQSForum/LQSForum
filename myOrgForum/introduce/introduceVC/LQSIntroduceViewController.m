@@ -37,9 +37,13 @@
     self.mainList.dataSource = self;
     [self.view addSubview:self.mainList];
     self.mainList.backgroundColor = [UIColor yellowColor];
+//    [self postForData];
+    
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self postForData];
-    
-    
 }
 #pragma mark - postFordata
 - (void)postForData
@@ -74,10 +78,9 @@
     [session POST:loginUrlStr parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"请求成功");
         
-        NSData *data = responseObject;
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];//[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
         NSLog(@"返回数据：%@",dict);
-        
+        [self getDataModelFor:dict];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败");
@@ -89,12 +92,14 @@
 - (void)getDataModelFor:(NSDictionary *)dataDic
 {
     NSMutableArray *yChengData = nil;
-    if (dataDic[@"componentList"]) {
-       yChengData = dataDic[@"componentList"];
+    if (dataDic[@"body"][@"module"][@"componentList"]) {
+       yChengData = dataDic[@"body"][@"module"][@"componentList"];
     }
     if (yChengData.count >= 6) {
         //轮播数据
-        NSArray *eChengData = yChengData[0][@"componentList"][@"componentList"];
+        NSArray *arr = [yChengData objectAtIndex: 0][@"componentList"];
+        
+        NSArray *eChengData = [arr[0] objectForKey:@"componentList"];
         for (NSDictionary *sChengData in eChengData) {
             LQSIntroduceMainListModel *lbModel = [[LQSIntroduceMainListModel alloc] init];
             lbModel.px = LQSTR(sChengData[@"px"]);
@@ -136,7 +141,7 @@
         }
         //龙泉闻思修
         NSDictionary *eChengDataDic;
-        eChengDataDic = yChengData[2][@"componentList"][@"componentList"];
+        eChengDataDic = yChengData[2][@"componentList"][0][@"componentList"][0];
         if (eChengDataDic) {
             self.LQWSXDataC.px = LQSTR(eChengDataDic[@"px"]);
             self.LQWSXDataC.type = LQSTR(eChengDataDic[@"type"]);
@@ -147,7 +152,7 @@
             self.LQWSXDataC.redirect = LQSTR(eChengDataDic[@"exParams"][@"redirect"]);
         }
         //活动报名、学佛小组
-        eChengData = yChengData[3][@"componentList"][@"componentList"];
+        eChengData = yChengData[3][@"componentList"][0][@"componentList"];
         for (NSDictionary *sChengData in eChengData) {
             LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
             xModel.px = LQSTR(sChengData[@"px"]);
@@ -162,7 +167,7 @@
             [self.XFXZDataD addObject:xModel];
         }
         //师父开示
-        eChengData = yChengData[3][@"componentList"][@"componentList"];
+        eChengData = yChengData[3][@"componentList"][0][@"componentList"];
         for (NSDictionary *sChengData in eChengData) {
             LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
             xModel.px = LQSTR(sChengData[@"px"]);
@@ -251,6 +256,37 @@
     }else{
         return 1;
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat height = 0;
+    switch (indexPath.section) {
+        case 0:{
+            height = KLQScreenFrame.width *380/750;
+            break;
+        }case 1:{
+            height = KLQScreenFrame.width *360/750;
+            break;
+        }case 2:{
+            height = KLQScreenFrame.width *180/750;
+            break;
+        }case 3:{
+            height = KLQScreenFrame.width *190/750;
+            break;
+        }case 4:{
+            height = KLQScreenFrame.width *230/750;
+            break;
+        }case 5:{
+            height = KLQScreenFrame.width *180/750;
+            break;
+        }
+            
+        default:
+            break;
+    }
+    
+    return height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
