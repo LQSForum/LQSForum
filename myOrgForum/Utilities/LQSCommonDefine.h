@@ -27,6 +27,7 @@
 #define LQSPadding @"padding"
 #define LQSIsValidation @"isValidation"
 
+#define LQSTR(string) string == nil?@"":string//字符串容错宏
 
 
 #endif /* LQSCommonDefine_h */

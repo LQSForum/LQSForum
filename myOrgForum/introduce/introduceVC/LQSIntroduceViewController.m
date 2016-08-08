@@ -7,12 +7,20 @@
 //
 
 #import "LQSIntroduceViewController.h"
+#import "LQSIntroduceMainListModel.h"
 #define KTITLEBTNTAGBEGAN 20160716
 
 
 @interface LQSIntroduceViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *mainList;
+@property (nonatomic, strong) NSMutableArray *lbDataArrA;//最上轮播数据
+@property (nonatomic, strong) NSMutableArray *btnDataArrB;//八个按钮数据
+@property (nonatomic, strong) LQSIntroduceMainListModel *LQWSXDataC;//龙泉闻思修
+@property (nonatomic, strong) NSMutableArray *XFXZDataD;//学佛小组
+@property (nonatomic, strong) LQSIntroduceMainListModel *DHSKSDataE;//大和尚开示
+@property (nonatomic, strong) NSMutableArray *KSDataF;//师父法语开示
+
 
 @end
 
@@ -39,7 +47,7 @@
     NSString *loginUrlStr = @"http://forum.longquanzs.org/mobcent/app/web/index.php?";
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
 //    session.requestSerializer = [AFHTTPRequestSerializer serializer];
-    //    session.responseSerializer = [AFJSONResponseSerializer serializer];
+        session.responseSerializer = [AFJSONResponseSerializer serializer];
     session.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"r"] = @"app/moduleconfig";
@@ -63,19 +71,165 @@
      accessSecret:39a68e4d5473e75669bce2d70c4b9
      forumKey:BW0L5ISVRsOTVLCTJx
      */
-//    [session POST:loginUrlStr parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"请求成功");
-//        
-//        NSData *data = responseObject;
-//        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-//        
-//        
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        NSLog(@"请求失败");
-//    }];
+    [session POST:loginUrlStr parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"请求成功");
+        
+        NSData *data = responseObject;
+        NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];//[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+        NSLog(@"返回数据：%@",dict);
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"请求失败");
+    }];
 
 }
+
+
+- (void)getDataModelFor:(NSDictionary *)dataDic
+{
+    NSMutableArray *yChengData = nil;
+    if (dataDic[@"componentList"]) {
+       yChengData = dataDic[@"componentList"];
+    }
+    if (yChengData.count >= 6) {
+        //轮播数据
+        NSArray *eChengData = yChengData[0][@"componentList"][@"componentList"];
+        for (NSDictionary *sChengData in eChengData) {
+            LQSIntroduceMainListModel *lbModel = [[LQSIntroduceMainListModel alloc] init];
+            lbModel.px = LQSTR(sChengData[@"px"]);
+            lbModel.type = LQSTR(sChengData[@"type"]);
+            lbModel.icon = LQSTR(sChengData[@"icon"]);
+            lbModel.title = LQSTR(sChengData[@"title"]);
+            lbModel.desc = LQSTR(sChengData[@"desc"]);
+            lbModel.topicId = LQSTR(sChengData[@"exParams"][@"topicId"]);
+            lbModel.redirect = LQSTR(sChengData[@"exParams"][@"redirect"]);
+            lbModel.id = LQSTR(sChengData[@"id"]);
+            [self.lbDataArrA addObject:lbModel];
+        }
+        //八按钮数据
+        eChengData = yChengData[1][@"componentList"][0][@"componentList"];
+        for (NSDictionary *sChengData in eChengData) {
+            LQSIntroduceMainListModel *bModel = [[LQSIntroduceMainListModel alloc] init];
+            bModel.px = LQSTR(sChengData[@"px"]);
+            bModel.type = LQSTR(sChengData[@"type"]);
+            bModel.icon = LQSTR(sChengData[@"icon"]);
+            bModel.title = LQSTR(sChengData[@"title"]);
+            bModel.desc = LQSTR(sChengData[@"desc"]);
+            bModel.topicId = LQSTR(sChengData[@"exParams"][@"topicId"]);
+            bModel.redirect = LQSTR(sChengData[@"exParams"][@"redirect"]);
+            bModel.id = LQSTR(sChengData[@"id"]);
+            [self.btnDataArrB addObject:bModel];
+        }
+        eChengData = yChengData[1][@"componentList"][1][@"componentList"];
+        for (NSDictionary *sChengData in eChengData) {
+            LQSIntroduceMainListModel *bModel = [[LQSIntroduceMainListModel alloc] init];
+            bModel.px = LQSTR(sChengData[@"px"]);
+            bModel.type = LQSTR(sChengData[@"type"]);
+            bModel.icon = LQSTR(sChengData[@"icon"]);
+            bModel.title = LQSTR(sChengData[@"title"]);
+            bModel.desc = LQSTR(sChengData[@"desc"]);
+            bModel.topicId = LQSTR(sChengData[@"exParams"][@"topicId"]);
+            bModel.redirect = LQSTR(sChengData[@"exParams"][@"redirect"]);
+            bModel.id = LQSTR(sChengData[@"id"]);
+            [self.btnDataArrB addObject:bModel];
+        }
+        //龙泉闻思修
+        NSDictionary *eChengDataDic;
+        eChengDataDic = yChengData[2][@"componentList"][@"componentList"];
+        if (eChengDataDic) {
+            self.LQWSXDataC.px = LQSTR(eChengDataDic[@"px"]);
+            self.LQWSXDataC.type = LQSTR(eChengDataDic[@"type"]);
+            self.LQWSXDataC.icon = LQSTR(eChengDataDic[@"icon"]);
+            self.LQWSXDataC.title = LQSTR(eChengDataDic[@"title"]);
+            self.LQWSXDataC.desc = LQSTR(eChengDataDic[@"desc"]);
+            self.LQWSXDataC.topicId = LQSTR(eChengDataDic[@"exParams"][@"topicId"]);
+            self.LQWSXDataC.redirect = LQSTR(eChengDataDic[@"exParams"][@"redirect"]);
+        }
+        //活动报名、学佛小组
+        eChengData = yChengData[3][@"componentList"][@"componentList"];
+        for (NSDictionary *sChengData in eChengData) {
+            LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
+            xModel.px = LQSTR(sChengData[@"px"]);
+            xModel.type = LQSTR(sChengData[@"type"]);
+            xModel.icon = LQSTR(sChengData[@"icon"]);
+            xModel.title = LQSTR(sChengData[@"title"]);
+            xModel.desc = LQSTR(sChengData[@"desc"]);
+            xModel.forumId = LQSTR(sChengData[@"forumId"]);
+            xModel.topicId = LQSTR(sChengData[@"exParams"][@"topicId"]);
+            xModel.redirect = LQSTR(sChengData[@"exParams"][@"redirect"]);
+            xModel.id = LQSTR(sChengData[@"id"]);
+            [self.XFXZDataD addObject:xModel];
+        }
+        //师父开示
+        eChengData = yChengData[3][@"componentList"][@"componentList"];
+        for (NSDictionary *sChengData in eChengData) {
+            LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
+            xModel.px = LQSTR(sChengData[@"px"]);
+            xModel.type = LQSTR(sChengData[@"type"]);
+            xModel.icon = LQSTR(sChengData[@"icon"]);
+            xModel.title = LQSTR(sChengData[@"title"]);
+            xModel.desc = LQSTR(sChengData[@"desc"]);
+            xModel.forumId = LQSTR(sChengData[@"forumId"]);
+            xModel.topicId = LQSTR(sChengData[@"exParams"][@"topicId"]);
+            xModel.redirect = LQSTR(sChengData[@"exParams"][@"redirect"]);
+            xModel.id = LQSTR(sChengData[@"id"]);
+            [self.XFXZDataD addObject:xModel];
+        }
+
+
+    }
+   
+}
+#pragma mark - 属性懒加载
+- (NSMutableArray *)lbDataArrA
+{
+    if (!_lbDataArrA) {
+        _lbDataArrA = [NSMutableArray array];
+    }
+    return _lbDataArrA;
+}
+
+- (NSMutableArray *)XFXZDataD
+{
+    if (!_XFXZDataD) {
+        _XFXZDataD = [NSMutableArray array];
+    }
+    return _XFXZDataD;
+}
+
+- (NSMutableArray *)btnDataArrB
+{
+    if (!_btnDataArrB) {
+        _btnDataArrB = [NSMutableArray array];
+    }
+    return _btnDataArrB;
+}
+
+- (NSMutableArray *)KSDataF
+{
+    if (!_KSDataF) {
+        _KSDataF = [NSMutableArray array];
+    }
+    return _KSDataF;
+}
+
+- (LQSIntroduceMainListModel *)DHSKSDataE
+{
+    if (!_DHSKSDataE) {
+        _DHSKSDataE = [[LQSIntroduceMainListModel alloc] init];
+    }
+    return _DHSKSDataE;
+}
+
+- (LQSIntroduceMainListModel *)LQWSXDataC
+{
+    if (!_LQWSXDataC) {
+        _LQWSXDataC = [[LQSIntroduceMainListModel alloc] init];
+    }
+    return _LQWSXDataC;
+}
+
 #pragma mark - tableview mainlist
 - (UITableView *)mainList
 {

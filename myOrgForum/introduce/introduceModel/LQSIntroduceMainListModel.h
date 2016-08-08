@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LQSIntroduceMainList : NSObject
+@interface LQSIntroduceMainListModel : NSObject
 
 @property (nonatomic, strong) NSString *px;//0的时候是单张照片，1的时候
 @property (nonatomic, strong) NSString *id;

@@ -1,14 +1,14 @@
 //
-//  LQSIntroduceMainList.m
+//  LQSIntroduceMainListModel.m
 //  myOrgForum
 //
 //  Created by XJW on 16/8/6.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
 
-#import "LQSIntroduceMainList.h"
+#import "LQSIntroduceMainListModel.h"
 
-@implementation LQSIntroduceMainList
+@implementation LQSIntroduceMainListModel
 
 {
 
