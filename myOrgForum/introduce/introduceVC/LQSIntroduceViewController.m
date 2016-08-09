@@ -8,6 +8,7 @@
 
 #import "LQSIntroduceViewController.h"
 #import "LQSIntroduceMainListModel.h"
+#import "LQSintroduceMainlistCell.h"
 #define KTITLEBTNTAGBEGAN 20160716
 
 
@@ -33,13 +34,19 @@
     self.title = @"首页";
     self.view.backgroundColor = [UIColor whiteColor];
     
+    
+//    [self postForData];
+    
+}
+
+- (void)createMainlist
+{
     self.mainList.delegate = self;
     self.mainList.dataSource = self;
     [self.view addSubview:self.mainList];
     self.mainList.backgroundColor = [UIColor yellowColor];
-//    [self postForData];
-    
 }
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -62,7 +69,6 @@
     params[@"moduleId"] = @"6";
     params[@"accessToken"] = @"7e3972a7a729e541ee373e7da3d06";//换
     params[@"accessSecret"] = @"39a68e4d5473e75669bce2d70c4b9";
-    params[@"accessSecret"] = @"";
     params[@"forumKey"] = @"BW0L5ISVRsOTVLCTJx";
     /*
      r:app/moduleconfig
@@ -182,7 +188,8 @@
             [self.XFXZDataD addObject:xModel];
         }
 
-
+        [self createMainlist];
+        [self.mainList reloadData];
     }
    
 }
@@ -291,7 +298,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    LQSintroduceMainlistCell *cell = [[LQSintroduceMainlistCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.lbDataArrA}];
+    [cell setCell];
     return cell;
 }
 

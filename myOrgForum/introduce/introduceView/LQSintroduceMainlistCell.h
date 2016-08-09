@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LQSIntroduceMainListModel.h"
 
 @interface LQSintroduceMainlistCell : UITableViewCell
+
+@property (nonatomic, strong) NSMutableDictionary *paramDict;//参数字典
+
+- (void)setCell;
 
 @end
