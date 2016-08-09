@@ -24,6 +24,7 @@
 - (void)setCell
 {
     if (self) {
+        
         NSArray *dataArr = self.paramDict[@"data"];
         [self createLunBoCellWithData:dataArr];
         
@@ -34,6 +35,7 @@
 {
     UIView *contentview = [[UIView alloc] initWithFrame:self.frame];
     contentview.backgroundColor = [UIColor whiteColor];
+    [self.contentView addSubview:contentview];
     UIScrollView *bottomScrollow = [[UIScrollView alloc] initWithFrame:self.frame];
     [contentview addSubview:bottomScrollow];
     bottomScrollow.backgroundColor = [UIColor grayColor];
@@ -60,6 +62,7 @@
         bottomScrollow.contentOffset = CGPointMake(self.frame.size.width, 0);
         for (NSInteger i = 0; i < pageCount + 2; i++) {
             CGRect imgFrame = CGRectMake(self.frame.size.width * i, 0, self.frame.size.width, self.frame.size.height);
+            
             NSString *imgUrlStr = @"";
             if (i == 0) {
                 imgUrlStr = ((LQSIntroduceMainListModel *)[modelArr lastObject]).icon;
@@ -69,6 +72,7 @@
                 imgUrlStr = ((LQSIntroduceMainListModel *)[modelArr objectAtIndex:i-1]).icon;
             }
             UIImageView *imgView = [[UIImageView alloc] initWithFrame:imgFrame];
+            imgView.backgroundColor = [UIColor redColor];
             [bottomScrollow addSubview:imgView];
             [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:LQSTR(imgUrlStr)] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                 
