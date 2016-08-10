@@ -28,7 +28,7 @@
 #define LQSIsValidation @"isValidation"
 
 #define LQSTR(string) string == nil?@"":string//字符串容错宏
-#define KLQScreenFrame ([UIScreen mainScreen].applicationFrame.size)//屏幕尺寸
+#define KLQScreenFrameSize ([UIScreen mainScreen].applicationFrame.size)//屏幕尺寸
 
 
 #endif /* LQSCommonDefine_h */

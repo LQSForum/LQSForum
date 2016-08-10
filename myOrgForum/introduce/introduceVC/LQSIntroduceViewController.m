@@ -33,7 +33,7 @@
     [super viewDidLoad];
     self.title = @"首页";
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
 //    [self postForData];
     
@@ -83,7 +83,7 @@
      */
     [session POST:loginUrlStr parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"请求成功");
-        
+        [self cleanData];
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];//[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
         NSLog(@"返回数据：%@",dict);
         [self getDataModelFor:dict];
@@ -94,7 +94,15 @@
 
 }
 
-
+- (void)cleanData
+{
+    [self.lbDataArrA removeAllObjects];
+    [self.KSDataF removeAllObjects];
+    [self.XFXZDataD removeAllObjects];
+    self.LQWSXDataC = nil;
+    [self.btnDataArrB  removeAllObjects];
+    self.DHSKSDataE = nil;
+}
 - (void)getDataModelFor:(NSDictionary *)dataDic
 {
     NSMutableArray *yChengData = nil;
@@ -246,7 +254,7 @@
 - (UITableView *)mainList
 {
     if (!_mainList) {
-        _mainList = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 49) style:UITableViewStylePlain];
+        _mainList = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64 - 49) style:UITableViewStyleGrouped];
     }
     return _mainList;
 }
@@ -259,7 +267,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 5) {
-        return 10;//待改
+        return self.KSDataF.count;
     }else{
         return 1;
     }
@@ -270,22 +278,22 @@
     CGFloat height = 0;
     switch (indexPath.section) {
         case 0:{
-            height = KLQScreenFrame.width *380/750;
+            height = KLQScreenFrameSize.width *380/750;
             break;
         }case 1:{
-            height = KLQScreenFrame.width *360/750;
+            height = KLQScreenFrameSize.width *360/750;
             break;
         }case 2:{
-            height = KLQScreenFrame.width *180/750;
+            height = KLQScreenFrameSize.width *180/750;
             break;
         }case 3:{
-            height = KLQScreenFrame.width *190/750;
+            height = KLQScreenFrameSize.width *190/750;
             break;
         }case 4:{
-            height = KLQScreenFrame.width *230/750;
+            height = KLQScreenFrameSize.width *230/750;
             break;
         }case 5:{
-            height = KLQScreenFrame.width *180/750;
+            height = KLQScreenFrameSize.width *180/750;
             break;
         }
             
@@ -299,9 +307,47 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LQSintroduceMainlistCell *cell = [[LQSintroduceMainlistCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.lbDataArrA}];
-    [cell setCell];
+    switch (indexPath.section) {
+        case 0:{
+            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.lbDataArrA}];
+            [cell setCellForIndexPath:indexPath];
+            break;
+        }case 1:{
+            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.btnDataArrB}];
+            [cell setCellForIndexPath:indexPath];
+            break;
+        }case 2:{
+            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.LQWSXDataC}];
+            [cell setCellForIndexPath:indexPath];
+            break;
+        }case 3:{
+            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.XFXZDataD}];
+            [cell setCellForIndexPath:indexPath];
+            break;
+        }case 4:{
+            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.DHSKSDataE}];
+            [cell setCellForIndexPath:indexPath];
+            break;
+        }case 5:{
+            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.KSDataF}];
+            [cell setCellForIndexPath:indexPath];
+            break;
+        }
+            
+        default:
+            break;
+    }
+    
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 5.0;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 5.0;
 }
 
 @end

@@ -13,6 +13,6 @@
 
 @property (nonatomic, strong) NSMutableDictionary *paramDict;//参数字典
 
-- (void)setCell;
+- (void)setCellForIndexPath:(NSIndexPath *)indexPath;
 
 @end
