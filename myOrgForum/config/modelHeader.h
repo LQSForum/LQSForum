@@ -34,5 +34,5 @@
 
 
 //discover
-#import "LQSHorizonDataModel.h"
+#import "LQSShijieDataModel.h"
 #endif /* modelHeader_h */

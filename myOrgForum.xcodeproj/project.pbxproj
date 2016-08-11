@@ -12,7 +12,7 @@
 		2CA781431D438D7A00D35288 /* LQSWaterFlowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781411D438D7A00D35288 /* LQSWaterFlowViewCell.m */; };
 		2CA781481D438DEA00D35288 /* LQSDiscover.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781451D438DEA00D35288 /* LQSDiscover.m */; };
 		2CA781491D438DEA00D35288 /* LQSDiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781471D438DEA00D35288 /* LQSDiscoverCell.m */; };
-		2CA781511D43B6BC00D35288 /* LQSHorizonDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781501D43B6BC00D35288 /* LQSHorizonDataModel.m */; };
+		2CA781511D43B6BC00D35288 /* LQSShijieDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781501D43B6BC00D35288 /* LQSShijieDataModel.m */; };
 		410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E51D38EB7E0021B7E2 /* NSArray+Log.m */; };
 		410FA1F31D38EB7E0021B7E2 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E71D38EB7E0021B7E2 /* NSDate+Extension.m */; };
 		410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E91D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m */; };
@@ -85,10 +85,9 @@
 		410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AA1D38EC790021B7E2 /* LQSCellModel.m */; };
 		410FA2AE1D38EC790021B7E2 /* LQSSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AC1D38EC790021B7E2 /* LQSSectionModel.m */; };
 		410FA2B11D38EC830021B7E2 /* LQSForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B01D38EC830021B7E2 /* LQSForumViewController.m */; };
-		410FA2BD1D38EC9B0021B7E2 /* LQSHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B61D38EC9B0021B7E2 /* LQSHotViewController.m */; };
-		410FA2BE1D38EC9B0021B7E2 /* LQSJingHuaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B81D38EC9B0021B7E2 /* LQSJingHuaViewController.m */; };
-		410FA2BF1D38EC9B0021B7E2 /* LQSLatestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2BA1D38EC9B0021B7E2 /* LQSLatestViewController.m */; };
-		410FA2C01D38EC9B0021B7E2 /* LQSTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2BC1D38EC9B0021B7E2 /* LQSTopViewController.m */; };
+		410FA2BD1D38EC9B0021B7E2 /* LQSShijieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B61D38EC9B0021B7E2 /* LQSShijieViewController.m */; };
+		410FA2BE1D38EC9B0021B7E2 /* LQSCishanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B81D38EC9B0021B7E2 /* LQSCishanViewController.m */; };
+		410FA2BF1D38EC9B0021B7E2 /* LQSDongmanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2BA1D38EC9B0021B7E2 /* LQSDongmanViewController.m */; };
 		410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */; };
 		412E8C2F1D3DC6A4008C2553 /* LQSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 412E8C2E1D3DC6A4008C2553 /* LQSCore.m */; };
 		415C55541CC8CCEE00408B90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55531CC8CCEE00408B90 /* main.m */; };
@@ -157,8 +156,8 @@
 		2CA781451D438DEA00D35288 /* LQSDiscover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDiscover.m; path = discover/Horizon/View/LQSDiscover.m; sourceTree = "<group>"; };
 		2CA781461D438DEA00D35288 /* LQSDiscoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDiscoverCell.h; path = discover/Horizon/View/LQSDiscoverCell.h; sourceTree = "<group>"; };
 		2CA781471D438DEA00D35288 /* LQSDiscoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDiscoverCell.m; path = discover/Horizon/View/LQSDiscoverCell.m; sourceTree = "<group>"; };
-		2CA7814F1D43B6BC00D35288 /* LQSHorizonDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHorizonDataModel.h; sourceTree = "<group>"; };
-		2CA781501D43B6BC00D35288 /* LQSHorizonDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHorizonDataModel.m; sourceTree = "<group>"; };
+		2CA7814F1D43B6BC00D35288 /* LQSShijieDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSShijieDataModel.h; sourceTree = "<group>"; };
+		2CA781501D43B6BC00D35288 /* LQSShijieDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSShijieDataModel.m; sourceTree = "<group>"; };
 		2CA781521D446A8000D35288 /* APIS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIS.h; sourceTree = "<group>"; };
 		2CAEB42F1D4DA21500BB164C /* XXXXdiscoverData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXdiscoverData.h; sourceTree = "<group>"; };
 		410FA1DB1D38EB6B0021B7E2 /* categoryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = categoryHeader.h; path = config/categoryHeader.h; sourceTree = "<group>"; };
@@ -301,14 +300,12 @@
 		410FA2AC1D38EC790021B7E2 /* LQSSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSectionModel.m; path = forum/Model/LQSSectionModel.m; sourceTree = "<group>"; };
 		410FA2AF1D38EC830021B7E2 /* LQSForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumViewController.h; path = forum/LQSForumViewController.h; sourceTree = "<group>"; };
 		410FA2B01D38EC830021B7E2 /* LQSForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumViewController.m; path = forum/LQSForumViewController.m; sourceTree = "<group>"; };
-		410FA2B51D38EC9B0021B7E2 /* LQSHotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSHotViewController.h; path = introduce/topic/LQSHotViewController.h; sourceTree = "<group>"; };
-		410FA2B61D38EC9B0021B7E2 /* LQSHotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSHotViewController.m; path = introduce/topic/LQSHotViewController.m; sourceTree = "<group>"; };
-		410FA2B71D38EC9B0021B7E2 /* LQSJingHuaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSJingHuaViewController.h; path = introduce/topic/LQSJingHuaViewController.h; sourceTree = "<group>"; };
-		410FA2B81D38EC9B0021B7E2 /* LQSJingHuaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSJingHuaViewController.m; path = introduce/topic/LQSJingHuaViewController.m; sourceTree = "<group>"; };
-		410FA2B91D38EC9B0021B7E2 /* LQSLatestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSLatestViewController.h; path = introduce/topic/LQSLatestViewController.h; sourceTree = "<group>"; };
-		410FA2BA1D38EC9B0021B7E2 /* LQSLatestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSLatestViewController.m; path = introduce/topic/LQSLatestViewController.m; sourceTree = "<group>"; };
-		410FA2BB1D38EC9B0021B7E2 /* LQSTopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSTopViewController.h; path = introduce/topic/LQSTopViewController.h; sourceTree = "<group>"; };
-		410FA2BC1D38EC9B0021B7E2 /* LQSTopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSTopViewController.m; path = introduce/topic/LQSTopViewController.m; sourceTree = "<group>"; };
+		410FA2B51D38EC9B0021B7E2 /* LQSShijieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSShijieViewController.h; path = introduce/topic/LQSShijieViewController.h; sourceTree = "<group>"; };
+		410FA2B61D38EC9B0021B7E2 /* LQSShijieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSShijieViewController.m; path = introduce/topic/LQSShijieViewController.m; sourceTree = "<group>"; };
+		410FA2B71D38EC9B0021B7E2 /* LQSCishanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCishanViewController.h; path = introduce/topic/LQSCishanViewController.h; sourceTree = "<group>"; };
+		410FA2B81D38EC9B0021B7E2 /* LQSCishanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCishanViewController.m; path = introduce/topic/LQSCishanViewController.m; sourceTree = "<group>"; };
+		410FA2B91D38EC9B0021B7E2 /* LQSDongmanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDongmanViewController.h; path = introduce/topic/LQSDongmanViewController.h; sourceTree = "<group>"; };
+		410FA2BA1D38EC9B0021B7E2 /* LQSDongmanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDongmanViewController.m; path = introduce/topic/LQSDongmanViewController.m; sourceTree = "<group>"; };
 		410FBB711CCDEDB400761192 /* LQSAppDelegate+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LQSAppDelegate+HUD.h"; sourceTree = "<group>"; };
 		410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LQSAppDelegate+HUD.m"; sourceTree = "<group>"; };
 		412E8C2D1D3DC6A4008C2553 /* LQSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCore.h; sourceTree = "<group>"; };
@@ -424,8 +421,8 @@
 		2CA7814A1D438E7100D35288 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2CA7814F1D43B6BC00D35288 /* LQSHorizonDataModel.h */,
-				2CA781501D43B6BC00D35288 /* LQSHorizonDataModel.m */,
+				2CA7814F1D43B6BC00D35288 /* LQSShijieDataModel.h */,
+				2CA781501D43B6BC00D35288 /* LQSShijieDataModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -433,6 +430,12 @@
 		2CA7814B1D438E7E00D35288 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				410FA2B51D38EC9B0021B7E2 /* LQSShijieViewController.h */,
+				410FA2B61D38EC9B0021B7E2 /* LQSShijieViewController.m */,
+				410FA2B71D38EC9B0021B7E2 /* LQSCishanViewController.h */,
+				410FA2B81D38EC9B0021B7E2 /* LQSCishanViewController.m */,
+				410FA2B91D38EC9B0021B7E2 /* LQSDongmanViewController.h */,
+				410FA2BA1D38EC9B0021B7E2 /* LQSDongmanViewController.m */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -518,14 +521,6 @@
 		4144070C1CEEA7B900CD2F84 /* topic */ = {
 			isa = PBXGroup;
 			children = (
-				410FA2B51D38EC9B0021B7E2 /* LQSHotViewController.h */,
-				410FA2B61D38EC9B0021B7E2 /* LQSHotViewController.m */,
-				410FA2B71D38EC9B0021B7E2 /* LQSJingHuaViewController.h */,
-				410FA2B81D38EC9B0021B7E2 /* LQSJingHuaViewController.m */,
-				410FA2B91D38EC9B0021B7E2 /* LQSLatestViewController.h */,
-				410FA2BA1D38EC9B0021B7E2 /* LQSLatestViewController.m */,
-				410FA2BB1D38EC9B0021B7E2 /* LQSTopViewController.h */,
-				410FA2BC1D38EC9B0021B7E2 /* LQSTopViewController.m */,
 			);
 			name = topic;
 			sourceTree = "<group>";
@@ -1113,7 +1108,7 @@
 				TargetAttributes = {
 					415C554E1CC8CCEE00408B90 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 38TKCF33JX;
+						DevelopmentTeam = VKS2SV893P;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -1366,7 +1361,7 @@
 				2CA781481D438DEA00D35288 /* LQSDiscover.m in Sources */,
 				E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */,
 				410FA2661D38EBF30021B7E2 /* LQSComposeViewController.m in Sources */,
-				410FA2BD1D38EC9B0021B7E2 /* LQSHotViewController.m in Sources */,
+				410FA2BD1D38EC9B0021B7E2 /* LQSShijieViewController.m in Sources */,
 				410FA23E1D38EBB60021B7E2 /* LQSEmotionListView.m in Sources */,
 				2CA781421D438D7A00D35288 /* LQSWaterFlowView.m in Sources */,
 				410FA2281D38EBA30021B7E2 /* LQSTextView.m in Sources */,
@@ -1375,14 +1370,14 @@
 				410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */,
 				410FA27F1D38EC2D0021B7E2 /* LQSDetailSettingTableViewCell.m in Sources */,
 				410FA2221D38EBA30021B7E2 /* LQSNewfeatureViewController.m in Sources */,
-				2CA781511D43B6BC00D35288 /* LQSHorizonDataModel.m in Sources */,
+				2CA781511D43B6BC00D35288 /* LQSShijieDataModel.m in Sources */,
 				410FA2811D38EC2D0021B7E2 /* LQSMessageTableViewCell.m in Sources */,
 				410FA1F81D38EB7E0021B7E2 /* UIWindow+Extension.m in Sources */,
 				410FA2271D38EBA30021B7E2 /* LQSTabBarViewController.m in Sources */,
 				410FA2291D38EBA30021B7E2 /* LQSTitleButton.m in Sources */,
 				410FA2691D38EC010021B7E2 /* LQSCoreManager.m in Sources */,
 				410FA22B1D38EBA30021B7E2 /* NSString+Emoji.m in Sources */,
-				410FA2BE1D38EC9B0021B7E2 /* LQSJingHuaViewController.m in Sources */,
+				410FA2BE1D38EC9B0021B7E2 /* LQSCishanViewController.m in Sources */,
 				2CA781431D438D7A00D35288 /* LQSWaterFlowViewCell.m in Sources */,
 				410FA2941D38EC430021B7E2 /* LQSDetailSettingViewController.m in Sources */,
 				410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */,
@@ -1407,7 +1402,7 @@
 				412E8C2F1D3DC6A4008C2553 /* LQSCore.m in Sources */,
 				410FA2251D38EBA30021B7E2 /* LQSSpecifyHeader.m in Sources */,
 				E4D8E1C51D54193000EE6171 /* AsyncSocket.m in Sources */,
-				410FA2BF1D38EC9B0021B7E2 /* LQSLatestViewController.m in Sources */,
+				410FA2BF1D38EC9B0021B7E2 /* LQSDongmanViewController.m in Sources */,
 				410FA2721D38EC100021B7E2 /* LQSSettingViewController.m in Sources */,
 				410FA2A71D38EC710021B7E2 /* LQSForumView.m in Sources */,
 				E4D8E1C61D54193000EE6171 /* GCDAsyncSocket.m in Sources */,
@@ -1415,7 +1410,6 @@
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
 				410FA2421D38EBB60021B7E2 /* LQSEmotionToolbar.m in Sources */,
 				410FA1FE1D38EB8B0021B7E2 /* NSObject+YYModel.m in Sources */,
-				410FA2C01D38EC9B0021B7E2 /* LQSTopViewController.m in Sources */,
 				410FA21F1D38EBA30021B7E2 /* LQSEmotionAttachment.m in Sources */,
 				410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */,
 				410FA28B1D38EC390021B7E2 /* LQSMessageFriendsApplyViewController.m in Sources */,

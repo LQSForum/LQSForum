@@ -18,10 +18,9 @@
 #import "LQSDetailSettingViewController.h"
 
 //推荐
-#import "LQSTopViewController.h"
-#import "LQSHotViewController.h"
-#import "LQSLatestViewController.h"
-#import "LQSJingHuaViewController.h"
+#import "LQSShijieViewController.h"//视界
+#import "LQSDongmanViewController.h"//动漫
+#import "LQSCishanViewController.h"//慈善
 
 //消息
 #import "LQSMessageMentionedMeViewController.h"

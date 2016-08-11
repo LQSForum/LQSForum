@@ -57,22 +57,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "myOrgForum/core/LQSCoreManager.m"
-            timestampString = "491206571.969484"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "-httpRequestHorizonSuccess:failure:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "myOrgForum/discover/Horizon/VC/horizonViewController.m"
             timestampString = "491207343.908728"
             startingColumnNumber = "9223372036854775807"
@@ -153,22 +137,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "myOrgForum/core/LQSCoreManager.m"
-            timestampString = "491207686.967395"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "-httpRequestHorizonSuccess:failure:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "myOrgForum/introduce/topic/LQSHotViewController.m"
             timestampString = "491207749.144355"
             startingColumnNumber = "9223372036854775807"
@@ -177,38 +145,6 @@
             endingLineNumber = "49"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LQSHotViewController viewDidLoad]"
-                  moduleName = "myOrgForum"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/skyandsea/Desktop/zzz/LQSForum/myOrgForum/introduce/topic/LQSHotViewController.m"
-                  timestampString = "491207749.155688"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "672">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__35-[LQSHotViewController viewDidLoad]_block_invoke"
-                  moduleName = "myOrgForum"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/skyandsea/Desktop/zzz/LQSForum/myOrgForum/introduce/topic/LQSHotViewController.m"
-                  timestampString = "491207749.155818"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -230,11 +166,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__51-[LQSCoreManager HttpsPost:params:success:failure:]_block_invoke.37"
+                  symbolName = "__51-[LQSCoreManager HttpsPost:params:success:failure:]_block_invoke.32"
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/skyandsea/Desktop/zzz/LQSForum/myOrgForum/core/LQSCoreManager.m"
-                  timestampString = "491207803.020234"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/core/LQSCoreManager.m"
+                  timestampString = "492596673.424312"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "86"
@@ -245,11 +181,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.38"
+                  symbolName = "__copy_helper_block_.33"
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/skyandsea/Desktop/zzz/LQSForum/myOrgForum/core/LQSCoreManager.m"
-                  timestampString = "491207803.020362"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/core/LQSCoreManager.m"
+                  timestampString = "492596673.42445"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -260,11 +196,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.39"
+                  symbolName = "__destroy_helper_block_.34"
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/skyandsea/Desktop/zzz/LQSForum/myOrgForum/core/LQSCoreManager.m"
-                  timestampString = "491207803.020451"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/core/LQSCoreManager.m"
+                  timestampString = "492596673.424563"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -272,6 +208,212 @@
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
+            timestampString = "492596185.118224"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-shijieDataRequest"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
+            timestampString = "492596074.650819"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-shijieDataRequest"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/introduce/introduceVC/LQSIntroduceViewController.m"
+            timestampString = "492591858.457296"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-getDataModelFor:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/introduce/introduceVC/LQSIntroduceViewController.m"
+            timestampString = "492591939.637"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-postForData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/introduce/introduceVC/LQSIntroduceViewController.m"
+            timestampString = "492591945.10088"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-postForData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
+            timestampString = "492596185.118224"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-shijieDataRequest"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
+            timestampString = "492596185.118224"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "-shijieDataRequest"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__44-[LQSShijieViewController shijieDataRequest]_block_invoke"
+                  moduleName = "myOrgForum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/introduce/topic/LQSShijieViewController.m"
+                  timestampString = "492596673.426862"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "544">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_"
+                  moduleName = "myOrgForum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/introduce/topic/LQSShijieViewController.m"
+                  timestampString = "492596673.426962"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_"
+                  moduleName = "myOrgForum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/introduce/topic/LQSShijieViewController.m"
+                  timestampString = "492596673.42705"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__44-[LQSShijieViewController shijieDataRequest]_block_invoke.111"
+                  moduleName = "myOrgForum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/introduce/topic/LQSShijieViewController.m"
+                  timestampString = "492596673.427141"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
+            timestampString = "492596185.118224"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "-numberOfCellsInWaterflowView:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
+            timestampString = "492596185.118224"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "-waterflowView:cellAtIndex:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

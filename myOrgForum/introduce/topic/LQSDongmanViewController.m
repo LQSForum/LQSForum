@@ -1,24 +1,22 @@
-
-
 //
-//  LQSPicViewController.m
+//  LQSVoiceViewController.m
 //  myOrgForum
 //
 //  Created by SkyAndSea on 16/5/20.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
 
-#import "LQSTopViewController.h"
+#import "LQSDongmanViewController.h"
 
-@interface LQSTopViewController ()
+@interface LQSDongmanViewController ()
 
 @end
 
-@implementation LQSTopViewController
+@implementation LQSDongmanViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor cyanColor];
+    self.view.backgroundColor = [UIColor blueColor];
     // Do any additional setup after loading the view.
 }
 

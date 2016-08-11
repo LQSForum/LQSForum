@@ -1,5 +1,5 @@
 //
-//  LQSVoiceViewController.h
+//  LQSVideoViewController.h
 //  myOrgForum
 //
 //  Created by SkyAndSea on 16/5/20.
@@ -8,6 +8,6 @@
 
 #import "rootViewController.h"
 
-@interface LQSLatestViewController : rootViewController
+@interface LQSCishanViewController : rootViewController
 
 @end

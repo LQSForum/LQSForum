@@ -8,6 +8,6 @@
 
 #import "rootViewController.h"
 
-@interface LQSHotViewController : rootViewController
+@interface LQSShijieViewController : rootViewController
 
 @end

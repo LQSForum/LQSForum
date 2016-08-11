@@ -6,8 +6,11 @@
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
 
-#import "LQSHorizonDataModel.h"
+#import "LQSShijieDataModel.h"
 
-@implementation LQSHorizonDataModel
+@implementation LQSShijieDataModel
+@end
+
+@implementation LQSShijieDataListModel
 
 @end

@@ -157,21 +157,17 @@
 - (void)setUpChildVc
 {
     
-    LQSHotViewController *hotVc = [LQSHotViewController new];
+    LQSShijieViewController *hotVc = [LQSShijieViewController new];
     hotVc.title = @"视界";
     [self addChildViewController:hotVc];
     
-    LQSLatestViewController *lastVc = [LQSLatestViewController new];
+    LQSDongmanViewController *lastVc = [LQSDongmanViewController new];
     lastVc.title = @"慈善";
     [self addChildViewController:lastVc];
     
-    LQSJingHuaViewController *jingHuaVc = [LQSJingHuaViewController new];
+    LQSCishanViewController *jingHuaVc = [LQSCishanViewController new];
     jingHuaVc.title =@"动漫";
     [self addChildViewController:jingHuaVc];
-    
-    LQSTopViewController *topVc = [LQSTopViewController new];
-    topVc.title = @"共修";
-    [self addChildViewController:topVc];
     
 }
 

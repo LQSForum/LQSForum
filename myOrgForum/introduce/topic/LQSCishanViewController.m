@@ -1,22 +1,22 @@
 //
-//  LQSVoiceViewController.m
+//  LQSVideoViewController.m
 //  myOrgForum
 //
 //  Created by SkyAndSea on 16/5/20.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
 
-#import "LQSLatestViewController.h"
+#import "LQSCishanViewController.h"
 
-@interface LQSLatestViewController ()
+@interface LQSCishanViewController ()
 
 @end
 
-@implementation LQSLatestViewController
+@implementation LQSCishanViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blueColor];
+    self.view.backgroundColor = [UIColor greenColor];
     // Do any additional setup after loading the view.
 }
 
