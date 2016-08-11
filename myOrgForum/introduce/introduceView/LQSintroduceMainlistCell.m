@@ -36,10 +36,12 @@
     if (self) {
         switch (indexPath.section) {
             case 0:{
-                self.height = KLQScreenFrameSize.width *380/750;
                 NSArray *dataArr = self.paramDict[@"data"];
-                [self createLunBoCellWithData:dataArr];
-                self.contentView.backgroundColor = [UIColor grayColor];
+                if (dataArr.count > 0) {
+                    self.height = KLQScreenFrameSize.width *380/750;
+                    [self createLunBoCellWithData:dataArr];
+                    self.contentView.backgroundColor = [UIColor grayColor];
+                }
                 break;
             }case 1:{
                 NSArray *dataArr = self.paramDict[@"data"];
@@ -65,11 +67,23 @@
                 
                 break;
             }case 4:{
-                self.height = KLQScreenFrameSize.width *230/750;
-                
+                NSArray *dataArr = self.paramDict[@"data"];
+                if (dataArr.count > 0) {
+                    self.height = KLQScreenFrameSize.width *230/750;
+                    [self createLunBoCellWithData:dataArr];
+                }
                 break;
             }case 5:{
-                self.height = KLQScreenFrameSize.width *180/750;
+//                图片
+//                165*130
+//                15
+//                title
+                NSArray *dataArr = self.paramDict[@"data"];
+                if (dataArr[indexPath.row]) {
+                    self.height = KLQScreenFrameSize.width *180/750;
+                    [self createFaYuKaiShiFor:dataArr[indexPath.row]];
+                }
+               
                 break;
             }
             default:
@@ -79,18 +93,40 @@
         
     }
 }
-#pragma mark - 学府小组
+
+#pragma mark - 师父法语开示
+- (void)createFaYuKaiShiFor:(LQSIntroduceMainListModel *)model
+{
+    CGFloat labX = LQSgetwidth(20);
+    if (model.icon.length > 0) {
+        labX += LQSgetwidth(165);
+        labX += LQSgetwidth(20);
+        UIImageView *imgView;
+        [self addImageView:&imgView frame:CGRectMake(LQSgetwidth(20), LQSgetHeight(15), LQSgetwidth(165), LQSgetHeight(130)) superView:self.contentView imgUrlStr:model.icon];
+    }
+    UILabel *titleLab;
+    [self addLable:&titleLab withFrame:CGRectMake(labX, LQSgetHeight(15), self.frame.size.width - labX - LQSgetwidth(20), LQSgetHeight(100)) text:model.desc textFont:[UIFont systemFontOfSize:13] textColor:[UIColor blackColor] textAlignment:NSTextAlignmentLeft lineNumber:2 tag:0 superView:self.contentView];
+    
+    UILabel *timeLab;
+    [self addLable:&timeLab withFrame:CGRectMake(labX, self.frame.size.height - LQSgetHeight(15) - 10, 100, 10) text:@"几个小时" textFont:[UIFont systemFontOfSize:11] textColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
+        
+    UIView *line;
+    [self addLine:&line withFrame:CGRectMake(0, self.frame.size.height - KSingleLine_Width, self.frame.size.width, KSingleLine_Width) superView:self.contentView color:[UIColor lightGrayColor]];
+
+}
+
+#pragma mark - 学佛小组
 - (void)createXuefoxiaozu:(NSArray *)modelArr
 {
     if (modelArr.count >= 2) {
         LQSIntroduceMainListModel *model1 = modelArr[0];
         UIButton *btn1;
-        [self addButton:&btn1 WithModel:model1 frame:CGRectMake(0, 0, (self.frame.size.width - 2)/2 , self.frame.size.height) superView:self.contentView tag:KXFXZBTN_TAG_BEGAN + 1 selector:@selector(xuefoxiaozuClick:)];
+        [self addButton:&btn1 WithModel:model1 frame:CGRectMake(0, 0, (self.frame.size.width - 4)/2 , self.frame.size.height) imgViewFrame:CGRectMake(0, 0, (self.frame.size.width - 2)/2 , self.frame.size.height) titleLabFrame:CGRectZero superView:self.contentView tag:KXFXZBTN_TAG_BEGAN + 1 selector:@selector(xuefoxiaozuClick:)];
         UIView *line;
-        [self addLine:&line withFrame:CGRectMake(self.frame.size.width/2 - 1, 8, 2, self.frame.size.height - 16) superView:self.contentView color:[UIColor lightGrayColor]];
+        [self addLine:&line withFrame:CGRectMake(btn1.frame.size.width + 1, 8, KSingleLine_Width, self.frame.size.height - 16) superView:self.contentView color:[UIColor lightGrayColor]];
         LQSIntroduceMainListModel *model2 = modelArr[1];
         UIButton *btn2;
-        [self addButton:&btn2 WithModel:model2 frame:CGRectMake(self.frame.size.width/2+1, 0, (self.frame.size.width - 2)/2 , self.frame.size.height) superView:self.contentView tag:KXFXZBTN_TAG_BEGAN + 2 selector:@selector(xuefoxiaozuClick:)];
+        [self addButton:&btn2 WithModel:model2 frame:CGRectMake((self.frame.size.width - KSingleLine_Width)/2, 0, (self.frame.size.width - KSingleLine_Width)/2 , self.frame.size.height) imgViewFrame:CGRectMake(0, 0, (self.frame.size.width - 2)/2 , self.frame.size.height) titleLabFrame:CGRectZero superView:self.contentView tag:KXFXZBTN_TAG_BEGAN + 2 selector:@selector(xuefoxiaozuClick:)];
     }
 }
 - (void)xuefoxiaozuClick:(UIButton *)sender
@@ -121,7 +157,7 @@
         LQSIntroduceMainListModel *model = modeArr[i];
         CGRect frame = CGRectMake(x+(i%4*w), y+(i/4*h), w, h);
         UIButton *btn;
-        [self addButton:&btn WithModel:model frame:frame superView:self.contentView tag:KBUTTON_TAG_BEGAN + i selector:@selector(buttonCilck:)];
+        [self addButton:&btn WithModel:model frame:frame imgViewFrame:CGRectMake((KLQScreenFrameSize.width/4 - 45)/2, 10, 45, 45) titleLabFrame:CGRectMake(0, frame.size.height - 22, frame.size.width, 20) superView:self.contentView tag:KBUTTON_TAG_BEGAN + i selector:@selector(buttonCilck:)];
     }
 }
 
@@ -130,17 +166,23 @@
 #warning 完善点击事件
     
 }
-- (void)addButton:(UIButton **)button WithModel:(LQSIntroduceMainListModel *)model frame:(CGRect)frame superView:(UIView *)superVew tag:(NSInteger)tag selector:(SEL)selector
+- (void)addButton:(UIButton **)button WithModel:(LQSIntroduceMainListModel *)model frame:(CGRect)frame imgViewFrame:(CGRect)imgFrame titleLabFrame:(CGRect)labFrame superView:(UIView *)superVew tag:(NSInteger)tag selector:(SEL)selector
 {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [superVew addSubview:btn];
     btn.frame = frame;
     btn.tag = tag;
     [btn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
-    UIImageView *imgView;
-    [self addImageView:&imgView frame:CGRectMake((KLQScreenFrameSize.width/4 - 45)/2, 10, 45, 45) superView:btn imgUrlStr:model.icon];
-    UILabel *btnTitleLab;
-    [self addLable:&btnTitleLab withFrame:CGRectMake(0, frame.size.height - 22, frame.size.width, 20) text:model.desc textFont:[UIFont systemFontOfSize:11] textColor:[UIColor blackColor] textAlignment:NSTextAlignmentCenter tag:0 superView:btn];
+    if (!CGRectEqualToRect(imgFrame, CGRectZero)) {
+        UIImageView *imgView;
+        [self addImageView:&imgView frame:imgFrame superView:btn imgUrlStr:model.icon];
+    }
+   
+    if (!CGRectEqualToRect(labFrame, CGRectZero)) {
+        UILabel *btnTitleLab;
+        [self addLable:&btnTitleLab withFrame:labFrame text:model.desc textFont:[UIFont systemFontOfSize:11] textColor:[UIColor blackColor] textAlignment:NSTextAlignmentCenter lineNumber:1 tag:0 superView:btn];
+    }
+    
     *button = btn;
     
 }
@@ -155,6 +197,8 @@
     [contentview addSubview:_bottomScrollowA];
     _bottomScrollowA.backgroundColor = [UIColor grayColor];
     _bottomScrollowA.pagingEnabled = YES;
+    _bottomScrollowA.showsHorizontalScrollIndicator = NO;
+    _bottomScrollowA.showsVerticalScrollIndicator = NO;
     NSInteger pageCount = modelArr.count;
     if (pageCount == 1) {
         _bottomScrollowA.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height);
@@ -162,12 +206,12 @@
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:self.frame];
         [_bottomScrollowA addSubview:imgView];
         UILabel *bgLab;
-        [self addLable:&bgLab withFrame:CGRectMake(0, self.frame.size.height - 20, self.frame.size.width, 20) text:nil textFont:nil textColor:nil textAlignment:NSTextAlignmentLeft tag:0 superView:self.contentView];
+        [self addLable:&bgLab withFrame:CGRectMake(0, self.frame.size.height - 20, self.frame.size.width, 20) text:nil textFont:nil textColor:nil textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
         bgLab.backgroundColor = [UIColor blackColor];
         bgLab.alpha = 0.6;
         UILabel *titleLab;
         LQSIntroduceMainListModel *model = modelArr[0];
-        [self addLable:&titleLab withFrame:CGRectMake(0, self.frame.size.height - 20, self.frame.size.width, 20) text:LQSTR(model.desc) textFont:[UIFont systemFontOfSize:14] textColor:[UIColor whiteColor] textAlignment:NSTextAlignmentLeft tag:0 superView:self.contentView];
+        [self addLable:&titleLab withFrame:CGRectMake(0, self.frame.size.height - 20, self.frame.size.width, 20) text:LQSTR(model.desc) textFont:[UIFont systemFontOfSize:14] textColor:[UIColor whiteColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
         [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:LQSTR(model.icon)] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             
         } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
@@ -198,10 +242,10 @@
             }];
             //title
             UILabel *bgLab;
-            [self addLable:&bgLab withFrame:CGRectMake(self.frame.size.width * i, self.frame.size.height - 20, self.frame.size.width, 20) text:nil textFont:nil textColor:nil textAlignment:NSTextAlignmentLeft tag:0 superView:self.bottomScrollowA];
+            [self addLable:&bgLab withFrame:CGRectMake(self.frame.size.width * i, self.frame.size.height - 20, self.frame.size.width, 20) text:nil textFont:nil textColor:nil textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.bottomScrollowA];
             bgLab.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
             UILabel *titleLab;
-            [self addLable:&titleLab withFrame:CGRectMake(self.frame.size.width * i + 5, self.frame.size.height - 20, self.frame.size.width - 75, 20) text:LQSTR(titleStr) textFont:[UIFont systemFontOfSize:12] textColor:[UIColor whiteColor] textAlignment:NSTextAlignmentLeft tag:0 superView:self.bottomScrollowA];
+            [self addLable:&titleLab withFrame:CGRectMake(self.frame.size.width * i + 5, self.frame.size.height - 20, self.frame.size.width - 75, 20) text:LQSTR(titleStr) textFont:[UIFont systemFontOfSize:12] textColor:[UIColor whiteColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.bottomScrollowA];
             
         }
         //添加点击事件
@@ -246,7 +290,7 @@
         [self.bottomScrollowA setContentOffset:CGPointMake(KLQScreenFrameSize.width, 0) animated:NO];
         
     }
-    self.pageCtrlA.currentPage = self.bottomScrollowA.contentOffset.x/KLQScreenFrameSize.width;
+    self.pageCtrlA.currentPage = self.bottomScrollowA.contentOffset.x/KLQScreenFrameSize.width - 1;
 
     
     
@@ -264,7 +308,7 @@
     *imageView = imgView;
 }
 
-- (void)addLable:(UILabel **)lable withFrame:(CGRect)frame text:(NSString *)text textFont:(UIFont *)font textColor:(UIColor*)color textAlignment:(NSTextAlignment )alignment tag:(NSInteger)tag superView:(UIView *)supView
+- (void)addLable:(UILabel **)lable withFrame:(CGRect)frame text:(NSString *)text textFont:(UIFont *)font textColor:(UIColor*)color textAlignment:(NSTextAlignment )alignment lineNumber:(NSInteger)number tag:(NSInteger)tag superView:(UIView *)supView
 {
     UILabel *lab = [[UILabel alloc] initWithFrame:frame];
     lab.text = text;
@@ -272,6 +316,7 @@
     lab.font = font;
     lab.textAlignment = alignment;
     lab.tag = tag;
+    lab.numberOfLines = number;
     [supView addSubview:lab];
     if (lable) {
         *lable = lab;

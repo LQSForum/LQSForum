@@ -29,7 +29,9 @@
 
 #define LQSTR(string) string == nil?@"":string//字符串容错宏
 #define KLQScreenFrameSize ([UIScreen mainScreen].applicationFrame.size)//屏幕尺寸
-
+#define KSingleLine_Width 1.0f/([UIScreen mainScreen].scale)//1像素线宽的宏。
+#define LQSgetwidth(w) w*([UIScreen mainScreen].applicationFrame.size.width)/750 //1334*750 适用于iPhone6s上的图片转换
+#define LQSgetHeight(h) h*([UIScreen mainScreen].applicationFrame.size.height)/1134 //适用于iPhone6s上的图片转换
 
 #endif /* LQSCommonDefine_h */
 /*
