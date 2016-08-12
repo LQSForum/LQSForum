@@ -102,6 +102,7 @@
 		6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476691D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m */; };
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
 		87DAAED4E77EE6DFE759E472 /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */; };
+		B801112A1D5D955400D7A05C /* LQSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111291D5D955400D7A05C /* LQSCollectionViewCell.m */; };
 		CF88EB46FF966494AB73F4FF /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */; };
 		E4430D4D1D54B74C0014A6FE /* CloverSlider.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D411D54B74C0014A6FE /* CloverSlider.js */; };
 		E4430D4E1D54B74C0014A6FE /* getImageSource.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D421D54B74C0014A6FE /* getImageSource.js */; };
@@ -342,6 +343,8 @@
 		75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
 		9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
+		B80111281D5D955400D7A05C /* LQSCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCollectionViewCell.h; sourceTree = "<group>"; };
+		B80111291D5D955400D7A05C /* LQSCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSCollectionViewCell.m; sourceTree = "<group>"; };
 		E4430D411D54B74C0014A6FE /* CloverSlider.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = CloverSlider.js; sourceTree = "<group>"; };
 		E4430D421D54B74C0014A6FE /* getImageSource.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = getImageSource.js; sourceTree = "<group>"; };
 		E4430D431D54B74C0014A6FE /* Discount.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Discount.js; sourceTree = "<group>"; };
@@ -670,6 +673,8 @@
 				410FA25F1D38EBE80021B7E2 /* LQSComposePhotosView.m */,
 				410FA2601D38EBE80021B7E2 /* LQSCompostToolbar.h */,
 				410FA2611D38EBE80021B7E2 /* LQSCompostToolbar.m */,
+				B80111281D5D955400D7A05C /* LQSCollectionViewCell.h */,
+				B80111291D5D955400D7A05C /* LQSCollectionViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1395,6 +1400,7 @@
 				410FA2771D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.m in Sources */,
 				E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */,
 				410FA2701D38EC100021B7E2 /* LQSSettingCell.m in Sources */,
+				B801112A1D5D955400D7A05C /* LQSCollectionViewCell.m in Sources */,
 				410FA2A81D38EC710021B7E2 /* LQSHeaderView.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				E4D8E1D11D54237200EE6171 /* LQSBaseRestRequest.m in Sources */,
