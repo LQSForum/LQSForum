@@ -100,7 +100,7 @@
 - (LQSWaterFlowViewCell *)waterflowView:(LQSWaterFlowView *)waterflowView cellAtIndex:(NSUInteger)index
 {
     LQSDiscoverCell *cell = [LQSDiscoverCell cellWithWaterflowView:waterflowView];
-    cell.discover = self.discoriesArr[index];
+//    cell.discover = self.discoriesArr[index];
     return cell;
     
 }
@@ -113,9 +113,9 @@
 
 - (CGFloat)waterflowView:(LQSWaterFlowView *)waterflowView heightAtIndex:(NSUInteger)index
 {
-    LQSDiscover *discover  = self.discoriesArr[index];
-    return waterflowView.cellWidth * discover.h / discover.w;
-    
+//    LQSDiscover *discover  = self.discoriesArr[index];
+//    return waterflowView.cellWidth * discover.h / discover.w;
+    return 200;
 }
 
 
