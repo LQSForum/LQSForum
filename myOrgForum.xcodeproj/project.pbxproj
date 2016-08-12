@@ -10,7 +10,6 @@
 		09DE74EE69E60578EF17616D /* libPods-myOrgForumUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */; };
 		2CA781421D438D7A00D35288 /* LQSWaterFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7813F1D438D7A00D35288 /* LQSWaterFlowView.m */; };
 		2CA781431D438D7A00D35288 /* LQSWaterFlowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781411D438D7A00D35288 /* LQSWaterFlowViewCell.m */; };
-		2CA781481D438DEA00D35288 /* LQSDiscover.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781451D438DEA00D35288 /* LQSDiscover.m */; };
 		2CA781491D438DEA00D35288 /* LQSDiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781471D438DEA00D35288 /* LQSDiscoverCell.m */; };
 		2CA781511D43B6BC00D35288 /* LQSShijieDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781501D43B6BC00D35288 /* LQSShijieDataModel.m */; };
 		410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E51D38EB7E0021B7E2 /* NSArray+Log.m */; };
@@ -98,6 +97,7 @@
 		417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */; };
 		41B544601D5DAF8500575BC6 /* LQSCishanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B5445F1D5DAF8500575BC6 /* LQSCishanModel.m */; };
 		41B544651D5DB4BE00575BC6 /* LQSDongmanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B544641D5DB4BE00575BC6 /* LQSDongmanModel.m */; };
+		41B5446A1D5DCB8200575BC6 /* LQSFaxianViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B544691D5DCB8200575BC6 /* LQSFaxianViewCell.m */; };
 		6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */; };
 		6E0476671D55B32600FD6CE0 /* LQSintroduceMainlistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476661D55B32600FD6CE0 /* LQSintroduceMainlistCell.m */; };
 		6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476691D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m */; };
@@ -158,8 +158,6 @@
 		2CA7813F1D438D7A00D35288 /* LQSWaterFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSWaterFlowView.m; path = discover/Horizon/View/LQSWaterFlowView.m; sourceTree = "<group>"; };
 		2CA781401D438D7A00D35288 /* LQSWaterFlowViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSWaterFlowViewCell.h; path = discover/Horizon/View/LQSWaterFlowViewCell.h; sourceTree = "<group>"; };
 		2CA781411D438D7A00D35288 /* LQSWaterFlowViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSWaterFlowViewCell.m; path = discover/Horizon/View/LQSWaterFlowViewCell.m; sourceTree = "<group>"; };
-		2CA781441D438DEA00D35288 /* LQSDiscover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDiscover.h; path = discover/Horizon/View/LQSDiscover.h; sourceTree = "<group>"; };
-		2CA781451D438DEA00D35288 /* LQSDiscover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDiscover.m; path = discover/Horizon/View/LQSDiscover.m; sourceTree = "<group>"; };
 		2CA781461D438DEA00D35288 /* LQSDiscoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDiscoverCell.h; path = discover/Horizon/View/LQSDiscoverCell.h; sourceTree = "<group>"; };
 		2CA781471D438DEA00D35288 /* LQSDiscoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDiscoverCell.m; path = discover/Horizon/View/LQSDiscoverCell.m; sourceTree = "<group>"; };
 		2CA7814F1D43B6BC00D35288 /* LQSShijieDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSShijieDataModel.h; sourceTree = "<group>"; };
@@ -337,6 +335,8 @@
 		41B544621D5DB2B400575BC6 /* XXXXdongman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXdongman.h; sourceTree = "<group>"; };
 		41B544631D5DB4BE00575BC6 /* LQSDongmanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDongmanModel.h; sourceTree = "<group>"; };
 		41B544641D5DB4BE00575BC6 /* LQSDongmanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSDongmanModel.m; sourceTree = "<group>"; };
+		41B544681D5DCB8200575BC6 /* LQSFaxianViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSFaxianViewCell.h; sourceTree = "<group>"; };
+		41B544691D5DCB8200575BC6 /* LQSFaxianViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSFaxianViewCell.m; sourceTree = "<group>"; };
 		434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE2DD1D148983B02A069CD4 /* Pods-myOrgForumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -588,14 +588,8 @@
 		4156AB191D3CA50D009F5E01 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2CA781441D438DEA00D35288 /* LQSDiscover.h */,
-				2CA781451D438DEA00D35288 /* LQSDiscover.m */,
-				2CA781461D438DEA00D35288 /* LQSDiscoverCell.h */,
-				2CA781471D438DEA00D35288 /* LQSDiscoverCell.m */,
-				2CA7813E1D438D7A00D35288 /* LQSWaterFlowView.h */,
-				2CA7813F1D438D7A00D35288 /* LQSWaterFlowView.m */,
-				2CA781401D438D7A00D35288 /* LQSWaterFlowViewCell.h */,
-				2CA781411D438D7A00D35288 /* LQSWaterFlowViewCell.m */,
+				41B544671D5DCB2F00575BC6 /* cishan&dongman */,
+				41B544661D5DCADE00575BC6 /* shijie */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -867,6 +861,28 @@
 				410FA2981D38EC4C0021B7E2 /* LQSMyHomePageViewController.m */,
 			);
 			name = Person;
+			sourceTree = "<group>";
+		};
+		41B544661D5DCADE00575BC6 /* shijie */ = {
+			isa = PBXGroup;
+			children = (
+				2CA781461D438DEA00D35288 /* LQSDiscoverCell.h */,
+				2CA781471D438DEA00D35288 /* LQSDiscoverCell.m */,
+				2CA7813E1D438D7A00D35288 /* LQSWaterFlowView.h */,
+				2CA7813F1D438D7A00D35288 /* LQSWaterFlowView.m */,
+				2CA781401D438D7A00D35288 /* LQSWaterFlowViewCell.h */,
+				2CA781411D438D7A00D35288 /* LQSWaterFlowViewCell.m */,
+			);
+			name = shijie;
+			sourceTree = "<group>";
+		};
+		41B544671D5DCB2F00575BC6 /* cishan&dongman */ = {
+			isa = PBXGroup;
+			children = (
+				41B544681D5DCB8200575BC6 /* LQSFaxianViewCell.h */,
+				41B544691D5DCB8200575BC6 /* LQSFaxianViewCell.m */,
+			);
+			name = "cishan&dongman";
 			sourceTree = "<group>";
 		};
 		41C5194F1D224B8800F05A24 /* images */ = {
@@ -1401,7 +1417,6 @@
 				410FA23C1D38EBB60021B7E2 /* LQSEmotionGridView.m in Sources */,
 				6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */,
 				410FA2241D38EBA30021B7E2 /* LQSSpecifyFooter.m in Sources */,
-				2CA781481D438DEA00D35288 /* LQSDiscover.m in Sources */,
 				B801112F1D5DC10500D7A05C /* LQSComposeViewController.m in Sources */,
 				E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */,
 				410FA2BD1D38EC9B0021B7E2 /* LQSShijieViewController.m in Sources */,
@@ -1425,6 +1440,7 @@
 				2CA781431D438D7A00D35288 /* LQSWaterFlowViewCell.m in Sources */,
 				410FA2941D38EC430021B7E2 /* LQSDetailSettingViewController.m in Sources */,
 				410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */,
+				41B5446A1D5DCB8200575BC6 /* LQSFaxianViewCell.m in Sources */,
 				410FA23D1D38EBB60021B7E2 /* LQSEmotionKeyboard.m in Sources */,
 				415C55541CC8CCEE00408B90 /* main.m in Sources */,
 				410FA1FF1D38EB8B0021B7E2 /* YYClassInfo.m in Sources */,

@@ -7,11 +7,11 @@
 //
 
 #import "LQSWaterFlowViewCell.h"
-@class LQSWaterFlowView,LQSDiscover;
+@class LQSWaterFlowView,LQSShijieDataListModel;
 
 @interface LQSDiscoverCell : LQSWaterFlowViewCell
 + (instancetype)cellWithWaterflowView:(LQSWaterFlowView *)waterflowView;
 
-@property (nonatomic, strong) LQSDiscover *discover;
+@property (nonatomic, strong) LQSShijieDataListModel *shijieDataModel;
 
 @end

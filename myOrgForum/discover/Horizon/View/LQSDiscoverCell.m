@@ -4,7 +4,7 @@
 //
 //  Created by SkyAndSea on 16/7/18.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
-//
+//这里画cell
 
 #import "LQSDiscoverCell.h"
 
@@ -48,12 +48,16 @@
     return self;
 }
 
-- (void)setShop:(LQSDiscover *)discover
+
+
+- (void)setShijieDataModel:(LQSShijieDataListModel *)shijieDataModel
 {
-    _discover = discover;
+    _shijieDataModel = shijieDataModel;
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:shijieDataModel.pic_path] placeholderImage:[UIImage imageNamed:@"loading"]];
     
-    self.priceLabel.text = discover.price;
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:discover.img] placeholderImage:[UIImage imageNamed:@"loading"]];
+    
+
+
 }
 
 - (void)layoutSubviews

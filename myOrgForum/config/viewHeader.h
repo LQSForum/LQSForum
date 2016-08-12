@@ -24,7 +24,6 @@
 #import "LQSDiscoverCell.h"
 #import "LQSWaterFlowView.h"
 #import "LQSWaterFlowViewCell.h"
-#import "LQSDiscover.h"
 
 
 //setting

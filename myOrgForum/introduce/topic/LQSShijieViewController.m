@@ -7,7 +7,7 @@
 //
 
 #import "LQSShijieViewController.h"
-
+#define kMargin 10
 @interface LQSShijieViewController ()<LQSWaterFlowViewDelegate,LQSWaterFlowViewDataSource>
 //tiezi
 @property (nonatomic, strong) NSMutableArray *discoriesArr;
@@ -29,31 +29,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor greenColor];
-    // Do any additional setup after loading the view.
-    //    discovery
-    //    初始化数据
-    //    瀑布流控件
     [self shijieDataRequest];
 
     
-//    //    集成刷新控件下拉刷新
-//    waterFlowView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//        
-//        [self requestData:^{
-//            
-//            [waterFlowView.mj_header endRefreshing];
-//            [self loadNewDiscoveries];
-//            
-//        }];
-//    }];
-//    
-//    //    在导航栏下 main自动隐藏
-//    waterFlowView.mj_header.automaticallyChangeAlpha = YES;
-//    //上拉加载
-//    waterFlowView.mj_footer = [MJRefreshFooter footerWithRefreshingBlock:^{
-//        [self loadMoreShops];
-//        [waterFlowView.mj_footer endRefreshing];
-//    }];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -96,10 +75,6 @@
         NSLog(@"请求失败");
     }];
 
-
-
-
-
 }
 
 //创建瀑布流布局
@@ -114,76 +89,7 @@
     waterFlowView.delegate = self;
     [self.view addSubview:waterFlowView];
     self.waterFlowView = waterFlowView;
-
-
-
 }
-
-//- (void)requestData:(void (^)(void))callback
-//{
-//    [LQSCoreManagerHandler httpRequestHorizonSuccess:^(id responseObject) {
-//        LQSHorizonDataModel *horizonModel = [LQSHorizonDataModel yy_modelWithDictionary:responseObject];
-//              if (callback) {
-//            callback();
-//        }
-//    } failure:^(NSError *error) {
-//        
-//        if (callback) {
-//            callback();
-//        }
-//        
-//        
-//        
-//    }];
-//    
-//    
-//    
-//    
-//    
-//    
-//}
-
-//- (void)loadNewDiscoveries
-//{
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        // 加载1.plist
-//        NSArray *newShops = [LQSDiscover objectArrayWithFilename:@"1.plist"];
-//        [self.discoriesArr insertObjects:newShops atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newShops.count)]];
-//    });
-//    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        // 刷新瀑布流控件
-//        [self.waterFlowView reloadData];
-//        
-//        // 停止刷新
-//        [self.waterFlowView.mj_header endRefreshing];
-//    });
-//    
-//    
-//}
-
-//- (void)loadMoreShops
-//{
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        // 加载3.plist
-//        NSArray *newShops = [LQSDiscover objectArrayWithFilename:@"3.plist"];
-//        [self.discoriesArr addObjectsFromArray:newShops];
-//    });
-//    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        
-//        // 刷新瀑布流控件
-//        [self.waterFlowView reloadData];
-//        
-//        // 停止刷新
-//        [self.waterFlowView.mj_footer endRefreshing];
-//    });
-//    
-//    
-//}
-
 
 #pragma mark - dataSource&delegate
 - (NSUInteger)numberOfCellsInWaterflowView:(LQSWaterFlowView *)waterflowView
@@ -207,9 +113,8 @@
 
 - (CGFloat)waterflowView:(LQSWaterFlowView *)waterflowView heightAtIndex:(NSUInteger)index
 {
-//    LQSDiscover *discover  = self.discoriesArr[index];
-//    return waterflowView.cellWidth * discover.h / discover.w;
-    return 200;
+    LQSDiscover *discover  = self.discoriesArr[index];
+    return waterflowView.cellWidth * discover.h / discover.w;
     
 }
 
