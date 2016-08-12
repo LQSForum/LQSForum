@@ -60,7 +60,6 @@
 		410FA25D1D38EBCF0021B7E2 /* compose_trendbutton_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA2501D38EBCF0021B7E2 /* compose_trendbutton_background@2x.png */; };
 		410FA2621D38EBE80021B7E2 /* LQSComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA25F1D38EBE80021B7E2 /* LQSComposePhotosView.m */; };
 		410FA2631D38EBE80021B7E2 /* LQSCompostToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2611D38EBE80021B7E2 /* LQSCompostToolbar.m */; };
-		410FA2661D38EBF30021B7E2 /* LQSComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2651D38EBF30021B7E2 /* LQSComposeViewController.m */; };
 		410FA2691D38EC010021B7E2 /* LQSCoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2681D38EC010021B7E2 /* LQSCoreManager.m */; };
 		410FA2701D38EC100021B7E2 /* LQSSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA26B1D38EC100021B7E2 /* LQSSettingCell.m */; };
 		410FA2711D38EC100021B7E2 /* LQSSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA26D1D38EC100021B7E2 /* LQSSettingModel.m */; };
@@ -103,6 +102,10 @@
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
 		87DAAED4E77EE6DFE759E472 /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */; };
 		B801112A1D5D955400D7A05C /* LQSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111291D5D955400D7A05C /* LQSCollectionViewCell.m */; };
+		B801112F1D5DC10500D7A05C /* LQSComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B801112C1D5DC10500D7A05C /* LQSComposeViewController.m */; };
+		B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */; };
+		B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111331D5DC11700D7A05C /* LQSLocationModel.m */; };
+		B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */; };
 		CF88EB46FF966494AB73F4FF /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */; };
 		E4430D4D1D54B74C0014A6FE /* CloverSlider.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D411D54B74C0014A6FE /* CloverSlider.js */; };
 		E4430D4E1D54B74C0014A6FE /* getImageSource.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D421D54B74C0014A6FE /* getImageSource.js */; };
@@ -251,8 +254,6 @@
 		410FA25F1D38EBE80021B7E2 /* LQSComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposePhotosView.m; path = main/View/LQSComposePhotosView.m; sourceTree = "<group>"; };
 		410FA2601D38EBE80021B7E2 /* LQSCompostToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCompostToolbar.h; path = main/View/LQSCompostToolbar.h; sourceTree = "<group>"; };
 		410FA2611D38EBE80021B7E2 /* LQSCompostToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCompostToolbar.m; path = main/View/LQSCompostToolbar.m; sourceTree = "<group>"; };
-		410FA2641D38EBF30021B7E2 /* LQSComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSComposeViewController.h; path = main/VC/LQSComposeViewController.h; sourceTree = "<group>"; };
-		410FA2651D38EBF30021B7E2 /* LQSComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposeViewController.m; path = main/VC/LQSComposeViewController.m; sourceTree = "<group>"; };
 		410FA2671D38EC010021B7E2 /* LQSCoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCoreManager.h; path = core/LQSCoreManager.h; sourceTree = "<group>"; };
 		410FA2681D38EC010021B7E2 /* LQSCoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCoreManager.m; path = core/LQSCoreManager.m; sourceTree = "<group>"; };
 		410FA26A1D38EC100021B7E2 /* LQSSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingCell.h; path = setting/LQSSettingCell.h; sourceTree = "<group>"; };
@@ -345,6 +346,14 @@
 		A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
 		B80111281D5D955400D7A05C /* LQSCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCollectionViewCell.h; sourceTree = "<group>"; };
 		B80111291D5D955400D7A05C /* LQSCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSCollectionViewCell.m; sourceTree = "<group>"; };
+		B801112B1D5DC10500D7A05C /* LQSComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSComposeViewController.h; path = main/VC/LQSComposeViewController.h; sourceTree = "<group>"; };
+		B801112C1D5DC10500D7A05C /* LQSComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposeViewController.m; path = main/VC/LQSComposeViewController.m; sourceTree = "<group>"; };
+		B801112D1D5DC10500D7A05C /* LQSPickViewSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSPickViewSelectViewController.h; path = main/VC/LQSPickViewSelectViewController.h; sourceTree = "<group>"; };
+		B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSPickViewSelectViewController.m; path = main/VC/LQSPickViewSelectViewController.m; sourceTree = "<group>"; };
+		B80111321D5DC11700D7A05C /* LQSLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSLocationModel.h; sourceTree = "<group>"; };
+		B80111331D5DC11700D7A05C /* LQSLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSLocationModel.m; sourceTree = "<group>"; };
+		B80111351D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSPickerSelectCollectionViewCell.h; path = main/View/LQSPickerSelectCollectionViewCell.h; sourceTree = "<group>"; };
+		B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSPickerSelectCollectionViewCell.m; path = main/View/LQSPickerSelectCollectionViewCell.m; sourceTree = "<group>"; };
 		E4430D411D54B74C0014A6FE /* CloverSlider.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = CloverSlider.js; sourceTree = "<group>"; };
 		E4430D421D54B74C0014A6FE /* getImageSource.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = getImageSource.js; sourceTree = "<group>"; };
 		E4430D431D54B74C0014A6FE /* Discount.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Discount.js; sourceTree = "<group>"; };
@@ -651,6 +660,7 @@
 		416072021D20BE480083229E /* main */ = {
 			isa = PBXGroup;
 			children = (
+				B80111311D5DC11700D7A05C /* Model */,
 				416072071D20C5310083229E /* View */,
 				416072061D20C5280083229E /* VC */,
 			);
@@ -660,8 +670,10 @@
 		416072061D20C5280083229E /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				410FA2641D38EBF30021B7E2 /* LQSComposeViewController.h */,
-				410FA2651D38EBF30021B7E2 /* LQSComposeViewController.m */,
+				B801112B1D5DC10500D7A05C /* LQSComposeViewController.h */,
+				B801112C1D5DC10500D7A05C /* LQSComposeViewController.m */,
+				B801112D1D5DC10500D7A05C /* LQSPickViewSelectViewController.h */,
+				B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -675,6 +687,8 @@
 				410FA2611D38EBE80021B7E2 /* LQSCompostToolbar.m */,
 				B80111281D5D955400D7A05C /* LQSCollectionViewCell.h */,
 				B80111291D5D955400D7A05C /* LQSCollectionViewCell.m */,
+				B80111351D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.h */,
+				B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -923,6 +937,16 @@
 				6E0476661D55B32600FD6CE0 /* LQSintroduceMainlistCell.m */,
 			);
 			name = introduceView;
+			sourceTree = "<group>";
+		};
+		B80111311D5DC11700D7A05C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B80111321D5DC11700D7A05C /* LQSLocationModel.h */,
+				B80111331D5DC11700D7A05C /* LQSLocationModel.m */,
+			);
+			name = Model;
+			path = main/Model;
 			sourceTree = "<group>";
 		};
 		D2FF60D40CEE75621BCC406D /* Frameworks */ = {
@@ -1364,10 +1388,11 @@
 				6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */,
 				410FA2241D38EBA30021B7E2 /* LQSSpecifyFooter.m in Sources */,
 				2CA781481D438DEA00D35288 /* LQSDiscover.m in Sources */,
+				B801112F1D5DC10500D7A05C /* LQSComposeViewController.m in Sources */,
 				E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */,
-				410FA2661D38EBF30021B7E2 /* LQSComposeViewController.m in Sources */,
 				410FA2BD1D38EC9B0021B7E2 /* LQSShijieViewController.m in Sources */,
 				410FA23E1D38EBB60021B7E2 /* LQSEmotionListView.m in Sources */,
+				B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */,
 				2CA781421D438D7A00D35288 /* LQSWaterFlowView.m in Sources */,
 				410FA2281D38EBA30021B7E2 /* LQSTextView.m in Sources */,
 				410FA21E1D38EBA30021B7E2 /* LQSEmotion.m in Sources */,
@@ -1419,8 +1444,10 @@
 				410FA21F1D38EBA30021B7E2 /* LQSEmotionAttachment.m in Sources */,
 				410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */,
 				410FA28B1D38EC390021B7E2 /* LQSMessageFriendsApplyViewController.m in Sources */,
+				B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */,
 				E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */,
 				410FA2961D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m in Sources */,
+				B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */,
 				410FA2411D38EBB60021B7E2 /* LQSEmotionTextView.m in Sources */,
 				410FA1F51D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m in Sources */,
 				410FA2801D38EC2D0021B7E2 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,

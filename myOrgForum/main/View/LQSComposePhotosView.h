@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class LQSComposePhotosView;
+@protocol jmpPickVCDelegate <NSObject>
+
+- (void)jmpPickVC:(LQSComposePhotosView *)composePhotoView;
+
+@end
 @interface LQSComposePhotosView : UIView
+
+@property (nonatomic, weak)id<jmpPickVCDelegate> delegate;
 /**
  *  添加一张图片到相册内部
  *
