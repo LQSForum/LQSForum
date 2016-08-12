@@ -97,6 +97,8 @@
 		415C556D1CC8CCEE00408B90 /* myOrgForumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C556C1CC8CCEE00408B90 /* myOrgForumTests.m */; };
 		415C55781CC8CCEE00408B90 /* myOrgForumUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55771CC8CCEE00408B90 /* myOrgForumUITests.m */; };
 		417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */; };
+		41B544601D5DAF8500575BC6 /* LQSCishanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B5445F1D5DAF8500575BC6 /* LQSCishanModel.m */; };
+		41B544651D5DB4BE00575BC6 /* LQSDongmanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B544641D5DB4BE00575BC6 /* LQSDongmanModel.m */; };
 		6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */; };
 		6E0476671D55B32600FD6CE0 /* LQSintroduceMainlistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476661D55B32600FD6CE0 /* LQSintroduceMainlistCell.m */; };
 		6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476691D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m */; };
@@ -327,6 +329,12 @@
 		417F34C01CC9F6BC00F9714F /* LQSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAppDelegate.h; sourceTree = "<group>"; };
 		417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAppDelegate.m; sourceTree = "<group>"; };
 		417F34C31CCA017B00F9714F /* LQSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LQSPrefixHeader.pch; sourceTree = "<group>"; };
+		41B5445E1D5DAF8500575BC6 /* LQSCishanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCishanModel.h; sourceTree = "<group>"; };
+		41B5445F1D5DAF8500575BC6 /* LQSCishanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSCishanModel.m; sourceTree = "<group>"; };
+		41B544611D5DB0E800575BC6 /* XXXCiShan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXCiShan.h; sourceTree = "<group>"; };
+		41B544621D5DB2B400575BC6 /* XXXXdongman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXdongman.h; sourceTree = "<group>"; };
+		41B544631D5DB4BE00575BC6 /* LQSDongmanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDongmanModel.h; sourceTree = "<group>"; };
+		41B544641D5DB4BE00575BC6 /* LQSDongmanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSDongmanModel.m; sourceTree = "<group>"; };
 		434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE2DD1D148983B02A069CD4 /* Pods-myOrgForumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -414,6 +422,8 @@
 				2CA7814A1D438E7100D35288 /* Model */,
 				4156AB191D3CA50D009F5E01 /* View */,
 				2CAEB42F1D4DA21500BB164C /* XXXXdiscoverData.h */,
+				41B544611D5DB0E800575BC6 /* XXXCiShan.h */,
+				41B544621D5DB2B400575BC6 /* XXXXdongman.h */,
 			);
 			name = Horizon;
 			sourceTree = "<group>";
@@ -423,6 +433,10 @@
 			children = (
 				2CA7814F1D43B6BC00D35288 /* LQSShijieDataModel.h */,
 				2CA781501D43B6BC00D35288 /* LQSShijieDataModel.m */,
+				41B5445E1D5DAF8500575BC6 /* LQSCishanModel.h */,
+				41B5445F1D5DAF8500575BC6 /* LQSCishanModel.m */,
+				41B544631D5DB4BE00575BC6 /* LQSDongmanModel.h */,
+				41B544641D5DB4BE00575BC6 /* LQSDongmanModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1400,6 +1414,7 @@
 				E4D8E1D11D54237200EE6171 /* LQSBaseRestRequest.m in Sources */,
 				410FA28C1D38EC390021B7E2 /* LQSMessageMentionedMeViewController.m in Sources */,
 				412E8C2F1D3DC6A4008C2553 /* LQSCore.m in Sources */,
+				41B544601D5DAF8500575BC6 /* LQSCishanModel.m in Sources */,
 				410FA2251D38EBA30021B7E2 /* LQSSpecifyHeader.m in Sources */,
 				E4D8E1C51D54193000EE6171 /* AsyncSocket.m in Sources */,
 				410FA2BF1D38EC9B0021B7E2 /* LQSDongmanViewController.m in Sources */,
@@ -1425,6 +1440,7 @@
 				410FA28A1D38EC390021B7E2 /* LQSMessageCommentViewController.m in Sources */,
 				410FA1F61D38EB7E0021B7E2 /* UIImage+Extension.m in Sources */,
 				E4D8E1D61D5423D700EE6171 /* LQSBaseModel.m in Sources */,
+				41B544651D5DB4BE00575BC6 /* LQSDongmanModel.m in Sources */,
 				E4D8E1C71D54193000EE6171 /* GCDMulticastDelegate.m in Sources */,
 				410FA2621D38EBE80021B7E2 /* LQSComposePhotosView.m in Sources */,
 			);
