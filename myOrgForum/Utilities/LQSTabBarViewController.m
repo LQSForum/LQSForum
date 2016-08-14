@@ -43,7 +43,7 @@
     
 //    设置文字样式
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[NSForegroundColorAttributeName] = LQSColor(123, 123, 123);
+    textAttrs[NSForegroundColorAttributeName] = LQSColor(123, 123, 123,1);
     NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
     selectTextAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
     [chileVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];

@@ -12,7 +12,8 @@
 //tiezi
 @property (nonatomic, strong) NSMutableArray *discoriesArr;
 @property (nonatomic, weak) LQSWaterFlowView *waterFlowView;
-
+@property (nonatomic,assign) NSUInteger page;
+@property (nonatomic,strong) NSMutableArray *disArr;
 @end
 
 @implementation LQSShijieViewController
@@ -28,21 +29,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
-    [self shijieDataRequest];
-
     
+    [self createCell];
+    self.waterFlowView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewShops)];
+    self.waterFlowView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreShops)];
 
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-
     [super viewWillAppear:animated];
-//    请求数据
+    //    请求数据
+    self.page = 1;
+    [self shijieDataRequestWithPage:self.page];
+    
 }
 
-- (void)shijieDataRequest{
+- (void)shijieDataRequestWithPage:(NSUInteger)page{
+    
+    if ([[NSString stringWithFormat:@"%lud",self.page] isEqualToString:@"1"] && self.discoriesArr) {
+        [self.discoriesArr removeAllObjects];
+    }
+
     NSString *loginUrlStr = @"http://forum.longquanzs.org//mobcent/app/web/index.php?";
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     session.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -54,7 +62,7 @@
     params[@"forumKey"] = @"BW0L5ISVRsOTVLCTJx";
     params[@"accessSecret"] = @"cd090971f3f83391cd4ddc034638c";
     params[@"accessToken"] = @"f9514b902a334d6c0b23305abd46d";
-    params[@"page"] = @"1";
+    params[@"page"] = [NSString stringWithFormat:@"%lud",(unsigned long)self.page];
     params[@"longitude"] = @"116.300859";
     params[@"sdkVersion"] = @"2.4.0";
     params[@"pageSize"] = @"20";
@@ -65,12 +73,16 @@
         
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];//[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
         NSLog(@"返回数据：%@",dict);
-//        LQSShijieDataModel *shijieModel = [];
-        NSArray *disArr = [[NSArray alloc] init];
-        disArr = [LQSShijieDataListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
-        [self.discoriesArr insertObjects:disArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, disArr.count)]];
-
-        [self createCell];//请求成功创建控件
+        if (self.disArr.count > 0) {
+            [self.disArr removeAllObjects];
+        }else{
+        
+            NSMutableArray *disArr = [[NSMutableArray alloc] init];
+            self.disArr = disArr;
+        }
+        self.disArr = [LQSShijieDataListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
+        [self.discoriesArr insertObjects:self.disArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.discoriesArr.count, self.disArr.count * self.page)]];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败");
     }];
@@ -84,12 +96,43 @@
     waterFlowView.backgroundColor = [UIColor cyanColor];
     //    跟谁父控件的尺寸而自动伸缩
     waterFlowView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    waterFlowView.frame = self.view.bounds;
+    waterFlowView.frame = CGRectMake(0, 64 + 40, kScreenWidth, kScreenHeight - 64 - 40);
     waterFlowView.dataSource = self;
     waterFlowView.delegate = self;
     [self.view addSubview:waterFlowView];
     self.waterFlowView = waterFlowView;
+
 }
+
+- (void)loadNewShops
+{
+    self.page = 1;
+    [self shijieDataRequestWithPage:self.page];
+//    [self.discoriesArr insertObjects:self.disArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.disArr.count)]];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 刷新瀑布流控件
+        [self.waterFlowView reloadData];
+        // 停止刷新
+        [self.waterFlowView.mj_header endRefreshing];
+    });
+    
+}
+
+- (void)loadMoreShops
+{
+    self.page++;
+    [self shijieDataRequestWithPage:self.page];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 刷新瀑布流控件
+        [self.waterFlowView reloadData];
+        // 停止刷新
+        [self.waterFlowView.mj_footer endRefreshing];
+    });
+
+
+}
+
+
 
 #pragma mark - dataSource&delegate
 - (NSUInteger)numberOfCellsInWaterflowView:(LQSWaterFlowView *)waterflowView
@@ -100,7 +143,7 @@
 - (LQSWaterFlowViewCell *)waterflowView:(LQSWaterFlowView *)waterflowView cellAtIndex:(NSUInteger)index
 {
     LQSDiscoverCell *cell = [LQSDiscoverCell cellWithWaterflowView:waterflowView];
-//    cell.discover = self.discoriesArr[index];
+    cell.shijieDataModel = self.discoriesArr[index];
     return cell;
     
 }
@@ -113,10 +156,11 @@
 
 - (CGFloat)waterflowView:(LQSWaterFlowView *)waterflowView heightAtIndex:(NSUInteger)index
 {
-//    LQSDiscover *discover  = self.discoriesArr[index];
-//    return waterflowView.cellWidth * discover.h / discover.w;
-    return 200;
-}
+    
+    LQSShijieDataListModel *shijieModel = [self.discoriesArr objectAtIndex:index];
+    return waterflowView.cellWidth * shijieModel.ratio + 35;
+    
+    }
 
 
 

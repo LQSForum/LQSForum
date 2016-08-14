@@ -108,9 +108,9 @@
     pageControl.centerY = self.view.height - 30;
     [self.view addSubview:pageControl];
 //    设置圆点的颜色
-    pageControl.currentPageIndicatorTintColor = LQSColor(253, 98, 42);
+    pageControl.currentPageIndicatorTintColor = LQSColor(253, 98, 42,1);
 //圆点颜色
-    pageControl.pageIndicatorTintColor = LQSColor(189, 189, 189);
+    pageControl.pageIndicatorTintColor = LQSColor(189, 189, 189,1);
 //    颜色
     self.pageControl = pageControl;
 

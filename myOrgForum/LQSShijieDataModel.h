@@ -36,7 +36,7 @@
 @property (nonatomic, strong) NSString *summary;
 @property (nonatomic,strong)NSString * replies;
 @property (nonatomic,strong)NSString * pic_path;
-@property (nonatomic,strong)NSArray * ratio;
+@property (nonatomic,assign)CGFloat ratio;
 @property (nonatomic,strong)NSString * redirectUrl;
 @property (nonatomic,strong)NSString *   userAvatar;
 @property (nonatomic, strong) NSString *gender;

@@ -45,7 +45,7 @@ static NSString *headerID = @"headerId";
     
     if (self) {
      
-        self.backgroundColor = LQSColor(250, 248, 251);
+        self.backgroundColor = LQSColor(250, 248, 251,1);
         self.showsVerticalScrollIndicator = NO;
         self.delegate = self;
         self.dataSource = self;
@@ -123,7 +123,7 @@ static NSString *headerID = @"headerId";
     
     LQSForumCell *cell = [self dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
-    cell.layer.borderColor = LQSColor(233, 231, 233).CGColor;
+    cell.layer.borderColor = LQSColor(233, 231, 233,1).CGColor;
     cell.layer.borderWidth = 0.25;
     LQSSectionModel *sectionModel = self.sections[indexPath.section];
     LQSCellModel *cellModel = sectionModel.items[indexPath.item];
@@ -135,7 +135,7 @@ static NSString *headerID = @"headerId";
 {
     
     LQSHeaderView *headerView = [self dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headerID forIndexPath:indexPath];
-    headerView.backgroundColor = LQSColor(235, 235, 235);
+    headerView.backgroundColor = LQSColor(235, 235, 235,1);
     LQSSectionModel *model = self.sections[indexPath.section];
     headerView.titleLabel.text = model.board_category_name;
     

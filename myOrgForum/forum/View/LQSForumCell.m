@@ -53,7 +53,7 @@
         
         self.latestCountLbl = [[UILabel alloc]init];
         self.latestCountLbl.font = [UIFont systemFontOfSize:LQSForumTextSize];
-        self.latestCountLbl.textColor = LQSColor(1, 183, 237);
+        self.latestCountLbl.textColor = LQSColor(1, 183, 237,1);
         [self.latestCountLbl sizeToFit];
 //        self.latestCountLbl.backgroundColor = [UIColor yellowColor];
 
