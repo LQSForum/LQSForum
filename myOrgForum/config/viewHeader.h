@@ -24,8 +24,12 @@
 #import "LQSDiscoverCell.h"
 #import "LQSWaterFlowView.h"
 #import "LQSWaterFlowViewCell.h"
-
-
+#import "LQSPhotosView.h"
+#import "LQSPhotoView.h"
+#import "LQSCishanStatusTopView.h"
+#import "LQSCishanStatusToolBar.h"
+#import "LQScishanViewCell.h"
+#import "LQSCishanStatusOriginView.h"
 //setting
 
 #import "LQSMessageTableViewCell.h"

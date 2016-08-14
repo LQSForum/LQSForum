@@ -26,8 +26,8 @@
 @property (nonatomic, strong) NSString *source_id;
 @property (nonatomic,strong)NSString * title;
 @property (nonatomic,strong)NSString * user_id;
-@property (nonatomic,strong)NSArray * last_reply_date;
-@property (nonatomic,strong)NSString * user_nick_name;
+@property (nonatomic,copy)NSString * last_reply_date;
+@property (nonatomic,copy)NSString * user_nick_name;
 @property (nonatomic,strong)NSString *   hits;
 @property (nonatomic, strong) NSString *summary;
 @property (nonatomic,strong)NSString * replies;
@@ -40,7 +40,7 @@
 @property (nonatomic,strong)NSString * isHasRecommendAdd;
 @property (nonatomic,strong)NSArray * distance;
 @property (nonatomic,strong)NSString * location;
-@property (nonatomic,strong)NSString *   imageList;
+@property (nonatomic,strong)NSArray *   imageList;
 @property (nonatomic, strong) NSString *sourceWebUrl;
 @property (nonatomic, strong) NSString *verify;
 @end

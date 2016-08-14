@@ -26,7 +26,8 @@
 @property (nonatomic, strong) NSString *source_id;
 @property (nonatomic,strong)NSString * title;
 @property (nonatomic,strong)NSString * user_id;
-@property (nonatomic,strong)NSArray * last_reply_date;
+@property (nonatomic, copy) NSString *last_reply_date;
+
 @property (nonatomic,strong)NSString * user_nick_name;
 @property (nonatomic,strong)NSString *   hits;
 @property (nonatomic, strong) NSString *summary;

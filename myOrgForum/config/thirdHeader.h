@@ -15,4 +15,6 @@
 #import "MJExtension.h"
 #import "Masonry.h"
 #import "UIImageView+WebCache.h"
+#import "MJPhotoBrowser.h"
+#import "MJPhoto.h"
 #endif /* thirdHeader_h */

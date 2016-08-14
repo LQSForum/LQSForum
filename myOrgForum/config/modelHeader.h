@@ -16,7 +16,11 @@
 #import "LQSSettingPersonalSettingDataModel.h"
 #import "LQSSettingModel.h"
 #import "LQSMessageDataModel.h"
-
+//discover
+#import "LQSShijieDataModel.h"
+#import "LQSCishanModelFrame.h"
+#import "LQSCishanModel.h"
+#import "LQSPhoto.h"
 #import "LQSHomePagePersonalMessageDataModel.h"
 
 

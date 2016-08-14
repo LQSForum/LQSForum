@@ -108,7 +108,6 @@
 {
     self.page = 1;
     [self shijieDataRequestWithPage:self.page];
-//    [self.discoriesArr insertObjects:self.disArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.disArr.count)]];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 刷新瀑布流控件
         [self.waterFlowView reloadData];
