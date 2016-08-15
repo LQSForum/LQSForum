@@ -29,19 +29,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //    请求数据
+    self.page = 1;
+    [self shijieDataRequestWithPage:self.page];
+//    需要初始化数据
+    [self.discoriesArr addObjectsFromArray:self.disArr];
     [self createCell];
-    self.waterFlowView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewShops)];
-    self.waterFlowView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreShops)];
 
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //    请求数据
-    self.page = 1;
-    [self shijieDataRequestWithPage:self.page];
+    
+    self.waterFlowView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewShops)];
+    self.waterFlowView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreShops)];
+    
+    [self.waterFlowView.mj_header beginRefreshing];
+
 }
 
 - (void)shijieDataRequestWithPage:(NSUInteger)page{
@@ -81,7 +86,8 @@
         }
         self.disArr = [LQSShijieDataListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
 //        [self.discoriesArr insertObjects:self.disArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.discoriesArr.count, self.disArr.count * self.page)]];
-        
+        [self.waterFlowView reloadData];
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败");
     }];
@@ -100,7 +106,6 @@
     waterFlowView.delegate = self;
     [self.view addSubview:waterFlowView];
     self.waterFlowView = waterFlowView;
-
 }
 
 - (void)loadNewShops
