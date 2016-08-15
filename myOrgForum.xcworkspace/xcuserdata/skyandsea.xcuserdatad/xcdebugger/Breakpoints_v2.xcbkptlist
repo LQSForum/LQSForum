@@ -213,32 +213,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
-            timestampString = "492688454.7199"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "-shijieDataRequest"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
-            timestampString = "492688454.7199"
+            timestampString = "492918151.380434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "-shijieDataRequest"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-shijieDataRequestWithPage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -297,12 +281,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
-            timestampString = "492688454.7199"
+            timestampString = "492918151.380434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-shijieDataRequest"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-shijieDataRequestWithPage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -313,12 +297,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
-            timestampString = "492688454.7199"
+            timestampString = "492918151.380434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-shijieDataRequest"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "-shijieDataRequestWithPage:"
             landmarkType = "5">
             <Locations>
                <Location
@@ -391,12 +375,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
-            timestampString = "492688454.7199"
+            timestampString = "492918151.380434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-numberOfCellsInWaterflowView:"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "-createCell"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -407,12 +391,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
-            timestampString = "492688454.7199"
+            timestampString = "492918151.380434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "-waterflowView:cellAtIndex:"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "-createCell"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

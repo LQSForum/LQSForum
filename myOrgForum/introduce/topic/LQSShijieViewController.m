@@ -42,7 +42,6 @@
     //    请求数据
     self.page = 1;
     [self shijieDataRequestWithPage:self.page];
-    
 }
 
 - (void)shijieDataRequestWithPage:(NSUInteger)page{
@@ -81,7 +80,7 @@
             self.disArr = disArr;
         }
         self.disArr = [LQSShijieDataListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
-        [self.discoriesArr insertObjects:self.disArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.discoriesArr.count, self.disArr.count * self.page)]];
+//        [self.discoriesArr insertObjects:self.disArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.discoriesArr.count, self.disArr.count * self.page)]];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败");
@@ -108,6 +107,7 @@
 {
     self.page = 1;
     [self shijieDataRequestWithPage:self.page];
+    [self.discoriesArr insertObjects:self.disArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.disArr.count)]];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 刷新瀑布流控件
         [self.waterFlowView reloadData];
@@ -121,6 +121,8 @@
 {
     self.page++;
     [self shijieDataRequestWithPage:self.page];
+    [self.discoriesArr addObjectsFromArray:self.disArr];
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 刷新瀑布流控件
         [self.waterFlowView reloadData];
