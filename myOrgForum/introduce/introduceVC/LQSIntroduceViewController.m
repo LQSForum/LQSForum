@@ -329,28 +329,28 @@
     LQSintroduceMainlistCell *cell = [[LQSintroduceMainlistCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     switch (indexPath.section) {
         case 0:{
-            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.lbDataArrA}];
-            [cell setCellForIndexPath:indexPath];
+            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.lbDataArrA,@"indexPath":indexPath}];
+//            [cell setCellForIndexPath:indexPath];
             break;
         }case 1:{
-            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.btnDataArrB}];
-            [cell setCellForIndexPath:indexPath];
+            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.btnDataArrB,@"indexPath":indexPath}];
+//            [cell setCellForIndexPath:indexPath];
             break;
         }case 2:{
-            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.LQWSXDataC}];
-            [cell setCellForIndexPath:indexPath];
+            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.LQWSXDataC,@"indexPath":indexPath}];
+//            [cell setCellForIndexPath:indexPath];
             break;
         }case 3:{
-            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.XFXZDataD}];
-            [cell setCellForIndexPath:indexPath];
+            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.XFXZDataD,@"indexPath":indexPath}];
+//            [cell setCellForIndexPath:indexPath];
             break;
         }case 4:{
-            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.DHSKSDataE}];
-            [cell setCellForIndexPath:indexPath];
+            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.DHSKSDataE,@"indexPath":indexPath}];
+//            [cell setCellForIndexPath:indexPath];
             break;
         }case 5:{
-            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.KSDataF}];
-            [cell setCellForIndexPath:indexPath];
+            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.KSDataF,@"indexPath":indexPath}];
+//            [cell setCellForIndexPath:indexPath];
             break;
         }
             
@@ -403,9 +403,17 @@
     return view;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 5) {
+        //师父法语开示点击
+        NSLog(@"点击师父法语开示");
+    }
+}
+
 - (void)moreNewsCilck:(UIButton *)sender
 {
-    
+    NSLog(@"点击更多");
 }
 
 //
