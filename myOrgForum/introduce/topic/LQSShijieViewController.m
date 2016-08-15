@@ -85,7 +85,6 @@
             self.disArr = disArr;
         }
         self.disArr = [LQSShijieDataListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
-//        [self.discoriesArr insertObjects:self.disArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.discoriesArr.count, self.disArr.count * self.page)]];
         [self.waterFlowView reloadData];
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
