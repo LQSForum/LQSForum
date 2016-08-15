@@ -204,9 +204,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LQSCishanModelFrame *frame = self.cishanStatusFrameArr[indexPath.row];
-    return frame.cellHeight;
-//    return 30;
+//    LQSCishanModelFrame *frame = self.cishanStatusFrameArr[indexPath.row];
+//    return frame.cellHeight;
+    return 30;
 }
 
 
