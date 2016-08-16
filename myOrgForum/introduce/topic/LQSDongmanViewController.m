@@ -8,7 +8,15 @@
 
 #import "LQSDongmanViewController.h"
 
-@interface LQSDongmanViewController ()
+@interface LQSDongmanViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    UITableView *_tableView;
+    NSMutableArray *_dongManDataArr;
+    NSMutableArray *_dongManDataArray;
+
+
+}
+@property (nonatomic, assign) NSUInteger page;
 
 @end
 
@@ -16,20 +24,67 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.page = 1;
+    [_dongManDataArray addObjectsFromArray:_dongManDataArr];
+    [self reloadDongmanDateRequestWithPage:self.page];
     self.view.backgroundColor = [UIColor blueColor];
-    // Do any additional setup after loading the view.
+//创建tableview
+    [self createTableView];
+
 }
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self reloadDongmanDateRequest];
     [super viewWillAppear:animated];
+    //    上啦刷新
+    _tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    _tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+
+    [_tableView.mj_header beginRefreshing];
+
+}
+
+- (void)loadNewData
+{
+    self.page = 1;
+    [self reloadDongmanDateRequestWithPage:self.page];
+    [_dongManDataArray insertObjects:_dongManDataArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, _dongManDataArr.count)]];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //    刷新表格
+    [_tableView reloadData];
+    //停止刷新
+    [_tableView.mj_header endRefreshing];
+    });
+}
+
+- (void)loadMoreData
+{
+    
+    self.page++;
+    [self reloadDongmanDateRequestWithPage:self.page];
+    [_dongManDataArray addObjectsFromArray:_dongManDataArr];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+    //    刷新表格
+    [_tableView reloadData];
+    [_tableView.mj_footer endRefreshing];
+    });
+}
+
+- (void)createTableView
+{
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + 40, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:_tableView];
+    _tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
 
 
 
 }
 
-- (void)reloadDongmanDateRequest
+- (void)reloadDongmanDateRequestWithPage:(NSUInteger)page
 {
     
     NSString *baseStr = @"http://forum.longquanzs.org//mobcent/app/web/index.php?";
@@ -42,7 +97,7 @@
     paramDic[@"moduleId"] = @"3";
     paramDic[@"latitude"] = @"39.981122";
     paramDic[@"accessToken"] = @"f9514b902a334d6c0b23305abd46d";
-    paramDic[@"page"] = @"1";
+    paramDic[@"page"] = [NSString stringWithFormat:@"%ld",self.page];
     paramDic[@"accessSecret"] = @"cd090971f3f83391cd4ddc034638c";
     paramDic[@"circle"] = @"0";
     paramDic[@"isImageList"] = @"1";
@@ -52,11 +107,51 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"sucess");
-        
+        NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
+        if (_dongManDataArr.count > 0) {
+            [_dongManDataArr removeAllObjects];
+        }else{
+            
+            NSMutableArray *tempArr = [[NSMutableArray alloc] init];
+            _dongManDataArr = tempArr;
+        }
+        _dongManDataArr = [LQSShijieDataListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
+        _dongManDataArray = [NSMutableArray array];
+        [_dongManDataArray addObjectsFromArray:_dongManDataArr];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failure");
         
     }];
-    
+    [_tableView reloadData];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+
+    return _dongManDataArray.count;
+
+
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"dongManCell";
+    LQSDongmanTableViewCell *dongmancell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (dongmancell == nil) {
+        dongmancell = [[LQSDongmanTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1                reuseIdentifier:identifier];
+    }
+    [dongmancell pushesDongmanDataModel:[_dongManDataArray objectAtIndex:indexPath.row]];
+    return dongmancell;
+
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    LQSDongmanTableViewCell *dongmanCell = [[LQSDongmanTableViewCell alloc] init];
+//    return dongmanCell.height;
+    return 200;
+
+
+
 }
 @end

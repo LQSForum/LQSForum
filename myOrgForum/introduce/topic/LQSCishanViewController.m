@@ -206,7 +206,7 @@
 {
 //    LQSCishanModelFrame *frame = self.cishanStatusFrameArr[indexPath.row];
 //    return frame.cellHeight;
-    return 30;
+    return 80;
 }
 
 

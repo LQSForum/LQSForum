@@ -104,6 +104,7 @@
 		410FA2BF1D38EC9B0021B7E2 /* LQSDongmanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2BA1D38EC9B0021B7E2 /* LQSDongmanViewController.m */; };
 		410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */; };
 		412E8C2F1D3DC6A4008C2553 /* LQSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 412E8C2E1D3DC6A4008C2553 /* LQSCore.m */; };
+		414A46311D62AF1100F07810 /* LQSDongmanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A46301D62AF1100F07810 /* LQSDongmanTableViewCell.m */; };
 		415C55541CC8CCEE00408B90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55531CC8CCEE00408B90 /* main.m */; };
 		415C555D1CC8CCEE00408B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415C555B1CC8CCEE00408B90 /* Main.storyboard */; };
 		415C555F1CC8CCEE00408B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415C555E1CC8CCEE00408B90 /* Assets.xcassets */; };
@@ -359,6 +360,8 @@
 		412E8C2D1D3DC6A4008C2553 /* LQSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCore.h; sourceTree = "<group>"; };
 		412E8C2E1D3DC6A4008C2553 /* LQSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSCore.m; sourceTree = "<group>"; };
 		412FF25C1CD1A0E0005F39AB /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		414A462F1D62AF1100F07810 /* LQSDongmanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDongmanTableViewCell.h; sourceTree = "<group>"; };
+		414A46301D62AF1100F07810 /* LQSDongmanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSDongmanTableViewCell.m; sourceTree = "<group>"; };
 		415C554F1CC8CCEE00408B90 /* myOrgForum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myOrgForum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		415C55531CC8CCEE00408B90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		415C555C1CC8CCEE00408B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -660,6 +663,8 @@
 			children = (
 				41B544671D5DCB2F00575BC6 /* cishan&dongman */,
 				41B544661D5DCADE00575BC6 /* shijie */,
+				414A462F1D62AF1100F07810 /* LQSDongmanTableViewCell.h */,
+				414A46301D62AF1100F07810 /* LQSDongmanTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1525,6 +1530,7 @@
 				410FA2691D38EC010021B7E2 /* LQSCoreManager.m in Sources */,
 				410FA22B1D38EBA30021B7E2 /* NSString+Emoji.m in Sources */,
 				410FA2BE1D38EC9B0021B7E2 /* LQSCishanViewController.m in Sources */,
+				414A46311D62AF1100F07810 /* LQSDongmanTableViewCell.m in Sources */,
 				2CA781431D438D7A00D35288 /* LQSWaterFlowViewCell.m in Sources */,
 				410FA2941D38EC430021B7E2 /* LQSDetailSettingViewController.m in Sources */,
 				410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */,

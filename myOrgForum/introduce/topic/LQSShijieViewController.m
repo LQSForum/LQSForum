@@ -105,6 +105,8 @@
     waterFlowView.delegate = self;
     [self.view addSubview:waterFlowView];
     self.waterFlowView = waterFlowView;
+    self.waterFlowView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewShops)];
+
 }
 
 - (void)loadNewShops

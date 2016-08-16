@@ -9,6 +9,8 @@
 #ifndef viewHeader_h
 #define viewHeader_h
 #import "LQSSettingCell.h"
+//dongman
+#import "LQSDongmanTableViewCell.h"
 //ingtroduce
 
 

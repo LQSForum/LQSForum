@@ -162,11 +162,11 @@
     [self addChildViewController:hotVc];
     
     LQSDongmanViewController *lastVc = [LQSDongmanViewController new];
-    lastVc.title = @"慈善";
+    lastVc.title = @"动漫";
     [self addChildViewController:lastVc];
     
     LQSCishanViewController *jingHuaVc = [LQSCishanViewController new];
-    jingHuaVc.title =@"动漫";
+    jingHuaVc.title =@"慈善";
     [self addChildViewController:jingHuaVc];
     
 }

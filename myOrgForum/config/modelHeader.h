@@ -23,6 +23,8 @@
 #import "LQSPhoto.h"
 #import "LQSHomePagePersonalMessageDataModel.h"
 
+//dongman
+#import "LQSDongmanModel.h"
 
 
 
