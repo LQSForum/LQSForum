@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LQSLastestMarrowModel.h"
 @interface LQSLatestMarrowTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) LQSLastestMarrowModel *model;
 @end

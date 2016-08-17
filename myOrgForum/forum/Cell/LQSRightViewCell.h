@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LQSCellModel.h"
 @interface LQSRightViewCell : UITableViewCell
-
+@property (nonatomic, strong) LQSCellModel *cellModel;
 @end

@@ -67,9 +67,9 @@
     NSIndexPath *indexPath = notify.object;
     
     if (indexPath.row == 1) {
-        self.latestView.sortby = @{@"sortby":@"new"};
+        self.latestView.sortby = @{@"sortby":@"new",@"pageSize":@20,@"page":@1};
     }else if(indexPath.row == 2){
-        self.marrowView.sortby = @{@"sortby":@"marrow"};
+        self.marrowView.sortby = @{@"sortby":@"marrow",@"pageSize":@20,@"page":@1};
     }
     
     [self scrollToItemAtIndexPath:notify.object atScrollPosition:(UICollectionViewScrollPositionNone) animated:YES];
@@ -84,19 +84,19 @@
     
     self.leftView = [[LQSLeftTableView alloc] init];
     self.leftView.leftViewDelegate = self;
-    self.leftView.frame = CGRectMake(0, 64, kScreenWidth/3, self.frame.size.height);
+    self.leftView.frame = CGRectMake(0, 0, kScreenWidth/3, self.frame.size.height-49);
     self.leftView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.leftView];
     
     self.rightView = [[LQSRightTableView alloc] init];
-    self.rightView.frame = CGRectMake(kScreenWidth/3, 64, kScreenWidth/3 * 2, self.frame.size.height);
+    self.rightView.frame = CGRectMake(kScreenWidth/3, 0, kScreenWidth/3 * 2, self.frame.size.height-49);
     self.rightView.backgroundColor = [UIColor blueColor];
     [self addSubview:self.rightView];
     
     self.latestView = [[LQSLatestMarrowTableView alloc]init];
     self.marrowView = [[LQSLatestMarrowTableView alloc]init];
-    self.latestView.frame = CGRectMake(kScreenWidth, 64, kScreenWidth, self.frame.size.height);
-    self.marrowView.frame = CGRectMake(kScreenWidth * 2, 64, kScreenWidth, self.frame.size.height);
+    self.latestView.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, self.frame.size.height-49);
+    self.marrowView.frame = CGRectMake(kScreenWidth * 2, 0, kScreenWidth, self.frame.size.height-49);
     //    self.latestView.backgroundColor = [UIColor blueColor];
     //    self.marrowView.backgroundColor = [UIColor yellowColor];
     [self addSubview:self.latestView];

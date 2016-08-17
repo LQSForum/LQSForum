@@ -44,7 +44,11 @@
     // 设置 itemSize
     layout1.itemSize = kScreenSize;
     
-    LQSMainView *mainView = [[LQSMainView alloc]initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) collectionViewLayout:layout1];
+    self.bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenSize.width, 64)];
+    [self.view addSubview:self.bgView];
+    self.bgView.backgroundColor = [UIColor redColor];
+    
+    LQSMainView *mainView = [[LQSMainView alloc]initWithFrame:CGRectMake(0, 128, kWIDTH, kHEIGHT-49) collectionViewLayout:layout1];
     
     mainView.pagingEnabled = YES;
     mainView.idelegate = self;
@@ -52,10 +56,6 @@
     // 2. 添加 UI
     [self.view addSubview:mainView];
     self.mainView = mainView;
-    
-    self.bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenSize.width, 64)];
-    [self.view addSubview:self.bgView];
-    self.bgView.backgroundColor = [UIColor redColor];
     
     [self loadTopView];
     
