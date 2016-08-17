@@ -1,13 +1,13 @@
 //
-//  LQSForumView.h
+//  LQSRightViewCell.h
 //  myOrgForum
 //
-//  Created by 昱含 on 16/7/6.
+//  Created by a on 16/8/17.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface LQSForumView : UICollectionView
+@interface LQSRightViewCell : UITableViewCell
 
 @end
