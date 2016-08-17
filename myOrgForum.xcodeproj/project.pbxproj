@@ -490,12 +490,14 @@
 		2CA7814A1D438E7100D35288 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2CA7814F1D43B6BC00D35288 /* LQSShijieDataModel.h */,
 				2CA781501D43B6BC00D35288 /* LQSShijieDataModel.m */,
+				2CA7814F1D43B6BC00D35288 /* LQSShijieDataModel.h */,
 				41B5445E1D5DAF8500575BC6 /* LQSCishanModel.h */,
 				41B5445F1D5DAF8500575BC6 /* LQSCishanModel.m */,
 				41B544631D5DB4BE00575BC6 /* LQSDongmanModel.h */,
 				41B544641D5DB4BE00575BC6 /* LQSDongmanModel.m */,
+				414A462F1D62AF1100F07810 /* LQSDongmanTableViewCell.h */,
+				414A46301D62AF1100F07810 /* LQSDongmanTableViewCell.m */,
 				2CB084B41D602AFF00167F4D /* LQSCishanModelFrame.h */,
 				2CB084B51D602AFF00167F4D /* LQSCishanModelFrame.m */,
 				2CB084B71D604B0900167F4D /* LQSPhoto.h */,
@@ -663,8 +665,6 @@
 			children = (
 				41B544671D5DCB2F00575BC6 /* cishan&dongman */,
 				41B544661D5DCADE00575BC6 /* shijie */,
-				414A462F1D62AF1100F07810 /* LQSDongmanTableViewCell.h */,
-				414A46301D62AF1100F07810 /* LQSDongmanTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";

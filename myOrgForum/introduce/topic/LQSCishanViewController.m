@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSMutableArray *cishanStatusFrameArr;
 @property (nonatomic, assign) NSUInteger page;
 @property (nonatomic,strong) NSMutableArray *cishanArr;
+@property (nonatomic,strong) NSMutableArray *imageArr;
 
 @end
 
@@ -119,7 +120,7 @@
 
 - (void)reloadCishanDateRequestWithPage:(NSUInteger)page
 {
-    if ([[NSString stringWithFormat:@"%lud",self.page] isEqualToString:@"1"] && self.cishanArr) {
+    if ([[NSString stringWithFormat:@"%lud",(unsigned long)self.page] isEqualToString:@"1"] && self.cishanArr) {
         [self.cishanArr removeAllObjects];
     }
 
@@ -133,7 +134,7 @@
     paramDic[@"moduleId"] = @"2";
     paramDic[@"latitude"] = @"39.981122";
     paramDic[@"accessToken"] = @"f9514b902a334d6c0b23305abd46d";
-    paramDic[@"page"] = [NSString stringWithFormat:@"%lud",self.page];
+    paramDic[@"page"] = [NSString stringWithFormat:@"%lud",(unsigned long)self.page];
     paramDic[@"accessSecret"] = @"cd090971f3f83391cd4ddc034638c";
     paramDic[@"circle"] = @"0";
     
@@ -144,14 +145,7 @@
         NSLog(@"sucess");
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
 //        数据模型放到frame模型
-        
-        
-        
-        
-        
-        
-        
-        if (self.cishanArr.count > 0) {
+              if (self.cishanArr.count > 0) {
             [self.cishanArr removeAllObjects];
         }else{
             
@@ -159,7 +153,8 @@
             self.cishanArr = cishanArr;
         }
         self.cishanArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
-        
+        self.imageArr = [NSMutableArray array];
+        self.imageArr = [LQSShijieDataModel mj_objectArrayWithKeyValuesArray:dict[@"imageList"]];
         NSMutableArray *newFrames = [NSMutableArray array];
 
         for (LQSCishanListModel * cishanModel in self.cishanArr) {

@@ -13,12 +13,16 @@
 {
     UIImageView *_userAvaterView;
     UILabel *_userNameLabel;
+    UILabel *_timeLabel;
     UILabel *_sourceLabel;
     UILabel *_contentLabel;
     UIImageView *_picsView;
     UILabel *_fangwenLabel;
     UILabel *_pinglunLabel;
     NSArray *_picViewArr;
+    UIImageView *_userView;
+    UIImageView *_photoView;
+    NSMutableArray *_tempArr;
     NSMutableArray *_imageViews;
     LQSDongmanListModel *_dongmanData;
 
@@ -32,20 +36,34 @@
     _picViewArr = [NSMutableArray array];
 //用户头像
     _userAvaterView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    _userAvaterView.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:_userAvaterView];
     
 //    用户名称
     _userNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    _userNameLabel.font = [UIFont systemFontOfSize:15];
-    [self.contentView addSubview:_userNameLabel];
+    _userAvaterView.backgroundColor = [UIColor yellowColor];
 
+    _userNameLabel.font = [UIFont systemFontOfSize:15];
+    _userNameLabel.backgroundColor = [UIColor blueColor];
+    _userNameLabel.textAlignment = NSTextAlignmentLeft;
+    [self.contentView addSubview:_userNameLabel];
+//  timeLabel时间label
+    _timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    _timeLabel.textAlignment = NSTextAlignmentLeft;
+    [self.contentView addSubview:_timeLabel];
     
 //    帖子来源
     _sourceLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    _userAvaterView.backgroundColor = [UIColor greenColor];
+
     _sourceLabel.font = [UIFont systemFontOfSize:12];
+    _sourceLabel.backgroundColor = [UIColor cyanColor];
+
     [self.contentView addSubview:_sourceLabel];
 //    帖子内容
     _contentLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    _contentLabel.backgroundColor = [UIColor purpleColor];
+
     _contentLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:_contentLabel];
 
@@ -53,11 +71,13 @@
     
 //    访问量
     _fangwenLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    _fangwenLabel.backgroundColor = [UIColor magentaColor];
     _fangwenLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:_fangwenLabel];
 
 //    评论数
     _pinglunLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    _pinglunLabel.backgroundColor = [UIColor lightGrayColor];
     _pinglunLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:_pinglunLabel];
 
@@ -70,26 +90,26 @@
 - (void)pushesDongmanDataModel:(LQSDongmanListModel *)model
 {
     _dongmanData = model;
-    NSURL *avaterURL = [NSURL URLWithString:model.pic_path];
-    [_userAvaterView sd_setImageWithURL:avaterURL placeholderImage:nil ];
-    [_userNameLabel.text isEqualToString:model.user_nick_name];
-    [_sourceLabel.text isEqualToString:model.board_name];
-    [_contentLabel.text isEqualToString:model.summary];
-    [_fangwenLabel.text isEqualToString:model.hits];
-    [_pinglunLabel.text isEqualToString:model.recommendAdd];
+    NSURL *avaterURL = [NSURL URLWithString:model.userAvatar];//红
+    [_userAvaterView sd_setImageWithURL:avaterURL placeholderImage:nil ];//红
+    _userNameLabel.text = model.user_nick_name;//blue
+    _timeLabel.text = model.last_reply_date;
+    _sourceLabel.text = model.board_name;//cyan
+    _contentLabel.text = model.title;//purple
+    _fangwenLabel.text = model.hits;//magentale
+    _pinglunLabel.text = model.replies;//lightGray
 //    获取图片群
     _picViewArr = [model.imageList componentsSeparatedByString:@","];
-    NSUInteger count = _picViewArr.count;
+    [_picViewArr arrayByAddingObject:model.pic_path];
+    NSUInteger count = _tempArr.count;
     for (NSUInteger i = 0; i < count; i++) {
-        LQSPhotoView *photoView = [[LQSPhotoView alloc] init];
-        photoView.tag = i;
-        [_imageViews addObject:photoView];
-        // 2.添加点击事件
-        [photoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTap:)]];
+        _photoView = [[UIImageView alloc] init];
+        _photoView.tag = i;
+        [_imageViews addObject:_photoView];
     }
     for (NSUInteger idx = 0; idx < count; idx++) {
-        UIView *userView = [_imageViews objectAtIndex:idx];
-        [self.contentView addSubview:userView];
+        UIView *view = [_imageViews objectAtIndex:idx];
+        [self.contentView addSubview:view];
     }
     [self setNeedsLayout];
 
@@ -109,7 +129,7 @@
         // 创建MJPhoto模型
         MJPhoto *mjphoto = [[MJPhoto alloc] init];
         // 设置图片的url
-        mjphoto.url = [NSURL URLWithString:[_picViewArr objectAtIndex:i]];
+        mjphoto.url = [NSURL URLWithString:[_tempArr objectAtIndex:i]];
         // 设置图片的来源view
         mjphoto.srcImageView = self.subviews[i];
         [mjphotos addObject:mjphoto];
@@ -136,21 +156,51 @@
 {
 
     [super layoutSubviews];
-
+    CGFloat margin = 10;
+    CGFloat picW = (kScreenWidth - 4 * margin)/3;
+    //计算图片的frame
+    //    计算有多少行
+    NSUInteger rows = _tempArr.count /3;
+    //    计算有多少咧
+    NSUInteger cols = _tempArr.count % 3;
+    
+    for (NSUInteger i = 0; i < _tempArr.count; i++) {
+        _userView.frame = CGRectMake(margin + (margin + picW) * cols, margin + (margin + picW) * rows , picW, picW);
+    }
+    
+//    添加点击量
+    _fangwenLabel.frame = CGRectMake(kScreenWidth - 100, self.height - 20, 50, 20);
+//    添加评论数
+    _pinglunLabel.frame = CGRectMake(kScreenWidth - 50, self.height - 20, 50, 20);
+    
+    
+    
+    
+    
+    
+    
+    CGFloat touxiangPicW = 30;
 //用户头像
-    _userAvaterView.frame = CGRectMake(10, 10, 50, 50);
+    _userAvaterView.frame = CGRectMake(10, 10, touxiangPicW, touxiangPicW);
 //    用户名称
-    _userNameLabel.frame = CGRectMake(10 + 50 + 10, 10, kScreenWidth * 0.5, 25);
-    _userNameLabel.textAlignment = NSTextAlignmentRight;
+    _userNameLabel.frame = CGRectMake(10 + touxiangPicW + 10, 10,( kScreenWidth - 2 * 10 - touxiangPicW)* 0.5, touxiangPicW * 0.5);
+    _timeLabel.frame = CGRectMake(10 + touxiangPicW + 10, 10 + touxiangPicW * 0.5,( kScreenWidth - 2 * 10 - touxiangPicW)* 0.5 , touxiangPicW * 0.5);
+    _timeLabel.backgroundColor = [UIColor redColor];
 //    来源
-    _sourceLabel.frame = CGRectMake(kScreenWidth * 0.5, 10, kScreenWidth * 0.5, 25);
+    _sourceLabel.frame = CGRectMake(CGRectGetMaxX(_userNameLabel.frame), 10, ( kScreenWidth - 2 * 10 - touxiangPicW)* 0.5, touxiangPicW * 0.5);
     _sourceLabel.textAlignment = NSTextAlignmentRight;
 //    文字内容
     CGSize size = [self sizeWithText:_dongmanData.summary font:[UIFont systemFontOfSize:12] maxSize:CGSizeMake(kScreenWidth, MAXFLOAT)];
-    _contentLabel.frame = CGRectMake(10, 10+50+10, kScreenWidth, size.height);
-
-
-
+    _contentLabel.frame = CGRectMake(10, 10+touxiangPicW+10, kScreenWidth, size.height);
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 @end

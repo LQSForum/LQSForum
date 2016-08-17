@@ -13,6 +13,7 @@
     UITableView *_tableView;
     NSMutableArray *_dongManDataArr;
     NSMutableArray *_dongManDataArray;
+    NSMutableArray *_picListArr;
 
 
 }
@@ -97,7 +98,7 @@
     paramDic[@"moduleId"] = @"3";
     paramDic[@"latitude"] = @"39.981122";
     paramDic[@"accessToken"] = @"f9514b902a334d6c0b23305abd46d";
-    paramDic[@"page"] = [NSString stringWithFormat:@"%ld",self.page];
+    paramDic[@"page"] = [NSString stringWithFormat:@"%lud",(unsigned long)self.page];
     paramDic[@"accessSecret"] = @"cd090971f3f83391cd4ddc034638c";
     paramDic[@"circle"] = @"0";
     paramDic[@"isImageList"] = @"1";
@@ -116,6 +117,8 @@
             _dongManDataArr = tempArr;
         }
         _dongManDataArr = [LQSShijieDataListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
+        _picListArr = [NSMutableArray array];
+        _picListArr = [LQSShijieDataModel mj_objectArrayWithKeyValuesArray:dict[@"piclist"]];
         _dongManDataArray = [NSMutableArray array];
         [_dongManDataArray addObjectsFromArray:_dongManDataArr];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
