@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0000C49E1D645C4A007C969C /* LQSMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C49D1D645C4A007C969C /* LQSMainView.m */; };
+		0000C4A11D645CDD007C969C /* LQSLeftTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4A01D645CDD007C969C /* LQSLeftTableView.m */; };
+		0000C4A41D645CF5007C969C /* LQSRightTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4A31D645CF5007C969C /* LQSRightTableView.m */; };
+		0000C4A71D645D0F007C969C /* LQSLatestMarrowTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4A61D645D0F007C969C /* LQSLatestMarrowTableView.m */; };
+		0000C4AE1D645E42007C969C /* LQSRightViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4AD1D645E42007C969C /* LQSRightViewCell.m */; };
+		0000C4B11D645E63007C969C /* LQSLatestMarrowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4B01D645E63007C969C /* LQSLatestMarrowTableViewCell.m */; };
+		0000C4B41D645E89007C969C /* LQSMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4B31D645E89007C969C /* LQSMainViewCell.m */; };
+		0000C4B71D645EB5007C969C /* LQSLastestMarrowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4B61D645EB5007C969C /* LQSLastestMarrowModel.m */; };
 		09DE74EE69E60578EF17616D /* libPods-myOrgForumUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */; };
 		2C7A57041D60550300BA45B7 /* LQSCishanStatusOriginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A57031D60550300BA45B7 /* LQSCishanStatusOriginView.m */; };
 		2CA781421D438D7A00D35288 /* LQSWaterFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7813F1D438D7A00D35288 /* LQSWaterFlowView.m */; };
@@ -93,9 +101,6 @@
 		410FA2961D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2931D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m */; };
 		410FA2991D38EC4C0021B7E2 /* LQSMyHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2981D38EC4C0021B7E2 /* LQSMyHomePageViewController.m */; };
 		410FA29E1D38EC630021B7E2 /* LQSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA29B1D38EC630021B7E2 /* LQSDiscoverViewController.m */; };
-		410FA2A61D38EC710021B7E2 /* LQSForumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2A11D38EC710021B7E2 /* LQSForumCell.m */; };
-		410FA2A71D38EC710021B7E2 /* LQSForumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2A31D38EC710021B7E2 /* LQSForumView.m */; };
-		410FA2A81D38EC710021B7E2 /* LQSHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2A51D38EC710021B7E2 /* LQSHeaderView.m */; };
 		410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AA1D38EC790021B7E2 /* LQSCellModel.m */; };
 		410FA2AE1D38EC790021B7E2 /* LQSSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AC1D38EC790021B7E2 /* LQSSectionModel.m */; };
 		410FA2B11D38EC830021B7E2 /* LQSForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B01D38EC830021B7E2 /* LQSForumViewController.m */; };
@@ -167,6 +172,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0000C49C1D645C4A007C969C /* LQSMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMainView.h; path = forum/View/LQSMainView.h; sourceTree = "<group>"; };
+		0000C49D1D645C4A007C969C /* LQSMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMainView.m; path = forum/View/LQSMainView.m; sourceTree = "<group>"; };
+		0000C49F1D645CDD007C969C /* LQSLeftTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSLeftTableView.h; path = forum/View/LQSLeftTableView.h; sourceTree = "<group>"; };
+		0000C4A01D645CDD007C969C /* LQSLeftTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSLeftTableView.m; path = forum/View/LQSLeftTableView.m; sourceTree = "<group>"; };
+		0000C4A21D645CF5007C969C /* LQSRightTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSRightTableView.h; path = forum/View/LQSRightTableView.h; sourceTree = "<group>"; };
+		0000C4A31D645CF5007C969C /* LQSRightTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSRightTableView.m; path = forum/View/LQSRightTableView.m; sourceTree = "<group>"; };
+		0000C4A51D645D0F007C969C /* LQSLatestMarrowTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSLatestMarrowTableView.h; path = forum/View/LQSLatestMarrowTableView.h; sourceTree = "<group>"; };
+		0000C4A61D645D0F007C969C /* LQSLatestMarrowTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSLatestMarrowTableView.m; path = forum/View/LQSLatestMarrowTableView.m; sourceTree = "<group>"; };
+		0000C4AC1D645E42007C969C /* LQSRightViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRightViewCell.h; sourceTree = "<group>"; };
+		0000C4AD1D645E42007C969C /* LQSRightViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRightViewCell.m; sourceTree = "<group>"; };
+		0000C4AF1D645E63007C969C /* LQSLatestMarrowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSLatestMarrowTableViewCell.h; sourceTree = "<group>"; };
+		0000C4B01D645E63007C969C /* LQSLatestMarrowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSLatestMarrowTableViewCell.m; sourceTree = "<group>"; };
+		0000C4B21D645E89007C969C /* LQSMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMainViewCell.h; sourceTree = "<group>"; };
+		0000C4B31D645E89007C969C /* LQSMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMainViewCell.m; sourceTree = "<group>"; };
+		0000C4B51D645EB5007C969C /* LQSLastestMarrowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSLastestMarrowModel.h; path = forum/Model/LQSLastestMarrowModel.h; sourceTree = "<group>"; };
+		0000C4B61D645EB5007C969C /* LQSLastestMarrowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSLastestMarrowModel.m; path = forum/Model/LQSLastestMarrowModel.m; sourceTree = "<group>"; };
 		14E37D8AF205E4AAC6AB2302 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2AEC7AB4431F7F14A52266D9 /* Pods-myOrgForumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2C7A57021D60550300BA45B7 /* LQSCishanStatusOriginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCishanStatusOriginView.h; sourceTree = "<group>"; };
@@ -337,12 +358,6 @@
 		410FA2981D38EC4C0021B7E2 /* LQSMyHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMyHomePageViewController.m; path = setting/set/ViewController/Person/LQSMyHomePageViewController.m; sourceTree = "<group>"; };
 		410FA29A1D38EC630021B7E2 /* LQSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDiscoverViewController.h; path = discover/LQSDiscoverViewController.h; sourceTree = "<group>"; };
 		410FA29B1D38EC630021B7E2 /* LQSDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDiscoverViewController.m; path = discover/LQSDiscoverViewController.m; sourceTree = "<group>"; };
-		410FA2A01D38EC710021B7E2 /* LQSForumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumCell.h; path = forum/View/LQSForumCell.h; sourceTree = "<group>"; };
-		410FA2A11D38EC710021B7E2 /* LQSForumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumCell.m; path = forum/View/LQSForumCell.m; sourceTree = "<group>"; };
-		410FA2A21D38EC710021B7E2 /* LQSForumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumView.h; path = forum/View/LQSForumView.h; sourceTree = "<group>"; };
-		410FA2A31D38EC710021B7E2 /* LQSForumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumView.m; path = forum/View/LQSForumView.m; sourceTree = "<group>"; };
-		410FA2A41D38EC710021B7E2 /* LQSHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSHeaderView.h; path = forum/View/LQSHeaderView.h; sourceTree = "<group>"; };
-		410FA2A51D38EC710021B7E2 /* LQSHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSHeaderView.m; path = forum/View/LQSHeaderView.m; sourceTree = "<group>"; };
 		410FA2A91D38EC790021B7E2 /* LQSCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCellModel.h; path = forum/Model/LQSCellModel.h; sourceTree = "<group>"; };
 		410FA2AA1D38EC790021B7E2 /* LQSCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCellModel.m; path = forum/Model/LQSCellModel.m; sourceTree = "<group>"; };
 		410FA2AB1D38EC790021B7E2 /* LQSSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSectionModel.h; path = forum/Model/LQSSectionModel.h; sourceTree = "<group>"; };
@@ -474,6 +489,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0000C4A81D645D40007C969C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0000C4AC1D645E42007C969C /* LQSRightViewCell.h */,
+				0000C4AD1D645E42007C969C /* LQSRightViewCell.m */,
+				0000C4AF1D645E63007C969C /* LQSLatestMarrowTableViewCell.h */,
+				0000C4B01D645E63007C969C /* LQSLatestMarrowTableViewCell.m */,
+				0000C4B21D645E89007C969C /* LQSMainViewCell.h */,
+				0000C4B31D645E89007C969C /* LQSMainViewCell.m */,
+			);
+			name = Cell;
+			path = forum/Cell;
+			sourceTree = "<group>";
+		};
 		2CA7813D1D438CE400D35288 /* Horizon */ = {
 			isa = PBXGroup;
 			children = (
@@ -854,6 +883,7 @@
 				410FA2AF1D38EC830021B7E2 /* LQSForumViewController.h */,
 				410FA2B01D38EC830021B7E2 /* LQSForumViewController.m */,
 				5630993A1D2E321200FC9EE6 /* View */,
+				0000C4A81D645D40007C969C /* Cell */,
 				563099391D2E31FE00FC9EE6 /* Model */,
 			);
 			name = forum;
@@ -1010,6 +1040,8 @@
 				410FA2AA1D38EC790021B7E2 /* LQSCellModel.m */,
 				410FA2AB1D38EC790021B7E2 /* LQSSectionModel.h */,
 				410FA2AC1D38EC790021B7E2 /* LQSSectionModel.m */,
+				0000C4B51D645EB5007C969C /* LQSLastestMarrowModel.h */,
+				0000C4B61D645EB5007C969C /* LQSLastestMarrowModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1017,12 +1049,14 @@
 		5630993A1D2E321200FC9EE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				410FA2A01D38EC710021B7E2 /* LQSForumCell.h */,
-				410FA2A11D38EC710021B7E2 /* LQSForumCell.m */,
-				410FA2A21D38EC710021B7E2 /* LQSForumView.h */,
-				410FA2A31D38EC710021B7E2 /* LQSForumView.m */,
-				410FA2A41D38EC710021B7E2 /* LQSHeaderView.h */,
-				410FA2A51D38EC710021B7E2 /* LQSHeaderView.m */,
+				0000C49C1D645C4A007C969C /* LQSMainView.h */,
+				0000C49D1D645C4A007C969C /* LQSMainView.m */,
+				0000C49F1D645CDD007C969C /* LQSLeftTableView.h */,
+				0000C4A01D645CDD007C969C /* LQSLeftTableView.m */,
+				0000C4A21D645CF5007C969C /* LQSRightTableView.h */,
+				0000C4A31D645CF5007C969C /* LQSRightTableView.m */,
+				0000C4A51D645D0F007C969C /* LQSLatestMarrowTableView.h */,
+				0000C4A61D645D0F007C969C /* LQSLatestMarrowTableView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1494,7 +1528,6 @@
 				6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */,
 				6E0476671D55B32600FD6CE0 /* LQSintroduceMainlistCell.m in Sources */,
 				2CA781491D438DEA00D35288 /* LQSDiscoverCell.m in Sources */,
-				410FA2A61D38EC710021B7E2 /* LQSForumCell.m in Sources */,
 				6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */,
 				2CB084BC1D604BB700167F4D /* LQScishanViewCell.m in Sources */,
 				410FA29E1D38EC630021B7E2 /* LQSDiscoverViewController.m in Sources */,
@@ -1502,12 +1535,14 @@
 				410FA2781D38EC230021B7E2 /* LQSMessageDataModel.m in Sources */,
 				410FA2261D38EBA30021B7E2 /* LQSTabBar.m in Sources */,
 				410FA2201D38EBA30021B7E2 /* LQSEmotionTool.m in Sources */,
+				0000C4A41D645CF5007C969C /* LQSRightTableView.m in Sources */,
 				410FA23C1D38EBB60021B7E2 /* LQSEmotionGridView.m in Sources */,
 				2CB084BF1D604DA600167F4D /* LQSCishanStatusToolBar.m in Sources */,
 				6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */,
 				410FA2241D38EBA30021B7E2 /* LQSSpecifyFooter.m in Sources */,
 				B801112F1D5DC10500D7A05C /* LQSComposeViewController.m in Sources */,
 				E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */,
+				0000C4A71D645D0F007C969C /* LQSLatestMarrowTableView.m in Sources */,
 				2C7A57041D60550300BA45B7 /* LQSCishanStatusOriginView.m in Sources */,
 				410FA2BD1D38EC9B0021B7E2 /* LQSShijieViewController.m in Sources */,
 				410FA23E1D38EBB60021B7E2 /* LQSEmotionListView.m in Sources */,
@@ -1533,6 +1568,8 @@
 				414A46311D62AF1100F07810 /* LQSDongmanTableViewCell.m in Sources */,
 				2CA781431D438D7A00D35288 /* LQSWaterFlowViewCell.m in Sources */,
 				410FA2941D38EC430021B7E2 /* LQSDetailSettingViewController.m in Sources */,
+				0000C4A11D645CDD007C969C /* LQSLeftTableView.m in Sources */,
+				0000C4B41D645E89007C969C /* LQSMainViewCell.m in Sources */,
 				410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */,
 				410FA23D1D38EBB60021B7E2 /* LQSEmotionKeyboard.m in Sources */,
 				2CB084DE1D60508A00167F4D /* MJPhotoToolbar.m in Sources */,
@@ -1550,7 +1587,6 @@
 				410FA2701D38EC100021B7E2 /* LQSSettingCell.m in Sources */,
 				B801112A1D5D955400D7A05C /* LQSCollectionViewCell.m in Sources */,
 				2CB084DB1D60508A00167F4D /* MJPhotoBrowser.m in Sources */,
-				410FA2A81D38EC710021B7E2 /* LQSHeaderView.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				E4D8E1D11D54237200EE6171 /* LQSBaseRestRequest.m in Sources */,
 				2CB084D91D60508A00167F4D /* MJPhoto.m in Sources */,
@@ -1561,19 +1597,22 @@
 				E4D8E1C51D54193000EE6171 /* AsyncSocket.m in Sources */,
 				410FA2BF1D38EC9B0021B7E2 /* LQSDongmanViewController.m in Sources */,
 				410FA2721D38EC100021B7E2 /* LQSSettingViewController.m in Sources */,
-				410FA2A71D38EC710021B7E2 /* LQSForumView.m in Sources */,
+				0000C4B11D645E63007C969C /* LQSLatestMarrowTableViewCell.m in Sources */,
 				E4D8E1C61D54193000EE6171 /* GCDAsyncSocket.m in Sources */,
 				410FA2711D38EC100021B7E2 /* LQSSettingModel.m in Sources */,
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
+				0000C4AE1D645E42007C969C /* LQSRightViewCell.m in Sources */,
 				410FA2421D38EBB60021B7E2 /* LQSEmotionToolbar.m in Sources */,
 				2CB084DD1D60508A00167F4D /* MJPhotoProgressView.m in Sources */,
 				410FA1FE1D38EB8B0021B7E2 /* NSObject+YYModel.m in Sources */,
 				410FA21F1D38EBA30021B7E2 /* LQSEmotionAttachment.m in Sources */,
+				0000C49E1D645C4A007C969C /* LQSMainView.m in Sources */,
 				410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */,
 				410FA28B1D38EC390021B7E2 /* LQSMessageFriendsApplyViewController.m in Sources */,
 				B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */,
 				E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */,
 				2CB084DC1D60508A00167F4D /* MJPhotoLoadingView.m in Sources */,
+				0000C4B71D645EB5007C969C /* LQSLastestMarrowModel.m in Sources */,
 				410FA2961D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m in Sources */,
 				B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */,
 				410FA2411D38EBB60021B7E2 /* LQSEmotionTextView.m in Sources */,
@@ -1748,7 +1787,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/myOrgForum/LQSPrefixHeader.pch";
+				GCC_PREFIX_HEADER = /Users/a/github/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1799,7 +1838,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/myOrgForum/LQSPrefixHeader.pch";
+				GCC_PREFIX_HEADER = /Users/a/github/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
