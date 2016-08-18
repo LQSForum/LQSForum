@@ -9,8 +9,10 @@
 #import "LQSPickViewSelectViewController.h"
 #import "LQSPickerSelectCollectionViewCell.h"
 
-@interface LQSPickViewSelectViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface LQSPickViewSelectViewController ()<UICollectionViewDataSource, UICollectionViewDelegate,jmpPictureSelectedVCDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
+@property (nonatomic, strong)NSMutableArray *images;
+@property (nonatomic, strong)NSMutableArray *cellArray;
 
 @end
 
@@ -19,20 +21,18 @@
 static NSString * const reuseIdentifier = @"imgCell";
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    
-    //创建一个layout布局类
+- (instancetype)init
+{
     UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
     //设置布局方向为垂直流布局
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
     CGFloat margin = 3;
+    CGFloat itemCount = 5;
     
     layout.sectionInset = UIEdgeInsetsMake(margin, margin, margin, margin);
     
-    CGFloat itemW = (LQSScreenW - margin *4)/3;
+    CGFloat itemW = (LQSScreenW - margin *(itemCount +1))/itemCount;
     CGFloat itemH = itemW;
     
     //设置每个item的大小为100*100
@@ -42,17 +42,19 @@ static NSString * const reuseIdentifier = @"imgCell";
     
     //cell之间的垂直间距
     layout.minimumLineSpacing = 3;
-    //创建collectionView 通过一个布局策略layout来创建
-    UICollectionView * collect = [[UICollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout];
-    [collect setBackgroundColor:[UIColor whiteColor]];
-    //代理设置
-    collect.delegate=self;
-    collect.dataSource=self;
     
-    //注册item类型 这里使用系统的类型
-    [collect registerClass:[LQSPickerSelectCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    [self.view addSubview:collect];
+    return [super initWithCollectionViewLayout:layout];
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self.collectionView registerClass:[LQSPickerSelectCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
     
     
 }
@@ -61,6 +63,7 @@ static NSString * const reuseIdentifier = @"imgCell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation
@@ -82,19 +85,141 @@ static NSString * const reuseIdentifier = @"imgCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
-    return 10;
+    return self.images.count + 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    LQSPickerSelectCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+
     LQSPickerSelectCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     cell.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1];
-    // Configure the cell
+    
+    cell.delegate = self;
+    
+    if (self.images != nil) {
+        if (indexPath.item == self.images.count) {
+            //cell.deleteBtn.hidden = YES;
+        }
+        else{
+            
+            NSLog(@"%ld",indexPath.item);
+            NSLog(@"%@",self.images[0]);
+            
+            UIImage *image = self.images[indexPath.item];
+            cell.img = image;
+        }
+        
+    }
+
+    //[self.cellArray addObject:cell];
     
     return cell;
 }
+
+#pragma mark - 跳转图片选择控制器
+- (void)jmpPictureSelectedVC:(LQSPickerSelectCollectionViewCell *)pictureCell
+{
+    // 1
+    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"进入图库" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+#warning 先获取用户打开相册的权限
+        
+        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+        {
+            NSLog(@"没有权限访问相册,请在设置中开启权限");
+        }
+        
+        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+        
+       // picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        
+        picker.delegate = self;
+      
+        [self presentViewController:picker animated:YES completion:nil];
+        
+    }];
+    
+    // 2
+    UIAlertAction *paiZAction = [UIAlertAction actionWithTitle:@"打开照相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            
+            
+            UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+            
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            
+            [self presentViewController:picker animated:YES completion:nil];
+        }
+        else
+        {
+            NSLog(@"没有权限打开照相机,请在设置中开启");
+        }
+    }];
+    
+    
+    // 3
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    
+    [alertVc addAction:photoAction];
+    
+    [alertVc addAction:paiZAction];
+    
+    [alertVc addAction:cancelAction];
+    
+    [self presentViewController:alertVc animated:YES completion:nil];
+}
+
+#pragma mark - cell的协议方法,点击删除按钮时调用
+- (void)deletePicture:(LQSPickerSelectCollectionViewCell *)pictureCell
+{
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:pictureCell];
+    
+    NSLog(@"%ld",indexPath.item);
+    if (self.images == nil) {
+        return;
+    }
+    [self.images removeObjectAtIndex:indexPath.item];
+    
+    [self.collectionView reloadData];
+}
+
+#pragma mark- 相册的代理方法,点击一张照片时调用
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    [self.images addObject:image];
+
+//    
+//    NSInteger count = self.cellArray.count;
+//    
+//    LQSPickerSelectCollectionViewCell *cell = self.cellArray[count-1];
+//
+//    cell.img = image;
+    
+    [self.collectionView reloadData];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+//    [[NSNotificationCenter defaultCenter]postNotificationName:@"image" object:nil];
+    
+    
+    
+    
+
+}
+
+
+
 
 #pragma mark <UICollectionViewDelegate>
 
@@ -126,5 +251,23 @@ static NSString * const reuseIdentifier = @"imgCell";
 	
 }
 */
+
+#pragma mark - 懒加载
+
+- (NSMutableArray *)cellArray
+{
+    if (_cellArray == nil) {
+        _cellArray = [NSMutableArray array];
+    }
+    return _cellArray;
+}
+- (NSMutableArray *)images
+{
+    if (_images == nil) {
+        NSMutableArray *images = [[NSMutableArray alloc]init];
+        _images = images;
+    }
+    return _images;
+}
 
 @end

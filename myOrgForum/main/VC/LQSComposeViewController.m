@@ -9,7 +9,7 @@
 #import "LQSComposeViewController.h"
 #import "LQSLocationModel.h"
 #import <CoreLocation/CoreLocation.h>
-#import "LQSComposePhotosView.h"
+//#import "LQSComposePhotosView.h"
 #import "LQSPickViewSelectViewController.h"
 
 
@@ -25,7 +25,7 @@
 @property (nonatomic, weak) LQSCompostToolbar *toolbar;
 
 // 添加照片的视图
-@property (nonatomic, weak) LQSComposePhotosView *photosView;
+@property (nonatomic, strong) LQSPickViewSelectViewController *pictureVC;
 
 // 键盘视图
 @property (nonatomic, strong) LQSEmotionKeyboard *kerboard;
@@ -112,29 +112,27 @@
 // 添加显示图片的相册控件
 - (void)setupPhotosView
 {
-    LQSComposePhotosView *photosView = [[LQSComposePhotosView alloc] init];
-    photosView.delegate = self;
+    [self addChildViewController:self.pictureVC];
     
-    photosView.width = self.textView.width;
-    photosView.height = self.textView.height * 0.5;
+    // 创建选择图片的collectionViewController对象
+    [self.view addSubview:self.pictureVC.view];
     
-    photosView.x = self.textView.x;
-    photosView.y = CGRectGetMaxY(self.textView.frame) + 10;
-    [self.view addSubview:photosView];
-    photosView.backgroundColor = [UIColor whiteColor];
-    self.photosView = photosView;
+//    [self.pictureVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.width.equalTo(self.view);
+//        make.top.equalTo(self.textView).offset(-10);
+//        make.height.equalTo(self.view).height;
+//    }];
     
-    
-}
-// 跳转控制器的协议方法
-- (void)jmpPickVC:(LQSComposePhotosView *)composePhotoView
-{
+    self.pictureVC.view.width = self.textView.width;
+    self.pictureVC.view.height = self.textView.height * 0.5;
 
-    UICollectionViewLayout *layout = [[UICollectionViewLayout alloc] init];
-    LQSPickViewSelectViewController *pickerViewSelectVC = [[LQSPickViewSelectViewController alloc] initWithCollectionViewLayout:layout];
     
-    [self presentViewController:pickerViewSelectVC animated:YES completion:nil];
+    self.pictureVC.view.x = self.textView.x;
+    self.pictureVC.view.y = CGRectGetMaxY(self.textView.frame) + 10;
+    
+  
 }
+
 
 // 添加工具条
 - (void)setupToolbar
@@ -151,7 +149,7 @@
 //    toolbar.y = CGRectGetMaxY(self.textView.frame);
     
     
-    toolbar.frame = CGRectMake(0, CGRectGetMaxY(self.photosView.frame)+20, LQSScreenW, 44);
+    toolbar.frame = CGRectMake(0, CGRectGetMaxY(self.pictureVC.view.frame)+20, LQSScreenW, 44);
     [self.view addSubview:toolbar];
 }
 
@@ -161,7 +159,7 @@
     NSString *name = @""/*[LQSAccountTool account].name*/;
     if (name) {
         // 构建文字
-        NSString *prefix = @"发微博";
+        NSString *prefix = @"选择板块";
         NSString *text = [NSString stringWithFormat:@"%@\n%@", prefix, name];
         NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:text];
         [string addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:15] range:[text rangeOfString:prefix]];
@@ -176,7 +174,7 @@
         titleLabel.height = 44;
         self.navigationItem.titleView = titleLabel;
     } else {
-        self.title = @"发微博";
+        self.title = @"选择板块";
     }
     //====================//
     //self.view.backgroundColor = [UIColor whiteColor];
@@ -407,7 +405,7 @@
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
     // 2.添加图片到相册中
-    [self.photosView addImage:image];
+    //[self.photosView addImage:image];
 }
 
 #pragma mark - 添加定位按钮
@@ -439,7 +437,7 @@
     
     [self.view addSubview:locationBtn];
     
-    [locationBtn addTarget:self action:@selector(locationBtnClick) forControlEvents:UIControlEventTouchDown];
+    [locationBtn addTarget:self action:@selector(locationBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -477,6 +475,10 @@
     
 }
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations
+{
+    NSLog(@"%ld",locations.count);
+}
 // locationManager的代理方法
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(nonnull CLLocation *)newLocation fromLocation:(nonnull CLLocation *)oldLocation
 {
@@ -570,6 +572,15 @@
     return _manager;
 }
 
+- (LQSPickViewSelectViewController *)pictureVC
+{
+    if (_pictureVC == nil) {
+        
+        LQSPickViewSelectViewController *pictureVC = [[LQSPickViewSelectViewController alloc] init];
+        _pictureVC = pictureVC;
+    }
+    return _pictureVC;
+}
 /** models 懒加载 */
 - (NSMutableArray*)models {
     if (_models == nil) {

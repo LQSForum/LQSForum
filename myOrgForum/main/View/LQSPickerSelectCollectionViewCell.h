@@ -7,8 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+@class LQSPickerSelectCollectionViewCell;
+@protocol jmpPictureSelectedVCDelegate <NSObject>
+
+- (void)jmpPictureSelectedVC:(LQSPickerSelectCollectionViewCell *)pictureCell;
+
+- (void)deletePicture:(LQSPickerSelectCollectionViewCell *)pictureCell;
+
+@end
+
 
 @interface LQSPickerSelectCollectionViewCell : UICollectionViewCell
+
+
+@property (nonatomic, strong) UIButton *deleteBtn;
+
+@property(nonatomic,weak)id<jmpPictureSelectedVCDelegate> delegate;
+
+@property(nonatomic,strong)UIImage *img;
+
 +(instancetype)cellWithCollectionView:(UICollectionView *)collectionView andIndexPath:(NSIndexPath *)indexPath;
 
 @end
