@@ -13,6 +13,8 @@
 @property (nonatomic, strong) NSMutableArray *cishanStatusFrameArr;
 @property (nonatomic, assign) NSUInteger page;
 @property (nonatomic,strong) NSMutableArray *cishanArr;
+@property (nonatomic,strong) NSMutableArray *cishanArray;
+
 @property (nonatomic,strong) NSMutableArray *imageArr;
 
 @end
@@ -153,17 +155,8 @@
             self.cishanArr = cishanArr;
         }
         self.cishanArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
-        self.imageArr = [NSMutableArray array];
-        self.imageArr = [LQSShijieDataModel mj_objectArrayWithKeyValuesArray:dict[@"imageList"]];
-        NSMutableArray *newFrames = [NSMutableArray array];
-
-        for (LQSCishanListModel * cishanModel in self.cishanArr) {
-            LQSCishanModelFrame *frame = [[LQSCishanModelFrame alloc] init];
-            frame.cishanStatus = cishanModel;
-            [newFrames addObject:frame];
-        }
-        
-        [self.cishanStatusFrameArr addObjectsFromArray:newFrames];
+        self.cishanArray = [NSMutableArray array];
+        [self.cishanArray addObjectsFromArray:self.cishanArr];
         [self.tableView reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -178,17 +171,22 @@
 #pragma mark - 数据源方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.cishanStatusFrameArr.count;
+    return self.cishanArray.count;
 }
 
 #pragma mark 每一行显示怎样的cell（内容）
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LQScishanViewCell *cell = [LQScishanViewCell cellWithTableView:tableView];
+    static NSString *identifier = @"ciShanCell";
+    LQSCishanTableViewCell *cishanCell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cishanCell == nil) {
+        cishanCell = [[LQSCishanTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+    }
     
-    cell.statusFrame = self.cishanStatusFrameArr[indexPath.row];
     
-    return cell;
+    [cishanCell pushesCishanDataModel:[self.cishanArray objectAtIndex:indexPath.row]];
+    return cishanCell;
+    
 }
 
 #pragma mark - 代理方法
@@ -199,9 +197,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    LQSCishanModelFrame *frame = self.cishanStatusFrameArr[indexPath.row];
-//    return frame.cellHeight;
-    return 80;
+
+    LQSCishanTableViewCell *cishanCell = (LQSCishanTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cishanCell.cellHeight;
+    
+    
+    
+    
+    
+    
 }
 
 

@@ -1,15 +1,13 @@
-
 //
-//  LQSDongmanTableViewCell.m
+//  LQSCishanTableViewCell.m
 //  myOrgForum
 //
-//  Created by SkyAndSea on 16/8/16.
+//  Created by SkyAndSea on 16/8/18.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
 
-#import "LQSDongmanTableViewCell.h"
-
-@interface LQSDongmanTableViewCell()
+#import "LQSCishanTableViewCell.h"
+@interface LQSCishanTableViewCell()
 {
     UIImageView *_userAvaterView;
     UILabel *_userNameLabel;
@@ -23,74 +21,74 @@
     UIImageView *_userView;
     UIImageView *_photoView;
     NSMutableArray *_imageViews;
-    LQSDongmanListModel *_dongmanData;
+    LQSDongmanListModel *_cishanData;
     CGFloat _picW;
     CGFloat _touxiangPicW;
 }
 @end
 
-@implementation LQSDongmanTableViewCell
+@implementation LQSCishanTableViewCell
 
 - (void)loadSubViews
 {
     _picViewArr = [NSMutableArray array];
-//用户头像
+    //用户头像
     _userAvaterView = [[UIImageView alloc] initWithFrame:CGRectZero];
     _userAvaterView.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:_userAvaterView];
     
-//    用户名称
+    //    用户名称
     _userNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _userAvaterView.backgroundColor = [UIColor yellowColor];
-
+    
     _userNameLabel.font = [UIFont systemFontOfSize:15];
     _userNameLabel.backgroundColor = [UIColor blueColor];
     _userNameLabel.textAlignment = NSTextAlignmentLeft;
     [self.contentView addSubview:_userNameLabel];
-//  timeLabel时间label
+    //  timeLabel时间label
     _timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _timeLabel.textAlignment = NSTextAlignmentLeft;
     [self.contentView addSubview:_timeLabel];
     
-//    帖子来源
+    //    帖子来源
     _sourceLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _userAvaterView.backgroundColor = [UIColor greenColor];
-
+    
     _sourceLabel.font = [UIFont systemFontOfSize:12];
     _sourceLabel.backgroundColor = [UIColor cyanColor];
-
+    
     [self.contentView addSubview:_sourceLabel];
-//    帖子内容
+    //    帖子内容
     _contentLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _contentLabel.numberOfLines = 0;
     _contentLabel.backgroundColor = [UIColor purpleColor];
-
+    
     _contentLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:_contentLabel];
-
-//   帖子图片
     
-//    访问量
+    //   帖子图片
+    
+    //    访问量
     _fangwenLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _fangwenLabel.backgroundColor = [UIColor magentaColor];
     _fangwenLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:_fangwenLabel];
-
-//    评论数
+    
+    //    评论数
     _pinglunLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _pinglunLabel.backgroundColor = [UIColor lightGrayColor];
     _pinglunLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:_pinglunLabel];
-
-
-
-
-
+    
+    
+    
+    
+    
 }
 
-- (void)pushesDongmanDataModel:(LQSDongmanListModel *)model
+- (void)pushesCishanDataModel:(LQSCishanListModel *)model
 {
-    _dongmanData = model;
+    _cishanData = model;
     NSURL *avaterURL = [NSURL URLWithString:model.userAvatar];//红
     [_userAvaterView sd_setImageWithURL:avaterURL placeholderImage:nil ];//红
     _userNameLabel.text = model.user_nick_name;//blue
@@ -99,11 +97,11 @@
     _contentLabel.text = model.title;//purple
     _fangwenLabel.text = model.hits;//magentale
     _pinglunLabel.text = model.replies;//lightGray
-//    获取图片群
+    //    获取图片群
     if (_picViewArr) {
         [_picViewArr removeAllObjects];
     }{
-    [_picViewArr addObject:model.pic_path];
+        [_picViewArr addObject:model.pic_path];
     }
     NSUInteger count = _picViewArr.count;
     if (count != 0) {
@@ -115,7 +113,7 @@
     }
     
     _imageViews = [NSMutableArray array];
-
+    
     for (NSUInteger i = 0; i < count; i++) {
         _photoView = [[UIImageView alloc] init];
         NSURL *url = [NSURL URLWithString:model.pic_path];
@@ -129,7 +127,7 @@
         [self.contentView addSubview:view];
     }
     [self setNeedsLayout];
-
+    
 }
 
 /**
@@ -161,10 +159,10 @@
 - (CGSize)sizeWithText:(NSString *)text
                   font:(UIFont *)font
                maxSize:(CGSize)masxSize{
-
+    
     return [text boundingRectWithSize:masxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
-
-
+    
+    
 }
 
 
@@ -175,7 +173,7 @@
     
     
     
-     _touxiangPicW = 30;
+    _touxiangPicW = 30;
     //用户头像
     _userAvaterView.frame = CGRectMake(10, 10, _touxiangPicW, _touxiangPicW);
     //    用户名称
@@ -186,20 +184,20 @@
     _sourceLabel.frame = CGRectMake(CGRectGetMaxX(_userNameLabel.frame), 10, ( kScreenWidth - 2 * 10 - _touxiangPicW)* 0.5, _touxiangPicW * 0.5);
     _sourceLabel.textAlignment = NSTextAlignmentRight;
     //    文字内容
-    CGSize size = [self sizeWithText:_dongmanData.title font:[UIFont systemFontOfSize:12] maxSize:CGSizeMake(kScreenWidth, MAXFLOAT)];
+    CGSize size = [self sizeWithText:_cishanData.title font:[UIFont systemFontOfSize:12] maxSize:CGSizeMake(kScreenWidth, MAXFLOAT)];
     _contentLabel.frame = CGRectMake(10, 10+_touxiangPicW+10, kScreenWidth, size.height);
     
     [super layoutSubviews];
     CGFloat LQSMargin = 10;
-     _picW = (kScreenWidth - 4 * LQSMargin)/3;
+    _picW = (kScreenWidth - 4 * LQSMargin)/3;
     //计算图片的frame
     //    计算有多少行
     NSUInteger rows = _picViewArr.count /3;
     //    计算有多少咧
     NSUInteger cols = _picViewArr.count % 3;
-
+    
     for (NSUInteger i = 0; i < _picViewArr.count; i++) {
-
+        
         UIView *userView = [_imageViews objectAtIndex:i];
         userView.backgroundColor = [UIColor blueColor];
         userView.width = _picW;
@@ -213,24 +211,24 @@
     //    添加评论数
     _pinglunLabel.frame = CGRectMake(kScreenWidth - 50, self.height - 20, 50, 20);
     
-
+    
 }
 
 - (CGFloat)cellHeight{
     CGFloat cellHeight;
     _touxiangPicW = 30;
     _picW = (kScreenWidth - 4 * LQSMargin)/3;
-    CGSize size = [self sizeWithText:_dongmanData.title font:[UIFont systemFontOfSize:12] maxSize:CGSizeMake(kScreenWidth, MAXFLOAT)];
+    CGSize size = [self sizeWithText:_cishanData.title font:[UIFont systemFontOfSize:12] maxSize:CGSizeMake(kScreenWidth, MAXFLOAT)];
     if (_picViewArr.count <= 3) {
         cellHeight = _touxiangPicW + size.height + 3 * LQSMargin + _picW;
     }else if (_picViewArr.count <= 6){
         cellHeight = _touxiangPicW + size.height + 4 * LQSMargin + _picW * 2;
     }else{
         cellHeight = _touxiangPicW + size.height + 5 * LQSMargin + _picW * 3;
-
+        
     }
     return cellHeight;
-
+    
 }
 
 @end

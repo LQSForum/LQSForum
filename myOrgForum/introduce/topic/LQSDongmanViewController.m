@@ -150,9 +150,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    LQSDongmanTableViewCell *dongmanCell = [[LQSDongmanTableViewCell alloc] init];
-//    return dongmanCell.height;
-    return 200;
+
+    LQSDongmanTableViewCell *dongmanCell = (LQSDongmanTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return dongmanCell.cellHeight;
 
 
 

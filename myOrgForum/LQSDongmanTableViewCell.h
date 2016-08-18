@@ -11,4 +11,7 @@
 @interface LQSDongmanTableViewCell : LQSRootTableViewCell
 
 - (void)pushesDongmanDataModel:(LQSDongmanListModel *)model;
+
+//cell高度
+- (CGFloat)cellHeight;
 @end

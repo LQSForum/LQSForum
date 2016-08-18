@@ -16,6 +16,8 @@
 @property (weak, nonatomic) UILabel *timeLabel;
 @property (weak,nonatomic) UILabel *nameLabel;
 @property (weak,nonatomic) UILabel *titleLabel;
+@property (nonatomic, weak) UIButton * hitsLabel;
+
 @end
 
 
@@ -72,6 +74,16 @@
         UIImageView *imageView = [[UIImageView alloc] init];
         [self addSubview:imageView];
         self.imageView = imageView;
+        
+//        创建点击量控件
+        UIButton * hitsLabel = [[UIButton alloc] initWithFrame:CGRectZero];
+        self.hitsLabel = hitsLabel;
+        hitsLabel.backgroundColor = LQSColor(39, 40, 43, 0.6);
+        [imageView addSubview:hitsLabel];
+        
+        
+        
+        
 //        放描述内容的label
         UILabel *contentLabel = [[UILabel alloc] init];
         contentLabel.backgroundColor = LQSColor(255, 255, 255, 0.7);
@@ -113,8 +125,9 @@
 {
     _shijieDataModel = shijieDataModel;
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:shijieDataModel.pic_path] placeholderImage:[UIImage imageNamed:@"loading"]];
+    [self.hitsLabel setTitle:shijieDataModel.hits forState:UIControlStateNormal];
     [self.titleLabel setText:shijieDataModel.title];
-    [self.nameLabel setText:shijieDataModel.board_name];
+    [self.nameLabel setText:shijieDataModel.user_nick_name];
     [self.timeLabel setText:[NSString stringWithFormat:@"%@",shijieDataModel.last_reply_date]];
 
 
@@ -145,6 +158,13 @@
     
     self.contentLabel.frame = CGRectMake(0,self.bounds.size.height - 35,self.bounds.size.width ,35);
         self.imageView.frame = self.bounds ;
+    self.hitsLabel.frame = CGRectMake(CGRectGetMaxX(self.imageView.frame) - LQSMargin - 30 , LQSMargin, 30, 20);
+    self.hitsLabel.userInteractionEnabled = NO;
+    self.hitsLabel.titleLabel.textAlignment  = NSTextAlignmentCenter;
+    [self.hitsLabel.titleLabel setTextColor:[UIColor whiteColor]];
+    [self.hitsLabel setFont:[UIFont systemFontOfSize:12]];
+    
+    self.hitsLabel.layer.cornerRadius = 5;
     
     }
 
