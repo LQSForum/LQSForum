@@ -62,8 +62,9 @@
         [self.contentNum sizeToFit];
         
         self.focusBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        self.focusBtn.backgroundColor = [UIColor blueColor];
+        self.focusBtn.backgroundColor = LQSColor(1, 183, 237, 1.0);
         [self.focusBtn setTintColor:[UIColor whiteColor]];
+        self.focusBtn.titleLabel.font = [UIFont systemFontOfSize:12.0];
         [self.focusBtn.layer setMasksToBounds:YES];
         [self.focusBtn.layer setCornerRadius:2.0];
         
@@ -120,7 +121,7 @@
     [self.focusBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView.mas_right).offset(-20);
         make.top.equalTo(self.contentView.mas_top).offset(15);
-        make.width.equalTo(@40);
+        make.width.equalTo(@50);
     }];
     
 }

@@ -12,10 +12,12 @@
 #import "LQSCellModel.h"
 #import "YYModel.h"
 #import "LQSRightViewCell.h"
+
 @interface LQSRightTableView ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *leftDataArray;
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
+
 @end
 
 @implementation LQSRightTableView
@@ -65,7 +67,7 @@
     //      @"sdkVersion":@"2.4.3.0",
     //      @"apphash":@"5038dae8"};
     
-    
+    /*
     [self.sessionManager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSData *data = responseObject;
@@ -100,7 +102,7 @@
         NSLog(@"error%@",error);
         
     }];
-    
+    */
 }
 
 
@@ -128,7 +130,7 @@
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UIView *selectedBackgroundView = [[UIView alloc] init];
-    selectedBackgroundView.backgroundColor = [UIColor redColor];
+    selectedBackgroundView.backgroundColor = [UIColor whiteColor];
     cell.selectedBackgroundView = selectedBackgroundView;
     
     

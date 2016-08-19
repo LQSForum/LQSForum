@@ -11,10 +11,12 @@
 #import "LQSSectionModel.h"
 #import "LQSCellModel.h"
 #import "YYModel.h"
+
 @interface LQSLeftTableView ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *leftDataArray;
 @property (nonatomic, strong) NSMutableArray *sectionDataArray;
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
+
 @end
 
 @implementation LQSLeftTableView
@@ -56,7 +58,7 @@
                                  @"sdkVersion":@"2.4.0",
                                  @"apphash":@"f0d7f05f"};
     
-    
+   
     [self.sessionManager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSData *data = responseObject;
@@ -90,6 +92,7 @@
         NSLog(@"error%@",error);
         
     }];
+  
     
 }
 
@@ -108,10 +111,10 @@
     }
     
     //    LQSSectionModel *model = self.leftDataArray[indexPath.row];
-    
+    cell.backgroundColor = LQSColor(235, 235, 235, 1.0);
     cell.textLabel.text = self.leftDataArray[indexPath.row];
-    cell.backgroundColor = [UIColor lightGrayColor];
-    
+    cell.layer.borderColor = LQSColor(233, 231, 233, 1.0).CGColor;
+    cell.layer.borderWidth = 0.25;
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     
     return cell;

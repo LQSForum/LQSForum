@@ -85,12 +85,12 @@
     self.leftView = [[LQSLeftTableView alloc] init];
     self.leftView.leftViewDelegate = self;
     self.leftView.frame = CGRectMake(0, 0, kScreenWidth/3, self.frame.size.height-49);
-    self.leftView.backgroundColor = [UIColor whiteColor];
+    self.leftView.backgroundColor = LQSColor(250, 248, 251, 1.0);
     [self addSubview:self.leftView];
     
     self.rightView = [[LQSRightTableView alloc] init];
     self.rightView.frame = CGRectMake(kScreenWidth/3, 0, kScreenWidth/3 * 2, self.frame.size.height-49);
-    self.rightView.backgroundColor = [UIColor blueColor];
+    self.rightView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.rightView];
     
     self.latestView = [[LQSLatestMarrowTableView alloc]init];

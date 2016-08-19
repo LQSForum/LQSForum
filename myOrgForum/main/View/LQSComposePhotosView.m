@@ -42,14 +42,14 @@
     }
     
 }
-//- (void)addImage:(UIImage *)image
-//{
-//    UIImageView *imageView = [[UIImageView alloc] init];
-//    imageView.contentMode = UIViewContentModeScaleAspectFill;
-//    imageView.clipsToBounds = YES;
-//    imageView.image = image;
-//    [self addSubview:imageView];
-//}
+- (void)addImage:(UIImage *)image
+{
+    UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
+    imageView.image = image;
+    [self addSubview:imageView];
+}
 
 - (void)layoutSubviews
 {
@@ -58,7 +58,7 @@
     CGFloat addImgBtnW = 50;
     CGFloat addImgBtnH = addImgBtnW;
     CGFloat addImgBtnX = 8;
-    NSLog(@"-------%f",self.height);
+    //NSLog(@"-------%f",self.height);
     CGFloat addImgBtnY = (self.height - addImgBtnH) * 0.5;
     self.addImgBtn.frame = CGRectMake(addImgBtnX, addImgBtnY, addImgBtnW, addImgBtnH);
 

@@ -63,19 +63,6 @@
 		410FA2411D38EBB60021B7E2 /* LQSEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2371D38EBB60021B7E2 /* LQSEmotionTextView.m */; };
 		410FA2421D38EBB60021B7E2 /* LQSEmotionToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2391D38EBB60021B7E2 /* LQSEmotionToolbar.m */; };
 		410FA2431D38EBB60021B7E2 /* LQSEmotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA23B1D38EBB60021B7E2 /* LQSEmotionView.m */; };
-		410FA2511D38EBCF0021B7E2 /* compose_camerabutton_background_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA2441D38EBCF0021B7E2 /* compose_camerabutton_background_highlighted@2x.png */; };
-		410FA2521D38EBCF0021B7E2 /* compose_camerabutton_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA2451D38EBCF0021B7E2 /* compose_camerabutton_background@2x.png */; };
-		410FA2531D38EBCF0021B7E2 /* compose_emoticonbutton_background_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA2461D38EBCF0021B7E2 /* compose_emoticonbutton_background_highlighted@2x.png */; };
-		410FA2541D38EBCF0021B7E2 /* compose_emoticonbutton_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA2471D38EBCF0021B7E2 /* compose_emoticonbutton_background@2x.png */; };
-		410FA2551D38EBCF0021B7E2 /* compose_keyboardbutton_background_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA2481D38EBCF0021B7E2 /* compose_keyboardbutton_background_highlighted@2x.png */; };
-		410FA2561D38EBCF0021B7E2 /* compose_keyboardbutton_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA2491D38EBCF0021B7E2 /* compose_keyboardbutton_background@2x.png */; };
-		410FA2571D38EBCF0021B7E2 /* compose_mentionbutton_background_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA24A1D38EBCF0021B7E2 /* compose_mentionbutton_background_highlighted@2x.png */; };
-		410FA2581D38EBCF0021B7E2 /* compose_mentionbutton_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA24B1D38EBCF0021B7E2 /* compose_mentionbutton_background@2x.png */; };
-		410FA2591D38EBCF0021B7E2 /* compose_toolbar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA24C1D38EBCF0021B7E2 /* compose_toolbar_background@2x.png */; };
-		410FA25A1D38EBCF0021B7E2 /* compose_toolbar_picture_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA24D1D38EBCF0021B7E2 /* compose_toolbar_picture_highlighted@2x.png */; };
-		410FA25B1D38EBCF0021B7E2 /* compose_toolbar_picture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA24E1D38EBCF0021B7E2 /* compose_toolbar_picture@2x.png */; };
-		410FA25C1D38EBCF0021B7E2 /* compose_trendbutton_background_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA24F1D38EBCF0021B7E2 /* compose_trendbutton_background_highlighted@2x.png */; };
-		410FA25D1D38EBCF0021B7E2 /* compose_trendbutton_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 410FA2501D38EBCF0021B7E2 /* compose_trendbutton_background@2x.png */; };
 		410FA2621D38EBE80021B7E2 /* LQSComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA25F1D38EBE80021B7E2 /* LQSComposePhotosView.m */; };
 		410FA2631D38EBE80021B7E2 /* LQSCompostToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2611D38EBE80021B7E2 /* LQSCompostToolbar.m */; };
 		410FA2691D38EC010021B7E2 /* LQSCoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2681D38EC010021B7E2 /* LQSCoreManager.m */; };
@@ -120,7 +107,6 @@
 		6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476691D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m */; };
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
 		87DAAED4E77EE6DFE759E472 /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */; };
-		B801112A1D5D955400D7A05C /* LQSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111291D5D955400D7A05C /* LQSCollectionViewCell.m */; };
 		B801112F1D5DC10500D7A05C /* LQSComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B801112C1D5DC10500D7A05C /* LQSComposeViewController.m */; };
 		B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */; };
 		B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111331D5DC11700D7A05C /* LQSLocationModel.m */; };
@@ -291,19 +277,6 @@
 		410FA2391D38EBB60021B7E2 /* LQSEmotionToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionToolbar.m; path = Utilities/EmotionKeyboard/LQSEmotionToolbar.m; sourceTree = "<group>"; };
 		410FA23A1D38EBB60021B7E2 /* LQSEmotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionView.h; path = Utilities/EmotionKeyboard/LQSEmotionView.h; sourceTree = "<group>"; };
 		410FA23B1D38EBB60021B7E2 /* LQSEmotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionView.m; path = Utilities/EmotionKeyboard/LQSEmotionView.m; sourceTree = "<group>"; };
-		410FA2441D38EBCF0021B7E2 /* compose_camerabutton_background_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose_camerabutton_background_highlighted@2x.png"; path = "images/compose_camerabutton_background_highlighted@2x.png"; sourceTree = "<group>"; };
-		410FA2451D38EBCF0021B7E2 /* compose_camerabutton_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose_camerabutton_background@2x.png"; path = "images/compose_camerabutton_background@2x.png"; sourceTree = "<group>"; };
-		410FA2461D38EBCF0021B7E2 /* compose_emoticonbutton_background_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose_emoticonbutton_background_highlighted@2x.png"; path = "images/compose_emoticonbutton_background_highlighted@2x.png"; sourceTree = "<group>"; };
-		410FA2471D38EBCF0021B7E2 /* compose_emoticonbutton_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose_emoticonbutton_background@2x.png"; path = "images/compose_emoticonbutton_background@2x.png"; sourceTree = "<group>"; };
-		410FA2481D38EBCF0021B7E2 /* compose_keyboardbutton_background_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose_keyboardbutton_background_highlighted@2x.png"; path = "images/compose_keyboardbutton_background_highlighted@2x.png"; sourceTree = "<group>"; };
-		410FA2491D38EBCF0021B7E2 /* compose_keyboardbutton_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose_keyboardbutton_background@2x.png"; path = "images/compose_keyboardbutton_background@2x.png"; sourceTree = "<group>"; };
-		410FA24A1D38EBCF0021B7E2 /* compose_mentionbutton_background_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose_mentionbutton_background_highlighted@2x.png"; path = "images/compose_mentionbutton_background_highlighted@2x.png"; sourceTree = "<group>"; };
-		410FA24B1D38EBCF0021B7E2 /* compose_mentionbutton_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose_mentionbutton_background@2x.png"; path = "images/compose_mentionbutton_background@2x.png"; sourceTree = "<group>"; };
-		410FA24C1D38EBCF0021B7E2 /* compose_toolbar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose_toolbar_background@2x.png"; path = "images/compose_toolbar_background@2x.png"; sourceTree = "<group>"; };
-		410FA24D1D38EBCF0021B7E2 /* compose_toolbar_picture_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose_toolbar_picture_highlighted@2x.png"; path = "images/compose_toolbar_picture_highlighted@2x.png"; sourceTree = "<group>"; };
-		410FA24E1D38EBCF0021B7E2 /* compose_toolbar_picture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose_toolbar_picture@2x.png"; path = "images/compose_toolbar_picture@2x.png"; sourceTree = "<group>"; };
-		410FA24F1D38EBCF0021B7E2 /* compose_trendbutton_background_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose_trendbutton_background_highlighted@2x.png"; path = "images/compose_trendbutton_background_highlighted@2x.png"; sourceTree = "<group>"; };
-		410FA2501D38EBCF0021B7E2 /* compose_trendbutton_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose_trendbutton_background@2x.png"; path = "images/compose_trendbutton_background@2x.png"; sourceTree = "<group>"; };
 		410FA25E1D38EBE80021B7E2 /* LQSComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSComposePhotosView.h; path = main/View/LQSComposePhotosView.h; sourceTree = "<group>"; };
 		410FA25F1D38EBE80021B7E2 /* LQSComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposePhotosView.m; path = main/View/LQSComposePhotosView.m; sourceTree = "<group>"; };
 		410FA2601D38EBE80021B7E2 /* LQSCompostToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCompostToolbar.h; path = main/View/LQSCompostToolbar.h; sourceTree = "<group>"; };
@@ -402,8 +375,6 @@
 		75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
 		9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
-		B80111281D5D955400D7A05C /* LQSCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCollectionViewCell.h; sourceTree = "<group>"; };
-		B80111291D5D955400D7A05C /* LQSCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSCollectionViewCell.m; sourceTree = "<group>"; };
 		B801112B1D5DC10500D7A05C /* LQSComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSComposeViewController.h; path = main/VC/LQSComposeViewController.h; sourceTree = "<group>"; };
 		B801112C1D5DC10500D7A05C /* LQSComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposeViewController.m; path = main/VC/LQSComposeViewController.m; sourceTree = "<group>"; };
 		B801112D1D5DC10500D7A05C /* LQSPickViewSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSPickViewSelectViewController.h; path = main/VC/LQSPickViewSelectViewController.h; sourceTree = "<group>"; };
@@ -592,7 +563,6 @@
 			isa = PBXGroup;
 			children = (
 				E4D8E1BA1D5418A400EE6171 /* User */,
-				41C5194F1D224B8800F05A24 /* images */,
 				416072021D20BE480083229E /* main */,
 				41852FC11CE31D21003CD9D4 /* core */,
 				417F34B91CC9CF6400F9714F /* setting */,
@@ -781,8 +751,6 @@
 				410FA25F1D38EBE80021B7E2 /* LQSComposePhotosView.m */,
 				410FA2601D38EBE80021B7E2 /* LQSCompostToolbar.h */,
 				410FA2611D38EBE80021B7E2 /* LQSCompostToolbar.m */,
-				B80111281D5D955400D7A05C /* LQSCollectionViewCell.h */,
-				B80111291D5D955400D7A05C /* LQSCollectionViewCell.m */,
 				B80111351D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.h */,
 				B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */,
 			);
@@ -978,26 +946,6 @@
 				41BA82C01D65ABF40020F849 /* LQSCishanTableViewCell.m */,
 			);
 			name = "cishan&dongman";
-			sourceTree = "<group>";
-		};
-		41C5194F1D224B8800F05A24 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				410FA2441D38EBCF0021B7E2 /* compose_camerabutton_background_highlighted@2x.png */,
-				410FA2451D38EBCF0021B7E2 /* compose_camerabutton_background@2x.png */,
-				410FA2461D38EBCF0021B7E2 /* compose_emoticonbutton_background_highlighted@2x.png */,
-				410FA2471D38EBCF0021B7E2 /* compose_emoticonbutton_background@2x.png */,
-				410FA2481D38EBCF0021B7E2 /* compose_keyboardbutton_background_highlighted@2x.png */,
-				410FA2491D38EBCF0021B7E2 /* compose_keyboardbutton_background@2x.png */,
-				410FA24A1D38EBCF0021B7E2 /* compose_mentionbutton_background_highlighted@2x.png */,
-				410FA24B1D38EBCF0021B7E2 /* compose_mentionbutton_background@2x.png */,
-				410FA24C1D38EBCF0021B7E2 /* compose_toolbar_background@2x.png */,
-				410FA24D1D38EBCF0021B7E2 /* compose_toolbar_picture_highlighted@2x.png */,
-				410FA24E1D38EBCF0021B7E2 /* compose_toolbar_picture@2x.png */,
-				410FA24F1D38EBCF0021B7E2 /* compose_trendbutton_background_highlighted@2x.png */,
-				410FA2501D38EBCF0021B7E2 /* compose_trendbutton_background@2x.png */,
-			);
-			name = images;
 			sourceTree = "<group>";
 		};
 		4FED8D2C2028EB0D0A4D261B /* Pods */ = {
@@ -1312,35 +1260,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4430D571D54B74C0014A6FE /* index.ios.js in Resources */,
-				410FA2561D38EBCF0021B7E2 /* compose_keyboardbutton_background@2x.png in Resources */,
 				415C55621CC8CCEE00408B90 /* LaunchScreen.storyboard in Resources */,
 				E4430D4D1D54B74C0014A6FE /* CloverSlider.js in Resources */,
 				E4430D551D54B74C0014A6FE /* RecommendCell.js in Resources */,
 				E4430D4E1D54B74C0014A6FE /* getImageSource.js in Resources */,
-				410FA25A1D38EBCF0021B7E2 /* compose_toolbar_picture_highlighted@2x.png in Resources */,
 				415C555F1CC8CCEE00408B90 /* Assets.xcassets in Resources */,
 				E4430D531D54B74C0014A6FE /* RushCell.js in Resources */,
-				410FA25B1D38EBCF0021B7E2 /* compose_toolbar_picture@2x.png in Resources */,
 				E4430D561D54B74C0014A6FE /* Home.js in Resources */,
-				410FA2521D38EBCF0021B7E2 /* compose_camerabutton_background@2x.png in Resources */,
-				410FA2551D38EBCF0021B7E2 /* compose_keyboardbutton_background_highlighted@2x.png in Resources */,
 				E4430D4F1D54B74C0014A6FE /* Discount.js in Resources */,
 				E4430D581D54B74C0014A6FE /* package.json in Resources */,
-				410FA2541D38EBCF0021B7E2 /* compose_emoticonbutton_background@2x.png in Resources */,
 				E4430D501D54B74C0014A6FE /* DisWebView.js in Resources */,
-				410FA2571D38EBCF0021B7E2 /* compose_mentionbutton_background_highlighted@2x.png in Resources */,
-				410FA2591D38EBCF0021B7E2 /* compose_toolbar_background@2x.png in Resources */,
 				E4430D541D54B74C0014A6FE /* WebView.js in Resources */,
 				415C555D1CC8CCEE00408B90 /* Main.storyboard in Resources */,
-				410FA25C1D38EBCF0021B7E2 /* compose_trendbutton_background_highlighted@2x.png in Resources */,
 				410FA2401D38EBB60021B7E2 /* LQSEmotionPopView.xib in Resources */,
-				410FA2531D38EBCF0021B7E2 /* compose_emoticonbutton_background_highlighted@2x.png in Resources */,
 				2CB084DA1D60508A00167F4D /* MJPhotoBrowser.bundle in Resources */,
 				E4430D521D54B74C0014A6FE /* MenuCard.js in Resources */,
-				410FA25D1D38EBCF0021B7E2 /* compose_trendbutton_background@2x.png in Resources */,
 				E4430D511D54B74C0014A6FE /* ListView.js in Resources */,
-				410FA2581D38EBCF0021B7E2 /* compose_mentionbutton_background@2x.png in Resources */,
-				410FA2511D38EBCF0021B7E2 /* compose_camerabutton_background_highlighted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1562,7 +1497,6 @@
 				410FA2771D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.m in Sources */,
 				E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */,
 				410FA2701D38EC100021B7E2 /* LQSSettingCell.m in Sources */,
-				B801112A1D5D955400D7A05C /* LQSCollectionViewCell.m in Sources */,
 				2CB084DB1D60508A00167F4D /* MJPhotoBrowser.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				E4D8E1D11D54237200EE6171 /* LQSBaseRestRequest.m in Sources */,
@@ -1763,7 +1697,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/a/github/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1814,7 +1748,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/a/github/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

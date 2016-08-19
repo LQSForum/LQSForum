@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) UIButton * imgBtn;
 
-@property (nonatomic, strong) UIButton *deleteBtn;
+
 
 @end
 
@@ -25,35 +25,105 @@
     if (self) {
         
         [self setupImgBtn];
+        [self setupDeleteBtn];
         
-                            
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addImage) name:@"image" object:nil];
     }
     return self;
 }
 
+//- (void)dealloc {
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//}
+
+
 
 - (void)setupImgBtn
 {
-    UIButton *imgBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.imgBtn = imgBtn;
     
-    NSLog(@"+++++++%f",self.height);
-    imgBtn.frame = self.bounds;
+    self.imgBtn.frame = self.bounds;
     
-    [imgBtn setBackgroundImage:[UIImage imageNamed:@"newFeature1"] forState:UIControlStateNormal];
+    [self.imgBtn setBackgroundImage:[UIImage imageNamed:@"dz_publish_add_picture_n"] forState:UIControlStateNormal];
+    
+    [self addSubview:self.imgBtn];
     
     
-    [self addSubview:imgBtn];
+    [self.imgBtn addTarget:self action:@selector(imgBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)setipDeleteBtn
+- (void)setupDeleteBtn
 {
-    UIButton *deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.deleteBtn = deleteBtn;
+
+    [self.imgBtn addSubview:self.deleteBtn];
     
-    [self.imgBtn addSubview:deleteBtn];
-    [deleteBtn setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [self.deleteBtn setImage:[UIImage imageNamed:@"dz_posts_vote_del"] forState:UIControlStateNormal];
     
+    [self.deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.equalTo(self.imgBtn);
+        
+    }];
+    
+    
+    [self.deleteBtn addTarget:self action:@selector(deleteBtnClick) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)imgBtnClick
+{
+    NSLog(@"点击了添加图片按钮");
+    
+    // 跳转控制器
+    if ([self.delegate respondsToSelector:@selector(jmpPictureSelectedVC:)]) {
+        [self.delegate jmpPictureSelectedVC:self];
+    }
+}
+
+- (void)deleteBtnClick
+{
+    NSLog(@"点击了删除按钮");
+    if ([self.delegate respondsToSelector:@selector(deletePicture:)]) {
+        [self.delegate deletePicture:self];
+            }
+}
+
+-(void)setImg:(UIImage *)img
+{
+    _img = img;
+    
+    //改变imgBtn的背景图片为选中的照片
+    [self.imgBtn setImage:self.img forState:UIControlStateNormal];
+    
+}
+
+//- (void)addImage
+//{
+//    [self.imgBtn setImage:self.img forState:UIControlStateNormal];
+//}
+
+
+
+#pragma mark - 懒加载
+- (UIButton *)imgBtn
+{
+    if (_imgBtn == nil) {
+        
+        UIButton *imgBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        [_imgBtn.imageView setContentMode:UIViewContentModeScaleAspectFill];
+        
+        _imgBtn.imageView.clipsToBounds = YES;
+        
+        _imgBtn = imgBtn;
+    }
+    return _imgBtn;
+}
+
+- (UIButton *)deleteBtn
+{
+    if (_deleteBtn == nil) {
+        UIButton *deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _deleteBtn = deleteBtn;
+    }
+    return _deleteBtn;
 }
 
 @end
