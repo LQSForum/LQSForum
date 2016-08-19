@@ -8,7 +8,7 @@
 
 #import "LQSDiscoverViewController.h"
 
-@interface LQSDiscoverViewController ()<LQSWaterFlowViewDelegate,LQSWaterFlowViewDataSource>
+@interface LQSDiscoverViewController ()<UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *titleButtons;
 @property (nonatomic, weak) UIView *titleIndicatorView;
@@ -58,12 +58,19 @@
 {
     UIView *titleView = [[UIView alloc] init];
     titleView.frame = CGRectMake(0, LQSNavBarBottom, self.view.width, LQSTitleViewH);
-    titleView.backgroundColor = [UIColor yellowColor];
+    titleView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:titleView];
+    
+////    添加标题下面的线
+//    UIView *sigleLine = [[UIView alloc] initWithFrame:CGRectMake(0, LQSTitleViewH - 0.5, LQSScreenW, 0.5)];
+//    [titleView addSubview:sigleLine];
+    
+    
+    
     
     //    添加标题
     NSUInteger count = self.childViewControllers.count;
-    CGFloat titleButtonW = titleView.width / count;
+    CGFloat titleButtonW = LQSScreenW / count;
     CGFloat titleButtonH = titleView.height;
     for (NSUInteger i = 0; i < count; i++) {
         LQSTitleButton *titleButton = [LQSTitleButton new];
@@ -75,7 +82,7 @@
         titleButton.frame = CGRectMake(i *titleButtonW, 0, titleButtonW, titleButtonH);
         
         [titleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        [titleButton setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
         titleButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [titleButton setTitle:self.childViewControllers[i].title forState:UIControlStateNormal];
     }
@@ -161,14 +168,14 @@
     hotVc.title = @"视界";
     [self addChildViewController:hotVc];
     
-    LQSDongmanViewController *lastVc = [LQSDongmanViewController new];
-    lastVc.title = @"动漫";
-    [self addChildViewController:lastVc];
-    
     LQSCishanViewController *jingHuaVc = [LQSCishanViewController new];
     jingHuaVc.title =@"慈善";
     [self addChildViewController:jingHuaVc];
     
+    LQSDongmanViewController *lastVc = [LQSDongmanViewController new];
+    lastVc.title = @"动漫";
+    [self addChildViewController:lastVc];
+
 }
 
 #pragma  mark - scrollVIewDelegate

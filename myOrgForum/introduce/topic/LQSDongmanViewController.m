@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor clearColor];
     self.page = 1;
     [_dongManDataArray addObjectsFromArray:_dongManDataArr];
     [self reloadDongmanDateRequestWithPage:self.page];
@@ -109,7 +110,7 @@
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"sucess");
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
-        if (_dongManDataArr.count > 0) {
+        if (_dongManDataArr.count > 0 && self.page == 1) {
             [_dongManDataArr removeAllObjects];
         }else{
             

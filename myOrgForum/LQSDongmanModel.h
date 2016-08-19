@@ -41,7 +41,7 @@
 @property (nonatomic,strong)NSString * isHasRecommendAdd;
 @property (nonatomic,strong)NSArray * distance;
 @property (nonatomic,strong)NSString * location;
-@property (nonatomic,strong)NSString *   imageList;
+@property (nonatomic,strong)NSArray *   imageList;
 @property (nonatomic, strong) NSString *sourceWebUrl;
 @property (nonatomic, strong) NSString *verify;
 @end

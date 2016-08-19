@@ -9,6 +9,12 @@
 #import "LQSCishanViewController.h"
 
 @interface LQSCishanViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    UITableView *_tableView;
+
+
+
+}
 //帖子数组
 @property (nonatomic, strong) NSMutableArray *cishanStatusFrameArr;
 @property (nonatomic, assign) NSUInteger page;
@@ -34,25 +40,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
+    self.view.backgroundColor = [UIColor clearColor];
     self.page = 1;
     [self reloadCishanDateRequestWithPage:self.page];
     [self.cishanStatusFrameArr addObjectsFromArray:self.cishanArr];
     [self createTableView];
-    [self.tableView reloadData];
 }
 
 
 - (void)createTableView{
-    self.tableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + 40 , kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
     // 3.设置tableView属性
-    self.tableView.backgroundColor = [UIColor whiteColor];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    // 添加底部的额外区域(为tableView扩充底部的内容)
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0);
-
+    _tableView.backgroundColor = [UIColor whiteColor];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    [self.view addSubview:_tableView];
 
 }
 
@@ -64,7 +67,7 @@
     //    添加刷新控件
     [self setupRefresh];
 
-    [self.tableView.mj_header beginRefreshing];
+    [_tableView.mj_header beginRefreshing];
 
 }
 
@@ -72,11 +75,11 @@
 {
     // 1.添加下拉刷新控件
     
-    self.tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewStatus)];
-    [self.tableView.mj_header beginRefreshing];
+    _tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewStatus)];
+    [_tableView.mj_header beginRefreshing];
     
     // 2.添加上拉刷新控件
-    self.tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreStatus)];
+    _tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreStatus)];
     
     
    
@@ -94,9 +97,9 @@
     [self.cishanStatusFrameArr insertObjects:self.cishanArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.cishanArr.count)]];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 刷新瀑布流控件
-        [self.tableView reloadData];
+        [_tableView reloadData];
         // 停止刷新
-        [self.tableView.mj_header endRefreshing];
+        [_tableView.mj_header endRefreshing];
     });
 
 }
@@ -112,9 +115,9 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 刷新瀑布流控件
-        [self.tableView reloadData];
+        [_tableView reloadData];
         // 停止刷新
-        [self.tableView.mj_footer endRefreshing];
+        [_tableView.mj_footer endRefreshing];
     });
 
 }
@@ -139,7 +142,9 @@
     paramDic[@"page"] = [NSString stringWithFormat:@"%lud",(unsigned long)self.page];
     paramDic[@"accessSecret"] = @"cd090971f3f83391cd4ddc034638c";
     paramDic[@"circle"] = @"0";
-    
+    paramDic[@"isImageList"] = @"1";
+    paramDic[@"egnVersion"] = @"v2035.2";
+
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
@@ -147,7 +152,7 @@
         NSLog(@"sucess");
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
 //        数据模型放到frame模型
-              if (self.cishanArr.count > 0) {
+              if (self.cishanArr.count > 0 && self.page == 1) {
             [self.cishanArr removeAllObjects];
         }else{
             
@@ -157,7 +162,7 @@
         self.cishanArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
         self.cishanArray = [NSMutableArray array];
         [self.cishanArray addObjectsFromArray:self.cishanArr];
-        [self.tableView reloadData];
+        [_tableView reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failure");

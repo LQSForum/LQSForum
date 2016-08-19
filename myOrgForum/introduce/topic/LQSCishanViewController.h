@@ -8,6 +8,6 @@
 
 #import "rootViewController.h"
 
-@interface LQSCishanViewController : UITableViewController
+@interface LQSCishanViewController : rootViewController
 
 @end

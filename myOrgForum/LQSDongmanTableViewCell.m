@@ -20,6 +20,7 @@
     UILabel *_fangwenLabel;
     UILabel *_pinglunLabel;
     NSMutableArray *_picViewArr;
+    NSArray *_tempPicArr;
     UIImageView *_userView;
     UIImageView *_photoView;
     NSMutableArray *_imageViews;
@@ -103,7 +104,21 @@
     if (_picViewArr) {
         [_picViewArr removeAllObjects];
     }{
-    [_picViewArr addObject:model.pic_path];
+//        _tempPicArr = [NSArray array];
+//        _tempPicArr = [model.imageList componentsSeparatedByString:@","];
+//        for (NSUInteger j; j < _tempPicArr.count; j++) {
+//            NSObject *obj = [_tempPicArr objectAtIndex:j];
+//            [_picViewArr addObject:obj];
+//        }
+//        [_picViewArr addObjectsFromArray:_tempPicArr];
+        
+        
+//    [_picViewArr addObject:model.pic_path];
+        
+        [_picViewArr addObjectsFromArray:model.imageList];
+        
+        
+        
     }
     NSUInteger count = _picViewArr.count;
     if (count != 0) {
@@ -118,7 +133,7 @@
 
     for (NSUInteger i = 0; i < count; i++) {
         _photoView = [[UIImageView alloc] init];
-        NSURL *url = [NSURL URLWithString:model.pic_path];
+        NSURL *url = [NSURL URLWithString:[_picViewArr objectAtIndex:i]];
         [_photoView sd_setImageWithURL:url placeholderImage:nil];
         _photoView.tag = i;
         [_imageViews addObject:_photoView];
@@ -193,25 +208,42 @@
     CGFloat LQSMargin = 10;
      _picW = (kScreenWidth - 4 * LQSMargin)/3;
     //计算图片的frame
-    //    计算有多少行
-    NSUInteger rows = _picViewArr.count /3;
-    //    计算有多少咧
-    NSUInteger cols = _picViewArr.count % 3;
-
     for (NSUInteger i = 0; i < _picViewArr.count; i++) {
+        //    计算有多少行
+        NSUInteger rows = i /3;
+        //    计算有多少咧
+        NSUInteger cols = i % 3;
+        
 
         UIView *userView = [_imageViews objectAtIndex:i];
         userView.backgroundColor = [UIColor blueColor];
+        userView.tag = i;
         userView.width = _picW;
         userView.height = _picW;
-        userView.frame = CGRectMake((cols - 1) * (LQSMargin + _picW) + LQSMargin, rows * (LQSMargin + _picW) + LQSMargin + CGRectGetMaxY(_contentLabel.frame), _picW, _picW);
+        userView.frame = CGRectMake(cols * (LQSMargin + _picW) + LQSMargin, rows * (LQSMargin + _picW) + LQSMargin + CGRectGetMaxY(_contentLabel.frame), _picW, _picW);
     }
     
     
+    CGFloat tooY;
+    if (_picViewArr.count <= 3) {
+        tooY = CGRectGetMaxY(_contentLabel.frame) + 2 * LQSMargin + _picW;
+    }else if (_picViewArr.count > 3 && _picViewArr.count <= 6){
+        tooY = CGRectGetMaxY(_contentLabel.frame) + 3 * LQSMargin + _picW * 2;
+    
+    }else if (_picViewArr.count > 6 && _picViewArr.count <= 9){
+        tooY = CGRectGetMaxY(_contentLabel.frame) + 4 * LQSMargin + _picW * 3;
+        
+    }
+    
+    
+    
+    
+    
+    
     //    添加点击量
-    _fangwenLabel.frame = CGRectMake(kScreenWidth - 100, self.height - 20, 50, 20);
+    _fangwenLabel.frame = CGRectMake(kScreenWidth - 100, tooY, 50, 20);
     //    添加评论数
-    _pinglunLabel.frame = CGRectMake(kScreenWidth - 50, self.height - 20, 50, 20);
+    _pinglunLabel.frame = CGRectMake(kScreenWidth - 50, tooY, 50, 20);
     
 
 }
@@ -221,12 +253,14 @@
     _touxiangPicW = 30;
     _picW = (kScreenWidth - 4 * LQSMargin)/3;
     CGSize size = [self sizeWithText:_dongmanData.title font:[UIFont systemFontOfSize:12] maxSize:CGSizeMake(kScreenWidth, MAXFLOAT)];
-    if (_picViewArr.count <= 3) {
-        cellHeight = _touxiangPicW + size.height + 3 * LQSMargin + _picW;
+    if (_picViewArr.count <= 0) {
+        cellHeight = _touxiangPicW + size.height  + 2 * LQSMargin + LQSMargin + 20;
+    }else if (_picViewArr.count <= 3) {
+        cellHeight = _touxiangPicW + size.height + 3 * LQSMargin + _picW+ LQSMargin+ 20;
     }else if (_picViewArr.count <= 6){
-        cellHeight = _touxiangPicW + size.height + 4 * LQSMargin + _picW * 2;
+        cellHeight = _touxiangPicW + size.height + 4 * LQSMargin + _picW * 2+ LQSMargin+ 20;
     }else{
-        cellHeight = _touxiangPicW + size.height + 5 * LQSMargin + _picW * 3;
+        cellHeight = _touxiangPicW + size.height + 5 * LQSMargin + _picW * 3+ LQSMargin+ 20;
 
     }
     return cellHeight;
