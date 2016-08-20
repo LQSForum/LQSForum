@@ -43,7 +43,7 @@
     _userNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _userAvaterView.backgroundColor = [UIColor yellowColor];
     
-    _userNameLabel.font = [UIFont systemFontOfSize:12];
+    _userNameLabel.font = [UIFont systemFontOfSize:15];
     _userNameLabel.backgroundColor = [UIColor blueColor];
     _userNameLabel.textAlignment = NSTextAlignmentLeft;
     [self.contentView addSubview:_userNameLabel];
@@ -65,7 +65,7 @@
     _contentLabel.numberOfLines = 0;
     _contentLabel.backgroundColor = [UIColor purpleColor];
     
-    _contentLabel.font = [UIFont systemFontOfSize:14];
+    _contentLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:_contentLabel];
     
     //   帖子图片
