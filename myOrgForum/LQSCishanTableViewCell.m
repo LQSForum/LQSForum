@@ -15,7 +15,9 @@
     UILabel *_sourceLabel;
     UILabel *_contentLabel;
     UIImageView *_picsView;
+    UIImageView *_fangwenPic;
     UILabel *_fangwenLabel;
+    UIImageView *_pinglunPic;
     UILabel *_pinglunLabel;
     NSMutableArray *_picViewArr;
     UIImageView *_userView;
@@ -41,7 +43,7 @@
     _userNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _userAvaterView.backgroundColor = [UIColor yellowColor];
     
-    _userNameLabel.font = [UIFont systemFontOfSize:15];
+    _userNameLabel.font = [UIFont systemFontOfSize:12];
     _userNameLabel.backgroundColor = [UIColor blueColor];
     _userNameLabel.textAlignment = NSTextAlignmentLeft;
     [self.contentView addSubview:_userNameLabel];
@@ -63,26 +65,34 @@
     _contentLabel.numberOfLines = 0;
     _contentLabel.backgroundColor = [UIColor purpleColor];
     
-    _contentLabel.font = [UIFont systemFontOfSize:12];
+    _contentLabel.font = [UIFont systemFontOfSize:14];
     [self.contentView addSubview:_contentLabel];
     
     //   帖子图片
-    
+
+
     //    访问量
     _fangwenLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _fangwenLabel.backgroundColor = [UIColor magentaColor];
+    _fangwenLabel.textAlignment = NSTextAlignmentCenter;
     _fangwenLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:_fangwenLabel];
     
     //    评论数
     _pinglunLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _pinglunLabel.backgroundColor = [UIColor lightGrayColor];
+    _pinglunLabel.textAlignment = NSTextAlignmentCenter;
     _pinglunLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:_pinglunLabel];
+
+    _pinglunPic = [[UIImageView alloc] initWithFrame:CGRectZero];
+    [_pinglunPic setContentMode:UIViewContentModeCenter];
+    [self.contentView addSubview:_pinglunPic];
     
-    
-    
-    
+    _fangwenPic = [[UIImageView alloc] initWithFrame:CGRectZero];
+    [_fangwenPic setContentMode:UIViewContentModeCenter];
+    [self.contentView addSubview:_fangwenPic];
+
     
 }
 
@@ -95,8 +105,32 @@
     _timeLabel.text = model.last_reply_date;
     _sourceLabel.text = model.board_name;//cyan
     _contentLabel.text = model.title;//purple
-    _fangwenLabel.text = model.hits;//magentale
-    _pinglunLabel.text = model.replies;//lightGray
+    
+    CGFloat pinglunCount;
+    NSString * pinglunStr;
+    pinglunCount = [model.replies floatValue];
+    if (pinglunCount > 9999) {
+        pinglunCount = pinglunCount / 10000;
+        pinglunStr = [NSString stringWithFormat:@"%.f万",pinglunCount];
+    }else{
+        pinglunStr = [NSString stringWithFormat:@"%.f",pinglunCount];
+    }
+    
+    CGFloat fangwenCount;
+    NSString * fangwenStr;
+    fangwenCount = [model.hits floatValue];
+    if (fangwenCount > 9999) {
+        fangwenCount = pinglunCount / 10000;
+        fangwenStr = [NSString stringWithFormat:@"%.f万",fangwenCount];
+    }else{
+        fangwenStr = [NSString stringWithFormat:@"%.f",fangwenCount];
+    }
+    
+    _fangwenLabel.text = fangwenStr;//magentale
+    _pinglunLabel.text = pinglunStr;//lightGray
+    _fangwenPic.image = [UIImage imageNamed:@"discover_liulan"];
+    _pinglunPic.image = [UIImage imageNamed:@"discover_pinglun"];
+
     //    获取图片群
     if (_picViewArr) {
         [_picViewArr removeAllObjects];
@@ -220,11 +254,14 @@
     _timeLabel.font = [UIFont systemFontOfSize:12];
     _timeLabel.backgroundColor = [UIColor redColor];
     
-    //    添加点击量
-    _fangwenLabel.frame = CGRectMake(kScreenWidth - 100, tooY, 50, 20);
     //    添加评论数
-    _pinglunLabel.frame = CGRectMake(kScreenWidth - 50, tooY, 50, 20);
-    
+    _pinglunLabel.frame = CGRectMake(kScreenWidth - 40, tooY, 40, 20);
+    //    添加评论图片
+    _pinglunPic.frame = CGRectMake(kScreenWidth - 40 - 20, tooY, 20, 20);
+    //    添加点击量
+    _fangwenLabel.frame = CGRectMake(kScreenWidth - 80 - 20 , tooY, 40, 20);
+    //    添加访问图片
+    _fangwenPic.frame = CGRectMake(kScreenWidth - 80 - 20 - 20, tooY, 20, 20);
     
 }
 

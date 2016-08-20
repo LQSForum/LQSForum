@@ -40,20 +40,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor clearColor];
     self.page = 1;
+    self.view.backgroundColor = [UIColor cyanColor];
     [self reloadCishanDateRequestWithPage:self.page];
     [self.cishanStatusFrameArr addObjectsFromArray:self.cishanArr];
     [self createTableView];
+    
 }
 
 
 - (void)createTableView{
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + 40 , kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + 5.5 , kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     // 3.设置tableView属性
-    _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.view addSubview:_tableView];
 

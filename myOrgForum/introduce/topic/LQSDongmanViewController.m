@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor clearColor];
     self.page = 1;
     [_dongManDataArray addObjectsFromArray:_dongManDataArr];
     [self reloadDongmanDateRequestWithPage:self.page];
@@ -76,7 +75,7 @@
 
 - (void)createTableView
 {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + 40, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + 5.5, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
