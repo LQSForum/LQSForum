@@ -106,10 +106,11 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    __weak typeof(self) weakSelf = self;
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"sucess");
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
-        if (_dongManDataArr.count > 0 && self.page == 1) {
+        if (_dongManDataArr.count > 0 && weakSelf.page == 1) {
             [_dongManDataArr removeAllObjects];
         }else{
             
@@ -143,6 +144,8 @@
     if (dongmancell == nil) {
         dongmancell = [[LQSDongmanTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1                reuseIdentifier:identifier];
     }
+    
+    
     [dongmancell pushesDongmanDataModel:[_dongManDataArray objectAtIndex:indexPath.row]];
     return dongmancell;
 

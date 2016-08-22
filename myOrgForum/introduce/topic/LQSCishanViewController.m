@@ -10,13 +10,12 @@
 
 @interface LQSCishanViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
-    UITableView *_tableView;
+    LQSUITableView *_tableView;
 
 
 
 }
 //帖子数组
-@property (nonatomic, strong) NSMutableArray *cishanStatusFrameArr;
 @property (nonatomic, assign) NSUInteger page;
 @property (nonatomic,strong) NSMutableArray *cishanArr;
 @property (nonatomic,strong) NSMutableArray *cishanArray;
@@ -27,30 +26,22 @@
 
 @implementation LQSCishanViewController
 
-- (NSMutableArray *)cishanStatusFrameArr
-{
-    if (!_cishanStatusFrameArr) {
-        self.cishanStatusFrameArr = [NSMutableArray array];
-        
-    }
-    return _cishanStatusFrameArr;
-}
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.page = 1;
     self.view.backgroundColor = [UIColor cyanColor];
     [self reloadCishanDateRequestWithPage:self.page];
-    [self.cishanStatusFrameArr addObjectsFromArray:self.cishanArr];
     [self createTableView];
+    //    添加刷新控件
+    [_tableView setRefresh];
+
     
 }
 
 
 - (void)createTableView{
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + 5.5 , kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    _tableView = [[LQSUITableView alloc] initWithFrame:CGRectMake(0, 64 + 5.5 , kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     // 3.设置tableView属性
@@ -64,64 +55,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //    添加刷新控件
-    [self setupRefresh];
-
-    [_tableView.mj_header beginRefreshing];
 
 }
-
-- (void)setupRefresh
-{
-    // 1.添加下拉刷新控件
-    
-    _tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewStatus)];
-    [_tableView.mj_header beginRefreshing];
-    
-    // 2.添加上拉刷新控件
-    _tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreStatus)];
-    
-    
-   
-    
-
-
-}
-/**
- *  加载最新的微博数据
- */
-- (void)loadNewStatus
-{
-    self.page = 1;
-    [self reloadCishanDateRequestWithPage:self.page];
-    [self.cishanStatusFrameArr insertObjects:self.cishanArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.cishanArr.count)]];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 刷新瀑布流控件
-        [_tableView reloadData];
-        // 停止刷新
-        [_tableView.mj_header endRefreshing];
-    });
-
-}
-
-/**
- *  加载更多的微博数据(时间比较早的)
- */
-- (void)loadMoreStatus
-{
-    self.page++;
-    [self reloadCishanDateRequestWithPage:self.page];
-    [self.cishanStatusFrameArr addObjectsFromArray:self.cishanArr];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 刷新瀑布流控件
-        [_tableView reloadData];
-        // 停止刷新
-        [_tableView.mj_footer endRefreshing];
-    });
-
-}
-
 
 - (void)reloadCishanDateRequestWithPage:(NSUInteger)page
 {
@@ -148,25 +83,27 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    __weak typeof(self) weakSelf = self;
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"sucess");
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
 //        数据模型放到frame模型
-              if (self.cishanArr.count > 0 && self.page == 1) {
-            [self.cishanArr removeAllObjects];
+              if (weakSelf.cishanArr.count > 0 && weakSelf.page == 1) {
+            [weakSelf.cishanArr removeAllObjects];
         }else{
             
             NSMutableArray *cishanArr = [[NSMutableArray alloc] init];
-            self.cishanArr = cishanArr;
+            weakSelf.cishanArr = cishanArr;
         }
-        self.cishanArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
-        self.cishanArray = [NSMutableArray array];
-        [self.cishanArray addObjectsFromArray:self.cishanArr];
+        weakSelf.cishanArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
+        weakSelf.cishanArray = [NSMutableArray array];
+        [weakSelf.cishanArray addObjectsFromArray:self.cishanArr];
         [_tableView reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failure");
-        
+        [_tableView.mj_header endRefreshing];
+        kNetworkNotReachedMessage;
     }];
     
 }

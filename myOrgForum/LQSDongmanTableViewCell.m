@@ -188,6 +188,9 @@
         NSURL *url = [NSURL URLWithString:[_picViewArr objectAtIndex:i]];
         [_photoView sd_setImageWithURL:url placeholderImage:nil];
         _photoView.tag = i;
+        _photoView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTap:)];
+        [_photoView addGestureRecognizer:tapGesture];
         [_imageViews addObject:_photoView];
     }
     
@@ -215,7 +218,7 @@
         // 设置图片的url
         mjphoto.url = [NSURL URLWithString:[_picViewArr objectAtIndex:i]];
         // 设置图片的来源view
-        mjphoto.srcImageView = self.subviews[i];
+        mjphoto.srcImageView = _imageViews[i];
         [mjphotos addObject:mjphoto];
     }
     browser.photos = mjphotos;

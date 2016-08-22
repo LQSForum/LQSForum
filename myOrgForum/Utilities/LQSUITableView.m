@@ -61,6 +61,8 @@
         });
         
     }];
+    [self.mj_header beginRefreshing];
+
 }
 
 @end
