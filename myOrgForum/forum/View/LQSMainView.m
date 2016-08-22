@@ -34,24 +34,16 @@
     
     if (self) {
         
-        
         //        self.backgroundColor = [UIColor orangeColor];
         
-        // 设置数据源和代理
         self.dataSource = self;
-        
         self.delegate = self;
         
         // 注册 cell
         [self registerClass:[LQSMainViewCell class] forCellWithReuseIdentifier:LQSMainCell];
-        
-        
-        // 隐藏滚动条
+
         self.showsHorizontalScrollIndicator = NO;
-        
-        // 设置分页,取消弹簧效果
         self.pagingEnabled = YES;
-        
         self.bounces = NO;
         
         [self setupUI];
@@ -67,9 +59,9 @@
     NSIndexPath *indexPath = notify.object;
     
     if (indexPath.row == 1) {
-        self.latestView.sortby = @{@"sortby":@"new",@"pageSize":@20,@"page":@1};
+        self.latestView.sortby = @"new";
     }else if(indexPath.row == 2){
-        self.marrowView.sortby = @{@"sortby":@"marrow",@"pageSize":@20,@"page":@1};
+        self.marrowView.sortby = @"marrow";
     }
     
     [self scrollToItemAtIndexPath:notify.object atScrollPosition:(UICollectionViewScrollPositionNone) animated:YES];
@@ -82,23 +74,21 @@
     
     //给左右两个tableView设置Frame(默认情况下：leftView宽度为屏幕的1/3，rightView宽度为屏幕的2/3，高度都为全屏)
     
-    self.leftView = [[LQSLeftTableView alloc] init];
+    self.leftView = [[LQSLeftTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth/3, self.height)];
     self.leftView.leftViewDelegate = self;
-    self.leftView.frame = CGRectMake(0, 0, kScreenWidth/3, self.frame.size.height-49);
     self.leftView.backgroundColor = LQSColor(250, 248, 251, 1.0);
     [self addSubview:self.leftView];
     
-    self.rightView = [[LQSRightTableView alloc] init];
-    self.rightView.frame = CGRectMake(kScreenWidth/3, 0, kScreenWidth/3 * 2, self.frame.size.height-49);
+    self.rightView = [[LQSRightTableView alloc] initWithFrame:CGRectMake(kScreenWidth/3, 0, kScreenWidth/3 * 2, self.height)];
     self.rightView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.rightView];
     
     self.latestView = [[LQSLatestMarrowTableView alloc]init];
     self.marrowView = [[LQSLatestMarrowTableView alloc]init];
-    self.latestView.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, self.frame.size.height-49);
-    self.marrowView.frame = CGRectMake(kScreenWidth * 2, 0, kScreenWidth, self.frame.size.height-49);
-    //    self.latestView.backgroundColor = [UIColor blueColor];
-    //    self.marrowView.backgroundColor = [UIColor yellowColor];
+    self.latestView.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, self.frame.size.height);
+    self.marrowView.frame = CGRectMake(kScreenWidth * 2, 0, kScreenWidth, self.frame.size.height);
+//        self.latestView.backgroundColor = [UIColor blueColor];
+//        self.marrowView.backgroundColor = [UIColor yellowColor];
     [self addSubview:self.latestView];
     [self addSubview:self.marrowView];
     
@@ -129,7 +119,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LQSMainViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LQSMainCell forIndexPath:indexPath];
-    cell.backgroundColor = [self arndomColor];
+//    cell.backgroundColor = [self arndomColor];
     
     
     return cell;
@@ -144,9 +134,9 @@
     }
     
     if (idx == 1) {
-        self.latestView.sortby = @{@"sortby":@"new"};
+        self.latestView.sortby = @"new";
     }else if(idx == 2){
-        self.marrowView.sortby = @{@"sortby":@"marrow"};
+        self.marrowView.sortby = @"marrow";
     }
     
     
