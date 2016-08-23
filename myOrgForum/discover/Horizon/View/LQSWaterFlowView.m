@@ -12,9 +12,9 @@
 #import "LQSWaterFlowView.h"
 #import "LQSWaterFlowViewCell.h"
 
-#define LQSWaterFlowViewDefaultCellH 70
+#define LQSWaterFlowViewDefaultCellH (kScreenWidth - 3 * LQSMargin) / 2
 #define LQSWaterFlowViewDefaultMargin 8
-#define LQSWaterFlowViewDefaultNumberOfColumns 3
+#define LQSWaterFlowViewDefaultNumberOfColumns 2
 
 @interface LQSWaterFlowView()
 /**

@@ -14,4 +14,8 @@
 
 @property (nonatomic, strong) LQSShijieDataListModel *shijieDataModel;
 
+
+- (CGFloat)cellHeight;
+
+
 @end

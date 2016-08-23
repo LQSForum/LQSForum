@@ -36,7 +36,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/introduce/topic/LQSCishanViewController.m"
-                  timestampString = "493634611.09044"
+                  timestampString = "493638916.872608"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "128"
@@ -51,7 +51,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/introduce/topic/LQSCishanViewController.m"
-                  timestampString = "493634611.090558"
+                  timestampString = "493638916.872789"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "128"
@@ -100,7 +100,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/Utilities/LQSUITableView.m"
-                  timestampString = "493634611.09203"
+                  timestampString = "493638916.874243"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "63"
@@ -115,7 +115,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/Utilities/LQSUITableView.m"
-                  timestampString = "493634611.092155"
+                  timestampString = "493638916.874378"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "63"
@@ -148,11 +148,11 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/introduce/topic/LQSCishanViewController.m"
-                  timestampString = "493634611.092928"
+                  timestampString = "493638916.875095"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "140"
-                  endingLineNumber = "140"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
                   offsetFromSymbolStart = "996">
                </Location>
                <Location
@@ -163,12 +163,12 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/introduce/topic/LQSCishanViewController.m"
-                  timestampString = "493634611.09305"
+                  timestampString = "493638916.875214"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "140"
-                  endingLineNumber = "140"
-                  offsetFromSymbolStart = "744">
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "652">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -178,7 +178,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/introduce/topic/LQSCishanViewController.m"
-                  timestampString = "493634611.093137"
+                  timestampString = "493638916.87531"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -193,7 +193,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/introduce/topic/LQSCishanViewController.m"
-                  timestampString = "493634611.093222"
+                  timestampString = "493638916.8754"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -208,11 +208,11 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/introduce/topic/LQSCishanViewController.m"
-                  timestampString = "493634611.093318"
+                  timestampString = "493638916.875488"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "140"
-                  endingLineNumber = "140"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
                   offsetFromSymbolStart = "72">
                </Location>
             </Locations>
@@ -241,7 +241,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/Utilities/LQSUITableView.m"
-                  timestampString = "493634611.094618"
+                  timestampString = "493638916.878696"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -256,7 +256,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/Utilities/LQSUITableView.m"
-                  timestampString = "493634611.094744"
+                  timestampString = "493638916.878821"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -369,7 +369,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/introduce/topic/LQSCishanViewController.m"
-                  timestampString = "493634611.098183"
+                  timestampString = "493638916.882381"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
@@ -384,7 +384,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/introduce/topic/LQSCishanViewController.m"
-                  timestampString = "493634611.098294"
+                  timestampString = "493638916.882507"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
@@ -392,6 +392,38 @@
                   offsetFromSymbolStart = "32">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
+            timestampString = "493637776.367423"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "-waterflowView:heightAtIndex:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/introduce/topic/LQSShijieViewController.m"
+            timestampString = "493637812.048944"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "-waterflowView:heightAtIndex:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -169,9 +169,14 @@
 
 - (CGFloat)waterflowView:(LQSWaterFlowView *)waterflowView heightAtIndex:(NSUInteger)index
 {
+//    
+//    LQSShijieDataListModel *shijieModel = [self.discoriesArr objectAtIndex:index];
+//    return waterflowView.cellWidth * shijieModel.ratio + 35;
     
-    LQSShijieDataListModel *shijieModel = [self.discoriesArr objectAtIndex:index];
-    return waterflowView.cellWidth * shijieModel.ratio + 35;
+    LQSDiscoverCell *cell = (LQSDiscoverCell *)[self waterflowView:waterflowView cellAtIndex:index];
+    return cell.cellHeight;
+    
+    
     
 }
 
