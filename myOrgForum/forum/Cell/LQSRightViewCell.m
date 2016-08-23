@@ -61,12 +61,13 @@
         self.contentNum.textColor = [UIColor lightGrayColor];
         [self.contentNum sizeToFit];
         
-        self.focusBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        self.focusBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         self.focusBtn.backgroundColor = LQSColor(1, 183, 237, 1.0);
         [self.focusBtn setTintColor:[UIColor whiteColor]];
         self.focusBtn.titleLabel.font = [UIFont systemFontOfSize:12.0];
         [self.focusBtn.layer setMasksToBounds:YES];
         [self.focusBtn.layer setCornerRadius:2.0];
+        [self.focusBtn addTarget:self action:@selector(selectedFocusBtn:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.contentView addSubview:self.icon];
         [self.contentView addSubview:self.titleLabel];
@@ -136,7 +137,30 @@
     NSURL *url = [NSURL URLWithString:cellModel.board_img];
     [self.icon sd_setImageWithURL:url];
     self.contentNum.text = [NSString stringWithFormat:@"%zd",cellModel.td_posts_num];
-    [self.focusBtn setTitle:@"关注" forState:UIControlStateNormal];
+    if (cellModel.isSelected) {
+        [self.focusBtn setBackgroundColor:[UIColor lightGrayColor]];
+        [self.focusBtn setTitle:@"取消关注" forState:UIControlStateNormal];
+    }else{
+        [self.focusBtn setBackgroundColor:LQSColor(1, 183, 237, 1.0)];
+        [self.focusBtn setTitle:@"关注" forState:UIControlStateNormal];
+    }
+    
+}
+
+
+- (void)selectedFocusBtn:(UIButton *)sender{
+    sender.selected = !sender.isSelected;
+    self.cellModel.selected = self.focusBtn.isSelected;
+    if (sender.isSelected == YES) {
+        [self.focusBtn setBackgroundColor:[UIColor lightGrayColor]];
+        //        [self.focusArray addObject:self.cellModel];
+        if ([self.delegate respondsToSelector:@selector(rightViewFocus:)]) {
+            [self.delegate rightViewFocus:self];
+        }
+    }else{
+        [self.focusBtn setBackgroundColor:LQSColor(1, 183, 237, 1.0)];
+        
+    }
     
 }
 

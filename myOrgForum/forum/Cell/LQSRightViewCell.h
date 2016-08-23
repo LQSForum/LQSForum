@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "LQSCellModel.h"
+@class LQSRightViewCell;
+@protocol LQSRightViewCellDelegate <NSObject>
+
+- (void)rightViewFocus:(LQSRightViewCell *)rightViewCell;
+
+@end
 @interface LQSRightViewCell : UITableViewCell
 @property (nonatomic, strong) LQSCellModel *cellModel;
+@property (nonatomic, strong) NSMutableArray *focusArray;
+@property (nonatomic, weak) id<LQSRightViewCellDelegate> delegate;
+
 @end

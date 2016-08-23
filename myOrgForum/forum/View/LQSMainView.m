@@ -143,7 +143,13 @@
 }
 
 - (void)leftTableView:(LQSLeftTableView *)leftTableView rightViewArray:(NSMutableArray *)rightViewArray{
+    self.rightView.sectionNum = 1;
     self.rightView.rightDataArray = rightViewArray;
+}
+
+- (void)leftTableView:(LQSLeftTableView *)leftTableView rightViewFocusArray:(NSMutableArray *)rightViewFocusArray{
+    self.rightView.sectionNum = 2;
+    self.rightView.rightDataArray = rightViewFocusArray;
 }
 
 -(UIColor *)arndomColor{

@@ -10,4 +10,6 @@
 
 @interface LQSUITableView : UITableView
 - (void)setRefresh;
+@property (nonatomic, assign) NSUInteger page;
+
 @end

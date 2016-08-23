@@ -35,7 +35,7 @@
     //    需要初始化数据
     [self.discoriesArr addObjectsFromArray:self.disArr];
     [self createCell];
-    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -46,7 +46,9 @@
     self.waterFlowView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreShops)];
     
     [self.waterFlowView.mj_header beginRefreshing];
-    
+    // 默认先隐藏footer
+    self.waterFlowView.mj_footer.hidden = YES;
+
 }
 
 - (void)shijieDataRequestWithPage:(NSUInteger)page{
@@ -146,6 +148,8 @@
 #pragma mark - dataSource&delegate
 - (NSUInteger)numberOfCellsInWaterflowView:(LQSWaterFlowView *)waterflowView
 {
+    self.waterFlowView.mj_footer.hidden = self.discoriesArr.count == 0;
+
     return self.discoriesArr.count;
 }
 
@@ -165,9 +169,14 @@
 
 - (CGFloat)waterflowView:(LQSWaterFlowView *)waterflowView heightAtIndex:(NSUInteger)index
 {
+//    
+//    LQSShijieDataListModel *shijieModel = [self.discoriesArr objectAtIndex:index];
+//    return waterflowView.cellWidth * shijieModel.ratio + 35;
     
-    LQSShijieDataListModel *shijieModel = [self.discoriesArr objectAtIndex:index];
-    return waterflowView.cellWidth * shijieModel.ratio + 35;
+    LQSDiscoverCell *cell = (LQSDiscoverCell *)[self waterflowView:waterflowView cellAtIndex:index];
+    return cell.cellHeight;
+    
+    
     
 }
 
