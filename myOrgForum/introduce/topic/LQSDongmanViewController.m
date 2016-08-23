@@ -122,11 +122,14 @@
         _picListArr = [LQSShijieDataModel mj_objectArrayWithKeyValuesArray:dict[@"piclist"]];
         _dongManDataArray = [NSMutableArray array];
         [_dongManDataArray addObjectsFromArray:_dongManDataArr];
+        [_tableView reloadData];
+        [_tableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failure");
-        
+        kNetworkNotReachedMessage;
+        [_tableView.mj_header endRefreshing];
+
     }];
-    [_tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

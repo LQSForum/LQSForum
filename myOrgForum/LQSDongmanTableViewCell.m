@@ -31,6 +31,8 @@
     LQSDongmanListModel *_dongmanData;
     CGFloat _picW;
     CGFloat _touxiangPicW;
+    NSUInteger _picCount;
+
 }
 @end
 
@@ -174,16 +176,15 @@
     
     _imageViews = [NSMutableArray array];
 
-    NSUInteger picCount;
     if (count <= 3) {
-        picCount = _picViewArr.count;
+        _picCount = _picViewArr.count;
     }else{
-        picCount = 3;
+        _picCount = 3;
     }
     
     
     
-    for (NSUInteger i = 0; i < picCount; i++) {
+    for (NSUInteger i = 0; i < _picCount; i++) {
         _photoView = [[UIImageView alloc] init];
         NSURL *url = [NSURL URLWithString:[_picViewArr objectAtIndex:i]];
         [_photoView sd_setImageWithURL:url placeholderImage:nil];
@@ -194,7 +195,7 @@
         [_imageViews addObject:_photoView];
     }
     
-    for (NSUInteger idx = 0; idx < picCount; idx++) {
+    for (NSUInteger idx = 0; idx < _picCount; idx++) {
         UIView *view = [_imageViews objectAtIndex:idx];
         [self.contentView addSubview:view];
     }
@@ -212,7 +213,7 @@
     
     // 2.设置浏览器对象的所有图片
     NSMutableArray *mjphotos = [NSMutableArray array];
-    for (int i = 0; i<_picViewArr.count; i++) {
+    for (int i = 0; i<_picCount; i++) {
         // 创建MJPhoto模型
         MJPhoto *mjphoto = [[MJPhoto alloc] init];
         // 设置图片的url

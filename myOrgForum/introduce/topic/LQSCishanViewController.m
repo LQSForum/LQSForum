@@ -99,7 +99,8 @@
         weakSelf.cishanArray = [NSMutableArray array];
         [weakSelf.cishanArray addObjectsFromArray:self.cishanArr];
         [_tableView reloadData];
-        
+        [_tableView.mj_header endRefreshing];
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failure");
         [_tableView.mj_header endRefreshing];
