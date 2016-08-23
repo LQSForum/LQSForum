@@ -10,4 +10,5 @@
 
 @interface LQSRightTableView : UITableView
 @property (nonatomic, strong) NSMutableArray *rightDataArray;
+@property (nonatomic, assign) int sectionNum;
 @end
