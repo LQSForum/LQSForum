@@ -10,7 +10,7 @@
 
 @interface LQSDongmanViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
-    UITableView *_tableView;
+    LQSUITableView *_tableView;
     NSMutableArray *_dongManDataArr;
     NSMutableArray *_dongManDataArray;
     NSMutableArray *_picListArr;
@@ -31,7 +31,7 @@
     self.view.backgroundColor = [UIColor blueColor];
 //创建tableview
     [self createTableView];
-
+    [_tableView setRefresh ];
 }
 
 
@@ -39,47 +39,47 @@
 {
     [super viewWillAppear:animated];
     //    上啦刷新
-    _tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-    _tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-
+//    _tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+//    _tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+//
     [_tableView.mj_header beginRefreshing];
 
 }
 
-- (void)loadNewData
-{
-    self.page = 1;
-    [self reloadDongmanDateRequestWithPage:self.page];
-    [_dongManDataArray insertObjects:_dongManDataArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, _dongManDataArr.count)]];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    //    刷新表格
-    [_tableView reloadData];
-    //停止刷新
-    [_tableView.mj_header endRefreshing];
-    });
-}
-
-- (void)loadMoreData
-{
-    
-    self.page++;
-    [self reloadDongmanDateRequestWithPage:self.page];
-    [_dongManDataArray addObjectsFromArray:_dongManDataArr];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
-    //    刷新表格
-    [_tableView reloadData];
-    [_tableView.mj_footer endRefreshing];
-    });
-}
+//- (void)loadNewData
+//{
+//    self.page = 1;
+//    [self reloadDongmanDateRequestWithPage:self.page];
+//    [_dongManDataArray insertObjects:_dongManDataArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, _dongManDataArr.count)]];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//    //    刷新表格
+//    [_tableView reloadData];
+//    //停止刷新
+//    [_tableView.mj_header endRefreshing];
+//    });
+//}
+//
+//- (void)loadMoreData
+//{
+//    
+//    self.page++;
+//    [self reloadDongmanDateRequestWithPage:self.page];
+//    [_dongManDataArray addObjectsFromArray:_dongManDataArr];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//    //    刷新表格
+//    [_tableView reloadData];
+//    [_tableView.mj_footer endRefreshing];
+//    });
+//}
 
 - (void)createTableView
 {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + 5.5, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    _tableView = [[LQSUITableView alloc] initWithFrame:CGRectMake(0, 64 + 5.5, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
-    _tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+//    _tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
 
 
 
