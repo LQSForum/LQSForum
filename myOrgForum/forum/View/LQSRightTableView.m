@@ -13,10 +13,11 @@
 #import "YYModel.h"
 #import "LQSRightViewCell.h"
 
-@interface LQSRightTableView ()<UITableViewDelegate,UITableViewDataSource>
+@interface LQSRightTableView ()<UITableViewDelegate,UITableViewDataSource,LQSRightViewCellDelegate>
 
 @property (nonatomic, strong) NSMutableArray *leftDataArray;
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
+@property (nonatomic, strong) NSMutableArray *focusArray;
 
 @end
 
@@ -48,10 +49,23 @@
     return _sessionManager;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return self.sectionNum;
+}
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.rightDataArray.count;
+    if (self.sectionNum == 1) {
+        return self.rightDataArray.count;
+    }else{
+        if (section == 0) {
+            return self.focusArray.count;
+        }else{
+            return self.rightDataArray.count;
+        }
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -60,10 +74,22 @@
     LQSRightViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
         cell = [[LQSRightViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell.delegate = self;
     }
-    LQSCellModel *cellModel = self.rightDataArray[indexPath.row];
-    cell.cellModel = cellModel;
+    if (self.sectionNum == 1) {
+        LQSCellModel *cellModel = self.rightDataArray[indexPath.row];
+        cell.cellModel = cellModel;
+    }else{
+        if (indexPath.section == 0) {
+            LQSCellModel *cellModel = self.focusArray[indexPath.row];
+            cell.cellModel = cellModel;
+        }else{
+            LQSCellModel *cellModel = self.rightDataArray[indexPath.row];
+            cell.cellModel = cellModel;
+            
+        }
     
+  }
     return cell;
 }
 
@@ -81,11 +107,46 @@
     
     return 80;
 }
+    
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
+        
+        if (self.sectionNum == 2) {
+            if (section == 0) {
+                return @"猜你喜欢";
+            }else{
+                return nil;
+            }
+        }else{
+            return nil;
+        }
+        
+    }
 
+- (void)rightViewFocus:(LQSRightViewCell *)rightViewCell{
+    
+    //    self.focusArray = focusArray;
+    NSIndexPath *indexPath = [self indexPathForCell:rightViewCell];
+    LQSCellModel *cellModel = self.rightDataArray[indexPath.row];
+    [self.focusArray addObject:cellModel];
+    [self reloadData];
+}
 
 - (void)setRightDataArray:(NSMutableArray *)rightDataArray{
     _rightDataArray = rightDataArray;
     [self reloadData];
+}
+
+- (void)setSectionNum:(int)sectionNum{
+    _sectionNum = sectionNum;
+    [self reloadData];
+}
+
+- (NSMutableArray *)focusArray{
+    
+    if (_focusArray == nil) {
+        _focusArray = [NSMutableArray array];
+    }
+    return _focusArray;
 }
 
 @end

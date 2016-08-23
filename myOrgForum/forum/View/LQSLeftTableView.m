@@ -15,6 +15,7 @@
 @interface LQSLeftTableView ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *leftDataArray;
 @property (nonatomic, strong) NSMutableArray *sectionDataArray;
+@property (nonatomic, strong) NSMutableArray *focusData;
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
 
 @end
@@ -28,7 +29,7 @@
         
         self.dataSource = self;
         self.delegate = self;
-        
+        self.tableFooterView = [[UIView alloc] init];
     }
     
     [self loadServerData];
@@ -50,15 +51,61 @@
 }
 
 - (void)loadServerData{
-    
-    NSString *urlString = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=forum/forumlist";
-    NSDictionary *parameters = @{@"accessSecret":@"cd090971f3f83391cd4ddc034638c",
-                                 @"accessToken":@"f9514b902a334d6c0b23305abd46d",
+    NSString *urlStringFocus = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=forum/forumlist";
+    NSDictionary *parametersFocus = @{@"accessSecret":@"4aab1523559aeef6bdc16d9a07d93",
+                                 @"accessToken":@"5769ef37c713ca23b8d1816c2133c",
                                  @"forumKey":@"BW0L5ISVRsOTVLCTJx",
-                                 @"sdkVersion":@"2.4.0",
-                                 @"apphash":@"f0d7f05f"};
+                                 @"sdkVersion":@"2.4.3.0",
+                                 @"apphash":@"5038dae8",
+                                 @"type":@"rec"};
+    [self loadFocusDataWithUrlString:urlStringFocus parameters:parametersFocus];
     
-   
+    NSString *urlStringOthers = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=forum/forumlist";
+    NSDictionary *parametersOthers = @{@"accessSecret":@"cd090971f3f83391cd4ddc034638c",
+                                  @"accessToken":@"f9514b902a334d6c0b23305abd46d",
+                                  @"forumKey":@"BW0L5ISVRsOTVLCTJx",
+                                  @"sdkVersion":@"2.4.0",
+                                  @"apphash":@"f0d7f05f"};
+    [self loadServerDataWithUrlString:urlStringOthers parameters:parametersOthers];
+    
+    
+}
+
+- (void)loadFocusDataWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters{
+    
+    [self.sessionManager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSData *data = responseObject;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+        
+        //        NSString *p = @"/Users/yuhan/Desktop/plist";
+        //        NSString *path = [p stringByAppendingPathComponent:@"forum.plist"];
+        //        [dict writeToFile:path atomically:YES];
+        LQSLog(@"%@",dict);
+        
+        NSArray *listArr = dict[@"recommendedBoard"];
+        for (NSDictionary *itemDict in listArr) {
+            LQSCellModel *cellModel = [LQSCellModel yy_modelWithDictionary:itemDict];
+            [self.focusData addObject:cellModel];
+            
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self  reloadData];
+            
+        });
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //        [self.mj_header endRefreshing];
+        NSLog(@"error%@",error);
+        
+    }];
+    
+    
+}
+
+- (void)loadServerDataWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters{
+
     [self.sessionManager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSData *data = responseObject;
@@ -131,7 +178,8 @@
     
     if ([self.leftViewDelegate respondsToSelector:@selector(leftTableView:rightViewArray:)]) {
         if (indexPath.row == 0) {
-            return;
+            NSMutableArray *rightViewDataArray = self.focusData;
+            [self.leftViewDelegate leftTableView:self rightViewFocusArray:rightViewDataArray];
         }else{
             LQSSectionModel *sectionModel = self.sectionDataArray[indexPath.row - 1];
             //        NSLog(@"%@",sectionModel);
@@ -157,6 +205,14 @@
         _sectionDataArray = [NSMutableArray array];
     }
     return _sectionDataArray;
+}
+
+- (NSMutableArray *)focusData{
+    
+    if (_focusData == nil) {
+        _focusData = [NSMutableArray array];
+    }
+    return _focusData;
 }
 
 
