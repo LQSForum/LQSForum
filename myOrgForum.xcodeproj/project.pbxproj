@@ -1754,11 +1754,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-<<<<<<< HEAD
 				GCC_PREFIX_HEADER = /Users/xjw/Desktop/LQSLT/LQSForum/myOrgForum/LQSPrefixHeader.pch;
-=======
-				GCC_PREFIX_HEADER = /Users/a/github/LQSForum/myOrgForum/LQSPrefixHeader.pch;
->>>>>>> b2286c50625f1328f92e36199234d48d88d425a0
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
