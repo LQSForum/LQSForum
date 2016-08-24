@@ -68,7 +68,7 @@
         UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         timeLabel.textAlignment = NSTextAlignmentLeft;
         [self addSubview:timeLabel];
-        self.titleLabel = timeLabel;
+        self.timeLabel = timeLabel;
         [timeLabel setFont:[UIFont systemFontOfSize:11]];
     }
     return self;
