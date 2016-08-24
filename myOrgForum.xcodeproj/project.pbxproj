@@ -1605,6 +1605,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_OPTIMIZATION_PROFILE_FILE = /Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -1651,6 +1652,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_OPTIMIZATION_PROFILE_FILE = /Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -1688,6 +1690,7 @@
 			baseConfigurationReference = A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "";
 				CODE_SIGN_ENTITLEMENTS = myOrgForum/myOrgForum.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1697,7 +1700,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/a/github/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1739,6 +1742,7 @@
 			baseConfigurationReference = 75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "";
 				CODE_SIGN_ENTITLEMENTS = myOrgForum/myOrgForum.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1748,7 +1752,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/a/github/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
