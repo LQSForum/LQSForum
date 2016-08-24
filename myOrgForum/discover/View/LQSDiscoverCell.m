@@ -125,7 +125,7 @@
 - (CGFloat)cellHeight{
     
     CGSize size = [self sizeWithText:self.shijieDataModel.title font:[UIFont systemFontOfSize:12] maxSize:CGSizeMake((kScreenWidth - 3 * LQSMargin) / 2 - 20, MAXFLOAT)];
-    return  (kScreenWidth - 3 * LQSMargin) / 2 * self.shijieDataModel.ratio + size.height + 3 * LQSMargin + 20;
+    return  (kScreenWidth - 3 * LQSMargin) / 2 * self.shijieDataModel.ratio + size.height + 3 * LQSMargin;
     
 }
 @end

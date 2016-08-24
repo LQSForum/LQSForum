@@ -53,6 +53,7 @@
     [self.contentView addSubview:_userNameLabel];
 //  timeLabel时间label
     _timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    _timeLabel.font = [UIFont systemFontOfSize:12];
     _timeLabel.textAlignment = NSTextAlignmentLeft;
     [self.contentView addSubview:_timeLabel];
     
