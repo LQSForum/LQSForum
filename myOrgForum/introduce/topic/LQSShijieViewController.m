@@ -101,7 +101,6 @@
 - (void)createCell{
     
     LQSWaterFlowView *waterFlowView = [[LQSWaterFlowView alloc] init];
-    waterFlowView.backgroundColor = [UIColor cyanColor];
     //    跟谁父控件的尺寸而自动伸缩
     waterFlowView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     waterFlowView.frame = CGRectMake(0, 64 + 40, kScreenWidth, kScreenHeight - 64 - 40);

@@ -33,7 +33,6 @@
     self.cishanArr = [NSMutableArray array];
     [self createTableView];
     self.page = 1;
-    self.view.backgroundColor = [UIColor cyanColor];
     [self reloadCishanDateRequestWithPage:self.page];
 //
     _tableView.mj_footer.hidden = YES;

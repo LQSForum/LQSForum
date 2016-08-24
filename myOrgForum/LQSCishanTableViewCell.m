@@ -36,15 +36,12 @@
     _picViewArr = [NSMutableArray array];
     //用户头像
     _userAvaterView = [[UIImageView alloc] initWithFrame:CGRectZero];
-    _userAvaterView.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:_userAvaterView];
     
     //    用户名称
     _userNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    _userAvaterView.backgroundColor = [UIColor yellowColor];
     
     _userNameLabel.font = [UIFont systemFontOfSize:15];
-    _userNameLabel.backgroundColor = [UIColor blueColor];
     _userNameLabel.textAlignment = NSTextAlignmentLeft;
     [self.contentView addSubview:_userNameLabel];
     //  timeLabel时间label
@@ -54,16 +51,13 @@
     
     //    帖子来源
     _sourceLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    _userAvaterView.backgroundColor = [UIColor greenColor];
     
     _sourceLabel.font = [UIFont systemFontOfSize:12];
-    _sourceLabel.backgroundColor = [UIColor cyanColor];
     
     [self.contentView addSubview:_sourceLabel];
     //    帖子内容
     _contentLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _contentLabel.numberOfLines = 0;
-    _contentLabel.backgroundColor = [UIColor purpleColor];
     
     _contentLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:_contentLabel];
@@ -73,14 +67,12 @@
 
     //    访问量
     _fangwenLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    _fangwenLabel.backgroundColor = [UIColor magentaColor];
     _fangwenLabel.textAlignment = NSTextAlignmentCenter;
     _fangwenLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:_fangwenLabel];
     
     //    评论数
     _pinglunLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    _pinglunLabel.backgroundColor = [UIColor lightGrayColor];
     _pinglunLabel.textAlignment = NSTextAlignmentCenter;
     _pinglunLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:_pinglunLabel];
@@ -234,7 +226,6 @@
         NSUInteger cols = i % 3;
 
         UIView *userView = [_imageViews objectAtIndex:i];
-        userView.backgroundColor = [UIColor blueColor];
         userView.width = _picW;
         userView.height = _picW;
         userView.frame = CGRectMake(cols * (LQSMargin + _picW) + LQSMargin + LQSMargin + _touxiangPicW, rows * (LQSMargin + _picW) + LQSMargin + LQSMargin + CGRectGetMaxY(_contentLabel.frame), _picW, _picW);
@@ -258,7 +249,6 @@
     //    左边的时间
     _timeLabel.frame = CGRectMake( LQSMargin + LQSMargin + _touxiangPicW,tooY,(kScreenWidth - 2 * LQSMargin - _touxiangPicW) * 0.5,20);
     _timeLabel.font = [UIFont systemFontOfSize:12];
-    _timeLabel.backgroundColor = [UIColor redColor];
     
     //    添加评论数
     _pinglunLabel.frame = CGRectMake(kScreenWidth - 40, tooY, 40, 20);
