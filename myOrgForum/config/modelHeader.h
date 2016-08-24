@@ -19,7 +19,6 @@
 //discover
 #import "LQSShijieDataModel.h"
 #import "LQSCishanModel.h"
-#import "LQSPhoto.h"
 #import "LQSHomePagePersonalMessageDataModel.h"
 
 //dongman

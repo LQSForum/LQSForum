@@ -21,9 +21,6 @@
 		2CA781491D438DEA00D35288 /* LQSDiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781471D438DEA00D35288 /* LQSDiscoverCell.m */; };
 		2CA781511D43B6BC00D35288 /* LQSShijieDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781501D43B6BC00D35288 /* LQSShijieDataModel.m */; };
 		2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084B21D6029F900167F4D /* NSDate+MJ.m */; };
-		2CB084B91D604B0900167F4D /* LQSPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084B81D604B0900167F4D /* LQSPhoto.m */; };
-		2CB084C51D604DE600167F4D /* LQSPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084C41D604DE600167F4D /* LQSPhotosView.m */; };
-		2CB084C81D604DFD00167F4D /* LQSPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084C71D604DFD00167F4D /* LQSPhotoView.m */; };
 		2CB084D91D60508A00167F4D /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084CB1D60508A00167F4D /* MJPhoto.m */; };
 		2CB084DA1D60508A00167F4D /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2CB084CC1D60508A00167F4D /* MJPhotoBrowser.bundle */; };
 		2CB084DB1D60508A00167F4D /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084CE1D60508A00167F4D /* MJPhotoBrowser.m */; };
@@ -185,12 +182,6 @@
 		2CA781521D446A8000D35288 /* APIS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIS.h; sourceTree = "<group>"; };
 		2CB084B11D6029F900167F4D /* NSDate+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+MJ.h"; path = "categories/NSDate+MJ.h"; sourceTree = "<group>"; };
 		2CB084B21D6029F900167F4D /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MJ.m"; path = "categories/NSDate+MJ.m"; sourceTree = "<group>"; };
-		2CB084B71D604B0900167F4D /* LQSPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPhoto.h; sourceTree = "<group>"; };
-		2CB084B81D604B0900167F4D /* LQSPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSPhoto.m; sourceTree = "<group>"; };
-		2CB084C31D604DE600167F4D /* LQSPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPhotosView.h; sourceTree = "<group>"; };
-		2CB084C41D604DE600167F4D /* LQSPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSPhotosView.m; sourceTree = "<group>"; };
-		2CB084C61D604DFD00167F4D /* LQSPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPhotoView.h; sourceTree = "<group>"; };
-		2CB084C71D604DFD00167F4D /* LQSPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSPhotoView.m; sourceTree = "<group>"; };
 		2CB084CA1D60508A00167F4D /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
 		2CB084CB1D60508A00167F4D /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
 		2CB084CC1D60508A00167F4D /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
@@ -481,8 +472,6 @@
 				41B5445F1D5DAF8500575BC6 /* LQSCishanModel.m */,
 				41B544631D5DB4BE00575BC6 /* LQSDongmanModel.h */,
 				41B544641D5DB4BE00575BC6 /* LQSDongmanModel.m */,
-				2CB084B71D604B0900167F4D /* LQSPhoto.h */,
-				2CB084B81D604B0900167F4D /* LQSPhoto.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -935,10 +924,6 @@
 			children = (
 				414A462F1D62AF1100F07810 /* LQSDongmanTableViewCell.h */,
 				414A46301D62AF1100F07810 /* LQSDongmanTableViewCell.m */,
-				2CB084C31D604DE600167F4D /* LQSPhotosView.h */,
-				2CB084C41D604DE600167F4D /* LQSPhotosView.m */,
-				2CB084C61D604DFD00167F4D /* LQSPhotoView.h */,
-				2CB084C71D604DFD00167F4D /* LQSPhotoView.m */,
 				41BA82BF1D65ABF40020F849 /* LQSCishanTableViewCell.h */,
 				41BA82C01D65ABF40020F849 /* LQSCishanTableViewCell.m */,
 			);
@@ -1466,8 +1451,6 @@
 				410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */,
 				410FA27F1D38EC2D0021B7E2 /* LQSDetailSettingTableViewCell.m in Sources */,
 				410FA2221D38EBA30021B7E2 /* LQSNewfeatureViewController.m in Sources */,
-				2CB084B91D604B0900167F4D /* LQSPhoto.m in Sources */,
-				2CB084C81D604DFD00167F4D /* LQSPhotoView.m in Sources */,
 				6E2893DA1D6C4E8F00EF9CCA /* LQSBBSDetailModel.m in Sources */,
 				2CA781511D43B6BC00D35288 /* LQSShijieDataModel.m in Sources */,
 				410FA2811D38EC2D0021B7E2 /* LQSMessageTableViewCell.m in Sources */,
@@ -1528,7 +1511,6 @@
 				410FA2961D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m in Sources */,
 				B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */,
 				410FA2411D38EBB60021B7E2 /* LQSEmotionTextView.m in Sources */,
-				2CB084C51D604DE600167F4D /* LQSPhotosView.m in Sources */,
 				410FA1F51D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m in Sources */,
 				410FA2801D38EC2D0021B7E2 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,
 				2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */,
