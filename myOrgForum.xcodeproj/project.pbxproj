@@ -16,14 +16,7 @@
 		0000C4B41D645E89007C969C /* LQSMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4B31D645E89007C969C /* LQSMainViewCell.m */; };
 		0000C4B71D645EB5007C969C /* LQSLastestMarrowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4B61D645EB5007C969C /* LQSLastestMarrowModel.m */; };
 		09DE74EE69E60578EF17616D /* libPods-myOrgForumUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */; };
-		2CA781421D438D7A00D35288 /* LQSWaterFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7813F1D438D7A00D35288 /* LQSWaterFlowView.m */; };
-		2CA781431D438D7A00D35288 /* LQSWaterFlowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781411D438D7A00D35288 /* LQSWaterFlowViewCell.m */; };
-		2CA781491D438DEA00D35288 /* LQSDiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781471D438DEA00D35288 /* LQSDiscoverCell.m */; };
-		2CA781511D43B6BC00D35288 /* LQSShijieDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA781501D43B6BC00D35288 /* LQSShijieDataModel.m */; };
 		2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084B21D6029F900167F4D /* NSDate+MJ.m */; };
-		2CB084B91D604B0900167F4D /* LQSPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084B81D604B0900167F4D /* LQSPhoto.m */; };
-		2CB084C51D604DE600167F4D /* LQSPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084C41D604DE600167F4D /* LQSPhotosView.m */; };
-		2CB084C81D604DFD00167F4D /* LQSPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084C71D604DFD00167F4D /* LQSPhotoView.m */; };
 		2CB084D91D60508A00167F4D /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084CB1D60508A00167F4D /* MJPhoto.m */; };
 		2CB084DA1D60508A00167F4D /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2CB084CC1D60508A00167F4D /* MJPhotoBrowser.bundle */; };
 		2CB084DB1D60508A00167F4D /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084CE1D60508A00167F4D /* MJPhotoBrowser.m */; };
@@ -82,16 +75,23 @@
 		410FA2951D38EC430021B7E2 /* LQSSettingPersonalSettingDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2911D38EC430021B7E2 /* LQSSettingPersonalSettingDataModel.m */; };
 		410FA2961D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2931D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m */; };
 		410FA2991D38EC4C0021B7E2 /* LQSMyHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2981D38EC4C0021B7E2 /* LQSMyHomePageViewController.m */; };
-		410FA29E1D38EC630021B7E2 /* LQSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA29B1D38EC630021B7E2 /* LQSDiscoverViewController.m */; };
 		410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AA1D38EC790021B7E2 /* LQSCellModel.m */; };
 		410FA2AE1D38EC790021B7E2 /* LQSSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AC1D38EC790021B7E2 /* LQSSectionModel.m */; };
 		410FA2B11D38EC830021B7E2 /* LQSForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B01D38EC830021B7E2 /* LQSForumViewController.m */; };
-		410FA2BD1D38EC9B0021B7E2 /* LQSShijieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B61D38EC9B0021B7E2 /* LQSShijieViewController.m */; };
-		410FA2BE1D38EC9B0021B7E2 /* LQSCishanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B81D38EC9B0021B7E2 /* LQSCishanViewController.m */; };
-		410FA2BF1D38EC9B0021B7E2 /* LQSDongmanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2BA1D38EC9B0021B7E2 /* LQSDongmanViewController.m */; };
 		410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */; };
+		411FE7921D6D6DAE00563324 /* LQSCishanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE78B1D6D6DAE00563324 /* LQSCishanViewController.m */; };
+		411FE7931D6D6DAE00563324 /* LQSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE78D1D6D6DAE00563324 /* LQSDiscoverViewController.m */; };
+		411FE7941D6D6DAE00563324 /* LQSDongmanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE78F1D6D6DAE00563324 /* LQSDongmanViewController.m */; };
+		411FE7951D6D6DAE00563324 /* LQSShijieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE7911D6D6DAE00563324 /* LQSShijieViewController.m */; };
+		411FE79C1D6D6DC000563324 /* LQSCishanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE7971D6D6DC000563324 /* LQSCishanModel.m */; };
+		411FE79D1D6D6DC000563324 /* LQSDongmanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE7991D6D6DC000563324 /* LQSDongmanModel.m */; };
+		411FE79E1D6D6DC000563324 /* LQSShijieDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE79B1D6D6DC000563324 /* LQSShijieDataModel.m */; };
+		411FE7A91D6D6DC700563324 /* LQSCishanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE7A01D6D6DC700563324 /* LQSCishanTableViewCell.m */; };
+		411FE7AA1D6D6DC700563324 /* LQSDiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE7A21D6D6DC700563324 /* LQSDiscoverCell.m */; };
+		411FE7AB1D6D6DC700563324 /* LQSDongmanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE7A41D6D6DC700563324 /* LQSDongmanTableViewCell.m */; };
+		411FE7AC1D6D6DC700563324 /* LQSWaterFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE7A61D6D6DC700563324 /* LQSWaterFlowView.m */; };
+		411FE7AD1D6D6DC700563324 /* LQSWaterFlowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE7A81D6D6DC700563324 /* LQSWaterFlowViewCell.m */; };
 		412E8C2F1D3DC6A4008C2553 /* LQSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 412E8C2E1D3DC6A4008C2553 /* LQSCore.m */; };
-		414A46311D62AF1100F07810 /* LQSDongmanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A46301D62AF1100F07810 /* LQSDongmanTableViewCell.m */; };
 		415C55541CC8CCEE00408B90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55531CC8CCEE00408B90 /* main.m */; };
 		415C555D1CC8CCEE00408B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415C555B1CC8CCEE00408B90 /* Main.storyboard */; };
 		415C555F1CC8CCEE00408B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415C555E1CC8CCEE00408B90 /* Assets.xcassets */; };
@@ -99,9 +99,6 @@
 		415C556D1CC8CCEE00408B90 /* myOrgForumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C556C1CC8CCEE00408B90 /* myOrgForumTests.m */; };
 		415C55781CC8CCEE00408B90 /* myOrgForumUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55771CC8CCEE00408B90 /* myOrgForumUITests.m */; };
 		417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */; };
-		41B544601D5DAF8500575BC6 /* LQSCishanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B5445F1D5DAF8500575BC6 /* LQSCishanModel.m */; };
-		41B544651D5DB4BE00575BC6 /* LQSDongmanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B544641D5DB4BE00575BC6 /* LQSDongmanModel.m */; };
-		41BA82C11D65ABF40020F849 /* LQSCishanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BA82C01D65ABF40020F849 /* LQSCishanTableViewCell.m */; };
 		6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */; };
 		6E0476671D55B32600FD6CE0 /* LQSintroduceMainlistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476661D55B32600FD6CE0 /* LQSintroduceMainlistCell.m */; };
 		6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476691D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m */; };
@@ -175,24 +172,9 @@
 		14E37D8AF205E4AAC6AB2302 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2AEC7AB4431F7F14A52266D9 /* Pods-myOrgForumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2CA7813C1D4388DE00D35288 /* myOrgForum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = myOrgForum.entitlements; sourceTree = "<group>"; };
-		2CA7813E1D438D7A00D35288 /* LQSWaterFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSWaterFlowView.h; path = discover/Horizon/View/LQSWaterFlowView.h; sourceTree = "<group>"; };
-		2CA7813F1D438D7A00D35288 /* LQSWaterFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSWaterFlowView.m; path = discover/Horizon/View/LQSWaterFlowView.m; sourceTree = "<group>"; };
-		2CA781401D438D7A00D35288 /* LQSWaterFlowViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSWaterFlowViewCell.h; path = discover/Horizon/View/LQSWaterFlowViewCell.h; sourceTree = "<group>"; };
-		2CA781411D438D7A00D35288 /* LQSWaterFlowViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSWaterFlowViewCell.m; path = discover/Horizon/View/LQSWaterFlowViewCell.m; sourceTree = "<group>"; };
-		2CA781461D438DEA00D35288 /* LQSDiscoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDiscoverCell.h; path = discover/Horizon/View/LQSDiscoverCell.h; sourceTree = "<group>"; };
-		2CA781471D438DEA00D35288 /* LQSDiscoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDiscoverCell.m; path = discover/Horizon/View/LQSDiscoverCell.m; sourceTree = "<group>"; };
-		2CA7814F1D43B6BC00D35288 /* LQSShijieDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSShijieDataModel.h; sourceTree = "<group>"; };
-		2CA781501D43B6BC00D35288 /* LQSShijieDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSShijieDataModel.m; sourceTree = "<group>"; };
 		2CA781521D446A8000D35288 /* APIS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIS.h; sourceTree = "<group>"; };
-		2CAEB42F1D4DA21500BB164C /* XXXXdiscoverData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXdiscoverData.h; sourceTree = "<group>"; };
 		2CB084B11D6029F900167F4D /* NSDate+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+MJ.h"; path = "categories/NSDate+MJ.h"; sourceTree = "<group>"; };
 		2CB084B21D6029F900167F4D /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MJ.m"; path = "categories/NSDate+MJ.m"; sourceTree = "<group>"; };
-		2CB084B71D604B0900167F4D /* LQSPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPhoto.h; sourceTree = "<group>"; };
-		2CB084B81D604B0900167F4D /* LQSPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSPhoto.m; sourceTree = "<group>"; };
-		2CB084C31D604DE600167F4D /* LQSPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPhotosView.h; sourceTree = "<group>"; };
-		2CB084C41D604DE600167F4D /* LQSPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSPhotosView.m; sourceTree = "<group>"; };
-		2CB084C61D604DFD00167F4D /* LQSPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPhotoView.h; sourceTree = "<group>"; };
-		2CB084C71D604DFD00167F4D /* LQSPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSPhotoView.m; sourceTree = "<group>"; };
 		2CB084CA1D60508A00167F4D /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
 		2CB084CB1D60508A00167F4D /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
 		2CB084CC1D60508A00167F4D /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
@@ -317,27 +299,41 @@
 		410FA2931D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingPersonalSettingViewCell.m; path = setting/set/ViewController/Setting/LQSSettingPersonalSettingViewCell.m; sourceTree = "<group>"; };
 		410FA2971D38EC4B0021B7E2 /* LQSMyHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMyHomePageViewController.h; path = setting/set/ViewController/Person/LQSMyHomePageViewController.h; sourceTree = "<group>"; };
 		410FA2981D38EC4C0021B7E2 /* LQSMyHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMyHomePageViewController.m; path = setting/set/ViewController/Person/LQSMyHomePageViewController.m; sourceTree = "<group>"; };
-		410FA29A1D38EC630021B7E2 /* LQSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDiscoverViewController.h; path = discover/LQSDiscoverViewController.h; sourceTree = "<group>"; };
-		410FA29B1D38EC630021B7E2 /* LQSDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDiscoverViewController.m; path = discover/LQSDiscoverViewController.m; sourceTree = "<group>"; };
 		410FA2A91D38EC790021B7E2 /* LQSCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCellModel.h; path = forum/Model/LQSCellModel.h; sourceTree = "<group>"; };
 		410FA2AA1D38EC790021B7E2 /* LQSCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCellModel.m; path = forum/Model/LQSCellModel.m; sourceTree = "<group>"; };
 		410FA2AB1D38EC790021B7E2 /* LQSSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSectionModel.h; path = forum/Model/LQSSectionModel.h; sourceTree = "<group>"; };
 		410FA2AC1D38EC790021B7E2 /* LQSSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSectionModel.m; path = forum/Model/LQSSectionModel.m; sourceTree = "<group>"; };
 		410FA2AF1D38EC830021B7E2 /* LQSForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumViewController.h; path = forum/LQSForumViewController.h; sourceTree = "<group>"; };
 		410FA2B01D38EC830021B7E2 /* LQSForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumViewController.m; path = forum/LQSForumViewController.m; sourceTree = "<group>"; };
-		410FA2B51D38EC9B0021B7E2 /* LQSShijieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSShijieViewController.h; path = introduce/topic/LQSShijieViewController.h; sourceTree = "<group>"; };
-		410FA2B61D38EC9B0021B7E2 /* LQSShijieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSShijieViewController.m; path = introduce/topic/LQSShijieViewController.m; sourceTree = "<group>"; };
-		410FA2B71D38EC9B0021B7E2 /* LQSCishanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCishanViewController.h; path = introduce/topic/LQSCishanViewController.h; sourceTree = "<group>"; };
-		410FA2B81D38EC9B0021B7E2 /* LQSCishanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCishanViewController.m; path = introduce/topic/LQSCishanViewController.m; sourceTree = "<group>"; };
-		410FA2B91D38EC9B0021B7E2 /* LQSDongmanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDongmanViewController.h; path = introduce/topic/LQSDongmanViewController.h; sourceTree = "<group>"; };
-		410FA2BA1D38EC9B0021B7E2 /* LQSDongmanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDongmanViewController.m; path = introduce/topic/LQSDongmanViewController.m; sourceTree = "<group>"; };
 		410FBB711CCDEDB400761192 /* LQSAppDelegate+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LQSAppDelegate+HUD.h"; sourceTree = "<group>"; };
 		410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LQSAppDelegate+HUD.m"; sourceTree = "<group>"; };
+		411FE78A1D6D6DAE00563324 /* LQSCishanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCishanViewController.h; path = discover/VC/LQSCishanViewController.h; sourceTree = "<group>"; };
+		411FE78B1D6D6DAE00563324 /* LQSCishanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCishanViewController.m; path = discover/VC/LQSCishanViewController.m; sourceTree = "<group>"; };
+		411FE78C1D6D6DAE00563324 /* LQSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDiscoverViewController.h; path = discover/VC/LQSDiscoverViewController.h; sourceTree = "<group>"; };
+		411FE78D1D6D6DAE00563324 /* LQSDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDiscoverViewController.m; path = discover/VC/LQSDiscoverViewController.m; sourceTree = "<group>"; };
+		411FE78E1D6D6DAE00563324 /* LQSDongmanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDongmanViewController.h; path = discover/VC/LQSDongmanViewController.h; sourceTree = "<group>"; };
+		411FE78F1D6D6DAE00563324 /* LQSDongmanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDongmanViewController.m; path = discover/VC/LQSDongmanViewController.m; sourceTree = "<group>"; };
+		411FE7901D6D6DAE00563324 /* LQSShijieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSShijieViewController.h; path = discover/VC/LQSShijieViewController.h; sourceTree = "<group>"; };
+		411FE7911D6D6DAE00563324 /* LQSShijieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSShijieViewController.m; path = discover/VC/LQSShijieViewController.m; sourceTree = "<group>"; };
+		411FE7961D6D6DC000563324 /* LQSCishanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCishanModel.h; path = discover/Model/LQSCishanModel.h; sourceTree = "<group>"; };
+		411FE7971D6D6DC000563324 /* LQSCishanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCishanModel.m; path = discover/Model/LQSCishanModel.m; sourceTree = "<group>"; };
+		411FE7981D6D6DC000563324 /* LQSDongmanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDongmanModel.h; path = discover/Model/LQSDongmanModel.h; sourceTree = "<group>"; };
+		411FE7991D6D6DC000563324 /* LQSDongmanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDongmanModel.m; path = discover/Model/LQSDongmanModel.m; sourceTree = "<group>"; };
+		411FE79A1D6D6DC000563324 /* LQSShijieDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSShijieDataModel.h; path = discover/Model/LQSShijieDataModel.h; sourceTree = "<group>"; };
+		411FE79B1D6D6DC000563324 /* LQSShijieDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSShijieDataModel.m; path = discover/Model/LQSShijieDataModel.m; sourceTree = "<group>"; };
+		411FE79F1D6D6DC700563324 /* LQSCishanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCishanTableViewCell.h; path = discover/View/LQSCishanTableViewCell.h; sourceTree = "<group>"; };
+		411FE7A01D6D6DC700563324 /* LQSCishanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCishanTableViewCell.m; path = discover/View/LQSCishanTableViewCell.m; sourceTree = "<group>"; };
+		411FE7A11D6D6DC700563324 /* LQSDiscoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDiscoverCell.h; path = discover/View/LQSDiscoverCell.h; sourceTree = "<group>"; };
+		411FE7A21D6D6DC700563324 /* LQSDiscoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDiscoverCell.m; path = discover/View/LQSDiscoverCell.m; sourceTree = "<group>"; };
+		411FE7A31D6D6DC700563324 /* LQSDongmanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDongmanTableViewCell.h; path = discover/View/LQSDongmanTableViewCell.h; sourceTree = "<group>"; };
+		411FE7A41D6D6DC700563324 /* LQSDongmanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDongmanTableViewCell.m; path = discover/View/LQSDongmanTableViewCell.m; sourceTree = "<group>"; };
+		411FE7A51D6D6DC700563324 /* LQSWaterFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSWaterFlowView.h; path = discover/View/LQSWaterFlowView.h; sourceTree = "<group>"; };
+		411FE7A61D6D6DC700563324 /* LQSWaterFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSWaterFlowView.m; path = discover/View/LQSWaterFlowView.m; sourceTree = "<group>"; };
+		411FE7A71D6D6DC700563324 /* LQSWaterFlowViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSWaterFlowViewCell.h; path = discover/View/LQSWaterFlowViewCell.h; sourceTree = "<group>"; };
+		411FE7A81D6D6DC700563324 /* LQSWaterFlowViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSWaterFlowViewCell.m; path = discover/View/LQSWaterFlowViewCell.m; sourceTree = "<group>"; };
 		412E8C2D1D3DC6A4008C2553 /* LQSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCore.h; sourceTree = "<group>"; };
 		412E8C2E1D3DC6A4008C2553 /* LQSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSCore.m; sourceTree = "<group>"; };
 		412FF25C1CD1A0E0005F39AB /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		414A462F1D62AF1100F07810 /* LQSDongmanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDongmanTableViewCell.h; sourceTree = "<group>"; };
-		414A46301D62AF1100F07810 /* LQSDongmanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSDongmanTableViewCell.m; sourceTree = "<group>"; };
 		415C554F1CC8CCEE00408B90 /* myOrgForum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myOrgForum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		415C55531CC8CCEE00408B90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		415C555C1CC8CCEE00408B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -354,14 +350,6 @@
 		417F34C01CC9F6BC00F9714F /* LQSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAppDelegate.h; sourceTree = "<group>"; };
 		417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAppDelegate.m; sourceTree = "<group>"; };
 		417F34C31CCA017B00F9714F /* LQSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LQSPrefixHeader.pch; sourceTree = "<group>"; };
-		41B5445E1D5DAF8500575BC6 /* LQSCishanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCishanModel.h; sourceTree = "<group>"; };
-		41B5445F1D5DAF8500575BC6 /* LQSCishanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSCishanModel.m; sourceTree = "<group>"; };
-		41B544611D5DB0E800575BC6 /* XXXCiShan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXCiShan.h; sourceTree = "<group>"; };
-		41B544621D5DB2B400575BC6 /* XXXXdongman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXdongman.h; sourceTree = "<group>"; };
-		41B544631D5DB4BE00575BC6 /* LQSDongmanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDongmanModel.h; sourceTree = "<group>"; };
-		41B544641D5DB4BE00575BC6 /* LQSDongmanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSDongmanModel.m; sourceTree = "<group>"; };
-		41BA82BF1D65ABF40020F849 /* LQSCishanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCishanTableViewCell.h; sourceTree = "<group>"; };
-		41BA82C01D65ABF40020F849 /* LQSCishanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSCishanTableViewCell.m; sourceTree = "<group>"; };
 		434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE2DD1D148983B02A069CD4 /* Pods-myOrgForumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -468,30 +456,15 @@
 			path = forum/Cell;
 			sourceTree = "<group>";
 		};
-		2CA7813D1D438CE400D35288 /* Horizon */ = {
-			isa = PBXGroup;
-			children = (
-				2CA7814B1D438E7E00D35288 /* VC */,
-				2CA7814A1D438E7100D35288 /* Model */,
-				4156AB191D3CA50D009F5E01 /* View */,
-				2CAEB42F1D4DA21500BB164C /* XXXXdiscoverData.h */,
-				41B544611D5DB0E800575BC6 /* XXXCiShan.h */,
-				41B544621D5DB2B400575BC6 /* XXXXdongman.h */,
-			);
-			name = Horizon;
-			sourceTree = "<group>";
-		};
 		2CA7814A1D438E7100D35288 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2CA781501D43B6BC00D35288 /* LQSShijieDataModel.m */,
-				2CA7814F1D43B6BC00D35288 /* LQSShijieDataModel.h */,
-				41B5445E1D5DAF8500575BC6 /* LQSCishanModel.h */,
-				41B5445F1D5DAF8500575BC6 /* LQSCishanModel.m */,
-				41B544631D5DB4BE00575BC6 /* LQSDongmanModel.h */,
-				41B544641D5DB4BE00575BC6 /* LQSDongmanModel.m */,
-				2CB084B71D604B0900167F4D /* LQSPhoto.h */,
-				2CB084B81D604B0900167F4D /* LQSPhoto.m */,
+				411FE7961D6D6DC000563324 /* LQSCishanModel.h */,
+				411FE7971D6D6DC000563324 /* LQSCishanModel.m */,
+				411FE7981D6D6DC000563324 /* LQSDongmanModel.h */,
+				411FE7991D6D6DC000563324 /* LQSDongmanModel.m */,
+				411FE79A1D6D6DC000563324 /* LQSShijieDataModel.h */,
+				411FE79B1D6D6DC000563324 /* LQSShijieDataModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -499,12 +472,14 @@
 		2CA7814B1D438E7E00D35288 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				410FA2B51D38EC9B0021B7E2 /* LQSShijieViewController.h */,
-				410FA2B61D38EC9B0021B7E2 /* LQSShijieViewController.m */,
-				410FA2B71D38EC9B0021B7E2 /* LQSCishanViewController.h */,
-				410FA2B81D38EC9B0021B7E2 /* LQSCishanViewController.m */,
-				410FA2B91D38EC9B0021B7E2 /* LQSDongmanViewController.h */,
-				410FA2BA1D38EC9B0021B7E2 /* LQSDongmanViewController.m */,
+				411FE78A1D6D6DAE00563324 /* LQSCishanViewController.h */,
+				411FE78B1D6D6DAE00563324 /* LQSCishanViewController.m */,
+				411FE78C1D6D6DAE00563324 /* LQSDiscoverViewController.h */,
+				411FE78D1D6D6DAE00563324 /* LQSDiscoverViewController.m */,
+				411FE78E1D6D6DAE00563324 /* LQSDongmanViewController.h */,
+				411FE78F1D6D6DAE00563324 /* LQSDongmanViewController.m */,
+				411FE7901D6D6DAE00563324 /* LQSShijieViewController.h */,
+				411FE7911D6D6DAE00563324 /* LQSShijieViewController.m */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -652,8 +627,16 @@
 		4156AB191D3CA50D009F5E01 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				41B544671D5DCB2F00575BC6 /* cishan&dongman */,
-				41B544661D5DCADE00575BC6 /* shijie */,
+				411FE79F1D6D6DC700563324 /* LQSCishanTableViewCell.h */,
+				411FE7A01D6D6DC700563324 /* LQSCishanTableViewCell.m */,
+				411FE7A11D6D6DC700563324 /* LQSDiscoverCell.h */,
+				411FE7A21D6D6DC700563324 /* LQSDiscoverCell.m */,
+				411FE7A31D6D6DC700563324 /* LQSDongmanTableViewCell.h */,
+				411FE7A41D6D6DC700563324 /* LQSDongmanTableViewCell.m */,
+				411FE7A51D6D6DC700563324 /* LQSWaterFlowView.h */,
+				411FE7A61D6D6DC700563324 /* LQSWaterFlowView.m */,
+				411FE7A71D6D6DC700563324 /* LQSWaterFlowViewCell.h */,
+				411FE7A81D6D6DC700563324 /* LQSWaterFlowViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -850,9 +833,9 @@
 		417F34B81CC9CF5700F9714F /* discover */ = {
 			isa = PBXGroup;
 			children = (
-				2CA7813D1D438CE400D35288 /* Horizon */,
-				410FA29A1D38EC630021B7E2 /* LQSDiscoverViewController.h */,
-				410FA29B1D38EC630021B7E2 /* LQSDiscoverViewController.m */,
+				2CA7814B1D438E7E00D35288 /* VC */,
+				2CA7814A1D438E7100D35288 /* Model */,
+				4156AB191D3CA50D009F5E01 /* View */,
 			);
 			name = discover;
 			sourceTree = "<group>";
@@ -924,34 +907,6 @@
 				410FA2981D38EC4C0021B7E2 /* LQSMyHomePageViewController.m */,
 			);
 			name = Person;
-			sourceTree = "<group>";
-		};
-		41B544661D5DCADE00575BC6 /* shijie */ = {
-			isa = PBXGroup;
-			children = (
-				2CA781461D438DEA00D35288 /* LQSDiscoverCell.h */,
-				2CA781471D438DEA00D35288 /* LQSDiscoverCell.m */,
-				2CA7813E1D438D7A00D35288 /* LQSWaterFlowView.h */,
-				2CA7813F1D438D7A00D35288 /* LQSWaterFlowView.m */,
-				2CA781401D438D7A00D35288 /* LQSWaterFlowViewCell.h */,
-				2CA781411D438D7A00D35288 /* LQSWaterFlowViewCell.m */,
-			);
-			name = shijie;
-			sourceTree = "<group>";
-		};
-		41B544671D5DCB2F00575BC6 /* cishan&dongman */ = {
-			isa = PBXGroup;
-			children = (
-				414A462F1D62AF1100F07810 /* LQSDongmanTableViewCell.h */,
-				414A46301D62AF1100F07810 /* LQSDongmanTableViewCell.m */,
-				2CB084C31D604DE600167F4D /* LQSPhotosView.h */,
-				2CB084C41D604DE600167F4D /* LQSPhotosView.m */,
-				2CB084C61D604DFD00167F4D /* LQSPhotoView.h */,
-				2CB084C71D604DFD00167F4D /* LQSPhotoView.m */,
-				41BA82BF1D65ABF40020F849 /* LQSCishanTableViewCell.h */,
-				41BA82C01D65ABF40020F849 /* LQSCishanTableViewCell.m */,
-			);
-			name = "cishan&dongman";
 			sourceTree = "<group>";
 		};
 		4FED8D2C2028EB0D0A4D261B /* Pods */ = {
@@ -1450,53 +1405,51 @@
 			files = (
 				410FA1F71D38EB7E0021B7E2 /* UIView+Extension.m in Sources */,
 				410FA2B11D38EC830021B7E2 /* LQSForumViewController.m in Sources */,
+				411FE79C1D6D6DC000563324 /* LQSCishanModel.m in Sources */,
 				6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */,
 				6E0476671D55B32600FD6CE0 /* LQSintroduceMainlistCell.m in Sources */,
-				2CA781491D438DEA00D35288 /* LQSDiscoverCell.m in Sources */,
 				6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */,
-				410FA29E1D38EC630021B7E2 /* LQSDiscoverViewController.m in Sources */,
 				410FA2991D38EC4C0021B7E2 /* LQSMyHomePageViewController.m in Sources */,
 				410FA2781D38EC230021B7E2 /* LQSMessageDataModel.m in Sources */,
 				410FA2261D38EBA30021B7E2 /* LQSTabBar.m in Sources */,
 				410FA2201D38EBA30021B7E2 /* LQSEmotionTool.m in Sources */,
 				0000C4A41D645CF5007C969C /* LQSRightTableView.m in Sources */,
 				410FA23C1D38EBB60021B7E2 /* LQSEmotionGridView.m in Sources */,
+				411FE79E1D6D6DC000563324 /* LQSShijieDataModel.m in Sources */,
 				6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */,
 				410FA2241D38EBA30021B7E2 /* LQSSpecifyFooter.m in Sources */,
 				B801112F1D5DC10500D7A05C /* LQSComposeViewController.m in Sources */,
 				E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */,
+				411FE7AB1D6D6DC700563324 /* LQSDongmanTableViewCell.m in Sources */,
 				0000C4A71D645D0F007C969C /* LQSLatestMarrowTableView.m in Sources */,
-				410FA2BD1D38EC9B0021B7E2 /* LQSShijieViewController.m in Sources */,
 				410FA23E1D38EBB60021B7E2 /* LQSEmotionListView.m in Sources */,
 				B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */,
 				2CB084DF1D60508A00167F4D /* MJPhotoView.m in Sources */,
-				2CA781421D438D7A00D35288 /* LQSWaterFlowView.m in Sources */,
 				410FA2281D38EBA30021B7E2 /* LQSTextView.m in Sources */,
 				410FA21E1D38EBA30021B7E2 /* LQSEmotion.m in Sources */,
 				410FA2AE1D38EC790021B7E2 /* LQSSectionModel.m in Sources */,
+				411FE7941D6D6DAE00563324 /* LQSDongmanViewController.m in Sources */,
 				410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */,
 				410FA27F1D38EC2D0021B7E2 /* LQSDetailSettingTableViewCell.m in Sources */,
 				410FA2221D38EBA30021B7E2 /* LQSNewfeatureViewController.m in Sources */,
-				2CB084B91D604B0900167F4D /* LQSPhoto.m in Sources */,
-				2CB084C81D604DFD00167F4D /* LQSPhotoView.m in Sources */,
 				6E2893DA1D6C4E8F00EF9CCA /* LQSBBSDetailModel.m in Sources */,
-				2CA781511D43B6BC00D35288 /* LQSShijieDataModel.m in Sources */,
 				410FA2811D38EC2D0021B7E2 /* LQSMessageTableViewCell.m in Sources */,
+				411FE7AD1D6D6DC700563324 /* LQSWaterFlowViewCell.m in Sources */,
 				410FA1F81D38EB7E0021B7E2 /* UIWindow+Extension.m in Sources */,
+				411FE7A91D6D6DC700563324 /* LQSCishanTableViewCell.m in Sources */,
 				410FA2271D38EBA30021B7E2 /* LQSTabBarViewController.m in Sources */,
 				410FA2291D38EBA30021B7E2 /* LQSTitleButton.m in Sources */,
 				410FA2691D38EC010021B7E2 /* LQSCoreManager.m in Sources */,
 				410FA22B1D38EBA30021B7E2 /* NSString+Emoji.m in Sources */,
-				410FA2BE1D38EC9B0021B7E2 /* LQSCishanViewController.m in Sources */,
-				414A46311D62AF1100F07810 /* LQSDongmanTableViewCell.m in Sources */,
-				2CA781431D438D7A00D35288 /* LQSWaterFlowViewCell.m in Sources */,
 				410FA2941D38EC430021B7E2 /* LQSDetailSettingViewController.m in Sources */,
 				0000C4A11D645CDD007C969C /* LQSLeftTableView.m in Sources */,
+				411FE7951D6D6DAE00563324 /* LQSShijieViewController.m in Sources */,
 				0000C4B41D645E89007C969C /* LQSMainViewCell.m in Sources */,
 				410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */,
 				410FA23D1D38EBB60021B7E2 /* LQSEmotionKeyboard.m in Sources */,
 				2CB084DE1D60508A00167F4D /* MJPhotoToolbar.m in Sources */,
 				415C55541CC8CCEE00408B90 /* main.m in Sources */,
+				411FE7AC1D6D6DC700563324 /* LQSWaterFlowView.m in Sources */,
 				410FA1FF1D38EB8B0021B7E2 /* YYClassInfo.m in Sources */,
 				410FA2631D38EBE80021B7E2 /* LQSCompostToolbar.m in Sources */,
 				6E7378B21D6E944E009B6C66 /* LQSBBSDetailViewController.m in Sources */,
@@ -1507,6 +1460,7 @@
 				E4D8E1DC1D542A2B00EE6171 /* LQSUserInfo.m in Sources */,
 				410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */,
 				410FA2771D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.m in Sources */,
+				411FE79D1D6D6DC000563324 /* LQSDongmanModel.m in Sources */,
 				E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */,
 				410FA2701D38EC100021B7E2 /* LQSSettingCell.m in Sources */,
 				2CB084DB1D60508A00167F4D /* MJPhotoBrowser.m in Sources */,
@@ -1515,13 +1469,13 @@
 				2CB084D91D60508A00167F4D /* MJPhoto.m in Sources */,
 				410FA28C1D38EC390021B7E2 /* LQSMessageMentionedMeViewController.m in Sources */,
 				412E8C2F1D3DC6A4008C2553 /* LQSCore.m in Sources */,
-				41B544601D5DAF8500575BC6 /* LQSCishanModel.m in Sources */,
+				411FE7931D6D6DAE00563324 /* LQSDiscoverViewController.m in Sources */,
 				410FA2251D38EBA30021B7E2 /* LQSSpecifyHeader.m in Sources */,
 				E4D8E1C51D54193000EE6171 /* AsyncSocket.m in Sources */,
-				410FA2BF1D38EC9B0021B7E2 /* LQSDongmanViewController.m in Sources */,
 				410FA2721D38EC100021B7E2 /* LQSSettingViewController.m in Sources */,
 				0000C4B11D645E63007C969C /* LQSLatestMarrowTableViewCell.m in Sources */,
 				E4D8E1C61D54193000EE6171 /* GCDAsyncSocket.m in Sources */,
+				411FE7921D6D6DAE00563324 /* LQSCishanViewController.m in Sources */,
 				410FA2711D38EC100021B7E2 /* LQSSettingModel.m in Sources */,
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
 				0000C4AE1D645E42007C969C /* LQSRightViewCell.m in Sources */,
@@ -1533,14 +1487,12 @@
 				410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */,
 				410FA28B1D38EC390021B7E2 /* LQSMessageFriendsApplyViewController.m in Sources */,
 				B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */,
-				41BA82C11D65ABF40020F849 /* LQSCishanTableViewCell.m in Sources */,
 				E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */,
 				2CB084DC1D60508A00167F4D /* MJPhotoLoadingView.m in Sources */,
 				0000C4B71D645EB5007C969C /* LQSLastestMarrowModel.m in Sources */,
 				410FA2961D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m in Sources */,
 				B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */,
 				410FA2411D38EBB60021B7E2 /* LQSEmotionTextView.m in Sources */,
-				2CB084C51D604DE600167F4D /* LQSPhotosView.m in Sources */,
 				410FA1F51D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m in Sources */,
 				410FA2801D38EC2D0021B7E2 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,
 				2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */,
@@ -1552,9 +1504,9 @@
 				410FA28A1D38EC390021B7E2 /* LQSMessageCommentViewController.m in Sources */,
 				410FA1F61D38EB7E0021B7E2 /* UIImage+Extension.m in Sources */,
 				E4D8E1D61D5423D700EE6171 /* LQSBaseModel.m in Sources */,
-				41B544651D5DB4BE00575BC6 /* LQSDongmanModel.m in Sources */,
 				E4D8E1C71D54193000EE6171 /* GCDMulticastDelegate.m in Sources */,
 				410FA2621D38EBE80021B7E2 /* LQSComposePhotosView.m in Sources */,
+				411FE7AA1D6D6DC700563324 /* LQSDiscoverCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1617,6 +1569,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -1663,6 +1616,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -1700,6 +1654,7 @@
 			baseConfigurationReference = A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
 				CODE_SIGN_ENTITLEMENTS = myOrgForum/myOrgForum.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1709,7 +1664,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/xjw/Desktop/LQSLT/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1751,6 +1706,7 @@
 			baseConfigurationReference = 75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
 				CODE_SIGN_ENTITLEMENTS = myOrgForum/myOrgForum.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1760,7 +1716,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/xjw/Desktop/LQSLT/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

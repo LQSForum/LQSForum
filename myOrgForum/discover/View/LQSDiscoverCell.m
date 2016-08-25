@@ -49,14 +49,7 @@
         hitsLabel.backgroundColor = LQSColor(39, 40, 43, 0.6);
         [imageView addSubview:hitsLabel];
         
-//        放描述内容的label
-//        UILabel *contentLabel = [[UILabel alloc] init];
-//        contentLabel.backgroundColor = LQSColor(255, 255, 255, 0.7);
-//        contentLabel.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
-//        contentLabel.textAlignment = NSTextAlignmentCenter;
-////        contentLabel.backgroundColor = [UIColor whiteColor];
-//        [self addSubview:contentLabel];
-//        self.contentLabel = contentLabel;
+
 //         主题标婷title
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         titleLabel.numberOfLines = 0;
@@ -75,7 +68,7 @@
         UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         timeLabel.textAlignment = NSTextAlignmentLeft;
         [self addSubview:timeLabel];
-        self.titleLabel = timeLabel;
+        self.timeLabel = timeLabel;
         [timeLabel setFont:[UIFont systemFontOfSize:11]];
     }
     return self;
@@ -103,7 +96,6 @@
     
     self.titleLabel.frame = CGRectMake(margin, (kScreenWidth - 3 * LQSMargin) / 2 * self.shijieDataModel.ratio + LQSMargin, (kScreenWidth - 3 * LQSMargin) * 0.5 , titleSize.height);
     self.titleLabel.numberOfLines = 0;
-    self.titleLabel.backgroundColor = [UIColor greenColor];
 //    用户昵称
     self.nameLabel.frame = CGRectMake(margin, CGRectGetMaxY(self.titleLabel.frame) + LQSMargin, (kScreenWidth - 3 * LQSMargin) * 0.25, 10);
     
@@ -118,12 +110,8 @@
     [self.hitsLabel setFont:[UIFont systemFontOfSize:12]];
     self.hitsLabel.layer.cornerRadius = 5;
     self.contentLabel.frame = CGRectMake(0,self.bounds.size.height - 35,self.bounds.size.width ,35);
-//    self.contentLabel.frame = [CGRectMake(0,0,(kScreenWidth - 3 * LQSMargin) / 2 ,(kScreenWidth - 3 * LQSMargin) / 2 * self.shijieDataModel.ratio + size.height + 3 * LQSMargin + 20) ];
 
     }
-
-
-
 
 - (CGSize)sizeWithText:(NSString *)text
                   font:(UIFont *)font
@@ -137,7 +125,7 @@
 - (CGFloat)cellHeight{
     
     CGSize size = [self sizeWithText:self.shijieDataModel.title font:[UIFont systemFontOfSize:12] maxSize:CGSizeMake((kScreenWidth - 3 * LQSMargin) / 2 - 20, MAXFLOAT)];
-    return  (kScreenWidth - 3 * LQSMargin) / 2 * self.shijieDataModel.ratio + size.height + 3 * LQSMargin + 20;
+    return  (kScreenWidth - 3 * LQSMargin) / 2 * self.shijieDataModel.ratio + size.height + 3 * LQSMargin;
     
 }
 @end

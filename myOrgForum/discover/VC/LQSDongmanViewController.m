@@ -30,7 +30,6 @@
     self.page = 1;
     [_dongManDataArray addObjectsFromArray:_dongManDataArr];
     [self reloadDongmanDateRequestWithPage:self.page];
-    self.view.backgroundColor = [UIColor blueColor];
 //创建tableview
     [self createTableView];
 }

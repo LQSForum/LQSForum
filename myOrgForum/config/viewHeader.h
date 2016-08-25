@@ -27,8 +27,6 @@
 #import "LQSCishanTableViewCell.h"
 #import "LQSWaterFlowView.h"
 #import "LQSWaterFlowViewCell.h"
-#import "LQSPhotosView.h"
-#import "LQSPhotoView.h"
 //setting
 
 #import "LQSMessageTableViewCell.h"
