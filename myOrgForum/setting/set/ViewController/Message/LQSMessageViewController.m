@@ -27,16 +27,16 @@
         _dataSource = [NSMutableArray array];
         
         LQSMessageDataModel *modle1 = [[LQSMessageDataModel alloc] init];
-        modle1.iamgeName = @"";
+        modle1.iamgeName = @"setting_myMessage_mentioned";
         modle1.title = @"提到我的";
         
         LQSMessageDataModel *modle2 = [[LQSMessageDataModel alloc] init];
-        modle2.iamgeName = @"";
+        modle2.iamgeName = @"setting_myMessage_comment";
         modle2.title = @"评论";
         
         LQSMessageDataModel *modle3 = [[LQSMessageDataModel alloc] init];
-        modle3.iamgeName = @"";
-        modle3.title = @"好友申请";
+        modle3.iamgeName = @"setting_myMessage_systemMessage";
+        modle3.title = @"系统消息";
         
         [_dataSource addObject:modle1];
         [_dataSource addObject:modle2];
@@ -95,7 +95,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return 50;
+    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,7 +106,7 @@
     }else if (indexPath.row == 1){
         vc = [[LQSMessageCommentViewController alloc] init];
     }else{
-        vc = [[LQSMessageFriendsApplyViewController alloc] init];
+        vc = [[LQSSystemMessageViewController alloc] init];
     }
     [self.navigationController pushViewController:vc animated:YES];
     

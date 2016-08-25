@@ -8,6 +8,6 @@
 
 #import "rootViewController.h"
 
-@interface LQSMessageFriendsApplyViewController : rootViewController
+@interface LQSSystemMessageViewController : rootViewController
 
 @end

@@ -35,7 +35,7 @@
 {
 
     _model = model;
-    _imageView.image = [UIImage imageNamed:@""];
+    _imageView.image = [UIImage imageNamed:model.iamgeName];
     _label.text = model.title;
     [self layoutIfNeeded];
 
@@ -46,11 +46,11 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    _imageView.frame = CGRectMake(LQSMargin, 0, 30, self.height);
+    _imageView.frame = CGRectMake(LQSMargin* 0.5, LQSMargin* 0.5, 50, 50);
     _imageView.contentMode = UIViewContentModeCenter;
     
     
-    _label.frame = CGRectMake(LQSMargin *2 + 30, 0, self.width - LQSMargin * 2 - 50, self.height);
+    _label.frame = CGRectMake(LQSMargin + 50, 0, self.width - LQSMargin - 50, self.height);
     _label.textAlignment = NSTextAlignmentLeft;
 
 

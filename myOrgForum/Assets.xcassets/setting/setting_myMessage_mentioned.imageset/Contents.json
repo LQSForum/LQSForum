@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "setting_myMessage_mentioned.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "setting_setting.png",
+      "filename" : "setting_myMessage_mentioned-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "setting_myMessage_mentioned-2.png",
       "scale" : "3x"
     }
   ],

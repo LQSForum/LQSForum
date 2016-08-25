@@ -25,8 +25,18 @@
 //消息
 #import "LQSMessageMentionedMeViewController.h"
 #import "LQSMessageCommentViewController.h"
-#import "LQSMessageFriendsApplyViewController.h"
+#import "LQSSystemMessageViewController.h"
 #endif /* vcHeader_h */
+
+
+
+//setting
+#import "LQSMyDraftViewController.h"
+#import "LQSAccountManagementViewController.h"
+#import "LQSSettingTopCell.h"
+#import "LQSSettingMyFavourateViewController.h"
+#import "LQSSettingMyFriendViewController.h"
+#import "LQSSettingMyPresentViewController.h"
 //main
 #import "LQSComposeViewController.h"
 

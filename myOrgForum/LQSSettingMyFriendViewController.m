@@ -1,24 +1,22 @@
 
 //
-//  LQSMessageFriendsApplyViewController.m
+//  LQSSettingMyFriendViewController.m
 //  myOrgForum
 //
-//  Created by SkyAndSea on 16/5/23.
+//  Created by SkyAndSea on 16/8/25.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
 
-#import "LQSMessageFriendsApplyViewController.h"
+#import "LQSSettingMyFriendViewController.h"
 
-@interface LQSMessageFriendsApplyViewController ()
+@interface LQSSettingMyFriendViewController ()
 
 @end
 
-@implementation LQSMessageFriendsApplyViewController
+@implementation LQSSettingMyFriendViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor cyanColor];
-
     // Do any additional setup after loading the view.
 }
 
