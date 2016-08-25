@@ -1,8 +1,8 @@
 //
 //  LQSBBSDetailModel.m
 //  myOrgForum
-//
-//  Created by XJW on 16/8/23.
+//  功能 ： 论坛详情页用到的model
+//  Created by 徐经纬 on 16/8/23.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
 
@@ -14,6 +14,12 @@
 
 @implementation LQSBBSPosterMOdel
 
+@end
 
+@implementation LQSBBSContentModel
+
+@end
+
+@implementation LQSBBSModel
 
 @end
