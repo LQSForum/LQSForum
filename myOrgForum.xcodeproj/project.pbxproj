@@ -621,6 +621,8 @@
 		414600EF1CEF2C0500628B60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				410FA26E1D38EC100021B7E2 /* LQSSettingViewController.h */,
+				410FA26F1D38EC100021B7E2 /* LQSSettingViewController.m */,
 				41A40CDA1CF2ED2A004ADE1E /* Person */,
 				41A40CD91CF2ED22004ADE1E /* Setting */,
 				4180A8071CF2D98B007F1B5E /* Message */,
@@ -631,6 +633,10 @@
 		414600F01CEF2C1C00628B60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				410FA26A1D38EC100021B7E2 /* LQSSettingCell.h */,
+				410FA26B1D38EC100021B7E2 /* LQSSettingCell.m */,
+				41DF72681D6ED09600614185 /* LQSSettingTopCell.h */,
+				41DF72691D6ED09600614185 /* LQSSettingTopCell.m */,
 				410FA2791D38EC2D0021B7E2 /* LQSDetailSettingTableViewCell.h */,
 				410FA27A1D38EC2D0021B7E2 /* LQSDetailSettingTableViewCell.m */,
 				410FA27B1D38EC2D0021B7E2 /* LQSHomePagePersonalMessageTableViewCell.h */,
@@ -644,6 +650,10 @@
 		414600F11CEF2C2500628B60 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				41DF726B1D6ED0D100614185 /* LQSSettingTopDataModel.h */,
+				41DF726C1D6ED0D100614185 /* LQSSettingTopDataModel.m */,
+				410FA26C1D38EC100021B7E2 /* LQSSettingModel.h */,
+				410FA26D1D38EC100021B7E2 /* LQSSettingModel.m */,
 				410FA2731D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.h */,
 				410FA2741D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.m */,
 				410FA2751D38EC230021B7E2 /* LQSMessageDataModel.h */,
@@ -871,16 +881,6 @@
 		417F34B91CC9CF6400F9714F /* setting */ = {
 			isa = PBXGroup;
 			children = (
-				410FA26A1D38EC100021B7E2 /* LQSSettingCell.h */,
-				410FA26B1D38EC100021B7E2 /* LQSSettingCell.m */,
-				41DF72681D6ED09600614185 /* LQSSettingTopCell.h */,
-				41DF72691D6ED09600614185 /* LQSSettingTopCell.m */,
-				41DF726B1D6ED0D100614185 /* LQSSettingTopDataModel.h */,
-				41DF726C1D6ED0D100614185 /* LQSSettingTopDataModel.m */,
-				410FA26C1D38EC100021B7E2 /* LQSSettingModel.h */,
-				410FA26D1D38EC100021B7E2 /* LQSSettingModel.m */,
-				410FA26E1D38EC100021B7E2 /* LQSSettingViewController.h */,
-				410FA26F1D38EC100021B7E2 /* LQSSettingViewController.m */,
 				41DF726E1D6ED24800614185 /* XXXXXX.h */,
 				412FF2661CD1D8EC005F39AB /* set */,
 			);

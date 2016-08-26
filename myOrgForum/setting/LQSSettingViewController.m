@@ -204,15 +204,10 @@
         if (topCell == nil) {
             topCell = [[LQSSettingTopCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:topCellIdentifier];
         }
-        
         topCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 //        [topCell pushSettingTopDataModel:self.settingTopModel];
-        
-        
         topCell.backgroundColor = [UIColor purpleColor];
         return topCell;
-        
-        
     }else{
         NSString *identifier = @"settingCellIdentifier";
         
@@ -226,7 +221,6 @@
             [cell pushSettingModel:self.dataSource[indexPath.row + 2]];
             
         }
-        
         cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     }
@@ -237,11 +231,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIViewController *vc = [[UIViewController alloc] init];
-    if (indexPath.section == 0 && indexPath.row == 0) {
+    if (indexPath.section == 1 && indexPath.row == 1) {
       vc =  [[LQSMyDraftViewController alloc] init];
-    }else if (indexPath.section == 0 && indexPath.row == 1){
+    }else if (indexPath.section == 1 && indexPath.row == 2){
         vc = [[LQSMessageViewController alloc] init];
-    }else if (indexPath.section == 1 && indexPath.row == 0){
+    }else if (indexPath.section == 2 && indexPath.row == 1){
         vc = [[LQSAccountManagementViewController alloc] init];
     }else{
         vc = [[LQSDetailSettingViewController alloc] init];
