@@ -1,22 +1,22 @@
 //
-//  LQSAccountManagementViewController.m
+//  LQSForumDetailViewController.m
 //  myOrgForum
 //
-//  Created by SkyAndSea on 16/8/25.
+//  Created by 阿凡树 on 16/8/25.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
 
-#import "LQSAccountManagementViewController.h"
+#import "LQSForumDetailViewController.h"
 
-@interface LQSAccountManagementViewController ()
+@interface LQSForumDetailViewController ()
+@property (strong, nonatomic) IBOutlet UITableView *mainTableView;
 
 @end
 
-@implementation LQSAccountManagementViewController
+@implementation LQSForumDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"账号管理";
     // Do any additional setup after loading the view.
 }
 

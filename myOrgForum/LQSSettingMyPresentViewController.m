@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"我的发表";
     // Do any additional setup after loading the view.
 }
 

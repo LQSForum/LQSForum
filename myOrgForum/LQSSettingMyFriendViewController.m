@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"我的好友";
     // Do any additional setup after loading the view.
 }
 

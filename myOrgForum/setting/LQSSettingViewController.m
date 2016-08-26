@@ -137,7 +137,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if (section == 1) {
-        UIView * sectionView  =[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40  + 10)];
+        UIView * sectionView  =[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40 + 10)];
         sectionView.userInteractionEnabled = YES;
 //        创建三个按钮
         CGFloat labelW = kScreenWidth /3;
@@ -156,6 +156,11 @@
         
         }
         
+//        添加高度为10的分割线
+        UIView *gapView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, kScreenWidth, 10)];
+        gapView.backgroundColor = [UIColor magentaColor];
+        gapView.backgroundColor = [UIColor clearColor];
+        [sectionView addSubview:gapView];
 //        添加分割线
         CGFloat fengeW = 1;
         CGFloat fengeH = 20;
@@ -205,9 +210,11 @@
             topCell = [[LQSSettingTopCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:topCellIdentifier];
         }
         topCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//        [topCell pushSettingTopDataModel:self.settingTopModel];
+        [topCell pushSettingTopDataModel:self.settingTopModel];
         topCell.backgroundColor = [UIColor purpleColor];
         return topCell;
+        
+        
     }else{
         NSString *identifier = @"settingCellIdentifier";
         
@@ -231,11 +238,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIViewController *vc = [[UIViewController alloc] init];
-    if (indexPath.section == 1 && indexPath.row == 1) {
+    if (indexPath.section == 1 && indexPath.row == 0) {
       vc =  [[LQSMyDraftViewController alloc] init];
-    }else if (indexPath.section == 1 && indexPath.row == 2){
+    }else if (indexPath.section == 1 && indexPath.row == 1){
         vc = [[LQSMessageViewController alloc] init];
-    }else if (indexPath.section == 2 && indexPath.row == 1){
+    }else if (indexPath.section == 2 && indexPath.row == 0){
         vc = [[LQSAccountManagementViewController alloc] init];
     }else{
         vc = [[LQSDetailSettingViewController alloc] init];
@@ -246,7 +253,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return 100;
+        return 80;
     }else{
         return 50;
     }
@@ -254,19 +261,16 @@
 
 - (void)tapEvent:(UITapGestureRecognizer *)gesture
 {
-    
     UIViewController *Vc = [UIViewController new];
     UIView *view = gesture.view;
         if (view.tag == 0) {
             Vc = [LQSSettingMyFavourateViewController new];
         }else if (view.tag == 1){
             Vc = [LQSSettingMyFriendViewController new];
-        
         }else if (view.tag == 2){
             Vc = [LQSSettingMyPresentViewController new];
         }
-        [self.navigationController pushViewController:Vc animated:YES];
-
+        [self.navigationController pushViewController:Vc animated:NO];
     }
     
     
