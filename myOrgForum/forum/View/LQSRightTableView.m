@@ -36,18 +36,6 @@
     return self;
 }
 
-- (AFHTTPSessionManager *)sessionManager {
-    if (!_sessionManager) {
-        _sessionManager = [AFHTTPSessionManager manager];
-        //        _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-        //        _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
-        _sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
-        _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        NSSet *set = [NSSet setWithObjects:@"text/plain", @"text/html", nil];
-        _sessionManager.responseSerializer.acceptableContentTypes = [_sessionManager.responseSerializer.acceptableContentTypes setByAddingObjectsFromSet:set];
-    }
-    return _sessionManager;
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
