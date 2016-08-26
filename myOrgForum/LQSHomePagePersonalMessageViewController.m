@@ -17,9 +17,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor cyanColor];
-    // Do any additional setup after loading the view.
 }
 
+- (void)loadData{
+//请求用户数据
+//    请求发表帖子数据
+//    请求资料数据
 
 
+}
+
+- (void)setUpViews{
+
+//headView创建背景墙和用户基本信息
+    [self setWallView];
+//    用户发帖控件和用户数据资料
+
+
+
+
+}
+
+- (void)setWallView{
+
+
+
+}
 @end

@@ -112,6 +112,7 @@
 		415C556D1CC8CCEE00408B90 /* myOrgForumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C556C1CC8CCEE00408B90 /* myOrgForumTests.m */; };
 		415C55781CC8CCEE00408B90 /* myOrgForumUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55771CC8CCEE00408B90 /* myOrgForumUITests.m */; };
 		417269BB1D70119A000AC13B /* LQSHomePagePersonalMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417269BA1D70119A000AC13B /* LQSHomePagePersonalMessageViewController.m */; };
+		417269BE1D704CA1000AC13B /* setting_profile_bgWall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417269BD1D704CA1000AC13B /* setting_profile_bgWall.jpg */; };
 		417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */; };
 		6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */; };
 		6E0476671D55B32600FD6CE0 /* LQSintroduceMainlistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476661D55B32600FD6CE0 /* LQSintroduceMainlistCell.m */; };
@@ -387,6 +388,7 @@
 		415C55791CC8CCEE00408B90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		417269B91D70119A000AC13B /* LQSHomePagePersonalMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalMessageViewController.h; sourceTree = "<group>"; };
 		417269BA1D70119A000AC13B /* LQSHomePagePersonalMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalMessageViewController.m; sourceTree = "<group>"; };
+		417269BD1D704CA1000AC13B /* setting_profile_bgWall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = setting_profile_bgWall.jpg; sourceTree = "<group>"; };
 		417487F81CE99C0500B5E26C /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		417F34C01CC9F6BC00F9714F /* LQSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAppDelegate.h; sourceTree = "<group>"; };
 		417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAppDelegate.m; sourceTree = "<group>"; };
@@ -716,6 +718,7 @@
 		415C55461CC8CCEE00408B90 = {
 			isa = PBXGroup;
 			children = (
+				417269BD1D704CA1000AC13B /* setting_profile_bgWall.jpg */,
 				415C55511CC8CCEE00408B90 /* myOrgForum */,
 				415C556B1CC8CCEE00408B90 /* myOrgForumTests */,
 				415C55761CC8CCEE00408B90 /* myOrgForumUITests */,
@@ -1262,6 +1265,7 @@
 			files = (
 				E4430D571D54B74C0014A6FE /* index.ios.js in Resources */,
 				415C55621CC8CCEE00408B90 /* LaunchScreen.storyboard in Resources */,
+				417269BE1D704CA1000AC13B /* setting_profile_bgWall.jpg in Resources */,
 				E4430D4D1D54B74C0014A6FE /* CloverSlider.js in Resources */,
 				E4430D551D54B74C0014A6FE /* RecommendCell.js in Resources */,
 				E4430D4E1D54B74C0014A6FE /* getImageSource.js in Resources */,
