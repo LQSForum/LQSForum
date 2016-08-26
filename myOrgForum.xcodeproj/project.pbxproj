@@ -30,6 +30,7 @@
 		1477F9DD1D7019BB00EE102C /* LQSForumDetailHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9DC1D7019BB00EE102C /* LQSForumDetailHeadView.m */; };
 		1477F9E21D7019C500EE102C /* LQSForumDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9DF1D7019C500EE102C /* LQSForumDetailCell.m */; };
 		1477F9E31D7019C500EE102C /* LQSForumDetailTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9E11D7019C500EE102C /* LQSForumDetailTopCell.m */; };
+		1477F9E61D70292900EE102C /* LQSForumDetailForumInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9E51D70292900EE102C /* LQSForumDetailForumInfoModel.m */; };
 		2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084B21D6029F900167F4D /* NSDate+MJ.m */; };
 		2CB084D91D60508A00167F4D /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084CB1D60508A00167F4D /* MJPhoto.m */; };
 		2CB084DA1D60508A00167F4D /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2CB084CC1D60508A00167F4D /* MJPhotoBrowser.bundle */; };
@@ -210,6 +211,8 @@
 		1477F9DF1D7019C500EE102C /* LQSForumDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSForumDetailCell.m; sourceTree = "<group>"; };
 		1477F9E01D7019C500EE102C /* LQSForumDetailTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSForumDetailTopCell.h; sourceTree = "<group>"; };
 		1477F9E11D7019C500EE102C /* LQSForumDetailTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSForumDetailTopCell.m; sourceTree = "<group>"; };
+		1477F9E41D70292900EE102C /* LQSForumDetailForumInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumDetailForumInfoModel.h; path = forum/Model/LQSForumDetailForumInfoModel.h; sourceTree = "<group>"; };
+		1477F9E51D70292900EE102C /* LQSForumDetailForumInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumDetailForumInfoModel.m; path = forum/Model/LQSForumDetailForumInfoModel.m; sourceTree = "<group>"; };
 		14E37D8AF205E4AAC6AB2302 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2AEC7AB4431F7F14A52266D9 /* Pods-myOrgForumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2CA7813C1D4388DE00D35288 /* myOrgForum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = myOrgForum.entitlements; sourceTree = "<group>"; };
@@ -965,6 +968,8 @@
 				410FA2AC1D38EC790021B7E2 /* LQSSectionModel.m */,
 				0000C4B51D645EB5007C969C /* LQSLastestMarrowModel.h */,
 				0000C4B61D645EB5007C969C /* LQSLastestMarrowModel.m */,
+				1477F9E41D70292900EE102C /* LQSForumDetailForumInfoModel.h */,
+				1477F9E51D70292900EE102C /* LQSForumDetailForumInfoModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1449,6 +1454,7 @@
 				6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */,
 				6E0476671D55B32600FD6CE0 /* LQSintroduceMainlistCell.m in Sources */,
 				6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */,
+				1477F9E61D70292900EE102C /* LQSForumDetailForumInfoModel.m in Sources */,
 				410FA2991D38EC4C0021B7E2 /* LQSMyHomePageViewController.m in Sources */,
 				410FA2781D38EC230021B7E2 /* LQSMessageDataModel.m in Sources */,
 				410FA2261D38EBA30021B7E2 /* LQSTabBar.m in Sources */,
