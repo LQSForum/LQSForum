@@ -124,25 +124,61 @@
 
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section == 0) {
-        return 0.1;
-    }else if (section == 1){
-        return 40;
-    }
-        return 10;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    if (section == 1) {
+//        UIView * sectionView  =[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40 + 10)];
+//        sectionView.userInteractionEnabled = YES;
+////        创建三个按钮
+//        CGFloat labelW = kScreenWidth /3;
+//        CGFloat labelH = 40;
+////        第一个btn
+//        NSArray *nameArr = @[@"我的收藏",@"我的好友",@"我的发表"];
+//        for (NSUInteger i = 0; i < 3; i++) {
+//            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(i * labelW, 0, labelW, labelH)];
+//            label.tag = i;
+//            label.textAlignment = NSTextAlignmentCenter;
+//            label.text = [nameArr objectAtIndex:i];
+//            label.userInteractionEnabled = YES;
+//            UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEvent:)];
+//            [label addGestureRecognizer:tapGesture];
+//            label.backgroundColor = [UIColor whiteColor];
+//
+//            [sectionView addSubview:label];
+//        
+//        }
+//        
+////        添加高度为10的分割线
+//        UIView *gapView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, kScreenWidth, 10)];
+//        gapView.backgroundColor = [UIColor clearColor];
+//        [sectionView addSubview:gapView];
+////        添加分割线
+//        CGFloat fengeW = 1;
+//        CGFloat fengeH = 20;
+//        for (NSUInteger j= 0; j < 2; j++) {
+//            UIView *view = [[UIView alloc] initWithFrame:CGRectMake((j + 1) * labelW, LQSMargin, fengeW, fengeH)];
+//            view.userInteractionEnabled = YES;
+//            view.backgroundColor = [UIColor lightGrayColor];
+//            [sectionView addSubview:view];
+//        }
+//        
+//        
+//        return sectionView;
+//        
+//    }
+//    return nil;
+//}
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    if (section == 1) {
+
+    if (section == 0) {
         UIView * sectionView  =[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40 + 10)];
         sectionView.userInteractionEnabled = YES;
-//        创建三个按钮
+        //        创建三个按钮
         CGFloat labelW = kScreenWidth /3;
         CGFloat labelH = 40;
-//        第一个btn
+        //        第一个btn
         NSArray *nameArr = @[@"我的收藏",@"我的好友",@"我的发表"];
         for (NSUInteger i = 0; i < 3; i++) {
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(i * labelW, 0, labelW, labelH)];
@@ -152,22 +188,23 @@
             label.userInteractionEnabled = YES;
             UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEvent:)];
             [label addGestureRecognizer:tapGesture];
+            label.backgroundColor = [UIColor whiteColor];
+            
             [sectionView addSubview:label];
-        
+            
         }
         
-//        添加高度为10的分割线
+        //        添加高度为10的分割线
         UIView *gapView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, kScreenWidth, 10)];
         gapView.backgroundColor = [UIColor clearColor];
         [sectionView addSubview:gapView];
-//        添加分割线
+        //        添加分割线
         CGFloat fengeW = 1;
         CGFloat fengeH = 20;
         for (NSUInteger j= 0; j < 2; j++) {
             UIView *view = [[UIView alloc] initWithFrame:CGRectMake((j + 1) * labelW, LQSMargin, fengeW, fengeH)];
             view.userInteractionEnabled = YES;
-            
-            
+            view.backgroundColor = [UIColor lightGrayColor];
             [sectionView addSubview:view];
         }
         
@@ -176,15 +213,24 @@
         
     }
     return nil;
-}
 
+
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (section == 1) {
-        return 0.1;
+    if (section == 0) {
+        return 40;
     }
-    return 1;
+    return 10;
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 0.1;
+    }else
+        return 10;
 }
 
 
@@ -233,7 +279,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *vc = [[UIViewController alloc] init];
+    if (indexPath.section == 0) {
+        LQSHomePagePersonalMessageViewController *personalVc = [LQSHomePagePersonalMessageViewController new];
+        [self.navigationController pushViewController:personalVc animated:NO];
+    }else{
+        UIViewController *vc = [[UIViewController alloc] init];
+
     if (indexPath.section == 1 && indexPath.row == 0) {
       vc =  [[LQSMyDraftViewController alloc] init];
     }else if (indexPath.section == 1 && indexPath.row == 1){
@@ -243,7 +294,8 @@
     }else{
         vc = [[LQSDetailSettingViewController alloc] init];
     }
-    [self.navigationController pushViewController:vc animated:NO];
+        [self.navigationController pushViewController:vc animated:NO];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -9,13 +9,7 @@
 #ifndef vcHeader_h
 #define vcHeader_h
 
-#import "LQSSettingViewController.h"
-#import "LQSDiscoverViewController.h"
-#import "LQSForumViewController.h"
-#import "LQSIntroduceViewController.h"
-#import "LQSMyHomePageViewController.h"
-#import "LQSMessageViewController.h"
-#import "LQSDetailSettingViewController.h"
+
 
 //推荐
 #import "LQSShijieViewController.h"//视界
@@ -37,6 +31,16 @@
 #import "LQSSettingMyFavourateViewController.h"
 #import "LQSSettingMyFriendViewController.h"
 #import "LQSSettingMyPresentViewController.h"
+#import "LQSHomePagePersonalMessageViewController.h"
+
+
+#import "LQSSettingViewController.h"
+#import "LQSDiscoverViewController.h"
+#import "LQSForumViewController.h"
+#import "LQSIntroduceViewController.h"
+#import "LQSMyHomePageViewController.h"
+#import "LQSMessageViewController.h"
+#import "LQSDetailSettingViewController.h"
 //main
 #import "LQSComposeViewController.h"
 
