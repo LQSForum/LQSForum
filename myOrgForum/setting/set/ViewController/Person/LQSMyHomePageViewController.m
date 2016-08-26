@@ -4,7 +4,7 @@
 //
 //  Created by SkyAndSea on 16/4/28.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
-//
+//个人资料页面
 
 #import "LQSMyHomePageViewController.h"
 

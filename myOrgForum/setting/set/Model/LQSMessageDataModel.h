@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface LQSMessageDataModel : NSObject
-@property (nonatomic, strong) UIImage *iamgeName;
+@property (nonatomic, strong) NSString *iamgeName;
 @property (nonatomic, strong) NSString *title;
 
 

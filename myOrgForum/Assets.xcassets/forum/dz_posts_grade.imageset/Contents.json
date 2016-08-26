@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "dz_posts_grade.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "setting_setting.png",
       "scale" : "2x"
     },
     {
