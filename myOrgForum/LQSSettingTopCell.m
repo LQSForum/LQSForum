@@ -66,8 +66,8 @@
     [_userImage sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:nil];
 
     _userNameLabel.text = [NSString stringWithFormat:@"%@",model.name];
-    _jifenLabel.text =[NSString stringWithFormat:@"%@", model.score];
-    _xianghuaLabel.text = [NSString stringWithFormat:@"%@", model.credits];
+    _jifenLabel.text =[NSString stringWithFormat:@"积分:%@", model.score];
+    _xianghuaLabel.text = [NSString stringWithFormat:@"香华:%@", model.credits];
     _userDescription.text = [NSString stringWithFormat:@"%@", model.userTitle];
     
     [self layoutIfNeeded];

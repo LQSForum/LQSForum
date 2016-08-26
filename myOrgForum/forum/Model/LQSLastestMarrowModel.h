@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSArray *board_list;
 @property (nonatomic, copy) NSString *user_nick_name;
 @property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, assign) NSInteger essence;
 
 @end
 

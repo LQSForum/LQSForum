@@ -158,7 +158,6 @@
         
 //        添加高度为10的分割线
         UIView *gapView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, kScreenWidth, 10)];
-        gapView.backgroundColor = [UIColor magentaColor];
         gapView.backgroundColor = [UIColor clearColor];
         [sectionView addSubview:gapView];
 //        添加分割线
@@ -167,14 +166,12 @@
         for (NSUInteger j= 0; j < 2; j++) {
             UIView *view = [[UIView alloc] initWithFrame:CGRectMake((j + 1) * labelW, LQSMargin, fengeW, fengeH)];
             view.userInteractionEnabled = YES;
-            view.backgroundColor = [UIColor lightGrayColor];
             
             
             [sectionView addSubview:view];
         }
         
         
-        sectionView.backgroundColor = [UIColor blueColor];
         return sectionView;
         
     }
@@ -211,7 +208,6 @@
         }
         topCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [topCell pushSettingTopDataModel:self.settingTopModel];
-        topCell.backgroundColor = [UIColor purpleColor];
         return topCell;
         
         
