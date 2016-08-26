@@ -81,8 +81,8 @@
     
     
     _userNameLabel.frame = CGRectMake(LQSMargin * 2 + picW, LQSMargin, LQSScreenW - 2 *LQSMargin - picW, picW/3);
-    _jifenLabel.frame = CGRectMake(LQSMargin * 2 + picW, LQSMargin + picW /3, 80, picW/3);
-    _xianghuaLabel.frame = CGRectMake(LQSMargin * 2 + picW + 80, LQSMargin + picW /3, 80, picW/3);
+    _jifenLabel.frame = CGRectMake(LQSMargin * 2 + picW, LQSMargin + picW /3, 50, picW/3);
+    _xianghuaLabel.frame = CGRectMake(LQSMargin * 2 + picW + 50, LQSMargin + picW /3, 50, picW/3);
     _userDescription.frame = CGRectMake(LQSMargin * 2 + picW, LQSMargin + picW /3 * 2, kScreenWidth - (LQSMargin * 2 + picW + 100), picW/3);
 
 
