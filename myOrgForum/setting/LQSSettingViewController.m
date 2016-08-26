@@ -220,17 +220,20 @@
 {
     if (section == 0) {
         return 40;
-    }
+    }else if(section == 1){
     return 10;
-    
+    }else
+        return 0.1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
         return 0.1;
-    }else
+    }else if(section == 1){
         return 10;
+    }else
+            return 0.1;
 }
 
 

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface rootViewController : UIViewController
-
+- (void)loadData;
+- (void)setUpViews;
 @end
