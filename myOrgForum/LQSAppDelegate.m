@@ -8,6 +8,7 @@
 
 #import "LQSAppDelegate.h"
 #import "UIWindow+Extension.h"
+#import "UIColor+Hex.h"
 
 #import "AFNetworking.h"
 #import "LQSCoreManager.h"
@@ -27,8 +28,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-   [self.window chooseRootViewController];
-
+    [self.window chooseRootViewController];
+    [UINavigationBar appearance].barTintColor = [UIColor lqs_colorWithHex:0x42c2f7];
+    [UINavigationBar appearance].titleTextAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:20.0f],NSForegroundColorAttributeName:[UIColor whiteColor]};
+    
     [self.window makeKeyAndVisible];
     [self getUserInfor];
     return YES;
