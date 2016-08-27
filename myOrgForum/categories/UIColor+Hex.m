@@ -15,7 +15,7 @@
     if (hex <= 0xffffff) {
         hex = 0xff000000 | hex;
     }
-    return [UIColor nb_colorWithARGBHex:hex];
+    return [UIColor lqs_colorWithARGBHex:hex];
 }
 
 + (UIColor *)lqs_colorWithARGBHex:(uint)hex
