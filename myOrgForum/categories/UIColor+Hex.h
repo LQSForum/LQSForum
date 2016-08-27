@@ -14,4 +14,6 @@
 + (UIColor *)lqs_colorWithARGBHex:(uint) hex;
 + (UIColor *)lqs_colorWithHexString:(NSString *)stringToConvert;
 
++ (UIColor *)lqs_themeColor;
+
 @end

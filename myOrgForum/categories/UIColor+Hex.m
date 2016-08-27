@@ -55,4 +55,8 @@
     return [self lqs_colorWithHex:hex];
 }
 
++ (UIColor *)lqs_themeColor{
+    return [UIColor lqs_colorWithHex:0x42c2f7];
+}
+
 @end

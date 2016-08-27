@@ -124,4 +124,16 @@
     return CGRectGetMaxY(self.frame);
 
 }
+
+- (UIViewController *)lqs_parentViewController{
+    UIResponder *responder = self;
+    while ([responder isKindOfClass:[UIView class]]) {
+        responder = [responder nextResponder];
+    }
+    if ([responder isKindOfClass:[UIViewController class]]) {
+        return (UIViewController *)responder;
+    }
+    return nil;
+}
+
 @end

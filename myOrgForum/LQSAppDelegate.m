@@ -29,7 +29,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window chooseRootViewController];
-    [UINavigationBar appearance].barTintColor = [UIColor lqs_colorWithHex:0x42c2f7];
+    [UINavigationBar appearance].barTintColor = [UIColor lqs_themeColor];
     [UINavigationBar appearance].titleTextAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:20.0f],NSForegroundColorAttributeName:[UIColor whiteColor]};
     
     [self.window makeKeyAndVisible];

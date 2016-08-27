@@ -7,18 +7,20 @@
 //
 
 #import "LQSForumDetailTopCell.h"
-
+@interface LQSForumDetailTopCell()
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@end
 @implementation LQSForumDetailTopCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setModel:(LQSForumDetailTopModel *)model{
+    _titleLabel.text = model.title;
 }
 
 @end

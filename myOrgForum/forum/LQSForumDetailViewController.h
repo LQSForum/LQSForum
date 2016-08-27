@@ -8,6 +8,6 @@
 
 #import "rootViewController.h"
 
-@interface LQSForumDetailViewController : rootViewController
-
+@interface LQSForumDetailViewController : UIViewController
+@property (nonatomic, readwrite, assign) NSInteger boardid;
 @end

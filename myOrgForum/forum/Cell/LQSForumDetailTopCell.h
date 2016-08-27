@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LQSForumDetailForumInfoModel.h"
 @interface LQSForumDetailTopCell : UITableViewCell
-
+@property (nonatomic, readwrite, retain) LQSForumDetailTopModel *model;
 @end

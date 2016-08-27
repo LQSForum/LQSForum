@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "LQSForumDetailForumInfoModel.h"
 @interface LQSForumDetailHeadView : UIView
-
+@property (nonatomic, readwrite, retain) LQSForumDetailForumInfoModel *model;
 @end
