@@ -13,6 +13,8 @@
 @required
 - (void)leftTableView:(LQSLeftTableView *)leftTableView rightViewArray:(NSMutableArray *)rightViewArray;
 
+- (void)leftTableView:(LQSLeftTableView *)leftTableView rightViewFocusArray:(NSMutableArray *)rightViewFocusArray;
+
 @end
 @interface LQSLeftTableView : UITableView
 @property (nonatomic, weak) id<LQSLeftTableViewDelegate> leftViewDelegate;

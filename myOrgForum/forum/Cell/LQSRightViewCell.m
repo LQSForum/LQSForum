@@ -30,51 +30,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.icon = [[UIImageView alloc]initWithFrame:CGRectMake(10, 12, 56, 56)];
-        self.icon.backgroundColor = [UIColor lightGrayColor];
-        
-        //设置图片圆角
-        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.icon.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5, 5)];
-        CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
-        maskLayer.frame = self.icon.bounds;
-        maskLayer.path = maskPath.CGPath;
-        self.icon.layer.mask = maskLayer;
-        
-        self.titleLabel = [[UILabel alloc]init];
-        self.titleLabel.font = [UIFont systemFontOfSize:LQSForumTextSize];
-        //        self.titleLabel.backgroundColor = [UIColor redColor];
-        [self.titleLabel sizeToFit];
-        
-        self.favIcon = [[UIImageView alloc]init];
-        self.favIcon.image = [UIImage imageNamed:@"tab_setting_common"];
-        
-        self.favNum = [[UILabel alloc]init];
-        self.favNum.font = [UIFont systemFontOfSize:LQSForumTextSize];
-        self.favNum.textColor = [UIColor lightGrayColor];
-        [self.favNum sizeToFit];
-        
-        self.contentIcon = [[UIImageView alloc]init];
-        self.contentIcon.image = [UIImage imageNamed:@"tab_introduce_common"];
-        
-        self.contentNum = [[UILabel alloc]init];
-        self.contentNum.font = [UIFont systemFontOfSize:LQSForumTextSize];
-        self.contentNum.textColor = [UIColor lightGrayColor];
-        [self.contentNum sizeToFit];
-        
-        self.focusBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        self.focusBtn.backgroundColor = [UIColor blueColor];
-        [self.focusBtn setTintColor:[UIColor whiteColor]];
-        [self.focusBtn.layer setMasksToBounds:YES];
-        [self.focusBtn.layer setCornerRadius:2.0];
-        
-        [self.contentView addSubview:self.icon];
-        [self.contentView addSubview:self.titleLabel];
-        [self.contentView addSubview:self.favIcon];
-        [self.contentView addSubview:self.favNum];
-        [self.contentView addSubview:self.contentIcon];
-        [self.contentView addSubview:self.contentNum];
-        [self.contentView addSubview:self.focusBtn];
-        
+        [self setUpUI];
         
     }
     
@@ -82,21 +38,72 @@
     
 }
 
-
-- (void)layoutSubviews{
+- (void)setUpUI{
     
-    [super layoutSubviews];
+    self.icon = [[UIImageView alloc]initWithFrame:CGRectMake(10, 12, 56, 56)];
+    self.icon.backgroundColor = [UIColor lightGrayColor];
+    
+    //设置图片圆角
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.icon.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5, 5)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
+    maskLayer.frame = self.icon.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.icon.layer.mask = maskLayer;
+    
+    self.titleLabel = [[UILabel alloc]init];
+    self.titleLabel.font = [UIFont systemFontOfSize:LQSForumTextSize];
+    //        self.titleLabel.backgroundColor = [UIColor redColor];
+    [self.titleLabel sizeToFit];
+    
+    self.favIcon = [[UIImageView alloc]init];
+    self.favIcon.image = [UIImage imageNamed:@"dz_board_icon_follow"];
+    
+    self.favNum = [[UILabel alloc]init];
+    self.favNum.font = [UIFont systemFontOfSize:10];
+    self.favNum.textColor = [UIColor lightGrayColor];
+    [self.favNum sizeToFit];
+    
+    self.contentIcon = [[UIImageView alloc]init];
+    self.contentIcon.image = [UIImage imageNamed:@"dz_board_icon_reply"];
+    
+    self.contentNum = [[UILabel alloc]init];
+    self.contentNum.font = [UIFont systemFontOfSize:10];
+    self.contentNum.textColor = [UIColor lightGrayColor];
+    [self.contentNum sizeToFit];
+    
+    self.focusBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.focusBtn.backgroundColor = LQSColor(1, 183, 237, 1.0);
+    [self.focusBtn setTintColor:[UIColor whiteColor]];
+    self.focusBtn.titleLabel.font = [UIFont systemFontOfSize:LQSForumTextSize];
+    [self.focusBtn.layer setMasksToBounds:YES];
+    [self.focusBtn.layer setCornerRadius:2.0];
+    [self.focusBtn addTarget:self action:@selector(selectedFocusBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.contentView addSubview:self.icon];
+    [self.contentView addSubview:self.titleLabel];
+    [self.contentView addSubview:self.favIcon];
+    [self.contentView addSubview:self.favNum];
+    [self.contentView addSubview:self.contentIcon];
+    [self.contentView addSubview:self.contentNum];
+    [self.contentView addSubview:self.focusBtn];
+    
+    [self settingFrame];
+}
+
+
+- (void)settingFrame{
+    
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.icon.mas_right).offset(5);
-        make.top.equalTo(self.contentView.mas_top).offset(15);
+        make.top.equalTo(self.contentView.mas_top).offset(18);
     }];
     
     [self.favIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.titleLabel.mas_left);
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(5);
-        //        make.width.equalTo(@10);
-        //        make.height.equalTo(@(self.favIcon.image.size.height/self.favIcon.image.size.width * self.favIcon.image.size.width));
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(13);
+        make.width.equalTo(@15);
+        make.height.equalTo(@15);
     }];
     
     [self.favNum mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -107,8 +114,9 @@
     [self.contentIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.favNum.mas_right).offset(10);
         make.top.equalTo(self.favIcon.mas_top);
-        //        make.width.equalTo(@10);
-        //        make.height.equalTo(@(self.favIcon.image.size.height/self.favIcon.image.size.width * self.favIcon.image.size.width));
+        make.width.equalTo(@15);
+        make.height.equalTo(@15);
+
     }];
     
     [self.contentNum mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -119,8 +127,8 @@
     
     [self.focusBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView.mas_right).offset(-20);
-        make.top.equalTo(self.contentView.mas_top).offset(15);
-        make.width.equalTo(@40);
+        make.top.equalTo(self.contentView.mas_top).offset(13);
+        make.width.equalTo(@50);
     }];
     
 }
@@ -135,7 +143,30 @@
     NSURL *url = [NSURL URLWithString:cellModel.board_img];
     [self.icon sd_setImageWithURL:url];
     self.contentNum.text = [NSString stringWithFormat:@"%zd",cellModel.td_posts_num];
-    [self.focusBtn setTitle:@"关注" forState:UIControlStateNormal];
+    if (cellModel.isSelected) {
+        [self.focusBtn setBackgroundColor:[UIColor lightGrayColor]];
+        [self.focusBtn setTitle:@"取消" forState:UIControlStateNormal];
+    }else{
+        [self.focusBtn setBackgroundColor:LQSColor(1, 183, 237, 1.0)];
+        [self.focusBtn setTitle:@"关注" forState:UIControlStateNormal];
+    }
+    
+}
+
+
+- (void)selectedFocusBtn:(UIButton *)sender{
+    sender.selected = !sender.isSelected;
+    self.cellModel.selected = self.focusBtn.isSelected;
+    if (sender.isSelected == YES) {
+        [self.focusBtn setBackgroundColor:[UIColor lightGrayColor]];
+        //        [self.focusArray addObject:self.cellModel];
+        if ([self.delegate respondsToSelector:@selector(rightViewFocus:)]) {
+            [self.delegate rightViewFocus:self];
+        }
+    }else{
+        [self.focusBtn setBackgroundColor:LQSColor(1, 183, 237, 1.0)];
+        
+    }
     
 }
 

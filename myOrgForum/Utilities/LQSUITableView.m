@@ -46,21 +46,31 @@
     __unsafe_unretained UITableView *tableView = self;
 //    下拉刷新
     tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        self.page = 1;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            [tableView.mj_header endRefreshing];
+            // 模拟延迟加载数据，因此2秒后才调用（真实开发中，可以移除这段gcd代码）
+                [tableView reloadData];
+                // 结束刷新
+                [tableView.mj_header endRefreshing];
+
         });
     }];
 //设置自动切换透明度
     tableView.mj_header.automaticallyChangeAlpha = YES;
+    [tableView.mj_header beginRefreshing];
+
 //    上啦刷新
     tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        self.page++;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
+            [tableView reloadData];
             [tableView.mj_footer endRefreshing];
         });
         
     }];
+    // 默认先隐藏footer
+    tableView.mj_footer.hidden = YES;
+
 }
 
 @end

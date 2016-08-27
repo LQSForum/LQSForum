@@ -51,7 +51,7 @@ static NSString * const reuseIdentifier = @"imgCell";
     
     [self.collectionView registerClass:[LQSPickerSelectCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [UIColor blueColor];
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;

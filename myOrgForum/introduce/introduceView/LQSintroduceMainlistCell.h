@@ -12,6 +12,7 @@
 @interface LQSintroduceMainlistCell : UITableViewCell
 
 @property (nonatomic, strong) NSMutableDictionary *paramDict;//参数字典
+@property (nonatomic, weak) UIViewController *myCtrl;
 
 - (void)setCellForIndexPath:(NSIndexPath *)indexPath;
 

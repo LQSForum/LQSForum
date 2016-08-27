@@ -19,7 +19,7 @@
     
     //初始化子控制器
     LQSIntroduceViewController *introduceVc = [[LQSIntroduceViewController alloc] init];
-    [self addChileVc:introduceVc title:@"推荐" image:@"tab_introduce_common" selectedImage:@"tab_introduce_hilighted"];
+    [self addChileVc:introduceVc title:@"首页" image:@"tab_introduce_common" selectedImage:@"tab_introduce_hilighted"];
     
     LQSForumViewController *forumVc = [[LQSForumViewController alloc] init];
     [self addChileVc:forumVc title:@"论坛" image:@"tab_forum_common" selectedImage:@"tab_forum_hilighted"];

@@ -8,6 +8,7 @@
 
 #import "LQSintroduceMainlistCell.h"
 #import "SDWebImageManager.h"
+#import "LQSBBSDetailViewController.h"
 
 #define KBUTTON_TAG_BEGAN 2016081010
 #define KXFXZBTN_TAG_BEGAN 2016081020
@@ -329,6 +330,18 @@
     NSInteger tag = superView.tag - KIMGTAG_BEGAN;
     if (tag/10 == 0) {
         NSLog(@"点击第一轮播图第%ld个图片",(tag%10));
+        NSInteger i = tag%10;
+        NSIndexPath *indexPath = self.paramDict[@"indexPath"];
+        if (indexPath.section == 0) {
+            NSArray *dataArr = self.paramDict[@"data"];
+            LQSIntroduceMainListModel *model = (LQSIntroduceMainListModel *)dataArr[i];
+            if (nil != model ) {
+                LQSBBSDetailViewController *bbsDetailVC = [[LQSBBSDetailViewController alloc] init];
+                bbsDetailVC.selectModel = model;
+                [self.myCtrl.navigationController pushViewController:bbsDetailVC animated:YES];
+            }
+        }
+        
     }else if(tag/10 == 2){
         NSLog(@"点击龙泉闻思修");
     }else if(tag/10 == 4){

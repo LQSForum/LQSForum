@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LQSLatestMarrowTableView : UITableView
-@property (nonatomic, strong) NSDictionary *sortby;
+@property (nonatomic, strong) NSString *sortby;
 @end

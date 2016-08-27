@@ -35,7 +35,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-//    [self postForData];
+    [self postForData];
     
 }
 
@@ -50,7 +50,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self postForData];
+//    [self postForData];
 }
 #pragma mark - postFordata
 - (void)postForData
@@ -58,7 +58,7 @@
     NSString *loginUrlStr = @"http://forum.longquanzs.org/mobcent/app/web/index.php?";
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
 //    session.requestSerializer = [AFHTTPRequestSerializer serializer];
-        session.responseSerializer = [AFJSONResponseSerializer serializer];
+    session.responseSerializer = [AFJSONResponseSerializer serializer];
     session.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"r"] = @"app/moduleconfig";
@@ -121,8 +121,8 @@
             lbModel.icon = LQSTR(sChengData[@"icon"]);
             lbModel.title = LQSTR(sChengData[@"title"]);
             lbModel.desc = LQSTR(sChengData[@"desc"]);
-            lbModel.topicId = LQSTR(sChengData[@"exParams"][@"topicId"]);
-            lbModel.redirect = LQSTR(sChengData[@"exParams"][@"redirect"]);
+            lbModel.topicId = LQSTR(sChengData[@"extParams"][@"topicId"]);
+            lbModel.redirect = LQSTR(sChengData[@"extParams"][@"redirect"]);
             lbModel.id = LQSTR(sChengData[@"id"]);
             [self.lbDataArrA addObject:lbModel];
         }
@@ -135,8 +135,8 @@
             bModel.icon = LQSTR(sChengData[@"icon"]);
             bModel.title = LQSTR(sChengData[@"title"]);
             bModel.desc = LQSTR(sChengData[@"desc"]);
-            bModel.topicId = LQSTR(sChengData[@"exParams"][@"topicId"]);
-            bModel.redirect = LQSTR(sChengData[@"exParams"][@"redirect"]);
+            bModel.topicId = LQSTR(sChengData[@"extParams"][@"topicId"]);
+            bModel.redirect = LQSTR(sChengData[@"extParams"][@"redirect"]);
             bModel.id = LQSTR(sChengData[@"id"]);
             [self.btnDataArrB addObject:bModel];
         }
@@ -148,8 +148,8 @@
             bModel.icon = LQSTR(sChengData[@"icon"]);
             bModel.title = LQSTR(sChengData[@"title"]);
             bModel.desc = LQSTR(sChengData[@"desc"]);
-            bModel.topicId = LQSTR(sChengData[@"exParams"][@"topicId"]);
-            bModel.redirect = LQSTR(sChengData[@"exParams"][@"redirect"]);
+            bModel.topicId = LQSTR(sChengData[@"extParams"][@"topicId"]);
+            bModel.redirect = LQSTR(sChengData[@"extParams"][@"redirect"]);
             bModel.id = LQSTR(sChengData[@"id"]);
             [self.btnDataArrB addObject:bModel];
         }
@@ -162,8 +162,8 @@
             self.LQWSXDataC.icon = LQSTR(eChengDataDic[@"icon"]);
             self.LQWSXDataC.title = LQSTR(eChengDataDic[@"title"]);
             self.LQWSXDataC.desc = LQSTR(eChengDataDic[@"desc"]);
-            self.LQWSXDataC.topicId = LQSTR(eChengDataDic[@"exParams"][@"topicId"]);
-            self.LQWSXDataC.redirect = LQSTR(eChengDataDic[@"exParams"][@"redirect"]);
+            self.LQWSXDataC.topicId = LQSTR(eChengDataDic[@"extParams"][@"topicId"]);
+            self.LQWSXDataC.redirect = LQSTR(eChengDataDic[@"extParams"][@"redirect"]);
         }
         //活动报名、学佛小组
         eChengData = yChengData[3][@"componentList"][0][@"componentList"];
@@ -175,8 +175,8 @@
             xModel.title = LQSTR(sChengData[@"title"]);
             xModel.desc = LQSTR(sChengData[@"desc"]);
             xModel.forumId = LQSTR(sChengData[@"forumId"]);
-            xModel.topicId = LQSTR(sChengData[@"exParams"][@"topicId"]);
-            xModel.redirect = LQSTR(sChengData[@"exParams"][@"redirect"]);
+            xModel.topicId = LQSTR(sChengData[@"extParams"][@"topicId"]);
+            xModel.redirect = LQSTR(sChengData[@"extParams"][@"redirect"]);
             xModel.id = LQSTR(sChengData[@"id"]);
             [self.XFXZDataD addObject:xModel];
         }
@@ -191,8 +191,8 @@
             xModel.title = LQSTR(sChengData[@"title"]);
             xModel.desc = LQSTR(sChengData[@"desc"]);
             xModel.forumId = LQSTR(sChengData[@"forumId"]);
-            xModel.topicId = LQSTR(sChengData[@"exParams"][@"topicId"]);
-            xModel.redirect = LQSTR(sChengData[@"exParams"][@"redirect"]);
+            xModel.topicId = LQSTR(sChengData[@"extParams"][@"topicId"]);
+            xModel.redirect = LQSTR(sChengData[@"extParams"][@"redirect"]);
             xModel.id = LQSTR(sChengData[@"id"]);
             [self.DHSKSDataE addObject:xModel];
         }
@@ -207,8 +207,8 @@
             xModel.title = LQSTR(sChengData[@"title"]);
             xModel.desc = LQSTR(sChengData[@"desc"]);
             xModel.forumId = LQSTR(sChengData[@"forumId"]);
-            xModel.topicId = LQSTR(sChengData[@"exParams"][@"topicId"]);
-            xModel.redirect = LQSTR(sChengData[@"exParams"][@"redirect"]);
+            xModel.topicId = LQSTR(sChengData[@"extParams"][@"topicId"]);
+            xModel.redirect = LQSTR(sChengData[@"extParams"][@"redirect"]);
             xModel.id = LQSTR(sChengData[@"id"]);
             [self.KSDataF addObject:xModel];
         }
@@ -327,6 +327,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LQSintroduceMainlistCell *cell = [[LQSintroduceMainlistCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    cell.myCtrl = self;
     switch (indexPath.section) {
         case 0:{
             cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.lbDataArrA,@"indexPath":indexPath}];
