@@ -83,11 +83,26 @@
     
     
 }
+- (LQSBBSDetailModel *)bbsDetailModel
+{
+    if (nil == _bbsDetailModel) {
+        _bbsDetailModel = [[LQSBBSDetailModel alloc] init];
+    }
+    return _bbsDetailModel;
+}
 
 - (void)getBBSDetailModelFrom:(NSDictionary *)dict
 {
-    if (nil != dict) {
-        
+    //帖子信息
+    if(nil != dict){
+//        LQSBBSDetailModel *infoBBS = [LQSBBSDetailModel mj_setKeyValues:dict];
+//        self.bbsDetailModel = infoBBS;
+    }
+    //帖子内容
+    if (nil != [dict[@"topic"] objectForKey:@"content"]) {
+        NSArray  *contenArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict[@"topic"] objectForKey:@"content"]];
+        self.bbsDetailModel.content = [NSArray arrayWithArray:contenArr];
+        NSLog(@"arr: %@",contenArr);
     }
 }
 /*
