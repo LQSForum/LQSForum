@@ -9,15 +9,15 @@
 #import "LQSBBSDetailModel.h"
 
 @implementation LQSBBSDetailModel
-- (void) setContent:(NSArray *)content
-{
-    if ( _content != content) {
-        _content = [[NSArray alloc] initWithArray:content];
-    }
-}
+//- (void) setContent:(NSArray *)content
+//{
+//    if ( _content != content) {
+//        _content = [[NSMutableArray alloc] initWithArray:content];
+//    }
+//}
 @end
 
-@implementation LQSBBSPosterMOdel
+@implementation LQSBBSPosterModel
 
 @end
 

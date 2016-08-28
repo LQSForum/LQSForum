@@ -330,7 +330,7 @@
     NSInteger tag = superView.tag - KIMGTAG_BEGAN;
     if (tag/10 == 0) {
         NSLog(@"点击第一轮播图第%ld个图片",(tag%10));
-        NSInteger i = tag%10;
+        NSInteger i = tag%10 - 1;
         NSIndexPath *indexPath = self.paramDict[@"indexPath"];
         if (indexPath.section == 0) {
             NSArray *dataArr = self.paramDict[@"data"];
