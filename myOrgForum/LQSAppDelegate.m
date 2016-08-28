@@ -12,6 +12,7 @@
 
 #import "AFNetworking.h"
 #import "LQSCoreManager.h"
+#import "LQSMessageCenterManager.h"
 
 @interface LQSAppDelegate()
 
@@ -33,7 +34,9 @@
     [UINavigationBar appearance].titleTextAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:20.0f],NSForegroundColorAttributeName:[UIColor whiteColor]};
     
     [self.window makeKeyAndVisible];
+    
     [self getUserInfor];
+    [LQSMessageCenterManager defaultManager];
     return YES;
 }
 /*

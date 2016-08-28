@@ -126,9 +126,10 @@
 		B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */; };
 		B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111331D5DC11700D7A05C /* LQSLocationModel.m */; };
 		B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */; };
-		DF6E05C61D729F4A0099395A /* LQSForumDetailSectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6E05C41D729F4A0099395A /* LQSForumDetailSectionHeadView.m */; };
-		DF6E05C71D729F4A0099395A /* LQSForumDetailSectionHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF6E05C51D729F4A0099395A /* LQSForumDetailSectionHeadView.xib */; };
 		DFDC33171D714BF20059BDB4 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDC33161D714BF20059BDB4 /* UIColor+Hex.m */; };
+		E436F2B71D72B6F7001CB8FE /* LQSMessageCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E436F2B61D72B6F7001CB8FE /* LQSMessageCenterManager.m */; };
+		E436F2BA1D72BC23001CB8FE /* LQSMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E436F2B91D72BC23001CB8FE /* LQSMessageRequest.m */; };
+		E436F2BD1D72CECD001CB8FE /* LQSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E436F2BC1D72CECD001CB8FE /* LQSMessage.m */; };
 		E4430D4D1D54B74C0014A6FE /* CloverSlider.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D411D54B74C0014A6FE /* CloverSlider.js */; };
 		E4430D4E1D54B74C0014A6FE /* getImageSource.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D421D54B74C0014A6FE /* getImageSource.js */; };
 		E4430D4F1D54B74C0014A6FE /* Discount.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D431D54B74C0014A6FE /* Discount.js */; };
@@ -425,11 +426,14 @@
 		B80111351D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSPickerSelectCollectionViewCell.h; path = main/View/LQSPickerSelectCollectionViewCell.h; sourceTree = "<group>"; };
 		B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSPickerSelectCollectionViewCell.m; path = main/View/LQSPickerSelectCollectionViewCell.m; sourceTree = "<group>"; };
 		CCAA7D55F8D7734222CE3140 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DF6E05C31D729F4A0099395A /* LQSForumDetailSectionHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumDetailSectionHeadView.h; path = forum/View/LQSForumDetailSectionHeadView.h; sourceTree = "<group>"; };
-		DF6E05C41D729F4A0099395A /* LQSForumDetailSectionHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumDetailSectionHeadView.m; path = forum/View/LQSForumDetailSectionHeadView.m; sourceTree = "<group>"; };
-		DF6E05C51D729F4A0099395A /* LQSForumDetailSectionHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LQSForumDetailSectionHeadView.xib; path = forum/View/LQSForumDetailSectionHeadView.xib; sourceTree = "<group>"; };
 		DFDC33151D714BF20059BDB4 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "categories/UIColor+Hex.h"; sourceTree = "<group>"; };
 		DFDC33161D714BF20059BDB4 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "categories/UIColor+Hex.m"; sourceTree = "<group>"; };
+		E436F2B51D72B6F7001CB8FE /* LQSMessageCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessageCenterManager.h; sourceTree = "<group>"; };
+		E436F2B61D72B6F7001CB8FE /* LQSMessageCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageCenterManager.m; sourceTree = "<group>"; };
+		E436F2B81D72BC23001CB8FE /* LQSMessageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessageRequest.h; sourceTree = "<group>"; };
+		E436F2B91D72BC23001CB8FE /* LQSMessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageRequest.m; sourceTree = "<group>"; };
+		E436F2BB1D72CECD001CB8FE /* LQSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessage.h; sourceTree = "<group>"; };
+		E436F2BC1D72CECD001CB8FE /* LQSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessage.m; sourceTree = "<group>"; };
 		E4430D411D54B74C0014A6FE /* CloverSlider.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = CloverSlider.js; sourceTree = "<group>"; };
 		E4430D421D54B74C0014A6FE /* getImageSource.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = getImageSource.js; sourceTree = "<group>"; };
 		E4430D431D54B74C0014A6FE /* Discount.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Discount.js; sourceTree = "<group>"; };
@@ -944,6 +948,7 @@
 		41852FC11CE31D21003CD9D4 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				E436F2B41D72B5B1001CB8FE /* Message */,
 				E4D8E1D21D5423D700EE6171 /* baseModel */,
 				E4D8E1CE1D54237200EE6171 /* RestRequset */,
 				E4D8E1B71D54188500EE6171 /* LQSBaseManager.h */,
@@ -977,9 +982,6 @@
 		5630993A1D2E321200FC9EE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DF6E05C31D729F4A0099395A /* LQSForumDetailSectionHeadView.h */,
-				DF6E05C41D729F4A0099395A /* LQSForumDetailSectionHeadView.m */,
-				DF6E05C51D729F4A0099395A /* LQSForumDetailSectionHeadView.xib */,
 				1477F9DB1D7019BB00EE102C /* LQSForumDetailHeadView.h */,
 				1477F9DC1D7019BB00EE102C /* LQSForumDetailHeadView.m */,
 				0000C49C1D645C4A007C969C /* LQSMainView.h */,
@@ -1057,6 +1059,20 @@
 				A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E436F2B41D72B5B1001CB8FE /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				E436F2B51D72B6F7001CB8FE /* LQSMessageCenterManager.h */,
+				E436F2B61D72B6F7001CB8FE /* LQSMessageCenterManager.m */,
+				E436F2B81D72BC23001CB8FE /* LQSMessageRequest.h */,
+				E436F2B91D72BC23001CB8FE /* LQSMessageRequest.m */,
+				E436F2BB1D72CECD001CB8FE /* LQSMessage.h */,
+				E436F2BC1D72CECD001CB8FE /* LQSMessage.m */,
+			);
+			name = Message;
+			path = core/Message;
 			sourceTree = "<group>";
 		};
 		E4430D3F1D54B74C0014A6FE /* ReactNative */ = {
@@ -1280,7 +1296,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF6E05C71D729F4A0099395A /* LQSForumDetailSectionHeadView.xib in Resources */,
 				E4430D571D54B74C0014A6FE /* index.ios.js in Resources */,
 				415C55621CC8CCEE00408B90 /* LaunchScreen.storyboard in Resources */,
 				417269BE1D704CA1000AC13B /* setting_profile_bgWall.jpg in Resources */,
@@ -1501,6 +1516,7 @@
 				00D048581D6FE56200275FAB /* LQSMessageFriendsApplyViewController.m in Sources */,
 				410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */,
 				410FA23D1D38EBB60021B7E2 /* LQSEmotionKeyboard.m in Sources */,
+				E436F2BD1D72CECD001CB8FE /* LQSMessage.m in Sources */,
 				2CB084DE1D60508A00167F4D /* MJPhotoToolbar.m in Sources */,
 				415C55541CC8CCEE00408B90 /* main.m in Sources */,
 				411FE7AC1D6D6DC700563324 /* LQSWaterFlowView.m in Sources */,
@@ -1519,12 +1535,12 @@
 				00D048491D6FE3ED00275FAB /* LQSAccountManagementViewController.m in Sources */,
 				E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */,
 				410FA2701D38EC100021B7E2 /* LQSSettingCell.m in Sources */,
-				DF6E05C61D729F4A0099395A /* LQSForumDetailSectionHeadView.m in Sources */,
 				2CB084DB1D60508A00167F4D /* MJPhotoBrowser.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				E4D8E1D11D54237200EE6171 /* LQSBaseRestRequest.m in Sources */,
 				2CB084D91D60508A00167F4D /* MJPhoto.m in Sources */,
 				410FA28C1D38EC390021B7E2 /* LQSMessageMentionedMeViewController.m in Sources */,
+				E436F2B71D72B6F7001CB8FE /* LQSMessageCenterManager.m in Sources */,
 				412E8C2F1D3DC6A4008C2553 /* LQSCore.m in Sources */,
 				411FE7931D6D6DAE00563324 /* LQSDiscoverViewController.m in Sources */,
 				00D048401D6FE30B00275FAB /* LQSSettingTopDataModel.m in Sources */,
@@ -1546,6 +1562,7 @@
 				0000C49E1D645C4A007C969C /* LQSMainView.m in Sources */,
 				410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */,
 				B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */,
+				E436F2BA1D72BC23001CB8FE /* LQSMessageRequest.m in Sources */,
 				E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */,
 				2CB084DC1D60508A00167F4D /* MJPhotoLoadingView.m in Sources */,
 				0000C4B71D645EB5007C969C /* LQSLastestMarrowModel.m in Sources */,

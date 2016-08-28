@@ -80,8 +80,10 @@
             [[LQSUserManager defaultManager] reloadToken:result[@"token"]];
             
             [self.observerController didAuthSuccess:userinfo];
+            [[NSNotificationCenter defaultCenter] postNotificationName:KLQSLoginSuccessNotification object:userinfo];
         } else {
             [self.observerController didAuthFailed:error];
+            [[NSNotificationCenter defaultCenter] postNotificationName:KLQSLoginFailedNotification object:error];
         }
         block(userinfo, error);
     }];
