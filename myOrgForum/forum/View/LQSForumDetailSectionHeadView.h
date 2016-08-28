@@ -11,7 +11,7 @@
 @protocol LQSForumDetailSection;
 @interface LQSForumDetailSectionHeadView : UIView
 
-- (void)re
+- (void)removeSubForum;
 
 @end
 

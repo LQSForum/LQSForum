@@ -19,7 +19,9 @@
 
 @implementation LQSForumDetailSectionHeadView
 
-
+- (void)removeSubForum{
+    [_sonButton removeFromSuperview];
+}
 
 
 - (IBAction)buttonClick:(UIButton *)sender {

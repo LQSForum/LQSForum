@@ -11,6 +11,7 @@
 #import "LQSForumDetailHeadView.h"
 #import "LQSForumDetailTopCell.h"
 #import "LQSForumDetailCell.h"
+#import "LQSForumDetailSectionHeadView.h"
 @interface LQSForumDetailViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *mainTableView;
 @property (strong, nonatomic) IBOutlet LQSForumDetailHeadView *tableHeadView;
