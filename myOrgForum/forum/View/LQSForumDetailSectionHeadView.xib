@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LQSForumDetailSectionHeadView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Foj-JH-RlR" userLabel="allButton">
+                    <rect key="frame" x="0.0" y="10" width="80" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="全部">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.25882352939999997" green="0.76078431369999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="TAh-at-z8L"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fht-dp-kbd" userLabel="newButton">
+                    <rect key="frame" x="80" y="10" width="80" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="最新">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.25882352939999997" green="0.76078431369999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9F-nU-bNr" userLabel="sonButton">
+                    <rect key="frame" x="240" y="10" width="80" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="子版块">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.25882352939999997" green="0.76078431369999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kT8-Ud-vgZ" userLabel="indicatorView">
+                    <rect key="frame" x="0.0" y="42" width="80" height="3"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="3" id="oVO-Iq-YPv"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhF-VZ-vsu" userLabel="essButton">
+                    <rect key="frame" x="160" y="10" width="80" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="精华">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.25882352939999997" green="0.76078431369999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Z9F-nU-bNr" firstAttribute="width" secondItem="Foj-JH-RlR" secondAttribute="width" id="05r-JJ-3z3"/>
+                <constraint firstItem="jhF-VZ-vsu" firstAttribute="leading" secondItem="Fht-dp-kbd" secondAttribute="trailing" id="0aT-5u-omN"/>
+                <constraint firstAttribute="bottom" secondItem="Fht-dp-kbd" secondAttribute="bottom" id="5cn-rZ-WJp"/>
+                <constraint firstItem="kT8-Ud-vgZ" firstAttribute="width" secondItem="Foj-JH-RlR" secondAttribute="width" id="AlD-6D-nA2"/>
+                <constraint firstAttribute="trailing" secondItem="jhF-VZ-vsu" secondAttribute="trailing" priority="999" id="Igs-KW-SO1"/>
+                <constraint firstItem="jhF-VZ-vsu" firstAttribute="width" secondItem="Foj-JH-RlR" secondAttribute="width" id="JRg-mR-WBQ"/>
+                <constraint firstAttribute="trailing" secondItem="Z9F-nU-bNr" secondAttribute="trailing" id="PvX-72-Qmw"/>
+                <constraint firstItem="Foj-JH-RlR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Q3Y-fv-BsA"/>
+                <constraint firstItem="jhF-VZ-vsu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="U5c-sy-9gH"/>
+                <constraint firstItem="Fht-dp-kbd" firstAttribute="width" secondItem="Foj-JH-RlR" secondAttribute="width" id="UCB-5a-b33"/>
+                <constraint firstAttribute="bottom" secondItem="Foj-JH-RlR" secondAttribute="bottom" id="a8b-Kk-mk0"/>
+                <constraint firstItem="Z9F-nU-bNr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="aaC-RA-9OO"/>
+                <constraint firstAttribute="bottom" secondItem="jhF-VZ-vsu" secondAttribute="bottom" id="fbS-XV-iqB"/>
+                <constraint firstAttribute="bottom" secondItem="kT8-Ud-vgZ" secondAttribute="bottom" id="fbT-5e-1lM"/>
+                <constraint firstAttribute="bottom" secondItem="Z9F-nU-bNr" secondAttribute="bottom" id="khM-XD-xYv"/>
+                <constraint firstItem="Fht-dp-kbd" firstAttribute="leading" secondItem="Foj-JH-RlR" secondAttribute="trailing" id="lic-sw-p0I"/>
+                <constraint firstItem="kT8-Ud-vgZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="naV-UV-Fff"/>
+                <constraint firstItem="Z9F-nU-bNr" firstAttribute="leading" secondItem="jhF-VZ-vsu" secondAttribute="trailing" id="vZd-US-Zfs"/>
+                <constraint firstItem="Foj-JH-RlR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="vdS-TG-swd"/>
+                <constraint firstItem="Fht-dp-kbd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="xYE-1L-h7D"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="allButton" destination="Foj-JH-RlR" id="72v-dt-sug"/>
+                <outlet property="essButton" destination="jhF-VZ-vsu" id="Mnu-LI-FsB"/>
+                <outlet property="indicatorView" destination="kT8-Ud-vgZ" id="2sS-n8-CTf"/>
+                <outlet property="newsButton" destination="Fht-dp-kbd" id="hPN-c6-eGJ"/>
+                <outlet property="sonButton" destination="Z9F-nU-bNr" id="CAz-kb-bLa"/>
+            </connections>
+            <point key="canvasLocation" x="339" y="157.5"/>
+        </view>
+    </objects>
+</document>

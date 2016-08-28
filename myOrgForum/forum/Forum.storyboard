@@ -175,6 +175,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="titleLabel" destination="wnd-TZ-omp" id="Zhg-Ld-5SJ"/>
+                                            <outlet property="topLabel" destination="ZFm-Jt-kwZ" id="lfL-We-iUl"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LQSForumDetailCell" rowHeight="90" id="MKJ-Cz-WRQ" customClass="LQSForumDetailCell">

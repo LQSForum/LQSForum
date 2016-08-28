@@ -66,14 +66,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 -(void)loadServerData{
     [self.topArray removeAllObjects];
     for (NSMutableArray *item in self.mainArray) {
@@ -91,9 +91,15 @@
                            @"pageSize":@20,
                            @"page":@(self.pageNum),
                            @"boardId":@(self.boardid),
+                           @"apphash":@"1de934cc",
                            @"accessToken":@"7e3972a7a729e541ee373e7da3d06",
                            @"accessSecret":@"39a68e4d5473e75669bce2d70c4b9",
-                           @"forumKey":@"BW0L5ISVRsOTVLCTJx"};
+                           @"forumKey":@"BW0L5ISVRsOTVLCTJx",
+                           @"isRatio":@"1",
+                           @"topOrder":@"1",
+                           @"circle":@"0",
+                           @"egnVersion":@"v2035.2",
+                           @"sdkVersion":@"2.4.3.0"};
     __weak typeof(self) weakSelf = self;
     [self.sessionManager POST:urlString parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSData *data = responseObject;
@@ -122,7 +128,7 @@
     
 }
 -(void)loadServerMoreData{
-
+    
 }
 
 #pragma mark - UITableViewDelegate
@@ -136,14 +142,14 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.topArray.count != 0 && section == 0) {
-            return MIN(self.topArray.count, 4);
+        return MIN(self.topArray.count, 4);
     }
     return [self.mainArray[self.sortBy] count];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.topArray.count != 0 && indexPath.section == 0) {
-        if (self.topArray.count < 3) {
+        if (indexPath.row < 3) {
             return 40;
         }
         return 30;
@@ -153,13 +159,25 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.topArray.count != 0 && indexPath.section == 0) {
+        if (indexPath.row < 3) {
+            //置顶的前三个点击方向  Model:self.topArray[indexPath.row]
+            
+            return;
+        }
+        //更多的点击方向
+        return ;
+    }
+    //下面列表的点击方向  Model:self.mainArray[self.sortBy][indexPath.row];
+    return;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.topArray.count != 0 && indexPath.section == 0) {
-        if (self.topArray.count < 3) {
+        if (indexPath.row < 3) {
             LQSForumDetailTopCell* cell = [tableView dequeueReusableCellWithIdentifier:@"LQSForumDetailTopCell"];
             cell.model = self.topArray[indexPath.row];
+            return cell;
         }
         return [tableView dequeueReusableCellWithIdentifier:@"LQSForumDetailTopMoreCell"];
     }
