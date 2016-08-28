@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "dz_board_top_more.png",
+      "filename" : "dz_icon_topic_default.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "",
       "scale" : "2x"
     },
     {

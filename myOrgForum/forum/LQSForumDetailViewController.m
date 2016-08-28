@@ -14,10 +14,17 @@
 #import "LQSForumDetailSectionHeadView.h"
 #import "LQSCellModel.h"
 #import "LQSForumDetailChildCell.h"
-@interface LQSForumDetailViewController ()<LQSForumDetailSectionDelegete>
+#import "LQSForumDetailOptionViewController.h"
+@interface LQSForumDetailViewController ()<LQSForumDetailSectionDelegete,LQSForumDetailOptionDelegate>{
+    BOOL   _isShowOption;
+}
 @property (strong, nonatomic) IBOutlet UITableView *mainTableView;
 @property (strong, nonatomic) IBOutlet LQSForumDetailHeadView *tableHeadView;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UIView *maskView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
 
+@property (nonatomic, readwrite, retain) LQSForumDetailOptionViewController *optionView;
 @property (nonatomic, readwrite, retain) LQSForumDetailSectionHeadView *sectionHeadView;
 @property (nonatomic, readwrite, retain) NSMutableArray *topArray;
 @property (nonatomic, readwrite, retain) NSMutableArray *mainArray;
@@ -33,6 +40,10 @@
     if ([self.mainTableView respondsToSelector:@selector(setLayoutMargins:)]) {
         [self.mainTableView setLayoutMargins:UIEdgeInsetsZero];
     }
+}
+
+- (void)setTitle:(NSString *)title{
+    _titleLabel.text = title;
 }
 
 - (AFHTTPSessionManager *)sessionManager {
@@ -51,6 +62,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.sortBy = 0;
+    _isShowOption = NO;
     //初始化里面3个数组
     _mainArray = [NSMutableArray new];
     _topArray = [NSMutableArray new];
@@ -69,15 +81,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+     if ([segue.identifier isEqualToString:@"optionEmbed"]) {
+         _optionView = segue.destinationViewController;
+         _optionView.delegate = self;
+     }
  }
- */
 - (void)loadChildForum{
     [self.mainArray[3] removeAllObjects];
     NSString *urlString = [NSString stringWithFormat:@"http://forum.longquanzs.org//mobcent/app/web/index.php?r=forum/forumlist"];
@@ -203,6 +212,21 @@
         kNetworkNotReachedMessage;
     }];
 }
+#pragma mark - Action
+-(IBAction)titleViewClick:(UITapGestureRecognizer*)sender{
+    if (_isShowOption) {
+        _isShowOption = NO;
+        _topLayoutConstraint.constant = 0.0f;
+        _maskView.alpha = 0.0;
+    }
+    else{
+        _isShowOption = YES;
+        _topLayoutConstraint.constant = 133;
+        _maskView.alpha = 1.0;
+    }
+}
+#pragma mark - LQSForumDetailOptionDelegate
+
 #pragma mark - LQSForumDetailSectionDelegete
 - (void)selectTheType:(NSInteger)type{
     //NSLog(@"type = %zd",type);
@@ -277,6 +301,7 @@
         LQSForumDetailViewController* detailVC = [[UIStoryboard storyboardWithName:@"Forum" bundle:nil] instantiateViewControllerWithIdentifier:@"ForumDetail"];
         detailVC.boardid = cellModel.board_id;
         detailVC.boardChild = cellModel.board_child;
+        detailVC.title = cellModel.board_name;
         [self.navigationController pushViewController:detailVC animated:YES];
         return;
     }

@@ -127,6 +127,8 @@
 		B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111331D5DC11700D7A05C /* LQSLocationModel.m */; };
 		B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */; };
 		DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */; };
+		DF5A072C1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072B1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m */; };
+		DF5A072F1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072E1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m */; };
 		DF6E05CB1D72E72E0099395A /* LQSForumDetailSectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6E05C91D72E72E0099395A /* LQSForumDetailSectionHeadView.m */; };
 		DF6E05CC1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF6E05CA1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib */; };
 		DFDC33171D714BF20059BDB4 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDC33161D714BF20059BDB4 /* UIColor+Hex.m */; };
@@ -431,6 +433,10 @@
 		CCAA7D55F8D7734222CE3140 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DF5A07271D72F2AB001B2ED7 /* LQSForumDetailChildCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSForumDetailChildCell.h; sourceTree = "<group>"; };
 		DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSForumDetailChildCell.m; sourceTree = "<group>"; };
+		DF5A072A1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumDetailOptionViewController.h; path = forum/LQSForumDetailOptionViewController.h; sourceTree = "<group>"; };
+		DF5A072B1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumDetailOptionViewController.m; path = forum/LQSForumDetailOptionViewController.m; sourceTree = "<group>"; };
+		DF5A072D1D732DF4001B2ED7 /* LQSForumDetailOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSForumDetailOptionCell.h; sourceTree = "<group>"; };
+		DF5A072E1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSForumDetailOptionCell.m; sourceTree = "<group>"; };
 		DF6E05C81D72E72E0099395A /* LQSForumDetailSectionHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumDetailSectionHeadView.h; path = forum/View/LQSForumDetailSectionHeadView.h; sourceTree = "<group>"; };
 		DF6E05C91D72E72E0099395A /* LQSForumDetailSectionHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumDetailSectionHeadView.m; path = forum/View/LQSForumDetailSectionHeadView.m; sourceTree = "<group>"; };
 		DF6E05CA1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LQSForumDetailSectionHeadView.xib; path = forum/View/LQSForumDetailSectionHeadView.xib; sourceTree = "<group>"; };
@@ -513,6 +519,8 @@
 			children = (
 				1477F9DE1D7019C500EE102C /* LQSForumDetailCell.h */,
 				1477F9DF1D7019C500EE102C /* LQSForumDetailCell.m */,
+				DF5A072D1D732DF4001B2ED7 /* LQSForumDetailOptionCell.h */,
+				DF5A072E1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m */,
 				DF5A07271D72F2AB001B2ED7 /* LQSForumDetailChildCell.h */,
 				DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */,
 				1477F9E01D7019C500EE102C /* LQSForumDetailTopCell.h */,
@@ -928,6 +936,8 @@
 				1477F9D61D7019A600EE102C /* Forum.storyboard */,
 				1477F9D71D7019A600EE102C /* LQSForumDetailViewController.h */,
 				1477F9D81D7019A600EE102C /* LQSForumDetailViewController.m */,
+				DF5A072A1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.h */,
+				DF5A072B1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m */,
 				5630993A1D2E321200FC9EE6 /* View */,
 				0000C4A81D645D40007C969C /* Cell */,
 				563099391D2E31FE00FC9EE6 /* Model */,
@@ -1508,6 +1518,8 @@
 				2CB084DF1D60508A00167F4D /* MJPhotoView.m in Sources */,
 				410FA2281D38EBA30021B7E2 /* LQSTextView.m in Sources */,
 				410FA21E1D38EBA30021B7E2 /* LQSEmotion.m in Sources */,
+				DF5A072F1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m in Sources */,
+				DF5A072C1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m in Sources */,
 				410FA2AE1D38EC790021B7E2 /* LQSSectionModel.m in Sources */,
 				1477F9E31D7019C500EE102C /* LQSForumDetailTopCell.m in Sources */,
 				411FE7941D6D6DAE00563324 /* LQSDongmanViewController.m in Sources */,
