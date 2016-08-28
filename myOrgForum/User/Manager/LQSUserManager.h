@@ -9,8 +9,8 @@
 #import "LQSBaseManager.h"
 #import "LQSUserInfo.h"
 
-const NSString *  KLQSLoginSuccessNotification = @"KLQSLoginSuccessNotification";
-const NSString *  KLQSLoginFailedNotification = @"KLQSLoginFailedNotification";
+extern NSString * const KLQSLoginSuccessNotification;
+extern NSString * const KLQSLoginFailedNotification;
 
 @protocol LQSUserAuthDelegate <NSObject>
 

@@ -10,6 +10,9 @@
 #import "LQSUserRequest.h"
 #import "LQSBaseModel_Private.h"
 
+NSString * const KLQSLoginSuccessNotification = @"KLQSLoginSuccessNotification";
+NSString * const KLQSLoginFailedNotification = @"KLQSLoginFailedNotification";
+
 @implementation LQSUserManager
 
 -(void) clearAccessInfo {
