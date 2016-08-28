@@ -28,11 +28,13 @@
 #import "LQSWaterFlowView.h"
 #import "LQSWaterFlowViewCell.h"
 //setting
-
+#import "LQSHomePagePersonalZiliaoTableViewCell.h"
 #import "LQSMessageTableViewCell.h"
 #import "LQSHomePagePersonalMessageTableViewCell.h"
 #import "LQSDetailSettingTableViewCell.h"
 #import "LQSSettingPersonalSettingViewCell.h"
+#import "LQSHomePagePersonalMessageView.h"
+#import "LQSHomePagePersonalPresentTableViewCell.h"
 //main
 #import "LQSCompostToolbar.h"
 #import "LQSComposePhotosView.h"

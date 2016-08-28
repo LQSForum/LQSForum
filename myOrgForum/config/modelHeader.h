@@ -13,6 +13,8 @@
 //model
 #import "YYModel.h"
 //setting
+#import "LQSHomePagePersonalZiliaoDataModel.h"
+#import "LQSHomePagePersonalPresentDataModel.h"
 #import "LQSSettingPersonalSettingDataModel.h"
 #import "LQSSettingModel.h"
 #import "LQSMessageDataModel.h"

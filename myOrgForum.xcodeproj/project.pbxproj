@@ -31,6 +31,12 @@
 		1477F9E21D7019C500EE102C /* LQSForumDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9DF1D7019C500EE102C /* LQSForumDetailCell.m */; };
 		1477F9E31D7019C500EE102C /* LQSForumDetailTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9E11D7019C500EE102C /* LQSForumDetailTopCell.m */; };
 		1477F9E61D70292900EE102C /* LQSForumDetailForumInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9E51D70292900EE102C /* LQSForumDetailForumInfoModel.m */; };
+		2C6222A21D71BD0400D7702C /* LQSHomePagePersonalMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6222A11D71BD0400D7702C /* LQSHomePagePersonalMessageView.m */; };
+		2C6222A51D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6222A41D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.m */; };
+		2C6222AB1D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6222AA1D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.m */; };
+		2C6222AE1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6222AD1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.m */; };
+		2C6222B11D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6222B01D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.m */; };
+		2C6222B41D72B57A00D7702C /* LQSProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6222B31D72B57A00D7702C /* LQSProfileEditViewController.m */; };
 		2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084B21D6029F900167F4D /* NSDate+MJ.m */; };
 		2CB084D91D60508A00167F4D /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084CB1D60508A00167F4D /* MJPhoto.m */; };
 		2CB084DA1D60508A00167F4D /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2CB084CC1D60508A00167F4D /* MJPhotoBrowser.bundle */; };
@@ -216,6 +222,19 @@
 		1477F9E51D70292900EE102C /* LQSForumDetailForumInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumDetailForumInfoModel.m; path = forum/Model/LQSForumDetailForumInfoModel.m; sourceTree = "<group>"; };
 		14E37D8AF205E4AAC6AB2302 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2AEC7AB4431F7F14A52266D9 /* Pods-myOrgForumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2C62229F1D7189FB00D7702C /* xxxxxxxx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xxxxxxxx.h; sourceTree = "<group>"; };
+		2C6222A01D71BD0400D7702C /* LQSHomePagePersonalMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalMessageView.h; sourceTree = "<group>"; };
+		2C6222A11D71BD0400D7702C /* LQSHomePagePersonalMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalMessageView.m; sourceTree = "<group>"; };
+		2C6222A31D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalPresentTableViewCell.h; sourceTree = "<group>"; };
+		2C6222A41D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalPresentTableViewCell.m; sourceTree = "<group>"; };
+		2C6222A91D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalPresentDataModel.h; sourceTree = "<group>"; };
+		2C6222AA1D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalPresentDataModel.m; sourceTree = "<group>"; };
+		2C6222AC1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalZiliaoDataModel.h; sourceTree = "<group>"; };
+		2C6222AD1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalZiliaoDataModel.m; sourceTree = "<group>"; };
+		2C6222AF1D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalZiliaoTableViewCell.h; sourceTree = "<group>"; };
+		2C6222B01D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalZiliaoTableViewCell.m; sourceTree = "<group>"; };
+		2C6222B21D72B57A00D7702C /* LQSProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSProfileEditViewController.h; sourceTree = "<group>"; };
+		2C6222B31D72B57A00D7702C /* LQSProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSProfileEditViewController.m; sourceTree = "<group>"; };
 		2CA7813C1D4388DE00D35288 /* myOrgForum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = myOrgForum.entitlements; sourceTree = "<group>"; };
 		2CA781521D446A8000D35288 /* APIS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIS.h; sourceTree = "<group>"; };
 		2CB084B11D6029F900167F4D /* NSDate+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+MJ.h"; path = "categories/NSDate+MJ.h"; sourceTree = "<group>"; };
@@ -633,6 +652,16 @@
 		414600EF1CEF2C0500628B60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2C6222B21D72B57A00D7702C /* LQSProfileEditViewController.h */,
+				2C6222B31D72B57A00D7702C /* LQSProfileEditViewController.m */,
+				2C6222AF1D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.h */,
+				2C6222B01D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.m */,
+				2C6222AC1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.h */,
+				2C6222AD1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.m */,
+				2C6222A31D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.h */,
+				2C6222A41D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.m */,
+				2C6222A91D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.h */,
+				2C6222AA1D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.m */,
 				417269B91D70119A000AC13B /* LQSHomePagePersonalMessageViewController.h */,
 				417269BA1D70119A000AC13B /* LQSHomePagePersonalMessageViewController.m */,
 				410FA26E1D38EC100021B7E2 /* LQSSettingViewController.h */,
@@ -668,6 +697,8 @@
 		414600F01CEF2C1C00628B60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2C6222A01D71BD0400D7702C /* LQSHomePagePersonalMessageView.h */,
+				2C6222A11D71BD0400D7702C /* LQSHomePagePersonalMessageView.m */,
 				410FA2921D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.h */,
 				410FA2931D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m */,
 				410FA26A1D38EC100021B7E2 /* LQSSettingCell.h */,
@@ -721,6 +752,7 @@
 		415C55461CC8CCEE00408B90 = {
 			isa = PBXGroup;
 			children = (
+				2C62229F1D7189FB00D7702C /* xxxxxxxx.h */,
 				417269BD1D704CA1000AC13B /* setting_profile_bgWall.jpg */,
 				415C55511CC8CCEE00408B90 /* myOrgForum */,
 				415C556B1CC8CCEE00408B90 /* myOrgForumTests */,
@@ -1473,6 +1505,7 @@
 				411FE7AB1D6D6DC700563324 /* LQSDongmanTableViewCell.m in Sources */,
 				0000C4A71D645D0F007C969C /* LQSLatestMarrowTableView.m in Sources */,
 				410FA23E1D38EBB60021B7E2 /* LQSEmotionListView.m in Sources */,
+				2C6222B11D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.m in Sources */,
 				00D048521D6FE4AA00275FAB /* LQSSettingMyFriendViewController.m in Sources */,
 				B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */,
 				2CB084DF1D60508A00167F4D /* MJPhotoView.m in Sources */,
@@ -1503,6 +1536,7 @@
 				410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */,
 				410FA23D1D38EBB60021B7E2 /* LQSEmotionKeyboard.m in Sources */,
 				2CB084DE1D60508A00167F4D /* MJPhotoToolbar.m in Sources */,
+				2C6222A21D71BD0400D7702C /* LQSHomePagePersonalMessageView.m in Sources */,
 				415C55541CC8CCEE00408B90 /* main.m in Sources */,
 				411FE7AC1D6D6DC700563324 /* LQSWaterFlowView.m in Sources */,
 				410FA1FF1D38EB8B0021B7E2 /* YYClassInfo.m in Sources */,
@@ -1518,6 +1552,7 @@
 				410FA2771D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.m in Sources */,
 				411FE79D1D6D6DC000563324 /* LQSDongmanModel.m in Sources */,
 				00D048491D6FE3ED00275FAB /* LQSAccountManagementViewController.m in Sources */,
+				2C6222B41D72B57A00D7702C /* LQSProfileEditViewController.m in Sources */,
 				E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */,
 				410FA2701D38EC100021B7E2 /* LQSSettingCell.m in Sources */,
 				2CB084DB1D60508A00167F4D /* MJPhotoBrowser.m in Sources */,
@@ -1530,6 +1565,7 @@
 				00D048401D6FE30B00275FAB /* LQSSettingTopDataModel.m in Sources */,
 				410FA2251D38EBA30021B7E2 /* LQSSpecifyHeader.m in Sources */,
 				E4D8E1C51D54193000EE6171 /* AsyncSocket.m in Sources */,
+				2C6222AB1D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.m in Sources */,
 				410FA2721D38EC100021B7E2 /* LQSSettingViewController.m in Sources */,
 				00D0484F1D6FE4A000275FAB /* LQSSettingMyFavourateViewController.m in Sources */,
 				0000C4B11D645E63007C969C /* LQSLatestMarrowTableViewCell.m in Sources */,
@@ -1546,6 +1582,7 @@
 				0000C49E1D645C4A007C969C /* LQSMainView.m in Sources */,
 				410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */,
 				B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */,
+				2C6222A51D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.m in Sources */,
 				E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */,
 				2CB084DC1D60508A00167F4D /* MJPhotoLoadingView.m in Sources */,
 				0000C4B71D645EB5007C969C /* LQSLastestMarrowModel.m in Sources */,
@@ -1556,6 +1593,7 @@
 				410FA2801D38EC2D0021B7E2 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,
 				2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */,
 				410FA2231D38EBA30021B7E2 /* LQSRootTableViewCell.m in Sources */,
+				2C6222AE1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.m in Sources */,
 				410FA22C1D38EBA30021B7E2 /* rootViewController.m in Sources */,
 				2CB084E01D60508A00167F4D /* SDWebImageManager+MJ.m in Sources */,
 				410FA28D1D38EC390021B7E2 /* LQSMessageViewController.m in Sources */,
@@ -1724,7 +1762,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/xjw/Desktop/LQSLT/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/zhoushuang/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1776,7 +1814,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/xjw/Desktop/LQSLT/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/zhoushuang/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
