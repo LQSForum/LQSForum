@@ -126,6 +126,8 @@
 		B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */; };
 		B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111331D5DC11700D7A05C /* LQSLocationModel.m */; };
 		B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */; };
+		DF6E05CB1D72E72E0099395A /* LQSForumDetailSectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6E05C91D72E72E0099395A /* LQSForumDetailSectionHeadView.m */; };
+		DF6E05CC1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF6E05CA1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib */; };
 		DFDC33171D714BF20059BDB4 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDC33161D714BF20059BDB4 /* UIColor+Hex.m */; };
 		E436F2B71D72B6F7001CB8FE /* LQSMessageCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E436F2B61D72B6F7001CB8FE /* LQSMessageCenterManager.m */; };
 		E436F2BA1D72BC23001CB8FE /* LQSMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E436F2B91D72BC23001CB8FE /* LQSMessageRequest.m */; };
@@ -426,6 +428,9 @@
 		B80111351D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSPickerSelectCollectionViewCell.h; path = main/View/LQSPickerSelectCollectionViewCell.h; sourceTree = "<group>"; };
 		B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSPickerSelectCollectionViewCell.m; path = main/View/LQSPickerSelectCollectionViewCell.m; sourceTree = "<group>"; };
 		CCAA7D55F8D7734222CE3140 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DF6E05C81D72E72E0099395A /* LQSForumDetailSectionHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumDetailSectionHeadView.h; path = forum/View/LQSForumDetailSectionHeadView.h; sourceTree = "<group>"; };
+		DF6E05C91D72E72E0099395A /* LQSForumDetailSectionHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumDetailSectionHeadView.m; path = forum/View/LQSForumDetailSectionHeadView.m; sourceTree = "<group>"; };
+		DF6E05CA1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LQSForumDetailSectionHeadView.xib; path = forum/View/LQSForumDetailSectionHeadView.xib; sourceTree = "<group>"; };
 		DFDC33151D714BF20059BDB4 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "categories/UIColor+Hex.h"; sourceTree = "<group>"; };
 		DFDC33161D714BF20059BDB4 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "categories/UIColor+Hex.m"; sourceTree = "<group>"; };
 		E436F2B51D72B6F7001CB8FE /* LQSMessageCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessageCenterManager.h; sourceTree = "<group>"; };
@@ -982,6 +987,9 @@
 		5630993A1D2E321200FC9EE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DF6E05C81D72E72E0099395A /* LQSForumDetailSectionHeadView.h */,
+				DF6E05C91D72E72E0099395A /* LQSForumDetailSectionHeadView.m */,
+				DF6E05CA1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib */,
 				1477F9DB1D7019BB00EE102C /* LQSForumDetailHeadView.h */,
 				1477F9DC1D7019BB00EE102C /* LQSForumDetailHeadView.m */,
 				0000C49C1D645C4A007C969C /* LQSMainView.h */,
@@ -1296,6 +1304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF6E05CC1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib in Resources */,
 				E4430D571D54B74C0014A6FE /* index.ios.js in Resources */,
 				415C55621CC8CCEE00408B90 /* LaunchScreen.storyboard in Resources */,
 				417269BE1D704CA1000AC13B /* setting_profile_bgWall.jpg in Resources */,
@@ -1474,6 +1483,7 @@
 				1477F9E61D70292900EE102C /* LQSForumDetailForumInfoModel.m in Sources */,
 				410FA2991D38EC4C0021B7E2 /* LQSMyHomePageViewController.m in Sources */,
 				410FA2781D38EC230021B7E2 /* LQSMessageDataModel.m in Sources */,
+				DF6E05CB1D72E72E0099395A /* LQSForumDetailSectionHeadView.m in Sources */,
 				410FA2261D38EBA30021B7E2 /* LQSTabBar.m in Sources */,
 				410FA2201D38EBA30021B7E2 /* LQSEmotionTool.m in Sources */,
 				0000C4A41D645CF5007C969C /* LQSRightTableView.m in Sources */,

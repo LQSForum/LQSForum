@@ -35,6 +35,9 @@
                     <state key="selected">
                         <color key="titleColor" red="0.25882352939999997" green="0.76078431369999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="lvF-MU-Exh"/>
+                    </connections>
                 </button>
                 <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9F-nU-bNr" userLabel="sonButton">
                     <rect key="frame" x="240" y="10" width="80" height="35"/>
@@ -46,10 +49,13 @@
                     <state key="selected">
                         <color key="titleColor" red="0.25882352939999997" green="0.76078431369999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="VcL-xV-kFm"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kT8-Ud-vgZ" userLabel="indicatorView">
                     <rect key="frame" x="0.0" y="42" width="80" height="3"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.25882352939999997" green="0.76078431369999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="3" id="oVO-Iq-YPv"/>
                     </constraints>
@@ -64,6 +70,9 @@
                     <state key="selected">
                         <color key="titleColor" red="0.25882352939999997" green="0.76078431369999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="hV1-aL-gUM"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,7 +81,7 @@
                 <constraint firstItem="jhF-VZ-vsu" firstAttribute="leading" secondItem="Fht-dp-kbd" secondAttribute="trailing" id="0aT-5u-omN"/>
                 <constraint firstAttribute="bottom" secondItem="Fht-dp-kbd" secondAttribute="bottom" id="5cn-rZ-WJp"/>
                 <constraint firstItem="kT8-Ud-vgZ" firstAttribute="width" secondItem="Foj-JH-RlR" secondAttribute="width" id="AlD-6D-nA2"/>
-                <constraint firstAttribute="trailing" secondItem="jhF-VZ-vsu" secondAttribute="trailing" priority="999" id="Igs-KW-SO1"/>
+                <constraint firstAttribute="trailing" secondItem="jhF-VZ-vsu" secondAttribute="trailing" priority="750" id="Igs-KW-SO1"/>
                 <constraint firstItem="jhF-VZ-vsu" firstAttribute="width" secondItem="Foj-JH-RlR" secondAttribute="width" id="JRg-mR-WBQ"/>
                 <constraint firstAttribute="trailing" secondItem="Z9F-nU-bNr" secondAttribute="trailing" id="PvX-72-Qmw"/>
                 <constraint firstItem="Foj-JH-RlR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Q3Y-fv-BsA"/>
@@ -93,6 +102,7 @@
             <connections>
                 <outlet property="allButton" destination="Foj-JH-RlR" id="72v-dt-sug"/>
                 <outlet property="essButton" destination="jhF-VZ-vsu" id="Mnu-LI-FsB"/>
+                <outlet property="indicatorLayoutConstraint" destination="naV-UV-Fff" id="FwW-R8-fG2"/>
                 <outlet property="indicatorView" destination="kT8-Ud-vgZ" id="2sS-n8-CTf"/>
                 <outlet property="newsButton" destination="Fht-dp-kbd" id="hPN-c6-eGJ"/>
                 <outlet property="sonButton" destination="Z9F-nU-bNr" id="CAz-kb-bLa"/>
