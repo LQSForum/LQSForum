@@ -74,6 +74,13 @@
                         <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="hV1-aL-gUM"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oY-i6-S2s" userLabel="lineView">
+                    <rect key="frame" x="0.0" y="45" width="320" height="1"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="fEd-ug-ftb"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -82,7 +89,10 @@
                 <constraint firstAttribute="bottom" secondItem="Fht-dp-kbd" secondAttribute="bottom" id="5cn-rZ-WJp"/>
                 <constraint firstItem="kT8-Ud-vgZ" firstAttribute="width" secondItem="Foj-JH-RlR" secondAttribute="width" id="AlD-6D-nA2"/>
                 <constraint firstAttribute="trailing" secondItem="jhF-VZ-vsu" secondAttribute="trailing" priority="750" id="Igs-KW-SO1"/>
+                <constraint firstAttribute="trailing" secondItem="4oY-i6-S2s" secondAttribute="trailing" id="J3L-ii-rs6"/>
                 <constraint firstItem="jhF-VZ-vsu" firstAttribute="width" secondItem="Foj-JH-RlR" secondAttribute="width" id="JRg-mR-WBQ"/>
+                <constraint firstItem="4oY-i6-S2s" firstAttribute="top" secondItem="jhF-VZ-vsu" secondAttribute="bottom" id="LBF-4F-aYx"/>
+                <constraint firstItem="4oY-i6-S2s" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PUv-ZR-cYH"/>
                 <constraint firstAttribute="trailing" secondItem="Z9F-nU-bNr" secondAttribute="trailing" id="PvX-72-Qmw"/>
                 <constraint firstItem="Foj-JH-RlR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Q3Y-fv-BsA"/>
                 <constraint firstItem="jhF-VZ-vsu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="U5c-sy-9gH"/>

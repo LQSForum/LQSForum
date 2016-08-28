@@ -126,6 +126,7 @@
 		B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */; };
 		B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111331D5DC11700D7A05C /* LQSLocationModel.m */; };
 		B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */; };
+		DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */; };
 		DF6E05CB1D72E72E0099395A /* LQSForumDetailSectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6E05C91D72E72E0099395A /* LQSForumDetailSectionHeadView.m */; };
 		DF6E05CC1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF6E05CA1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib */; };
 		DFDC33171D714BF20059BDB4 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDC33161D714BF20059BDB4 /* UIColor+Hex.m */; };
@@ -428,6 +429,8 @@
 		B80111351D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSPickerSelectCollectionViewCell.h; path = main/View/LQSPickerSelectCollectionViewCell.h; sourceTree = "<group>"; };
 		B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSPickerSelectCollectionViewCell.m; path = main/View/LQSPickerSelectCollectionViewCell.m; sourceTree = "<group>"; };
 		CCAA7D55F8D7734222CE3140 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DF5A07271D72F2AB001B2ED7 /* LQSForumDetailChildCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSForumDetailChildCell.h; sourceTree = "<group>"; };
+		DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSForumDetailChildCell.m; sourceTree = "<group>"; };
 		DF6E05C81D72E72E0099395A /* LQSForumDetailSectionHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumDetailSectionHeadView.h; path = forum/View/LQSForumDetailSectionHeadView.h; sourceTree = "<group>"; };
 		DF6E05C91D72E72E0099395A /* LQSForumDetailSectionHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumDetailSectionHeadView.m; path = forum/View/LQSForumDetailSectionHeadView.m; sourceTree = "<group>"; };
 		DF6E05CA1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LQSForumDetailSectionHeadView.xib; path = forum/View/LQSForumDetailSectionHeadView.xib; sourceTree = "<group>"; };
@@ -510,6 +513,8 @@
 			children = (
 				1477F9DE1D7019C500EE102C /* LQSForumDetailCell.h */,
 				1477F9DF1D7019C500EE102C /* LQSForumDetailCell.m */,
+				DF5A07271D72F2AB001B2ED7 /* LQSForumDetailChildCell.h */,
+				DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */,
 				1477F9E01D7019C500EE102C /* LQSForumDetailTopCell.h */,
 				1477F9E11D7019C500EE102C /* LQSForumDetailTopCell.m */,
 				0000C4AC1D645E42007C969C /* LQSRightViewCell.h */,
@@ -1499,6 +1504,7 @@
 				410FA23E1D38EBB60021B7E2 /* LQSEmotionListView.m in Sources */,
 				00D048521D6FE4AA00275FAB /* LQSSettingMyFriendViewController.m in Sources */,
 				B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */,
+				DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */,
 				2CB084DF1D60508A00167F4D /* MJPhotoView.m in Sources */,
 				410FA2281D38EBA30021B7E2 /* LQSTextView.m in Sources */,
 				410FA21E1D38EBA30021B7E2 /* LQSEmotion.m in Sources */,

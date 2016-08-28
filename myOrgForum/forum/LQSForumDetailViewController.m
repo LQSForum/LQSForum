@@ -13,6 +13,7 @@
 #import "LQSForumDetailCell.h"
 #import "LQSForumDetailSectionHeadView.h"
 #import "LQSCellModel.h"
+#import "LQSForumDetailChildCell.h"
 @interface LQSForumDetailViewController ()<LQSForumDetailSectionDelegete>
 @property (strong, nonatomic) IBOutlet UITableView *mainTableView;
 @property (strong, nonatomic) IBOutlet LQSForumDetailHeadView *tableHeadView;
@@ -78,6 +79,7 @@
  }
  */
 - (void)loadChildForum{
+    [self.mainArray[3] removeAllObjects];
     NSString *urlString = [NSString stringWithFormat:@"http://forum.longquanzs.org//mobcent/app/web/index.php?r=forum/forumlist"];
     NSDictionary *dict = @{@"egnVersion":@"v2035.2",
                            @"sdkVersion":@"2.4.3.0",
@@ -262,6 +264,9 @@
         }
         return 30;
     }
+    if (self.sortBy == 3) {
+        return 78;
+    }
     return 90;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -296,6 +301,11 @@
             return cell;
         }
         return [tableView dequeueReusableCellWithIdentifier:@"LQSForumDetailTopMoreCell"];
+    }
+    if (self.sortBy == 3) {
+        LQSForumDetailChildCell* cell = [tableView dequeueReusableCellWithIdentifier:@"LQSForumDetailChildCell"];
+        cell.model = self.mainArray[self.sortBy][indexPath.row];
+        return cell;
     }
     LQSForumDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LQSForumDetailCell"];
     cell.model = self.mainArray[self.sortBy][indexPath.row];
