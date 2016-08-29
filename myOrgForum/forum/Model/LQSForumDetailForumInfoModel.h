@@ -14,9 +14,9 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *desc;
 @property (nonatomic, strong) NSString *icon;
-@property (nonatomic, strong) NSString *tdPostsNum;
-@property (nonatomic, strong) NSString *postsTotalNum;
-@property (nonatomic, strong) NSString *topicTotalNum;
+@property (nonatomic, assign) NSInteger tdPostsNum;
+@property (nonatomic, assign) NSInteger postsTotalNum;
+@property (nonatomic, assign) NSInteger topicTotalNum;
 @property (nonatomic, assign) bool isFocus;
 
 @end
@@ -45,7 +45,7 @@
 @property (nonatomic, assign) NSInteger hot;
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, assign) NSInteger gender;
-@property (nonatomic, strong) NSString *lastReplyDate;
+@property (nonatomic, assign) double lastReplyDate;
 @property (nonatomic, strong) NSString *picPath;
 @property (nonatomic, assign) NSInteger topicId;
 @property (nonatomic, strong) NSString *userTitle;
@@ -57,5 +57,7 @@
 @property (nonatomic, assign) NSInteger boardId;
 @property (nonatomic, assign) NSInteger recommendAdd;
 @property (nonatomic, strong) NSString *boardName;
+
+- (NSString *)last_posts_date;
 
 @end

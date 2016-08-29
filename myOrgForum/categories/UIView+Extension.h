@@ -19,9 +19,6 @@
 @property (nonatomic, assign) CGPoint origin;
 @property (nonatomic, assign) CGFloat bottom;
 
-
-
-
-
+- (UIViewController *)lqs_parentViewController;
 
 @end

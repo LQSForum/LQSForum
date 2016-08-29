@@ -24,7 +24,6 @@
 		00D048521D6FE4AA00275FAB /* LQSSettingMyFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D048511D6FE4AA00275FAB /* LQSSettingMyFriendViewController.m */; };
 		00D048551D6FE4AF00275FAB /* LQSSettingMyPresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D048541D6FE4AF00275FAB /* LQSSettingMyPresentViewController.m */; };
 		00D048581D6FE56200275FAB /* LQSMessageFriendsApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D048571D6FE56200275FAB /* LQSMessageFriendsApplyViewController.m */; };
-		09DE74EE69E60578EF17616D /* libPods-myOrgForumUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */; };
 		1477F9D91D7019A600EE102C /* Forum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1477F9D61D7019A600EE102C /* Forum.storyboard */; };
 		1477F9DA1D7019A600EE102C /* LQSForumDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9D81D7019A600EE102C /* LQSForumDetailViewController.m */; };
 		1477F9DD1D7019BB00EE102C /* LQSForumDetailHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9DC1D7019BB00EE102C /* LQSForumDetailHeadView.m */; };
@@ -121,18 +120,21 @@
 		417269BB1D70119A000AC13B /* LQSHomePagePersonalMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417269BA1D70119A000AC13B /* LQSHomePagePersonalMessageViewController.m */; };
 		417269BE1D704CA1000AC13B /* setting_profile_bgWall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417269BD1D704CA1000AC13B /* setting_profile_bgWall.jpg */; };
 		417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */; };
+		552BA34E9ACDFCCA090E3CCF /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC19ADA87E03C1ABA83791ED /* libPods-myOrgForumTests.a */; };
+		6958BD38C5A6B3D50A2D9A57 /* libPods-myOrgForumUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */; };
 		6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */; };
 		6E0476671D55B32600FD6CE0 /* LQSintroduceMainlistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476661D55B32600FD6CE0 /* LQSintroduceMainlistCell.m */; };
 		6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476691D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m */; };
 		6E2893DA1D6C4E8F00EF9CCA /* LQSBBSDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2893D91D6C4E8F00EF9CCA /* LQSBBSDetailModel.m */; };
 		6E7378B21D6E944E009B6C66 /* LQSBBSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7378B11D6E944E009B6C66 /* LQSBBSDetailViewController.m */; };
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
-		87DAAED4E77EE6DFE759E472 /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */; };
 		B801112F1D5DC10500D7A05C /* LQSComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B801112C1D5DC10500D7A05C /* LQSComposeViewController.m */; };
 		B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */; };
 		B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111331D5DC11700D7A05C /* LQSLocationModel.m */; };
 		B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */; };
-		CF88EB46FF966494AB73F4FF /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */; };
+		DF6E05C61D729F4A0099395A /* LQSForumDetailSectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6E05C41D729F4A0099395A /* LQSForumDetailSectionHeadView.m */; };
+		DF6E05C71D729F4A0099395A /* LQSForumDetailSectionHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF6E05C51D729F4A0099395A /* LQSForumDetailSectionHeadView.xib */; };
+		DFDC33171D714BF20059BDB4 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDC33161D714BF20059BDB4 /* UIColor+Hex.m */; };
 		E4430D4D1D54B74C0014A6FE /* CloverSlider.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D411D54B74C0014A6FE /* CloverSlider.js */; };
 		E4430D4E1D54B74C0014A6FE /* getImageSource.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D421D54B74C0014A6FE /* getImageSource.js */; };
 		E4430D4F1D54B74C0014A6FE /* Discount.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D431D54B74C0014A6FE /* Discount.js */; };
@@ -155,6 +157,7 @@
 		E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1D81D5424CF00EE6171 /* LQSHttpsRequest.m */; };
 		E4D8E1DC1D542A2B00EE6171 /* LQSUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1DB1D542A2B00EE6171 /* LQSUserInfo.m */; };
 		E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1DE1D542A4C00EE6171 /* LQSUserRequest.m */; };
+		E66318282059FD59F7685FD7 /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +212,7 @@
 		00D048541D6FE4AF00275FAB /* LQSSettingMyPresentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSettingMyPresentViewController.m; sourceTree = "<group>"; };
 		00D048561D6FE56200275FAB /* LQSMessageFriendsApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessageFriendsApplyViewController.h; sourceTree = "<group>"; };
 		00D048571D6FE56200275FAB /* LQSMessageFriendsApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageFriendsApplyViewController.m; sourceTree = "<group>"; };
+		00FEB73F9DC5773AF24CCEB9 /* Pods-myOrgForumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1477F9D61D7019A600EE102C /* Forum.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Forum.storyboard; path = forum/Forum.storyboard; sourceTree = "<group>"; };
 		1477F9D71D7019A600EE102C /* LQSForumDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumDetailViewController.h; path = forum/LQSForumDetailViewController.h; sourceTree = "<group>"; };
 		1477F9D81D7019A600EE102C /* LQSForumDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumDetailViewController.m; path = forum/LQSForumDetailViewController.m; sourceTree = "<group>"; };
@@ -415,9 +419,7 @@
 		417F34C01CC9F6BC00F9714F /* LQSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAppDelegate.h; sourceTree = "<group>"; };
 		417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAppDelegate.m; sourceTree = "<group>"; };
 		417F34C31CCA017B00F9714F /* LQSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LQSPrefixHeader.pch; sourceTree = "<group>"; };
-		434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AE2DD1D148983B02A069CD4 /* Pods-myOrgForumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.release.xcconfig"; sourceTree = "<group>"; };
+		5EE05E5BF0E9D045510A9FC6 /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
 		6E04765F1D55AE7000FD6CE0 /* LQSIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSIntroduceViewController.h; path = introduce/introduceVC/LQSIntroduceViewController.h; sourceTree = "<group>"; };
 		6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSIntroduceViewController.m; path = introduce/introduceVC/LQSIntroduceViewController.m; sourceTree = "<group>"; };
 		6E0476651D55B32600FD6CE0 /* LQSintroduceMainlistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSintroduceMainlistCell.h; path = introduce/introduceView/LQSintroduceMainlistCell.h; sourceTree = "<group>"; };
@@ -431,9 +433,10 @@
 		6E75DCF91D3FB64F00C7BD82 /* LQSUserBasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSUserBasicInfo.h; path = core/LQSUserBasicInfo.h; sourceTree = "<group>"; };
 		6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSUserBasicInfo.m; path = core/LQSUserBasicInfo.m; sourceTree = "<group>"; };
 		6E75DCFD1D3FC0D900C7BD82 /* LQSCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCommonDefine.h; path = Utilities/LQSCommonDefine.h; sourceTree = "<group>"; };
-		75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
-		9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
+		72F7FCE84BA2B2676C40B54F /* Pods-myOrgForumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5C12DEEB8E74CDD3E0CF002 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
 		B801112B1D5DC10500D7A05C /* LQSComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSComposeViewController.h; path = main/VC/LQSComposeViewController.h; sourceTree = "<group>"; };
 		B801112C1D5DC10500D7A05C /* LQSComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposeViewController.m; path = main/VC/LQSComposeViewController.m; sourceTree = "<group>"; };
 		B801112D1D5DC10500D7A05C /* LQSPickViewSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSPickViewSelectViewController.h; path = main/VC/LQSPickViewSelectViewController.h; sourceTree = "<group>"; };
@@ -442,6 +445,12 @@
 		B80111331D5DC11700D7A05C /* LQSLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSLocationModel.m; sourceTree = "<group>"; };
 		B80111351D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSPickerSelectCollectionViewCell.h; path = main/View/LQSPickerSelectCollectionViewCell.h; sourceTree = "<group>"; };
 		B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSPickerSelectCollectionViewCell.m; path = main/View/LQSPickerSelectCollectionViewCell.m; sourceTree = "<group>"; };
+		CCAA7D55F8D7734222CE3140 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DF6E05C31D729F4A0099395A /* LQSForumDetailSectionHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumDetailSectionHeadView.h; path = forum/View/LQSForumDetailSectionHeadView.h; sourceTree = "<group>"; };
+		DF6E05C41D729F4A0099395A /* LQSForumDetailSectionHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumDetailSectionHeadView.m; path = forum/View/LQSForumDetailSectionHeadView.m; sourceTree = "<group>"; };
+		DF6E05C51D729F4A0099395A /* LQSForumDetailSectionHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LQSForumDetailSectionHeadView.xib; path = forum/View/LQSForumDetailSectionHeadView.xib; sourceTree = "<group>"; };
+		DFDC33151D714BF20059BDB4 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "categories/UIColor+Hex.h"; sourceTree = "<group>"; };
+		DFDC33161D714BF20059BDB4 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "categories/UIColor+Hex.m"; sourceTree = "<group>"; };
 		E4430D411D54B74C0014A6FE /* CloverSlider.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = CloverSlider.js; sourceTree = "<group>"; };
 		E4430D421D54B74C0014A6FE /* getImageSource.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = getImageSource.js; sourceTree = "<group>"; };
 		E4430D431D54B74C0014A6FE /* Discount.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Discount.js; sourceTree = "<group>"; };
@@ -476,7 +485,8 @@
 		E4D8E1DB1D542A2B00EE6171 /* LQSUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSUserInfo.m; sourceTree = "<group>"; };
 		E4D8E1DD1D542A4C00EE6171 /* LQSUserRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSUserRequest.h; sourceTree = "<group>"; };
 		E4D8E1DE1D542A4C00EE6171 /* LQSUserRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSUserRequest.m; sourceTree = "<group>"; };
-		F1630D4AB3FA63EE16979A0E /* Pods-myOrgForumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC19ADA87E03C1ABA83791ED /* libPods-myOrgForumTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F08E4F7A0912A6634899944C /* Pods-myOrgForumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -484,7 +494,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF88EB46FF966494AB73F4FF /* libPods-myOrgForum.a in Frameworks */,
+				E66318282059FD59F7685FD7 /* libPods-myOrgForum.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,7 +502,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87DAAED4E77EE6DFE759E472 /* libPods-myOrgForumTests.a in Frameworks */,
+				552BA34E9ACDFCCA090E3CCF /* libPods-myOrgForumTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,7 +510,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09DE74EE69E60578EF17616D /* libPods-myOrgForumUITests.a in Frameworks */,
+				6958BD38C5A6B3D50A2D9A57 /* libPods-myOrgForumUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +603,8 @@
 				410FA1F01D38EB7E0021B7E2 /* UIWindow+Extension.h */,
 				410FA1F11D38EB7E0021B7E2 /* UIWindow+Extension.m */,
 				410FA1DA1D38E9FE0021B7E2 /* YYModel */,
+				DFDC33151D714BF20059BDB4 /* UIColor+Hex.h */,
+				DFDC33161D714BF20059BDB4 /* UIColor+Hex.m */,
 			);
 			name = categories;
 			sourceTree = "<group>";
@@ -759,7 +771,7 @@
 				415C55761CC8CCEE00408B90 /* myOrgForumUITests */,
 				415C55501CC8CCEE00408B90 /* Products */,
 				D2FF60D40CEE75621BCC406D /* Frameworks */,
-				4FED8D2C2028EB0D0A4D261B /* Pods */,
+				731180579BEE15F76B1C6CC6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -981,19 +993,6 @@
 			name = core;
 			sourceTree = "<group>";
 		};
-		4FED8D2C2028EB0D0A4D261B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */,
-				75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */,
-				14E37D8AF205E4AAC6AB2302 /* Pods-myOrgForumTests.debug.xcconfig */,
-				6AE2DD1D148983B02A069CD4 /* Pods-myOrgForumTests.release.xcconfig */,
-				F1630D4AB3FA63EE16979A0E /* Pods-myOrgForumUITests.debug.xcconfig */,
-				2AEC7AB4431F7F14A52266D9 /* Pods-myOrgForumUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		563099391D2E31FE00FC9EE6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1012,6 +1011,9 @@
 		5630993A1D2E321200FC9EE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DF6E05C31D729F4A0099395A /* LQSForumDetailSectionHeadView.h */,
+				DF6E05C41D729F4A0099395A /* LQSForumDetailSectionHeadView.m */,
+				DF6E05C51D729F4A0099395A /* LQSForumDetailSectionHeadView.xib */,
 				1477F9DB1D7019BB00EE102C /* LQSForumDetailHeadView.h */,
 				1477F9DC1D7019BB00EE102C /* LQSForumDetailHeadView.m */,
 				0000C49C1D645C4A007C969C /* LQSMainView.h */,
@@ -1057,6 +1059,19 @@
 			name = introduceView;
 			sourceTree = "<group>";
 		};
+		731180579BEE15F76B1C6CC6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B5C12DEEB8E74CDD3E0CF002 /* Pods-myOrgForum.debug.xcconfig */,
+				5EE05E5BF0E9D045510A9FC6 /* Pods-myOrgForum.release.xcconfig */,
+				CCAA7D55F8D7734222CE3140 /* Pods-myOrgForumTests.debug.xcconfig */,
+				F08E4F7A0912A6634899944C /* Pods-myOrgForumTests.release.xcconfig */,
+				72F7FCE84BA2B2676C40B54F /* Pods-myOrgForumUITests.debug.xcconfig */,
+				00FEB73F9DC5773AF24CCEB9 /* Pods-myOrgForumUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B80111311D5DC11700D7A05C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1071,9 +1086,9 @@
 			isa = PBXGroup;
 			children = (
 				417487F81CE99C0500B5E26C /* Reveal.framework */,
-				4AAB4960647E82089DAB35F0 /* libPods-myOrgForum.a */,
-				434C338F0DCB93DDC58161E6 /* libPods-myOrgForumTests.a */,
-				9DDDF07D644D28650F617930 /* libPods-myOrgForumUITests.a */,
+				7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */,
+				EC19ADA87E03C1ABA83791ED /* libPods-myOrgForumTests.a */,
+				A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1192,7 +1207,6 @@
 				415C554D1CC8CCEE00408B90 /* Resources */,
 				A214BCF87EFBD6BBC3112273 /* [CP] Embed Pods Frameworks */,
 				C17B041A92AFEED641A445A6 /* [CP] Copy Pods Resources */,
-				CE2EAAC132AFFD3BF6A49F95 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1300,6 +1314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF6E05C71D729F4A0099395A /* LQSForumDetailSectionHeadView.xib in Resources */,
 				E4430D571D54B74C0014A6FE /* index.ios.js in Resources */,
 				415C55621CC8CCEE00408B90 /* LaunchScreen.storyboard in Resources */,
 				417269BE1D704CA1000AC13B /* setting_profile_bgWall.jpg in Resources */,
@@ -1444,21 +1459,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CE2EAAC132AFFD3BF6A49F95 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FA5D0E6C35B9C37F33A100A7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1499,6 +1499,7 @@
 				410FA23C1D38EBB60021B7E2 /* LQSEmotionGridView.m in Sources */,
 				411FE79E1D6D6DC000563324 /* LQSShijieDataModel.m in Sources */,
 				6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */,
+				DFDC33171D714BF20059BDB4 /* UIColor+Hex.m in Sources */,
 				410FA2241D38EBA30021B7E2 /* LQSSpecifyFooter.m in Sources */,
 				B801112F1D5DC10500D7A05C /* LQSComposeViewController.m in Sources */,
 				E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */,
@@ -1555,6 +1556,7 @@
 				2C6222B41D72B57A00D7702C /* LQSProfileEditViewController.m in Sources */,
 				E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */,
 				410FA2701D38EC100021B7E2 /* LQSSettingCell.m in Sources */,
+				DF6E05C61D729F4A0099395A /* LQSForumDetailSectionHeadView.m in Sources */,
 				2CB084DB1D60508A00167F4D /* MJPhotoBrowser.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				E4D8E1D11D54237200EE6171 /* LQSBaseRestRequest.m in Sources */,
@@ -1749,7 +1751,7 @@
 		};
 		415C557D1CC8CCEE00408B90 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A30137D5075A23D495377AC4 /* Pods-myOrgForum.debug.xcconfig */;
+			baseConfigurationReference = B5C12DEEB8E74CDD3E0CF002 /* Pods-myOrgForum.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
@@ -1763,6 +1765,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/zhoushuang/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1801,7 +1804,7 @@
 		};
 		415C557E1CC8CCEE00408B90 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75E84F8AA4438DFA561E28DC /* Pods-myOrgForum.release.xcconfig */;
+			baseConfigurationReference = 5EE05E5BF0E9D045510A9FC6 /* Pods-myOrgForum.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
@@ -1815,6 +1818,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/zhoushuang/Desktop/zzz/LQSForum/myOrgForum/LQSPrefixHeader.pch;
+				GCC_PREFIX_HEADER = myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1853,7 +1857,7 @@
 		};
 		415C55801CC8CCEE00408B90 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14E37D8AF205E4AAC6AB2302 /* Pods-myOrgForumTests.debug.xcconfig */;
+			baseConfigurationReference = CCAA7D55F8D7734222CE3140 /* Pods-myOrgForumTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = myOrgForumTests/Info.plist;
@@ -1866,7 +1870,7 @@
 		};
 		415C55811CC8CCEE00408B90 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6AE2DD1D148983B02A069CD4 /* Pods-myOrgForumTests.release.xcconfig */;
+			baseConfigurationReference = F08E4F7A0912A6634899944C /* Pods-myOrgForumTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = myOrgForumTests/Info.plist;
@@ -1879,7 +1883,7 @@
 		};
 		415C55831CC8CCEE00408B90 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1630D4AB3FA63EE16979A0E /* Pods-myOrgForumUITests.debug.xcconfig */;
+			baseConfigurationReference = 72F7FCE84BA2B2676C40B54F /* Pods-myOrgForumUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = myOrgForumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1891,7 +1895,7 @@
 		};
 		415C55841CC8CCEE00408B90 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AEC7AB4431F7F14A52266D9 /* Pods-myOrgForumUITests.release.xcconfig */;
+			baseConfigurationReference = 00FEB73F9DC5773AF24CCEB9 /* Pods-myOrgForumUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = myOrgForumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

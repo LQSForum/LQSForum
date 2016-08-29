@@ -291,7 +291,7 @@
         if (!cell) {
             cell = [[LQSHomePagePersonalPresentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierCellId];
         }
-        [cell pushesDongmanDataModel:[_fabiaoArray objectAtIndex:indexPath.row]];
+//        [cell pushesDongmanDataModel:[_fabiaoArray objectAtIndex:indexPath.row]];
         
         return cell;
 

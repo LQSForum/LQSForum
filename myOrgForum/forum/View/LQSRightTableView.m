@@ -12,6 +12,7 @@
 #import "LQSCellModel.h"
 #import "YYModel.h"
 #import "LQSRightViewCell.h"
+#import "LQSForumDetailViewController.h"
 
 @interface LQSRightTableView ()<UITableViewDelegate,UITableViewDataSource,LQSRightViewCellDelegate>
 
@@ -38,7 +39,6 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    
     return self.sectionNum;
 }
 
@@ -88,7 +88,20 @@
     selectedBackgroundView.backgroundColor = [UIColor whiteColor];
     cell.selectedBackgroundView = selectedBackgroundView;
     
-    
+    LQSCellModel *cellModel = nil;
+    if (self.sectionNum == 1) {
+        cellModel = self.rightDataArray[indexPath.row];
+    }else{
+        if (indexPath.section == 0) {
+            cellModel = self.focusArray[indexPath.row];
+        }else{
+            cellModel = self.rightDataArray[indexPath.row];
+        }
+    }
+    NSLog(@"%@,%zd",cellModel.board_name,cellModel.board_id);
+    LQSForumDetailViewController* detailVC = [[UIStoryboard storyboardWithName:@"Forum" bundle:nil] instantiateViewControllerWithIdentifier:@"ForumDetail"];
+    detailVC.boardid = cellModel.board_id;
+    [self.lqs_parentViewController.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
