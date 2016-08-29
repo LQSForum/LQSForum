@@ -7,8 +7,11 @@
 //
 
 #import "LQSForumDetailTopCell.h"
+#import "UIColor+Hex.h"
+
 @interface LQSForumDetailTopCell()
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *topLabel;
 @end
 @implementation LQSForumDetailTopCell
 
@@ -17,6 +20,11 @@
     if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
         [self setLayoutMargins:UIEdgeInsetsZero];
     }
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
+    [super setHighlighted:highlighted animated:animated];
+    _topLabel.backgroundColor = [UIColor lqs_themeColor];
 }
 
 - (void)setModel:(LQSForumDetailTopModel *)model{

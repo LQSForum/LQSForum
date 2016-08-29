@@ -10,6 +10,9 @@
 #import "LQSUserRequest.h"
 #import "LQSBaseModel_Private.h"
 
+NSString * const KLQSLoginSuccessNotification = @"KLQSLoginSuccessNotification";
+NSString * const KLQSLoginFailedNotification = @"KLQSLoginFailedNotification";
+
 @implementation LQSUserManager
 
 -(void) clearAccessInfo {
@@ -80,8 +83,10 @@
             [[LQSUserManager defaultManager] reloadToken:result[@"token"]];
             
             [self.observerController didAuthSuccess:userinfo];
+            [[NSNotificationCenter defaultCenter] postNotificationName:KLQSLoginSuccessNotification object:userinfo];
         } else {
             [self.observerController didAuthFailed:error];
+            [[NSNotificationCenter defaultCenter] postNotificationName:KLQSLoginFailedNotification object:error];
         }
         block(userinfo, error);
     }];

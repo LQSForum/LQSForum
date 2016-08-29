@@ -101,6 +101,7 @@
     NSLog(@"%@,%zd",cellModel.board_name,cellModel.board_id);
     LQSForumDetailViewController* detailVC = [[UIStoryboard storyboardWithName:@"Forum" bundle:nil] instantiateViewControllerWithIdentifier:@"ForumDetail"];
     detailVC.boardid = cellModel.board_id;
+    detailVC.boardChild = cellModel.board_child;
     [self.lqs_parentViewController.navigationController pushViewController:detailVC animated:YES];
 }
 
