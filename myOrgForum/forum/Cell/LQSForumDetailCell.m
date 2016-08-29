@@ -26,7 +26,7 @@
 - (void)setModel:(LQSForumDetailListModel *)model{
     if (model.picPath.length > 0) {
         _mainImageView.hidden = NO;
-        [_mainImageView sd_setImageWithURL:[NSURL URLWithString:model.picPath]];
+        [_mainImageView sd_setImageWithURL:[NSURL URLWithString:model.picPath] placeholderImage:[UIImage imageNamed:@"dz_icon_topic_default"]];
     }
     else{
         _mainImageView.hidden = YES;

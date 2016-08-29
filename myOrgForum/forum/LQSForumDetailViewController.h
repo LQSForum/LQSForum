@@ -10,4 +10,5 @@
 
 @interface LQSForumDetailViewController : UIViewController
 @property (nonatomic, readwrite, assign) NSInteger boardid;
+@property (nonatomic, readwrite, assign) NSInteger boardChild;
 @end

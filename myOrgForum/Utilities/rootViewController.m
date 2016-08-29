@@ -78,4 +78,48 @@
     return NO;
 
 }
+
+#pragma mark - PickImage
+
+- (void)pickerImageFromCameraWithTag:(NSInteger)tag
+{
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+        ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+        ipc.delegate = self;
+        ipc.allowsEditing = YES;
+        ipc.view.tag = tag;
+        [self presentViewController:ipc animated:YES completion:nil];
+    }
+}
+
+- (void)pickerImageFromAlbumWithTag:(NSInteger)tag
+{
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        UIImagePickerController *ipc=[[UIImagePickerController alloc] init];
+        ipc.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+        ipc.delegate = self;
+        ipc.allowsEditing = YES;
+        ipc.view.tag = tag;
+        [self presentViewController:ipc animated:YES completion:nil];
+    }
+}
+
+#pragma mark UIImagePickerControllerDelegate methods
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    //    NSData * data= UIImageJPEGRepresentation(image,0.05);
+    [self pickedImage:image tag:picker.view.tag];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)pickedImage:(UIImage *)image tag:(NSInteger)tag
+{
+    
+}
+
 @end

@@ -8,14 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol LQSForumDetailSection;
+@protocol LQSForumDetailSectionDelegete;
+
 @interface LQSForumDetailSectionHeadView : UIView
+@property (nonatomic, readwrite, weak) id<LQSForumDetailSectionDelegete> delegate;
 
 - (void)removeSubForum;
 
 @end
 
-@protocol LQSForumDetailSection <NSObject>
+@protocol LQSForumDetailSectionDelegete <NSObject>
 
 - (void)selectTheType:(NSInteger)type;
 

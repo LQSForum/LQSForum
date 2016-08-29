@@ -25,6 +25,7 @@
 
 
 //setting
+#import "LQSsetRootViewController.h"
 #import "LQSProfileEditViewController.h"
 #import "LQSMyDraftViewController.h"
 #import "LQSAccountManagementViewController.h"

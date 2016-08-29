@@ -11,4 +11,11 @@
 @interface rootViewController : UIViewController
 - (void)loadData;
 - (void)setUpViews;
+
+- (void)pickerImageFromCameraWithTag:(NSInteger)tag;
+
+- (void)pickerImageFromAlbumWithTag:(NSInteger)tag;
+
+- (void)pickedImage:(UIImage *)image tag:(NSInteger)tag;
+
 @end
