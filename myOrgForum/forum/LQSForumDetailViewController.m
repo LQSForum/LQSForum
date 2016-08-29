@@ -23,7 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIView *maskView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
-
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *heightLayoutConstraint;
 @property (nonatomic, readwrite, retain) LQSForumDetailOptionViewController *optionView;
 @property (nonatomic, readwrite, retain) LQSForumDetailSectionHeadView *sectionHeadView;
 @property (nonatomic, readwrite, retain) NSMutableArray *topArray;
@@ -152,6 +152,8 @@
         NSInteger num = [weakSelf.pageNum[weakSelf.sortBy] integerValue];
         weakSelf.pageNum[weakSelf.sortBy] = [NSString stringWithFormat:@"%zd",num+1];
         
+        [weakSelf.optionView setContentArray:dict[@"classificationType_list"]];
+        weakSelf.heightLayoutConstraint.constant = weakSelf.optionView.contentHeight;
         for (NSDictionary *item in dict[@"list"]) {
             [weakSelf.mainArray[self.sortBy] addObject:[LQSForumDetailListModel yy_modelWithDictionary:item]];
         }
@@ -216,13 +218,19 @@
 -(IBAction)titleViewClick:(UITapGestureRecognizer*)sender{
     if (_isShowOption) {
         _isShowOption = NO;
-        _topLayoutConstraint.constant = 0.0f;
-        _maskView.alpha = 0.0;
+        [UIView animateWithDuration:0.25 animations:^{
+            _topLayoutConstraint.constant = 0.0f;
+            _maskView.alpha = 0.0;
+            [self.view layoutIfNeeded];
+        }];
     }
     else{
         _isShowOption = YES;
-        _topLayoutConstraint.constant = 133;
-        _maskView.alpha = 1.0;
+        [UIView animateWithDuration:0.25f animations:^{
+            _topLayoutConstraint.constant = _optionView.contentHeight;
+            _maskView.alpha = 1.0;
+            [self.view layoutIfNeeded];
+        }];
     }
 }
 #pragma mark - LQSForumDetailOptionDelegate
