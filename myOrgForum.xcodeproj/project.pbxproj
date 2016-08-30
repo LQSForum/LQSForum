@@ -429,6 +429,8 @@
 		41AC5B431D751CF5006E38D5 /* LQSAccountManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSAccountManagementViewController.m; path = setting/ViewController/LQSAccountManagementViewController.m; sourceTree = "<group>"; };
 		41AC5B441D751CF5006E38D5 /* LQSsetRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSsetRootViewController.h; path = setting/ViewController/LQSsetRootViewController.h; sourceTree = "<group>"; };
 		41AC5B451D751CF5006E38D5 /* LQSsetRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSsetRootViewController.m; path = setting/ViewController/LQSsetRootViewController.m; sourceTree = "<group>"; };
+		41AC5B481D752385006E38D5 /* XXXXX2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXX2.h; sourceTree = "<group>"; };
+		41AC5B491D7523BE006E38D5 /* XXXXX3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXX3.h; sourceTree = "<group>"; };
 		5EE05E5BF0E9D045510A9FC6 /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
 		6E04765F1D55AE7000FD6CE0 /* LQSIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSIntroduceViewController.h; path = introduce/introduceVC/LQSIntroduceViewController.h; sourceTree = "<group>"; };
 		6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSIntroduceViewController.m; path = introduce/introduceVC/LQSIntroduceViewController.m; sourceTree = "<group>"; };
@@ -794,7 +796,9 @@
 		415C55461CC8CCEE00408B90 = {
 			isa = PBXGroup;
 			children = (
+				41AC5B491D7523BE006E38D5 /* XXXXX3.h */,
 				2C62229F1D7189FB00D7702C /* xxxxxxxx.h */,
+				41AC5B481D752385006E38D5 /* XXXXX2.h */,
 				417269BD1D704CA1000AC13B /* setting_profile_bgWall.jpg */,
 				415C55511CC8CCEE00408B90 /* myOrgForum */,
 				415C556B1CC8CCEE00408B90 /* myOrgForumTests */,

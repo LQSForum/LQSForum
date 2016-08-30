@@ -14,6 +14,7 @@
     CGFloat _btnW;
     UIView *_selectView;
     BOOL _isfabiao;
+    LQSHomePagePersonalZiliaoDataModel * _personalZiliaoModel;
 }
 @property (nonatomic,assign)NSUInteger page;
 @property (nonatomic,strong)LQSHomePagePersonalMessageView *stretchHeaderView;
@@ -42,98 +43,24 @@
     return _tableView;
 }
 
-- (void)loadData{
-//请求发表数据
-    [self requestFabiaoData];
-//请求用户资料数据
-    [self requestPersonalData];
-
-
-}
-
-- (void)requestFabiaoData{
-
-    NSString *baseStr = @"http://forum.longquanzs.org//mobcent/app/web/index.php?";
-    NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
-    paramDic[@"r"] = @"user/topiclist";
-    paramDic[@"page"] = [NSString stringWithFormat:@"%lu",(unsigned long)self.page];
-    paramDic[@"pageSize"] = @"20";
-    paramDic[@"accessToken"] = @"274d079f604beba7d6edaa76be052";
-    paramDic[@"isImageList"] = @"1";
-    paramDic[@"egnVersion"] = @"v2035.2";
-    paramDic[@"accessSecret"] = @"db799660500f1cafae3d030c09caa";
-    paramDic[@"sdkVersion"] = @"2.4.3.0";
-    paramDic[@"apphash"] = @"2d2e362f";
-    paramDic[@"uid"] = @"216430";
-    paramDic[@"forumKey"] = @"BW0L5ISVRsOTVLCTJx";
-
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    __weak typeof(self) weakSelf = self;
-    [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"sucess");
-        NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
-        if (weakSelf.fabiaoArray.count > 0 && self.page == 1) {
-            [weakSelf.fabiaoArr removeAllObjects];
-        }else{
-            weakSelf.fabiaoArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
-        }
-        [_tableView reloadData];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"failure");
-        [_tableView.mj_header endRefreshing];
-        kNetworkNotReachedMessage;
-    }];
-
-
-
-}
-
-- (void)requestPersonalData{
-    
-    NSString *baseStr = @"http://forum.longquanzs.org//mobcent/app/web/index.php?";
-    NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
-    paramDic[@"r"] = @"user/userinfo";
-    paramDic[@"userId"] = @"216430";
-    paramDic[@"accessToken"] = @"274d079f604beba7d6edaa76be052";
-    paramDic[@"egnVersion"] = @"v2035.2";
-    paramDic[@"accessSecret"] = @"db799660500f1cafae3d030c09caa";
-    paramDic[@"sdkVersion"] = @"2.4.3.0";
-    paramDic[@"apphash"] = @"2d2e362f";
-    paramDic[@"forumKey"] = @"BW0L5ISVRsOTVLCTJx";
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    __weak typeof(self) weakSelf = self;
-    [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"sucess");
-        NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
-        if (weakSelf.detailArray.count > 0 && self.page == 1) {
-            [weakSelf.detailArr removeAllObjects];
-        }else{
-            weakSelf.detailArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
-        }
-        [_tableView reloadData];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"failure");
-        [_tableView.mj_header endRefreshing];
-        kNetworkNotReachedMessage;
-    }];
-
-
-
-}
-
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initData];
+    _isfabiao = YES;
+    _fabiaoArr = [NSMutableArray array];
+    _fabiaoArray = [NSMutableArray array];
+    _detailArr = [NSMutableArray array];
+    _detailArray = [NSMutableArray array];
+
+    //请求发表数据
+    self.page = 1;
+    if (_isfabiao == YES) {
+        [self requestFabiaoDataWithPage:self.page];
+
+    }else{
+    //请求用户资料数据
+    [self requestPersonalData];
+    }
+
 //    创建右边的navItem
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(jumpToEdit)];
     
@@ -143,31 +70,146 @@
     [self tableView];
     
     [self initStretchHeader];
+    if (_isfabiao == YES) {
+        self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+        self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    }
     
+    _tableView.mj_footer.hidden = YES;
 }
 
-- (void)jumpToEdit{
-
-    LQSProfileEditViewController *profileEditVc  = [[LQSProfileEditViewController alloc] init];
-    [self.navigationController pushViewController:profileEditVc animated:NO];
-
-
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
 
     [super viewWillAppear:animated];
-    [self loadData];
+    [_tableView.mj_header beginRefreshing];
 
 
 }
 
-- (void)initData{
-    _fabiaoArr = [NSMutableArray array];
-    _fabiaoArray = [NSMutableArray array];
-    _detailArr = [NSMutableArray array];
-    _detailArray = [NSMutableArray array];
+- (void)loadNewData{
+    self.page = 1;
+    [self requestFabiaoDataWithPage:self.page];
+    [self.fabiaoArray insertObjects:self.fabiaoArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.fabiaoArr.count)]];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_tableView reloadData];
+        [_tableView.mj_header endRefreshing];
+    });
+    
+}
+
+- (void)loadMoreData{
+    if (self.fabiaoArray.count < 20 && self.page == 1) {
+        [self.fabiaoArray removeAllObjects];
+    }else{
+        self.page++;
+    }
+    [self requestFabiaoDataWithPage:self.page];
+    [self.fabiaoArray addObjectsFromArray:self.fabiaoArr];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_tableView reloadData];
+        [_tableView.mj_footer endRefreshing];
+    });
+    
+    
+    
+    
+}
+
+- (void)jumpToEdit{
+    
+    LQSProfileEditViewController *profileEditVc  = [[LQSProfileEditViewController alloc] init];
+    [self.navigationController pushViewController:profileEditVc animated:NO];
+    
+    
+}
+
+- (void)requestFabiaoDataWithPage:(NSUInteger)page{
+    
+    NSString *baseStr = @"http://forum.longquanzs.org//mobcent/app/web/index.php?";
+    NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
+    paramDic[@"r"] = @"user/topiclist";
+    paramDic[@"pageSize"] = @"20";
+    paramDic[@"uid"] = @"216734";
+    paramDic[@"egnVersion"] = @"v2035.2";
+    paramDic[@"type"] = @"topic";
+    paramDic[@"sdkVersion"] = @"2.4.3.0";
+    paramDic[@"apphash"] = @"e41ec35a";
+    paramDic[@"isImageList"] = @"1";
+    paramDic[@"accessToken"] = @"83e1f2e3b07cc0629ac89ed355920";
+    paramDic[@"page"] = [NSString stringWithFormat:@"%lu",(unsigned long)self.page];
+    paramDic[@"accessSecret"] = @"a742cf58f0d3c28e164f9d9661b6f";
+    paramDic[@"forumKey"] = @"BW0L5ISVRsOTVLCTJx";
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    __weak typeof(self) weakSelf = self;
+    [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSLog(@"sucess----------");
+        NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
+        if (weakSelf.fabiaoArray.count > 0 && self.page == 1) {
+            [weakSelf.fabiaoArray removeAllObjects];
+            weakSelf.fabiaoArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
+            [weakSelf.fabiaoArray addObjectsFromArray:weakSelf.fabiaoArr];
+
+        }else{
+            weakSelf.fabiaoArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
+
+        
+        }
+        [_tableView reloadData];
+        [_tableView.mj_header endRefreshing];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"failure");
+        kNetworkNotReachedMessage;
+    }];
+    
+    [_tableView reloadData];
+    [_tableView.mj_header endRefreshing];
+
+    
+}
+
+- (void)requestPersonalData{
+    
+    NSString *baseStr = @"http://forum.longquanzs.org//mobcent/app/web/index.php?";
+    NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
+    paramDic[@"r"] = @"user/userinfo";
+    paramDic[@"userId"] = @"216734";
+    paramDic[@"egnVersion"] = @"v2035.2";
+    paramDic[@"sdkVersion"] = @"2.4.3.0";
+    paramDic[@"apphash"] = @"e41ec35a";
+    paramDic[@"accessToken"] = @"83e1f2e3b07cc0629ac89ed355920";
+    paramDic[@"accessSecret"] = @"a742cf58f0d3c28e164f9d9661b6f";
+    paramDic[@"forumKey"] = @"BW0L5ISVRsOTVLCTJx";
+
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    __weak typeof(self) weakSelf = self;
+    [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"sucess**********");
+        if (weakSelf.detailArray.count > 0 && self.page == 1) {
+            [weakSelf.detailArr removeAllObjects];
+        }else{
+            _personalZiliaoModel = [LQSHomePagePersonalZiliaoDataModel mj_objectWithKeyValues:responseObject];
+        }
+        [_tableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"failure");
+        [_tableView.mj_header endRefreshing];
+        kNetworkNotReachedMessage;
+    }];
+    
+    
+    
 }
 
 - (void)initStretchHeader
@@ -236,7 +278,8 @@
             
             if (finished) {
                 //点击发表按钮加载发表控件
-                [self requestFabiaoData];
+                self.page = 1;
+                [self requestFabiaoDataWithPage:self.page];
             }
         }];
     }else{
@@ -248,6 +291,7 @@
             
             if (finished) {
 //                加载资料控件数据
+                self.page = 1;
                 [self requestPersonalData];
             }
             
@@ -275,11 +319,21 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-        return 3;
+    if (_isfabiao == YES) {
+        _tableView.mj_footer.hidden = _fabiaoArr.count == 0 || (self.page == 1 && _fabiaoArr.count < 20);
+        return _fabiaoArray.count;
+    }else{
+    
+        return 4;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (_isfabiao == YES) {
+        LQSHomePagePersonalPresentTableViewCell * cell = (LQSHomePagePersonalPresentTableViewCell * )[self tableView:tableView cellForRowAtIndexPath:indexPath];
+        return cell.cellHeight;
+    }else
     return 40;
 }
 
@@ -291,7 +345,9 @@
         if (!cell) {
             cell = [[LQSHomePagePersonalPresentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierCellId];
         }
-//        [cell pushesDongmanDataModel:[_fabiaoArray objectAtIndex:indexPath.row]];
+        if (_fabiaoArray.count > 0) {
+            [cell pushesDongmanDataModel:[_fabiaoArray objectAtIndex:indexPath.row]];
+        }
         
         return cell;
 

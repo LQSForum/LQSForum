@@ -12,6 +12,7 @@
 
 @property (nonatomic,strong)NSString *rs;
 @property (nonatomic,strong)NSString *errcode;
+@property (nonatomic, strong) NSString *_total_num;
 
 @end
 @interface LQSHomePagePersonalPresentDatailDataModel : NSObject

@@ -9,5 +9,25 @@
 #import "LQSHomePagePersonalZiliaoDataModel.h"
 
 @implementation LQSHomePagePersonalZiliaoDataModel
+- (void)setBody:(NSDictionary *)body{
+    _body = body;
+    
+    self.profileList = [LQSHomePagePersonalZiliaoDetailDataModel mj_objectArrayWithKeyValuesArray:body[@"profileList"]];
+    
+    self.profileList = [LQSHomePagePersonalZiliaoDetailDataModel mj_objectArrayWithKeyValuesArray:@"creditList"];
+    
+    self.creditShowList = [LQSHomePagePersonalZiliaoProfileListDataModel mj_objectArrayWithKeyValuesArray:body[@"creditShowList"]];
+}
+
+@end
+
+@implementation LQSHomePagePersonalZiliaoDetailDataModel
+
+
+@end
+
+@implementation LQSHomePagePersonalZiliaoProfileListDataModel
+
+
 
 @end
