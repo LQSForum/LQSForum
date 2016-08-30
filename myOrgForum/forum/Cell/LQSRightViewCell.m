@@ -136,19 +136,20 @@
 - (void)setCellModel:(LQSCellModel *)cellModel{
     
     _cellModel = cellModel;
-    
     self.titleLabel.text = cellModel.board_name;
     self.favNum.text = [NSString stringWithFormat:@"%zd",cellModel.favNum];
     //    LQSLog(@"%@",cellModel.last_posts_date);
     NSURL *url = [NSURL URLWithString:cellModel.board_img];
     [self.icon sd_setImageWithURL:url];
     self.contentNum.text = [NSString stringWithFormat:@"%zd",cellModel.td_posts_num];
-    if (cellModel.isSelected) {
+    if ([self.addFocusArrayBoardID containsObject:@(cellModel.board_id)]) {
         [self.focusBtn setBackgroundColor:[UIColor lightGrayColor]];
         [self.focusBtn setTitle:@"取消" forState:UIControlStateNormal];
+        self.focusBtn.selected = YES;
     }else{
         [self.focusBtn setBackgroundColor:LQSColor(1, 183, 237, 1.0)];
         [self.focusBtn setTitle:@"关注" forState:UIControlStateNormal];
+        self.focusBtn.selected = NO;
     }
     
 }
@@ -156,19 +157,30 @@
 
 - (void)selectedFocusBtn:(UIButton *)sender{
     sender.selected = !sender.isSelected;
-    self.cellModel.selected = self.focusBtn.isSelected;
-    if (sender.isSelected == YES) {
-        [self.focusBtn setBackgroundColor:[UIColor lightGrayColor]];
-        //        [self.focusArray addObject:self.cellModel];
-        if ([self.delegate respondsToSelector:@selector(rightViewFocus:)]) {
-            [self.delegate rightViewFocus:self];
+    self.cellModel.selected = sender.selected;
+    if (self.cellModel.isSelected == YES) {
+        [self.focusBtn setTitle:@"取消" forState:UIControlStateNormal];
+        if ([self.delegate respondsToSelector:@selector(rightViewAddFocus:)]) {
+            [self.delegate rightViewAddFocus:self];
         }
     }else{
-        [self.focusBtn setBackgroundColor:LQSColor(1, 183, 237, 1.0)];
+        [self.focusBtn setTitle:@"关注" forState:UIControlStateNormal];
+        if ([self.delegate respondsToSelector:@selector(rightViewCancleFocus:)]) {
+            [self.delegate rightViewCancleFocus:self];
+            
+        }
         
     }
     
 }
+
+- (NSMutableArray *)addFocusArrayBoardID{
+    if (_addFocusArrayBoardID == nil) {
+        _addFocusArrayBoardID = [NSMutableArray array];
+    }
+    return _addFocusArrayBoardID;
+}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
