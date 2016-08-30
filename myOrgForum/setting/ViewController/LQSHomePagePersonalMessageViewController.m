@@ -195,11 +195,8 @@
     __weak typeof(self) weakSelf = self;
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"sucess**********");
-        if (weakSelf.detailArray.count > 0 && self.page == 1) {
-            [weakSelf.detailArr removeAllObjects];
-        }else{
             _personalZiliaoModel = [LQSHomePagePersonalZiliaoDataModel mj_objectWithKeyValues:responseObject];
-        }
+        
         [_tableView reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
