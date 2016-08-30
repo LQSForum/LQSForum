@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSMutableArray *leftDataArray;
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
 @property (nonatomic, strong) NSMutableArray *focusArray;
+@property (nonatomic, strong) NSMutableArray *focusArrayBoardId;
 
 @end
 
@@ -51,7 +52,7 @@
         if (section == 0) {
             return self.focusArray.count;
         }else{
-            return self.rightDataArray.count;
+            return self.notFocusArray.count;
         }
     }
 }
@@ -64,6 +65,7 @@
         cell = [[LQSRightViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         cell.delegate = self;
     }
+    cell.addFocusArrayBoardID = self.focusArrayBoardId;
     if (self.sectionNum == 1) {
         LQSCellModel *cellModel = self.rightDataArray[indexPath.row];
         cell.cellModel = cellModel;
@@ -72,7 +74,7 @@
             LQSCellModel *cellModel = self.focusArray[indexPath.row];
             cell.cellModel = cellModel;
         }else{
-            LQSCellModel *cellModel = self.rightDataArray[indexPath.row];
+            LQSCellModel *cellModel = self.notFocusArray[indexPath.row];
             cell.cellModel = cellModel;
             
         }
@@ -102,6 +104,7 @@
     LQSForumDetailViewController* detailVC = [[UIStoryboard storyboardWithName:@"Forum" bundle:nil] instantiateViewControllerWithIdentifier:@"ForumDetail"];
     detailVC.boardid = cellModel.board_id;
     detailVC.boardChild = cellModel.board_child;
+    detailVC.title = cellModel.board_name;
     [self.lqs_parentViewController.navigationController pushViewController:detailVC animated:YES];
 }
 
@@ -110,27 +113,78 @@
     return 80;
 }
     
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    if (self.sectionNum == 2 && section == 1){
+        return 40;
+    }
+    return 0;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+
+{
+    
+    
+    if (self.sectionNum == 2 && section == 1) {
         
-        if (self.sectionNum == 2) {
-            if (section == 0) {
-                return @"猜你喜欢";
-            }else{
-                return nil;
-            }
-        }else{
-            return nil;
+        UIView *view = [[UIView alloc] init];
+        view.backgroundColor = [UIColor whiteColor];
+        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 40, [UIScreen mainScreen].bounds.size.width, 0.5)];
+        lineView.backgroundColor = [UIColor lightGrayColor];
+        [view addSubview:lineView];
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.frame = CGRectMake( 10, 10, [UIScreen mainScreen].bounds.size.width, 25);
+        //        label.lineBreakMode=NSLineBreakByWordWrapping;
+        label.backgroundColor = [UIColor whiteColor];
+        label.textColor = [UIColor lightGrayColor];
+        label.font = [UIFont boldSystemFontOfSize:13];
+        label.text = @"猜你喜欢";
+        [view addSubview:label];
+        
+        return view;
+    }
+    
+    return nil;
+    
+}
+
+//添加关注
+- (void)rightViewAddFocus:(LQSRightViewCell *)rightViewCell{
+    LQSCellModel *cellModel = rightViewCell.cellModel;
+    if ([self.focusArrayBoardId containsObject:@(cellModel.board_id)]) {
+        NSLog(@"已添加");
+        return;
+    }
+    
+    [self.focusArrayBoardId addObject:@(cellModel.board_id)];
+    [self.focusArray addObject:cellModel];
+    [self.notFocusArray enumerateObjectsUsingBlock:^(LQSCellModel *cellModel1, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([self.focusArrayBoardId containsObject:@(cellModel1.board_id)]) {
+            [self.notFocusArray removeObject:cellModel1];
         }
         
-    }
-
-- (void)rightViewFocus:(LQSRightViewCell *)rightViewCell{
+    }];
     
-    //    self.focusArray = focusArray;
-    NSIndexPath *indexPath = [self indexPathForCell:rightViewCell];
-    LQSCellModel *cellModel = self.rightDataArray[indexPath.row];
-    [self.focusArray addObject:cellModel];
+    
     [self reloadData];
+//    NSLog(@"%s", __FUNCTION__);
+//    NSLog(@"%@", self.focusArray);
+//    NSLog(@"%@", self.rightDataArray);
+//    
+}
+
+//取消关注
+- (void)rightViewCancleFocus:(LQSRightViewCell *)rightViewCell{
+    LQSCellModel *cellModel = rightViewCell.cellModel;
+    [self.focusArray removeObject:cellModel];
+    [self.focusArrayBoardId removeObject:@(cellModel.board_id)];
+    [self reloadData];
+    
+//    NSLog(@"%s", __FUNCTION__);
+//    NSLog(@"%@", self.focusArray);
+//    NSLog(@"%@", self.rightDataArray);
 }
 
 - (void)setRightDataArray:(NSMutableArray *)rightDataArray{
@@ -149,6 +203,19 @@
         _focusArray = [NSMutableArray array];
     }
     return _focusArray;
+}
+
+- (NSMutableArray *)focusArrayBoardId{
+    if (_focusArrayBoardId == nil) {
+        _focusArrayBoardId = [NSMutableArray array];
+    }
+    return _focusArrayBoardId;
+}
+
+- (void)setNotFocusArray:(NSMutableArray *)notFocusArray{
+    _notFocusArray = notFocusArray;
+    [self reloadData];
+    
 }
 
 @end

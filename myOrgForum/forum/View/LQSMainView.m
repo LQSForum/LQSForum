@@ -149,7 +149,7 @@
 
 - (void)leftTableView:(LQSLeftTableView *)leftTableView rightViewFocusArray:(NSMutableArray *)rightViewFocusArray{
     self.rightView.sectionNum = 2;
-    self.rightView.rightDataArray = rightViewFocusArray;
+    self.rightView.notFocusArray = rightViewFocusArray;
 }
 
 -(UIColor *)arndomColor{
