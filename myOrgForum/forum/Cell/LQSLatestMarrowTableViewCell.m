@@ -69,24 +69,17 @@
     
     MASAttachKeys(self.icon,self.marrowImage,self.titleLabel,self.nameLabel,self.marrowIcon,self.lastReplyDate,self.contentLabel);
     
-    [self.marrowImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView.mas_left).offset(10);
-        make.top.equalTo(self.contentView.mas_top).offset(10);
-        make.width.height.equalTo(@15);
-    }];
-
-    
     [self.icon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView.mas_right).offset(-10);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-10);
         make.top.equalTo(self.contentView.mas_top).offset(10);
-        make.width.equalTo(@120);
+        make.width.equalTo(@100);
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).offset(10);
         make.top.equalTo(self.contentView.mas_top).offset(10);
-        self.titleLblRightConstraint = make.right.equalTo(self.icon.mas_left).offset(-10);
+        make.right.equalTo(self.icon.mas_left).offset(-10);
     }];
     
     [self.lastReplyDate mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -112,73 +105,84 @@
 - (void)setModel:(LQSLastestMarrowModel *)model{
     _model = model;
     NSURL *url = [NSURL URLWithString:model.pic_path];
-    [self.icon sd_setImageWithURL:url];
+//    self.icon.contentMode = UIViewContentModeScaleAspectFill;
     self.titleLabel.text = model.title;
     self.titleLabel.numberOfLines = 0;
     self.lastReplyDate.text = model.last_reply_date;
     self.nameLabel.text = model.user_nick_name;
-    self.contentLabel.text = [NSString stringWithFormat:@"%zd评",model.replies];
+    self.contentLabel.text = [NSString stringWithFormat:@"%zd",model.replies];
     [self.nameLabel sizeToFit];
     [self.contentLabel sizeToFit];
     [self.lastReplyDate sizeToFit];
-//    
-//    if (model.pic_path.length > 0) {
-//        self.icon.hidden = NO;
-//        NSURL *url = [NSURL URLWithString:model.pic_path];
-////        self.icon.contentMode = UIViewContentModeScaleAspectFill;
-//        [self.icon sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dz_icon_article_default"]];
-//        [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.right.equalTo(self.icon.mas_right).offset(-10);
-//            
-//        }];
-//        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(self.contentView.mas_left).offset(10);
-//            make.top.equalTo(self.contentView.mas_top).offset(10);
-//            make.right.equalTo(self.icon.mas_left).offset(-10);
-//        }];
-////
-////        [self.contentView setNeedsUpdateConstraints];
-////        [self.contentView updateConstraintsIfNeeded];
-////        [self.contentView layoutIfNeeded];
-//    }else{
-//        self.icon.hidden = YES;
-//        [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-//           make.right.equalTo(self.contentView.mas_right).offset(-10);
-//            
-//            
-//        }];
-//        [self.contentView setNeedsUpdateConstraints];
-//        [self.contentView updateConstraintsIfNeeded];
-//        [self.contentView layoutIfNeeded];
+    
+    if (model.essence == 1 && model.pic_path.length > 0) {
+        self.marrowImage.image = [self drawMarrowImage];
+        self.marrowImage.hidden = NO;
+        self.icon.hidden = NO;
+        [self.icon sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dz_icon_article_default"]];
+        [self.marrowImage mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView.mas_left).offset(10);
+            make.top.equalTo(self.contentView.mas_top).offset(10);
+            make.width.height.equalTo(@15);
+        }];
+        
+        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.marrowImage.mas_right).offset(10);
+            make.top.equalTo(self.contentView.mas_top).offset(10);
+            make.right.equalTo(self.icon.mas_left).offset(-10);
+            
+        }];
+        
+    }else if(model.essence == 1 && model.pic_path.length <= 0){
+        self.marrowImage.hidden = NO;
+        self.icon.hidden = YES;
+        self.marrowImage.image = [self drawMarrowImage];
+        [self.marrowImage mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView.mas_left).offset(10);
+            make.top.equalTo(self.contentView.mas_top).offset(10);
+            make.width.height.equalTo(@15);
+        }];
+        
+        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.marrowImage.mas_right).offset(10);
+            make.top.equalTo(self.contentView.mas_top).offset(10);
+            make.right.equalTo(self.contentView.mas_right).offset(-10);
+            
+        }];
+    }else if (model.essence == 0 && model.pic_path.length > 0){
+        self.marrowImage.hidden = YES;
+        self.icon.hidden = NO;
+        [self.icon sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dz_icon_article_default"]];
+        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView.mas_left).offset(10);
+            make.top.equalTo(self.contentView.mas_top).offset(10);
+            make.right.equalTo(self.icon.mas_left).offset(-10);
+        }];
+        
+    }else if (model.essence == 0 && model.pic_path.length <= 0){
+        self.marrowImage.hidden = YES;
+        self.icon.hidden = YES;
+        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView.mas_left).offset(10);
+            make.top.equalTo(self.contentView.mas_top).offset(10);
+            make.right.equalTo(self.contentView.mas_right).offset(-10);
+            
+        }];
+    }else{
+        return;
     }
     
     
-//    if (model.essence == 0) {
-//         self.marrowImage.hidden = YES;
-//        
-//    }else{
-//        self.marrowImage.hidden = NO;
-//        self.marrowImage.image = [self drawMarrowImage];
-//        
-//        [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(self.marrowImage.mas_right).offset(10);
-//            
-//        }];
-//        
-//        [super updateConstraints];
-//       
-//        return;
-//    }
+}
 
-
-//}
 
 - (UIImage *)drawMarrowImage{
     
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(15, 15), NO, 0);
     CGContextRef ctx = UIGraphicsGetCurrentContext();
-    CGContextAddRect(ctx, CGRectMake(2, 2, 15, 15));
-    [[UIColor redColor]set];
+    CGContextAddRect(ctx, CGRectMake(-2, -1, 15, 15));
+    UIColor *color = [UIColor colorWithRed:243.0/255.0 green:100.0/255.0 blue:81.0/255.0 alpha:1.0];
+    [color set];
     CGContextFillPath(ctx);
     NSString *marrow = @"精";
     NSDictionary *dict = @{NSFontAttributeName :[UIFont systemFontOfSize:12],NSForegroundColorAttributeName:[UIColor whiteColor]};
@@ -187,7 +191,7 @@
     UIGraphicsEndImageContext();
     
     return marrowImage;
-
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
