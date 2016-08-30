@@ -11,12 +11,15 @@
 @class LQSRightViewCell;
 @protocol LQSRightViewCellDelegate <NSObject>
 
-- (void)rightViewFocus:(LQSRightViewCell *)rightViewCell;
+- (void)rightViewAddFocus:(LQSRightViewCell *)rightViewCell;
+- (void)rightViewCancleFocus:(LQSRightViewCell *)rightViewCell;
 
 @end
 @interface LQSRightViewCell : UITableViewCell
+
 @property (nonatomic, strong) LQSCellModel *cellModel;
 @property (nonatomic, strong) NSMutableArray *focusArray;
 @property (nonatomic, weak) id<LQSRightViewCellDelegate> delegate;
+@property (nonatomic, strong) NSMutableArray *addFocusArrayBoardID;
 
 @end
