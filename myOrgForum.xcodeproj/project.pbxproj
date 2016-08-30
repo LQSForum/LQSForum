@@ -15,27 +15,12 @@
 		0000C4B11D645E63007C969C /* LQSLatestMarrowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4B01D645E63007C969C /* LQSLatestMarrowTableViewCell.m */; };
 		0000C4B41D645E89007C969C /* LQSMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4B31D645E89007C969C /* LQSMainViewCell.m */; };
 		0000C4B71D645EB5007C969C /* LQSLastestMarrowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4B61D645EB5007C969C /* LQSLastestMarrowModel.m */; };
-		00D048401D6FE30B00275FAB /* LQSSettingTopDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D0483F1D6FE30B00275FAB /* LQSSettingTopDataModel.m */; };
-		00D048431D6FE35300275FAB /* LQSSystemMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D048421D6FE35300275FAB /* LQSSystemMessageViewController.m */; };
-		00D048461D6FE39200275FAB /* LQSMyDraftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D048451D6FE39200275FAB /* LQSMyDraftViewController.m */; };
-		00D048491D6FE3ED00275FAB /* LQSAccountManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D048481D6FE3ED00275FAB /* LQSAccountManagementViewController.m */; };
-		00D0484C1D6FE46D00275FAB /* LQSSettingTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D0484B1D6FE46D00275FAB /* LQSSettingTopCell.m */; };
-		00D0484F1D6FE4A000275FAB /* LQSSettingMyFavourateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D0484E1D6FE4A000275FAB /* LQSSettingMyFavourateViewController.m */; };
-		00D048521D6FE4AA00275FAB /* LQSSettingMyFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D048511D6FE4AA00275FAB /* LQSSettingMyFriendViewController.m */; };
-		00D048551D6FE4AF00275FAB /* LQSSettingMyPresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D048541D6FE4AF00275FAB /* LQSSettingMyPresentViewController.m */; };
-		00D048581D6FE56200275FAB /* LQSMessageFriendsApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D048571D6FE56200275FAB /* LQSMessageFriendsApplyViewController.m */; };
 		1477F9D91D7019A600EE102C /* Forum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1477F9D61D7019A600EE102C /* Forum.storyboard */; };
 		1477F9DA1D7019A600EE102C /* LQSForumDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9D81D7019A600EE102C /* LQSForumDetailViewController.m */; };
 		1477F9DD1D7019BB00EE102C /* LQSForumDetailHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9DC1D7019BB00EE102C /* LQSForumDetailHeadView.m */; };
 		1477F9E21D7019C500EE102C /* LQSForumDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9DF1D7019C500EE102C /* LQSForumDetailCell.m */; };
 		1477F9E31D7019C500EE102C /* LQSForumDetailTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9E11D7019C500EE102C /* LQSForumDetailTopCell.m */; };
 		1477F9E61D70292900EE102C /* LQSForumDetailForumInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1477F9E51D70292900EE102C /* LQSForumDetailForumInfoModel.m */; };
-		2C6222A21D71BD0400D7702C /* LQSHomePagePersonalMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6222A11D71BD0400D7702C /* LQSHomePagePersonalMessageView.m */; };
-		2C6222A51D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6222A41D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.m */; };
-		2C6222AB1D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6222AA1D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.m */; };
-		2C6222AE1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6222AD1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.m */; };
-		2C6222B11D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6222B01D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.m */; };
-		2C6222B41D72B57A00D7702C /* LQSProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6222B31D72B57A00D7702C /* LQSProfileEditViewController.m */; };
 		2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084B21D6029F900167F4D /* NSDate+MJ.m */; };
 		2CB084D91D60508A00167F4D /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084CB1D60508A00167F4D /* MJPhoto.m */; };
 		2CB084DA1D60508A00167F4D /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2CB084CC1D60508A00167F4D /* MJPhotoBrowser.bundle */; };
@@ -45,8 +30,6 @@
 		2CB084DE1D60508A00167F4D /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084D41D60508A00167F4D /* MJPhotoToolbar.m */; };
 		2CB084DF1D60508A00167F4D /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084D61D60508A00167F4D /* MJPhotoView.m */; };
 		2CB084E01D60508A00167F4D /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084D81D60508A00167F4D /* SDWebImageManager+MJ.m */; };
-		2CC337D41D74860E003C6F1A /* LQSsetRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC337D31D74860E003C6F1A /* LQSsetRootViewController.m */; };
-		2CC337D71D748637003C6F1A /* LQSUserProfileDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC337D61D748637003C6F1A /* LQSUserProfileDataModel.m */; };
 		410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E51D38EB7E0021B7E2 /* NSArray+Log.m */; };
 		410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E91D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m */; };
 		410FA1F51D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1EB1D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m */; };
@@ -81,21 +64,6 @@
 		410FA2621D38EBE80021B7E2 /* LQSComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA25F1D38EBE80021B7E2 /* LQSComposePhotosView.m */; };
 		410FA2631D38EBE80021B7E2 /* LQSCompostToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2611D38EBE80021B7E2 /* LQSCompostToolbar.m */; };
 		410FA2691D38EC010021B7E2 /* LQSCoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2681D38EC010021B7E2 /* LQSCoreManager.m */; };
-		410FA2701D38EC100021B7E2 /* LQSSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA26B1D38EC100021B7E2 /* LQSSettingCell.m */; };
-		410FA2711D38EC100021B7E2 /* LQSSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA26D1D38EC100021B7E2 /* LQSSettingModel.m */; };
-		410FA2721D38EC100021B7E2 /* LQSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA26F1D38EC100021B7E2 /* LQSSettingViewController.m */; };
-		410FA2771D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2741D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.m */; };
-		410FA2781D38EC230021B7E2 /* LQSMessageDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2761D38EC230021B7E2 /* LQSMessageDataModel.m */; };
-		410FA27F1D38EC2D0021B7E2 /* LQSDetailSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA27A1D38EC2D0021B7E2 /* LQSDetailSettingTableViewCell.m */; };
-		410FA2801D38EC2D0021B7E2 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA27C1D38EC2D0021B7E2 /* LQSHomePagePersonalMessageTableViewCell.m */; };
-		410FA2811D38EC2D0021B7E2 /* LQSMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA27E1D38EC2D0021B7E2 /* LQSMessageTableViewCell.m */; };
-		410FA28A1D38EC390021B7E2 /* LQSMessageCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2831D38EC390021B7E2 /* LQSMessageCommentViewController.m */; };
-		410FA28C1D38EC390021B7E2 /* LQSMessageMentionedMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2871D38EC390021B7E2 /* LQSMessageMentionedMeViewController.m */; };
-		410FA28D1D38EC390021B7E2 /* LQSMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2891D38EC390021B7E2 /* LQSMessageViewController.m */; };
-		410FA2941D38EC430021B7E2 /* LQSDetailSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA28F1D38EC430021B7E2 /* LQSDetailSettingViewController.m */; };
-		410FA2951D38EC430021B7E2 /* LQSSettingPersonalSettingDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2911D38EC430021B7E2 /* LQSSettingPersonalSettingDataModel.m */; };
-		410FA2961D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2931D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m */; };
-		410FA2991D38EC4C0021B7E2 /* LQSMyHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2981D38EC4C0021B7E2 /* LQSMyHomePageViewController.m */; };
 		410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AA1D38EC790021B7E2 /* LQSCellModel.m */; };
 		410FA2AE1D38EC790021B7E2 /* LQSSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AC1D38EC790021B7E2 /* LQSSectionModel.m */; };
 		410FA2B11D38EC830021B7E2 /* LQSForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B01D38EC830021B7E2 /* LQSForumViewController.m */; };
@@ -119,9 +87,41 @@
 		415C55621CC8CCEE00408B90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415C55601CC8CCEE00408B90 /* LaunchScreen.storyboard */; };
 		415C556D1CC8CCEE00408B90 /* myOrgForumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C556C1CC8CCEE00408B90 /* myOrgForumTests.m */; };
 		415C55781CC8CCEE00408B90 /* myOrgForumUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55771CC8CCEE00408B90 /* myOrgForumUITests.m */; };
-		417269BB1D70119A000AC13B /* LQSHomePagePersonalMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417269BA1D70119A000AC13B /* LQSHomePagePersonalMessageViewController.m */; };
 		417269BE1D704CA1000AC13B /* setting_profile_bgWall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417269BD1D704CA1000AC13B /* setting_profile_bgWall.jpg */; };
 		417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */; };
+		41AC5AF51D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5AE61D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.m */; };
+		41AC5AF61D751C3E006E38D5 /* LQSHomePagePersonalPresentDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5AE81D751C3E006E38D5 /* LQSHomePagePersonalPresentDataModel.m */; };
+		41AC5AF71D751C3E006E38D5 /* LQSHomePagePersonalZiliaoDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5AEA1D751C3E006E38D5 /* LQSHomePagePersonalZiliaoDataModel.m */; };
+		41AC5AF81D751C3E006E38D5 /* LQSMessageDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5AEC1D751C3E006E38D5 /* LQSMessageDataModel.m */; };
+		41AC5AF91D751C3E006E38D5 /* LQSSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5AEE1D751C3E006E38D5 /* LQSSettingModel.m */; };
+		41AC5AFA1D751C3E006E38D5 /* LQSSettingPersonalSettingDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5AF01D751C3E006E38D5 /* LQSSettingPersonalSettingDataModel.m */; };
+		41AC5AFB1D751C3E006E38D5 /* LQSSettingTopDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5AF21D751C3E006E38D5 /* LQSSettingTopDataModel.m */; };
+		41AC5AFC1D751C3E006E38D5 /* LQSUserProfileDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5AF41D751C3E006E38D5 /* LQSUserProfileDataModel.m */; };
+		41AC5B0F1D751C58006E38D5 /* LQSDetailSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5AFE1D751C58006E38D5 /* LQSDetailSettingTableViewCell.m */; };
+		41AC5B101D751C58006E38D5 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B001D751C58006E38D5 /* LQSHomePagePersonalMessageTableViewCell.m */; };
+		41AC5B111D751C58006E38D5 /* LQSHomePagePersonalMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B021D751C58006E38D5 /* LQSHomePagePersonalMessageView.m */; };
+		41AC5B121D751C58006E38D5 /* LQSHomePagePersonalPresentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B041D751C58006E38D5 /* LQSHomePagePersonalPresentTableViewCell.m */; };
+		41AC5B131D751C58006E38D5 /* LQSHomePagePersonalZiliaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B061D751C58006E38D5 /* LQSHomePagePersonalZiliaoTableViewCell.m */; };
+		41AC5B141D751C58006E38D5 /* LQSMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B081D751C58006E38D5 /* LQSMessageTableViewCell.m */; };
+		41AC5B151D751C58006E38D5 /* LQSSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B0A1D751C58006E38D5 /* LQSSettingCell.m */; };
+		41AC5B161D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B0C1D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.m */; };
+		41AC5B171D751C58006E38D5 /* LQSSettingTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B0E1D751C58006E38D5 /* LQSSettingTopCell.m */; };
+		41AC5B341D751C83006E38D5 /* LQSDetailSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B191D751C83006E38D5 /* LQSDetailSettingViewController.m */; };
+		41AC5B351D751C83006E38D5 /* LQSHomePagePersonalMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B1B1D751C83006E38D5 /* LQSHomePagePersonalMessageViewController.m */; };
+		41AC5B361D751C83006E38D5 /* LQSMessageCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B1D1D751C83006E38D5 /* LQSMessageCommentViewController.m */; };
+		41AC5B371D751C83006E38D5 /* LQSMessageFriendsApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B1F1D751C83006E38D5 /* LQSMessageFriendsApplyViewController.m */; };
+		41AC5B381D751C83006E38D5 /* LQSMessageMentionedMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B211D751C83006E38D5 /* LQSMessageMentionedMeViewController.m */; };
+		41AC5B391D751C83006E38D5 /* LQSMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B231D751C83006E38D5 /* LQSMessageViewController.m */; };
+		41AC5B3A1D751C83006E38D5 /* LQSMyDraftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B251D751C83006E38D5 /* LQSMyDraftViewController.m */; };
+		41AC5B3B1D751C83006E38D5 /* LQSMyHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B271D751C83006E38D5 /* LQSMyHomePageViewController.m */; };
+		41AC5B3C1D751C83006E38D5 /* LQSProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B291D751C83006E38D5 /* LQSProfileEditViewController.m */; };
+		41AC5B3D1D751C83006E38D5 /* LQSSettingMyFavourateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B2B1D751C83006E38D5 /* LQSSettingMyFavourateViewController.m */; };
+		41AC5B3E1D751C83006E38D5 /* LQSSettingMyFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B2D1D751C83006E38D5 /* LQSSettingMyFriendViewController.m */; };
+		41AC5B3F1D751C83006E38D5 /* LQSSettingMyPresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B2F1D751C83006E38D5 /* LQSSettingMyPresentViewController.m */; };
+		41AC5B401D751C83006E38D5 /* LQSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B311D751C83006E38D5 /* LQSSettingViewController.m */; };
+		41AC5B411D751C83006E38D5 /* LQSSystemMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B331D751C83006E38D5 /* LQSSystemMessageViewController.m */; };
+		41AC5B461D751CF5006E38D5 /* LQSAccountManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B431D751CF5006E38D5 /* LQSAccountManagementViewController.m */; };
+		41AC5B471D751CF5006E38D5 /* LQSsetRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B451D751CF5006E38D5 /* LQSsetRootViewController.m */; };
 		552BA34E9ACDFCCA090E3CCF /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC19ADA87E03C1ABA83791ED /* libPods-myOrgForumTests.a */; };
 		6958BD38C5A6B3D50A2D9A57 /* libPods-myOrgForumUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */; };
 		6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */; };
@@ -202,24 +202,6 @@
 		0000C4B31D645E89007C969C /* LQSMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMainViewCell.m; sourceTree = "<group>"; };
 		0000C4B51D645EB5007C969C /* LQSLastestMarrowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSLastestMarrowModel.h; path = forum/Model/LQSLastestMarrowModel.h; sourceTree = "<group>"; };
 		0000C4B61D645EB5007C969C /* LQSLastestMarrowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSLastestMarrowModel.m; path = forum/Model/LQSLastestMarrowModel.m; sourceTree = "<group>"; };
-		00D0483E1D6FE30B00275FAB /* LQSSettingTopDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSettingTopDataModel.h; sourceTree = "<group>"; };
-		00D0483F1D6FE30B00275FAB /* LQSSettingTopDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSettingTopDataModel.m; sourceTree = "<group>"; };
-		00D048411D6FE35300275FAB /* LQSSystemMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSystemMessageViewController.h; path = setting/set/ViewController/Message/LQSSystemMessageViewController.h; sourceTree = "<group>"; };
-		00D048421D6FE35300275FAB /* LQSSystemMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSystemMessageViewController.m; path = setting/set/ViewController/Message/LQSSystemMessageViewController.m; sourceTree = "<group>"; };
-		00D048441D6FE39200275FAB /* LQSMyDraftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMyDraftViewController.h; sourceTree = "<group>"; };
-		00D048451D6FE39200275FAB /* LQSMyDraftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMyDraftViewController.m; sourceTree = "<group>"; };
-		00D048471D6FE3ED00275FAB /* LQSAccountManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAccountManagementViewController.h; sourceTree = "<group>"; };
-		00D048481D6FE3ED00275FAB /* LQSAccountManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAccountManagementViewController.m; sourceTree = "<group>"; };
-		00D0484A1D6FE46D00275FAB /* LQSSettingTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSettingTopCell.h; sourceTree = "<group>"; };
-		00D0484B1D6FE46D00275FAB /* LQSSettingTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSettingTopCell.m; sourceTree = "<group>"; };
-		00D0484D1D6FE4A000275FAB /* LQSSettingMyFavourateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSettingMyFavourateViewController.h; sourceTree = "<group>"; };
-		00D0484E1D6FE4A000275FAB /* LQSSettingMyFavourateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSettingMyFavourateViewController.m; sourceTree = "<group>"; };
-		00D048501D6FE4AA00275FAB /* LQSSettingMyFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSettingMyFriendViewController.h; sourceTree = "<group>"; };
-		00D048511D6FE4AA00275FAB /* LQSSettingMyFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSettingMyFriendViewController.m; sourceTree = "<group>"; };
-		00D048531D6FE4AF00275FAB /* LQSSettingMyPresentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSettingMyPresentViewController.h; sourceTree = "<group>"; };
-		00D048541D6FE4AF00275FAB /* LQSSettingMyPresentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSettingMyPresentViewController.m; sourceTree = "<group>"; };
-		00D048561D6FE56200275FAB /* LQSMessageFriendsApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessageFriendsApplyViewController.h; sourceTree = "<group>"; };
-		00D048571D6FE56200275FAB /* LQSMessageFriendsApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageFriendsApplyViewController.m; sourceTree = "<group>"; };
 		00FEB73F9DC5773AF24CCEB9 /* Pods-myOrgForumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1477F9D61D7019A600EE102C /* Forum.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Forum.storyboard; path = forum/Forum.storyboard; sourceTree = "<group>"; };
 		1477F9D71D7019A600EE102C /* LQSForumDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumDetailViewController.h; path = forum/LQSForumDetailViewController.h; sourceTree = "<group>"; };
@@ -233,18 +215,6 @@
 		1477F9E41D70292900EE102C /* LQSForumDetailForumInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumDetailForumInfoModel.h; path = forum/Model/LQSForumDetailForumInfoModel.h; sourceTree = "<group>"; };
 		1477F9E51D70292900EE102C /* LQSForumDetailForumInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumDetailForumInfoModel.m; path = forum/Model/LQSForumDetailForumInfoModel.m; sourceTree = "<group>"; };
 		2C62229F1D7189FB00D7702C /* xxxxxxxx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xxxxxxxx.h; sourceTree = "<group>"; };
-		2C6222A01D71BD0400D7702C /* LQSHomePagePersonalMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalMessageView.h; sourceTree = "<group>"; };
-		2C6222A11D71BD0400D7702C /* LQSHomePagePersonalMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalMessageView.m; sourceTree = "<group>"; };
-		2C6222A31D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalPresentTableViewCell.h; sourceTree = "<group>"; };
-		2C6222A41D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalPresentTableViewCell.m; sourceTree = "<group>"; };
-		2C6222A91D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalPresentDataModel.h; sourceTree = "<group>"; };
-		2C6222AA1D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalPresentDataModel.m; sourceTree = "<group>"; };
-		2C6222AC1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalZiliaoDataModel.h; sourceTree = "<group>"; };
-		2C6222AD1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalZiliaoDataModel.m; sourceTree = "<group>"; };
-		2C6222AF1D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalZiliaoTableViewCell.h; sourceTree = "<group>"; };
-		2C6222B01D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalZiliaoTableViewCell.m; sourceTree = "<group>"; };
-		2C6222B21D72B57A00D7702C /* LQSProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSProfileEditViewController.h; sourceTree = "<group>"; };
-		2C6222B31D72B57A00D7702C /* LQSProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSProfileEditViewController.m; sourceTree = "<group>"; };
 		2CA7813C1D4388DE00D35288 /* myOrgForum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = myOrgForum.entitlements; sourceTree = "<group>"; };
 		2CA781521D446A8000D35288 /* APIS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIS.h; sourceTree = "<group>"; };
 		2CB084B11D6029F900167F4D /* NSDate+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+MJ.h"; path = "categories/NSDate+MJ.h"; sourceTree = "<group>"; };
@@ -264,10 +234,6 @@
 		2CB084D61D60508A00167F4D /* MJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoView.m; sourceTree = "<group>"; };
 		2CB084D71D60508A00167F4D /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
 		2CB084D81D60508A00167F4D /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
-		2CC337D21D74860E003C6F1A /* LQSsetRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSsetRootViewController.h; path = User/LQSsetRootViewController.h; sourceTree = "<group>"; };
-		2CC337D31D74860E003C6F1A /* LQSsetRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSsetRootViewController.m; path = User/LQSsetRootViewController.m; sourceTree = "<group>"; };
-		2CC337D51D748637003C6F1A /* LQSUserProfileDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSUserProfileDataModel.h; sourceTree = "<group>"; };
-		2CC337D61D748637003C6F1A /* LQSUserProfileDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSUserProfileDataModel.m; sourceTree = "<group>"; };
 		410FA1DB1D38EB6B0021B7E2 /* categoryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = categoryHeader.h; path = config/categoryHeader.h; sourceTree = "<group>"; };
 		410FA1DC1D38EB6B0021B7E2 /* configHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = configHeader.h; path = config/configHeader.h; sourceTree = "<group>"; };
 		410FA1DD1D38EB6B0021B7E2 /* modelHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = modelHeader.h; path = config/modelHeader.h; sourceTree = "<group>"; };
@@ -345,36 +311,6 @@
 		410FA2611D38EBE80021B7E2 /* LQSCompostToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCompostToolbar.m; path = main/View/LQSCompostToolbar.m; sourceTree = "<group>"; };
 		410FA2671D38EC010021B7E2 /* LQSCoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCoreManager.h; path = core/LQSCoreManager.h; sourceTree = "<group>"; };
 		410FA2681D38EC010021B7E2 /* LQSCoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCoreManager.m; path = core/LQSCoreManager.m; sourceTree = "<group>"; };
-		410FA26A1D38EC100021B7E2 /* LQSSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingCell.h; path = setting/LQSSettingCell.h; sourceTree = "<group>"; };
-		410FA26B1D38EC100021B7E2 /* LQSSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingCell.m; path = setting/LQSSettingCell.m; sourceTree = "<group>"; };
-		410FA26C1D38EC100021B7E2 /* LQSSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingModel.h; path = setting/LQSSettingModel.h; sourceTree = "<group>"; };
-		410FA26D1D38EC100021B7E2 /* LQSSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingModel.m; path = setting/LQSSettingModel.m; sourceTree = "<group>"; };
-		410FA26E1D38EC100021B7E2 /* LQSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingViewController.h; path = setting/LQSSettingViewController.h; sourceTree = "<group>"; };
-		410FA26F1D38EC100021B7E2 /* LQSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingViewController.m; path = setting/LQSSettingViewController.m; sourceTree = "<group>"; };
-		410FA2731D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSHomePagePersonalMessageDataModel.h; path = setting/set/Model/LQSHomePagePersonalMessageDataModel.h; sourceTree = "<group>"; };
-		410FA2741D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSHomePagePersonalMessageDataModel.m; path = setting/set/Model/LQSHomePagePersonalMessageDataModel.m; sourceTree = "<group>"; };
-		410FA2751D38EC230021B7E2 /* LQSMessageDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMessageDataModel.h; path = setting/set/Model/LQSMessageDataModel.h; sourceTree = "<group>"; };
-		410FA2761D38EC230021B7E2 /* LQSMessageDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMessageDataModel.m; path = setting/set/Model/LQSMessageDataModel.m; sourceTree = "<group>"; };
-		410FA2791D38EC2D0021B7E2 /* LQSDetailSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDetailSettingTableViewCell.h; path = setting/set/View/LQSDetailSettingTableViewCell.h; sourceTree = "<group>"; };
-		410FA27A1D38EC2D0021B7E2 /* LQSDetailSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDetailSettingTableViewCell.m; path = setting/set/View/LQSDetailSettingTableViewCell.m; sourceTree = "<group>"; };
-		410FA27B1D38EC2D0021B7E2 /* LQSHomePagePersonalMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSHomePagePersonalMessageTableViewCell.h; path = setting/set/View/LQSHomePagePersonalMessageTableViewCell.h; sourceTree = "<group>"; };
-		410FA27C1D38EC2D0021B7E2 /* LQSHomePagePersonalMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSHomePagePersonalMessageTableViewCell.m; path = setting/set/View/LQSHomePagePersonalMessageTableViewCell.m; sourceTree = "<group>"; };
-		410FA27D1D38EC2D0021B7E2 /* LQSMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMessageTableViewCell.h; path = setting/set/View/LQSMessageTableViewCell.h; sourceTree = "<group>"; };
-		410FA27E1D38EC2D0021B7E2 /* LQSMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMessageTableViewCell.m; path = setting/set/View/LQSMessageTableViewCell.m; sourceTree = "<group>"; };
-		410FA2821D38EC390021B7E2 /* LQSMessageCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMessageCommentViewController.h; path = setting/set/ViewController/Message/LQSMessageCommentViewController.h; sourceTree = "<group>"; };
-		410FA2831D38EC390021B7E2 /* LQSMessageCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMessageCommentViewController.m; path = setting/set/ViewController/Message/LQSMessageCommentViewController.m; sourceTree = "<group>"; };
-		410FA2861D38EC390021B7E2 /* LQSMessageMentionedMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMessageMentionedMeViewController.h; path = setting/set/ViewController/Message/LQSMessageMentionedMeViewController.h; sourceTree = "<group>"; };
-		410FA2871D38EC390021B7E2 /* LQSMessageMentionedMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMessageMentionedMeViewController.m; path = setting/set/ViewController/Message/LQSMessageMentionedMeViewController.m; sourceTree = "<group>"; };
-		410FA2881D38EC390021B7E2 /* LQSMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMessageViewController.h; path = setting/set/ViewController/Message/LQSMessageViewController.h; sourceTree = "<group>"; };
-		410FA2891D38EC390021B7E2 /* LQSMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMessageViewController.m; path = setting/set/ViewController/Message/LQSMessageViewController.m; sourceTree = "<group>"; };
-		410FA28E1D38EC430021B7E2 /* LQSDetailSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDetailSettingViewController.h; path = setting/set/ViewController/Setting/LQSDetailSettingViewController.h; sourceTree = "<group>"; };
-		410FA28F1D38EC430021B7E2 /* LQSDetailSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDetailSettingViewController.m; path = setting/set/ViewController/Setting/LQSDetailSettingViewController.m; sourceTree = "<group>"; };
-		410FA2901D38EC430021B7E2 /* LQSSettingPersonalSettingDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingPersonalSettingDataModel.h; path = setting/set/ViewController/Setting/LQSSettingPersonalSettingDataModel.h; sourceTree = "<group>"; };
-		410FA2911D38EC430021B7E2 /* LQSSettingPersonalSettingDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingPersonalSettingDataModel.m; path = setting/set/ViewController/Setting/LQSSettingPersonalSettingDataModel.m; sourceTree = "<group>"; };
-		410FA2921D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingPersonalSettingViewCell.h; path = setting/set/ViewController/Setting/LQSSettingPersonalSettingViewCell.h; sourceTree = "<group>"; };
-		410FA2931D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingPersonalSettingViewCell.m; path = setting/set/ViewController/Setting/LQSSettingPersonalSettingViewCell.m; sourceTree = "<group>"; };
-		410FA2971D38EC4B0021B7E2 /* LQSMyHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMyHomePageViewController.h; path = setting/set/ViewController/Person/LQSMyHomePageViewController.h; sourceTree = "<group>"; };
-		410FA2981D38EC4C0021B7E2 /* LQSMyHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMyHomePageViewController.m; path = setting/set/ViewController/Person/LQSMyHomePageViewController.m; sourceTree = "<group>"; };
 		410FA2A91D38EC790021B7E2 /* LQSCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCellModel.h; path = forum/Model/LQSCellModel.h; sourceTree = "<group>"; };
 		410FA2AA1D38EC790021B7E2 /* LQSCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCellModel.m; path = forum/Model/LQSCellModel.m; sourceTree = "<group>"; };
 		410FA2AB1D38EC790021B7E2 /* LQSSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSectionModel.h; path = forum/Model/LQSSectionModel.h; sourceTree = "<group>"; };
@@ -422,13 +358,77 @@
 		415C55731CC8CCEE00408B90 /* myOrgForumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myOrgForumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		415C55771CC8CCEE00408B90 /* myOrgForumUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myOrgForumUITests.m; sourceTree = "<group>"; };
 		415C55791CC8CCEE00408B90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		417269B91D70119A000AC13B /* LQSHomePagePersonalMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePagePersonalMessageViewController.h; sourceTree = "<group>"; };
-		417269BA1D70119A000AC13B /* LQSHomePagePersonalMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePagePersonalMessageViewController.m; sourceTree = "<group>"; };
 		417269BD1D704CA1000AC13B /* setting_profile_bgWall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = setting_profile_bgWall.jpg; sourceTree = "<group>"; };
 		417487F81CE99C0500B5E26C /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		417F34C01CC9F6BC00F9714F /* LQSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAppDelegate.h; sourceTree = "<group>"; };
 		417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAppDelegate.m; sourceTree = "<group>"; };
 		417F34C31CCA017B00F9714F /* LQSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LQSPrefixHeader.pch; sourceTree = "<group>"; };
+		41AC5AE51D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSHomePagePersonalMessageDataModel.h; path = setting/Model/LQSHomePagePersonalMessageDataModel.h; sourceTree = "<group>"; };
+		41AC5AE61D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSHomePagePersonalMessageDataModel.m; path = setting/Model/LQSHomePagePersonalMessageDataModel.m; sourceTree = "<group>"; };
+		41AC5AE71D751C3E006E38D5 /* LQSHomePagePersonalPresentDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSHomePagePersonalPresentDataModel.h; path = setting/Model/LQSHomePagePersonalPresentDataModel.h; sourceTree = "<group>"; };
+		41AC5AE81D751C3E006E38D5 /* LQSHomePagePersonalPresentDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSHomePagePersonalPresentDataModel.m; path = setting/Model/LQSHomePagePersonalPresentDataModel.m; sourceTree = "<group>"; };
+		41AC5AE91D751C3E006E38D5 /* LQSHomePagePersonalZiliaoDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSHomePagePersonalZiliaoDataModel.h; path = setting/Model/LQSHomePagePersonalZiliaoDataModel.h; sourceTree = "<group>"; };
+		41AC5AEA1D751C3E006E38D5 /* LQSHomePagePersonalZiliaoDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSHomePagePersonalZiliaoDataModel.m; path = setting/Model/LQSHomePagePersonalZiliaoDataModel.m; sourceTree = "<group>"; };
+		41AC5AEB1D751C3E006E38D5 /* LQSMessageDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMessageDataModel.h; path = setting/Model/LQSMessageDataModel.h; sourceTree = "<group>"; };
+		41AC5AEC1D751C3E006E38D5 /* LQSMessageDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMessageDataModel.m; path = setting/Model/LQSMessageDataModel.m; sourceTree = "<group>"; };
+		41AC5AED1D751C3E006E38D5 /* LQSSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingModel.h; path = setting/Model/LQSSettingModel.h; sourceTree = "<group>"; };
+		41AC5AEE1D751C3E006E38D5 /* LQSSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingModel.m; path = setting/Model/LQSSettingModel.m; sourceTree = "<group>"; };
+		41AC5AEF1D751C3E006E38D5 /* LQSSettingPersonalSettingDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingPersonalSettingDataModel.h; path = setting/Model/LQSSettingPersonalSettingDataModel.h; sourceTree = "<group>"; };
+		41AC5AF01D751C3E006E38D5 /* LQSSettingPersonalSettingDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingPersonalSettingDataModel.m; path = setting/Model/LQSSettingPersonalSettingDataModel.m; sourceTree = "<group>"; };
+		41AC5AF11D751C3E006E38D5 /* LQSSettingTopDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingTopDataModel.h; path = setting/Model/LQSSettingTopDataModel.h; sourceTree = "<group>"; };
+		41AC5AF21D751C3E006E38D5 /* LQSSettingTopDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingTopDataModel.m; path = setting/Model/LQSSettingTopDataModel.m; sourceTree = "<group>"; };
+		41AC5AF31D751C3E006E38D5 /* LQSUserProfileDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSUserProfileDataModel.h; path = setting/Model/LQSUserProfileDataModel.h; sourceTree = "<group>"; };
+		41AC5AF41D751C3E006E38D5 /* LQSUserProfileDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSUserProfileDataModel.m; path = setting/Model/LQSUserProfileDataModel.m; sourceTree = "<group>"; };
+		41AC5AFD1D751C58006E38D5 /* LQSDetailSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDetailSettingTableViewCell.h; path = setting/View/LQSDetailSettingTableViewCell.h; sourceTree = "<group>"; };
+		41AC5AFE1D751C58006E38D5 /* LQSDetailSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDetailSettingTableViewCell.m; path = setting/View/LQSDetailSettingTableViewCell.m; sourceTree = "<group>"; };
+		41AC5AFF1D751C58006E38D5 /* LQSHomePagePersonalMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSHomePagePersonalMessageTableViewCell.h; path = setting/View/LQSHomePagePersonalMessageTableViewCell.h; sourceTree = "<group>"; };
+		41AC5B001D751C58006E38D5 /* LQSHomePagePersonalMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSHomePagePersonalMessageTableViewCell.m; path = setting/View/LQSHomePagePersonalMessageTableViewCell.m; sourceTree = "<group>"; };
+		41AC5B011D751C58006E38D5 /* LQSHomePagePersonalMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSHomePagePersonalMessageView.h; path = setting/View/LQSHomePagePersonalMessageView.h; sourceTree = "<group>"; };
+		41AC5B021D751C58006E38D5 /* LQSHomePagePersonalMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSHomePagePersonalMessageView.m; path = setting/View/LQSHomePagePersonalMessageView.m; sourceTree = "<group>"; };
+		41AC5B031D751C58006E38D5 /* LQSHomePagePersonalPresentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSHomePagePersonalPresentTableViewCell.h; path = setting/View/LQSHomePagePersonalPresentTableViewCell.h; sourceTree = "<group>"; };
+		41AC5B041D751C58006E38D5 /* LQSHomePagePersonalPresentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSHomePagePersonalPresentTableViewCell.m; path = setting/View/LQSHomePagePersonalPresentTableViewCell.m; sourceTree = "<group>"; };
+		41AC5B051D751C58006E38D5 /* LQSHomePagePersonalZiliaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSHomePagePersonalZiliaoTableViewCell.h; path = setting/View/LQSHomePagePersonalZiliaoTableViewCell.h; sourceTree = "<group>"; };
+		41AC5B061D751C58006E38D5 /* LQSHomePagePersonalZiliaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSHomePagePersonalZiliaoTableViewCell.m; path = setting/View/LQSHomePagePersonalZiliaoTableViewCell.m; sourceTree = "<group>"; };
+		41AC5B071D751C58006E38D5 /* LQSMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMessageTableViewCell.h; path = setting/View/LQSMessageTableViewCell.h; sourceTree = "<group>"; };
+		41AC5B081D751C58006E38D5 /* LQSMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMessageTableViewCell.m; path = setting/View/LQSMessageTableViewCell.m; sourceTree = "<group>"; };
+		41AC5B091D751C58006E38D5 /* LQSSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingCell.h; path = setting/View/LQSSettingCell.h; sourceTree = "<group>"; };
+		41AC5B0A1D751C58006E38D5 /* LQSSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingCell.m; path = setting/View/LQSSettingCell.m; sourceTree = "<group>"; };
+		41AC5B0B1D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingPersonalSettingViewCell.h; path = setting/View/LQSSettingPersonalSettingViewCell.h; sourceTree = "<group>"; };
+		41AC5B0C1D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingPersonalSettingViewCell.m; path = setting/View/LQSSettingPersonalSettingViewCell.m; sourceTree = "<group>"; };
+		41AC5B0D1D751C58006E38D5 /* LQSSettingTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingTopCell.h; path = setting/View/LQSSettingTopCell.h; sourceTree = "<group>"; };
+		41AC5B0E1D751C58006E38D5 /* LQSSettingTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingTopCell.m; path = setting/View/LQSSettingTopCell.m; sourceTree = "<group>"; };
+		41AC5B181D751C83006E38D5 /* LQSDetailSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSDetailSettingViewController.h; path = setting/ViewController/LQSDetailSettingViewController.h; sourceTree = "<group>"; };
+		41AC5B191D751C83006E38D5 /* LQSDetailSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSDetailSettingViewController.m; path = setting/ViewController/LQSDetailSettingViewController.m; sourceTree = "<group>"; };
+		41AC5B1A1D751C83006E38D5 /* LQSHomePagePersonalMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSHomePagePersonalMessageViewController.h; path = setting/ViewController/LQSHomePagePersonalMessageViewController.h; sourceTree = "<group>"; };
+		41AC5B1B1D751C83006E38D5 /* LQSHomePagePersonalMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSHomePagePersonalMessageViewController.m; path = setting/ViewController/LQSHomePagePersonalMessageViewController.m; sourceTree = "<group>"; };
+		41AC5B1C1D751C83006E38D5 /* LQSMessageCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMessageCommentViewController.h; path = setting/ViewController/LQSMessageCommentViewController.h; sourceTree = "<group>"; };
+		41AC5B1D1D751C83006E38D5 /* LQSMessageCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMessageCommentViewController.m; path = setting/ViewController/LQSMessageCommentViewController.m; sourceTree = "<group>"; };
+		41AC5B1E1D751C83006E38D5 /* LQSMessageFriendsApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMessageFriendsApplyViewController.h; path = setting/ViewController/LQSMessageFriendsApplyViewController.h; sourceTree = "<group>"; };
+		41AC5B1F1D751C83006E38D5 /* LQSMessageFriendsApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMessageFriendsApplyViewController.m; path = setting/ViewController/LQSMessageFriendsApplyViewController.m; sourceTree = "<group>"; };
+		41AC5B201D751C83006E38D5 /* LQSMessageMentionedMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMessageMentionedMeViewController.h; path = setting/ViewController/LQSMessageMentionedMeViewController.h; sourceTree = "<group>"; };
+		41AC5B211D751C83006E38D5 /* LQSMessageMentionedMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMessageMentionedMeViewController.m; path = setting/ViewController/LQSMessageMentionedMeViewController.m; sourceTree = "<group>"; };
+		41AC5B221D751C83006E38D5 /* LQSMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMessageViewController.h; path = setting/ViewController/LQSMessageViewController.h; sourceTree = "<group>"; };
+		41AC5B231D751C83006E38D5 /* LQSMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMessageViewController.m; path = setting/ViewController/LQSMessageViewController.m; sourceTree = "<group>"; };
+		41AC5B241D751C83006E38D5 /* LQSMyDraftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMyDraftViewController.h; path = setting/ViewController/LQSMyDraftViewController.h; sourceTree = "<group>"; };
+		41AC5B251D751C83006E38D5 /* LQSMyDraftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMyDraftViewController.m; path = setting/ViewController/LQSMyDraftViewController.m; sourceTree = "<group>"; };
+		41AC5B261D751C83006E38D5 /* LQSMyHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMyHomePageViewController.h; path = setting/ViewController/LQSMyHomePageViewController.h; sourceTree = "<group>"; };
+		41AC5B271D751C83006E38D5 /* LQSMyHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMyHomePageViewController.m; path = setting/ViewController/LQSMyHomePageViewController.m; sourceTree = "<group>"; };
+		41AC5B281D751C83006E38D5 /* LQSProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSProfileEditViewController.h; path = setting/ViewController/LQSProfileEditViewController.h; sourceTree = "<group>"; };
+		41AC5B291D751C83006E38D5 /* LQSProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSProfileEditViewController.m; path = setting/ViewController/LQSProfileEditViewController.m; sourceTree = "<group>"; };
+		41AC5B2A1D751C83006E38D5 /* LQSSettingMyFavourateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingMyFavourateViewController.h; path = setting/ViewController/LQSSettingMyFavourateViewController.h; sourceTree = "<group>"; };
+		41AC5B2B1D751C83006E38D5 /* LQSSettingMyFavourateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingMyFavourateViewController.m; path = setting/ViewController/LQSSettingMyFavourateViewController.m; sourceTree = "<group>"; };
+		41AC5B2C1D751C83006E38D5 /* LQSSettingMyFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingMyFriendViewController.h; path = setting/ViewController/LQSSettingMyFriendViewController.h; sourceTree = "<group>"; };
+		41AC5B2D1D751C83006E38D5 /* LQSSettingMyFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingMyFriendViewController.m; path = setting/ViewController/LQSSettingMyFriendViewController.m; sourceTree = "<group>"; };
+		41AC5B2E1D751C83006E38D5 /* LQSSettingMyPresentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingMyPresentViewController.h; path = setting/ViewController/LQSSettingMyPresentViewController.h; sourceTree = "<group>"; };
+		41AC5B2F1D751C83006E38D5 /* LQSSettingMyPresentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingMyPresentViewController.m; path = setting/ViewController/LQSSettingMyPresentViewController.m; sourceTree = "<group>"; };
+		41AC5B301D751C83006E38D5 /* LQSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSettingViewController.h; path = setting/ViewController/LQSSettingViewController.h; sourceTree = "<group>"; };
+		41AC5B311D751C83006E38D5 /* LQSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSettingViewController.m; path = setting/ViewController/LQSSettingViewController.m; sourceTree = "<group>"; };
+		41AC5B321D751C83006E38D5 /* LQSSystemMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSSystemMessageViewController.h; path = setting/ViewController/LQSSystemMessageViewController.h; sourceTree = "<group>"; };
+		41AC5B331D751C83006E38D5 /* LQSSystemMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSSystemMessageViewController.m; path = setting/ViewController/LQSSystemMessageViewController.m; sourceTree = "<group>"; };
+		41AC5B421D751CF5006E38D5 /* LQSAccountManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSAccountManagementViewController.h; path = setting/ViewController/LQSAccountManagementViewController.h; sourceTree = "<group>"; };
+		41AC5B431D751CF5006E38D5 /* LQSAccountManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSAccountManagementViewController.m; path = setting/ViewController/LQSAccountManagementViewController.m; sourceTree = "<group>"; };
+		41AC5B441D751CF5006E38D5 /* LQSsetRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSsetRootViewController.h; path = setting/ViewController/LQSsetRootViewController.h; sourceTree = "<group>"; };
+		41AC5B451D751CF5006E38D5 /* LQSsetRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSsetRootViewController.m; path = setting/ViewController/LQSsetRootViewController.m; sourceTree = "<group>"; };
 		5EE05E5BF0E9D045510A9FC6 /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
 		6E04765F1D55AE7000FD6CE0 /* LQSIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSIntroduceViewController.h; path = introduce/introduceVC/LQSIntroduceViewController.h; sourceTree = "<group>"; };
 		6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSIntroduceViewController.m; path = introduce/introduceVC/LQSIntroduceViewController.m; sourceTree = "<group>"; };
@@ -690,46 +690,38 @@
 		414600EF1CEF2C0500628B60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2CC337D21D74860E003C6F1A /* LQSsetRootViewController.h */,
-				2CC337D31D74860E003C6F1A /* LQSsetRootViewController.m */,
-				2C6222B21D72B57A00D7702C /* LQSProfileEditViewController.h */,
-				2C6222B31D72B57A00D7702C /* LQSProfileEditViewController.m */,
-				2C6222AF1D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.h */,
-				2C6222B01D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.m */,
-				2C6222AC1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.h */,
-				2C6222AD1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.m */,
-				2C6222A31D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.h */,
-				2C6222A41D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.m */,
-				2C6222A91D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.h */,
-				2C6222AA1D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.m */,
-				417269B91D70119A000AC13B /* LQSHomePagePersonalMessageViewController.h */,
-				417269BA1D70119A000AC13B /* LQSHomePagePersonalMessageViewController.m */,
-				410FA26E1D38EC100021B7E2 /* LQSSettingViewController.h */,
-				410FA26F1D38EC100021B7E2 /* LQSSettingViewController.m */,
-				410FA2971D38EC4B0021B7E2 /* LQSMyHomePageViewController.h */,
-				410FA2981D38EC4C0021B7E2 /* LQSMyHomePageViewController.m */,
-				410FA28E1D38EC430021B7E2 /* LQSDetailSettingViewController.h */,
-				410FA28F1D38EC430021B7E2 /* LQSDetailSettingViewController.m */,
-				00D0484D1D6FE4A000275FAB /* LQSSettingMyFavourateViewController.h */,
-				00D0484E1D6FE4A000275FAB /* LQSSettingMyFavourateViewController.m */,
-				00D048501D6FE4AA00275FAB /* LQSSettingMyFriendViewController.h */,
-				00D048511D6FE4AA00275FAB /* LQSSettingMyFriendViewController.m */,
-				00D048531D6FE4AF00275FAB /* LQSSettingMyPresentViewController.h */,
-				00D048541D6FE4AF00275FAB /* LQSSettingMyPresentViewController.m */,
-				410FA2821D38EC390021B7E2 /* LQSMessageCommentViewController.h */,
-				410FA2831D38EC390021B7E2 /* LQSMessageCommentViewController.m */,
-				00D048561D6FE56200275FAB /* LQSMessageFriendsApplyViewController.h */,
-				00D048571D6FE56200275FAB /* LQSMessageFriendsApplyViewController.m */,
-				410FA2861D38EC390021B7E2 /* LQSMessageMentionedMeViewController.h */,
-				410FA2871D38EC390021B7E2 /* LQSMessageMentionedMeViewController.m */,
-				410FA2881D38EC390021B7E2 /* LQSMessageViewController.h */,
-				410FA2891D38EC390021B7E2 /* LQSMessageViewController.m */,
-				00D048411D6FE35300275FAB /* LQSSystemMessageViewController.h */,
-				00D048421D6FE35300275FAB /* LQSSystemMessageViewController.m */,
-				00D048441D6FE39200275FAB /* LQSMyDraftViewController.h */,
-				00D048451D6FE39200275FAB /* LQSMyDraftViewController.m */,
-				00D048471D6FE3ED00275FAB /* LQSAccountManagementViewController.h */,
-				00D048481D6FE3ED00275FAB /* LQSAccountManagementViewController.m */,
+				41AC5B181D751C83006E38D5 /* LQSDetailSettingViewController.h */,
+				41AC5B191D751C83006E38D5 /* LQSDetailSettingViewController.m */,
+				41AC5B1A1D751C83006E38D5 /* LQSHomePagePersonalMessageViewController.h */,
+				41AC5B1B1D751C83006E38D5 /* LQSHomePagePersonalMessageViewController.m */,
+				41AC5B1C1D751C83006E38D5 /* LQSMessageCommentViewController.h */,
+				41AC5B1D1D751C83006E38D5 /* LQSMessageCommentViewController.m */,
+				41AC5B1E1D751C83006E38D5 /* LQSMessageFriendsApplyViewController.h */,
+				41AC5B1F1D751C83006E38D5 /* LQSMessageFriendsApplyViewController.m */,
+				41AC5B201D751C83006E38D5 /* LQSMessageMentionedMeViewController.h */,
+				41AC5B211D751C83006E38D5 /* LQSMessageMentionedMeViewController.m */,
+				41AC5B221D751C83006E38D5 /* LQSMessageViewController.h */,
+				41AC5B231D751C83006E38D5 /* LQSMessageViewController.m */,
+				41AC5B241D751C83006E38D5 /* LQSMyDraftViewController.h */,
+				41AC5B251D751C83006E38D5 /* LQSMyDraftViewController.m */,
+				41AC5B261D751C83006E38D5 /* LQSMyHomePageViewController.h */,
+				41AC5B271D751C83006E38D5 /* LQSMyHomePageViewController.m */,
+				41AC5B281D751C83006E38D5 /* LQSProfileEditViewController.h */,
+				41AC5B291D751C83006E38D5 /* LQSProfileEditViewController.m */,
+				41AC5B2A1D751C83006E38D5 /* LQSSettingMyFavourateViewController.h */,
+				41AC5B2B1D751C83006E38D5 /* LQSSettingMyFavourateViewController.m */,
+				41AC5B2C1D751C83006E38D5 /* LQSSettingMyFriendViewController.h */,
+				41AC5B2D1D751C83006E38D5 /* LQSSettingMyFriendViewController.m */,
+				41AC5B2E1D751C83006E38D5 /* LQSSettingMyPresentViewController.h */,
+				41AC5B2F1D751C83006E38D5 /* LQSSettingMyPresentViewController.m */,
+				41AC5B301D751C83006E38D5 /* LQSSettingViewController.h */,
+				41AC5B311D751C83006E38D5 /* LQSSettingViewController.m */,
+				41AC5B321D751C83006E38D5 /* LQSSystemMessageViewController.h */,
+				41AC5B331D751C83006E38D5 /* LQSSystemMessageViewController.m */,
+				41AC5B421D751CF5006E38D5 /* LQSAccountManagementViewController.h */,
+				41AC5B431D751CF5006E38D5 /* LQSAccountManagementViewController.m */,
+				41AC5B441D751CF5006E38D5 /* LQSsetRootViewController.h */,
+				41AC5B451D751CF5006E38D5 /* LQSsetRootViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -737,20 +729,24 @@
 		414600F01CEF2C1C00628B60 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2C6222A01D71BD0400D7702C /* LQSHomePagePersonalMessageView.h */,
-				2C6222A11D71BD0400D7702C /* LQSHomePagePersonalMessageView.m */,
-				410FA2921D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.h */,
-				410FA2931D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m */,
-				410FA26A1D38EC100021B7E2 /* LQSSettingCell.h */,
-				410FA26B1D38EC100021B7E2 /* LQSSettingCell.m */,
-				410FA2791D38EC2D0021B7E2 /* LQSDetailSettingTableViewCell.h */,
-				410FA27A1D38EC2D0021B7E2 /* LQSDetailSettingTableViewCell.m */,
-				410FA27B1D38EC2D0021B7E2 /* LQSHomePagePersonalMessageTableViewCell.h */,
-				410FA27C1D38EC2D0021B7E2 /* LQSHomePagePersonalMessageTableViewCell.m */,
-				410FA27D1D38EC2D0021B7E2 /* LQSMessageTableViewCell.h */,
-				410FA27E1D38EC2D0021B7E2 /* LQSMessageTableViewCell.m */,
-				00D0484A1D6FE46D00275FAB /* LQSSettingTopCell.h */,
-				00D0484B1D6FE46D00275FAB /* LQSSettingTopCell.m */,
+				41AC5AFD1D751C58006E38D5 /* LQSDetailSettingTableViewCell.h */,
+				41AC5AFE1D751C58006E38D5 /* LQSDetailSettingTableViewCell.m */,
+				41AC5AFF1D751C58006E38D5 /* LQSHomePagePersonalMessageTableViewCell.h */,
+				41AC5B001D751C58006E38D5 /* LQSHomePagePersonalMessageTableViewCell.m */,
+				41AC5B011D751C58006E38D5 /* LQSHomePagePersonalMessageView.h */,
+				41AC5B021D751C58006E38D5 /* LQSHomePagePersonalMessageView.m */,
+				41AC5B031D751C58006E38D5 /* LQSHomePagePersonalPresentTableViewCell.h */,
+				41AC5B041D751C58006E38D5 /* LQSHomePagePersonalPresentTableViewCell.m */,
+				41AC5B051D751C58006E38D5 /* LQSHomePagePersonalZiliaoTableViewCell.h */,
+				41AC5B061D751C58006E38D5 /* LQSHomePagePersonalZiliaoTableViewCell.m */,
+				41AC5B071D751C58006E38D5 /* LQSMessageTableViewCell.h */,
+				41AC5B081D751C58006E38D5 /* LQSMessageTableViewCell.m */,
+				41AC5B091D751C58006E38D5 /* LQSSettingCell.h */,
+				41AC5B0A1D751C58006E38D5 /* LQSSettingCell.m */,
+				41AC5B0B1D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.h */,
+				41AC5B0C1D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.m */,
+				41AC5B0D1D751C58006E38D5 /* LQSSettingTopCell.h */,
+				41AC5B0E1D751C58006E38D5 /* LQSSettingTopCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -758,18 +754,22 @@
 		414600F11CEF2C2500628B60 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2CC337D51D748637003C6F1A /* LQSUserProfileDataModel.h */,
-				2CC337D61D748637003C6F1A /* LQSUserProfileDataModel.m */,
-				410FA26C1D38EC100021B7E2 /* LQSSettingModel.h */,
-				410FA26D1D38EC100021B7E2 /* LQSSettingModel.m */,
-				410FA2731D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.h */,
-				410FA2741D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.m */,
-				410FA2751D38EC230021B7E2 /* LQSMessageDataModel.h */,
-				410FA2761D38EC230021B7E2 /* LQSMessageDataModel.m */,
-				00D0483E1D6FE30B00275FAB /* LQSSettingTopDataModel.h */,
-				00D0483F1D6FE30B00275FAB /* LQSSettingTopDataModel.m */,
-				410FA2901D38EC430021B7E2 /* LQSSettingPersonalSettingDataModel.h */,
-				410FA2911D38EC430021B7E2 /* LQSSettingPersonalSettingDataModel.m */,
+				41AC5AE51D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.h */,
+				41AC5AE61D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.m */,
+				41AC5AE71D751C3E006E38D5 /* LQSHomePagePersonalPresentDataModel.h */,
+				41AC5AE81D751C3E006E38D5 /* LQSHomePagePersonalPresentDataModel.m */,
+				41AC5AE91D751C3E006E38D5 /* LQSHomePagePersonalZiliaoDataModel.h */,
+				41AC5AEA1D751C3E006E38D5 /* LQSHomePagePersonalZiliaoDataModel.m */,
+				41AC5AEB1D751C3E006E38D5 /* LQSMessageDataModel.h */,
+				41AC5AEC1D751C3E006E38D5 /* LQSMessageDataModel.m */,
+				41AC5AED1D751C3E006E38D5 /* LQSSettingModel.h */,
+				41AC5AEE1D751C3E006E38D5 /* LQSSettingModel.m */,
+				41AC5AEF1D751C3E006E38D5 /* LQSSettingPersonalSettingDataModel.h */,
+				41AC5AF01D751C3E006E38D5 /* LQSSettingPersonalSettingDataModel.m */,
+				41AC5AF11D751C3E006E38D5 /* LQSSettingTopDataModel.h */,
+				41AC5AF21D751C3E006E38D5 /* LQSSettingTopDataModel.m */,
+				41AC5AF31D751C3E006E38D5 /* LQSUserProfileDataModel.h */,
+				41AC5AF41D751C3E006E38D5 /* LQSUserProfileDataModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1532,15 +1532,15 @@
 				410FA1F71D38EB7E0021B7E2 /* UIView+Extension.m in Sources */,
 				1477F9DD1D7019BB00EE102C /* LQSForumDetailHeadView.m in Sources */,
 				410FA2B11D38EC830021B7E2 /* LQSForumViewController.m in Sources */,
-				00D048551D6FE4AF00275FAB /* LQSSettingMyPresentViewController.m in Sources */,
 				411FE79C1D6D6DC000563324 /* LQSCishanModel.m in Sources */,
+				41AC5B141D751C58006E38D5 /* LQSMessageTableViewCell.m in Sources */,
 				6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */,
 				6E0476671D55B32600FD6CE0 /* LQSintroduceMainlistCell.m in Sources */,
+				41AC5B341D751C83006E38D5 /* LQSDetailSettingViewController.m in Sources */,
 				6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */,
 				1477F9E61D70292900EE102C /* LQSForumDetailForumInfoModel.m in Sources */,
-				410FA2991D38EC4C0021B7E2 /* LQSMyHomePageViewController.m in Sources */,
-				410FA2781D38EC230021B7E2 /* LQSMessageDataModel.m in Sources */,
 				DF6E05CB1D72E72E0099395A /* LQSForumDetailSectionHeadView.m in Sources */,
+				41AC5AF51D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.m in Sources */,
 				410FA2261D38EBA30021B7E2 /* LQSTabBar.m in Sources */,
 				410FA2201D38EBA30021B7E2 /* LQSEmotionTool.m in Sources */,
 				0000C4A41D645CF5007C969C /* LQSRightTableView.m in Sources */,
@@ -1554,112 +1554,112 @@
 				411FE7AB1D6D6DC700563324 /* LQSDongmanTableViewCell.m in Sources */,
 				0000C4A71D645D0F007C969C /* LQSLatestMarrowTableView.m in Sources */,
 				410FA23E1D38EBB60021B7E2 /* LQSEmotionListView.m in Sources */,
-				2CC337D41D74860E003C6F1A /* LQSsetRootViewController.m in Sources */,
-				2C6222B11D7297D500D7702C /* LQSHomePagePersonalZiliaoTableViewCell.m in Sources */,
-				00D048521D6FE4AA00275FAB /* LQSSettingMyFriendViewController.m in Sources */,
 				B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */,
 				DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */,
+				41AC5AFB1D751C3E006E38D5 /* LQSSettingTopDataModel.m in Sources */,
 				2CB084DF1D60508A00167F4D /* MJPhotoView.m in Sources */,
+				41AC5AFA1D751C3E006E38D5 /* LQSSettingPersonalSettingDataModel.m in Sources */,
+				41AC5B0F1D751C58006E38D5 /* LQSDetailSettingTableViewCell.m in Sources */,
 				410FA2281D38EBA30021B7E2 /* LQSTextView.m in Sources */,
 				410FA21E1D38EBA30021B7E2 /* LQSEmotion.m in Sources */,
 				DF5A072F1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m in Sources */,
+				41AC5AF91D751C3E006E38D5 /* LQSSettingModel.m in Sources */,
+				41AC5B351D751C83006E38D5 /* LQSHomePagePersonalMessageViewController.m in Sources */,
 				DF5A072C1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m in Sources */,
 				410FA2AE1D38EC790021B7E2 /* LQSSectionModel.m in Sources */,
 				1477F9E31D7019C500EE102C /* LQSForumDetailTopCell.m in Sources */,
 				411FE7941D6D6DAE00563324 /* LQSDongmanViewController.m in Sources */,
 				410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */,
-				410FA27F1D38EC2D0021B7E2 /* LQSDetailSettingTableViewCell.m in Sources */,
 				410FA2221D38EBA30021B7E2 /* LQSNewfeatureViewController.m in Sources */,
 				6E2893DA1D6C4E8F00EF9CCA /* LQSBBSDetailModel.m in Sources */,
-				410FA2811D38EC2D0021B7E2 /* LQSMessageTableViewCell.m in Sources */,
+				41AC5AF71D751C3E006E38D5 /* LQSHomePagePersonalZiliaoDataModel.m in Sources */,
+				41AC5B121D751C58006E38D5 /* LQSHomePagePersonalPresentTableViewCell.m in Sources */,
 				411FE7AD1D6D6DC700563324 /* LQSWaterFlowViewCell.m in Sources */,
-				00D048431D6FE35300275FAB /* LQSSystemMessageViewController.m in Sources */,
 				410FA1F81D38EB7E0021B7E2 /* UIWindow+Extension.m in Sources */,
 				411FE7A91D6D6DC700563324 /* LQSCishanTableViewCell.m in Sources */,
+				41AC5B361D751C83006E38D5 /* LQSMessageCommentViewController.m in Sources */,
+				41AC5B3B1D751C83006E38D5 /* LQSMyHomePageViewController.m in Sources */,
 				410FA2271D38EBA30021B7E2 /* LQSTabBarViewController.m in Sources */,
 				410FA2291D38EBA30021B7E2 /* LQSTitleButton.m in Sources */,
+				41AC5B161D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.m in Sources */,
 				410FA2691D38EC010021B7E2 /* LQSCoreManager.m in Sources */,
 				410FA22B1D38EBA30021B7E2 /* NSString+Emoji.m in Sources */,
-				410FA2941D38EC430021B7E2 /* LQSDetailSettingViewController.m in Sources */,
 				0000C4A11D645CDD007C969C /* LQSLeftTableView.m in Sources */,
 				411FE7951D6D6DAE00563324 /* LQSShijieViewController.m in Sources */,
-				00D048461D6FE39200275FAB /* LQSMyDraftViewController.m in Sources */,
+				41AC5B3A1D751C83006E38D5 /* LQSMyDraftViewController.m in Sources */,
 				0000C4B41D645E89007C969C /* LQSMainViewCell.m in Sources */,
-				00D048581D6FE56200275FAB /* LQSMessageFriendsApplyViewController.m in Sources */,
 				410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */,
 				410FA23D1D38EBB60021B7E2 /* LQSEmotionKeyboard.m in Sources */,
 				E436F2BD1D72CECD001CB8FE /* LQSMessage.m in Sources */,
+				41AC5B371D751C83006E38D5 /* LQSMessageFriendsApplyViewController.m in Sources */,
+				41AC5B111D751C58006E38D5 /* LQSHomePagePersonalMessageView.m in Sources */,
 				2CB084DE1D60508A00167F4D /* MJPhotoToolbar.m in Sources */,
-				2C6222A21D71BD0400D7702C /* LQSHomePagePersonalMessageView.m in Sources */,
 				415C55541CC8CCEE00408B90 /* main.m in Sources */,
 				411FE7AC1D6D6DC700563324 /* LQSWaterFlowView.m in Sources */,
+				41AC5B171D751C58006E38D5 /* LQSSettingTopCell.m in Sources */,
 				410FA1FF1D38EB8B0021B7E2 /* YYClassInfo.m in Sources */,
+				41AC5B471D751CF5006E38D5 /* LQSsetRootViewController.m in Sources */,
 				410FA2631D38EBE80021B7E2 /* LQSCompostToolbar.m in Sources */,
 				6E7378B21D6E944E009B6C66 /* LQSBBSDetailViewController.m in Sources */,
 				410FA2211D38EBA30021B7E2 /* LQSNavigationController.m in Sources */,
+				41AC5B3D1D751C83006E38D5 /* LQSSettingMyFavourateViewController.m in Sources */,
 				1477F9E21D7019C500EE102C /* LQSForumDetailCell.m in Sources */,
-				410FA2951D38EC430021B7E2 /* LQSSettingPersonalSettingDataModel.m in Sources */,
+				41AC5B3E1D751C83006E38D5 /* LQSSettingMyFriendViewController.m in Sources */,
 				E4D8E1B91D54188500EE6171 /* LQSBaseManager.m in Sources */,
 				410FA2431D38EBB60021B7E2 /* LQSEmotionView.m in Sources */,
 				E4D8E1DC1D542A2B00EE6171 /* LQSUserInfo.m in Sources */,
 				410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */,
-				410FA2771D38EC230021B7E2 /* LQSHomePagePersonalMessageDataModel.m in Sources */,
 				411FE79D1D6D6DC000563324 /* LQSDongmanModel.m in Sources */,
-				00D048491D6FE3ED00275FAB /* LQSAccountManagementViewController.m in Sources */,
-				2C6222B41D72B57A00D7702C /* LQSProfileEditViewController.m in Sources */,
 				E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */,
-				410FA2701D38EC100021B7E2 /* LQSSettingCell.m in Sources */,
 				2CB084DB1D60508A00167F4D /* MJPhotoBrowser.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				E4D8E1D11D54237200EE6171 /* LQSBaseRestRequest.m in Sources */,
 				2CB084D91D60508A00167F4D /* MJPhoto.m in Sources */,
-				410FA28C1D38EC390021B7E2 /* LQSMessageMentionedMeViewController.m in Sources */,
 				E436F2B71D72B6F7001CB8FE /* LQSMessageCenterManager.m in Sources */,
 				412E8C2F1D3DC6A4008C2553 /* LQSCore.m in Sources */,
 				411FE7931D6D6DAE00563324 /* LQSDiscoverViewController.m in Sources */,
-				00D048401D6FE30B00275FAB /* LQSSettingTopDataModel.m in Sources */,
 				410FA2251D38EBA30021B7E2 /* LQSSpecifyHeader.m in Sources */,
 				E4D8E1C51D54193000EE6171 /* AsyncSocket.m in Sources */,
-				2C6222AB1D728EB000D7702C /* LQSHomePagePersonalPresentDataModel.m in Sources */,
-				410FA2721D38EC100021B7E2 /* LQSSettingViewController.m in Sources */,
-				00D0484F1D6FE4A000275FAB /* LQSSettingMyFavourateViewController.m in Sources */,
 				0000C4B11D645E63007C969C /* LQSLatestMarrowTableViewCell.m in Sources */,
-				417269BB1D70119A000AC13B /* LQSHomePagePersonalMessageViewController.m in Sources */,
 				E4D8E1C61D54193000EE6171 /* GCDAsyncSocket.m in Sources */,
 				411FE7921D6D6DAE00563324 /* LQSCishanViewController.m in Sources */,
-				410FA2711D38EC100021B7E2 /* LQSSettingModel.m in Sources */,
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
+				41AC5B401D751C83006E38D5 /* LQSSettingViewController.m in Sources */,
 				0000C4AE1D645E42007C969C /* LQSRightViewCell.m in Sources */,
 				410FA2421D38EBB60021B7E2 /* LQSEmotionToolbar.m in Sources */,
 				2CB084DD1D60508A00167F4D /* MJPhotoProgressView.m in Sources */,
+				41AC5AF61D751C3E006E38D5 /* LQSHomePagePersonalPresentDataModel.m in Sources */,
+				41AC5B101D751C58006E38D5 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,
 				410FA1FE1D38EB8B0021B7E2 /* NSObject+YYModel.m in Sources */,
 				410FA21F1D38EBA30021B7E2 /* LQSEmotionAttachment.m in Sources */,
 				0000C49E1D645C4A007C969C /* LQSMainView.m in Sources */,
 				410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */,
 				B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */,
-				2C6222A51D728B1D00D7702C /* LQSHomePagePersonalPresentTableViewCell.m in Sources */,
 				E436F2BA1D72BC23001CB8FE /* LQSMessageRequest.m in Sources */,
-				2CC337D71D748637003C6F1A /* LQSUserProfileDataModel.m in Sources */,
 				E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */,
 				2CB084DC1D60508A00167F4D /* MJPhotoLoadingView.m in Sources */,
+				41AC5B3F1D751C83006E38D5 /* LQSSettingMyPresentViewController.m in Sources */,
+				41AC5B461D751CF5006E38D5 /* LQSAccountManagementViewController.m in Sources */,
 				0000C4B71D645EB5007C969C /* LQSLastestMarrowModel.m in Sources */,
-				410FA2961D38EC430021B7E2 /* LQSSettingPersonalSettingViewCell.m in Sources */,
+				41AC5B151D751C58006E38D5 /* LQSSettingCell.m in Sources */,
 				B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */,
+				41AC5AF81D751C3E006E38D5 /* LQSMessageDataModel.m in Sources */,
 				410FA2411D38EBB60021B7E2 /* LQSEmotionTextView.m in Sources */,
 				410FA1F51D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m in Sources */,
-				410FA2801D38EC2D0021B7E2 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,
 				2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */,
 				410FA2231D38EBA30021B7E2 /* LQSRootTableViewCell.m in Sources */,
-				2C6222AE1D7297B000D7702C /* LQSHomePagePersonalZiliaoDataModel.m in Sources */,
+				41AC5B381D751C83006E38D5 /* LQSMessageMentionedMeViewController.m in Sources */,
 				410FA22C1D38EBA30021B7E2 /* rootViewController.m in Sources */,
+				41AC5B411D751C83006E38D5 /* LQSSystemMessageViewController.m in Sources */,
 				2CB084E01D60508A00167F4D /* SDWebImageManager+MJ.m in Sources */,
-				410FA28D1D38EC390021B7E2 /* LQSMessageViewController.m in Sources */,
+				41AC5B131D751C58006E38D5 /* LQSHomePagePersonalZiliaoTableViewCell.m in Sources */,
 				410FA23F1D38EBB60021B7E2 /* LQSEmotionPopView.m in Sources */,
-				410FA28A1D38EC390021B7E2 /* LQSMessageCommentViewController.m in Sources */,
+				41AC5B3C1D751C83006E38D5 /* LQSProfileEditViewController.m in Sources */,
 				410FA1F61D38EB7E0021B7E2 /* UIImage+Extension.m in Sources */,
 				E4D8E1D61D5423D700EE6171 /* LQSBaseModel.m in Sources */,
 				E4D8E1C71D54193000EE6171 /* GCDMulticastDelegate.m in Sources */,
-				00D0484C1D6FE46D00275FAB /* LQSSettingTopCell.m in Sources */,
+				41AC5AFC1D751C3E006E38D5 /* LQSUserProfileDataModel.m in Sources */,
+				41AC5B391D751C83006E38D5 /* LQSMessageViewController.m in Sources */,
 				410FA2621D38EBE80021B7E2 /* LQSComposePhotosView.m in Sources */,
 				411FE7AA1D6D6DC700563324 /* LQSDiscoverCell.m in Sources */,
 			);
