@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "LQSIntroduceMainListModel.h"
+#import "LQSBBSDetailModel.h"
 
 @interface LQSBBSDetailViewController : UIViewController
 
+@property (nonatomic, strong) LQSBBSDetailModel *bbsDetailModel;
 @property (nonatomic, strong) LQSIntroduceMainListModel *selectModel;
 
 @end

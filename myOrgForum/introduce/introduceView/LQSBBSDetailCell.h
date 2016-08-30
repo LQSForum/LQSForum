@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LQSBBSDetailViewController.h"
 @interface LQSBBSDetailCell : UITableViewCell
 
-@property (nonatomic, strong) NSMutableDictionary *paramDict;//参数字典
-@property (nonatomic, weak) UIViewController *myCtrl;
+//@property (nonatomic, strong) NSMutableDictionary *paramDict;//参数字典
+@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, weak) LQSBBSDetailViewController *myCtrl;
 
 @end

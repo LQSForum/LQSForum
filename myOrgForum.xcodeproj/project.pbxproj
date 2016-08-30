@@ -122,6 +122,11 @@
 		6E2893DA1D6C4E8F00EF9CCA /* LQSBBSDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2893D91D6C4E8F00EF9CCA /* LQSBBSDetailModel.m */; };
 		6E62B0671D73D1BE001FB2A4 /* LQSAddViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E62B0641D73D1BE001FB2A4 /* LQSAddViewHelper.m */; };
 		6E62B0681D73D1BE001FB2A4 /* LQSBBSDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E62B0661D73D1BE001FB2A4 /* LQSBBSDetailCell.m */; };
+		6E62B06A1D740B78001FB2A4 /* mc_forum_add_new_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E62B0691D740B78001FB2A4 /* mc_forum_add_new_img.png */; };
+		6E62B06C1D740BE0001FB2A4 /* mc_forum_detail12_jing.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E62B06B1D740BE0001FB2A4 /* mc_forum_detail12_jing.png */; };
+		6E62B06E1D740BF7001FB2A4 /* mc_forum_detail12_jing2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E62B06D1D740BF7001FB2A4 /* mc_forum_detail12_jing2.png */; };
+		6E62B0701D740CAE001FB2A4 /* mc_forum_ico38_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E62B06F1D740CAE001FB2A4 /* mc_forum_ico38_h.png */; };
+		6E62B0721D740CC2001FB2A4 /* mc_forum_ico53_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E62B0711D740CC2001FB2A4 /* mc_forum_ico53_n.png */; };
 		6E7378B21D6E944E009B6C66 /* LQSBBSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7378B11D6E944E009B6C66 /* LQSBBSDetailViewController.m */; };
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
 		B801112F1D5DC10500D7A05C /* LQSComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B801112C1D5DC10500D7A05C /* LQSComposeViewController.m */; };
@@ -417,6 +422,11 @@
 		6E62B0641D73D1BE001FB2A4 /* LQSAddViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSAddViewHelper.m; path = introduce/introduceView/LQSAddViewHelper.m; sourceTree = "<group>"; };
 		6E62B0651D73D1BE001FB2A4 /* LQSBBSDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSBBSDetailCell.h; path = introduce/introduceView/LQSBBSDetailCell.h; sourceTree = "<group>"; };
 		6E62B0661D73D1BE001FB2A4 /* LQSBBSDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSBBSDetailCell.m; path = introduce/introduceView/LQSBBSDetailCell.m; sourceTree = "<group>"; };
+		6E62B0691D740B78001FB2A4 /* mc_forum_add_new_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mc_forum_add_new_img.png; sourceTree = "<group>"; };
+		6E62B06B1D740BE0001FB2A4 /* mc_forum_detail12_jing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mc_forum_detail12_jing.png; sourceTree = "<group>"; };
+		6E62B06D1D740BF7001FB2A4 /* mc_forum_detail12_jing2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mc_forum_detail12_jing2.png; sourceTree = "<group>"; };
+		6E62B06F1D740CAE001FB2A4 /* mc_forum_ico38_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mc_forum_ico38_h.png; sourceTree = "<group>"; };
+		6E62B0711D740CC2001FB2A4 /* mc_forum_ico53_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mc_forum_ico53_n.png; sourceTree = "<group>"; };
 		6E7378B01D6E944E009B6C66 /* LQSBBSDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSBBSDetailViewController.h; path = introduce/introduceVC/LQSBBSDetailViewController.h; sourceTree = "<group>"; };
 		6E7378B11D6E944E009B6C66 /* LQSBBSDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSBBSDetailViewController.m; path = introduce/introduceVC/LQSBBSDetailViewController.m; sourceTree = "<group>"; };
 		6E75DCF91D3FB64F00C7BD82 /* LQSUserBasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSUserBasicInfo.h; path = core/LQSUserBasicInfo.h; sourceTree = "<group>"; };
@@ -1046,8 +1056,21 @@
 				6E62B0661D73D1BE001FB2A4 /* LQSBBSDetailCell.m */,
 				6E0476651D55B32600FD6CE0 /* LQSintroduceMainlistCell.h */,
 				6E0476661D55B32600FD6CE0 /* LQSintroduceMainlistCell.m */,
+				6E72A9D61D74651F00727672 /* img */,
 			);
 			name = introduceView;
+			sourceTree = "<group>";
+		};
+		6E72A9D61D74651F00727672 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				6E62B0691D740B78001FB2A4 /* mc_forum_add_new_img.png */,
+				6E62B06B1D740BE0001FB2A4 /* mc_forum_detail12_jing.png */,
+				6E62B06D1D740BF7001FB2A4 /* mc_forum_detail12_jing2.png */,
+				6E62B06F1D740CAE001FB2A4 /* mc_forum_ico38_h.png */,
+				6E62B0711D740CC2001FB2A4 /* mc_forum_ico53_n.png */,
+			);
+			name = img;
 			sourceTree = "<group>";
 		};
 		731180579BEE15F76B1C6CC6 /* Pods */ = {
@@ -1322,18 +1345,23 @@
 				DF6E05CC1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib in Resources */,
 				E4430D571D54B74C0014A6FE /* index.ios.js in Resources */,
 				415C55621CC8CCEE00408B90 /* LaunchScreen.storyboard in Resources */,
+				6E62B0701D740CAE001FB2A4 /* mc_forum_ico38_h.png in Resources */,
 				417269BE1D704CA1000AC13B /* setting_profile_bgWall.jpg in Resources */,
+				6E62B06A1D740B78001FB2A4 /* mc_forum_add_new_img.png in Resources */,
 				E4430D4D1D54B74C0014A6FE /* CloverSlider.js in Resources */,
 				E4430D551D54B74C0014A6FE /* RecommendCell.js in Resources */,
+				6E62B06C1D740BE0001FB2A4 /* mc_forum_detail12_jing.png in Resources */,
 				E4430D4E1D54B74C0014A6FE /* getImageSource.js in Resources */,
 				415C555F1CC8CCEE00408B90 /* Assets.xcassets in Resources */,
 				E4430D531D54B74C0014A6FE /* RushCell.js in Resources */,
 				E4430D561D54B74C0014A6FE /* Home.js in Resources */,
+				6E62B0721D740CC2001FB2A4 /* mc_forum_ico53_n.png in Resources */,
 				E4430D4F1D54B74C0014A6FE /* Discount.js in Resources */,
 				E4430D581D54B74C0014A6FE /* package.json in Resources */,
 				E4430D501D54B74C0014A6FE /* DisWebView.js in Resources */,
 				E4430D541D54B74C0014A6FE /* WebView.js in Resources */,
 				1477F9D91D7019A600EE102C /* Forum.storyboard in Resources */,
+				6E62B06E1D740BF7001FB2A4 /* mc_forum_detail12_jing2.png in Resources */,
 				415C555D1CC8CCEE00408B90 /* Main.storyboard in Resources */,
 				410FA2401D38EBB60021B7E2 /* LQSEmotionPopView.xib in Resources */,
 				2CB084DA1D60508A00167F4D /* MJPhotoBrowser.bundle in Resources */,

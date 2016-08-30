@@ -8,13 +8,12 @@
 
 #import "LQSBBSDetailViewController.h"
 #import "LQSHttpsRequest.h"
-#import "LQSBBSDetailModel.h"
 #import "LQSBBSDetailCell.h"
+#import "LQSAddViewHelper.h"
 
 
 @interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, strong) LQSBBSDetailModel *bbsDetailModel;
 @property (nonatomic, strong) UITableView *mainList;
 
 @end
@@ -25,24 +24,25 @@
 {
     [super viewDidLoad];
     [self postForData];
-    [self creatTableViewList];
+    
     
 }
 
 - (void)creatTableViewList
 {
     [self.view addSubview:self.mainList];
-    self.mainList.backgroundColor = [UIColor yellowColor];
+    self.mainList.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
 }
 
 - (UITableView *)mainList
 {
     if (!_mainList) {
-        _mainList = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 50) style:UITableViewStyleGrouped];
+        _mainList = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 50) style:UITableViewStylePlain];
         _mainList.showsVerticalScrollIndicator = NO;
         _mainList.showsHorizontalScrollIndicator = YES;
         _mainList.delegate = self;
         _mainList.dataSource = self;
+        _mainList.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _mainList;
 }
@@ -55,13 +55,9 @@
 {
     NSInteger numForRow = 0;
     switch (section) {
-        case 0:{
-            numForRow = 1;
-            break;
-        }case 1:{
-            numForRow = 1;
-            break;
-        }case 2:{
+        case 0:
+        case 1:
+        case 2:{
             numForRow =1;
             break;
         }case 3:{
@@ -74,6 +70,7 @@
     }
     return numForRow;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -96,33 +93,89 @@
             break;
     }
     if (!cell) {
+//        NSDictionary *dic;
         switch (indexPath.section) {
             case 0:{
                 cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"titleCell"];
-                NSDictionary *dic = @{@"indexPath":indexPath,@"title":LQSTR(self.bbsDetailModel.title),@"isEssence":LQSTR(self.bbsDetailModel.essence),@"hits":LQSTR(self.bbsDetailModel.hits)};
-                ((LQSBBSDetailCell*)cell).paramDict = [NSMutableDictionary dictionaryWithDictionary:dic];
+//                dic = @{@"indexPath":indexPath,@"title":LQSTR(self.bbsDetailModel.title),@"isEssence":LQSTR(self.bbsDetailModel.essence),@"hits":LQSTR(self.bbsDetailModel.hits)};
+//                ((LQSBBSDetailCell*)cell).paramDict = [NSMutableDictionary dictionaryWithDictionary:dic];
                 
                 break;
             }case 1:{
                 cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contentCell"];
+//                dic = @{@"indexPath":indexPath,@"paramData":self.bbsDetailModel};
+//                ((LQSBBSDetailCell*)cell).paramDict = [NSMutableDictionary dictionaryWithDictionary:dic];
                 
                 break;
             }case 2:{
                 cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"voteCell"];
+//                dic;
                 break;
             }case 3:{
                 cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"posterCell"];
+//                dic = @{@"indexPath":indexPath,@"paramData":self.bbsDetailModel}
                 break;
             }
             default:
                 break;
         }
  
+        ((LQSBBSDetailCell*)cell).indexPath = indexPath;
+        ((LQSBBSDetailCell*)cell).myCtrl = self;
     }
     
     return cell;
 
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat height = 0;
+    switch (indexPath.section) {
+        case 0:{
+            height = 73;
+            break;
+        }case 1:{
+            height = [self getHeightForContentCell:self.bbsDetailModel.content];//待定
+            break;
+        }case 2:{
+            height = 75;
+            break;
+        }case 3:{
+            height = 60;//待定
+            break;
+        }
+        default:
+            break;
+    }
+    return height;
+}
+//获取contentCell的高度
+- (CGFloat)getHeightForContentCell:(NSArray *)contentArr
+{
+    CGFloat height = 55;
+    for (LQSBBSContentModel *model in contentArr) {
+        if ((![model.infor containsString:@".png"] && ![model.infor containsString:@".jpg"] ) && model.infor.length > 0) {
+            NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:13]};
+            CGRect rect = [model.infor boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 10, 10000) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
+            NSInteger nCount = [LQSAddViewHelper getCountOfString:model.infor forCharacter:@"\n"]+[LQSAddViewHelper getCountOfString:model.infor forCharacter:@"\r"];
+            height += (rect.size.height+nCount*10);
+        }else{
+            height += 470*(KLQScreenFrameSize.width - 15)/690;
+        }
+    }
+    return height;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 10;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
+}
+
 
 #pragma mark -  获取数据
 - (void)postForData
@@ -152,6 +205,7 @@
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];//[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
         NSLog(@"返回数据：%@",dict);
         [self getBBSDetailModelFrom:dict];
+        [self creatTableViewList];
         self.title = self.bbsDetailModel.forumName;
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -227,7 +281,7 @@
         self.bbsDetailModel.mobileSign = LQSTR(dict[@"topic"][@"mobileSign"]);
         self.bbsDetailModel.reply_posts_id = LQSTR(dict[@"topic"][@"reply_posts_id"]);
         self.bbsDetailModel.title = LQSTR(dict[@"topic"][@"title"]);
-        self.bbsDetailModel.title = LQSTR(dict[@"sortId"][@"sortId"]);
+//        self.bbsDetailModel.sortId = LQSTR(dict[@"sortId"]);
         self.bbsDetailModel.forumTopicUrl = LQSTR(dict[@"forumTopicUrl"]);
         self.bbsDetailModel.page = LQSTR(dict[@"page"]);
     }
