@@ -67,14 +67,20 @@
 - (void)setupPhotosView
 {
     LQSComposePhotosView *photosView = [[LQSComposePhotosView alloc] init];
-    photosView.delegate = self;
     photosView.width = self.textView.width;
     photosView.height = self.textView.height;
     photosView.y = 70;
     [self.textView addSubview:photosView];
     self.photosView = photosView;
-}
+    photosView.delegate = self;
 
+}
+//
+//- (void)jmpPickVC:(LQSComposePhotosView *)composePhotoView{
+//
+//
+//
+//}
 // 添加工具条
 - (void)setupToolbar
 {
@@ -175,15 +181,46 @@
 - (void)send
 {
     // 1.发表微博
-    if (self.photosView.images.count) {
-        [self sendStatusWithImage];
-    } else {
-//        [self sendStatusWithoutImage];
-    }
+    [self requestOfFaTie];
     
     // 2.关闭控制器
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)requestOfFaTie{
+
+    NSString *baseStr = @"http://forum.longquanzs.org//mobcent/app/web/index.php?";
+    NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
+    paramDic[@"r"] = @"forum/topicadmin";
+    paramDic[@"accessSecret"] = @"a742cf58f0d3c28e164f9d9661b6f";
+    paramDic[@"act"] = @"new";
+    paramDic[@"egnVersion"] = @"v2035.2";
+    paramDic[@"sdkVersion"] = @"2.4.3.0";
+    paramDic[@"apphash"] = @"81b9e736";
+    paramDic[@"accessToken"] = @"83e1f2e3b07cc0629ac89ed355920";
+    paramDic[@"platType"] = @"5";
+    paramDic[@"forumKey"] = @"BW0L5ISVRsOTVLCTJx";
+    paramDic[@"json"] = self.textView.text;
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"Fatie ------sucess");
+        [kAppDelegate showHUDMessage:@"发帖成功" hideDelay:1];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Fatie ------failure");
+        [kAppDelegate showHUDMessage:@"发帖失败" hideDelay:1];
+
+        kNetworkNotReachedMessage;
+    }];
+    
+
+
+
+}
+
 
 /**
  *  发表有图片的微博

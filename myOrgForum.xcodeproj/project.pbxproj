@@ -411,7 +411,7 @@
 		41AC5B441D751CF5006E38D5 /* LQSsetRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSsetRootViewController.h; path = setting/ViewController/LQSsetRootViewController.h; sourceTree = "<group>"; };
 		41AC5B451D751CF5006E38D5 /* LQSsetRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSsetRootViewController.m; path = setting/ViewController/LQSsetRootViewController.m; sourceTree = "<group>"; };
 		41AC5B481D752385006E38D5 /* XXXXX2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXX2.h; sourceTree = "<group>"; };
-		41AC5B491D7523BE006E38D5 /* XXXXX3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXX3.h; sourceTree = "<group>"; };
+		41AC5B491D7523BE006E38D5 /* fatie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fatie.h; sourceTree = "<group>"; };
 		41F86FED1D767E7200E05FAB /* LQSComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSComposePhotosView.h; path = postStatus/View/LQSComposePhotosView.h; sourceTree = "<group>"; };
 		41F86FEE1D767E7200E05FAB /* LQSComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposePhotosView.m; path = postStatus/View/LQSComposePhotosView.m; sourceTree = "<group>"; };
 		41F86FEF1D767E7200E05FAB /* LQSEmotionToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionToolbar.h; path = postStatus/View/LQSEmotionToolbar.h; sourceTree = "<group>"; };
@@ -815,7 +815,7 @@
 		415C55461CC8CCEE00408B90 = {
 			isa = PBXGroup;
 			children = (
-				41AC5B491D7523BE006E38D5 /* XXXXX3.h */,
+				41AC5B491D7523BE006E38D5 /* fatie.h */,
 				2C62229F1D7189FB00D7702C /* xxxxxxxx.h */,
 				41AC5B481D752385006E38D5 /* XXXXX2.h */,
 				417269BD1D704CA1000AC13B /* setting_profile_bgWall.jpg */,
