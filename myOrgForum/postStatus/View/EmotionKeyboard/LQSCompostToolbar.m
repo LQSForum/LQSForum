@@ -6,14 +6,14 @@
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
 
-#import "LQSCompostToolbar.h"
+//#import "LQSComposeToolbar.h"
 
-@interface LQSCompostToolbar()
+@interface LQSComposeToolbar()
 @property (nonatomic, weak) UIButton *emotionButton;
-
 @end
 
-@implementation LQSCompostToolbar
+@implementation LQSComposeToolbar
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -84,12 +84,5 @@
         button.x = i * buttonW;
     }
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

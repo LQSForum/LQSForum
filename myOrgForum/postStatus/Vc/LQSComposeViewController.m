@@ -1,101 +1,125 @@
 //
 //  LQSComposeViewController.m
-//  myOrgForum
+//  黑马微博
 //
-//  Created by SkyAndSea on 16/6/27.
-//  Copyright © 2016年 SkyAndSea. All rights reserved.
+//  Created by apple on 14-7-7.
+//  Copyright (c) 2014年 heima. All rights reserved.
 //
 
 #import "LQSComposeViewController.h"
-#import "LQSLocationModel.h"
-#import <CoreLocation/CoreLocation.h>
-//#import "LQSComposePhotosView.h"
-#import "LQSPickViewSelectViewController.h"
+//#import "LQSEmotionTextView.h"
+#import "LQSCompostToolbar.h"
+#import "LQSComposePhotosView.h"
+//#import "LQSAccountTool.h"
+//#import "LQSAccount.h"
+//#import "MBProgressHUD+MJ.h"
+//#import "LQSStatusTool.h"
+//#import "LQSEmotion.h"
+//#import "LQSEmotionKeyboard.h"
 
-
-@interface LQSComposeViewController ()<LQSComposeToolbarDelegate, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate,CLLocationManagerDelegate,jmpPickVCDelegate>
-
-// 正文
+@interface LQSComposeViewController () <LQSComposeToolbarDelegate, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate,jmpPickVCDelegate>
 @property (nonatomic, weak) LQSEmotionTextView *textView;
-
-// 标题
-@property (nonatomic, weak) LQSTextView *titleView;
-
-// 键盘上方工具条
-@property (nonatomic, weak) LQSCompostToolbar *toolbar;
-
-// 添加照片的视图
-@property (nonatomic, strong) LQSPickViewSelectViewController *pictureVC;
-
-// 键盘视图
+@property (nonatomic, weak) LQSComposeToolbar *toolbar;
+@property (nonatomic, weak) LQSComposePhotosView *photosView;
 @property (nonatomic, strong) LQSEmotionKeyboard *kerboard;
-
-// 是否正在切换键盘
+/**
+ *  是否正在切换键盘
+ */
 @property (nonatomic, assign, getter = isChangingKeyboard) BOOL changingKeyboard;
-
-// 显示位置的按钮
-@property (nonatomic, strong) UIButton *locationBtn;
-
-// 网络请求管理器
-@property(nonatomic, strong) AFHTTPSessionManager * manager;
-
-// 存储用户位置信息的模型
-@property(nonatomic, strong) NSMutableArray * models;
-
-// 获取位置信息的管理类
-@property(nonatomic, strong) CLLocationManager *locationManager;
-
-// 标题与正文的分割线
-@property(nonatomic, strong) UIView *marginLine;
-
-
 @end
 
 @implementation LQSComposeViewController
 
-- (void)loadView
+#pragma mark - 初始化方法
+- (LQSEmotionKeyboard *)kerboard
 {
-    [super loadView];
-    UIScrollView *scrrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    scrrollView.backgroundColor = [UIColor lightGrayColor];
-    scrrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height * 5);
-    
-    self.view =scrrollView ;
+    if (!_kerboard) {
+        self.kerboard = [LQSEmotionKeyboard keyboard];
+        self.kerboard.width = LQSScreenW;
+        self.kerboard.height = 216;
+    }
+    return _kerboard;
 }
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //self.view.backgroundColor = [UIColor clearColor];
+    
     // 设置导航条内容
     [self setupNavBar];
+    
     // 添加输入控件
     [self setupTextView];
-    
-    //应该将工具条添加到键盘上方
-   
-    // 添加显示图片的相册控件
-    [self setupPhotosView];
     
     // 添加工具条
     [self setupToolbar];
     
-    // 添加定位按钮
-    [self setupLocationBtn];
+    // 添加显示图片的相册控件
+    [self setupPhotosView];
     
     // 监听表情选中的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelected:) name:LQSEmotionDidSelectedNotification object:nil];
-    
     // 监听删除按钮点击的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidDeleted:) name:LQSEmotionDidDeletedNotification object:nil];
+}
 
+// 添加显示图片的相册控件
+- (void)setupPhotosView
+{
+    LQSComposePhotosView *photosView = [[LQSComposePhotosView alloc] init];
+    photosView.delegate = self;
+    photosView.width = self.textView.width;
+    photosView.height = self.textView.height;
+    photosView.y = 70;
+    [self.textView addSubview:photosView];
+    self.photosView = photosView;
+}
+
+// 添加工具条
+- (void)setupToolbar
+{
+    // 1.创建
+    LQSComposeToolbar *toolbar = [[LQSComposeToolbar alloc] init];
+    toolbar.width = self.view.width;
+    toolbar.delegate = self;
+    toolbar.height = 44;
+    self.toolbar = toolbar;
     
-    }
+    // 2.显示
+    toolbar.y = self.view.height - toolbar.height;
+    [self.view addSubview:toolbar];
+}
 
-- (void)dealloc {
+// 添加输入控件
+- (void)setupTextView
+{
+    // 1.创建输入控件
+    LQSEmotionTextView *textView = [[LQSEmotionTextView alloc] init];
+    textView.alwaysBounceVertical = YES; // 垂直方向上拥有有弹簧效果
+    textView.frame = self.view.bounds;
+    textView.delegate = self;
+    [self.view addSubview:textView];
+    self.textView = textView;
+    
+    // 2.设置提醒文字（占位文字）
+    textView.placehoder = @"分享新鲜事...";
+    
+    // 3.设置字体
+    textView.font = [UIFont systemFontOfSize:15];
+    
+    // 4.监听键盘
+    // 键盘的frame(位置)即将改变, 就会发出UIKeyboardWillChangeFrameNotification
+    // 键盘即将弹出, 就会发出UIKeyboardWillShowNotification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    // 键盘即将隐藏, 就会发出UIKeyboardWillHideNotification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)dealloc
+{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 /**
  *  view显示完毕的时候再弹出键盘，避免显示控制器view的时候会卡住
  */
@@ -105,125 +129,112 @@
     
     // 成为第一响应者（叫出键盘）
     [self.textView becomeFirstResponder];
-    [self.titleView becomeFirstResponder];
-
-}
-
-// 添加显示图片的相册控件
-- (void)setupPhotosView
-{
-    [self addChildViewController:self.pictureVC];
-    
-    // 创建选择图片的collectionViewController对象
-    [self.view addSubview:self.pictureVC.view];
-    
-//    [self.pictureVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.width.equalTo(self.view);
-//        make.top.equalTo(self.textView).offset(-10);
-//        make.height.equalTo(self.view).height;
-//    }];
-    
-    self.pictureVC.view.width = self.textView.width;
-    self.pictureVC.view.height = self.textView.height * 0.5;
-
-    
-    self.pictureVC.view.x = self.textView.x;
-    self.pictureVC.view.y = CGRectGetMaxY(self.textView.frame) + 10;
-    
-  
-}
-
-
-// 添加工具条
-- (void)setupToolbar
-{
-    // 1.创建
-    LQSCompostToolbar *toolbar = [[LQSCompostToolbar alloc] init];
-   // toolbar.backgroundColor = [UIColor redColor];
-//    toolbar.width = self.view.width;
-    toolbar.delegate = self;
-//    toolbar.height = 44;
-    self.toolbar = toolbar;
-    
-    // 2.显示
-//    toolbar.y = CGRectGetMaxY(self.textView.frame);
-    
-    
-    toolbar.frame = CGRectMake(0, CGRectGetMaxY(self.pictureVC.view.frame)+20, LQSScreenW, 44);
-    [self.view addSubview:toolbar];
 }
 
 // 设置导航条内容
 - (void)setupNavBar
 {
-    NSString *name = @""/*[LQSAccountTool account].name*/;
-    if (name) {
-        // 构建文字
-        NSString *prefix = @"选择板块";
-        NSString *text = [NSString stringWithFormat:@"%@\n%@", prefix, name];
-        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:text];
-        [string addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:15] range:[text rangeOfString:prefix]];
-        [string addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:[text rangeOfString:name]];
-        
-        // 创建label
-        UILabel *titleLabel = [[UILabel alloc] init];
-        titleLabel.attributedText = string;
-        titleLabel.numberOfLines = 0;
-        titleLabel.textAlignment = NSTextAlignmentCenter;
-        titleLabel.width = 100;
-        titleLabel.height = 44;
-        self.navigationItem.titleView = titleLabel;
-    } else {
-        self.title = @"选择板块";
-    }
-    //====================//
-    //self.view.backgroundColor = [UIColor whiteColor];
+//    NSString *name = [LQSAccountTool account].name;
+//    if (name) {
+//        // 构建文字
+//        NSString *prefix = @"发微博";
+//        NSString *text = [NSString stringWithFormat:@"%@\n%@", prefix, name];
+//        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:text];
+//        [string addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:15] range:[text rangeOfString:prefix]];
+//        [string addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:[text rangeOfString:name]];
+//        
+//        // 创建label
+//        UILabel *titleLabel = [[UILabel alloc] init];
+//        titleLabel.attributedText = string;
+//        titleLabel.numberOfLines = 0;
+//        titleLabel.textAlignment = NSTextAlignmentCenter;
+//        titleLabel.width = 100;
+//        titleLabel.height = 44;
+//        self.navigationItem.titleView = titleLabel;
+//    } else {
+//        self.title = @"发微博";
+//    }
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStyleBordered target:self action:@selector(send)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleBordered target:self action:@selector(send)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
-//添加输入控件
-- (void)setupTextView
+#pragma mark - 私有方法
+/**
+ *  取消
+ */
+- (void)cancel
 {
-//创建标题控件
-    UITextField *titleText = [[UITextField alloc] init];
-    titleText.placeholder = @"来个标题";
-    NSLog(@"%f",CGRectGetMaxY(self.navigationController.navigationBar.frame));
-    titleText.frame = CGRectMake(0,0, LQSScreenW, 44);
-    titleText.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:titleText];
-    
-// 标题和正文间的分割线
-    UIView *marginLine = [[UIView alloc] init];
-    marginLine.frame = CGRectMake(0, CGRectGetMaxY(titleText.frame), LQSScreenW, 1);
-    marginLine.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:marginLine];
-    self.marginLine = marginLine;
-    
-//创建正文控件
-    CGFloat textViewH = LQSScreenH * 0.5 - 44 - 64 - 2;
-    LQSEmotionTextView *textView = [[LQSEmotionTextView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.marginLine.frame), LQSScreenW, textViewH)];
-    textView.backgroundColor = [UIColor whiteColor];
-    textView.alwaysBounceVertical = YES; // textView可以滚动的属性
-    textView.delegate = self;
-    [self.view addSubview:textView];
-    self.textView = textView;
-    textView.placehoder = @"分享两句话...";
-    textView.placehoderColor = [UIColor lightGrayColor];
-    textView.font = [UIFont systemFontOfSize:17];
-    
-    // 当拖拽时textView让键盘消失
-    textView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-//    监听键盘
-    // 键盘的frame(位置)即将改变, 就会发出UIKeyboardWillChangeFrameNotification
-    // 键盘即将弹出, 就会发出UIKeyboardWillShowNotification
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    // 键盘即将隐藏, 就会发出UIKeyboardWillHideNotification
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-
-
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+/**
+ *  发送
+ */
+- (void)send
+{
+    // 1.发表微博
+    if (self.photosView.images.count) {
+        [self sendStatusWithImage];
+    } else {
+//        [self sendStatusWithoutImage];
+    }
+    
+    // 2.关闭控制器
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+/**
+ *  发表有图片的微博
+ */
+- (void)sendStatusWithImage
+{
+    //    // 1.获得请求管理者
+    //    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    //
+    //    // 2.封装请求参数
+    //    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    //    params[@"access_token"] = [LQSAccountTool account].access_token;
+    //    params[@"status"] = self.textView.text;
+    //
+    //    // 3.发送POST请求
+    //    [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    //
+    //#warning 目前新浪开放的发微博接口 最多 只能上传一张图片
+    //        UIImage *image = [self.photosView.images firstObject];
+    //
+    //        NSData *data = UIImageJPEGRepresentation(image, 1.0);
+    //
+    //        // 拼接文件参数
+    //        [formData appendPartWithFileData:data name:@"pic" fileName:@"status.jpg" mimeType:@"image/jpeg"];
+    //
+    //    } success:^(AFHTTPRequestOperation *operation, NSDictionary *statusDict) {
+    //        [MBProgressHUD showSuccess:@"发表成功"];
+    //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    //        [MBProgressHUD showError:@"发表失败"];
+    //    }];
+}
+
+
+// 图文混排 ： 图片和文字混合在一起排列
+
+/**
+ *  发表没有图片的微博
+ */
+//- (void)sendStatusWithoutImage
+//{
+//    // 1.封装请求参数
+//    LQSSendStatusParam *param = [LQSSendStatusParam param];
+//    param.status = self.textView.realText;
+//    
+//    // 2.发微博
+//    [LQSStatusTool sendStatusWithParam:param success:^(LQSSendStatusResult *result) {
+//        [MBProgressHUD showSuccess:@"发表成功"];
+//    } failure:^(NSError *error) {
+//        [MBProgressHUD showError:@"发表失败"];
+//    }];
+//}
 
 #pragma mark - 键盘处理
 /**
@@ -231,9 +242,8 @@
  */
 - (void)keyboardWillHide:(NSNotification *)note
 {
-    // 正在更换键盘时不做任何操作
     if (self.isChangingKeyboard) return;
-    //=====================================//
+    
     // 1.键盘弹出需要的时间
     CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
@@ -242,7 +252,6 @@
         self.toolbar.transform = CGAffineTransformIdentity;
     }];
 }
-
 
 /**
  *  键盘即将弹出
@@ -257,20 +266,10 @@
         // 取出键盘高度
         CGRect keyboardF = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
         CGFloat keyboardH = keyboardF.size.height;
-//        self.toolbar.transform = CGAffineTransformMakeTranslation(0, - keyboardH);
-        
-        // 工具跳不在keyBoard上方=======================//
-        self.toolbar.transform = CGAffineTransformMakeTranslation(0, 0);
+        self.toolbar.transform = CGAffineTransformMakeTranslation(0, - keyboardH);
     }];
 }
 
-/**
- *  取消
- */
-- (void)cancel
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 #pragma mark - UITextViewDelegate
 /**
  *  当用户开始拖拽scrollView时调用
@@ -288,7 +287,7 @@
     self.navigationItem.rightBarButtonItem.enabled = textView.hasText;
 }
 
-#pragma mark - HMComposeToolbarDelegate
+#pragma mark - LQSComposeToolbarDelegate
 /**
  *  监听toolbar内部按钮的点击
  */
@@ -396,6 +395,7 @@
     // 往回删
     [self.textView deleteBackward];
 }
+
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -405,198 +405,6 @@
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
     // 2.添加图片到相册中
-    //[self.photosView addImage:image];
-}
-
-#pragma mark - 添加定位按钮
-- (void)setupLocationBtn
-{
-    UIButton *locationBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    [locationBtn setImage:[UIImage imageNamed:@"tab_discover_hilighted"] forState:UIControlStateNormal];
-    
-    [locationBtn setImage:[UIImage imageNamed:@"tab_discover_common"] forState:UIControlStateSelected];
-    
-    [locationBtn setTitle:@"显示所在位置" forState:UIControlStateNormal];
-    
-    // 获取文字长度的宽
-    CGFloat textW = locationBtn.intrinsicContentSize.width;
-    
-    CGFloat locationBtnX = 8;
-    CGFloat locationBtnY = LQSScreenH - 100;
-    CGFloat locationBtnW = textW + 8;
-    CGFloat locationBtnH = 30;
-    
-    locationBtn.frame = CGRectMake(locationBtnX, locationBtnY, locationBtnW, locationBtnH);
-    
-    // 按钮上显示的文字颜色
-    [locationBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [locationBtn setBackgroundColor:[UIColor whiteColor]];
-    
-    self.locationBtn = locationBtn;
-    
-    [self.view addSubview:locationBtn];
-    
-    [locationBtn addTarget:self action:@selector(locationBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    
-}
-
-#pragma mark - 定位按钮点击方法
-- (void)locationBtnClick
-{
-    self.locationBtn.selected = YES;
-    
-    // 获取用户经纬度
-    [self getlatitudeAndLongitude];
-}
-
-#pragma mark - 获取经纬度
-- (void)getlatitudeAndLongitude
-{
-    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-    self.locationManager = locationManager;
-    
-    //期望精度 单位:米  100 :表示系统默认将100米看做同一个范围
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    
-    //位置过滤 单位:米  100.0 表示当用户位置更新了100.0米后调用对应的代理方法
-    locationManager.distanceFilter = 100.0;
-    
-    // iOS 8.0 之后需要用户授权
-    if([UIDevice currentDevice].systemVersion.floatValue >= 8.0)
-    {
-        [locationManager requestWhenInUseAuthorization];
-    }
-    
-    
-    locationManager.delegate = self;
-    
-    [locationManager startUpdatingLocation];
-    
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations
-{
-    NSLog(@"%ld",locations.count);
-}
-// locationManager的代理方法
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(nonnull CLLocation *)newLocation fromLocation:(nonnull CLLocation *)oldLocation
-{
-    // 通过经纬度获取位置信息
-    [self getLocationWithLatitude:newLocation.coordinate.latitude andLongitude:newLocation.coordinate.longitude];
-    [self.locationManager stopUpdatingLocation];
-}
-
-#pragma mark - 发送网络请求获取位置信息
-- (void)getLocationWithLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude
-{
-//====================先确定位置是否可用=========================//
-    NSString * url = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=user/location";
-    
-    [self.manager POST:url parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
-        //
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        // JSON数据解析
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:NULL];
-        
-        NSLog(@"---------------------%@",dict);
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // 显示错误信息
-        });
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        NSLog(@"网络连接失败");
-    }];
-
-//====================获取位置信息=========================//
-    // 拼接url路径
-    NSString *urlStr=[NSString stringWithFormat:@"http://api.map.baidu.com/geocoder/v2/?ak=GT5EmhOircF8diYLKDrIezIp&location=%f,%f&output=json&pois=1",latitude,longitude];
-    
-    // 发送get请求,获取位置信息
-    [self.manager GET:urlStr parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        //
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        // 如果模型数组不为空,清空模型数组(不清除,点击按钮时数据不会变)
-        [self.models removeAllObjects];
-        
-        // JSON数据解析
-        NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:NULL];
-        
-        //NSLog(@"---------------------%@",dict);// 解析成功
-        
-        NSArray<NSDictionary *> * arr = dict[@"result"][@"pois"];
-    
-        //NSLog(@"+++++++++++++++++++++%@",arr);// 取出可能的每个位置信息成功
-        
-        // 字典转模型
-        [arr enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-            LQSLocationModel *model = [LQSLocationModel modelWithDict:obj];
-            
-            [self.models addObject:model];
-        }];
-        
-        
-        // 回到主线程显示位置信息
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            // 有很多信息,要列出来,目前只固定选择第一个地址
-            LQSLocationModel *model = self.models[0];
-            // 展示数据
-            [self.locationBtn setTitle:model.name forState:UIControlStateSelected];
-            
-        });
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"网络连接失败");
-    }];
-
-}
-
-
-#pragma mark - 懒加载
-/** AFHTTPSessionManager 懒加载 */
-- (AFHTTPSessionManager *)manager {
-    if (_manager == nil) {
-        
-        AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
-        _manager = manager;
-        manager.requestSerializer = [AFJSONRequestSerializer serializer];
-        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        NSSet * set = [NSSet setWithObjects:@"text/plain", @"text/html", nil];
-        manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObjectsFromSet:set];
-    }
-    return _manager;
-}
-
-- (LQSPickViewSelectViewController *)pictureVC
-{
-    if (_pictureVC == nil) {
-        
-        LQSPickViewSelectViewController *pictureVC = [[LQSPickViewSelectViewController alloc] init];
-        _pictureVC = pictureVC;
-    }
-    return _pictureVC;
-}
-/** models 懒加载 */
-- (NSMutableArray*)models {
-    if (_models == nil) {
-        _models = [NSMutableArray array];
-    }
-    return _models;
-}
-
-// keyBoard懒加载
-- (LQSEmotionKeyboard *)kerboard
-{
-    if (!_kerboard) {
-        self.kerboard = [LQSEmotionKeyboard keyboard];
-        self.kerboard.width = LQSScreenW;
-        self.kerboard.height = 216;
-    }
-    return _kerboard;
+    [self.photosView addImage:image];
 }
 @end

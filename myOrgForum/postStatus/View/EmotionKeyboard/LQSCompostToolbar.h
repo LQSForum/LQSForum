@@ -6,7 +6,9 @@
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
+
 typedef enum {
     LQSComposeToolbarButtonTypeCamera, // 照相机
     LQSComposeToolbarButtonTypePicture, // 相册
@@ -24,8 +26,7 @@ typedef enum {
 
 @end
 
-
-@interface LQSCompostToolbar : UIView
+@interface LQSComposeToolbar : UIView
 @property (nonatomic, weak) id<LQSComposeToolbarDelegate> delegate;
 /**
  *  设置某个按钮的图片
@@ -33,11 +34,11 @@ typedef enum {
  *  @param image      图片名
  *  @param buttonType 按钮类型
  */
-//- (void)setButtonImage:(NSString *)image buttonType:(HMComposeToolbarButtonType)buttonType;
+//- (void)setButtonImage:(NSString *)image buttonType:(LQSComposeToolbarButtonType)buttonType;
 
 /**
  *  是否要显示表情按钮
  */
 @property (nonatomic, assign, getter = isShowEmotionButton) BOOL showEmotionButton;
-
 @end
+

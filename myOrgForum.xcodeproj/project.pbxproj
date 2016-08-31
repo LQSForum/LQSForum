@@ -123,6 +123,7 @@
 		41F870121D767E8800E05FAB /* LQSEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F870101D767E8800E05FAB /* LQSEmotionAttachment.m */; };
 		41F870151D767E9300E05FAB /* LQSComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F870141D767E9300E05FAB /* LQSComposeViewController.m */; };
 		41F870181D767E9C00E05FAB /* LQSEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F870171D767E9C00E05FAB /* LQSEmotionTool.m */; };
+		41FA39271D76A18D00822E0F /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 41FA39261D76A18C00822E0F /* EmotionIcons */; };
 		552BA34E9ACDFCCA090E3CCF /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC19ADA87E03C1ABA83791ED /* libPods-myOrgForumTests.a */; };
 		6958BD38C5A6B3D50A2D9A57 /* libPods-myOrgForumUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */; };
 		6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */; };
@@ -440,6 +441,7 @@
 		41F870141D767E9300E05FAB /* LQSComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposeViewController.m; path = postStatus/Vc/LQSComposeViewController.m; sourceTree = "<group>"; };
 		41F870161D767E9C00E05FAB /* LQSEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionTool.h; path = postStatus/tool/LQSEmotionTool.h; sourceTree = "<group>"; };
 		41F870171D767E9C00E05FAB /* LQSEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionTool.m; path = postStatus/tool/LQSEmotionTool.m; sourceTree = "<group>"; };
+		41FA39261D76A18C00822E0F /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
 		5EE05E5BF0E9D045510A9FC6 /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
 		6E04765F1D55AE7000FD6CE0 /* LQSIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSIntroduceViewController.h; path = introduce/introduceVC/LQSIntroduceViewController.h; sourceTree = "<group>"; };
 		6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSIntroduceViewController.m; path = introduce/introduceVC/LQSIntroduceViewController.m; sourceTree = "<group>"; };
@@ -860,7 +862,7 @@
 		415C55521CC8CCEE00408B90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				41F86FE91D767B2A00E05FAB /* EmotionIcons */,
+				41FA39261D76A18C00822E0F /* EmotionIcons */,
 				415C55531CC8CCEE00408B90 /* main.m */,
 				410FBB711CCDEDB400761192 /* LQSAppDelegate+HUD.h */,
 				410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */,
@@ -1085,37 +1087,6 @@
 				416072121D20CF690083229E /* EmotionKeyboard */,
 			);
 			name = View;
-			sourceTree = "<group>";
-		};
-		41F86FE91D767B2A00E05FAB /* EmotionIcons */ = {
-			isa = PBXGroup;
-			children = (
-				41F86FEC1D767B4400E05FAB /* default */,
-				41F86FEB1D767B4100E05FAB /* emoji */,
-				41F86FEA1D767B3E00E05FAB /* lxh */,
-			);
-			name = EmotionIcons;
-			sourceTree = "<group>";
-		};
-		41F86FEA1D767B3E00E05FAB /* lxh */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = lxh;
-			sourceTree = "<group>";
-		};
-		41F86FEB1D767B4100E05FAB /* emoji */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = emoji;
-			sourceTree = "<group>";
-		};
-		41F86FEC1D767B4400E05FAB /* default */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = default;
 			sourceTree = "<group>";
 		};
 		563099391D2E31FE00FC9EE6 /* Model */ = {
@@ -1471,6 +1442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41F8700A1D767E7B00E05FAB /* LQSEmotionPopView.xib in Resources */,
+				41FA39271D76A18D00822E0F /* EmotionIcons in Resources */,
 				DF6E05CC1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib in Resources */,
 				E4430D571D54B74C0014A6FE /* index.ios.js in Resources */,
 				415C55621CC8CCEE00408B90 /* LaunchScreen.storyboard in Resources */,
