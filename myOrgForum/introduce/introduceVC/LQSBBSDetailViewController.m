@@ -10,9 +10,14 @@
 #import "LQSHttpsRequest.h"
 #import "LQSBBSDetailCell.h"
 #import "LQSAddViewHelper.h"
+#import "LQSArticleContentView.h"
 
-
-@interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate>{
+    /*帖子最好实现在 tableHeaderView 里面，现在实现在cell里面，
+    所以现在声明一个ContentView来专门算高，权宜之计
+     */
+    LQSArticleContentView*    _articleView;
+}
 
 @property (nonatomic, strong) UITableView *mainList;
 
@@ -24,7 +29,6 @@
 {
     [super viewDidLoad];
     [self postForData];
-    
     
 }
 
@@ -154,17 +158,14 @@
 - (CGFloat)getHeightForContentCell:(NSArray *)contentArr
 {
     CGFloat height = 55;
-    for (LQSBBSContentModel *model in contentArr) {
-        if ((![model.infor containsString:@".png"] && ![model.infor containsString:@".jpg"] ) && model.infor.length > 0) {
-            NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:13]};
-            CGRect rect = [model.infor boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 10, 10000) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
-            NSInteger nCount = [LQSAddViewHelper getCountOfString:model.infor forCharacter:@"\n"]+[LQSAddViewHelper getCountOfString:model.infor forCharacter:@"\r"];
-            height += (rect.size.height+nCount*10);
-        }else{
-            height += 470*(KLQScreenFrameSize.width - 15)/690;
-        }
+    if (_articleView == nil) {
+        _articleView = [[LQSArticleContentView alloc] initWithFrame:CGRectMake(0, 0, KLQScreenFrameSize.width-30, 500)];
+        _articleView.preferredMaxLayoutWidth = KLQScreenFrameSize.width-30;
     }
-    return height;
+    _articleView.content = contentArr;
+    height += _articleView.contentSize.height;
+    //NSLog(@"height = %f,%@",height,_articleView);
+    return height+10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
