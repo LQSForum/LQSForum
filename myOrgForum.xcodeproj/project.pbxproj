@@ -38,9 +38,6 @@
 		410FA1F81D38EB7E0021B7E2 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1F11D38EB7E0021B7E2 /* UIWindow+Extension.m */; };
 		410FA1FE1D38EB8B0021B7E2 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1FA1D38EB8B0021B7E2 /* NSObject+YYModel.m */; };
 		410FA1FF1D38EB8B0021B7E2 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1FC1D38EB8B0021B7E2 /* YYClassInfo.m */; };
-		410FA21E1D38EBA30021B7E2 /* LQSEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2011D38EBA30021B7E2 /* LQSEmotion.m */; };
-		410FA21F1D38EBA30021B7E2 /* LQSEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2031D38EBA30021B7E2 /* LQSEmotionAttachment.m */; };
-		410FA2201D38EBA30021B7E2 /* LQSEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2051D38EBA30021B7E2 /* LQSEmotionTool.m */; };
 		410FA2211D38EBA30021B7E2 /* LQSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2071D38EBA30021B7E2 /* LQSNavigationController.m */; };
 		410FA2221D38EBA30021B7E2 /* LQSNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2091D38EBA30021B7E2 /* LQSNewfeatureViewController.m */; };
 		410FA2231D38EBA30021B7E2 /* LQSRootTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA20B1D38EBA30021B7E2 /* LQSRootTableViewCell.m */; };
@@ -48,21 +45,10 @@
 		410FA2251D38EBA30021B7E2 /* LQSSpecifyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA20F1D38EBA30021B7E2 /* LQSSpecifyHeader.m */; };
 		410FA2261D38EBA30021B7E2 /* LQSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2111D38EBA30021B7E2 /* LQSTabBar.m */; };
 		410FA2271D38EBA30021B7E2 /* LQSTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2131D38EBA30021B7E2 /* LQSTabBarViewController.m */; };
-		410FA2281D38EBA30021B7E2 /* LQSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2151D38EBA30021B7E2 /* LQSTextView.m */; };
 		410FA2291D38EBA30021B7E2 /* LQSTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2171D38EBA30021B7E2 /* LQSTitleButton.m */; };
 		410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2191D38EBA30021B7E2 /* LQSUITableView.m */; };
 		410FA22B1D38EBA30021B7E2 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA21B1D38EBA30021B7E2 /* NSString+Emoji.m */; };
 		410FA22C1D38EBA30021B7E2 /* rootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA21D1D38EBA30021B7E2 /* rootViewController.m */; };
-		410FA23C1D38EBB60021B7E2 /* LQSEmotionGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA22E1D38EBB60021B7E2 /* LQSEmotionGridView.m */; };
-		410FA23D1D38EBB60021B7E2 /* LQSEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2301D38EBB60021B7E2 /* LQSEmotionKeyboard.m */; };
-		410FA23E1D38EBB60021B7E2 /* LQSEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2321D38EBB60021B7E2 /* LQSEmotionListView.m */; };
-		410FA23F1D38EBB60021B7E2 /* LQSEmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2341D38EBB60021B7E2 /* LQSEmotionPopView.m */; };
-		410FA2401D38EBB60021B7E2 /* LQSEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410FA2351D38EBB60021B7E2 /* LQSEmotionPopView.xib */; };
-		410FA2411D38EBB60021B7E2 /* LQSEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2371D38EBB60021B7E2 /* LQSEmotionTextView.m */; };
-		410FA2421D38EBB60021B7E2 /* LQSEmotionToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2391D38EBB60021B7E2 /* LQSEmotionToolbar.m */; };
-		410FA2431D38EBB60021B7E2 /* LQSEmotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA23B1D38EBB60021B7E2 /* LQSEmotionView.m */; };
-		410FA2621D38EBE80021B7E2 /* LQSComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA25F1D38EBE80021B7E2 /* LQSComposePhotosView.m */; };
-		410FA2631D38EBE80021B7E2 /* LQSCompostToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2611D38EBE80021B7E2 /* LQSCompostToolbar.m */; };
 		410FA2691D38EC010021B7E2 /* LQSCoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2681D38EC010021B7E2 /* LQSCoreManager.m */; };
 		410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AA1D38EC790021B7E2 /* LQSCellModel.m */; };
 		410FA2AE1D38EC790021B7E2 /* LQSSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AC1D38EC790021B7E2 /* LQSSectionModel.m */; };
@@ -122,6 +108,21 @@
 		41AC5B411D751C83006E38D5 /* LQSSystemMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B331D751C83006E38D5 /* LQSSystemMessageViewController.m */; };
 		41AC5B461D751CF5006E38D5 /* LQSAccountManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B431D751CF5006E38D5 /* LQSAccountManagementViewController.m */; };
 		41AC5B471D751CF5006E38D5 /* LQSsetRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B451D751CF5006E38D5 /* LQSsetRootViewController.m */; };
+		41F86FF31D767E7200E05FAB /* LQSComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F86FEE1D767E7200E05FAB /* LQSComposePhotosView.m */; };
+		41F86FF41D767E7200E05FAB /* LQSEmotionToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F86FF01D767E7200E05FAB /* LQSEmotionToolbar.m */; };
+		41F86FF51D767E7200E05FAB /* LQSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F86FF21D767E7200E05FAB /* LQSTextView.m */; };
+		41F870051D767E7B00E05FAB /* LQSCompostToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F86FF71D767E7B00E05FAB /* LQSCompostToolbar.m */; };
+		41F870061D767E7B00E05FAB /* LQSEmotionGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F86FF91D767E7B00E05FAB /* LQSEmotionGridView.m */; };
+		41F870071D767E7B00E05FAB /* LQSEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F86FFB1D767E7B00E05FAB /* LQSEmotionKeyboard.m */; };
+		41F870081D767E7B00E05FAB /* LQSEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F86FFD1D767E7B00E05FAB /* LQSEmotionListView.m */; };
+		41F870091D767E7B00E05FAB /* LQSEmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F86FFF1D767E7B00E05FAB /* LQSEmotionPopView.m */; };
+		41F8700A1D767E7B00E05FAB /* LQSEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F870001D767E7B00E05FAB /* LQSEmotionPopView.xib */; };
+		41F8700B1D767E7B00E05FAB /* LQSEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F870021D767E7B00E05FAB /* LQSEmotionTextView.m */; };
+		41F8700C1D767E7B00E05FAB /* LQSEmotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F870041D767E7B00E05FAB /* LQSEmotionView.m */; };
+		41F870111D767E8800E05FAB /* LQSEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F8700E1D767E8800E05FAB /* LQSEmotion.m */; };
+		41F870121D767E8800E05FAB /* LQSEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F870101D767E8800E05FAB /* LQSEmotionAttachment.m */; };
+		41F870151D767E9300E05FAB /* LQSComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F870141D767E9300E05FAB /* LQSComposeViewController.m */; };
+		41F870181D767E9C00E05FAB /* LQSEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F870171D767E9C00E05FAB /* LQSEmotionTool.m */; };
 		552BA34E9ACDFCCA090E3CCF /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC19ADA87E03C1ABA83791ED /* libPods-myOrgForumTests.a */; };
 		6958BD38C5A6B3D50A2D9A57 /* libPods-myOrgForumUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */; };
 		6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */; };
@@ -137,7 +138,6 @@
 		6E62B0721D740CC2001FB2A4 /* mc_forum_ico53_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E62B0711D740CC2001FB2A4 /* mc_forum_ico53_n.png */; };
 		6E7378B21D6E944E009B6C66 /* LQSBBSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7378B11D6E944E009B6C66 /* LQSBBSDetailViewController.m */; };
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
-		B801112F1D5DC10500D7A05C /* LQSComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B801112C1D5DC10500D7A05C /* LQSComposeViewController.m */; };
 		B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */; };
 		B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111331D5DC11700D7A05C /* LQSLocationModel.m */; };
 		B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */; };
@@ -267,12 +267,6 @@
 		410FA1FB1D38EB8B0021B7E2 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYClassInfo.h; path = categories/YYModel/YYClassInfo.h; sourceTree = "<group>"; };
 		410FA1FC1D38EB8B0021B7E2 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYClassInfo.m; path = categories/YYModel/YYClassInfo.m; sourceTree = "<group>"; };
 		410FA1FD1D38EB8B0021B7E2 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYModel.h; path = categories/YYModel/YYModel.h; sourceTree = "<group>"; };
-		410FA2001D38EBA30021B7E2 /* LQSEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotion.h; path = Utilities/LQSEmotion.h; sourceTree = "<group>"; };
-		410FA2011D38EBA30021B7E2 /* LQSEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotion.m; path = Utilities/LQSEmotion.m; sourceTree = "<group>"; };
-		410FA2021D38EBA30021B7E2 /* LQSEmotionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionAttachment.h; path = Utilities/LQSEmotionAttachment.h; sourceTree = "<group>"; };
-		410FA2031D38EBA30021B7E2 /* LQSEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionAttachment.m; path = Utilities/LQSEmotionAttachment.m; sourceTree = "<group>"; };
-		410FA2041D38EBA30021B7E2 /* LQSEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionTool.h; path = Utilities/LQSEmotionTool.h; sourceTree = "<group>"; };
-		410FA2051D38EBA30021B7E2 /* LQSEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionTool.m; path = Utilities/LQSEmotionTool.m; sourceTree = "<group>"; };
 		410FA2061D38EBA30021B7E2 /* LQSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSNavigationController.h; path = Utilities/LQSNavigationController.h; sourceTree = "<group>"; };
 		410FA2071D38EBA30021B7E2 /* LQSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSNavigationController.m; path = Utilities/LQSNavigationController.m; sourceTree = "<group>"; };
 		410FA2081D38EBA30021B7E2 /* LQSNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSNewfeatureViewController.h; path = Utilities/LQSNewfeatureViewController.h; sourceTree = "<group>"; };
@@ -287,8 +281,6 @@
 		410FA2111D38EBA30021B7E2 /* LQSTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSTabBar.m; path = Utilities/LQSTabBar.m; sourceTree = "<group>"; };
 		410FA2121D38EBA30021B7E2 /* LQSTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSTabBarViewController.h; path = Utilities/LQSTabBarViewController.h; sourceTree = "<group>"; };
 		410FA2131D38EBA30021B7E2 /* LQSTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSTabBarViewController.m; path = Utilities/LQSTabBarViewController.m; sourceTree = "<group>"; };
-		410FA2141D38EBA30021B7E2 /* LQSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSTextView.h; path = Utilities/LQSTextView.h; sourceTree = "<group>"; };
-		410FA2151D38EBA30021B7E2 /* LQSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSTextView.m; path = Utilities/LQSTextView.m; sourceTree = "<group>"; };
 		410FA2161D38EBA30021B7E2 /* LQSTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSTitleButton.h; path = Utilities/LQSTitleButton.h; sourceTree = "<group>"; };
 		410FA2171D38EBA30021B7E2 /* LQSTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSTitleButton.m; path = Utilities/LQSTitleButton.m; sourceTree = "<group>"; };
 		410FA2181D38EBA30021B7E2 /* LQSUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSUITableView.h; path = Utilities/LQSUITableView.h; sourceTree = "<group>"; };
@@ -297,25 +289,6 @@
 		410FA21B1D38EBA30021B7E2 /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Emoji.m"; path = "Utilities/NSString+Emoji.m"; sourceTree = "<group>"; };
 		410FA21C1D38EBA30021B7E2 /* rootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rootViewController.h; path = Utilities/rootViewController.h; sourceTree = "<group>"; };
 		410FA21D1D38EBA30021B7E2 /* rootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rootViewController.m; path = Utilities/rootViewController.m; sourceTree = "<group>"; };
-		410FA22D1D38EBB60021B7E2 /* LQSEmotionGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionGridView.h; path = Utilities/EmotionKeyboard/LQSEmotionGridView.h; sourceTree = "<group>"; };
-		410FA22E1D38EBB60021B7E2 /* LQSEmotionGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionGridView.m; path = Utilities/EmotionKeyboard/LQSEmotionGridView.m; sourceTree = "<group>"; };
-		410FA22F1D38EBB60021B7E2 /* LQSEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionKeyboard.h; path = Utilities/EmotionKeyboard/LQSEmotionKeyboard.h; sourceTree = "<group>"; };
-		410FA2301D38EBB60021B7E2 /* LQSEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionKeyboard.m; path = Utilities/EmotionKeyboard/LQSEmotionKeyboard.m; sourceTree = "<group>"; };
-		410FA2311D38EBB60021B7E2 /* LQSEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionListView.h; path = Utilities/EmotionKeyboard/LQSEmotionListView.h; sourceTree = "<group>"; };
-		410FA2321D38EBB60021B7E2 /* LQSEmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionListView.m; path = Utilities/EmotionKeyboard/LQSEmotionListView.m; sourceTree = "<group>"; };
-		410FA2331D38EBB60021B7E2 /* LQSEmotionPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionPopView.h; path = Utilities/EmotionKeyboard/LQSEmotionPopView.h; sourceTree = "<group>"; };
-		410FA2341D38EBB60021B7E2 /* LQSEmotionPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionPopView.m; path = Utilities/EmotionKeyboard/LQSEmotionPopView.m; sourceTree = "<group>"; };
-		410FA2351D38EBB60021B7E2 /* LQSEmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LQSEmotionPopView.xib; path = Utilities/EmotionKeyboard/LQSEmotionPopView.xib; sourceTree = "<group>"; };
-		410FA2361D38EBB60021B7E2 /* LQSEmotionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionTextView.h; path = Utilities/EmotionKeyboard/LQSEmotionTextView.h; sourceTree = "<group>"; };
-		410FA2371D38EBB60021B7E2 /* LQSEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionTextView.m; path = Utilities/EmotionKeyboard/LQSEmotionTextView.m; sourceTree = "<group>"; };
-		410FA2381D38EBB60021B7E2 /* LQSEmotionToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionToolbar.h; path = Utilities/EmotionKeyboard/LQSEmotionToolbar.h; sourceTree = "<group>"; };
-		410FA2391D38EBB60021B7E2 /* LQSEmotionToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionToolbar.m; path = Utilities/EmotionKeyboard/LQSEmotionToolbar.m; sourceTree = "<group>"; };
-		410FA23A1D38EBB60021B7E2 /* LQSEmotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionView.h; path = Utilities/EmotionKeyboard/LQSEmotionView.h; sourceTree = "<group>"; };
-		410FA23B1D38EBB60021B7E2 /* LQSEmotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionView.m; path = Utilities/EmotionKeyboard/LQSEmotionView.m; sourceTree = "<group>"; };
-		410FA25E1D38EBE80021B7E2 /* LQSComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSComposePhotosView.h; path = main/View/LQSComposePhotosView.h; sourceTree = "<group>"; };
-		410FA25F1D38EBE80021B7E2 /* LQSComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposePhotosView.m; path = main/View/LQSComposePhotosView.m; sourceTree = "<group>"; };
-		410FA2601D38EBE80021B7E2 /* LQSCompostToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCompostToolbar.h; path = main/View/LQSCompostToolbar.h; sourceTree = "<group>"; };
-		410FA2611D38EBE80021B7E2 /* LQSCompostToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCompostToolbar.m; path = main/View/LQSCompostToolbar.m; sourceTree = "<group>"; };
 		410FA2671D38EC010021B7E2 /* LQSCoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCoreManager.h; path = core/LQSCoreManager.h; sourceTree = "<group>"; };
 		410FA2681D38EC010021B7E2 /* LQSCoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCoreManager.m; path = core/LQSCoreManager.m; sourceTree = "<group>"; };
 		410FA2A91D38EC790021B7E2 /* LQSCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCellModel.h; path = forum/Model/LQSCellModel.h; sourceTree = "<group>"; };
@@ -438,6 +411,35 @@
 		41AC5B451D751CF5006E38D5 /* LQSsetRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSsetRootViewController.m; path = setting/ViewController/LQSsetRootViewController.m; sourceTree = "<group>"; };
 		41AC5B481D752385006E38D5 /* XXXXX2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXX2.h; sourceTree = "<group>"; };
 		41AC5B491D7523BE006E38D5 /* XXXXX3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXX3.h; sourceTree = "<group>"; };
+		41F86FED1D767E7200E05FAB /* LQSComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSComposePhotosView.h; path = postStatus/View/LQSComposePhotosView.h; sourceTree = "<group>"; };
+		41F86FEE1D767E7200E05FAB /* LQSComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposePhotosView.m; path = postStatus/View/LQSComposePhotosView.m; sourceTree = "<group>"; };
+		41F86FEF1D767E7200E05FAB /* LQSEmotionToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionToolbar.h; path = postStatus/View/LQSEmotionToolbar.h; sourceTree = "<group>"; };
+		41F86FF01D767E7200E05FAB /* LQSEmotionToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionToolbar.m; path = postStatus/View/LQSEmotionToolbar.m; sourceTree = "<group>"; };
+		41F86FF11D767E7200E05FAB /* LQSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSTextView.h; path = postStatus/View/LQSTextView.h; sourceTree = "<group>"; };
+		41F86FF21D767E7200E05FAB /* LQSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSTextView.m; path = postStatus/View/LQSTextView.m; sourceTree = "<group>"; };
+		41F86FF61D767E7B00E05FAB /* LQSCompostToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCompostToolbar.h; path = postStatus/View/EmotionKeyboard/LQSCompostToolbar.h; sourceTree = "<group>"; };
+		41F86FF71D767E7B00E05FAB /* LQSCompostToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCompostToolbar.m; path = postStatus/View/EmotionKeyboard/LQSCompostToolbar.m; sourceTree = "<group>"; };
+		41F86FF81D767E7B00E05FAB /* LQSEmotionGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionGridView.h; path = postStatus/View/EmotionKeyboard/LQSEmotionGridView.h; sourceTree = "<group>"; };
+		41F86FF91D767E7B00E05FAB /* LQSEmotionGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionGridView.m; path = postStatus/View/EmotionKeyboard/LQSEmotionGridView.m; sourceTree = "<group>"; };
+		41F86FFA1D767E7B00E05FAB /* LQSEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionKeyboard.h; path = postStatus/View/EmotionKeyboard/LQSEmotionKeyboard.h; sourceTree = "<group>"; };
+		41F86FFB1D767E7B00E05FAB /* LQSEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionKeyboard.m; path = postStatus/View/EmotionKeyboard/LQSEmotionKeyboard.m; sourceTree = "<group>"; };
+		41F86FFC1D767E7B00E05FAB /* LQSEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionListView.h; path = postStatus/View/EmotionKeyboard/LQSEmotionListView.h; sourceTree = "<group>"; };
+		41F86FFD1D767E7B00E05FAB /* LQSEmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionListView.m; path = postStatus/View/EmotionKeyboard/LQSEmotionListView.m; sourceTree = "<group>"; };
+		41F86FFE1D767E7B00E05FAB /* LQSEmotionPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionPopView.h; path = postStatus/View/EmotionKeyboard/LQSEmotionPopView.h; sourceTree = "<group>"; };
+		41F86FFF1D767E7B00E05FAB /* LQSEmotionPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionPopView.m; path = postStatus/View/EmotionKeyboard/LQSEmotionPopView.m; sourceTree = "<group>"; };
+		41F870001D767E7B00E05FAB /* LQSEmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LQSEmotionPopView.xib; path = postStatus/View/EmotionKeyboard/LQSEmotionPopView.xib; sourceTree = "<group>"; };
+		41F870011D767E7B00E05FAB /* LQSEmotionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionTextView.h; path = postStatus/View/EmotionKeyboard/LQSEmotionTextView.h; sourceTree = "<group>"; };
+		41F870021D767E7B00E05FAB /* LQSEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionTextView.m; path = postStatus/View/EmotionKeyboard/LQSEmotionTextView.m; sourceTree = "<group>"; };
+		41F870031D767E7B00E05FAB /* LQSEmotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionView.h; path = postStatus/View/EmotionKeyboard/LQSEmotionView.h; sourceTree = "<group>"; };
+		41F870041D767E7B00E05FAB /* LQSEmotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionView.m; path = postStatus/View/EmotionKeyboard/LQSEmotionView.m; sourceTree = "<group>"; };
+		41F8700D1D767E8800E05FAB /* LQSEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotion.h; path = postStatus/Model/LQSEmotion.h; sourceTree = "<group>"; };
+		41F8700E1D767E8800E05FAB /* LQSEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotion.m; path = postStatus/Model/LQSEmotion.m; sourceTree = "<group>"; };
+		41F8700F1D767E8800E05FAB /* LQSEmotionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionAttachment.h; path = postStatus/Model/LQSEmotionAttachment.h; sourceTree = "<group>"; };
+		41F870101D767E8800E05FAB /* LQSEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionAttachment.m; path = postStatus/Model/LQSEmotionAttachment.m; sourceTree = "<group>"; };
+		41F870131D767E9300E05FAB /* LQSComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSComposeViewController.h; path = postStatus/Vc/LQSComposeViewController.h; sourceTree = "<group>"; };
+		41F870141D767E9300E05FAB /* LQSComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposeViewController.m; path = postStatus/Vc/LQSComposeViewController.m; sourceTree = "<group>"; };
+		41F870161D767E9C00E05FAB /* LQSEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionTool.h; path = postStatus/tool/LQSEmotionTool.h; sourceTree = "<group>"; };
+		41F870171D767E9C00E05FAB /* LQSEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSEmotionTool.m; path = postStatus/tool/LQSEmotionTool.m; sourceTree = "<group>"; };
 		5EE05E5BF0E9D045510A9FC6 /* Pods-myOrgForum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.release.xcconfig"; sourceTree = "<group>"; };
 		6E04765F1D55AE7000FD6CE0 /* LQSIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSIntroduceViewController.h; path = introduce/introduceVC/LQSIntroduceViewController.h; sourceTree = "<group>"; };
 		6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSIntroduceViewController.m; path = introduce/introduceVC/LQSIntroduceViewController.m; sourceTree = "<group>"; };
@@ -465,8 +467,6 @@
 		7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C12DEEB8E74CDD3E0CF002 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
-		B801112B1D5DC10500D7A05C /* LQSComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSComposeViewController.h; path = main/VC/LQSComposeViewController.h; sourceTree = "<group>"; };
-		B801112C1D5DC10500D7A05C /* LQSComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposeViewController.m; path = main/VC/LQSComposeViewController.m; sourceTree = "<group>"; };
 		B801112D1D5DC10500D7A05C /* LQSPickViewSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSPickViewSelectViewController.h; path = main/VC/LQSPickViewSelectViewController.h; sourceTree = "<group>"; };
 		B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSPickViewSelectViewController.m; path = main/VC/LQSPickViewSelectViewController.m; sourceTree = "<group>"; };
 		B80111321D5DC11700D7A05C /* LQSLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSLocationModel.h; sourceTree = "<group>"; };
@@ -668,6 +668,7 @@
 		410FBB6F1CCDEBC500761192 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				41F86FE41D76784B00E05FAB /* postStatus */,
 				E4D8E1BA1D5418A400EE6171 /* User */,
 				416072021D20BE480083229E /* main */,
 				41852FC11CE31D21003CD9D4 /* core */,
@@ -859,6 +860,7 @@
 		415C55521CC8CCEE00408B90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41F86FE91D767B2A00E05FAB /* EmotionIcons */,
 				415C55531CC8CCEE00408B90 /* main.m */,
 				410FBB711CCDEDB400761192 /* LQSAppDelegate+HUD.h */,
 				410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */,
@@ -897,8 +899,6 @@
 		416072061D20C5280083229E /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				B801112B1D5DC10500D7A05C /* LQSComposeViewController.h */,
-				B801112C1D5DC10500D7A05C /* LQSComposeViewController.m */,
 				B801112D1D5DC10500D7A05C /* LQSPickViewSelectViewController.h */,
 				B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */,
 			);
@@ -908,10 +908,6 @@
 		416072071D20C5310083229E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				410FA25E1D38EBE80021B7E2 /* LQSComposePhotosView.h */,
-				410FA25F1D38EBE80021B7E2 /* LQSComposePhotosView.m */,
-				410FA2601D38EBE80021B7E2 /* LQSCompostToolbar.h */,
-				410FA2611D38EBE80021B7E2 /* LQSCompostToolbar.m */,
 				B80111351D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.h */,
 				B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */,
 			);
@@ -921,21 +917,21 @@
 		416072121D20CF690083229E /* EmotionKeyboard */ = {
 			isa = PBXGroup;
 			children = (
-				410FA22D1D38EBB60021B7E2 /* LQSEmotionGridView.h */,
-				410FA22E1D38EBB60021B7E2 /* LQSEmotionGridView.m */,
-				410FA22F1D38EBB60021B7E2 /* LQSEmotionKeyboard.h */,
-				410FA2301D38EBB60021B7E2 /* LQSEmotionKeyboard.m */,
-				410FA2311D38EBB60021B7E2 /* LQSEmotionListView.h */,
-				410FA2321D38EBB60021B7E2 /* LQSEmotionListView.m */,
-				410FA2331D38EBB60021B7E2 /* LQSEmotionPopView.h */,
-				410FA2341D38EBB60021B7E2 /* LQSEmotionPopView.m */,
-				410FA2351D38EBB60021B7E2 /* LQSEmotionPopView.xib */,
-				410FA2361D38EBB60021B7E2 /* LQSEmotionTextView.h */,
-				410FA2371D38EBB60021B7E2 /* LQSEmotionTextView.m */,
-				410FA2381D38EBB60021B7E2 /* LQSEmotionToolbar.h */,
-				410FA2391D38EBB60021B7E2 /* LQSEmotionToolbar.m */,
-				410FA23A1D38EBB60021B7E2 /* LQSEmotionView.h */,
-				410FA23B1D38EBB60021B7E2 /* LQSEmotionView.m */,
+				41F86FF61D767E7B00E05FAB /* LQSCompostToolbar.h */,
+				41F86FF71D767E7B00E05FAB /* LQSCompostToolbar.m */,
+				41F86FF81D767E7B00E05FAB /* LQSEmotionGridView.h */,
+				41F86FF91D767E7B00E05FAB /* LQSEmotionGridView.m */,
+				41F86FFA1D767E7B00E05FAB /* LQSEmotionKeyboard.h */,
+				41F86FFB1D767E7B00E05FAB /* LQSEmotionKeyboard.m */,
+				41F86FFC1D767E7B00E05FAB /* LQSEmotionListView.h */,
+				41F86FFD1D767E7B00E05FAB /* LQSEmotionListView.m */,
+				41F86FFE1D767E7B00E05FAB /* LQSEmotionPopView.h */,
+				41F86FFF1D767E7B00E05FAB /* LQSEmotionPopView.m */,
+				41F870001D767E7B00E05FAB /* LQSEmotionPopView.xib */,
+				41F870011D767E7B00E05FAB /* LQSEmotionTextView.h */,
+				41F870021D767E7B00E05FAB /* LQSEmotionTextView.m */,
+				41F870031D767E7B00E05FAB /* LQSEmotionView.h */,
+				41F870041D767E7B00E05FAB /* LQSEmotionView.m */,
 			);
 			name = EmotionKeyboard;
 			sourceTree = "<group>";
@@ -944,12 +940,6 @@
 			isa = PBXGroup;
 			children = (
 				6E75DCFD1D3FC0D900C7BD82 /* LQSCommonDefine.h */,
-				410FA2001D38EBA30021B7E2 /* LQSEmotion.h */,
-				410FA2011D38EBA30021B7E2 /* LQSEmotion.m */,
-				410FA2021D38EBA30021B7E2 /* LQSEmotionAttachment.h */,
-				410FA2031D38EBA30021B7E2 /* LQSEmotionAttachment.m */,
-				410FA2041D38EBA30021B7E2 /* LQSEmotionTool.h */,
-				410FA2051D38EBA30021B7E2 /* LQSEmotionTool.m */,
 				410FA2061D38EBA30021B7E2 /* LQSNavigationController.h */,
 				410FA2071D38EBA30021B7E2 /* LQSNavigationController.m */,
 				410FA2081D38EBA30021B7E2 /* LQSNewfeatureViewController.h */,
@@ -964,8 +954,6 @@
 				410FA2111D38EBA30021B7E2 /* LQSTabBar.m */,
 				410FA2121D38EBA30021B7E2 /* LQSTabBarViewController.h */,
 				410FA2131D38EBA30021B7E2 /* LQSTabBarViewController.m */,
-				410FA2141D38EBA30021B7E2 /* LQSTextView.h */,
-				410FA2151D38EBA30021B7E2 /* LQSTextView.m */,
 				410FA2161D38EBA30021B7E2 /* LQSTitleButton.h */,
 				410FA2171D38EBA30021B7E2 /* LQSTitleButton.m */,
 				410FA2181D38EBA30021B7E2 /* LQSUITableView.h */,
@@ -974,7 +962,6 @@
 				410FA21B1D38EBA30021B7E2 /* NSString+Emoji.m */,
 				410FA21C1D38EBA30021B7E2 /* rootViewController.h */,
 				410FA21D1D38EBA30021B7E2 /* rootViewController.m */,
-				416072121D20CF690083229E /* EmotionKeyboard */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1044,6 +1031,91 @@
 				E4D8E1CB1D541C1300EE6171 /* LQSConstants.h */,
 			);
 			name = core;
+			sourceTree = "<group>";
+		};
+		41F86FE41D76784B00E05FAB /* postStatus */ = {
+			isa = PBXGroup;
+			children = (
+				41F86FE81D76787E00E05FAB /* View */,
+				41F86FE71D76787700E05FAB /* Model */,
+				41F86FE61D76786E00E05FAB /* Vc */,
+				41F86FE51D76785E00E05FAB /* tool */,
+			);
+			name = postStatus;
+			sourceTree = "<group>";
+		};
+		41F86FE51D76785E00E05FAB /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				41F870161D767E9C00E05FAB /* LQSEmotionTool.h */,
+				41F870171D767E9C00E05FAB /* LQSEmotionTool.m */,
+			);
+			name = tool;
+			sourceTree = "<group>";
+		};
+		41F86FE61D76786E00E05FAB /* Vc */ = {
+			isa = PBXGroup;
+			children = (
+				41F870131D767E9300E05FAB /* LQSComposeViewController.h */,
+				41F870141D767E9300E05FAB /* LQSComposeViewController.m */,
+			);
+			name = Vc;
+			sourceTree = "<group>";
+		};
+		41F86FE71D76787700E05FAB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				41F8700D1D767E8800E05FAB /* LQSEmotion.h */,
+				41F8700E1D767E8800E05FAB /* LQSEmotion.m */,
+				41F8700F1D767E8800E05FAB /* LQSEmotionAttachment.h */,
+				41F870101D767E8800E05FAB /* LQSEmotionAttachment.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		41F86FE81D76787E00E05FAB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41F86FED1D767E7200E05FAB /* LQSComposePhotosView.h */,
+				41F86FEE1D767E7200E05FAB /* LQSComposePhotosView.m */,
+				41F86FEF1D767E7200E05FAB /* LQSEmotionToolbar.h */,
+				41F86FF01D767E7200E05FAB /* LQSEmotionToolbar.m */,
+				41F86FF11D767E7200E05FAB /* LQSTextView.h */,
+				41F86FF21D767E7200E05FAB /* LQSTextView.m */,
+				416072121D20CF690083229E /* EmotionKeyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		41F86FE91D767B2A00E05FAB /* EmotionIcons */ = {
+			isa = PBXGroup;
+			children = (
+				41F86FEC1D767B4400E05FAB /* default */,
+				41F86FEB1D767B4100E05FAB /* emoji */,
+				41F86FEA1D767B3E00E05FAB /* lxh */,
+			);
+			name = EmotionIcons;
+			sourceTree = "<group>";
+		};
+		41F86FEA1D767B3E00E05FAB /* lxh */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = lxh;
+			sourceTree = "<group>";
+		};
+		41F86FEB1D767B4100E05FAB /* emoji */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = emoji;
+			sourceTree = "<group>";
+		};
+		41F86FEC1D767B4400E05FAB /* default */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = default;
 			sourceTree = "<group>";
 		};
 		563099391D2E31FE00FC9EE6 /* Model */ = {
@@ -1398,6 +1470,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41F8700A1D767E7B00E05FAB /* LQSEmotionPopView.xib in Resources */,
 				DF6E05CC1D72E72E0099395A /* LQSForumDetailSectionHeadView.xib in Resources */,
 				E4430D571D54B74C0014A6FE /* index.ios.js in Resources */,
 				415C55621CC8CCEE00408B90 /* LaunchScreen.storyboard in Resources */,
@@ -1419,7 +1492,6 @@
 				1477F9D91D7019A600EE102C /* Forum.storyboard in Resources */,
 				6E62B06E1D740BF7001FB2A4 /* mc_forum_detail12_jing2.png in Resources */,
 				415C555D1CC8CCEE00408B90 /* Main.storyboard in Resources */,
-				410FA2401D38EBB60021B7E2 /* LQSEmotionPopView.xib in Resources */,
 				2CB084DA1D60508A00167F4D /* MJPhotoBrowser.bundle in Resources */,
 				E4430D521D54B74C0014A6FE /* MenuCard.js in Resources */,
 				E4430D511D54B74C0014A6FE /* ListView.js in Resources */,
@@ -1584,26 +1656,22 @@
 				DF6E05CB1D72E72E0099395A /* LQSForumDetailSectionHeadView.m in Sources */,
 				41AC5AF51D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.m in Sources */,
 				410FA2261D38EBA30021B7E2 /* LQSTabBar.m in Sources */,
-				410FA2201D38EBA30021B7E2 /* LQSEmotionTool.m in Sources */,
 				0000C4A41D645CF5007C969C /* LQSRightTableView.m in Sources */,
-				410FA23C1D38EBB60021B7E2 /* LQSEmotionGridView.m in Sources */,
 				411FE79E1D6D6DC000563324 /* LQSShijieDataModel.m in Sources */,
 				6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */,
 				DFDC33171D714BF20059BDB4 /* UIColor+Hex.m in Sources */,
+				41F870051D767E7B00E05FAB /* LQSCompostToolbar.m in Sources */,
 				410FA2241D38EBA30021B7E2 /* LQSSpecifyFooter.m in Sources */,
-				B801112F1D5DC10500D7A05C /* LQSComposeViewController.m in Sources */,
 				E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */,
 				411FE7AB1D6D6DC700563324 /* LQSDongmanTableViewCell.m in Sources */,
 				0000C4A71D645D0F007C969C /* LQSLatestMarrowTableView.m in Sources */,
-				410FA23E1D38EBB60021B7E2 /* LQSEmotionListView.m in Sources */,
 				B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */,
 				DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */,
+				41F86FF41D767E7200E05FAB /* LQSEmotionToolbar.m in Sources */,
 				41AC5AFB1D751C3E006E38D5 /* LQSSettingTopDataModel.m in Sources */,
 				2CB084DF1D60508A00167F4D /* MJPhotoView.m in Sources */,
 				41AC5AFA1D751C3E006E38D5 /* LQSSettingPersonalSettingDataModel.m in Sources */,
 				41AC5B0F1D751C58006E38D5 /* LQSDetailSettingTableViewCell.m in Sources */,
-				410FA2281D38EBA30021B7E2 /* LQSTextView.m in Sources */,
-				410FA21E1D38EBA30021B7E2 /* LQSEmotion.m in Sources */,
 				DF5A072F1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m in Sources */,
 				41AC5AF91D751C3E006E38D5 /* LQSSettingModel.m in Sources */,
 				41AC5B351D751C83006E38D5 /* LQSHomePagePersonalMessageViewController.m in Sources */,
@@ -1611,20 +1679,24 @@
 				410FA2AE1D38EC790021B7E2 /* LQSSectionModel.m in Sources */,
 				1477F9E31D7019C500EE102C /* LQSForumDetailTopCell.m in Sources */,
 				411FE7941D6D6DAE00563324 /* LQSDongmanViewController.m in Sources */,
+				41F870111D767E8800E05FAB /* LQSEmotion.m in Sources */,
 				410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */,
 				6E62B0671D73D1BE001FB2A4 /* LQSAddViewHelper.m in Sources */,
-				410FA27F1D38EC2D0021B7E2 /* LQSDetailSettingTableViewCell.m in Sources */,
 				410FA2221D38EBA30021B7E2 /* LQSNewfeatureViewController.m in Sources */,
 				6E2893DA1D6C4E8F00EF9CCA /* LQSBBSDetailModel.m in Sources */,
 				41AC5AF71D751C3E006E38D5 /* LQSHomePagePersonalZiliaoDataModel.m in Sources */,
 				41AC5B121D751C58006E38D5 /* LQSHomePagePersonalPresentTableViewCell.m in Sources */,
+				41F870071D767E7B00E05FAB /* LQSEmotionKeyboard.m in Sources */,
+				41F870121D767E8800E05FAB /* LQSEmotionAttachment.m in Sources */,
 				411FE7AD1D6D6DC700563324 /* LQSWaterFlowViewCell.m in Sources */,
 				410FA1F81D38EB7E0021B7E2 /* UIWindow+Extension.m in Sources */,
 				411FE7A91D6D6DC700563324 /* LQSCishanTableViewCell.m in Sources */,
 				41AC5B361D751C83006E38D5 /* LQSMessageCommentViewController.m in Sources */,
 				41AC5B3B1D751C83006E38D5 /* LQSMyHomePageViewController.m in Sources */,
 				410FA2271D38EBA30021B7E2 /* LQSTabBarViewController.m in Sources */,
+				41F86FF31D767E7200E05FAB /* LQSComposePhotosView.m in Sources */,
 				410FA2291D38EBA30021B7E2 /* LQSTitleButton.m in Sources */,
+				41F870061D767E7B00E05FAB /* LQSEmotionGridView.m in Sources */,
 				41AC5B161D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.m in Sources */,
 				410FA2691D38EC010021B7E2 /* LQSCoreManager.m in Sources */,
 				410FA22B1D38EBA30021B7E2 /* NSString+Emoji.m in Sources */,
@@ -1633,7 +1705,6 @@
 				41AC5B3A1D751C83006E38D5 /* LQSMyDraftViewController.m in Sources */,
 				0000C4B41D645E89007C969C /* LQSMainViewCell.m in Sources */,
 				410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */,
-				410FA23D1D38EBB60021B7E2 /* LQSEmotionKeyboard.m in Sources */,
 				E436F2BD1D72CECD001CB8FE /* LQSMessage.m in Sources */,
 				41AC5B371D751C83006E38D5 /* LQSMessageFriendsApplyViewController.m in Sources */,
 				41AC5B111D751C58006E38D5 /* LQSHomePagePersonalMessageView.m in Sources */,
@@ -1643,20 +1714,20 @@
 				41AC5B171D751C58006E38D5 /* LQSSettingTopCell.m in Sources */,
 				410FA1FF1D38EB8B0021B7E2 /* YYClassInfo.m in Sources */,
 				41AC5B471D751CF5006E38D5 /* LQSsetRootViewController.m in Sources */,
-				410FA2631D38EBE80021B7E2 /* LQSCompostToolbar.m in Sources */,
 				6E7378B21D6E944E009B6C66 /* LQSBBSDetailViewController.m in Sources */,
 				410FA2211D38EBA30021B7E2 /* LQSNavigationController.m in Sources */,
 				41AC5B3D1D751C83006E38D5 /* LQSSettingMyFavourateViewController.m in Sources */,
 				1477F9E21D7019C500EE102C /* LQSForumDetailCell.m in Sources */,
 				41AC5B3E1D751C83006E38D5 /* LQSSettingMyFriendViewController.m in Sources */,
 				E4D8E1B91D54188500EE6171 /* LQSBaseManager.m in Sources */,
-				410FA2431D38EBB60021B7E2 /* LQSEmotionView.m in Sources */,
 				6E62B0681D73D1BE001FB2A4 /* LQSBBSDetailCell.m in Sources */,
+				41F870091D767E7B00E05FAB /* LQSEmotionPopView.m in Sources */,
 				E4D8E1DC1D542A2B00EE6171 /* LQSUserInfo.m in Sources */,
 				410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */,
 				411FE79D1D6D6DC000563324 /* LQSDongmanModel.m in Sources */,
 				E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */,
 				2CB084DB1D60508A00167F4D /* MJPhotoBrowser.m in Sources */,
+				41F8700B1D767E7B00E05FAB /* LQSEmotionTextView.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				E4D8E1D11D54237200EE6171 /* LQSBaseRestRequest.m in Sources */,
 				2CB084D91D60508A00167F4D /* MJPhoto.m in Sources */,
@@ -1670,13 +1741,13 @@
 				411FE7921D6D6DAE00563324 /* LQSCishanViewController.m in Sources */,
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
 				41AC5B401D751C83006E38D5 /* LQSSettingViewController.m in Sources */,
+				41F8700C1D767E7B00E05FAB /* LQSEmotionView.m in Sources */,
+				41F870181D767E9C00E05FAB /* LQSEmotionTool.m in Sources */,
 				0000C4AE1D645E42007C969C /* LQSRightViewCell.m in Sources */,
-				410FA2421D38EBB60021B7E2 /* LQSEmotionToolbar.m in Sources */,
 				2CB084DD1D60508A00167F4D /* MJPhotoProgressView.m in Sources */,
 				41AC5AF61D751C3E006E38D5 /* LQSHomePagePersonalPresentDataModel.m in Sources */,
 				41AC5B101D751C58006E38D5 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,
 				410FA1FE1D38EB8B0021B7E2 /* NSObject+YYModel.m in Sources */,
-				410FA21F1D38EBA30021B7E2 /* LQSEmotionAttachment.m in Sources */,
 				0000C49E1D645C4A007C969C /* LQSMainView.m in Sources */,
 				410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */,
 				B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */,
@@ -1687,25 +1758,25 @@
 				41AC5B461D751CF5006E38D5 /* LQSAccountManagementViewController.m in Sources */,
 				0000C4B71D645EB5007C969C /* LQSLastestMarrowModel.m in Sources */,
 				41AC5B151D751C58006E38D5 /* LQSSettingCell.m in Sources */,
+				41F870081D767E7B00E05FAB /* LQSEmotionListView.m in Sources */,
 				B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */,
 				41AC5AF81D751C3E006E38D5 /* LQSMessageDataModel.m in Sources */,
-				410FA2411D38EBB60021B7E2 /* LQSEmotionTextView.m in Sources */,
 				410FA1F51D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m in Sources */,
 				2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */,
+				41F86FF51D767E7200E05FAB /* LQSTextView.m in Sources */,
 				410FA2231D38EBA30021B7E2 /* LQSRootTableViewCell.m in Sources */,
 				41AC5B381D751C83006E38D5 /* LQSMessageMentionedMeViewController.m in Sources */,
 				410FA22C1D38EBA30021B7E2 /* rootViewController.m in Sources */,
 				41AC5B411D751C83006E38D5 /* LQSSystemMessageViewController.m in Sources */,
 				2CB084E01D60508A00167F4D /* SDWebImageManager+MJ.m in Sources */,
 				41AC5B131D751C58006E38D5 /* LQSHomePagePersonalZiliaoTableViewCell.m in Sources */,
-				410FA23F1D38EBB60021B7E2 /* LQSEmotionPopView.m in Sources */,
 				41AC5B3C1D751C83006E38D5 /* LQSProfileEditViewController.m in Sources */,
 				410FA1F61D38EB7E0021B7E2 /* UIImage+Extension.m in Sources */,
 				E4D8E1D61D5423D700EE6171 /* LQSBaseModel.m in Sources */,
 				E4D8E1C71D54193000EE6171 /* GCDMulticastDelegate.m in Sources */,
+				41F870151D767E9300E05FAB /* LQSComposeViewController.m in Sources */,
 				41AC5AFC1D751C3E006E38D5 /* LQSUserProfileDataModel.m in Sources */,
 				41AC5B391D751C83006E38D5 /* LQSMessageViewController.m in Sources */,
-				410FA2621D38EBE80021B7E2 /* LQSComposePhotosView.m in Sources */,
 				411FE7AA1D6D6DC700563324 /* LQSDiscoverCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
