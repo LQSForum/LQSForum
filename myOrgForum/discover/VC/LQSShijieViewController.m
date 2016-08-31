@@ -179,6 +179,14 @@
     
 }
 
+- (void)waterflowView:(LQSWaterFlowView *)waterflowView didSelectAtIndex:(NSUInteger)index{
 
+    LQSBBSDetailViewController *detailVc = [LQSBBSDetailViewController new];
+    detailVc.selectModel = [_discoriesArr objectAtIndex:index];
+    [self.navigationController pushViewController:detailVc animated:NO];
+
+
+
+}
 
 @end
