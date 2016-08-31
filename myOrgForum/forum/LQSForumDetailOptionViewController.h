@@ -18,6 +18,6 @@
 
 @protocol LQSForumDetailOptionDelegate <NSObject>
 
-
+- (void)selectOption:(NSDictionary*)dict;
 
 @end

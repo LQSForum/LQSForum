@@ -19,7 +19,7 @@
 @implementation LQSForumDetailOptionViewController
 
 - (CGFloat)contentHeight{
-//    return 133;
+//    return 160;
     return _height;
 }
 - (void)setContentArray:(NSArray*)array{
@@ -27,14 +27,15 @@
         return;
     }
     [_mainArray removeAllObjects];
+    [_mainArray addObject:@{@"classificationType_id":@"-1",@"classificationType_name":@"全部"}];
     [_mainArray addObjectsFromArray:array];
     [_mainCollectionView reloadData];
-    _height = _mainCollectionView.contentSize.height;
+    _height = ceil(array.count/3.0f)*50;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     _mainArray = [NSMutableArray new];
-    _mainFlowLayout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width/3.0f, 50.0f);
+    _mainFlowLayout.itemSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width-1)/3.0f, 50.0f);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +55,7 @@
     [cell setHiddenRightLine:(indexPath.row%3==2)];
     NSDictionary* dict = _mainArray[indexPath.row];
     cell.titleLabel.text = dict[@"classificationType_name"];
+    NSLog(@"dict = %@",dict);
     return cell;
 }
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -62,6 +64,15 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSMutableDictionary* dict = [NSMutableDictionary new];
+    NSDictionary* item = _mainArray[indexPath.row];
+    if ([item[@"classificationType_id"] integerValue] != -1) {
+        dict[@"filterType"] = @"typeid";
+        dict[@"filterId"] = item[@"classificationType_id"];
+    }
+    if ([self.delegate respondsToSelector:@selector(selectOption:)]) {
+        [self.delegate selectOption:[dict copy]];
+    }
 }
 
 @end
