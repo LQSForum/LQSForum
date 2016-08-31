@@ -141,9 +141,6 @@
 		6E62B0721D740CC2001FB2A4 /* mc_forum_ico53_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E62B0711D740CC2001FB2A4 /* mc_forum_ico53_n.png */; };
 		6E7378B21D6E944E009B6C66 /* LQSBBSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7378B11D6E944E009B6C66 /* LQSBBSDetailViewController.m */; };
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
-		B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */; };
-		B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111331D5DC11700D7A05C /* LQSLocationModel.m */; };
-		B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */; };
 		DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */; };
 		DF5A072C1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072B1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m */; };
 		DF5A072F1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072E1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m */; };
@@ -417,7 +414,7 @@
 		41AC5B441D751CF5006E38D5 /* LQSsetRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSsetRootViewController.h; path = setting/ViewController/LQSsetRootViewController.h; sourceTree = "<group>"; };
 		41AC5B451D751CF5006E38D5 /* LQSsetRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSsetRootViewController.m; path = setting/ViewController/LQSsetRootViewController.m; sourceTree = "<group>"; };
 		41AC5B481D752385006E38D5 /* XXXXX2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXX2.h; sourceTree = "<group>"; };
-		41AC5B491D7523BE006E38D5 /* XXXXX3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXX3.h; sourceTree = "<group>"; };
+		41AC5B491D7523BE006E38D5 /* fatie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fatie.h; sourceTree = "<group>"; };
 		41F86FED1D767E7200E05FAB /* LQSComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSComposePhotosView.h; path = postStatus/View/LQSComposePhotosView.h; sourceTree = "<group>"; };
 		41F86FEE1D767E7200E05FAB /* LQSComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposePhotosView.m; path = postStatus/View/LQSComposePhotosView.m; sourceTree = "<group>"; };
 		41F86FEF1D767E7200E05FAB /* LQSEmotionToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionToolbar.h; path = postStatus/View/LQSEmotionToolbar.h; sourceTree = "<group>"; };
@@ -475,12 +472,6 @@
 		7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C12DEEB8E74CDD3E0CF002 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
-		B801112D1D5DC10500D7A05C /* LQSPickViewSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSPickViewSelectViewController.h; path = main/VC/LQSPickViewSelectViewController.h; sourceTree = "<group>"; };
-		B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSPickViewSelectViewController.m; path = main/VC/LQSPickViewSelectViewController.m; sourceTree = "<group>"; };
-		B80111321D5DC11700D7A05C /* LQSLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSLocationModel.h; sourceTree = "<group>"; };
-		B80111331D5DC11700D7A05C /* LQSLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSLocationModel.m; sourceTree = "<group>"; };
-		B80111351D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSPickerSelectCollectionViewCell.h; path = main/View/LQSPickerSelectCollectionViewCell.h; sourceTree = "<group>"; };
-		B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSPickerSelectCollectionViewCell.m; path = main/View/LQSPickerSelectCollectionViewCell.m; sourceTree = "<group>"; };
 		CCAA7D55F8D7734222CE3140 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DF5A07271D72F2AB001B2ED7 /* LQSForumDetailChildCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSForumDetailChildCell.h; sourceTree = "<group>"; };
 		DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSForumDetailChildCell.m; sourceTree = "<group>"; };
@@ -823,7 +814,7 @@
 		415C55461CC8CCEE00408B90 = {
 			isa = PBXGroup;
 			children = (
-				41AC5B491D7523BE006E38D5 /* XXXXX3.h */,
+				41AC5B491D7523BE006E38D5 /* fatie.h */,
 				2C62229F1D7189FB00D7702C /* xxxxxxxx.h */,
 				41AC5B481D752385006E38D5 /* XXXXX2.h */,
 				417269BD1D704CA1000AC13B /* setting_profile_bgWall.jpg */,
@@ -899,29 +890,8 @@
 		416072021D20BE480083229E /* main */ = {
 			isa = PBXGroup;
 			children = (
-				B80111311D5DC11700D7A05C /* Model */,
-				416072071D20C5310083229E /* View */,
-				416072061D20C5280083229E /* VC */,
 			);
 			name = main;
-			sourceTree = "<group>";
-		};
-		416072061D20C5280083229E /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				B801112D1D5DC10500D7A05C /* LQSPickViewSelectViewController.h */,
-				B801112E1D5DC10500D7A05C /* LQSPickViewSelectViewController.m */,
-			);
-			name = VC;
-			sourceTree = "<group>";
-		};
-		416072071D20C5310083229E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B80111351D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.h */,
-				B80111361D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m */,
-			);
-			name = View;
 			sourceTree = "<group>";
 		};
 		416072121D20CF690083229E /* EmotionKeyboard */ = {
@@ -1193,16 +1163,6 @@
 				00FEB73F9DC5773AF24CCEB9 /* Pods-myOrgForumUITests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		B80111311D5DC11700D7A05C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B80111321D5DC11700D7A05C /* LQSLocationModel.h */,
-				B80111331D5DC11700D7A05C /* LQSLocationModel.m */,
-			);
-			name = Model;
-			path = main/Model;
 			sourceTree = "<group>";
 		};
 		D2FF60D40CEE75621BCC406D /* Frameworks */ = {
@@ -1648,7 +1608,6 @@
 				E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */,
 				411FE7AB1D6D6DC700563324 /* LQSDongmanTableViewCell.m in Sources */,
 				0000C4A71D645D0F007C969C /* LQSLatestMarrowTableView.m in Sources */,
-				B80111341D5DC11700D7A05C /* LQSLocationModel.m in Sources */,
 				DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */,
 				41F86FF41D767E7200E05FAB /* LQSEmotionToolbar.m in Sources */,
 				41AC5AFB1D751C3E006E38D5 /* LQSSettingTopDataModel.m in Sources */,
@@ -1734,7 +1693,6 @@
 				410FA1FE1D38EB8B0021B7E2 /* NSObject+YYModel.m in Sources */,
 				0000C49E1D645C4A007C969C /* LQSMainView.m in Sources */,
 				410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */,
-				B80111301D5DC10500D7A05C /* LQSPickViewSelectViewController.m in Sources */,
 				E436F2BA1D72BC23001CB8FE /* LQSMessageRequest.m in Sources */,
 				E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */,
 				2CB084DC1D60508A00167F4D /* MJPhotoLoadingView.m in Sources */,
@@ -1743,7 +1701,6 @@
 				0000C4B71D645EB5007C969C /* LQSLastestMarrowModel.m in Sources */,
 				41AC5B151D751C58006E38D5 /* LQSSettingCell.m in Sources */,
 				41F870081D767E7B00E05FAB /* LQSEmotionListView.m in Sources */,
-				B80111371D5DC18600D7A05C /* LQSPickerSelectCollectionViewCell.m in Sources */,
 				41AC5AF81D751C3E006E38D5 /* LQSMessageDataModel.m in Sources */,
 				410FA1F51D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m in Sources */,
 				2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */,

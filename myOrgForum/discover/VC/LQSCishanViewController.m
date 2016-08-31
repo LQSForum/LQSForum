@@ -170,7 +170,11 @@
 #pragma mark - 代理方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.tabBarItem.badgeValue = nil;
+    LQSBBSDetailViewController *DetailVc = [LQSBBSDetailViewController new];
+    DetailVc.selectModel = [_cishanArray objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:DetailVc animated:NO];
+
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

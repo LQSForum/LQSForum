@@ -15,6 +15,8 @@
     UIView *_selectView;
     BOOL _isfabiao;
     LQSHomePagePersonalZiliaoDataModel * _personalZiliaoModel;
+    LQSHomePagePersonalZiliaoDetailDataModel *_detailModel;
+    LQSHomePagePersonalZiliaoProfileListDataModel *_profileListModel;
 }
 @property (nonatomic,assign)NSUInteger page;
 @property (nonatomic,strong)LQSHomePagePersonalMessageView *stretchHeaderView;
@@ -187,15 +189,21 @@
     paramDic[@"accessSecret"] = @"a742cf58f0d3c28e164f9d9661b6f";
     paramDic[@"forumKey"] = @"BW0L5ISVRsOTVLCTJx";
 
-    
-    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    __weak typeof(self) weakSelf = self;
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"sucess**********");
             _personalZiliaoModel = [LQSHomePagePersonalZiliaoDataModel mj_objectWithKeyValues:responseObject];
+
+//
+        NSMutableArray *arr = [_personalZiliaoModel.body objectForKey:@"creditList"];
+        
+        for (NSArray *array in arr) {
+            LQSUserProfileDataModel *profileModel = [[LQSUserProfileDataModel alloc] init];
+        }
+        
+        
         
         [_tableView reloadData];
         

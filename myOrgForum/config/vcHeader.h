@@ -9,9 +9,14 @@
 #ifndef vcHeader_h
 #define vcHeader_h
 
+//introduce
+#import "LQSBBSDetailViewController.h"
 
 
-//推荐
+
+
+
+//discover
 #import "LQSShijieViewController.h"//视界
 #import "LQSDongmanViewController.h"//动漫
 #import "LQSCishanViewController.h"//慈善
