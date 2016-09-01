@@ -45,7 +45,7 @@
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = LQSColor(123, 123, 123,1);
     NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
-    selectTextAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
+//    selectTextAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
     [chileVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     [chileVc.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
     

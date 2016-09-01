@@ -17,6 +17,16 @@
     LQSHomePagePersonalZiliaoDataModel * _personalZiliaoModel;
     LQSHomePagePersonalZiliaoDetailDataModel *_detailModel;
     LQSHomePagePersonalZiliaoProfileListDataModel *_profileListModel;
+    
+    NSMutableArray * _creditsDataArr;
+    NSMutableArray * _creditsTitleArr;
+
+    NSMutableArray * _profileDataArr;
+    NSMutableArray * _profileTitleArr;
+
+
+    
+    
 }
 @property (nonatomic,assign)NSUInteger page;
 @property (nonatomic,strong)LQSHomePagePersonalMessageView *stretchHeaderView;
@@ -52,6 +62,10 @@
     _fabiaoArray = [NSMutableArray array];
     _detailArr = [NSMutableArray array];
     _detailArray = [NSMutableArray array];
+    _profileDataArr = [NSMutableArray array];
+    _creditsDataArr = [NSMutableArray array];
+    _profileTitleArr = [NSMutableArray array];
+    _creditsTitleArr = [NSMutableArray array];
 
     //请求发表数据
     self.page = 1;
@@ -198,10 +212,53 @@
 
 //
         NSMutableArray *arr = [_personalZiliaoModel.body objectForKey:@"creditList"];
-        
-        for (NSArray *array in arr) {
-            LQSUserProfileDataModel *profileModel = [[LQSUserProfileDataModel alloc] init];
+        if (_creditsDataArr != nil) {
+            [_creditsDataArr removeAllObjects];
+            
         }
+        if (_profileTitleArr != nil) {
+            [_profileTitleArr removeAllObjects];
+            
+        }
+        if (_creditsTitleArr != nil) {
+            [_creditsTitleArr removeAllObjects];
+            
+        }
+        if (_profileDataArr != nil) {
+            [_profileDataArr removeAllObjects];
+        }
+
+        
+        
+        
+        for (NSDictionary *dict in arr) {//获取第二组个人得分的title和data
+            LQSHomePagePersonalZiliaoProfileListDataModel *profileModel = [[LQSHomePagePersonalZiliaoProfileListDataModel alloc] init];
+            profileModel.title = [dict objectForKey:@"title"];
+            profileModel.data = [dict objectForKey:@"data"];
+            profileModel.type = [dict objectForKey:@"extcredits1"];
+            
+            [_creditsDataArr addObject:profileModel.data];
+            [_creditsTitleArr addObject:profileModel.title];
+            
+            
+        }
+        NSMutableArray *profileListArrs = [_personalZiliaoModel.body objectForKey:@"profileList"];
+        
+        for (NSDictionary *dict in profileListArrs) {//获取第一组个人资料的title和data
+            LQSHomePagePersonalZiliaoProfileListDataModel *profileModel = [[LQSHomePagePersonalZiliaoProfileListDataModel alloc] init];
+            profileModel.title = [dict objectForKey:@"title"];
+            profileModel.data = [dict objectForKey:@"data"];
+            profileModel.type = [dict objectForKey:@"extcredits1"];
+            
+            [_profileDataArr addObject:profileModel.data];
+            [_profileTitleArr addObject:profileModel.title];
+            
+        }
+
+
+
+        
+        
         
         
         
@@ -224,22 +281,22 @@
     bgImageView.backgroundColor = [UIColor redColor];
     bgImageView.contentMode = UIViewContentModeScaleAspectFill;
     bgImageView.clipsToBounds = YES;
-//    [bgImageView sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"setting_profile_bgWall.jpg"]];///????????接口获得背景图片
+    [bgImageView sd_setImageWithURL:[NSURL URLWithString:_personalZiliaoModel.icon] placeholderImage:[UIImage imageNamed:@"setting_profile_bgWall.jpg"]];///????????接口获得背景图片
     //背景之上的内容
     UIView *contentView = [[UIView alloc] initWithFrame:bgImageView.bounds];
-    contentView.backgroundColor = [UIColor purpleColor];
+//    contentView.backgroundColor = [UIColor purpleColor];
 //    contentView.backgroundColor = [UIColor clearColor];
     
     
      UIImageView *avater = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
-    [avater sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"setting_profile_bgWall.jpg"]];///????????接口获得背景图片
+    [avater sd_setImageWithURL:[NSURL URLWithString:_personalZiliaoModel.icon] placeholderImage:[UIImage imageNamed:@"setting_profile_bgWall.jpg"]];///????????接口获得背景图片
      avater.center = contentView.center;
     avater.layer.cornerRadius = 35;
     avater.clipsToBounds = YES;
      [contentView addSubview:avater];
 //    创建可选按钮
     _selectView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(bgImageView.frame) - 40, kScreenWidth, 40)];
-    _selectView.backgroundColor = [UIColor blueColor];
+//    _selectView.backgroundColor = [UIColor blueColor];
     [contentView addSubview:_selectView];
     
 //    创建按钮
@@ -253,7 +310,7 @@
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         button.titleLabel.font = [UIFont systemFontOfSize:14];
-        button.backgroundColor = [UIColor greenColor];
+//        button.backgroundColor = [UIColor greenColor];
         button.tag = i;
 //        添加点击事件
         [button addTarget:self action:@selector(touchDown:) forControlEvents:UIControlEventTouchUpInside];
@@ -263,7 +320,7 @@
     }
 //    初始化底部的蓝线
     _blueView = [[UIView alloc] initWithFrame:CGRectMake(_btnW * 0.25, _selectView.height - 1, _btnW * 0.5, 1)];
-    _blueView.backgroundColor = [UIColor blueColor];
+//    _blueView.backgroundColor = [UIColor blueColor];
     [_selectView addSubview:_blueView];
     self.stretchHeaderView = [LQSHomePagePersonalMessageView new];
     [self.stretchHeaderView stretchHeaderForTableView:_tableView withView:bgImageView subViews:contentView];
@@ -310,7 +367,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 
-    return 1;
+    return 2;
 
 
 }
@@ -328,8 +385,14 @@
         _tableView.mj_footer.hidden = _fabiaoArr.count == 0 || (self.page == 1 && _fabiaoArr.count < 20);
         return _fabiaoArray.count;
     }else{
+        if (section == 0) {
+            return _profileDataArr.count;
+        }
+        return _creditsDataArr.count;
+
     
-        return 4;
+    
+    
     }
 }
 
@@ -361,8 +424,16 @@
         UITableViewCell *cellZiliao = [tableView dequeueReusableCellWithIdentifier:identifierDetailCellId];
         if (cellZiliao == nil) {
             cellZiliao = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifierDetailCellId];
+            if (indexPath.section == 0 && _profileTitleArr.count >0 && _profileDataArr.count > 0) {
+                cellZiliao.textLabel.text = [NSString stringWithFormat:@"%@",[_profileTitleArr objectAtIndex:indexPath.row]];
+                cellZiliao.detailTextLabel.text = [NSString stringWithFormat:@"%@",[_profileDataArr objectAtIndex:indexPath.row]];
+            }else if (indexPath.section == 1 && _creditsDataArr.count >0 && _creditsTitleArr.count > 0){
+                cellZiliao.textLabel.text = [NSString stringWithFormat:@"%@",[_creditsTitleArr objectAtIndex:indexPath.row]];
+                cellZiliao.detailTextLabel.text = [NSString stringWithFormat:@"%@",[_creditsDataArr objectAtIndex:indexPath.row]];
+            
+            }
         }
-    
+        
     
         return cellZiliao;
     
