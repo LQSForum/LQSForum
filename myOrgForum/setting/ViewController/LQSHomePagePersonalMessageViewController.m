@@ -296,7 +296,7 @@
      [contentView addSubview:avater];
 //    创建可选按钮
     _selectView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(bgImageView.frame) - 40, kScreenWidth, 40)];
-//    _selectView.backgroundColor = [UIColor blueColor];
+    _selectView.backgroundColor = [UIColor whiteColor];
     [contentView addSubview:_selectView];
     
 //    创建按钮
@@ -320,7 +320,7 @@
     }
 //    初始化底部的蓝线
     _blueView = [[UIView alloc] initWithFrame:CGRectMake(_btnW * 0.25, _selectView.height - 1, _btnW * 0.5, 1)];
-//    _blueView.backgroundColor = [UIColor blueColor];
+    _blueView.backgroundColor = LQSColor(22, 191, 251, 1);
     [_selectView addSubview:_blueView];
     self.stretchHeaderView = [LQSHomePagePersonalMessageView new];
     [self.stretchHeaderView stretchHeaderForTableView:_tableView withView:bgImageView subViews:contentView];
