@@ -81,7 +81,7 @@
         titleButton.frame = CGRectMake(i *titleButtonW, 0, titleButtonW, titleButtonH);
         
         [titleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [titleButton setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
+        [titleButton setTitleColor:LQSColor(21, 194, 251, 1) forState:UIControlStateSelected];
         titleButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [titleButton setTitle:self.childViewControllers[i].title forState:UIControlStateNormal];
     }

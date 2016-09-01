@@ -4,6 +4,7 @@
 # use_frameworks!
 
 target 'myOrgForum' do
+pod 'MJPhotoBrowser'
 pod 'AFNetworking'
 pod 'MBProgressHUD'
 pod 'SDWebImage'

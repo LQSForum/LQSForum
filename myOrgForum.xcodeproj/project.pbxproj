@@ -24,14 +24,6 @@
 		149364AA1D76D2B200517A99 /* LQSArticleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 149364A91D76D2B200517A99 /* LQSArticleContentView.m */; };
 		149364AD1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 149364AC1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m */; };
 		2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084B21D6029F900167F4D /* NSDate+MJ.m */; };
-		2CB084D91D60508A00167F4D /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084CB1D60508A00167F4D /* MJPhoto.m */; };
-		2CB084DA1D60508A00167F4D /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2CB084CC1D60508A00167F4D /* MJPhotoBrowser.bundle */; };
-		2CB084DB1D60508A00167F4D /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084CE1D60508A00167F4D /* MJPhotoBrowser.m */; };
-		2CB084DC1D60508A00167F4D /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084D01D60508A00167F4D /* MJPhotoLoadingView.m */; };
-		2CB084DD1D60508A00167F4D /* MJPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084D21D60508A00167F4D /* MJPhotoProgressView.m */; };
-		2CB084DE1D60508A00167F4D /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084D41D60508A00167F4D /* MJPhotoToolbar.m */; };
-		2CB084DF1D60508A00167F4D /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084D61D60508A00167F4D /* MJPhotoView.m */; };
-		2CB084E01D60508A00167F4D /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084D81D60508A00167F4D /* SDWebImageManager+MJ.m */; };
 		410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E51D38EB7E0021B7E2 /* NSArray+Log.m */; };
 		410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E91D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m */; };
 		410FA1F51D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1EB1D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m */; };
@@ -231,21 +223,6 @@
 		2CA781521D446A8000D35288 /* APIS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIS.h; sourceTree = "<group>"; };
 		2CB084B11D6029F900167F4D /* NSDate+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+MJ.h"; path = "categories/NSDate+MJ.h"; sourceTree = "<group>"; };
 		2CB084B21D6029F900167F4D /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MJ.m"; path = "categories/NSDate+MJ.m"; sourceTree = "<group>"; };
-		2CB084CA1D60508A00167F4D /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
-		2CB084CB1D60508A00167F4D /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
-		2CB084CC1D60508A00167F4D /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
-		2CB084CD1D60508A00167F4D /* MJPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoBrowser.h; sourceTree = "<group>"; };
-		2CB084CE1D60508A00167F4D /* MJPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoBrowser.m; sourceTree = "<group>"; };
-		2CB084CF1D60508A00167F4D /* MJPhotoLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoLoadingView.h; sourceTree = "<group>"; };
-		2CB084D01D60508A00167F4D /* MJPhotoLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoLoadingView.m; sourceTree = "<group>"; };
-		2CB084D11D60508A00167F4D /* MJPhotoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoProgressView.h; sourceTree = "<group>"; };
-		2CB084D21D60508A00167F4D /* MJPhotoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoProgressView.m; sourceTree = "<group>"; };
-		2CB084D31D60508A00167F4D /* MJPhotoToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoToolbar.h; sourceTree = "<group>"; };
-		2CB084D41D60508A00167F4D /* MJPhotoToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoToolbar.m; sourceTree = "<group>"; };
-		2CB084D51D60508A00167F4D /* MJPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoView.h; sourceTree = "<group>"; };
-		2CB084D61D60508A00167F4D /* MJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoView.m; sourceTree = "<group>"; };
-		2CB084D71D60508A00167F4D /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
-		2CB084D81D60508A00167F4D /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
 		410FA1DB1D38EB6B0021B7E2 /* categoryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = categoryHeader.h; path = config/categoryHeader.h; sourceTree = "<group>"; };
 		410FA1DC1D38EB6B0021B7E2 /* configHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = configHeader.h; path = config/configHeader.h; sourceTree = "<group>"; };
 		410FA1DD1D38EB6B0021B7E2 /* modelHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = modelHeader.h; path = config/modelHeader.h; sourceTree = "<group>"; };
@@ -613,21 +590,6 @@
 		2CB084C91D60507B00167F4D /* MJPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				2CB084CA1D60508A00167F4D /* MJPhoto.h */,
-				2CB084CB1D60508A00167F4D /* MJPhoto.m */,
-				2CB084CC1D60508A00167F4D /* MJPhotoBrowser.bundle */,
-				2CB084CD1D60508A00167F4D /* MJPhotoBrowser.h */,
-				2CB084CE1D60508A00167F4D /* MJPhotoBrowser.m */,
-				2CB084CF1D60508A00167F4D /* MJPhotoLoadingView.h */,
-				2CB084D01D60508A00167F4D /* MJPhotoLoadingView.m */,
-				2CB084D11D60508A00167F4D /* MJPhotoProgressView.h */,
-				2CB084D21D60508A00167F4D /* MJPhotoProgressView.m */,
-				2CB084D31D60508A00167F4D /* MJPhotoToolbar.h */,
-				2CB084D41D60508A00167F4D /* MJPhotoToolbar.m */,
-				2CB084D51D60508A00167F4D /* MJPhotoView.h */,
-				2CB084D61D60508A00167F4D /* MJPhotoView.m */,
-				2CB084D71D60508A00167F4D /* SDWebImageManager+MJ.h */,
-				2CB084D81D60508A00167F4D /* SDWebImageManager+MJ.m */,
 			);
 			name = MJPhotoBrowser;
 			sourceTree = "<group>";
@@ -1351,6 +1313,7 @@
 				415C55701CC8CCEE00408B90 /* Frameworks */,
 				415C55711CC8CCEE00408B90 /* Resources */,
 				FA5D0E6C35B9C37F33A100A7 /* [CP] Copy Pods Resources */,
+				70C075022D848D3A3FDDE527 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1441,7 +1404,6 @@
 				1477F9D91D7019A600EE102C /* Forum.storyboard in Resources */,
 				6E62B06E1D740BF7001FB2A4 /* mc_forum_detail12_jing2.png in Resources */,
 				415C555D1CC8CCEE00408B90 /* Main.storyboard in Resources */,
-				2CB084DA1D60508A00167F4D /* MJPhotoBrowser.bundle in Resources */,
 				E4430D521D54B74C0014A6FE /* MenuCard.js in Resources */,
 				E4430D511D54B74C0014A6FE /* ListView.js in Resources */,
 			);
@@ -1476,7 +1438,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		70C075022D848D3A3FDDE527 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7B5D679E03BA9F01F2D43712 /* [CP] Embed Pods Frameworks */ = {
@@ -1536,7 +1513,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BE6A0856402362E4B251B0F3 /* [CP] Check Pods Manifest.lock */ = {
@@ -1551,7 +1528,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C17B041A92AFEED641A445A6 /* [CP] Copy Pods Resources */ = {
@@ -1618,7 +1595,6 @@
 				DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */,
 				41F86FF41D767E7200E05FAB /* LQSEmotionToolbar.m in Sources */,
 				41AC5AFB1D751C3E006E38D5 /* LQSSettingTopDataModel.m in Sources */,
-				2CB084DF1D60508A00167F4D /* MJPhotoView.m in Sources */,
 				41AC5AFA1D751C3E006E38D5 /* LQSSettingPersonalSettingDataModel.m in Sources */,
 				41AC5B0F1D751C58006E38D5 /* LQSDetailSettingTableViewCell.m in Sources */,
 				DF5A072F1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m in Sources */,
@@ -1658,7 +1634,6 @@
 				E436F2BD1D72CECD001CB8FE /* LQSMessage.m in Sources */,
 				41AC5B371D751C83006E38D5 /* LQSMessageFriendsApplyViewController.m in Sources */,
 				41AC5B111D751C58006E38D5 /* LQSHomePagePersonalMessageView.m in Sources */,
-				2CB084DE1D60508A00167F4D /* MJPhotoToolbar.m in Sources */,
 				415C55541CC8CCEE00408B90 /* main.m in Sources */,
 				411FE7AC1D6D6DC700563324 /* LQSWaterFlowView.m in Sources */,
 				41AC5B171D751C58006E38D5 /* LQSSettingTopCell.m in Sources */,
@@ -1677,11 +1652,9 @@
 				410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */,
 				411FE79D1D6D6DC000563324 /* LQSDongmanModel.m in Sources */,
 				E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */,
-				2CB084DB1D60508A00167F4D /* MJPhotoBrowser.m in Sources */,
 				41F8700B1D767E7B00E05FAB /* LQSEmotionTextView.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				E4D8E1D11D54237200EE6171 /* LQSBaseRestRequest.m in Sources */,
-				2CB084D91D60508A00167F4D /* MJPhoto.m in Sources */,
 				E436F2B71D72B6F7001CB8FE /* LQSMessageCenterManager.m in Sources */,
 				412E8C2F1D3DC6A4008C2553 /* LQSCore.m in Sources */,
 				411FE7931D6D6DAE00563324 /* LQSDiscoverViewController.m in Sources */,
@@ -1695,7 +1668,6 @@
 				41F8700C1D767E7B00E05FAB /* LQSEmotionView.m in Sources */,
 				41F870181D767E9C00E05FAB /* LQSEmotionTool.m in Sources */,
 				0000C4AE1D645E42007C969C /* LQSRightViewCell.m in Sources */,
-				2CB084DD1D60508A00167F4D /* MJPhotoProgressView.m in Sources */,
 				41AC5AF61D751C3E006E38D5 /* LQSHomePagePersonalPresentDataModel.m in Sources */,
 				41AC5B101D751C58006E38D5 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,
 				410FA1FE1D38EB8B0021B7E2 /* NSObject+YYModel.m in Sources */,
@@ -1703,7 +1675,6 @@
 				410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */,
 				E436F2BA1D72BC23001CB8FE /* LQSMessageRequest.m in Sources */,
 				E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */,
-				2CB084DC1D60508A00167F4D /* MJPhotoLoadingView.m in Sources */,
 				41AC5B3F1D751C83006E38D5 /* LQSSettingMyPresentViewController.m in Sources */,
 				41AC5B461D751CF5006E38D5 /* LQSAccountManagementViewController.m in Sources */,
 				0000C4B71D645EB5007C969C /* LQSLastestMarrowModel.m in Sources */,
@@ -1717,7 +1688,6 @@
 				41AC5B381D751C83006E38D5 /* LQSMessageMentionedMeViewController.m in Sources */,
 				410FA22C1D38EBA30021B7E2 /* rootViewController.m in Sources */,
 				41AC5B411D751C83006E38D5 /* LQSSystemMessageViewController.m in Sources */,
-				2CB084E01D60508A00167F4D /* SDWebImageManager+MJ.m in Sources */,
 				41AC5B131D751C58006E38D5 /* LQSHomePagePersonalZiliaoTableViewCell.m in Sources */,
 				41AC5B3C1D751C83006E38D5 /* LQSProfileEditViewController.m in Sources */,
 				410FA1F61D38EB7E0021B7E2 /* UIImage+Extension.m in Sources */,

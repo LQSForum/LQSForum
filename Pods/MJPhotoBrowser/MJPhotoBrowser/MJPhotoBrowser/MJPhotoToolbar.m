@@ -8,7 +8,6 @@
 
 #import "MJPhotoToolbar.h"
 #import "MJPhoto.h"
-//#import "MBProgressHUD+Add.h"
 
 @interface MJPhotoToolbar()
 {
@@ -45,14 +44,14 @@
     }
     
     // 保存图片按钮
-//    CGFloat btnWidth = self.bounds.size.height;
-//    _saveImageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    _saveImageBtn.frame = CGRectMake(20, 0, btnWidth, btnWidth);
-//    _saveImageBtn.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-//    [_saveImageBtn setImage:[UIImage imageNamed:@"MJPhotoBrowser.bundle/save_icon.png"] forState:UIControlStateNormal];
-//    [_saveImageBtn setImage:[UIImage imageNamed:@"MJPhotoBrowser.bundle/save_icon_highlighted.png"] forState:UIControlStateHighlighted];
-//    [_saveImageBtn addTarget:self action:@selector(saveImage) forControlEvents:UIControlEventTouchUpInside];
-//    [self addSubview:_saveImageBtn];
+    CGFloat btnWidth = self.bounds.size.height;
+    _saveImageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _saveImageBtn.frame = CGRectMake(20, 0, btnWidth, btnWidth);
+    _saveImageBtn.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    [_saveImageBtn setImage:[UIImage imageNamed:@"MJPhotoBrowser.bundle/save_icon.png"] forState:UIControlStateNormal];
+    [_saveImageBtn setImage:[UIImage imageNamed:@"MJPhotoBrowser.bundle/save_icon_highlighted.png"] forState:UIControlStateHighlighted];
+    [_saveImageBtn addTarget:self action:@selector(saveImage) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_saveImageBtn];
 }
 
 - (void)saveImage
@@ -66,12 +65,12 @@
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
     if (error) {
-//        [MBProgressHUD showSuccess:@"保存失败" toView:nil];
+        [SVProgressHUD showErrorWithStatus:@"保存失败"];
     } else {
         MJPhoto *photo = _photos[_currentPhotoIndex];
         photo.save = YES;
         _saveImageBtn.enabled = NO;
-//        [MBProgressHUD showSuccess:@"成功保存到相册" toView:nil];
+        [SVProgressHUD showSuccessWithStatus:@"成功保存到相册"];
     }
 }
 
@@ -80,11 +79,12 @@
     _currentPhotoIndex = currentPhotoIndex;
     
     // 更新页码
-    _indexLabel.text = [NSString stringWithFormat:@"%d / %d", _currentPhotoIndex + 1, _photos.count];
+    _indexLabel.text = [NSString stringWithFormat:@"%d / %d", (int)_currentPhotoIndex + 1, (int)_photos.count];
     
     MJPhoto *photo = _photos[_currentPhotoIndex];
     // 按钮
     _saveImageBtn.enabled = photo.image != nil && !photo.save;
+    _saveImageBtn.hidden =!_showSaveBtn;
 }
 
 @end
