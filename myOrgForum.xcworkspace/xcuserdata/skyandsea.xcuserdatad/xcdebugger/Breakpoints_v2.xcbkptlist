@@ -2,4 +2,118 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
+            timestampString = "494412539.574058"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "434"
+            endingLineNumber = "434"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
+            timestampString = "494412539.574058"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "426"
+            endingLineNumber = "426"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
+            timestampString = "494412539.574058"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "-requestPersonalData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
+            timestampString = "494412539.574058"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
+            landmarkName = "-requestPersonalData"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__63-[LQSHomePagePersonalMessageViewController requestPersonalData]_block_invoke"
+                  moduleName = "myOrgForum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
+                  timestampString = "494412539.685596"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "1440">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__63-[LQSHomePagePersonalMessageViewController requestPersonalData]_block_invoke"
+                  moduleName = "myOrgForum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
+                  timestampString = "494412539.685794"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "1452">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
+            timestampString = "494412161.84478"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "-requestPersonalData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

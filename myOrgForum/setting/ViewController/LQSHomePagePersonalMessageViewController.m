@@ -208,8 +208,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"sucess**********");
-            _personalZiliaoModel = [LQSHomePagePersonalZiliaoDataModel mj_objectWithKeyValues:responseObject[@"list"]];
- 
+            _personalZiliaoModel = [LQSHomePagePersonalZiliaoDataModel mj_objectWithKeyValues:responseObject];
 //
         NSMutableArray *arr = [_personalZiliaoModel.body objectForKey:@"creditList"];
         if (_creditsDataArr != nil) {
