@@ -20,6 +20,7 @@
 #import "LQSSettingModel.h"
 #import "LQSMessageDataModel.h"
 #import "LQSSettingTopDataModel.h"
+#import "LQSProfileEditDataModel.h"
 //discover
 #import "LQSShijieDataModel.h"
 #import "LQSCishanModel.h"

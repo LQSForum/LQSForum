@@ -31,6 +31,7 @@
 //用户头像
     _userImage = [[UIImageView alloc] initWithFrame:CGRectZero];
     _userImage.contentMode = UIViewContentModeCenter;
+    _userImage.clipsToBounds = YES;
 //    _userImage.backgroundColor = [UIColor cyanColor];
     [self.contentView addSubview:_userImage];
 //    用户名

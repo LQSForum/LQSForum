@@ -136,7 +136,7 @@
 - (void)jumpToEdit{
     
     LQSProfileEditViewController *profileEditVc  = [[LQSProfileEditViewController alloc] init];
-    [self.navigationController pushViewController:profileEditVc animated:NO];
+    [self.navigationController pushViewController:profileEditVc animated:YES];
     
     
 }
@@ -208,8 +208,8 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"sucess**********");
-            _personalZiliaoModel = [LQSHomePagePersonalZiliaoDataModel mj_objectWithKeyValues:responseObject];
-
+            _personalZiliaoModel = [LQSHomePagePersonalZiliaoDataModel mj_objectWithKeyValues:responseObject[@"list"]];
+ 
 //
         NSMutableArray *arr = [_personalZiliaoModel.body objectForKey:@"creditList"];
         if (_creditsDataArr != nil) {
