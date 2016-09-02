@@ -29,7 +29,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     return self;
 }
 - (void)layoutSubviews{
