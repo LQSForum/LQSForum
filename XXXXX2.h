@@ -1,4 +1,3 @@
-
 个人资料
 
 URL	http://forum.longquanzs.org//mobcent/app/web/index.php?r=user/userinfo
