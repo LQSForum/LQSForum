@@ -17,9 +17,10 @@
 @interface LQSRightTableView ()<UITableViewDelegate,UITableViewDataSource,LQSRightViewCellDelegate>
 
 @property (nonatomic, strong) NSMutableArray *leftDataArray;
-@property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
 @property (nonatomic, strong) NSMutableArray *focusArray;
 @property (nonatomic, strong) NSMutableArray *focusArrayBoardId;
+@property (nonatomic, strong) NSMutableArray *tempArray;
+@property (nonatomic, strong) NSMutableArray *notFocusArrayBoardId;
 
 @end
 
@@ -52,7 +53,11 @@
         if (section == 0) {
             return self.focusArray.count;
         }else{
-            return self.notFocusArray.count;
+            if (self.focusArray.count < 1) {
+                return self.notFocusArray.count;
+            }
+            
+            return self.tempArray.count;
         }
     }
 }
@@ -65,6 +70,7 @@
         cell = [[LQSRightViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         cell.delegate = self;
     }
+    
     cell.addFocusArrayBoardID = self.focusArrayBoardId;
     if (self.sectionNum == 1) {
         LQSCellModel *cellModel = self.rightDataArray[indexPath.row];
@@ -74,21 +80,25 @@
             LQSCellModel *cellModel = self.focusArray[indexPath.row];
             cell.cellModel = cellModel;
         }else{
-            LQSCellModel *cellModel = self.notFocusArray[indexPath.row];
-            cell.cellModel = cellModel;
+            if (self.focusArray.count < 1 ) {
+                LQSCellModel *cellModel = self.notFocusArray[indexPath.row];
+                cell.cellModel = cellModel;
+            }else{
+                LQSCellModel *cellModel = self.tempArray[indexPath.row];
+                cell.cellModel = cellModel;
+            }
             
         }
-    
-  }
+    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    UIView *selectedBackgroundView = [[UIView alloc] init];
-    selectedBackgroundView.backgroundColor = [UIColor whiteColor];
-    cell.selectedBackgroundView = selectedBackgroundView;
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    UIView *selectedBackgroundView = [[UIView alloc] init];
+//    selectedBackgroundView.backgroundColor = [UIColor whiteColor];
+//    cell.selectedBackgroundView = selectedBackgroundView;
     
     LQSCellModel *cellModel = nil;
     if (self.sectionNum == 1) {
@@ -152,39 +162,141 @@
 
 //添加关注
 - (void)rightViewAddFocus:(LQSRightViewCell *)rightViewCell{
+    
     LQSCellModel *cellModel = rightViewCell.cellModel;
     if ([self.focusArrayBoardId containsObject:@(cellModel.board_id)]) {
         NSLog(@"已添加");
         return;
     }
+    if (self.notFocusArrayBoardId.count > 0 ) {
+        [self.notFocusArrayBoardId removeObject:@(cellModel.board_id)];
+        
+    }
     
     [self.focusArrayBoardId addObject:@(cellModel.board_id)];
-    [self.focusArray addObject:cellModel];
-    [self.notFocusArray enumerateObjectsUsingBlock:^(LQSCellModel *cellModel1, NSUInteger idx, BOOL * _Nonnull stop) {
+    
+    if (self.focusArray.count > 0) {
+        
+        [self insertCellModelInArray:self.focusArray cellModel:cellModel];
+        
+    } else {
+        [self.focusArray addObject:cellModel];
+    }
+    
+    for (int k=0; k<self.focusArray.count; k++) {
+        LQSCellModel *cellModelk = self.focusArray[k];
+        NSLog(@"%zd/n",cellModelk.ID);
+    }
+    
+    //    [self.focusArray addObject:cellModel];
+    [self.allFocusArray enumerateObjectsUsingBlock:^(LQSCellModel *cellModel1, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([self.focusArrayBoardId containsObject:@(cellModel1.board_id)]) {
-            [self.notFocusArray removeObject:cellModel1];
+            [self.allFocusArray removeObject:cellModel1];
         }
         
     }];
     
     
+    [self.tempArray enumerateObjectsUsingBlock:^(LQSCellModel *cellModel2, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([self.focusArrayBoardId containsObject:@(cellModel2.board_id)]) {
+            [self.tempArray removeObject:cellModel2];
+            if (self.allFocusArray.count > 4) {
+                [self.tempArray addObject:self.allFocusArray[4]];
+                
+            }else{
+                
+                return;
+            }
+            
+        }
+        
+    }];
+    
     [self reloadData];
 //    NSLog(@"%s", __FUNCTION__);
-//    NSLog(@"%@", self.focusArray);
-//    NSLog(@"%@", self.rightDataArray);
-//    
+    //    NSLog(@"%@", self.focusArray);
+    //    NSLog(@"%@", self.rightDataArray);
 }
+
 
 //取消关注
 - (void)rightViewCancleFocus:(LQSRightViewCell *)rightViewCell{
+    
     LQSCellModel *cellModel = rightViewCell.cellModel;
-    [self.focusArray removeObject:cellModel];
+
+    [self.focusArray enumerateObjectsUsingBlock:^(LQSCellModel *cellModel1, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (cellModel1.board_id == cellModel.board_id) {
+            [self.focusArray removeObject:cellModel1];
+        }
+        
+        if ([self.notFocusArrayBoardId containsObject:@(cellModel.board_id)]==NO) {
+            
+            [self.notFocusArrayBoardId addObject:@(cellModel.board_id)];
+            
+            if (self.allFocusArray.count > 0) {
+                [self insertCellModelInArray:self.allFocusArray cellModel:cellModel];
+                //                [self.allFocusArray insertObject:cellModel atIndex:index];
+            }else{
+                [self.allFocusArray addObject:cellModel];
+            }
+            
+            for (int k=0; k<self.allFocusArray.count; k++) {
+                LQSCellModel *cellModelk = self.allFocusArray[k];
+                NSLog(@"%zd/n",cellModelk.ID);
+            }
+            
+            if (self.tempArray.count > 0 && self.tempArray.count < 5) {
+                [self insertCellModelInArray:self.tempArray cellModel:cellModel];
+                
+            }else if (self.tempArray.count >= 5){
+                for (int i=0; i<self.tempArray.count; i++) {
+                    LQSCellModel *cellModelI = self.tempArray[i];
+                    if (cellModel.ID < cellModelI.ID) {
+                        [self.tempArray insertObject:cellModel atIndex:i];
+                        [self.tempArray removeLastObject];
+                        break;
+                    }
+                    if (i==self.tempArray.count) {
+                        [self.tempArray insertObject:cellModel atIndex:self.tempArray.count];
+                    }
+                }
+                
+            }else{
+                [self.tempArray addObject:cellModel];
+            }
+            
+        }
+        
+    }];
+    
     [self.focusArrayBoardId removeObject:@(cellModel.board_id)];
     [self reloadData];
     
 //    NSLog(@"%s", __FUNCTION__);
-//    NSLog(@"%@", self.focusArray);
-//    NSLog(@"%@", self.rightDataArray);
+    //    NSLog(@"%@", self.focusArray);
+    //    NSLog(@"%@", self.rightDataArray);
+}
+
+
+//数组元素排序
+- (void)insertCellModelInArray:(NSMutableArray *)array cellModel:(LQSCellModel *)cellModel{
+    NSInteger index = -1;
+    for (NSInteger i = 0; i < array.count; i++) {
+        
+        LQSCellModel *nextModel = array[i];
+        if (cellModel.ID < nextModel.ID) {
+            
+            if (0 == i) {index = i;}
+            if (i > 0) {
+                LQSCellModel *previousModel = array[i - 1];
+                if (cellModel.ID > previousModel.ID) {index = i;}
+            }
+        }
+    }
+    if (-1 == index) {
+        index = array.count;
+    }
+    [array insertObject:cellModel atIndex:index];
 }
 
 - (void)setRightDataArray:(NSMutableArray *)rightDataArray{
@@ -197,6 +309,18 @@
     [self reloadData];
 }
 
+- (void)setAllFocusArray:(NSMutableArray *)allFocusArray{
+    _allFocusArray = allFocusArray;
+    
+    [self reloadData];
+}
+
+- (void)setNotFocusArray:(NSMutableArray *)notFocusArray{
+    _notFocusArray = notFocusArray;
+    [self reloadData];
+    
+}
+
 - (NSMutableArray *)focusArray{
     
     if (_focusArray == nil) {
@@ -205,6 +329,8 @@
     return _focusArray;
 }
 
+
+
 - (NSMutableArray *)focusArrayBoardId{
     if (_focusArrayBoardId == nil) {
         _focusArrayBoardId = [NSMutableArray array];
@@ -212,10 +338,27 @@
     return _focusArrayBoardId;
 }
 
-- (void)setNotFocusArray:(NSMutableArray *)notFocusArray{
-    _notFocusArray = notFocusArray;
-    [self reloadData];
-    
+- (NSMutableArray *)notFocusArrayBoardId{
+    if (_notFocusArrayBoardId == nil) {
+        _notFocusArrayBoardId = [NSMutableArray array];
+    }
+    return _notFocusArrayBoardId;
 }
+
+- (NSMutableArray *)tempArray{
+    if (_tempArray == nil) {
+        _tempArray = [NSMutableArray arrayWithCapacity:5];
+        [_tempArray addObject:self.allFocusArray[0]];
+        [_tempArray addObject:self.allFocusArray[1]];
+        [_tempArray addObject:self.allFocusArray[2]];
+        [_tempArray addObject:self.allFocusArray[3]];
+        [_tempArray addObject:self.allFocusArray[4]];
+    }
+    return _tempArray;
+}
+
+
+
+
 
 @end

@@ -22,4 +22,5 @@
 @property (nonatomic, assign) NSInteger td_posts_num;
 @property (nonatomic, assign) NSInteger topic_total_num;
 @property (nonatomic, assign, getter=isSelected) BOOL selected;
+@property (nonatomic, assign) NSInteger ID;
 @end

@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSMutableArray *sectionDataArray;
 @property (nonatomic, strong) NSMutableArray *focusData;
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
+@property (nonatomic, strong) NSMutableArray *allDataArray;
+@property (nonatomic, assign) NSInteger index;
 
 @end
 
@@ -51,6 +53,15 @@
 }
 
 - (void)loadServerData{
+    
+    NSString *urlStringOthers = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=forum/forumlist";
+    NSDictionary *parametersOthers = @{@"accessSecret":@"cd090971f3f83391cd4ddc034638c",
+                                       @"accessToken":@"f9514b902a334d6c0b23305abd46d",
+                                       @"forumKey":@"BW0L5ISVRsOTVLCTJx",
+                                       @"sdkVersion":@"2.4.0",
+                                       @"apphash":@"f0d7f05f"};
+    [self loadServerDataWithUrlString:urlStringOthers parameters:parametersOthers];
+
     NSString *urlStringFocus = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=forum/forumlist";
     NSDictionary *parametersFocus = @{@"accessSecret":@"4aab1523559aeef6bdc16d9a07d93",
                                  @"accessToken":@"5769ef37c713ca23b8d1816c2133c",
@@ -60,13 +71,6 @@
                                  @"type":@"rec"};
     [self loadFocusDataWithUrlString:urlStringFocus parameters:parametersFocus];
     
-    NSString *urlStringOthers = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=forum/forumlist";
-    NSDictionary *parametersOthers = @{@"accessSecret":@"cd090971f3f83391cd4ddc034638c",
-                                  @"accessToken":@"f9514b902a334d6c0b23305abd46d",
-                                  @"forumKey":@"BW0L5ISVRsOTVLCTJx",
-                                  @"sdkVersion":@"2.4.0",
-                                  @"apphash":@"f0d7f05f"};
-    [self loadServerDataWithUrlString:urlStringOthers parameters:parametersOthers];
     
     
 }
@@ -86,6 +90,12 @@
         NSArray *listArr = dict[@"recommendedBoard"];
         for (NSDictionary *itemDict in listArr) {
             LQSCellModel *cellModel = [LQSCellModel yy_modelWithDictionary:itemDict];
+            [self.allDataArray enumerateObjectsUsingBlock:^(LQSCellModel *cellModel1, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (cellModel1.board_id == cellModel.board_id) {
+                    cellModel.ID = cellModel1.ID;
+                }
+            }];
+
             [self.focusData addObject:cellModel];
             
         }
@@ -117,13 +127,17 @@
         //        LQSLog(@"%@",dict);
         
         NSArray *listArr = dict[@"list"];
+        self.index = 1;
         for (NSDictionary *sectionDict in listArr) {
             LQSSectionModel *model = [LQSSectionModel yy_modelWithDictionary:sectionDict];
             [self.sectionDataArray addObject:model];
             NSArray *cellListArr = sectionDict[@"board_list"];
             for (NSDictionary *itemDict in cellListArr) {
                 LQSCellModel *cellModel = [LQSCellModel yy_modelWithDictionary:itemDict];
+                cellModel.ID = self.index;
+                self.index++;
                 [model.items addObject:cellModel];
+                [self.allDataArray addObject:cellModel];
             }
             
             
@@ -176,15 +190,15 @@
     selectedBackgroundView.backgroundColor = [UIColor whiteColor];
     cell.selectedBackgroundView = selectedBackgroundView;
     
-    if ([self.leftViewDelegate respondsToSelector:@selector(leftTableView:rightViewArray:)]) {
+    if ([self.leftViewDelegate respondsToSelector:@selector(leftTableView:rightViewArray:allDataArray:)]) {
         if (indexPath.row == 0) {
             NSMutableArray *rightViewDataArray = self.focusData;
-            [self.leftViewDelegate leftTableView:self rightViewFocusArray:rightViewDataArray];
+            [self.leftViewDelegate leftTableView:self rightViewFocusArray:rightViewDataArray allDataArray:self.allDataArray];
         }else{
             LQSSectionModel *sectionModel = self.sectionDataArray[indexPath.row - 1];
             //        NSLog(@"%@",sectionModel);
             NSMutableArray *rightViewDataArray = sectionModel.items;
-            [self.leftViewDelegate leftTableView:self rightViewArray:rightViewDataArray];
+            [self.leftViewDelegate leftTableView:self rightViewArray:rightViewDataArray allDataArray:self.allDataArray];
         }
     }
     
@@ -213,6 +227,13 @@
         _focusData = [NSMutableArray array];
     }
     return _focusData;
+}
+
+- (NSMutableArray *)allDataArray{
+    if (_allDataArray == nil) {
+        _allDataArray = [NSMutableArray array];
+    }
+    return _allDataArray;
 }
 
 
