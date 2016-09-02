@@ -68,7 +68,7 @@
     [LQSAddViewHelper addImageView:&scanImgView frame:CGRectMake(15, 50, 12, 11) tag:0 image:[UIImage imageNamed:@"mc_forum_ico53_n"] superView:self.contentView imgUrlStr:@"" selector:nil];
     UILabel *scanLab;
     [LQSAddViewHelper addLable:&scanLab withFrame:CGRectMake(32, 49, KLQScreenFrameSize.width - 32 - 25, 14) text:LQSTR(self.myCtrl.bbsDetailModel.hits) textFont:[UIFont systemFontOfSize:13] textColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
-    if (self.myCtrl.bbsDetailModel.essence) {
+    if ([self.myCtrl.bbsDetailModel.essence  isEqual: @1]) {
         UILabel *essenceLab;
         [LQSAddViewHelper addLable:&essenceLab withFrame:CGRectMake(KLQScreenFrameSize.width - 10 -16, 10, 16, 16) text:@"精" textFont:[UIFont boldSystemFontOfSize:13] textColor:[UIColor whiteColor] textAlignment:NSTextAlignmentCenter lineNumber:1 tag:0 superView:self.contentView];
         essenceLab.layer.cornerRadius = 2;
@@ -105,6 +105,7 @@
     articleView.preferredMaxLayoutWidth = KLQScreenFrameSize.width-30;
     articleView.content = self.myCtrl.bbsDetailModel.content;
     articleView.scrollEnabled = NO;
+    articleView.editable = NO;
     [self.contentView addSubview:articleView];
     [articleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(55, 15, 10, 15));

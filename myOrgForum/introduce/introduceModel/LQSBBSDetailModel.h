@@ -72,7 +72,7 @@
 @property (nonatomic, strong) NSString *reply_status;
 @property (nonatomic, strong) NSString * flag;
 @property (nonatomic, strong) NSString *reply_posts_id;
-@property (nonatomic, strong) NSString *essence;//精华帖 1，普通贴 0 y
+@property (nonatomic, strong) NSNumber *essence;//精华帖 1，普通贴 0 y
 @property (nonatomic, strong) NSString *page; //1
 @property (nonatomic, strong) NSString *has_next;
 @property (nonatomic, strong) NSString *total_num;// 13

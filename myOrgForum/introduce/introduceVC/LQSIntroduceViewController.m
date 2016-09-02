@@ -409,6 +409,13 @@
     if (indexPath.section == 5) {
         //师父法语开示点击
         NSLog(@"点击师父法语开示");
+        LQSIntroduceMainListModel *model = self.KSDataF[indexPath.row];
+        if ([model.type isEqualToString:@"postlist"]) {
+            LQSBBSDetailViewController *vc = [[LQSBBSDetailViewController alloc] init];
+            vc.selectModel = model;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
     }
 }
 

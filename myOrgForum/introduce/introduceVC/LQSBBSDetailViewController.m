@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self postForData];
     
 }
@@ -47,6 +48,7 @@
         _mainList.delegate = self;
         _mainList.dataSource = self;
         _mainList.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
     }
     return _mainList;
 }
@@ -265,7 +267,7 @@
         self.bbsDetailModel.replies = LQSTR(dict[@"topic"][@"replies"]);
         self.bbsDetailModel.isFollow = LQSTR(dict[@"topic"][@"isFollow"]);
         self.bbsDetailModel.hot = LQSTR(dict[@"topic"][@"hot"]);
-        self.bbsDetailModel.essence = LQSTR(dict[@"topic"][@"essence"]);
+        self.bbsDetailModel.essence = dict[@"topic"][@"essence"];
 //        self.bbsDetailModel.location = LQSTR(dict[@"topic"][@"location"]);
         self.bbsDetailModel.reply_status = LQSTR(dict[@"topic"][@"reply_status"]);
         self.bbsDetailModel.flag = LQSTR(dict[@"topic"][@"flag"]);
