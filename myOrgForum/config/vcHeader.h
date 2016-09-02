@@ -9,6 +9,14 @@
 #ifndef vcHeader_h
 #define vcHeader_h
 
+//login%register
+#import "LQLoginViewController.h"
+#import "LQRegisterViewController.h"
+#import "LQUpdateUserViewController.h"
+
+
+
+
 //introduce
 #import "LQSBBSDetailViewController.h"
 
@@ -48,6 +56,6 @@
 #import "LQSMyHomePageViewController.h"
 #import "LQSMessageViewController.h"
 #import "LQSDetailSettingViewController.h"
-//main
+//postStatus
 #import "LQSComposeViewController.h"
 

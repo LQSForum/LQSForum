@@ -29,10 +29,12 @@
     [super viewDidLoad];
     self.title = @"登录";
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancelLogin)];
+    self.view.backgroundColor = [UIColor whiteColor];
     CGFloat screenWidht = self.view.width;
     //CGFloat screenHeight = self.view.height;
     //初始化textfield并设置位置及大小
-    if (YES) {
+    if (/* DISABLES CODE */ (YES)) {
         _userNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(40,80, screenWidht-80, 50)];
     }
     else
@@ -44,7 +46,7 @@
     _userNameTextField.font = [UIFont fontWithName:@"Arial" size:20.0f];
     _userNameTextField.clearButtonMode = UITextFieldViewModeAlways;
     _userNameTextField.backgroundColor = [UIColor clearColor];
-    _userNameTextField.textAlignment = UITextAlignmentLeft;
+    _userNameTextField.textAlignment = NSTextAlignmentLeft;
     _userNameTextField.keyboardType = UIKeyboardTypeAlphabet;
     _userNameTextField.tag = userNameTFTag;
     _userNameTextField.delegate = self;
@@ -90,6 +92,16 @@
     
  
 }
+
+- (void)cancelLogin{
+
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+        
+    }];
+
+
+}
 /**
  *  登录按钮的响应函数
  *
@@ -99,6 +111,7 @@
  */
 -(void)loginAction
 {
+    
     inputUserName = _userNameTextField.text;
     inputPSW      = _passWordTextField.text;
     [_userNameTextField resignFirstResponder];

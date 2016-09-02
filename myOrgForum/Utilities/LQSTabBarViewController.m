@@ -63,10 +63,14 @@
 - (void)tabBarDidClickPlusButton:(LQSTabBar *)tabBar
 {
 
-    LQSComposeViewController *vc = [[LQSComposeViewController alloc] init];
+    UIViewController *vc = [UIViewController new];
+    if ([LQSUserDefauts isLogin]) {
+        vc =[[LQSComposeViewController alloc] init];
+    }else{
+        vc = [[LQLoginViewController alloc] init];
+    }
     LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:navVc animated:YES completion:nil];
-
 
 }
 
