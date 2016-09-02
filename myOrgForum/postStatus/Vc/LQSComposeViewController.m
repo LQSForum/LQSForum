@@ -183,8 +183,6 @@
     // 1.发表微博
     [self requestOfFaTie];
     
-    // 2.关闭控制器
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)requestOfFaTie{
@@ -209,11 +207,15 @@
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"Fatie ------sucess");
         [kAppDelegate showHUDMessage:@"发帖成功" hideDelay:1];
+        // 2.关闭控制器
+        [self dismissViewControllerAnimated:YES completion:nil];
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"Fatie ------failure");
         [kAppDelegate showHUDMessage:@"发帖失败" hideDelay:1];
 
         kNetworkNotReachedMessage;
+        return ;
     }];
     
 
