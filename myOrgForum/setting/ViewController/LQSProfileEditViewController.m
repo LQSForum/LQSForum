@@ -54,8 +54,7 @@
     __weak typeof(self) weakSelf = self;
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"sucess");
-        NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
-        //        数据模型放到frame模型
+        
         
         
         

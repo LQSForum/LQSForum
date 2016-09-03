@@ -4,7 +4,7 @@
 //
 //  Created by SkyAndSea on 16/8/29.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
-//
+//编辑页面模型
 
 #import <Foundation/Foundation.h>
 
