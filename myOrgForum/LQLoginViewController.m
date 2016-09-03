@@ -9,6 +9,7 @@
 #import "LQLoginViewController.h"
 #import "LQRegisterViewController.h"
 #import "LQSUserManager.h"
+#import "LQFoundPSWViewController.h"
 
 #define userNameTFTag					12
 #define passwordTFTag					13
@@ -70,8 +71,18 @@
     _passWordTextField.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_passWordTextField];
     
+    
     //登录按钮
-    UIButton * _loginButton                    = [[UIButton alloc]initWithFrame:CGRectMake(40, 250, screenWidht-80, 50.0)];
+    UIButton * forgetPSWButton                    = [[UIButton alloc]initWithFrame:CGRectMake(screenWidht/2+20, 250, screenWidht/2-40, 50.0)];
+    forgetPSWButton.titleLabel.font              = [UIFont systemFontOfSize:15];
+    [forgetPSWButton addTarget:self action:@selector(forgetPSWAction) forControlEvents:UIControlEventTouchUpInside];
+    [forgetPSWButton setTitle:@"找回密码" forState:UIControlStateNormal];
+    [forgetPSWButton setTitleColor:MainBlueColor forState:UIControlStateNormal];
+   
+    [self.view addSubview:forgetPSWButton];
+    
+    //登录按钮
+    UIButton * _loginButton                    = [[UIButton alloc]initWithFrame:CGRectMake(40, 300, screenWidht-80, 50.0)];
     _loginButton.titleLabel.font              = [UIFont systemFontOfSize:15];
     [_loginButton addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
     [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
@@ -80,7 +91,7 @@
     [self.view addSubview:_loginButton];
     
     //注册按钮
-    UIButton * _registerButton                    = [[UIButton alloc]initWithFrame:CGRectMake(40, 330, screenWidht-80, 50.0)];
+    UIButton * _registerButton                    = [[UIButton alloc]initWithFrame:CGRectMake(40, 390, screenWidht-80, 50.0)];
     _registerButton.titleLabel.font              = [UIFont systemFontOfSize:15];
     [_registerButton addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
     [_registerButton setTitle:@"注册" forState:UIControlStateNormal];
@@ -114,28 +125,79 @@
         return;
     
     }
-    LQSUserManager* userLogin = [[LQSUserManager alloc]init];
-    [userLogin loginUserByUsername:inputUserName withPWD:inputPSW completionBlock:^(id result, NSError *error){
-        if(nil == error)
-        {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-        else
-        {
-            UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
-                                                              message:@"登录失败"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"好"
-                                                    otherButtonTitles:nil, nil];
-            [alertView show];
-            return;
+//    LQSUserManager* userLogin = [[LQSUserManager alloc]init];
+//    [userLogin loginUserByUsername:inputUserName withPWD:inputPSW completionBlock:^(id result, NSError *error){
+//        if(nil == error)
+//        {
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }
+//        else
+//        {
+//            UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
+//                                                              message:@"登录失败"
+//                                                             delegate:self
+//                                                    cancelButtonTitle:@"好"
+//                                                    otherButtonTitles:nil, nil];
+//            [alertView show];
+//            return;
+//
+//        }
+//        
+//    }];
 
-        }
-        
-    }];
-
-
+   //add for test
+    //获取输入的账号密码
+ 
+    //请求的参数
+    NSDictionary *parameters = @{
+                                 @"type":@"login",
+                                 @"forumKey":@"BW0L5ISVRsOTVLCTJx",
+                                 @"username":inputUserName,
+                                 @"password":inputPSW,
+                                 @"accessSecret":@"cd090971f3f83391cd4ddc034638c",
+                                 @"accessToken":@"f9514b902a334d6c0b23305abd46d",
+                                 @"apphash":@"85eb3e4b"
+                                 };
     
+
+    //请求的url
+    NSString *urlString = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=user/login";
+    //请求的managers
+    AFHTTPSessionManager *managers = [AFHTTPSessionManager manager];
+    managers.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    //申明请求的数据是json类型
+    
+    managers.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    //如果报接受类型不一致请替换一致text/html或别的
+    
+    managers.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+
+    //请求的方式：POST
+    [managers POST:urlString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"请求成功，服务器返回的信息%@",responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError * error) {
+        NSLog(@"请求失败,服务器返回的错误信息%@",error);
+    }];
+    //end add for test
+    
+}
+
+/**
+ *  注册按钮的响应函数
+ *
+ *  @param
+ *
+ *  @return
+ */
+-(void)forgetPSWAction
+{
+    NSLog(@"forgetPSWAction");
+    
+    LQFoundPSWViewController * foundPSWViewController =  [[LQFoundPSWViewController alloc] init];
+    [self.navigationController pushViewController:foundPSWViewController animated:NO];
 }
 /**
  *  注册按钮的响应函数

@@ -164,4 +164,16 @@
 
 
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    LQSBBSDetailViewController *detailVc = [LQSBBSDetailViewController new];
+    detailVc.selectModel = [_dongManDataArray objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:detailVc animated:NO];
+
+
+
+
+}
 @end

@@ -5,6 +5,8 @@
 //  Created by su on 16/8/9.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
 //
+
+
 #define userNameTFTag					12
 #define passwordTFTag					13
 #define mailboxTFTag					13
@@ -117,22 +119,64 @@
     }
 
    
-    LQSUserManager* userLogin = [[LQSUserManager alloc]init];
-    [userLogin registerUserByEmail:inputMailbox withPWD:inputPSW withUserName:inputUserName completionBlock:^(id result, NSError *error){
-        if (nil == error) {
-            LQUpdateUserViewController * updateViewController =  [[LQUpdateUserViewController alloc] init];
-            [self.navigationController pushViewController:updateViewController animated:NO];
-        }
-        else
-        {
-            UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
-                                                              message:@"注册失败"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"好"
-                                                    otherButtonTitles:nil, nil];
-            [alertView show];
-            return;
-        }
+//    LQSUserManager* userLogin = [[LQSUserManager alloc]init];
+//    [userLogin registerUserByEmail:inputMailbox withPWD:inputPSW withUserName:inputUserName completionBlock:^(id result, NSError *error){
+//        if (nil == error) {
+//            LQUpdateUserViewController * updateViewController =  [[LQUpdateUserViewController alloc] init];
+//            [self.navigationController pushViewController:updateViewController animated:NO];
+//        }
+//        else
+//        {
+//            UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
+//                                                              message:@"注册失败"
+//                                                             delegate:self
+//                                                    cancelButtonTitle:@"好"
+//                                                    otherButtonTitles:nil, nil];
+//            [alertView show];
+//            return;
+//        }
+//    }];
+
+
+
+
+  
+    //请求的参数
+    NSDictionary *parameters = @{
+                                 @"forumKey":@"BW0L5ISVRsOTVLCTJx",
+                                 @"isValidation":@"1",
+                                 @"username":inputUserName,
+                                 @"password":inputPSW,
+                                 @"email":inputMailbox,
+                                 @"accessSecret":@"",
+                                 @"accessToken":@"",
+                                 @"apphash":@"85eb3e4b",
+                                 @"sdkVersion":@"2.4.0"
+                                 };
+    
+    
+    //请求的url
+    NSString *urlString = @"http://forum.longquanzs.org/mobcent/app/web/index.php?r=user/register";
+    //请求的managers
+    AFHTTPSessionManager *managers = [AFHTTPSessionManager manager];
+    managers.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    //申明请求的数据是json类型
+    
+    managers.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    //如果报接受类型不一致请替换一致text/html或别的
+    
+    managers.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    
+    //请求的方式：POST
+    [managers POST:urlString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"请求成功，服务器返回的信息%@",responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError * error) {
+        NSLog(@"请求失败,服务器返回的错误信息%@",error);
     }];
+    //end add for test
+
 }
 @end

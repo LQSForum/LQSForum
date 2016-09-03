@@ -49,6 +49,7 @@
 @interface LQSHomePagePersonalZiliaoDetailDataModel : NSObject
 
 @property (nonatomic, strong) NSArray *ziliaoProfileArr;
+@property (nonatomic, strong) LQSHomePagePersonalZiliaoProfileListDataModel *profileModel;
 
 @end
 

@@ -17,6 +17,7 @@
 #import "LQSForumDetailOptionViewController.h"
 @interface LQSForumDetailViewController ()<LQSForumDetailSectionDelegete,LQSForumDetailOptionDelegate>{
     BOOL   _isShowOption;
+    NSMutableDictionary   *_optionDict;
 }
 @property (strong, nonatomic) IBOutlet UITableView *mainTableView;
 @property (strong, nonatomic) IBOutlet LQSForumDetailHeadView *tableHeadView;
@@ -67,6 +68,7 @@
     _mainArray = [NSMutableArray new];
     _topArray = [NSMutableArray new];
     _pageNum = [NSMutableArray new];
+    _optionDict = [NSMutableDictionary new];
     for (int i=0; i<4; i++) {
         [_pageNum addObject:@"1"];
         [_mainArray addObject:[NSMutableArray new]];
@@ -138,8 +140,10 @@
                            @"circle":@"0",
                            @"egnVersion":@"v2035.2",
                            @"sdkVersion":@"2.4.3.0"};
+    NSMutableDictionary* params = [_optionDict mutableCopy];
+    [params addEntriesFromDictionary:dict];
     __weak typeof(self) weakSelf = self;
-    [self.sessionManager POST:urlString parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.sessionManager POST:urlString parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSData *data = responseObject;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
         LQSForumDetailForumInfoModel* model = [LQSForumDetailForumInfoModel yy_modelWithDictionary:dict[@"forumInfo"]];
@@ -153,7 +157,7 @@
         weakSelf.pageNum[weakSelf.sortBy] = [NSString stringWithFormat:@"%zd",num+1];
         
         [weakSelf.optionView setContentArray:dict[@"classificationType_list"]];
-        weakSelf.heightLayoutConstraint.constant = weakSelf.optionView.contentHeight;
+        
         for (NSDictionary *item in dict[@"list"]) {
             [weakSelf.mainArray[self.sortBy] addObject:[LQSForumDetailListModel yy_modelWithDictionary:item]];
         }
@@ -164,6 +168,7 @@
             }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.heightLayoutConstraint.constant = weakSelf.optionView.contentHeight;
             [weakSelf.mainTableView reloadData];
             [self.mainTableView.mj_header endRefreshing];
         });
@@ -195,8 +200,10 @@
                            @"circle":@"0",
                            @"egnVersion":@"v2035.2",
                            @"sdkVersion":@"2.4.3.0"};
+    NSMutableDictionary* params = [_optionDict mutableCopy];
+    [params addEntriesFromDictionary:dict];
     __weak typeof(self) weakSelf = self;
-    [self.sessionManager POST:urlString parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.sessionManager POST:urlString parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSData *data = responseObject;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
         NSInteger num = [weakSelf.pageNum[weakSelf.sortBy] integerValue];
@@ -234,7 +241,11 @@
     }
 }
 #pragma mark - LQSForumDetailOptionDelegate
-
+- (void)selectOption:(NSDictionary*)dict{
+    [_optionDict addEntriesFromDictionary:dict];
+    [self titleViewClick:nil];
+    [self loadServerData];
+}
 #pragma mark - LQSForumDetailSectionDelegete
 - (void)selectTheType:(NSInteger)type{
     //NSLog(@"type = %zd",type);

@@ -37,10 +37,16 @@
 - (void)loginUserByUsername:(NSString *)username withPWD:(NSString *)password completionBlock:(resultBlock)block {
     NSMutableDictionary *params = [self parameters];
     
-    [params setObject:password forKey:@"password"];
-    [params setObject:@"login" forKey:@"type"];
-    [params setObject:username forKey:@"username"];
-    [params setObject:@"1" forKey:@"isValidation"];
+    params[@"password"] = password;
+    params[@"type"] = @"login";
+    params[@"username"] = username;
+    params[@"isValidation"] = @"1";
+
+    
+//    [params setObject:password forKey:@"password"];
+//    [params setObject:@"login" forKey:@"type"];
+//    [params setObject:username forKey:@"username"];
+//    [params setObject:@"1" forKey:@"isValidation"];
     
     NSString *url = [self getURLStringForPath:@"user/login"];
     [super POST:url parameters:params block:block];

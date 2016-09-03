@@ -8,7 +8,7 @@
 
 #import "LQSBBSDetailCell.h"
 #import "LQSAddViewHelper.h"
-
+#import "LQSArticleContentView.h"
 #define kCONTENTIMAGETAG_BEGIN 20160830
 
 @interface LQSBBSDetailCell ()
@@ -68,7 +68,7 @@
     [LQSAddViewHelper addImageView:&scanImgView frame:CGRectMake(15, 50, 12, 11) tag:0 image:[UIImage imageNamed:@"mc_forum_ico53_n"] superView:self.contentView imgUrlStr:@"" selector:nil];
     UILabel *scanLab;
     [LQSAddViewHelper addLable:&scanLab withFrame:CGRectMake(32, 49, KLQScreenFrameSize.width - 32 - 25, 14) text:LQSTR(self.myCtrl.bbsDetailModel.hits) textFont:[UIFont systemFontOfSize:13] textColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
-    if (self.myCtrl.bbsDetailModel.essence) {
+    if ([self.myCtrl.bbsDetailModel.essence  isEqual: @1]) {
         UILabel *essenceLab;
         [LQSAddViewHelper addLable:&essenceLab withFrame:CGRectMake(KLQScreenFrameSize.width - 10 -16, 10, 16, 16) text:@"精" textFont:[UIFont boldSystemFontOfSize:13] textColor:[UIColor whiteColor] textAlignment:NSTextAlignmentCenter lineNumber:1 tag:0 superView:self.contentView];
         essenceLab.layer.cornerRadius = 2;
@@ -101,20 +101,28 @@
     UIButton *guanzhuBtn;
     [self addButton:&guanzhuBtn frame:CGRectMake(KLQScreenFrameSize.width - 10 - 78, 10, 78, 25) title:@"关注TA" titleFont:[UIFont systemFontOfSize:13] titleColor:[UIColor blackColor] borderwidth:KSingleLine_Width cornerRadius:0 selector:@selector(guanzhuTA) superView:self.contentView];
     //内容
-    for (NSInteger i = 0; i < self.myCtrl.bbsDetailModel.content.count; i++) {
-        if (i == 0) {
-            self.totalHeight = 55;
-        }
-        LQSBBSContentModel *model = self.myCtrl.bbsDetailModel.content[i];
-        if ((![model.infor containsString:@".png"] && ![model.infor containsString:@".jpg"] ) && model.infor.length > 0) {
-            [self addTextContentForText:model.infor];
-        }else{
-            [self addImageContentForUrl:model.originalInfo tag:kCONTENTIMAGETAG_BEGIN+i];
-        }
-    }
-    self.isCreated = YES;
+    LQSArticleContentView *articleView = [[LQSArticleContentView alloc] initWithFrame:CGRectMake(15, 55.0f, KLQScreenFrameSize.width-30, 500)];
+    articleView.preferredMaxLayoutWidth = KLQScreenFrameSize.width-30;
+    articleView.content = self.myCtrl.bbsDetailModel.content;
+    articleView.scrollEnabled = NO;
+    articleView.editable = NO;
+    [self.contentView addSubview:articleView];
+    [articleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(55, 15, 10, 15));
+    }];
     
-
+//    for (NSInteger i = 0; i < self.myCtrl.bbsDetailModel.content.count; i++) {
+//        if (i == 0) {
+//            self.totalHeight = 55;
+//        }
+//        LQSBBSContentModel *model = self.myCtrl.bbsDetailModel.content[i];
+//        if ((![model.infor containsString:@".png"] && ![model.infor containsString:@".jpg"] ) && model.infor.length > 0) {
+//            [self addTextContentForText:model.infor];
+//        }else{
+//            [self addImageContentForUrl:model.originalInfo tag:kCONTENTIMAGETAG_BEGIN+i];
+//        }
+//    }
+    self.isCreated = YES;
 }
 - (void)guanzhuTA
 {

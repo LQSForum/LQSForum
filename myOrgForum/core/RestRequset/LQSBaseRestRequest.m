@@ -37,10 +37,20 @@ static NSString *Domain_Online =  @"forum.longquanzs.org/mobcent/app/web/index.p
     if (!_parameters) {
         _parameters = [NSMutableDictionary dictionary];
     }
-    [_parameters setObject:LQS_ForumKey forKey:@"forumKey"];
-    [_parameters setObject:[[LQSUserManager defaultManager] secret] forKey:@"accessSecret"];
-    [_parameters setObject:[[LQSUserManager defaultManager] token] forKey:@"accessToken"];
-    [_parameters setObject:LQS_SDKVERSION forKey:@"sdkVersion"];
+    _parameters[@"forumKey"] = LQS_ForumKey;
+    _parameters[@"accessSecret"] = [[LQSUserManager defaultManager] secret];
+    _parameters[@"accessToken"] = [[LQSUserManager defaultManager] token];
+    _parameters[@"sdkVersion"] = LQS_SDKVERSION;
+
+    
+    
+    
+    
+    
+//    [_parameters setObject:LQS_ForumKey forKey:@"forumKey"];
+//    [_parameters setObject:[[LQSUserManager defaultManager] secret] forKey:@"accessSecret"];
+//    [_parameters setObject:[[LQSUserManager defaultManager] token] forKey:@"accessToken"];
+//    [_parameters setObject:LQS_SDKVERSION forKey:@"sdkVersion"];
     return _parameters;
 }
 

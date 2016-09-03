@@ -79,8 +79,11 @@
     [self.manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [self.manager.session invalidateAndCancel];
         success(responseObject);
+        LQSLog(@"http ----success");
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self.manager.session invalidateAndCancel];
+        LQSLog(@"http ----failure");
         failure(error);
     }];
 }

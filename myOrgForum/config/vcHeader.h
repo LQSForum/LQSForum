@@ -9,9 +9,22 @@
 #ifndef vcHeader_h
 #define vcHeader_h
 
+//login%register
+#import "LQLoginViewController.h"
+#import "LQRegisterViewController.h"
+#import "LQUpdateUserViewController.h"
 
 
-//推荐
+
+
+//introduce
+#import "LQSBBSDetailViewController.h"
+
+
+
+
+
+//discover
 #import "LQSShijieViewController.h"//视界
 #import "LQSDongmanViewController.h"//动漫
 #import "LQSCishanViewController.h"//慈善
@@ -43,6 +56,6 @@
 #import "LQSMyHomePageViewController.h"
 #import "LQSMessageViewController.h"
 #import "LQSDetailSettingViewController.h"
-//main
+//postStatus
 #import "LQSComposeViewController.h"
 

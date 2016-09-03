@@ -16,5 +16,9 @@
     BOOL      IsSelectSecretBtn;
     BOOL      IsSelectManBtn;
     BOOL      IsSelectWomanBtn;
+    BOOL      IsUploadingPic;
+    UIImageView *selectImageView;
+    NSString* savedImagePath ;
+    UIAlertView *postImgAlertView;
 }
 @end

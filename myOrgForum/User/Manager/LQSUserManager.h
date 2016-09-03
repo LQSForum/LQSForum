@@ -46,7 +46,7 @@ extern NSString * const KLQSLoginFailedNotification;
 
 @interface LQSUserManager : LQSBaseManager
 
-@property (nonatomic, copy) LQSUserInfo *currentOnlineUser;
+@property (nonatomic, strong,readwrite) LQSUserInfo *currentOnlineUser;
 
 -(void) clearAccessInfo;
 

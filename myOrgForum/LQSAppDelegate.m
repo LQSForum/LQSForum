@@ -11,7 +11,6 @@
 #import "UIColor+Hex.h"
 
 #import "AFNetworking.h"
-#import "LQSCoreManager.h"
 #import "LQSMessageCenterManager.h"
 
 @interface LQSAppDelegate()
@@ -28,6 +27,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSDictionary *firstLaunch = [NSDictionary dictionaryWithObject:@"YES" forKey:@"isFirstLaunch"];
+    [kUserDefauts registerDefaults:firstLaunch];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window chooseRootViewController];
     [UINavigationBar appearance].barTintColor = [UIColor lqs_themeColor];
