@@ -9,11 +9,10 @@
 #ifndef vcHeader_h
 #define vcHeader_h
 
-//login%register
+//login&register
 #import "LQLoginViewController.h"
 #import "LQRegisterViewController.h"
 #import "LQUpdateUserViewController.h"
-
 
 
 
