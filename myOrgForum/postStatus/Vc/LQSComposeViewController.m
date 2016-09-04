@@ -78,7 +78,7 @@
 //
 //- (void)jmpPickVC:(LQSComposePhotosView *)composePhotoView{
 //
-//
+//    [composePhotoView addImage:(UIImage *)];
 //
 //}
 // 添加工具条

@@ -77,7 +77,7 @@
 
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     paramDic[@"r"] = @"user/userinfo";
-    paramDic[@"userId"] = [LQSUserManager user].uid;/////??????????////需要登陆获取
+    paramDic[@"userId"] = [LQSUserManager user].uid;
     
     paramDic[@"egnVersion"] = @"v2035.2";
     paramDic[@"sdkVersion"] = @"2.4.3.0";
