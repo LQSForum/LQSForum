@@ -7,6 +7,7 @@
 //
 
 #import "LQSTabBarViewController.h"
+#import "LQSUserManager.h"
 @interface LQSTabBarViewController ()<LQSTabBarDelegate>
 
 @end
@@ -64,7 +65,7 @@
 {
 
     UIViewController *vc = [UIViewController new];
-    if ([LQSUserDefauts isLogin]) {
+    if (LQSUserManager.isLoging) {
         vc =[[LQSComposeViewController alloc] init];
     }else{
         vc = [[LQLoginViewController alloc] init];

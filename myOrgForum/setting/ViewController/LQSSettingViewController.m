@@ -7,7 +7,7 @@
 //设置-我的页面
 
 #import "LQSSettingViewController.h"
-
+#import "LQSUserManager.h"
 @interface LQSSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)LQSUITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -77,7 +77,7 @@
 
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     paramDic[@"r"] = @"user/userinfo";
-    paramDic[@"userId"] = @"216734";/////??????????////需要登陆获取
+    paramDic[@"userId"] = [LQSUserManager user].uid;/////??????????////需要登陆获取
     
     paramDic[@"egnVersion"] = @"v2035.2";
     paramDic[@"sdkVersion"] = @"2.4.3.0";

@@ -15,6 +15,73 @@ NSString * const KLQSLoginFailedNotification = @"KLQSLoginFailedNotification";
 
 @implementation LQSUserManager
 
++ (instancetype)userManager{
+
+    static id userManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,^{
+        userManager = [[LQSUserManager alloc]init];
+    });
+
+    return userManager;
+
+}
+
++ (BOOL)isLoging{
+    NSUserDefaults *defauts = [NSUserDefaults standardUserDefaults];
+    return [defauts objectForKey:kUserInfo] != nil;
+}
+
++ (LQSUserInfo *)user{
+    if (![LQSUserManager userManager].currentOnlineUser && [LQSUserManager isLoging] ) {
+        return [self userWithDict:[LQSUserManager userDict]];
+    }
+    return [LQSUserManager userManager].currentOnlineUser;
+
+
+
+}
+
++(NSDictionary *)userDict{
+    NSUserDefaults *defauts = [NSUserDefaults standardUserDefaults];
+    return [defauts objectForKey:kUserInfo];
+
+}
+
++ (LQSUserInfo *)userWithDict:(NSDictionary *)dict{
+    if (![dict isKindOfClass:[NSDictionary class]]) {
+        return nil;
+    }
+    NSUserDefaults *defauts = [NSUserDefaults standardUserDefaults];
+    [defauts setValue:dict forKey:kUserInfo];
+    [defauts synchronize];
+    
+    NSError *error = nil;
+    LQSUserInfo *user = [[LQSUserInfo class] mj_objectWithKeyValues:dict];
+
+    if (error) {
+        return nil;
+    }
+    
+    [LQSUserManager userManager].currentOnlineUser = user;
+    return user;
+
+}
+
++ (void)clearUser{
+    [LQSUserManager userManager].currentOnlineUser = nil;
+    NSUserDefaults *defauts = [NSUserDefaults standardUserDefaults];
+    [defauts removeObjectForKey:kUserInfo];
+    [defauts synchronize];
+
+
+
+}
+
+
+
+
+
 -(void) clearAccessInfo {
     super.secret = nil;
     super.token = nil;

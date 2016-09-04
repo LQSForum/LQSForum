@@ -10,6 +10,13 @@
 #ifndef configHeader_h
 #define configHeader_h
 
+//用户信息
+#define kUserInfo @"kUserInfo"
+
+
+
+
+
 //系统版本
 #define kSystemVersion [[[UIDevice currentDevice] systemVersion] floatValue]
 #define kIsSimulator [[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"]
