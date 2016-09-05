@@ -75,12 +75,7 @@
     photosView.delegate = self;
 
 }
-//
-//- (void)jmpPickVC:(LQSComposePhotosView *)composePhotoView{
-//
-//    [composePhotoView addImage:(UIImage *)];
-//
-//}
+
 // 添加工具条
 - (void)setupToolbar
 {
@@ -140,26 +135,16 @@
 // 设置导航条内容
 - (void)setupNavBar
 {
-//    NSString *name = [LQSAccountTool account].name;
-//    if (name) {
-//        // 构建文字
-//        NSString *prefix = @"发微博";
-//        NSString *text = [NSString stringWithFormat:@"%@\n%@", prefix, name];
-//        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:text];
-//        [string addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:15] range:[text rangeOfString:prefix]];
-//        [string addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:[text rangeOfString:name]];
-//        
-//        // 创建label
-//        UILabel *titleLabel = [[UILabel alloc] init];
-//        titleLabel.attributedText = string;
-//        titleLabel.numberOfLines = 0;
-//        titleLabel.textAlignment = NSTextAlignmentCenter;
-//        titleLabel.width = 100;
-//        titleLabel.height = 44;
-//        self.navigationItem.titleView = titleLabel;
-//    } else {
-//        self.title = @"发微博";
-//    }
+    
+        // 创建label
+        UILabel *titleLabel = [[UILabel alloc] init];
+        titleLabel.text = @"选择板块";
+        titleLabel.numberOfLines = 0;
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.width = 100;
+        titleLabel.height = 44;
+        self.navigationItem.titleView = titleLabel;
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleBordered target:self action:@selector(send)];
@@ -224,56 +209,9 @@
 }
 
 
-/**
- *  发表有图片的微博
- */
-- (void)sendStatusWithImage
-{
-    //    // 1.获得请求管理者
-    //    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    //
-    //    // 2.封装请求参数
-    //    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    //    params[@"access_token"] = [LQSAccountTool account].access_token;
-    //    params[@"status"] = self.textView.text;
-    //
-    //    // 3.发送POST请求
-    //    [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-    //
-    //#warning 目前新浪开放的发微博接口 最多 只能上传一张图片
-    //        UIImage *image = [self.photosView.images firstObject];
-    //
-    //        NSData *data = UIImageJPEGRepresentation(image, 1.0);
-    //
-    //        // 拼接文件参数
-    //        [formData appendPartWithFileData:data name:@"pic" fileName:@"status.jpg" mimeType:@"image/jpeg"];
-    //
-    //    } success:^(AFHTTPRequestOperation *operation, NSDictionary *statusDict) {
-    //        [MBProgressHUD showSuccess:@"发表成功"];
-    //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    //        [MBProgressHUD showError:@"发表失败"];
-    //    }];
-}
 
 
-// 图文混排 ： 图片和文字混合在一起排列
 
-/**
- *  发表没有图片的微博
- */
-//- (void)sendStatusWithoutImage
-//{
-//    // 1.封装请求参数
-//    LQSSendStatusParam *param = [LQSSendStatusParam param];
-//    param.status = self.textView.realText;
-//    
-//    // 2.发微博
-//    [LQSStatusTool sendStatusWithParam:param success:^(LQSSendStatusResult *result) {
-//        [MBProgressHUD showSuccess:@"发表成功"];
-//    } failure:^(NSError *error) {
-//        [MBProgressHUD showError:@"发表失败"];
-//    }];
-//}
 
 #pragma mark - 键盘处理
 /**

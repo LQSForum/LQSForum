@@ -74,7 +74,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
-                  timestampString = "494500848.929127"
+                  timestampString = "494730431.608758"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "243"
@@ -89,7 +89,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
-                  timestampString = "494500848.929242"
+                  timestampString = "494730431.608856"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "243"
@@ -112,6 +112,102 @@
             startingLineNumber = "211"
             endingLineNumber = "211"
             landmarkName = "-requestPersonalData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/login&amp;register/LQRegisterViewController.m"
+            timestampString = "494730431.243272"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "-registerAction"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LQRegisterViewController registerAction]"
+                  moduleName = "myOrgForum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/login&amp;register/LQRegisterViewController.m"
+                  timestampString = "494730431.6066"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "736">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[LQRegisterViewController registerAction]_block_invoke"
+                  moduleName = "myOrgForum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/login&amp;register/LQRegisterViewController.m"
+                  timestampString = "494730431.606821"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/login&amp;register/LQRegisterViewController.m"
+            timestampString = "494730435.415471"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "-registerAction"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/User/Manager/LQSUserManager.m"
+            timestampString = "494730645.624458"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "-registerUserByEmail:withPWD:withUserName:completionBlock:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/User/Manager/LQSUserManager.m"
+            timestampString = "494730658.20815"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-registerUserByEmail:withPWD:withUserName:completionBlock:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

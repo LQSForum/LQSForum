@@ -7,6 +7,11 @@
 //
 
 #import "LQUpdateUserViewController.h"
+
+@interface LQUpdateUserViewController()<UITextFieldDelegate>
+
+@end
+
 #define MainBlueColor  [UIColor colorWithRed:0.529 green:0.765 blue:0.898 alpha:1.000]
 @implementation LQUpdateUserViewController
 
@@ -43,7 +48,7 @@
     userNameTextField.placeholder = @"请输入用户名";
     userNameTextField.font = [UIFont fontWithName:@"Arial" size:20.0f];
     userNameTextField.clearButtonMode = UITextFieldViewModeAlways;
-    userNameTextField.textAlignment = UITextAlignmentLeft;
+    userNameTextField.textAlignment = NSTextAlignmentLeft;
     userNameTextField.keyboardType = UIKeyboardTypeDefault;
     userNameTextField.delegate = self;
     [self.view addSubview:userNameTextField];
