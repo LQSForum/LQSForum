@@ -142,15 +142,20 @@
     
 }
 
-- (void)leftTableView:(LQSLeftTableView *)leftTableView rightViewArray:(NSMutableArray *)rightViewArray{
+- (void)leftTableView:(LQSLeftTableView *)leftTableView rightViewArray:(NSMutableArray *)rightViewArray allDataArray:(NSMutableArray *)allDataArray{
     self.rightView.sectionNum = 1;
     self.rightView.rightDataArray = rightViewArray;
+    self.rightView.allFocusArray = allDataArray;
 }
 
-- (void)leftTableView:(LQSLeftTableView *)leftTableView rightViewFocusArray:(NSMutableArray *)rightViewFocusArray{
+- (void)leftTableView:(LQSLeftTableView *)leftTableView rightViewFocusArray:(NSMutableArray *)rightViewFocusArray allDataArray:(NSMutableArray *)allDataArray{
     self.rightView.sectionNum = 2;
     self.rightView.notFocusArray = rightViewFocusArray;
+    self.rightView.allFocusArray = allDataArray;
+    
+    
 }
+
 
 -(UIColor *)arndomColor{
     
