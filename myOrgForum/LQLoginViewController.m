@@ -29,8 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"登录";
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     CGFloat screenWidht = self.view.width;
+     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(backHistory)];
     //CGFloat screenHeight = self.view.height;
     //初始化textfield并设置位置及大小
     if (YES) {
@@ -100,6 +101,11 @@
     [self.view addSubview:_registerButton];
     
  
+}
+//返回按钮
+-(void)backHistory
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 /**
  *  登录按钮的响应函数
