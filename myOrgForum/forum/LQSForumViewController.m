@@ -18,12 +18,10 @@
 
 @interface LQSForumViewController ()<LQSMainViewDelegate>
 
-@property (nonatomic, strong) UIView *bgView;
-@property (nonatomic, weak) UIView *sliderbarView;
-@property (nonatomic, strong) LQSMainView *mainView;
-@property (nonatomic,strong)NSMutableArray *leftDataArray;
-@property (nonatomic,strong)NSMutableArray *rightDataArray;
-@property (nonatomic, strong) UIButton *btn;
+@property (nonatomic, strong) UIView *bgView;//三个主题导航条背景
+@property (nonatomic, weak) UIView *sliderbarView;//滑动条
+@property (nonatomic, strong) LQSMainView *mainView;//主视图
+@property (nonatomic, strong) UIButton *btn;//三个主题按钮
 
 @end
 
@@ -59,6 +57,7 @@
     CGFloat padding = (self.view.bounds.size.width - 3*w)/4;
     CGFloat y = 0;
     
+    //添加主题按钮
     for (int i = 0; i < 3; i++) {
         UIButton *btn = [[UIButton alloc] init];
         btn.tag = i;
@@ -74,6 +73,7 @@
         [self setButtonTitle:btn];
     }
     
+    //滑动条
     UIView *sliderV = [[UIView alloc] initWithFrame:CGRectMake(padding, 31, 120, 3)];
     sliderV.backgroundColor = LQSColor(1, 183, 237, 1.0);
     self.sliderbarView = sliderV;
@@ -107,6 +107,7 @@
     }
 }
 
+//主题按钮的点击
 - (void)btnClick:(UIButton *)sender{
     
     self.btn.selected = NO;
@@ -117,7 +118,6 @@
     center.x = sender.center.x;
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:sender.tag inSection:0];
     
-    //    [self.mainView scrollToItemAtIndexPath:indexPath atScrollPosition:(UICollectionViewScrollPositionNone) animated:YES];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"LQSPartClickIndexpath" object:indexPath];
     
     [UIView animateWithDuration:0.4 animations:^{
@@ -126,6 +126,8 @@
     
 }
 
+
+//三个页面的滚动
 - (void)mainViewScroll:(LQSMainView *)mainView index:(int)index{
     
     self.btn.selected = NO;

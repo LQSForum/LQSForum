@@ -46,9 +46,10 @@
     self.contentLabel = [[UILabel alloc]init];
     self.marrowIcon = [[UIImageView alloc]init];
     self.marrowImage = [[UIImageView alloc]init];
-    self.nameLabel.font = [UIFont systemFontOfSize:10];
-    self.lastReplyDate.font = [UIFont systemFontOfSize:10];
-    self.contentLabel.font = [UIFont systemFontOfSize:10];
+    self.nameLabel.font = [UIFont systemFontOfSize:10.0];
+    self.lastReplyDate.font = [UIFont systemFontOfSize:10.0];
+    self.contentLabel.font = [UIFont systemFontOfSize:10.0];
+    self.titleLabel.font = [UIFont systemFontOfSize:18.0];
     self.nameLabel.textColor = [UIColor lightGrayColor];
     self.lastReplyDate.textColor = [UIColor lightGrayColor];
     self.contentLabel.textColor = [UIColor lightGrayColor];
@@ -84,17 +85,17 @@
     
     [self.lastReplyDate mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-10);
-        make.left.equalTo(self.titleLabel);
+        make.left.equalTo(self.contentView.mas_left).offset(10);
     }];
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.lastReplyDate.mas_right).offset(20);
+        make.left.equalTo(self.lastReplyDate.mas_right).offset(60);
         make.bottom.equalTo(self.lastReplyDate.mas_bottom);
     }];
     
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-10);
-        make.left.equalTo(self.nameLabel.mas_right).offset(30);
+        make.right.equalTo(self.icon.mas_left).offset(-10);
         
     }];
     
@@ -107,10 +108,17 @@
     NSURL *url = [NSURL URLWithString:model.pic_path];
 //    self.icon.contentMode = UIViewContentModeScaleAspectFill;
     self.titleLabel.text = model.title;
-    self.titleLabel.numberOfLines = 0;
+    self.titleLabel.numberOfLines = 2;
+    self.titleLabel.textAlignment = NSTextAlignmentLeft;
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.titleLabel.text];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:10.0];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [self.titleLabel.text length])];
+    self.titleLabel.attributedText = attributedString;
+    [self.titleLabel sizeToFit];
     self.lastReplyDate.text = model.last_reply_date;
     self.nameLabel.text = model.user_nick_name;
-    self.contentLabel.text = [NSString stringWithFormat:@"%zd",model.replies];
+    self.contentLabel.text = [NSString stringWithFormat:@"%zd评",model.replies];
     [self.nameLabel sizeToFit];
     [self.contentLabel sizeToFit];
     [self.lastReplyDate sizeToFit];
