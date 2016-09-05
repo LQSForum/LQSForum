@@ -13,6 +13,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"注册";
+    self.view.backgroundColor = [UIColor whiteColor];
     CGFloat screenWidht = self.view.width;
     IsSelectSecretBtn = YES;
     IsSelectManBtn = NO;

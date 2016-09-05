@@ -7,7 +7,7 @@
 //设置-我的页面
 
 #import "LQSSettingViewController.h"
-
+#import "LQSUserManager.h"
 @interface LQSSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)LQSUITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -19,7 +19,7 @@
 
 - (NSMutableArray *)dataSource
 {
-
+    
     if (!_dataSource) {
         _dataSource = [NSMutableArray array];
         LQSSettingModel *model0 = [[LQSSettingModel alloc] init];
@@ -29,7 +29,7 @@
         LQSSettingModel *model1 = [[LQSSettingModel alloc] init];
         model1.iamge = @"setting_myMessage";//
         model1.title = @"我的消息";//
-
+        
         
         LQSSettingModel *model2 = [[LQSSettingModel alloc] init];
         model2.iamge = @"setting_accountManage";
@@ -40,13 +40,13 @@
         model3.title = @"个人设置";
         [self.dataSource addObject:model0];
         [self.dataSource addObject:model1];
-
+        
         [self.dataSource addObject:model2];
         [self.dataSource addObject:model3];
     }
-
+    
     return _dataSource;
-
+    
 }
 
 - (void)viewDidLoad {
@@ -57,10 +57,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//请求用户数据
+    //请求用户数据
     [self requestUserData];
-
-
+    
+    
 }
 
 - (void)createTableView{
@@ -68,16 +68,16 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
-
-
+    
+    
 }
 
 - (void)requestUserData{
     NSString *baseUrl = @"http://forum.longquanzs.org//mobcent/app/web/index.php";
-
+    
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     paramDic[@"r"] = @"user/userinfo";
-    paramDic[@"userId"] = @"216734";/////??????????////需要登陆获取
+    paramDic[@"userId"] = [LQSUserManager user].uid;
     
     paramDic[@"egnVersion"] = @"v2035.2";
     paramDic[@"sdkVersion"] = @"2.4.3.0";
@@ -85,11 +85,11 @@
     paramDic[@"accessToken"] = @"83e1f2e3b07cc0629ac89ed355920";
     paramDic[@"accessSecret"] = @"a742cf58f0d3c28e164f9d9661b6f";
     paramDic[@"forumKey"] = @"BW0L5ISVRsOTVLCTJx";
-
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-
+    
     __weak typeof(self) weakSelf = self;
     [manager POST:baseUrl parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         LQSLog(@"sucess");
@@ -104,11 +104,11 @@
         [weakSelf.tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         LQSLog(@"failure");
-
+        
     }];
-
-
-
+    
+    
+    
 }
 
 
@@ -118,10 +118,10 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
+    
     return 3;
-
-
+    
+    
 }
 
 //- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -145,9 +145,9 @@
 //            label.backgroundColor = [UIColor whiteColor];
 //
 //            [sectionView addSubview:label];
-//        
+//
 //        }
-//        
+//
 ////        添加高度为10的分割线
 //        UIView *gapView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, kScreenWidth, 10)];
 //        gapView.backgroundColor = [UIColor clearColor];
@@ -161,17 +161,17 @@
 //            view.backgroundColor = [UIColor lightGrayColor];
 //            [sectionView addSubview:view];
 //        }
-//        
-//        
+//
+//
 //        return sectionView;
-//        
+//
 //    }
 //    return nil;
 //}
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-
+    
     if (section == 0) {
         UIView * sectionView  =[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40 + 10)];
         sectionView.userInteractionEnabled = YES;
@@ -213,15 +213,15 @@
         
     }
     return nil;
-
-
+    
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
         return 40;
     }else if(section == 1){
-    return 10;
+        return 10;
     }else
         return 0.1;
 }
@@ -233,7 +233,7 @@
     }else if(section == 1){
         return 10;
     }else
-            return 0.1;
+        return 0.1;
 }
 
 
@@ -283,20 +283,30 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        LQSHomePagePersonalMessageViewController *personalVc = [LQSHomePagePersonalMessageViewController new];
-        [self.navigationController pushViewController:personalVc animated:NO];
+        
+        if ([LQSUserManager isLoging]) {
+            LQSHomePagePersonalMessageViewController *personalVc = [LQSHomePagePersonalMessageViewController new];
+            [self.navigationController pushViewController:personalVc animated:NO];
+            
+        }else{
+            LQLoginViewController *loginVC = [LQLoginViewController new];
+            LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:loginVC];
+            [self presentViewController:navVc animated:YES completion:nil];
+        }
+        
+        
     }else{
         UIViewController *vc = [[UIViewController alloc] init];
-
-    if (indexPath.section == 1 && indexPath.row == 0) {
-      vc =  [[LQSMyDraftViewController alloc] init];
-    }else if (indexPath.section == 1 && indexPath.row == 1){
-        vc = [[LQSMessageViewController alloc] init];
-    }else if (indexPath.section == 2 && indexPath.row == 0){
-        vc = [[LQSAccountManagementViewController alloc] init];
-    }else{
-        vc = [[LQSDetailSettingViewController alloc] init];
-    }
+        
+        if (indexPath.section == 1 && indexPath.row == 0) {
+            vc =  [[LQSMyDraftViewController alloc] init];
+        }else if (indexPath.section == 1 && indexPath.row == 1){
+            vc = [[LQSMessageViewController alloc] init];
+        }else if (indexPath.section == 2 && indexPath.row == 0){
+            vc = [[LQSAccountManagementViewController alloc] init];
+        }else{
+            vc = [[LQSDetailSettingViewController alloc] init];
+        }
         [self.navigationController pushViewController:vc animated:NO];
     }
 }
@@ -314,18 +324,18 @@
 {
     UIViewController *Vc = [UIViewController new];
     UIView *view = gesture.view;
-        if (view.tag == 0) {
-            Vc = [LQSSettingMyFavourateViewController new];
-        }else if (view.tag == 1){
-            Vc = [LQSSettingMyFriendViewController new];
-        }else if (view.tag == 2){
-            Vc = [LQSSettingMyPresentViewController new];
-        }
-        [self.navigationController pushViewController:Vc animated:NO];
+    if (view.tag == 0) {
+        Vc = [LQSSettingMyFavourateViewController new];
+    }else if (view.tag == 1){
+        Vc = [LQSSettingMyFriendViewController new];
+    }else if (view.tag == 2){
+        Vc = [LQSSettingMyPresentViewController new];
     }
-    
-    
-    
+    [self.navigationController pushViewController:Vc animated:NO];
+}
+
+
+
 
 
 

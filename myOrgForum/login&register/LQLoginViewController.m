@@ -131,7 +131,31 @@
     [userLogin loginUserByUsername:inputUserName withPWD:inputPSW completionBlock:^(id result, NSError *error){
         if(nil == error)
         {
-            [self.navigationController popViewControllerAnimated:YES];
+//            [self.navigationController popViewControllerAnimated:YES];
+//            存储用户名和密码
+//            [LQSUserDefauts saveUserName:inputUserName];//用户名存储本地
+//            [LQSUserDefauts saveLogin:YES];//存储登陆状态
+            
+//            存储用户的ID
+            
+//        NSDictionary *userDict = [NSDictionary  dictionaryWithDictionary:result
+            
+            
+            
+            LQSUserInfo *infoModel = result;
+//            [userDict setValue:verify forKey:@"user_verify"];
+            NSMutableDictionary *userDict = infoModel.mj_keyValues;
+            [LQSUserManager userWithDict:userDict];
+
+            
+            
+            [self dismissViewControllerAnimated:NO completion:nil];
+            
+            
+            
+            
+            
+            
         }
         else
         {
@@ -145,7 +169,8 @@
 
         }
         
-    }];
+    }
+     ];
 
 
     

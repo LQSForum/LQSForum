@@ -13,7 +13,7 @@ typedef NS_ENUM(NSUInteger, LQSTypeGender) {
     WOMAN,
 };
 
-@interface LQSUserInfo : LQSBaseModel
+@interface LQSUserInfo : LQSBaseModel<NSCopying>
 
 @property (strong, nonatomic) NSDictionary *dicData;
 @property (strong, nonatomic) NSString *userName;

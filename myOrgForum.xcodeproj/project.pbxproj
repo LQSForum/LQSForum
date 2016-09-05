@@ -70,7 +70,6 @@
 		413F927B1D791DB000D7974D /* mc_forum_ico53_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 413F92741D791DB000D7974D /* mc_forum_ico53_n.png */; };
 		413F927C1D791DB000D7974D /* selectRadio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 413F92751D791DB000D7974D /* selectRadio@2x.png */; };
 		413F927D1D791DB000D7974D /* unselectRadio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 413F92761D791DB000D7974D /* unselectRadio@2x.png */; };
-		413F92801D79577900D7974D /* LQSUserDefauts.m in Sources */ = {isa = PBXBuildFile; fileRef = 413F927F1D79577900D7974D /* LQSUserDefauts.m */; };
 		415C55541CC8CCEE00408B90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55531CC8CCEE00408B90 /* main.m */; };
 		415C555D1CC8CCEE00408B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415C555B1CC8CCEE00408B90 /* Main.storyboard */; };
 		415C555F1CC8CCEE00408B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415C555E1CC8CCEE00408B90 /* Assets.xcassets */; };
@@ -324,8 +323,6 @@
 		413F92741D791DB000D7974D /* mc_forum_ico53_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mc_forum_ico53_n.png; path = resources/introduce/mc_forum_ico53_n.png; sourceTree = "<group>"; };
 		413F92751D791DB000D7974D /* selectRadio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "selectRadio@2x.png"; path = "resources/introduce/selectRadio@2x.png"; sourceTree = "<group>"; };
 		413F92761D791DB000D7974D /* unselectRadio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unselectRadio@2x.png"; path = "resources/introduce/unselectRadio@2x.png"; sourceTree = "<group>"; };
-		413F927E1D79577900D7974D /* LQSUserDefauts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSUserDefauts.h; sourceTree = "<group>"; };
-		413F927F1D79577900D7974D /* LQSUserDefauts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSUserDefauts.m; sourceTree = "<group>"; };
 		415C554F1CC8CCEE00408B90 /* myOrgForum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myOrgForum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		415C55531CC8CCEE00408B90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		415C555C1CC8CCEE00408B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -595,13 +592,6 @@
 				411FE7911D6D6DAE00563324 /* LQSShijieViewController.m */,
 			);
 			name = VC;
-			sourceTree = "<group>";
-		};
-		2CB084C91D60507B00167F4D /* MJPhotoBrowser */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = MJPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		410FA1D91D38E9F10021B7E2 /* categories */ = {
@@ -1222,8 +1212,6 @@
 				E4D8E1B81D54188500EE6171 /* LQSBaseManager.m */,
 				E4D8E1C81D541B6700EE6171 /* LQSUserManager.h */,
 				E4D8E1C91D541B6700EE6171 /* LQSUserManager.m */,
-				413F927E1D79577900D7974D /* LQSUserDefauts.h */,
-				413F927F1D79577900D7974D /* LQSUserDefauts.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1242,7 +1230,6 @@
 		E4D8E1BD1D54193000EE6171 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				2CB084C91D60507B00167F4D /* MJPhotoBrowser */,
 				E4D8E1BE1D54193000EE6171 /* GCDAsyncSocket */,
 			);
 			path = ThirdParty;
@@ -1692,7 +1679,6 @@
 				410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */,
 				41AC5B401D751C83006E38D5 /* LQSSettingViewController.m in Sources */,
 				41F8700C1D767E7B00E05FAB /* LQSEmotionView.m in Sources */,
-				413F92801D79577900D7974D /* LQSUserDefauts.m in Sources */,
 				41F870181D767E9C00E05FAB /* LQSEmotionTool.m in Sources */,
 				413F925C1D791C9500D7974D /* LQUpdateUserViewController.m in Sources */,
 				0000C4AE1D645E42007C969C /* LQSRightViewCell.m in Sources */,

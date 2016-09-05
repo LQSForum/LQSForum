@@ -31,6 +31,7 @@
     inputPSW = nil;
     inputMailbox = nil;
     self.title = @"登录";
+    self.view.backgroundColor = [UIColor whiteColor];
     CGFloat screenWidht = self.view.width;
     //CGFloat screenHeight = self.view.height;
     //请输入用户名

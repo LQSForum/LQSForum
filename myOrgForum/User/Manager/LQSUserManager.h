@@ -48,6 +48,22 @@ extern NSString * const KLQSLoginFailedNotification;
 
 @property (nonatomic, copy) LQSUserInfo *currentOnlineUser;
 
+
+//zss
++ (BOOL)isLoging;
+
++ (instancetype)userManager;
+
++ (LQSUserInfo *)user;
+
++ (NSDictionary *)userDict;
+
++ (LQSUserInfo *)userWithDict:(NSDictionary *)dict;
+
+
++ (void)clearUser;
+
+
 -(void) clearAccessInfo;
 
 /**
