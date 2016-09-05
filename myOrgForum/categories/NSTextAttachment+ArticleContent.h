@@ -10,6 +10,8 @@
 
 @interface NSTextAttachment (ArticleContent)
 
+@property (nonatomic, readwrite, strong) NSString *url;
+
 - (void)sd_setImageWithURL:(NSURL *)url completed:(SDWebImageCompletionBlock)completedBlock;
 
 @end

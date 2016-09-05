@@ -40,7 +40,7 @@
     _userNameTextField.placeholder = @"请输入用户名(不要使用手机号)";
     _userNameTextField.font = [UIFont fontWithName:@"Arial" size:20.0f];
     _userNameTextField.clearButtonMode = UITextFieldViewModeAlways;
-    _userNameTextField.textAlignment = UITextAlignmentLeft;
+    _userNameTextField.textAlignment = NSTextAlignmentLeft;
     _userNameTextField.backgroundColor = [UIColor clearColor];
     _userNameTextField.keyboardType = UIKeyboardTypeTwitter;
     _userNameTextField.delegate = self;
@@ -53,7 +53,7 @@
     _passWordTextField.placeholder = @"请输入密码";
     _passWordTextField.font = [UIFont fontWithName:@"Arial" size:20.0f];
     _passWordTextField.clearButtonMode = UITextFieldViewModeAlways;
-    _passWordTextField.textAlignment = UITextAlignmentLeft;
+    _passWordTextField.textAlignment = NSTextAlignmentLeft;
     _passWordTextField.keyboardType = UIKeyboardTypeTwitter;
     _passWordTextField.backgroundColor = [UIColor clearColor];
     _passWordTextField.delegate = self;
@@ -65,7 +65,7 @@
     _mailboxTextField.placeholder = @"请输入邮箱";
     _mailboxTextField.font = [UIFont fontWithName:@"Arial" size:20.0f];
     _mailboxTextField.clearButtonMode = UITextFieldViewModeAlways;
-    _mailboxTextField.textAlignment = UITextAlignmentLeft;
+    _mailboxTextField.textAlignment = NSTextAlignmentLeft;
     _mailboxTextField.keyboardType = UIKeyboardTypeEmailAddress;
     _mailboxTextField.backgroundColor = [UIColor clearColor];
     _mailboxTextField.delegate = self;

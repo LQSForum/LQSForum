@@ -47,6 +47,7 @@
 		410FA2AE1D38EC790021B7E2 /* LQSSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AC1D38EC790021B7E2 /* LQSSectionModel.m */; };
 		410FA2B11D38EC830021B7E2 /* LQSForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B01D38EC830021B7E2 /* LQSForumViewController.m */; };
 		410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */; };
+		411A73C11D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411A73C01D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.m */; };
 		411FE7921D6D6DAE00563324 /* LQSCishanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE78B1D6D6DAE00563324 /* LQSCishanViewController.m */; };
 		411FE7931D6D6DAE00563324 /* LQSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE78D1D6D6DAE00563324 /* LQSDiscoverViewController.m */; };
 		411FE7941D6D6DAE00563324 /* LQSDongmanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE78F1D6D6DAE00563324 /* LQSDongmanViewController.m */; };
@@ -282,6 +283,8 @@
 		410FA2B01D38EC830021B7E2 /* LQSForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumViewController.m; path = forum/LQSForumViewController.m; sourceTree = "<group>"; };
 		410FBB711CCDEDB400761192 /* LQSAppDelegate+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LQSAppDelegate+HUD.h"; sourceTree = "<group>"; };
 		410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LQSAppDelegate+HUD.m"; sourceTree = "<group>"; };
+		411A73BF1D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSClassifySelectorTableViewController.h; sourceTree = "<group>"; };
+		411A73C01D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSClassifySelectorTableViewController.m; sourceTree = "<group>"; };
 		411E08BB1D77E4B900B78B38 /* bianji.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bianji.h; sourceTree = "<group>"; };
 		411FE78A1D6D6DAE00563324 /* LQSCishanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCishanViewController.h; path = discover/VC/LQSCishanViewController.h; sourceTree = "<group>"; };
 		411FE78B1D6D6DAE00563324 /* LQSCishanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCishanViewController.m; path = discover/VC/LQSCishanViewController.m; sourceTree = "<group>"; };
@@ -1030,6 +1033,8 @@
 			children = (
 				41F870131D767E9300E05FAB /* LQSComposeViewController.h */,
 				41F870141D767E9300E05FAB /* LQSComposeViewController.m */,
+				411A73BF1D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.h */,
+				411A73C01D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.m */,
 			);
 			name = Vc;
 			sourceTree = "<group>";
@@ -1621,6 +1626,7 @@
 				413F925F1D791CFF00D7974D /* LQSProfileEditDataModel.m in Sources */,
 				41F870111D767E8800E05FAB /* LQSEmotion.m in Sources */,
 				410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */,
+				411A73C11D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.m in Sources */,
 				6E62B0671D73D1BE001FB2A4 /* LQSAddViewHelper.m in Sources */,
 				410FA2221D38EBA30021B7E2 /* LQSNewfeatureViewController.m in Sources */,
 				6E2893DA1D6C4E8F00EF9CCA /* LQSBBSDetailModel.m in Sources */,
