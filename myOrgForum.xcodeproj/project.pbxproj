@@ -311,6 +311,9 @@
 		411FE7A71D6D6DC700563324 /* LQSWaterFlowViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSWaterFlowViewCell.h; path = discover/View/LQSWaterFlowViewCell.h; sourceTree = "<group>"; };
 		411FE7A81D6D6DC700563324 /* LQSWaterFlowViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSWaterFlowViewCell.m; path = discover/View/LQSWaterFlowViewCell.m; sourceTree = "<group>"; };
 		412FF25C1CD1A0E0005F39AB /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		413059231D7E50860042D376 /* favirate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = favirate.h; sourceTree = "<group>"; };
+		413059241D7E50940042D376 /* present.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = present.h; sourceTree = "<group>"; };
+		413059251D7E50B90042D376 /* bankuai.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bankuai.h; sourceTree = "<group>"; };
 		413F92541D791C9500D7974D /* LQLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQLoginViewController.h; path = "login&register/LQLoginViewController.h"; sourceTree = "<group>"; };
 		413F92551D791C9500D7974D /* LQLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQLoginViewController.m; path = "login&register/LQLoginViewController.m"; sourceTree = "<group>"; };
 		413F92561D791C9500D7974D /* LQRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQRegisterViewController.h; path = "login&register/LQRegisterViewController.h"; sourceTree = "<group>"; };
@@ -821,6 +824,9 @@
 		415C55461CC8CCEE00408B90 = {
 			isa = PBXGroup;
 			children = (
+				413059251D7E50B90042D376 /* bankuai.h */,
+				413059241D7E50940042D376 /* present.h */,
+				413059231D7E50860042D376 /* favirate.h */,
 				411E08BB1D77E4B900B78B38 /* bianji.h */,
 				41AC5B491D7523BE006E38D5 /* fatie.h */,
 				2C62229F1D7189FB00D7702C /* xxxxxxxx.h */,
