@@ -12,16 +12,17 @@
 #import "LQSLeftTableView.h"
 #import "LQSRightTableView.h"
 #import "LQSLatestMarrowTableView.h"
+#import "LQSCellModel.h"
 #define LQSMainCell @"LQSMainViewCell"
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kScreenSize  [UIScreen mainScreen].bounds.size
 @interface LQSMainView ()<UICollectionViewDataSource,UICollectionViewDelegate,LQSLeftTableViewDelegate,UIScrollViewDelegate>
 
-@property (nonatomic,strong) LQSLeftTableView *leftView;
-@property (nonatomic,strong) LQSRightTableView *rightView;
-@property (nonatomic, strong) LQSLatestMarrowTableView *latestView;
-@property (nonatomic, strong) LQSLatestMarrowTableView *marrowView;
+@property (nonatomic,strong) LQSLeftTableView *leftView;//我的关注左侧页面
+@property (nonatomic,strong) LQSRightTableView *rightView;//我的关注右侧页面
+@property (nonatomic, strong) LQSLatestMarrowTableView *latestView;//最新页面
+@property (nonatomic, strong) LQSLatestMarrowTableView *marrowView;//精华页面
 
 @end
 
@@ -48,12 +49,15 @@
         
         [self setupUI];
         
+        
+        
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(latestMarrowViewScrollWithNotify:) name:@"LQSPartClickIndexpath" object:nil];
         
     }
     return self;
 }
 
+//最新和精华页面切换
 - (void)latestMarrowViewScrollWithNotify:(NSNotification *)notify{
     
     NSIndexPath *indexPath = notify.object;
@@ -65,7 +69,6 @@
     }
     
     [self scrollToItemAtIndexPath:notify.object atScrollPosition:(UICollectionViewScrollPositionNone) animated:YES];
-    
 }
 
 
@@ -83,6 +86,7 @@
     self.rightView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.rightView];
     
+    //最新和精华页面
     self.latestView = [[LQSLatestMarrowTableView alloc]init];
     self.marrowView = [[LQSLatestMarrowTableView alloc]init];
     self.latestView.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, self.frame.size.height);
@@ -96,14 +100,11 @@
     //    self.leftView.dataArray = self.leftDataArray;
     
     //leftTableView默认选中第一行
-    //    [self.leftView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+//        [self.leftView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+//    [self.leftView tableView:self.leftView didSelectRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
     //rightTableView默认展示第一组数据
-    //    self.rightView.dataArray = self.rightDataArray[0];
     
-    
-    
-    
-    
+//        self.rightView.rightDataArray = self.rightDataArray;
 }
 
 
@@ -125,35 +126,29 @@
     return cell;
 }
 
+//页面切换
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    
     int idx = scrollView.contentOffset.x / kScreenSize.width;
     if ([self.idelegate respondsToSelector:@selector(mainViewScroll:index:)]) {
         [self.idelegate mainViewScroll:self index:idx];
     }
     
-    if (idx == 1) {
-        self.latestView.sortby = @"new";
-    }else if(idx == 2){
-        self.marrowView.sortby = @"marrow";
-    }
-    
-    
 }
 
+#pragma mark-我的关注左侧视图的代理方法
+//除了我的关注其他四个板块的数据
 - (void)leftTableView:(LQSLeftTableView *)leftTableView rightViewArray:(NSMutableArray *)rightViewArray allDataArray:(NSMutableArray *)allDataArray{
     self.rightView.sectionNum = 1;
     self.rightView.rightDataArray = rightViewArray;
     self.rightView.allFocusArray = allDataArray;
 }
 
+//我的关注页面的数据
 - (void)leftTableView:(LQSLeftTableView *)leftTableView rightViewFocusArray:(NSMutableArray *)rightViewFocusArray allDataArray:(NSMutableArray *)allDataArray{
     self.rightView.sectionNum = 2;
     self.rightView.notFocusArray = rightViewFocusArray;
     self.rightView.allFocusArray = allDataArray;
-    
-    
 }
 
 

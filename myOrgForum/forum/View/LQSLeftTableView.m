@@ -13,12 +13,12 @@
 #import "YYModel.h"
 
 @interface LQSLeftTableView ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) NSMutableArray *leftDataArray;
+@property (nonatomic, strong) NSMutableArray *leftDataArray;//左侧页面数据
 @property (nonatomic, strong) NSMutableArray *sectionDataArray;
-@property (nonatomic, strong) NSMutableArray *focusData;
+@property (nonatomic, strong) NSMutableArray *focusData;//添加关注之后的数据
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
-@property (nonatomic, strong) NSMutableArray *allDataArray;
-@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, strong) NSMutableArray *allDataArray;//所有数据
+@property (nonatomic, assign) NSInteger index;//模型索引
 
 @end
 
@@ -34,7 +34,12 @@
         self.tableFooterView = [[UIView alloc] init];
     }
     
-    [self loadServerData];
+        //请求论坛版块所有数据
+        [self loadServerData];
+    
+//    [self selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+//    [self tableView:self didSelectRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    
     return self;
 }
 
@@ -52,6 +57,8 @@
     return _sessionManager;
 }
 
+
+//请求论坛版块所有数据
 - (void)loadServerData{
     
     NSString *urlStringOthers = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=forum/forumlist";
@@ -61,20 +68,29 @@
                                        @"sdkVersion":@"2.4.0",
                                        @"apphash":@"f0d7f05f"};
     [self loadServerDataWithUrlString:urlStringOthers parameters:parametersOthers];
-
-    NSString *urlStringFocus = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=forum/forumlist";
-    NSDictionary *parametersFocus = @{@"accessSecret":@"4aab1523559aeef6bdc16d9a07d93",
-                                 @"accessToken":@"5769ef37c713ca23b8d1816c2133c",
-                                 @"forumKey":@"BW0L5ISVRsOTVLCTJx",
-                                 @"sdkVersion":@"2.4.3.0",
-                                 @"apphash":@"5038dae8",
-                                 @"type":@"rec"};
-    [self loadFocusDataWithUrlString:urlStringFocus parameters:parametersFocus];
     
+    
+  
     
     
 }
 
+
+//请求我的关注的猜你喜欢数据
+- (void)loadFocusData{
+    NSString *urlStringFocus = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=forum/forumlist";
+    NSDictionary *parametersFocus = @{@"accessSecret":@"4aab1523559aeef6bdc16d9a07d93",
+                                      @"accessToken":@"5769ef37c713ca23b8d1816c2133c",
+                                      @"forumKey":@"BW0L5ISVRsOTVLCTJx",
+                                      @"sdkVersion":@"2.4.3.0",
+                                      @"apphash":@"5038dae8",
+                                      @"type":@"rec"};
+    //    [NSThread sleepForTimeInterval:1.0];
+    [self loadFocusDataWithUrlString:urlStringFocus parameters:parametersFocus];
+
+}
+
+//请求我的关注的猜你喜欢数据
 - (void)loadFocusDataWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters{
     
     [self.sessionManager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -129,6 +145,8 @@
         NSArray *listArr = dict[@"list"];
         self.index = 1;
         for (NSDictionary *sectionDict in listArr) {
+            NSString *sectionName = sectionDict[@"board_category_name"];
+            [self.leftDataArray addObject:sectionName];
             LQSSectionModel *model = [LQSSectionModel yy_modelWithDictionary:sectionDict];
             [self.sectionDataArray addObject:model];
             NSArray *cellListArr = sectionDict[@"board_list"];
@@ -142,6 +160,7 @@
             
             
         }
+         [self loadFocusData];; //请求B
         dispatch_async(dispatch_get_main_queue(), ^{
             [self  reloadData];
             
@@ -190,14 +209,17 @@
     selectedBackgroundView.backgroundColor = [UIColor whiteColor];
     cell.selectedBackgroundView = selectedBackgroundView;
     
-    if ([self.leftViewDelegate respondsToSelector:@selector(leftTableView:rightViewArray:allDataArray:)]) {
-        if (indexPath.row == 0) {
-            NSMutableArray *rightViewDataArray = self.focusData;
+    if (indexPath.row == 0) {
+        NSMutableArray *rightViewDataArray = self.focusData;
+        if ([self.leftViewDelegate respondsToSelector:@selector(leftTableView:rightViewFocusArray:allDataArray:)]) {
             [self.leftViewDelegate leftTableView:self rightViewFocusArray:rightViewDataArray allDataArray:self.allDataArray];
-        }else{
+        }
+        
+    }else{
             LQSSectionModel *sectionModel = self.sectionDataArray[indexPath.row - 1];
             //        NSLog(@"%@",sectionModel);
             NSMutableArray *rightViewDataArray = sectionModel.items;
+        if ([self.leftViewDelegate respondsToSelector:@selector(leftTableView:rightViewArray:allDataArray:)] ){
             [self.leftViewDelegate leftTableView:self rightViewArray:rightViewDataArray allDataArray:self.allDataArray];
         }
     }
@@ -208,7 +230,7 @@
 - (NSMutableArray *)leftDataArray{
     
     if (_leftDataArray == nil) {
-        _leftDataArray = [NSMutableArray arrayWithObjects:@"我的关注",@"原创天地",@"学修家园",@"特色龙泉",@"论坛实务", nil];
+        _leftDataArray = [NSMutableArray arrayWithObjects:@"我的关注", nil];
     }
     
     return _leftDataArray;
