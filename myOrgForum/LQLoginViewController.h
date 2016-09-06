@@ -8,7 +8,7 @@
 
 #import "rootViewController.h"
 
-@interface LQLoginViewController : rootViewController
+@interface LQLoginViewController : rootViewController<UIAlertViewDelegate>
 {
     NSString *inputUserName;
     NSString *inputPSW;
