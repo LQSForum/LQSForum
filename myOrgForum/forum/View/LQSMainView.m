@@ -23,6 +23,8 @@
 @property (nonatomic,strong) LQSRightTableView *rightView;//我的关注右侧页面
 @property (nonatomic, strong) LQSLatestMarrowTableView *latestView;//最新页面
 @property (nonatomic, strong) LQSLatestMarrowTableView *marrowView;//精华页面
+@property (nonatomic, strong) NSMutableArray *focusData;//默认显示的右侧视图数据
+@property (nonatomic, strong) NSMutableArray *allData;
 
 @end
 
@@ -47,6 +49,10 @@
         self.pagingEnabled = YES;
         self.bounces = NO;
         
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(focusDataWithNotify:) name:@"focus" object:nil];
+        
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(allDataWithNotify:) name:@"allData" object:nil];
+        
         [self setupUI];
         
         
@@ -55,6 +61,16 @@
         
     }
     return self;
+}
+
+//默认选中右侧视图的数据
+-(void)focusDataWithNotify:(NSNotification *)notify{
+    self.focusData = notify.object;
+}
+
+//右侧视图的所有数据
+-(void)allDataWithNotify:(NSNotification *)notify{
+    self.allData = notify.object;
 }
 
 //最新和精华页面切换
@@ -96,15 +112,10 @@
     [self addSubview:self.latestView];
     [self addSubview:self.marrowView];
     
-    
-    //    self.leftView.dataArray = self.leftDataArray;
-    
-    //leftTableView默认选中第一行
-//        [self.leftView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
-//    [self.leftView tableView:self.leftView didSelectRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-    //rightTableView默认展示第一组数据
-    
-//        self.rightView.rightDataArray = self.rightDataArray;
+    //默认显示右侧视图数据
+    NSIndexPath *idxPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.leftView selectRowAtIndexPath:idxPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+    self.rightView.sectionNum = 2;
 }
 
 
@@ -160,6 +171,24 @@
     UIColor *color = [UIColor colorWithRed:red green:green blue:blue alpha:0.8];
     
     return color;
+}
+
+- (void)setFocusData:(NSMutableArray *)focusData{
+    _focusData = focusData;
+    self.rightView.notFocusArray = focusData;
+    [self reloadData];
+}
+
+- (void)setAllData:(NSMutableArray *)allData{
+    _allData = allData;
+    self.rightView.allFocusArray = allData;
+    [self reloadData];
+}
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
 @end
