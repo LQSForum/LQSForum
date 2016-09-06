@@ -16,9 +16,9 @@
 
 @interface LQSMainView : UICollectionView
 @property (nonatomic, weak) id<LQSMainViewDelegate> idelegate;
-/**leftView的数据数组*/
+//leftView的数据数组
 @property (nonatomic,strong)NSMutableArray *leftDataArray;
-/**rightView的数据数组（元素为数组）*/
+//rightView的数据数组
 @property (nonatomic,strong)NSMutableArray *rightDataArray;
 
 @end

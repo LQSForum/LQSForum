@@ -11,8 +11,10 @@
 @protocol LQSLeftTableViewDelegate <NSObject>
 
 @required
+//点击我的关注页面数据传递
 - (void)leftTableView:(LQSLeftTableView *)leftTableView rightViewFocusArray:(NSMutableArray *)rightViewFocusArray allDataArray:(NSMutableArray *)allDataArray;
 
+//点击其余四个板块数据传递
 - (void)leftTableView:(LQSLeftTableView *)leftTableView rightViewArray:(NSMutableArray *)rightViewArray allDataArray:(NSMutableArray *)allDataArray;
 
 @end
