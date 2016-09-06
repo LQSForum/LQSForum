@@ -29,8 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"登录";
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     CGFloat screenWidht = self.view.width;
+     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(backHistory)];
     //CGFloat screenHeight = self.view.height;
     //初始化textfield并设置位置及大小
     if (YES) {
@@ -100,6 +101,11 @@
     [self.view addSubview:_registerButton];
     
  
+}
+//返回按钮
+-(void)backHistory
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 /**
  *  登录按钮的响应函数
@@ -178,8 +184,23 @@
     //请求的方式：POST
     [managers POST:urlString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"请求成功，服务器返回的信息%@",responseObject);
+        UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
+                                                          message:@"登录成功"
+                                                         delegate:self
+                                                cancelButtonTitle:@"好"
+                                                otherButtonTitles:nil, nil];
+        [alertView show];
+        return;
+
     } failure:^(NSURLSessionDataTask *task, NSError * error) {
         NSLog(@"请求失败,服务器返回的错误信息%@",error);
+        UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
+                                                          message:@"登录失败"
+                                                         delegate:self
+                                                cancelButtonTitle:@"好"
+                                                otherButtonTitles:nil, nil];
+        [alertView show];
+        return;
     }];
     //end add for test
     

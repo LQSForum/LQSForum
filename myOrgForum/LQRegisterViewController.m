@@ -173,8 +173,23 @@
     //请求的方式：POST
     [managers POST:urlString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"请求成功，服务器返回的信息%@",responseObject);
+        UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
+                                                          message:@"注册成功"
+                                                         delegate:self
+                                                cancelButtonTitle:@"好"
+                                                otherButtonTitles:nil, nil];
+        [alertView show];
+        return;
+
     } failure:^(NSURLSessionDataTask *task, NSError * error) {
         NSLog(@"请求失败,服务器返回的错误信息%@",error);
+        UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
+                                                          message:@"注册失败"
+                                                         delegate:self
+                                                cancelButtonTitle:@"好"
+                                                otherButtonTitles:nil, nil];
+        [alertView show];
+        return;
     }];
     //end add for test
 
