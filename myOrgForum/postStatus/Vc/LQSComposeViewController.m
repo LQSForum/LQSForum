@@ -143,13 +143,31 @@
         titleLabel.textAlignment = NSTextAlignmentCenter;
         titleLabel.width = 100;
         titleLabel.height = 44;
+    
+    titleLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTap)];
+    [titleLabel addGestureRecognizer:tapGesture];
+    
+    
+    
+    
         self.navigationItem.titleView = titleLabel;
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleBordered target:self action:@selector(send)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(send)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
 }
+
+
+- (void)selectTap{
+    LQSSelectPlatesViewController *vc = [LQSSelectPlatesViewController new];
+    [self.navigationController pushViewController:vc animated:NO];
+
+
+}
+
+
 
 #pragma mark - 私有方法
 /**
