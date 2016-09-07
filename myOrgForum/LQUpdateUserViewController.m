@@ -14,6 +14,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"注册";
     CGFloat screenWidht = self.view.width;
     IsSelectSecretBtn = YES;
@@ -126,7 +127,7 @@
     //以后再说按钮
     UIButton * noSubmitBtn                    = [[UIButton alloc]initWithFrame:CGRectMake(40, 410, 90, 50.0)];
     noSubmitBtn.titleLabel.font              = [UIFont systemFontOfSize:15];
-    [noSubmitBtn addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
+    [noSubmitBtn addTarget:self action:@selector(giveUpUserData) forControlEvents:UIControlEventTouchUpInside];
     [noSubmitBtn setTitle:@"以后再说" forState:UIControlStateNormal];
     [noSubmitBtn setTitleColor:MainBlueColor forState:UIControlStateNormal];
     [noSubmitBtn setBackgroundColor:[UIColor blueColor]];
@@ -134,7 +135,7 @@
     //保存资料按钮
     UIButton * submitDataBtn                    = [[UIButton alloc]initWithFrame:CGRectMake((screenWidht - 130), 410, 90, 50.0)];
     submitDataBtn.titleLabel.font              = [UIFont systemFontOfSize:15];
-    [submitDataBtn addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
+    [submitDataBtn addTarget:self action:@selector(savaUserData) forControlEvents:UIControlEventTouchUpInside];
     [submitDataBtn setTitle:@"保存资料" forState:UIControlStateNormal];
     [submitDataBtn setTitleColor:MainBlueColor forState:UIControlStateNormal];
     [submitDataBtn setBackgroundColor:[UIColor blueColor]];
@@ -145,6 +146,107 @@
     selectImageView = [[UIImageView alloc]init];
     selectImageView.frame = CGRectMake(0, 0, 120, 120);
     //[self.view addSubview:selectImageView];
+}
+//点击以后在说
+-(void) giveUpUserData
+{
+    [self.navigationController popViewControllerAnimated:NO];
+     //[self dismissViewControllerAnimated:YES completion:nil];
+}
+//点击保存资料
+-(void) savaUserData
+{
+    int gender = 0;
+    if (YES == IsSelectSecretBtn) {
+        gender = 0;
+    }
+    else if(YES == IsSelectManBtn)
+    {
+        gender = 1;
+    }
+    else if(YES == IsSelectWomanBtn)
+    {
+        gender = 2;
+    }
+    NSDictionary *parameters = @{
+                                 @"type":@"info",
+                                 @"forumKey":@"BW0L5ISVRsOTVLCTJx",
+                                 @"accessSecret":@"cd090971f3f83391cd4ddc034638c",
+                                 @"accessToken":@"f9514b902a334d6c0b23305abd46d",
+                                 @"apphash":@"85eb3e4b",
+                                 @"gender":[NSNumber numberWithInt:gender]
+                                 };
+    
+    
+    //请求的url
+    NSString *urlString = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=user/updateuserinfo";
+    //请求的managers
+    AFHTTPSessionManager *managers = [AFHTTPSessionManager manager];
+    managers.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    //申明请求的数据是json类型
+    
+    managers.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    //如果报接受类型不一致请替换一致text/html或别的
+    
+    managers.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    UIAlertView *waitAlertView=[[UIAlertView alloc] initWithTitle:nil
+                                                          message:@"保存中请稍后"
+                                                         delegate:self
+                                                cancelButtonTitle:nil
+                                                otherButtonTitles:nil, nil];
+    waitAlertView.tag = 110;
+    
+    [waitAlertView show];
+    //请求的方式：POST
+    [managers POST:urlString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        [waitAlertView dismissWithClickedButtonIndex:0 animated:NO];
+        NSDictionary *dic = responseObject;
+        NSLog(@"请求成功，服务器返回的信息%@",dic);
+        NSString * errCodeString = [[dic objectForKey:@"head"]objectForKey:@"errCode"];
+        NSString * errInfoString = [[dic objectForKey:@"head"]objectForKey:@"errInfo"];
+        NSLog(@"errorInfo = %@",errCodeString);
+        
+        if (errCodeString !=nil &&  [errCodeString isEqualToString:@"00000000"]) {
+            NSLog(@"aaadddd");
+            //将当前的用户名和密码保存起来
+            UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
+                                                              message:@"保存成功"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"好"
+                                                    otherButtonTitles:nil, nil];
+            alertView.tag = 100;
+            [alertView show];
+        }
+        else
+        {
+            NSLog(@"ddddd");
+            UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"保存失败"
+                                                              message:errInfoString
+                                                             delegate:self
+                                                    cancelButtonTitle:@"好"
+                                                    otherButtonTitles:nil, nil];
+            alertView.tag = 101;
+            [alertView show];
+        }
+        
+        
+        
+    } failure:^(NSURLSessionDataTask *task, NSError * error) {
+        [waitAlertView dismissWithClickedButtonIndex:0 animated:NO];
+        NSLog(@"请求失败,服务器返回的错误信息%@",error);
+        UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
+                                                          message:@"保存失败"
+                                                         delegate:self
+                                                cancelButtonTitle:@"好"
+                                                otherButtonTitles:nil, nil];
+        alertView.tag = 102;
+        [alertView show];
+        return;
+    }];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -442,6 +544,9 @@
 {
     NSFileManager *fileMgr = [NSFileManager defaultManager];
     AFHTTPSessionManager *session=[AFHTTPSessionManager manager];
+    session.requestSerializer.timeoutInterval = 10;
+    [session.requestSerializer setValue:@"Accept:text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5" forHTTPHeaderField:@"Accept"];
+     [session.requestSerializer setValue:@"Mozilla/5.0 (iPhone; CPU iPhone OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) ****Mobile Safari/537.36 Appbyme" forHTTPHeaderField:@"User-Agent"];
     IsUploadingPic = YES;
     [session POST:@"http://forum.longquanzs.org//mobcent/app/web/index.php?r=useruploadavatarex&accessSecret=4aab1523559aeef6bdc16d9a07d93&accessToken=9fefbc43129de83998ccd28f85d92&forumKey=BW0L5ISVRsOTVLCTJx&egnVersion=v2035.2&sdkVersion=2.4.3.0&apphash=a28e368b" parameters:@{} constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         

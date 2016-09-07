@@ -24,6 +24,7 @@
 		149364AA1D76D2B200517A99 /* LQSArticleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 149364A91D76D2B200517A99 /* LQSArticleContentView.m */; };
 		149364AD1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 149364AC1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m */; };
 		2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084B21D6029F900167F4D /* NSDate+MJ.m */; };
+		2CC8C2E11D7F1D2300297B9B /* LQSSelectPlatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C2E01D7F1D2300297B9B /* LQSSelectPlatesViewController.m */; };
 		410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E51D38EB7E0021B7E2 /* NSArray+Log.m */; };
 		410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E91D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m */; };
 		410FA1F51D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1EB1D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m */; };
@@ -47,7 +48,6 @@
 		410FA2AE1D38EC790021B7E2 /* LQSSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2AC1D38EC790021B7E2 /* LQSSectionModel.m */; };
 		410FA2B11D38EC830021B7E2 /* LQSForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA2B01D38EC830021B7E2 /* LQSForumViewController.m */; };
 		410FBB731CCDEDB400761192 /* LQSAppDelegate+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */; };
-		411A73C11D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411A73C01D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.m */; };
 		411FE7921D6D6DAE00563324 /* LQSCishanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE78B1D6D6DAE00563324 /* LQSCishanViewController.m */; };
 		411FE7931D6D6DAE00563324 /* LQSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE78D1D6D6DAE00563324 /* LQSDiscoverViewController.m */; };
 		411FE7941D6D6DAE00563324 /* LQSDongmanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FE78F1D6D6DAE00563324 /* LQSDongmanViewController.m */; };
@@ -227,6 +227,8 @@
 		2CA781521D446A8000D35288 /* APIS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIS.h; sourceTree = "<group>"; };
 		2CB084B11D6029F900167F4D /* NSDate+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+MJ.h"; path = "categories/NSDate+MJ.h"; sourceTree = "<group>"; };
 		2CB084B21D6029F900167F4D /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MJ.m"; path = "categories/NSDate+MJ.m"; sourceTree = "<group>"; };
+		2CC8C2DF1D7F1D2300297B9B /* LQSSelectPlatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSelectPlatesViewController.h; sourceTree = "<group>"; };
+		2CC8C2E01D7F1D2300297B9B /* LQSSelectPlatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSelectPlatesViewController.m; sourceTree = "<group>"; };
 		410FA1DB1D38EB6B0021B7E2 /* categoryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = categoryHeader.h; path = config/categoryHeader.h; sourceTree = "<group>"; };
 		410FA1DC1D38EB6B0021B7E2 /* configHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = configHeader.h; path = config/configHeader.h; sourceTree = "<group>"; };
 		410FA1DD1D38EB6B0021B7E2 /* modelHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = modelHeader.h; path = config/modelHeader.h; sourceTree = "<group>"; };
@@ -283,8 +285,6 @@
 		410FA2B01D38EC830021B7E2 /* LQSForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSForumViewController.m; path = forum/LQSForumViewController.m; sourceTree = "<group>"; };
 		410FBB711CCDEDB400761192 /* LQSAppDelegate+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LQSAppDelegate+HUD.h"; sourceTree = "<group>"; };
 		410FBB721CCDEDB400761192 /* LQSAppDelegate+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LQSAppDelegate+HUD.m"; sourceTree = "<group>"; };
-		411A73BF1D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSClassifySelectorTableViewController.h; sourceTree = "<group>"; };
-		411A73C01D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSClassifySelectorTableViewController.m; sourceTree = "<group>"; };
 		411E08BB1D77E4B900B78B38 /* bianji.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bianji.h; sourceTree = "<group>"; };
 		411FE78A1D6D6DAE00563324 /* LQSCishanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCishanViewController.h; path = discover/VC/LQSCishanViewController.h; sourceTree = "<group>"; };
 		411FE78B1D6D6DAE00563324 /* LQSCishanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSCishanViewController.m; path = discover/VC/LQSCishanViewController.m; sourceTree = "<group>"; };
@@ -1037,10 +1037,10 @@
 		41F86FE61D76786E00E05FAB /* Vc */ = {
 			isa = PBXGroup;
 			children = (
+				2CC8C2DF1D7F1D2300297B9B /* LQSSelectPlatesViewController.h */,
+				2CC8C2E01D7F1D2300297B9B /* LQSSelectPlatesViewController.m */,
 				41F870131D767E9300E05FAB /* LQSComposeViewController.h */,
 				41F870141D767E9300E05FAB /* LQSComposeViewController.m */,
-				411A73BF1D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.h */,
-				411A73C01D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.m */,
 			);
 			name = Vc;
 			sourceTree = "<group>";
@@ -1632,7 +1632,6 @@
 				413F925F1D791CFF00D7974D /* LQSProfileEditDataModel.m in Sources */,
 				41F870111D767E8800E05FAB /* LQSEmotion.m in Sources */,
 				410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */,
-				411A73C11D7D77DA008DFAE8 /* LQSClassifySelectorTableViewController.m in Sources */,
 				6E62B0671D73D1BE001FB2A4 /* LQSAddViewHelper.m in Sources */,
 				410FA2221D38EBA30021B7E2 /* LQSNewfeatureViewController.m in Sources */,
 				6E2893DA1D6C4E8F00EF9CCA /* LQSBBSDetailModel.m in Sources */,
@@ -1642,6 +1641,7 @@
 				41F870121D767E8800E05FAB /* LQSEmotionAttachment.m in Sources */,
 				149364AD1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m in Sources */,
 				411FE7AD1D6D6DC700563324 /* LQSWaterFlowViewCell.m in Sources */,
+				2CC8C2E11D7F1D2300297B9B /* LQSSelectPlatesViewController.m in Sources */,
 				410FA1F81D38EB7E0021B7E2 /* UIWindow+Extension.m in Sources */,
 				411FE7A91D6D6DC700563324 /* LQSCishanTableViewCell.m in Sources */,
 				41AC5B361D751C83006E38D5 /* LQSMessageCommentViewController.m in Sources */,

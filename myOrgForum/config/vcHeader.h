@@ -46,7 +46,7 @@
 #import "LQSSettingMyFriendViewController.h"
 #import "LQSSettingMyPresentViewController.h"
 #import "LQSHomePagePersonalMessageViewController.h"
-
+#import "LQSSelectPlatesViewController.h"
 
 #import "LQSSettingViewController.h"
 #import "LQSDiscoverViewController.h"

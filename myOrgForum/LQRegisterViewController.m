@@ -17,7 +17,7 @@
 #import "LQSUserManager.h"
 #import "LQUpdateUserViewController.h"
 
-@interface LQRegisterViewController()<UITextFieldDelegate,LQSUserAuthDelegate>
+@interface LQRegisterViewController()<UITextFieldDelegate,LQSUserAuthDelegate,UIAlertViewDelegate>
 /** 用户名*/
 @property (nonatomic, strong) UITextField *userNameTextField;
 /** 密码 */
@@ -36,6 +36,7 @@
     CGFloat screenWidht = self.view.width;
     //CGFloat screenHeight = self.view.height;
     //请输入用户名
+    self.view.backgroundColor = [UIColor whiteColor];
     _userNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(40,80, screenWidht-80, 50)];
     _userNameTextField.borderStyle = UITextBorderStyleRoundedRect;
     _userNameTextField.placeholder = @"请输入用户名(不要使用手机号)";
@@ -160,7 +161,7 @@
     //请求的managers
     AFHTTPSessionManager *managers = [AFHTTPSessionManager manager];
     managers.responseSerializer = [AFJSONResponseSerializer serializer];
-    
+   
     //申明请求的数据是json类型
     
     managers.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -169,29 +170,74 @@
     
     managers.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
+    UIAlertView *waitAlertView=[[UIAlertView alloc] initWithTitle:nil
+                                                      message:@"注册中请稍后"
+                                                     delegate:self
+                                            cancelButtonTitle:nil
+                                            otherButtonTitles:nil, nil];
     
+    [waitAlertView show];
+ 
+
     //请求的方式：POST
     [managers POST:urlString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"请求成功，服务器返回的信息%@",responseObject);
-        UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
-                                                          message:@"注册成功"
-                                                         delegate:self
-                                                cancelButtonTitle:@"好"
-                                                otherButtonTitles:nil, nil];
-        [alertView show];
-        return;
+        [waitAlertView dismissWithClickedButtonIndex:0 animated:NO];
+        NSDictionary *dic = responseObject;
+        NSLog(@"请求成功，服务器返回的信息%@",dic);
+        NSString * errCodeString = [[dic objectForKey:@"head"]objectForKey:@"errCode"];
+        NSString * errInfoString = [[dic objectForKey:@"head"]objectForKey:@"errInfo"];
+        NSLog(@"errorInfo = %@",errCodeString);
+       
+        if (errCodeString !=nil &&  [errCodeString isEqualToString:@"00000000"]) {
+             NSLog(@"aaadddd");
+            UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
+                                                              message:@"注册成功"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"好"
+                                                    otherButtonTitles:nil, nil];
+            alertView.tag = 100;
+            [alertView show];
+        }
+        else
+        {
+            NSLog(@"ddddd");
+            [waitAlertView dismissWithClickedButtonIndex:0 animated:NO];
+            UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"注册失败"
+                                                              message:errInfoString
+                                                             delegate:self
+                                                    cancelButtonTitle:@"好"
+                                                    otherButtonTitles:nil, nil];
+            alertView.tag = 101;
+            [alertView show];
+        }
+        
+        
 
     } failure:^(NSURLSessionDataTask *task, NSError * error) {
         NSLog(@"请求失败,服务器返回的错误信息%@",error);
+        [waitAlertView dismissWithClickedButtonIndex:0 animated:NO];
         UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
                                                           message:@"注册失败"
                                                          delegate:self
                                                 cancelButtonTitle:@"好"
                                                 otherButtonTitles:nil, nil];
+        alertView.tag = 101;
         [alertView show];
-        return;
+       
     }];
     //end add for test
 
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(100==alertView.tag)
+    {
+        //如果弹出提示成功
+        LQUpdateUserViewController * updateViewController =  [[LQUpdateUserViewController alloc] init];
+        [self.navigationController pushViewController:updateViewController animated:NO];
+        return;
+
+    }
 }
 @end
