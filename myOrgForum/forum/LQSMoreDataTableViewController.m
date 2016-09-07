@@ -24,8 +24,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    //    self.tableView.backgroundColor = [UIColor redColor];
-    [self loadServerDataWithBoardId:self.boardId];
+        self.tableView.backgroundColor = LQSColor(250, 248, 251, 1.0);
+    [self setupRefresh];
 }
 
 - (AFHTTPSessionManager *)sessionManager {
@@ -39,6 +39,11 @@
         _sessionManager.responseSerializer.acceptableContentTypes = [_sessionManager.responseSerializer.acceptableContentTypes setByAddingObjectsFromSet:set];
     }
     return _sessionManager;
+}
+
+- (void)setupRefresh {
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
+                                                      refreshingAction:@selector(loadServerDataWithBoardId:)];
 }
 
 
@@ -127,6 +132,14 @@
     return _moreDataArray;
 }
 
+
+-(void)setBoardId:(NSInteger)boardId{
+    _boardId = boardId;
+    [self.moreDataArray removeAllObjects];
+    [self.tableView reloadData];
+//    self.pageNum = 1;
+    [self loadServerDataWithBoardId:boardId];
+}
 
 /*
  #pragma mark - Navigation
