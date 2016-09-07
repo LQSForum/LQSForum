@@ -107,7 +107,12 @@
         if (indexPath.section == 0) {
             cellModel = self.focusArray[indexPath.row];
         }else{
-            cellModel = self.rightDataArray[indexPath.row];
+            if (self.focusArray.count < 1 ) {
+                cellModel = self.notFocusArray[indexPath.row];
+            }else{
+                cellModel = self.tempArray[indexPath.row];
+            }
+            
         }
     }
     NSLog(@"%@,%zd",cellModel.board_name,cellModel.board_id);
