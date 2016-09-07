@@ -97,9 +97,9 @@
     NSLog(@"registerAction");
     
     //add for test
-    LQUpdateUserViewController * updateViewController =  [[LQUpdateUserViewController alloc] init];
-    [self.navigationController pushViewController:updateViewController animated:NO];
-    return;
+//    LQUpdateUserViewController * updateViewController =  [[LQUpdateUserViewController alloc] init];
+//    [self.navigationController pushViewController:updateViewController animated:NO];
+//    return;
     //end add for test
     inputUserName = _userNameTextField.text;
     inputPSW      = _passWordTextField.text;

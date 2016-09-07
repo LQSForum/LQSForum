@@ -345,6 +345,98 @@
         [_passWordTextField resignFirstResponder];
     }
 }
+-(void)userLogOut
+{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString * userName = [user objectForKey:@"userName"];
+    NSString * userPSW  = [user objectForKey:@"userPassWord"];
+    
+    //请求的参数
+    NSDictionary *parameters = @{
+                                 @"type":@"logout",
+                                 @"forumKey":@"BW0L5ISVRsOTVLCTJx",
+                                 @"accessSecret":@"cd090971f3f83391cd4ddc034638c",
+                                 @"accessToken":@"f9514b902a334d6c0b23305abd46d",
+                                 @"apphash":@"85eb3e4b",
+                                 @"sdkVersion":@"2.4.0",
+                                 @"username":userName,
+                                 @"password":userPSW
+                                 };
+    
+    
+    //请求的url
+    NSString *urlString = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=user/login";
+    //请求的managers
+    AFHTTPSessionManager *managers = [AFHTTPSessionManager manager];
+    managers.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    //申明请求的数据是json类型
+    
+    managers.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    //如果报接受类型不一致请替换一致text/html或别的
+    
+    managers.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    UIAlertView *waitAlertView=[[UIAlertView alloc] initWithTitle:nil
+                                                          message:@"登出中请稍后"
+                                                         delegate:self
+                                                cancelButtonTitle:nil
+                                                otherButtonTitles:nil, nil];
+    waitAlertView.tag = 110;
+    
+    [waitAlertView show];
+    //请求的方式：POST
+    [managers POST:urlString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        [waitAlertView dismissWithClickedButtonIndex:0 animated:NO];
+        NSDictionary *dic = responseObject;
+        NSLog(@"请求成功，服务器返回的信息%@",dic);
+        NSString * errCodeString = [[dic objectForKey:@"head"]objectForKey:@"errCode"];
+        NSString * errInfoString = [[dic objectForKey:@"head"]objectForKey:@"errInfo"];
+        NSLog(@"errorInfo = %@",errCodeString);
+        
+        if (errCodeString !=nil &&  [errCodeString isEqualToString:@"00000000"]) {
+            NSLog(@"rrrrrr");
+            //删除当前的用户名和密码
+            [user removeObjectForKey:@"userName"];
+            [user removeObjectForKey:@"userPassWord"];
+            UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
+                                                              message:@"登出成功"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"好"
+                                                    otherButtonTitles:nil, nil];
+            alertView.tag = 200;
+            [alertView show];
+        }
+        else
+        {
+            NSLog(@"gggggg");
+            UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"登出失败"
+                                                              message:errInfoString
+                                                             delegate:self
+                                                    cancelButtonTitle:@"好"
+                                                    otherButtonTitles:nil, nil];
+            alertView.tag = 101;
+            [alertView show];
+        }
+        
+        
+        
+    } failure:^(NSURLSessionDataTask *task, NSError * error) {
+        [waitAlertView dismissWithClickedButtonIndex:0 animated:NO];
+        NSLog(@"请求失败,服务器返回的错误信息%@",error);
+        UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
+                                                          message:@"登出失败"
+                                                         delegate:self
+                                                cancelButtonTitle:@"好"
+                                                otherButtonTitles:nil, nil];
+        alertView.tag = 102;
+        [alertView show];
+        return;
+    }];
+    //end add for test
+    
+}
 
 #pragma mark - LQSUserAuthDelegate
 
@@ -398,6 +490,7 @@
         return;
         
     }
+  
 }
 
 @end
