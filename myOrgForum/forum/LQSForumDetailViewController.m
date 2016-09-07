@@ -15,6 +15,7 @@
 #import "LQSCellModel.h"
 #import "LQSForumDetailChildCell.h"
 #import "LQSForumDetailOptionViewController.h"
+#import "LQSMoreDataTableViewController.h"
 @interface LQSForumDetailViewController ()<LQSForumDetailSectionDelegete,LQSForumDetailOptionDelegate>{
     BOOL   _isShowOption;
     NSMutableDictionary   *_optionDict;
@@ -331,6 +332,11 @@
             return;
         }
         //更多的点击方向
+        LQSMoreDataTableViewController* moreDataVC = [[LQSMoreDataTableViewController alloc]init];
+        moreDataVC.boardId = self.boardid;
+        //        LQSLog(@"%zd",self.boardid);
+        [self.navigationController pushViewController:moreDataVC animated:YES];
+
         return ;
     }
     //下面列表的点击方向  Model:self.mainArray[self.sortBy][indexPath.row];
