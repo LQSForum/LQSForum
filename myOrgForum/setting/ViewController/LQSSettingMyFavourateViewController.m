@@ -7,7 +7,7 @@
 //
 
 #import "LQSSettingMyFavourateViewController.h"
-
+#import "LQSUserManager.h"
 @interface LQSSettingMyFavourateViewController ()<UITabBarDelegate,UITableViewDataSource>
 {
     UITableView *_tableView;
@@ -52,7 +52,41 @@
 
 - (void)reloadShouchangDateRequestWithPage:(NSUInteger)page{
 
+    NSString *baseStr = @"http://forum.longquanzs.org//mobcent/app/web/index.php?";
+    NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
+    paramDic[@"r"] = @"user/topiclist";
+    paramDic[@"pageSize"] = @"20";
+    paramDic[@"uid"] = [LQSUserManager user].uid;
+    paramDic[@"egnVersion"] = @"v2035.2";
+    paramDic[@"type"] = @"favorite";
+    paramDic[@"sdkVersion"] = @"2.4.3.0";
+    paramDic[@"apphash"] = @"6499b617";
+    paramDic[@"isImageList"] = @"1";
+    paramDic[@"accessToken"] = @"83e1f2e3b07cc0629ac89ed355920";
+    paramDic[@"page"] = [NSString stringWithFormat:@"%lu",(unsigned long)self.page];
+    paramDic[@"accessSecret"] = @"f2f5082208b27a9ed946842b8a686";
+    paramDic[@"forumKey"] = @"BW0L5ISVRsOTVLCTJx";
 
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    __weak typeof(self) weakSelf = self;
+    [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"favirate-----sucess");
+        //        数据模型放到frame模型
+        if (weakSelf.shouchangArray.count > 0 && self.page == 1) {
+            [weakSelf.shouchangArr removeAllObjects];
+        }else{
+            weakSelf.shouchangArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        }
+        [_tableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"favirate------failure");
+        [_tableView.mj_header endRefreshing];
+        kNetworkNotReachedMessage;
+    }];
+    
 
 
 

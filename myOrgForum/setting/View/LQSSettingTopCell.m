@@ -78,7 +78,7 @@
 
 }
 
-- (void)pushSettingTopDataModel:(LQSSettingTopDataModel *)model{
+- (void)pushSettingTopDataModel:(LQSSettingTopDataModel *)model{//???????????????????此处没有使用接口返回的数据用了本地存储的用户信息忘后来师兄修改
     self.model = model;
     
     

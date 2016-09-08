@@ -73,6 +73,8 @@
 		413F927B1D791DB000D7974D /* mc_forum_ico53_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 413F92741D791DB000D7974D /* mc_forum_ico53_n.png */; };
 		413F927C1D791DB000D7974D /* selectRadio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 413F92751D791DB000D7974D /* selectRadio@2x.png */; };
 		413F927D1D791DB000D7974D /* unselectRadio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 413F92761D791DB000D7974D /* unselectRadio@2x.png */; };
+		415588D21D814556006508FE /* LQSSettingFavirateDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 415588D11D814556006508FE /* LQSSettingFavirateDataModel.m */; };
+		415588D81D816F04006508FE /* LQSFavirateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 415588D71D816F04006508FE /* LQSFavirateTableViewCell.m */; };
 		415C55541CC8CCEE00408B90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55531CC8CCEE00408B90 /* main.m */; };
 		415C555D1CC8CCEE00408B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415C555B1CC8CCEE00408B90 /* Main.storyboard */; };
 		415C555F1CC8CCEE00408B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415C555E1CC8CCEE00408B90 /* Assets.xcassets */; };
@@ -336,6 +338,10 @@
 		413F92741D791DB000D7974D /* mc_forum_ico53_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mc_forum_ico53_n.png; path = resources/introduce/mc_forum_ico53_n.png; sourceTree = "<group>"; };
 		413F92751D791DB000D7974D /* selectRadio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "selectRadio@2x.png"; path = "resources/introduce/selectRadio@2x.png"; sourceTree = "<group>"; };
 		413F92761D791DB000D7974D /* unselectRadio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unselectRadio@2x.png"; path = "resources/introduce/unselectRadio@2x.png"; sourceTree = "<group>"; };
+		415588D01D814556006508FE /* LQSSettingFavirateDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSettingFavirateDataModel.h; sourceTree = "<group>"; };
+		415588D11D814556006508FE /* LQSSettingFavirateDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSettingFavirateDataModel.m; sourceTree = "<group>"; };
+		415588D61D816F04006508FE /* LQSFavirateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSFavirateTableViewCell.h; sourceTree = "<group>"; };
+		415588D71D816F04006508FE /* LQSFavirateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSFavirateTableViewCell.m; sourceTree = "<group>"; };
 		415C554F1CC8CCEE00408B90 /* myOrgForum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myOrgForum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		415C55531CC8CCEE00408B90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		415C555C1CC8CCEE00408B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -729,6 +735,8 @@
 		414600EF1CEF2C0500628B60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				41AC5B2A1D751C83006E38D5 /* LQSSettingMyFavourateViewController.h */,
+				41AC5B2B1D751C83006E38D5 /* LQSSettingMyFavourateViewController.m */,
 				41AC5B181D751C83006E38D5 /* LQSDetailSettingViewController.h */,
 				41AC5B191D751C83006E38D5 /* LQSDetailSettingViewController.m */,
 				41AC5B1A1D751C83006E38D5 /* LQSHomePagePersonalMessageViewController.h */,
@@ -747,8 +755,6 @@
 				41AC5B271D751C83006E38D5 /* LQSMyHomePageViewController.m */,
 				41AC5B281D751C83006E38D5 /* LQSProfileEditViewController.h */,
 				41AC5B291D751C83006E38D5 /* LQSProfileEditViewController.m */,
-				41AC5B2A1D751C83006E38D5 /* LQSSettingMyFavourateViewController.h */,
-				41AC5B2B1D751C83006E38D5 /* LQSSettingMyFavourateViewController.m */,
 				41AC5B2C1D751C83006E38D5 /* LQSSettingMyFriendViewController.h */,
 				41AC5B2D1D751C83006E38D5 /* LQSSettingMyFriendViewController.m */,
 				41AC5B2E1D751C83006E38D5 /* LQSSettingMyPresentViewController.h */,
@@ -786,6 +792,8 @@
 				41AC5B0C1D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.m */,
 				41AC5B0D1D751C58006E38D5 /* LQSSettingTopCell.h */,
 				41AC5B0E1D751C58006E38D5 /* LQSSettingTopCell.m */,
+				415588D61D816F04006508FE /* LQSFavirateTableViewCell.h */,
+				415588D71D816F04006508FE /* LQSFavirateTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -811,6 +819,8 @@
 				41AC5AF21D751C3E006E38D5 /* LQSSettingTopDataModel.m */,
 				41AC5AF31D751C3E006E38D5 /* LQSUserProfileDataModel.h */,
 				41AC5AF41D751C3E006E38D5 /* LQSUserProfileDataModel.m */,
+				415588D01D814556006508FE /* LQSSettingFavirateDataModel.h */,
+				415588D11D814556006508FE /* LQSSettingFavirateDataModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1654,6 +1664,7 @@
 				41AC5B121D751C58006E38D5 /* LQSHomePagePersonalPresentTableViewCell.m in Sources */,
 				41F870071D767E7B00E05FAB /* LQSEmotionKeyboard.m in Sources */,
 				41F870121D767E8800E05FAB /* LQSEmotionAttachment.m in Sources */,
+				415588D21D814556006508FE /* LQSSettingFavirateDataModel.m in Sources */,
 				004FD1C71D800F57003AA2FF /* LQSMoreDataTableViewCell.m in Sources */,
 				149364AD1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m in Sources */,
 				411FE7AD1D6D6DC700563324 /* LQSWaterFlowViewCell.m in Sources */,
@@ -1736,6 +1747,7 @@
 				41AC5B3C1D751C83006E38D5 /* LQSProfileEditViewController.m in Sources */,
 				410FA1F61D38EB7E0021B7E2 /* UIImage+Extension.m in Sources */,
 				E4D8E1D61D5423D700EE6171 /* LQSBaseModel.m in Sources */,
+				415588D81D816F04006508FE /* LQSFavirateTableViewCell.m in Sources */,
 				E4D8E1C71D54193000EE6171 /* GCDMulticastDelegate.m in Sources */,
 				41F870151D767E9300E05FAB /* LQSComposeViewController.m in Sources */,
 				41AC5AFC1D751C3E006E38D5 /* LQSUserProfileDataModel.m in Sources */,
