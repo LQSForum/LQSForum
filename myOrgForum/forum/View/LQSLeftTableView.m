@@ -11,6 +11,7 @@
 #import "LQSSectionModel.h"
 #import "LQSCellModel.h"
 #import "YYModel.h"
+#import "LQSLeftViewCell.h"
 
 @interface LQSLeftTableView ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *leftDataArray;//左侧页面数据
@@ -19,6 +20,7 @@
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
 @property (nonatomic, strong) NSMutableArray *allDataArray;//所有数据
 @property (nonatomic, assign) NSInteger index;//模型索引
+@property (nonatomic, strong) NSString *selectedTitle;
 
 @end
 
@@ -32,6 +34,7 @@
         self.dataSource = self;
         self.delegate = self;
         self.tableFooterView = [[UIView alloc] init];
+        self.selectedTitle = self.leftDataArray[0];
     }
     
         //请求论坛版块所有数据
@@ -187,18 +190,18 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellID = @"LQSPartTableViewCellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    LQSLeftViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[LQSLeftViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     
-    //    LQSSectionModel *model = self.leftDataArray[indexPath.row];
-    cell.backgroundColor = LQSColor(235, 235, 235, 1.0);
-    cell.textLabel.text = self.leftDataArray[indexPath.row];
-    cell.layer.borderColor = LQSColor(233, 231, 233, 1.0).CGColor;
-    cell.layer.borderWidth = 0.25;
-    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+    
+    cell.title = self.leftDataArray[indexPath.row];
+    if ([self.selectedTitle isEqualToString:self.leftDataArray[indexPath.row]]) {
+        cell.isSelected = YES;
+    } else {
+        cell.isSelected = NO;
+    }
     return cell;
 }
 
@@ -206,17 +209,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    UIView *selectedBackgroundView = [[UIView alloc] init];
-    selectedBackgroundView.backgroundColor = [UIColor whiteColor];
-    cell.selectedBackgroundView = selectedBackgroundView;
-    cell.selected = !cell.isSelected;
-//    if (cell.isSelected == YES) {
-//            cell.textLabel.textColor = LQSColor(1, 183, 237, 1.0);
-//            cell.textLabel.font = [UIFont systemFontOfSize:16.0];
-//        
-//    }
-    
+    self.selectedTitle = self.leftDataArray[indexPath.row];
+
     if (indexPath.row == 0) {
         NSMutableArray *rightViewDataArray = self.focusData;
         if ([self.leftViewDelegate respondsToSelector:@selector(leftTableView:rightViewFocusArray:allDataArray:)]) {
@@ -231,7 +225,7 @@
             [self.leftViewDelegate leftTableView:self rightViewArray:rightViewDataArray allDataArray:self.allDataArray];
         }
     }
-    
+     [tableView reloadData];
 }
 
 
