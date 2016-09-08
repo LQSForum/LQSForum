@@ -9,5 +9,6 @@
 #import "rootViewController.h"
 
 @interface LQSComposeViewController : rootViewController
+@property (nonatomic, strong) UILabel *titleLabel;
 
 @end

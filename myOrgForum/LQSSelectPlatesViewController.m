@@ -41,7 +41,6 @@
     self.markSectionCoutArray = [NSMutableArray array];
     
     self.title = @"选择板块";
-    self.view.backgroundColor = [UIColor purpleColor];
     //   创建tableview
     [self createTableView];
     [self reloadData];
@@ -77,22 +76,12 @@
     __weak typeof(self) weakSelf = self;
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"sucess");
-        
         weakSelf.banKuaiArr = [LQSSelectPlatesDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
 //        获取板块的名称
 //        NSUInteger i = 0;//标记有几组数据
         for (LQSSelectPlatesDataModel *model in weakSelf.banKuaiArr) {
             [self.sectionNameArray addObject:model.board_category_name];
-//            NSString *markTAG = [NSString stringWithFormat:@"%lu",(unsigned long)i];
-//            [self.markSectionCoutArray addObject:markTAG];
-//            i++;
-            
-            
-            
             weakSelf.banKuaiArray = [LQSSelectPlatesDetailDataModel mj_objectArrayWithKeyValuesArray:model.board_list];
-//            存储每个board_list对应数据的个数
-//            NSString *coutStr = [NSString stringWithFormat:@"%lu",(unsigned long)model.board_list.count];
-//            [weakSelf.sectionCountArr addObject:coutStr];
 //            存放cell的名称
             for (LQSSelectPlatesDetailDataModel *detailModel in weakSelf.banKuaiArray) {
                 [_cellNameArray addObject:detailModel.board_name];
@@ -138,12 +127,40 @@
 //        拿到组模型
         LQSSelectPlatesDataModel *section = self.banKuaiArr[indexPath.section];
         LQSSelectPlatesDetailDataModel *detailModel = [LQSSelectPlatesDetailDataModel mj_objectWithKeyValues:section.board_list[indexPath.row]];
-        cell.textLabel.text = detailModel.board_name;
-        cell.textLabel.font = [UIFont systemFontOfSize:13];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
+        label.text = detailModel.board_name;
+        label.font = [UIFont systemFontOfSize:15];
+        label.textAlignment = NSTextAlignmentCenter;
+        [cell.contentView addSubview:label];
+        
+        
+        
     }
     return cell;
     
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self dismissViewControllerAnimated:YES completion:^{
+//        传值给compose的titleView
+        LQSComposeViewController *composeVc = [LQSComposeViewController new];
+        
+        UITableViewCell *Cell = (UITableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+        
+        LQSSelectPlatesDataModel *section = self.banKuaiArr[indexPath.section];
+        LQSSelectPlatesDetailDataModel *detailModel = [LQSSelectPlatesDetailDataModel mj_objectWithKeyValues:section.board_list[indexPath.row]];
+        
+//通知给上个页面传值
+        
+         [[NSNotificationCenter defaultCenter] postNotificationName:@"board_name" object:detailModel.board_name];
+        
+        
+    }];
+
+
+
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
