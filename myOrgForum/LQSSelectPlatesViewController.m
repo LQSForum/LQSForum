@@ -137,8 +137,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
 //        拿到组模型
         LQSSelectPlatesDataModel *section = self.banKuaiArr[indexPath.section];
-        LQSSelectPlatesDetailDataModel *detailModel = section.board_list[indexPath.row];
+        LQSSelectPlatesDetailDataModel *detailModel = [LQSSelectPlatesDetailDataModel mj_objectWithKeyValues:section.board_list[indexPath.row]];
         cell.textLabel.text = detailModel.board_name;
+        cell.textLabel.font = [UIFont systemFontOfSize:13];
     }
     return cell;
     
