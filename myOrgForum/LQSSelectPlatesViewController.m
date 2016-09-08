@@ -136,8 +136,8 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
 //        拿到组模型
-        LQSSelectPlatesDataModel *sectionModel = self.banKuaiArr[indexPath.section];
-        LQSSelectPlatesDetailDataModel *detailModel = sectionModel.board_list[indexPath.row];
+        LQSSelectPlatesDataModel *section = self.banKuaiArr[indexPath.section];
+        LQSSelectPlatesDetailDataModel *detailModel = section.board_list[indexPath.row];
         cell.textLabel.text = detailModel.board_name;
     }
     return cell;
