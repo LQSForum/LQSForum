@@ -19,8 +19,7 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UIImageView *marrowImage;
-@property (nonatomic, strong) MASConstraint *titleLblRightConstraint;
-@property (nonatomic, strong) MASConstraint *titleLblLeftConstraint;
+
 
 @end
 
@@ -67,8 +66,6 @@
 }
 
 - (void)settingFrame{
-    
-    MASAttachKeys(self.icon,self.marrowImage,self.titleLabel,self.nameLabel,self.marrowIcon,self.lastReplyDate,self.contentLabel);
     
     [self.icon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView.mas_right).offset(-10);
@@ -124,7 +121,7 @@
     [self.lastReplyDate sizeToFit];
     
     if (model.essence == 1 && model.pic_path.length > 0) {
-        self.marrowImage.image = [self drawMarrowImage];
+        self.marrowImage.image = [UIImage imageNamed:@"marrow"];
         self.marrowImage.hidden = NO;
         self.icon.hidden = NO;
         [self.icon sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dz_icon_article_default"]];
@@ -144,7 +141,7 @@
     }else if(model.essence == 1 && model.pic_path.length <= 0){
         self.marrowImage.hidden = NO;
         self.icon.hidden = YES;
-        self.marrowImage.image = [self drawMarrowImage];
+        self.marrowImage.image = [UIImage imageNamed:@"marrow"];
         [self.marrowImage mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).offset(10);
             make.top.equalTo(self.contentView.mas_top).offset(10);
@@ -184,23 +181,6 @@
 }
 
 
-- (UIImage *)drawMarrowImage{
-    
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(15, 15), NO, 0);
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    CGContextAddRect(ctx, CGRectMake(-2, -1, 15, 15));
-    UIColor *color = [UIColor colorWithRed:243.0/255.0 green:100.0/255.0 blue:81.0/255.0 alpha:1.0];
-    [color set];
-    CGContextFillPath(ctx);
-    NSString *marrow = @"精";
-    NSDictionary *dict = @{NSFontAttributeName :[UIFont systemFontOfSize:12],NSForegroundColorAttributeName:[UIColor whiteColor]};
-    [marrow drawAtPoint:CGPointMake(0, 0) withAttributes:dict];
-    UIImage *marrowImage= UIGraphicsGetImageFromCurrentImageContext ();
-    UIGraphicsEndImageContext();
-    
-    return marrowImage;
-    
-}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
