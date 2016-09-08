@@ -117,7 +117,8 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self  reloadData];
-            
+            //数据传递给mainView用于启动页面时自动选中左侧第一行所对应的右侧视图数据
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"focus" object:self.focusData];
         });
         
         
@@ -163,7 +164,8 @@
          [self loadFocusData];; //请求B
         dispatch_async(dispatch_get_main_queue(), ^{
             [self  reloadData];
-            
+            //数据传递给mainView用于启动页面时自动选中左侧第一行所对应的右侧视图数据
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"allData" object:self.allDataArray];
         });
         
         
