@@ -42,7 +42,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/LQSSelectPlatesViewController.m"
-                  timestampString = "494997793.950836"
+                  timestampString = "495008074.403163"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "160"
@@ -57,7 +57,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/LQSSelectPlatesViewController.m"
-                  timestampString = "494997793.950944"
+                  timestampString = "495008074.403278"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -72,7 +72,7 @@
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/LQSSelectPlatesViewController.m"
-                  timestampString = "494997793.951026"
+                  timestampString = "495008074.403366"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -89,12 +89,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myOrgForum/postStatus/Vc/LQSComposeViewController.m"
-            timestampString = "494997695.027045"
+            timestampString = "495006437.13682"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "-getBoardName:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/setting/View/LQSSettingTopCell.m"
+            timestampString = "495007903.319255"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-pushSettingTopDataModel:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/setting/ViewController/LQSSettingViewController.m"
+            timestampString = "495007269.200771"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/setting/ViewController/LQSSettingViewController.m"
+            timestampString = "495007374.584077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-requestUserData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myOrgForum/setting/ViewController/LQSSettingViewController.m"
+            timestampString = "495007375.864057"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "-requestUserData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
