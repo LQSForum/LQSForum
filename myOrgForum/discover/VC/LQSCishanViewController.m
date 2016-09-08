@@ -20,7 +20,6 @@
 @property (nonatomic,strong) NSMutableArray *cishanArr;
 @property (nonatomic,strong) NSMutableArray *cishanArray;
 
-@property (nonatomic,strong) NSMutableArray *imageArr;
 
 @end
 

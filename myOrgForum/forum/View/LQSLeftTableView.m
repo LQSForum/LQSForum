@@ -198,7 +198,7 @@
     cell.layer.borderColor = LQSColor(233, 231, 233, 1.0).CGColor;
     cell.layer.borderWidth = 0.25;
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-    
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
     return cell;
 }
 
@@ -210,6 +210,12 @@
     UIView *selectedBackgroundView = [[UIView alloc] init];
     selectedBackgroundView.backgroundColor = [UIColor whiteColor];
     cell.selectedBackgroundView = selectedBackgroundView;
+    cell.selected = !cell.isSelected;
+//    if (cell.isSelected == YES) {
+//            cell.textLabel.textColor = LQSColor(1, 183, 237, 1.0);
+//            cell.textLabel.font = [UIFont systemFontOfSize:16.0];
+//        
+//    }
     
     if (indexPath.row == 0) {
         NSMutableArray *rightViewDataArray = self.focusData;

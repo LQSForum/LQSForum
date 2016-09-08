@@ -8,7 +8,8 @@
 
 #ifndef modelHeader_h
 #define modelHeader_h
-
+//postStatus
+#import "LQSSelectPlatesDataModel.h"
 
 //model
 #import "YYModel.h"

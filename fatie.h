@@ -51,12 +51,7 @@ sdkVersion	2.4.3.0
 apphash	81b9e736
 accessToken	83e1f2e3b07cc0629ac89ed355920
 platType	5
-forumKey	BW0L5ISVRsOTVLCTJx
-
-
-
-
-
+forumKey	BW0L5ISVRsOTVLCTJ
 
 
 {

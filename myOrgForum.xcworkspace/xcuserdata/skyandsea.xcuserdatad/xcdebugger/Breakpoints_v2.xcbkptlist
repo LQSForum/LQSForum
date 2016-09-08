@@ -9,92 +9,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
-            timestampString = "494412539.574058"
+            filePath = "myOrgForum/setting/ViewController/LQSSettingMyFavourateViewController.m"
+            timestampString = "495009581.846068"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "434"
-            endingLineNumber = "434"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
-            timestampString = "494412539.574058"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "426"
-            endingLineNumber = "426"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
-            timestampString = "494412539.574058"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
-            landmarkName = "-requestPersonalData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
-            timestampString = "494412539.574058"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
-            landmarkName = "-requestPersonalData"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-reloadShouchangDateRequestWithPage:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__63-[LQSHomePagePersonalMessageViewController requestPersonalData]_block_invoke"
+                  symbolName = "-[LQSSettingMyFavourateViewController reloadShouchangDateRequestWithPage:]"
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
-                  timestampString = "494817951.64976"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/setting/ViewController/LQSSettingMyFavourateViewController.m"
+                  timestampString = "495021176.454942"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "243"
-                  endingLineNumber = "243"
-                  offsetFromSymbolStart = "1440">
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "888">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__63-[LQSHomePagePersonalMessageViewController requestPersonalData]_block_invoke"
+                  symbolName = "__74-[LQSSettingMyFavourateViewController reloadShouchangDateRequestWithPage:]_block_invoke"
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
-                  timestampString = "494817951.649857"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/setting/ViewController/LQSSettingMyFavourateViewController.m"
+                  timestampString = "495021176.455125"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "243"
-                  endingLineNumber = "243"
-                  offsetFromSymbolStart = "1452">
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "64">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -105,59 +57,88 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "myOrgForum/setting/ViewController/LQSHomePagePersonalMessageViewController.m"
-            timestampString = "494412161.84478"
+            filePath = "myOrgForum/setting/ViewController/LQSSettingMyFavourateViewController.m"
+            timestampString = "495010948.036852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "-requestPersonalData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "myOrgForum/login&amp;register/LQRegisterViewController.m"
-            timestampString = "494730431.243272"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-registerAction"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-reloadShouchangDateRequestWithPage:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[LQRegisterViewController registerAction]"
+                  symbolName = "-[LQSSettingMyFavourateViewController reloadShouchangDateRequestWithPage:]"
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/login&amp;register/LQRegisterViewController.m"
-                  timestampString = "494817951.650956"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/setting/ViewController/LQSSettingMyFavourateViewController.m"
+                  timestampString = "495021176.455986"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "122"
-                  endingLineNumber = "122"
-                  offsetFromSymbolStart = "736">
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "1048">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__42-[LQRegisterViewController registerAction]_block_invoke"
+                  symbolName = "__74-[LQSSettingMyFavourateViewController reloadShouchangDateRequestWithPage:]_block_invoke"
                   moduleName = "myOrgForum"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/login&amp;register/LQRegisterViewController.m"
-                  timestampString = "494817951.651051"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/setting/ViewController/LQSSettingMyFavourateViewController.m"
+                  timestampString = "495021176.456088"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "122"
-                  endingLineNumber = "122"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "596">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_"
+                  moduleName = "myOrgForum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/setting/ViewController/LQSSettingMyFavourateViewController.m"
+                  timestampString = "495021176.456179"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_"
+                  moduleName = "myOrgForum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/setting/ViewController/LQSSettingMyFavourateViewController.m"
+                  timestampString = "495021176.456267"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__74-[LQSSettingMyFavourateViewController reloadShouchangDateRequestWithPage:]_block_invoke.127"
+                  moduleName = "myOrgForum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyandsea/Desktop/lll/LQSForum/myOrgForum/setting/ViewController/LQSSettingMyFavourateViewController.m"
+                  timestampString = "495021176.456363"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
                   offsetFromSymbolStart = "72">
                </Location>
             </Locations>
@@ -169,13 +150,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "myOrgForum/login&amp;register/LQRegisterViewController.m"
-            timestampString = "494730435.415471"
+            filePath = "myOrgForum/setting/ViewController/LQSSettingMyFavourateViewController.m"
+            timestampString = "495010979.523351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "-registerAction"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "-reloadShouchangDateRequestWithPage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -185,29 +166,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "myOrgForum/User/Manager/LQSUserManager.m"
-            timestampString = "494730645.624458"
+            filePath = "myOrgForum/setting/ViewController/LQSSettingMyFavourateViewController.m"
+            timestampString = "495010980.851452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "-registerUserByEmail:withPWD:withUserName:completionBlock:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "myOrgForum/User/Manager/LQSUserManager.m"
-            timestampString = "494730658.20815"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-registerUserByEmail:withPWD:withUserName:completionBlock:"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "-reloadShouchangDateRequestWithPage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

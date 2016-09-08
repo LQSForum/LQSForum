@@ -78,22 +78,21 @@
 
 }
 
-- (void)pushSettingTopDataModel:(LQSSettingTopDataModel *)model{
+- (void)pushSettingTopDataModel:(LQSSettingTopDataModel *)model{//???????????????????此处没有使用接口返回的数据用了本地存储的用户信息忘后来师兄修改
     self.model = model;
     
     
     
     if ([LQSUserManager isLoging]) {
-        [_userImage sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:nil];
-        [_userImage sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:nil];
+        [_userImage sd_setImageWithURL:[NSURL URLWithString:[LQSUserManager user].avatar] placeholderImage:nil];
         
-        _userNameLabel.text = [NSString stringWithFormat:@"%@",model.name];
-        _jifenLabel.text =[NSString stringWithFormat:@"积分:%@", model.score];
-        _xianghuaLabel.text = [NSString stringWithFormat:@"香华:%@", model.credits];
-        _userDescription.text = [NSString stringWithFormat:@"%@", model.userTitle];
+        _userNameLabel.text = [LQSUserManager user].userName;
+        _jifenLabel.text =[NSString stringWithFormat:@"积分:%@", [LQSUserManager user].score];
+        _xianghuaLabel.text = [NSString stringWithFormat:@"香华:%@", [LQSUserManager user].score];
+        _userDescription.text = [LQSUserManager user].userTitle;
     }else{
         [_userImage sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"setting_profile_bgWall.jpg"]];
-
+ 
     _noLoginLabel.text = @"请点击登录/注册";
     }
     

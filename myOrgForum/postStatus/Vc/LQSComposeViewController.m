@@ -7,21 +7,15 @@
 //
 
 #import "LQSComposeViewController.h"
-//#import "LQSEmotionTextView.h"
 #import "LQSCompostToolbar.h"
 #import "LQSComposePhotosView.h"
-//#import "LQSAccountTool.h"
-//#import "LQSAccount.h"
-//#import "MBProgressHUD+MJ.h"
-//#import "LQSStatusTool.h"
-//#import "LQSEmotion.h"
-//#import "LQSEmotionKeyboard.h"
 
 @interface LQSComposeViewController () <LQSComposeToolbarDelegate, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate,jmpPickVCDelegate>
 @property (nonatomic, weak) LQSEmotionTextView *textView;
 @property (nonatomic, weak) LQSComposeToolbar *toolbar;
 @property (nonatomic, weak) LQSComposePhotosView *photosView;
 @property (nonatomic, strong) LQSEmotionKeyboard *kerboard;
+
 /**
  *  是否正在切换键盘
  */
@@ -61,7 +55,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelected:) name:LQSEmotionDidSelectedNotification object:nil];
     // 监听删除按钮点击的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidDeleted:) name:LQSEmotionDidDeletedNotification object:nil];
+    
+//    接收板块名称的通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getBoardName:) name:@"board_name" object:nil];
 }
+
+- (void)getBoardName:(NSNotification *)sender{
+    self.titleLabel.text = sender.object;
+
+}
+
 
 // 添加显示图片的相册控件
 - (void)setupPhotosView
@@ -137,19 +140,39 @@
 {
     
         // 创建label
-        UILabel *titleLabel = [[UILabel alloc] init];
-        titleLabel.text = @"选择板块";
-        titleLabel.numberOfLines = 0;
-        titleLabel.textAlignment = NSTextAlignmentCenter;
-        titleLabel.width = 100;
-        titleLabel.height = 44;
-        self.navigationItem.titleView = titleLabel;
+        self.titleLabel = [[UILabel alloc] init];
+        self.titleLabel.text = @"选择板块";
+        self.titleLabel.textColor = [UIColor whiteColor];
+        self.titleLabel.numberOfLines = 0;
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        self.titleLabel.width = 100;
+        self.titleLabel.height = 44;
+    
+    self.titleLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectTap)];
+    [self.titleLabel addGestureRecognizer:tapGesture];
+    
+    
+    
+    
+        self.navigationItem.titleView = self.titleLabel;
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleBordered target:self action:@selector(send)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(send)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
 }
+
+
+- (void)selectTap{
+    LQSSelectPlatesViewController *vc = [LQSSelectPlatesViewController new];
+    LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:navVc animated:YES completion:nil];
+
+
+}
+
+
 
 #pragma mark - 私有方法
 /**

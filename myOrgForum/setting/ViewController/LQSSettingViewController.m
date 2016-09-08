@@ -124,50 +124,6 @@
     
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    if (section == 1) {
-//        UIView * sectionView  =[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40 + 10)];
-//        sectionView.userInteractionEnabled = YES;
-////        创建三个按钮
-//        CGFloat labelW = kScreenWidth /3;
-//        CGFloat labelH = 40;
-////        第一个btn
-//        NSArray *nameArr = @[@"我的收藏",@"我的好友",@"我的发表"];
-//        for (NSUInteger i = 0; i < 3; i++) {
-//            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(i * labelW, 0, labelW, labelH)];
-//            label.tag = i;
-//            label.textAlignment = NSTextAlignmentCenter;
-//            label.text = [nameArr objectAtIndex:i];
-//            label.userInteractionEnabled = YES;
-//            UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEvent:)];
-//            [label addGestureRecognizer:tapGesture];
-//            label.backgroundColor = [UIColor whiteColor];
-//
-//            [sectionView addSubview:label];
-//
-//        }
-//
-////        添加高度为10的分割线
-//        UIView *gapView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, kScreenWidth, 10)];
-//        gapView.backgroundColor = [UIColor clearColor];
-//        [sectionView addSubview:gapView];
-////        添加分割线
-//        CGFloat fengeW = 1;
-//        CGFloat fengeH = 20;
-//        for (NSUInteger j= 0; j < 2; j++) {
-//            UIView *view = [[UIView alloc] initWithFrame:CGRectMake((j + 1) * labelW, LQSMargin, fengeW, fengeH)];
-//            view.userInteractionEnabled = YES;
-//            view.backgroundColor = [UIColor lightGrayColor];
-//            [sectionView addSubview:view];
-//        }
-//
-//
-//        return sectionView;
-//
-//    }
-//    return nil;
-//}
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
