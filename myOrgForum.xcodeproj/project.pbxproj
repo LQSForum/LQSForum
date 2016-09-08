@@ -737,6 +737,8 @@
 			children = (
 				41AC5B2A1D751C83006E38D5 /* LQSSettingMyFavourateViewController.h */,
 				41AC5B2B1D751C83006E38D5 /* LQSSettingMyFavourateViewController.m */,
+				41AC5B2E1D751C83006E38D5 /* LQSSettingMyPresentViewController.h */,
+				41AC5B2F1D751C83006E38D5 /* LQSSettingMyPresentViewController.m */,
 				41AC5B181D751C83006E38D5 /* LQSDetailSettingViewController.h */,
 				41AC5B191D751C83006E38D5 /* LQSDetailSettingViewController.m */,
 				41AC5B1A1D751C83006E38D5 /* LQSHomePagePersonalMessageViewController.h */,
@@ -757,8 +759,6 @@
 				41AC5B291D751C83006E38D5 /* LQSProfileEditViewController.m */,
 				41AC5B2C1D751C83006E38D5 /* LQSSettingMyFriendViewController.h */,
 				41AC5B2D1D751C83006E38D5 /* LQSSettingMyFriendViewController.m */,
-				41AC5B2E1D751C83006E38D5 /* LQSSettingMyPresentViewController.h */,
-				41AC5B2F1D751C83006E38D5 /* LQSSettingMyPresentViewController.m */,
 				41AC5B301D751C83006E38D5 /* LQSSettingViewController.h */,
 				41AC5B311D751C83006E38D5 /* LQSSettingViewController.m */,
 				41AC5B321D751C83006E38D5 /* LQSSystemMessageViewController.h */,
@@ -1901,7 +1901,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = myOrgForum/myOrgForum.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1953,7 +1953,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = myOrgForum/myOrgForum.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
