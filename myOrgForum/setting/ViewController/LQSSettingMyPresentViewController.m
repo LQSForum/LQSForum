@@ -30,7 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"我的收藏";
+    self.title = @"我的发表";
     // Do any additional setup after loading the view.
     
     self.shouchangArr = [NSMutableArray array];
