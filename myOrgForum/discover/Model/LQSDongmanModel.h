@@ -20,7 +20,7 @@
 @interface LQSDongmanListModel : NSObject
 @property (nonatomic,strong)NSString * special;
 @property (nonatomic,strong)NSString * fid;
-@property (nonatomic,strong)NSArray * board_id;
+@property (nonatomic,strong)NSString * board_id;
 @property (nonatomic,strong)NSString * board_name;
 @property (nonatomic,strong)NSString *   source_type;
 @property (nonatomic, strong) NSString *source_id;

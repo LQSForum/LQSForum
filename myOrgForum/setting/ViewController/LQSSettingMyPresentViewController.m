@@ -20,8 +20,8 @@
 
 //帖子数组
 @property (nonatomic, assign) NSUInteger page;
-@property (nonatomic,strong) NSMutableArray *shouchangArr;
-@property (nonatomic,strong) NSMutableArray *shouchangArray;
+@property (nonatomic,strong) NSMutableArray *fabiaoArr;
+@property (nonatomic,strong) NSMutableArray *fabiaoArray;
 
 
 @end
@@ -29,8 +29,8 @@
 
 - (void)dealloc{
     _tableView = nil;
-    self.shouchangArray = nil;
-    self.shouchangArr = nil;
+    self.fabiaoArray = nil;
+    self.fabiaoArr = nil;
 
 
 }
@@ -40,17 +40,14 @@
     self.title = @"我的发表";
     // Do any additional setup after loading the view.
     
-    self.shouchangArr = [NSMutableArray array];
-    self.shouchangArray = [NSMutableArray array];
+    self.fabiaoArr = [NSMutableArray array];
+    self.fabiaoArray = [NSMutableArray array];
     [self createTableView];
     self.page = 1;
     [self reloadShouchangDateRequestWithPage:self.page];
     //
     _tableView.mj_footer.hidden = YES;
-    
-    
-    
-    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -84,10 +81,10 @@
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"favirate-----sucess");
         //        数据模型放到frame模型
-        if (weakSelf.shouchangArray.count > 0 && self.page == 1) {
-            [weakSelf.shouchangArr removeAllObjects];
+        if (weakSelf.fabiaoArray.count > 0 && self.page == 1) {
+            [weakSelf.fabiaoArr removeAllObjects];
         }else{
-            weakSelf.shouchangArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+            weakSelf.fabiaoArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         }
         [_tableView reloadData];
         
@@ -120,7 +117,7 @@
 {
     self.page = 1;
     [self reloadShouchangDateRequestWithPage:self.page];
-    [self.shouchangArray insertObjects:self.shouchangArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.shouchangArr.count)]];
+    [self.fabiaoArray insertObjects:self.fabiaoArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.fabiaoArr.count)]];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [_tableView reloadData];
         // 停止刷新
@@ -135,7 +132,7 @@
 {
     self.page++;
     [self reloadShouchangDateRequestWithPage:self.page];
-    [self.shouchangArray addObjectsFromArray:self.shouchangArr];
+    [self.fabiaoArray addObjectsFromArray:self.fabiaoArr];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 刷新瀑布流控件
@@ -164,9 +161,9 @@
 #pragma mark - 数据源方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    tableView.mj_footer.hidden = self.shouchangArray.count == 0;
+    tableView.mj_footer.hidden = self.fabiaoArray.count == 0;
     
-    return self.shouchangArray.count;
+    return self.fabiaoArray.count;
 }
 
 #pragma mark 每一行显示怎样的cell（内容）
@@ -179,7 +176,7 @@
     }
     
     
-    [cishanCell pushesCishanDataModel:[self.shouchangArray objectAtIndex:indexPath.row]];
+    [cishanCell pushesCishanDataModel:[self.fabiaoArray objectAtIndex:indexPath.row]];
     return cishanCell;
     
 }
@@ -188,7 +185,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LQSBBSDetailViewController *DetailVc = [LQSBBSDetailViewController new];
-    DetailVc.selectModel = [self.shouchangArray objectAtIndex:indexPath.row];
+    LQSCishanListModel *model = [self.fabiaoArray objectAtIndex:indexPath.row];
+    DetailVc.selectModel.board_id = model.board_id;
+    DetailVc.selectModel.topicId = model.source_id;
     [self.navigationController pushViewController:DetailVc animated:NO];
     
     

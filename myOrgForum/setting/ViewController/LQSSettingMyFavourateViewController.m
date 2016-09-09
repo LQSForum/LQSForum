@@ -185,7 +185,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LQSBBSDetailViewController *DetailVc = [LQSBBSDetailViewController new];
-    DetailVc.selectModel = [self.shouchangArray objectAtIndex:indexPath.row];
+    LQSCishanListModel *model = [_shouchangArray objectAtIndex:indexPath.row];
+    DetailVc.selectModel.board_id = model.board_id;
+    DetailVc.selectModel.topicId = model.source_id;
     [self.navigationController pushViewController:DetailVc animated:NO];
     
     

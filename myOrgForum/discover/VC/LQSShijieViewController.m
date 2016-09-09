@@ -36,11 +36,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //    请求数据
-    self.page = 1;
-    [self shijieDataRequestWithPage:self.page];
-    //    需要初始化数据
-    [self.discoriesArr addObjectsFromArray:self.disArr];
     [self createCell];
 
 }
@@ -48,7 +43,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    //    请求数据
+    self.page = 1;
+    [self shijieDataRequestWithPage:self.page];
+    //    需要初始化数据
+    [self.discoriesArr addObjectsFromArray:self.disArr];
+
     self.waterFlowView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewShops)];
     self.waterFlowView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreShops)];
     
@@ -189,7 +189,9 @@
 - (void)waterflowView:(LQSWaterFlowView *)waterflowView didSelectAtIndex:(NSUInteger)index{
 
     LQSBBSDetailViewController *detailVc = [LQSBBSDetailViewController new];
-    detailVc.selectModel = [_discoriesArr objectAtIndex:index];
+    LQSShijieDataListModel *model = [_discoriesArr objectAtIndex:index];
+    detailVc.selectModel.board_id = model.board_id;
+    detailVc.selectModel.topicId = model.source_id;
     [self.navigationController pushViewController:detailVc animated:NO];
 
 

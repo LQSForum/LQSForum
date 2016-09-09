@@ -47,6 +47,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    self.page = 1;
+    [_dongManDataArray addObjectsFromArray:_dongManDataArr];
+    [self reloadDongmanDateRequestWithPage:self.page];
+
+    
+    
     __unsafe_unretained UITableView *tableView = _tableView;
     //    上啦刷新
     tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
@@ -178,7 +185,9 @@
 {
 
     LQSBBSDetailViewController *detailVc = [LQSBBSDetailViewController new];
-    detailVc.selectModel = [_dongManDataArray objectAtIndex:indexPath.row];
+    LQSDongmanListModel *model = [_dongManDataArray objectAtIndex:indexPath.row];
+    detailVc.selectModel.board_id = model.board_id;
+    detailVc.selectModel.topicId = model.fid;
     [self.navigationController pushViewController:detailVc animated:NO];
 
 
