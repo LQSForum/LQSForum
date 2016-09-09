@@ -15,6 +15,7 @@
 		0000C4B11D645E63007C969C /* LQSLatestMarrowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4B01D645E63007C969C /* LQSLatestMarrowTableViewCell.m */; };
 		0000C4B41D645E89007C969C /* LQSMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4B31D645E89007C969C /* LQSMainViewCell.m */; };
 		0000C4B71D645EB5007C969C /* LQSLastestMarrowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4B61D645EB5007C969C /* LQSLastestMarrowModel.m */; };
+		0028857E1D8263610045B0FF /* LQFoundPSWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0028857D1D8263610045B0FF /* LQFoundPSWViewController.m */; };
 		004FD1C41D800EF2003AA2FF /* LQSMoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004FD1C31D800EF2003AA2FF /* LQSMoreDataTableViewController.m */; };
 		004FD1C71D800F57003AA2FF /* LQSMoreDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 004FD1C61D800F57003AA2FF /* LQSMoreDataTableViewCell.m */; };
 		00AD95D91D815225003DF089 /* LQSLeftViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AD95D81D815225003DF089 /* LQSLeftViewCell.m */; };
@@ -213,6 +214,8 @@
 		0000C4B31D645E89007C969C /* LQSMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMainViewCell.m; sourceTree = "<group>"; };
 		0000C4B51D645EB5007C969C /* LQSLastestMarrowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSLastestMarrowModel.h; path = forum/Model/LQSLastestMarrowModel.h; sourceTree = "<group>"; };
 		0000C4B61D645EB5007C969C /* LQSLastestMarrowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSLastestMarrowModel.m; path = forum/Model/LQSLastestMarrowModel.m; sourceTree = "<group>"; };
+		0028857C1D8263610045B0FF /* LQFoundPSWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQFoundPSWViewController.h; path = "login&register/LQFoundPSWViewController.h"; sourceTree = "<group>"; };
+		0028857D1D8263610045B0FF /* LQFoundPSWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQFoundPSWViewController.m; path = "login&register/LQFoundPSWViewController.m"; sourceTree = "<group>"; };
 		004FD1C21D800EF2003AA2FF /* LQSMoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSMoreDataTableViewController.h; path = forum/LQSMoreDataTableViewController.h; sourceTree = "<group>"; };
 		004FD1C31D800EF2003AA2FF /* LQSMoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSMoreDataTableViewController.m; path = forum/LQSMoreDataTableViewController.m; sourceTree = "<group>"; };
 		004FD1C51D800F57003AA2FF /* LQSMoreDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMoreDataTableViewCell.h; sourceTree = "<group>"; };
@@ -700,6 +703,8 @@
 				413F92571D791C9500D7974D /* LQRegisterViewController.m */,
 				413F92581D791C9500D7974D /* LQUpdateUserViewController.h */,
 				413F92591D791C9500D7974D /* LQUpdateUserViewController.m */,
+				0028857C1D8263610045B0FF /* LQFoundPSWViewController.h */,
+				0028857D1D8263610045B0FF /* LQFoundPSWViewController.m */,
 			);
 			name = "login&register";
 			sourceTree = "<group>";
@@ -1662,6 +1667,7 @@
 				41F870121D767E8800E05FAB /* LQSEmotionAttachment.m in Sources */,
 				415588D21D814556006508FE /* LQSSettingFavirateDataModel.m in Sources */,
 				004FD1C71D800F57003AA2FF /* LQSMoreDataTableViewCell.m in Sources */,
+				0028857E1D8263610045B0FF /* LQFoundPSWViewController.m in Sources */,
 				149364AD1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m in Sources */,
 				411FE7AD1D6D6DC700563324 /* LQSWaterFlowViewCell.m in Sources */,
 				2CC8C2E11D7F1D2300297B9B /* LQSSelectPlatesViewController.m in Sources */,
