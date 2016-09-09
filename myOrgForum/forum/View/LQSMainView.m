@@ -107,8 +107,6 @@
     self.marrowView = [[LQSLatestMarrowTableView alloc]init];
     self.latestView.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, self.frame.size.height);
     self.marrowView.frame = CGRectMake(kScreenWidth * 2, 0, kScreenWidth, self.frame.size.height);
-//        self.latestView.backgroundColor = [UIColor blueColor];
-//        self.marrowView.backgroundColor = [UIColor yellowColor];
     [self addSubview:self.latestView];
     [self addSubview:self.marrowView];
     

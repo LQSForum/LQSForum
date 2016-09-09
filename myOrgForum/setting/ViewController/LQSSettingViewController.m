@@ -214,7 +214,7 @@
                 topCell = [[LQSSettingTopCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:topCellIdentifier];
             }
             topCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            [topCell pushSettingTopDataModel:nil];
+            [topCell pushSettingTopDataModel:nil];//????????
             return topCell;
             
 
@@ -225,7 +225,7 @@
                 topNoDataCell = [[LQSNodataTopCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:topNoDataCellIdentifier];
             }
             topNoDataCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            [topNoDataCell pushSettingTopNoDataDataModel:nil];
+            [topNoDataCell pushSettingTopNoDataDataModel:nil];//???????????
             return topNoDataCell;
 
         

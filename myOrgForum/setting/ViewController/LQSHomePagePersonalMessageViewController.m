@@ -283,8 +283,6 @@
     [bgImageView sd_setImageWithURL:[NSURL URLWithString:_personalZiliaoModel.icon] placeholderImage:[UIImage imageNamed:@"setting_profile_bgWall.jpg"]];///????????接口获得背景图片
     //背景之上的内容
     UIView *contentView = [[UIView alloc] initWithFrame:bgImageView.bounds];
-//    contentView.backgroundColor = [UIColor purpleColor];
-//    contentView.backgroundColor = [UIColor clearColor];
     
     
      UIImageView *avater = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];

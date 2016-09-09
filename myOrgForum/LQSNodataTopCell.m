@@ -34,7 +34,6 @@
     [self.contentView addSubview:_userImage];
     
     _noLoginLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    _noLoginLabel.backgroundColor = [UIColor purpleColor];
     [self.contentView addSubview:_noLoginLabel];
 }
 

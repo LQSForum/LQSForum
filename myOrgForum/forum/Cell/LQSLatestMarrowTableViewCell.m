@@ -37,7 +37,6 @@
 
 - (void)setUpUI{
     
-    //        self.contentView.backgroundColor = [UIColor yellowColor];
     self.icon = [[UIImageView alloc]init];
     self.lastReplyDate = [[UILabel alloc]init];
     self.titleLabel = [[UILabel alloc]init];

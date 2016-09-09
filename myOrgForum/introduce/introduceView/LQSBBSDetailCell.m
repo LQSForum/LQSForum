@@ -41,7 +41,6 @@
         case 0:{
             self.height = 73;
             [self setCellForSection0];
-//            self.contentView.backgroundColor = [UIColor yellowColor];
             break;
         }case 1:{
             [self setCellForContentSection1];

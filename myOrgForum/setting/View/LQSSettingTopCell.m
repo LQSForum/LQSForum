@@ -53,7 +53,6 @@
         _xianghuaLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _xianghuaLabel.font = [UIFont systemFontOfSize:11];
         
-        //    _xianghuaLabel.backgroundColor = [UIColor purpleColor];
         [self.contentView addSubview:_xianghuaLabel];
         //    用户描述
         _userDescription = [[UILabel alloc] initWithFrame:CGRectZero];

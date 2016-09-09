@@ -102,7 +102,7 @@
     
     self.timeLabel.frame = CGRectMake((kScreenWidth - 3 * LQSMargin) * 0.25 + 2 *LQSMargin , CGRectGetMaxY(self.titleLabel.frame) + LQSMargin, CGRectGetMaxX(self.titleLabel.frame) - CGRectGetMaxX(self.nameLabel.frame) - LQSMargin, 10);
 //    图片frame
-        self.imageView.frame = CGRectMake(0, 0, (kScreenWidth - 3 * LQSMargin) / 2,(kScreenWidth - 3 * LQSMargin) / 2 * self.shijieDataModel.ratio ) ;
+        self.imageView.frame = CGRectMake(0, 0, (kScreenWidth - 3 * LQSMargin) / 2 + 3,(kScreenWidth - 3 * LQSMargin) / 2 * self.shijieDataModel.ratio ) ;
 //点击量label的frame
     self.hitsLabel.frame = CGRectMake(CGRectGetMaxX(self.imageView.frame) - LQSMargin - 30 , LQSMargin, 30, 20);
     self.hitsLabel.userInteractionEnabled = NO;
