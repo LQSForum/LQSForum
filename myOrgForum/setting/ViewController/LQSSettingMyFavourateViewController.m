@@ -8,7 +8,7 @@
 
 #import "LQSSettingMyFavourateViewController.h"
 #import "LQSUserManager.h"
-@interface LQSSettingMyFavourateViewController ()<UITabBarDelegate,UITableViewDataSource>
+@interface LQSSettingMyFavourateViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *_tableView;
     
@@ -141,7 +141,7 @@
 
 
 - (void)createTableView{
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + 5.5 , kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,  0 , kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     // 3.设置tableView属性
@@ -189,12 +189,13 @@
     
     LQSCishanTableViewCell *cishanCell = (LQSCishanTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
     return cishanCell.cellHeight;
-    
-    
-    
-    
-    
+   
     
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.1f;
+    
+}
 @end

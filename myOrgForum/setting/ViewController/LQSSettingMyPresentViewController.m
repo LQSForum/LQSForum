@@ -10,7 +10,7 @@
 #import "LQSSettingMyPresentViewController.h"
 #import "LQSUserManager.h"
 
-@interface LQSSettingMyPresentViewController ()<UITabBarDelegate,UITableViewDataSource>
+@interface LQSSettingMyPresentViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *_tableView;
     
@@ -144,7 +144,7 @@
 
 
 - (void)createTableView{
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + 5.5 , kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0 , kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     // 3.设置tableView属性
@@ -198,6 +198,12 @@
     
     
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.1f;
+
 }
 
 @end
