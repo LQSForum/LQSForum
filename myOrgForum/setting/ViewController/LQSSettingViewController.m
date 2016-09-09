@@ -52,6 +52,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createTableView];
+    [_tableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -238,32 +239,39 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        
-        if ([LQSUserManager isLoging]) {
-            LQSHomePagePersonalMessageViewController *personalVc = [LQSHomePagePersonalMessageViewController new];
-            [self.navigationController pushViewController:personalVc animated:NO];
+    if (![LQSUserManager isLoging]) {
+        //        跳转登陆
+        LQLoginViewController *loginVc = [LQLoginViewController new];
+        LQSNavigationController *navVC = [[LQSNavigationController alloc] initWithRootViewController:loginVc];
+        [self presentViewController:navVC animated:YES completion:nil];
+    }else{
+        if (indexPath.section == 0) {
+            
+            if ([LQSUserManager isLoging]) {
+                LQSHomePagePersonalMessageViewController *personalVc = [LQSHomePagePersonalMessageViewController new];
+                [self.navigationController pushViewController:personalVc animated:NO];
+                
+            }else{
+                LQLoginViewController *loginVC = [LQLoginViewController new];
+                LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:loginVC];
+                [self presentViewController:navVc animated:YES completion:nil];
+            }
+            
             
         }else{
-            LQLoginViewController *loginVC = [LQLoginViewController new];
-            LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:loginVC];
-            [self presentViewController:navVc animated:YES completion:nil];
+            UIViewController *vc = [[UIViewController alloc] init];
+            
+            if (indexPath.section == 1 && indexPath.row == 0) {
+                vc =  [[LQSMyDraftViewController alloc] init];
+            }else if (indexPath.section == 1 && indexPath.row == 1){
+                vc = [[LQSMessageViewController alloc] init];
+            }else if (indexPath.section == 2 && indexPath.row == 0){
+                vc = [[LQSAccountManagementViewController alloc] init];
+            }else{
+                vc = [[LQSDetailSettingViewController alloc] init];
+            }
+            [self.navigationController pushViewController:vc animated:NO];
         }
-        
-        
-    }else{
-        UIViewController *vc = [[UIViewController alloc] init];
-        
-        if (indexPath.section == 1 && indexPath.row == 0) {
-            vc =  [[LQSMyDraftViewController alloc] init];
-        }else if (indexPath.section == 1 && indexPath.row == 1){
-            vc = [[LQSMessageViewController alloc] init];
-        }else if (indexPath.section == 2 && indexPath.row == 0){
-            vc = [[LQSAccountManagementViewController alloc] init];
-        }else{
-            vc = [[LQSDetailSettingViewController alloc] init];
-        }
-        [self.navigationController pushViewController:vc animated:NO];
     }
 }
 
@@ -278,16 +286,24 @@
 
 - (void)tapEvent:(UITapGestureRecognizer *)gesture
 {
-    UIViewController *Vc = [UIViewController new];
-    UIView *view = gesture.view;
-    if (view.tag == 0) {
-        Vc = [LQSSettingMyFavourateViewController new];
-    }else if (view.tag == 1){
-        Vc = [LQSSettingMyFriendViewController new];
-    }else if (view.tag == 2){
-        Vc = [LQSSettingMyPresentViewController new];
+    if (![LQSUserManager isLoging]) {
+        //        跳转登陆
+        LQLoginViewController *loginVc = [LQLoginViewController new];
+        LQSNavigationController *navVC = [[LQSNavigationController alloc] initWithRootViewController:loginVc];
+        [self presentViewController:navVC animated:YES completion:nil];
+    }else{
+        UIViewController *Vc = [UIViewController new];
+        UIView *view = gesture.view;
+        if (view.tag == 0) {
+            Vc = [LQSSettingMyFavourateViewController new];
+        }else if (view.tag == 1){
+            Vc = [LQSSettingMyFriendViewController new];
+        }else if (view.tag == 2){
+            Vc = [LQSSettingMyPresentViewController new];
+        }
+        [self.navigationController pushViewController:Vc animated:NO];
     }
-    [self.navigationController pushViewController:Vc animated:NO];
+    [_tableView reloadData];
 }
 
 

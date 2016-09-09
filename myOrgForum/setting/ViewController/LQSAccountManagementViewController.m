@@ -76,6 +76,7 @@ static NSString *identifier = @"accountIdentifier";
     if (buttonIndex == 1) {
         [LQSUserManager clearUser];
         [kAppDelegate showHUDMessage:@"登出成功" hideDelay:2];
+        [self.navigationController popViewControllerAnimated:NO];
     }
 
 

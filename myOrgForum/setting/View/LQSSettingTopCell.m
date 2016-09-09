@@ -64,25 +64,14 @@
         [self.contentView addSubview:_userDescription];
 
     }else{
-    
         _noLoginLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _noLoginLabel.backgroundColor = [UIColor purpleColor];
         [self.contentView addSubview:_noLoginLabel];
-    
     }
-    
-    
-    
-
-
-
 }
 
 - (void)pushSettingTopDataModel:(LQSSettingTopDataModel *)model{//???????????????????此处没有使用接口返回的数据用了本地存储的用户信息忘后来师兄修改
     self.model = model;
-    
-    
-    
     if ([LQSUserManager isLoging]) {
         [_userImage sd_setImageWithURL:[NSURL URLWithString:[LQSUserManager user].avatar] placeholderImage:nil];
         
