@@ -67,7 +67,7 @@
 
 //        添加时间
         UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        timeLabel.textAlignment = NSTextAlignmentLeft;
+        timeLabel.textAlignment = NSTextAlignmentRight;
         [self addSubview:timeLabel];
         self.timeLabel = timeLabel;
         [timeLabel setFont:[UIFont systemFontOfSize:11]];
@@ -100,7 +100,7 @@
 //    用户昵称
     self.nameLabel.frame = CGRectMake(margin, CGRectGetMaxY(self.titleLabel.frame) + LQSMargin, (kScreenWidth - 3 * LQSMargin) * 0.25, 10);
     
-    self.timeLabel.frame = CGRectMake((kScreenWidth - 3 * LQSMargin) * 0.25 + 2 *LQSMargin , CGRectGetMaxY(self.titleLabel.frame) + LQSMargin, CGRectGetMaxX(self.titleLabel.frame) - CGRectGetMaxX(self.nameLabel.frame) - LQSMargin, 10);
+    self.timeLabel.frame = CGRectMake((kScreenWidth - 3 * LQSMargin) * 0.25 + 2 *LQSMargin - 8 , CGRectGetMaxY(self.titleLabel.frame) + LQSMargin, CGRectGetMaxX(self.titleLabel.frame) - CGRectGetMaxX(self.nameLabel.frame) - LQSMargin - 8, 10);
 //    图片frame
         self.imageView.frame = CGRectMake(0, 0, (kScreenWidth - 3 * LQSMargin) / 2 + 3,(kScreenWidth - 3 * LQSMargin) / 2 * self.shijieDataModel.ratio ) ;
 //点击量label的frame
@@ -126,7 +126,7 @@
 - (CGFloat)cellHeight{
     
     CGSize size = [self sizeWithText:self.shijieDataModel.title font:[UIFont systemFontOfSize:12] maxSize:CGSizeMake((kScreenWidth - 3 * LQSMargin) / 2 - 20, MAXFLOAT)];
-    return  (kScreenWidth - 3 * LQSMargin) / 2 * self.shijieDataModel.ratio + size.height + 3 * LQSMargin;
+    return  (kScreenWidth - 3 * LQSMargin) / 2 * self.shijieDataModel.ratio + size.height + 3 * LQSMargin + 5;
     
 }
 @end
