@@ -52,7 +52,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createTableView];
-    [_tableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -207,14 +206,31 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        static NSString *topCellIdentifier = @"topCell";
-        LQSSettingTopCell *topCell = [tableView dequeueReusableCellWithIdentifier:topCellIdentifier];
-        if (topCell == nil) {
-            topCell = [[LQSSettingTopCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:topCellIdentifier];
+        
+        if ([LQSUserManager isLoging]) {
+            static NSString *topCellIdentifier = @"topCell";
+            LQSSettingTopCell *topCell = [tableView dequeueReusableCellWithIdentifier:topCellIdentifier];
+            if (topCell == nil) {
+                topCell = [[LQSSettingTopCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:topCellIdentifier];
+            }
+            topCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            [topCell pushSettingTopDataModel:nil];
+            return topCell;
+            
+
+        }else{
+            static NSString *topNoDataCellIdentifier = @"topNoDataCell";
+            LQSNodataTopCell *topNoDataCell = [tableView dequeueReusableCellWithIdentifier:topNoDataCellIdentifier];
+            if (topNoDataCell == nil) {
+                topNoDataCell = [[LQSNodataTopCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:topNoDataCellIdentifier];
+            }
+            topNoDataCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            [topNoDataCell pushSettingTopNoDataDataModel:nil];
+            return topNoDataCell;
+
+        
         }
-        topCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        [topCell pushSettingTopDataModel:self.settingTopModel];
-        return topCell;
+        
         
         
     }else{

@@ -43,6 +43,7 @@
     _picViewArr = [NSMutableArray array];
 //用户头像
     _userAvaterView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    _userAvaterView.clipsToBounds = YES;
     [self.contentView addSubview:_userAvaterView];
     
 //    用户名称
@@ -91,10 +92,12 @@
     [self.contentView addSubview:_pinglunLabel];
 
     _pinglunPic = [[UIImageView alloc] initWithFrame:CGRectZero];
+    _pinglunPic.clipsToBounds = YES;
     [_pinglunPic setContentMode:UIViewContentModeCenter];
     [self.contentView addSubview:_pinglunPic];
 
     _fangwenPic = [[UIImageView alloc] initWithFrame:CGRectZero];
+    _fangwenPic.clipsToBounds = YES;
     [_fangwenPic setContentMode:UIViewContentModeCenter];
     [self.contentView addSubview:_fangwenPic];
 
@@ -177,6 +180,7 @@
     
     for (NSUInteger i = 0; i < _picCount; i++) {
         _photoView = [[UIImageView alloc] init];
+        _photoView.clipsToBounds = YES;
         NSURL *url = [NSURL URLWithString:[_picViewArr objectAtIndex:i]];
         [_photoView sd_setImageWithURL:url placeholderImage:nil];
         _photoView.tag = i;

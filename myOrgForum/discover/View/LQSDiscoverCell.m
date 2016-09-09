@@ -40,6 +40,7 @@
     if (self) {
         
         UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.clipsToBounds = YES;
         [self addSubview:imageView];
         self.imageView = imageView;
         

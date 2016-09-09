@@ -25,6 +25,14 @@
 
 @implementation LQSCishanViewController
 
+- (void)dealloc{
+    _tableView = nil;
+    self.cishanArr = nil;
+    self.cishanArray = nil;
+
+
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

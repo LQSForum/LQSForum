@@ -23,6 +23,15 @@
 
 @implementation LQSDongmanViewController
 
+- (void)dealloc{
+    _tableView = nil;
+    _dongManDataArr = nil;
+    _dongManDataArray = nil;
+    _picListArr = nil;
+
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     _dongManDataArray = [NSMutableArray array];

@@ -18,6 +18,13 @@
 
 @implementation LQSShijieViewController
 
+- (void)dealloc{
+    self.discoriesArr = nil;
+    self.waterFlowView = nil;
+    self.disArr = nil;
+
+}
+
 - (NSMutableArray *)discoriesArr
 {
     if (_discoriesArr == nil) {

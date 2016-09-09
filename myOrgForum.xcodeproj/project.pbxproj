@@ -118,6 +118,7 @@
 		41AC5B411D751C83006E38D5 /* LQSSystemMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B331D751C83006E38D5 /* LQSSystemMessageViewController.m */; };
 		41AC5B461D751CF5006E38D5 /* LQSAccountManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B431D751CF5006E38D5 /* LQSAccountManagementViewController.m */; };
 		41AC5B471D751CF5006E38D5 /* LQSsetRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AC5B451D751CF5006E38D5 /* LQSsetRootViewController.m */; };
+		41AFE6091D82892C0047AEAE /* LQSNodataTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AFE6081D82892C0047AEAE /* LQSNodataTopCell.m */; };
 		41F86FF31D767E7200E05FAB /* LQSComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F86FEE1D767E7200E05FAB /* LQSComposePhotosView.m */; };
 		41F86FF41D767E7200E05FAB /* LQSEmotionToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F86FF01D767E7200E05FAB /* LQSEmotionToolbar.m */; };
 		41F86FF51D767E7200E05FAB /* LQSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F86FF21D767E7200E05FAB /* LQSTextView.m */; };
@@ -432,6 +433,8 @@
 		41AC5B451D751CF5006E38D5 /* LQSsetRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSsetRootViewController.m; path = setting/ViewController/LQSsetRootViewController.m; sourceTree = "<group>"; };
 		41AC5B481D752385006E38D5 /* XXXXX2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXXXX2.h; sourceTree = "<group>"; };
 		41AC5B491D7523BE006E38D5 /* fatie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fatie.h; sourceTree = "<group>"; };
+		41AFE6071D82892C0047AEAE /* LQSNodataTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSNodataTopCell.h; sourceTree = "<group>"; };
+		41AFE6081D82892C0047AEAE /* LQSNodataTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSNodataTopCell.m; sourceTree = "<group>"; };
 		41F86FED1D767E7200E05FAB /* LQSComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSComposePhotosView.h; path = postStatus/View/LQSComposePhotosView.h; sourceTree = "<group>"; };
 		41F86FEE1D767E7200E05FAB /* LQSComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSComposePhotosView.m; path = postStatus/View/LQSComposePhotosView.m; sourceTree = "<group>"; };
 		41F86FEF1D767E7200E05FAB /* LQSEmotionToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSEmotionToolbar.h; path = postStatus/View/LQSEmotionToolbar.h; sourceTree = "<group>"; };
@@ -795,6 +798,8 @@
 				41AC5B0A1D751C58006E38D5 /* LQSSettingCell.m */,
 				41AC5B0B1D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.h */,
 				41AC5B0C1D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.m */,
+				41AFE6071D82892C0047AEAE /* LQSNodataTopCell.h */,
+				41AFE6081D82892C0047AEAE /* LQSNodataTopCell.m */,
 				41AC5B0D1D751C58006E38D5 /* LQSSettingTopCell.h */,
 				41AC5B0E1D751C58006E38D5 /* LQSSettingTopCell.m */,
 				415588D61D816F04006508FE /* LQSFavirateTableViewCell.h */,
@@ -1695,6 +1700,7 @@
 				41AC5B111D751C58006E38D5 /* LQSHomePagePersonalMessageView.m in Sources */,
 				415C55541CC8CCEE00408B90 /* main.m in Sources */,
 				411FE7AC1D6D6DC700563324 /* LQSWaterFlowView.m in Sources */,
+				41AFE6091D82892C0047AEAE /* LQSNodataTopCell.m in Sources */,
 				41AC5B171D751C58006E38D5 /* LQSSettingTopCell.m in Sources */,
 				410FA1FF1D38EB8B0021B7E2 /* YYClassInfo.m in Sources */,
 				41AC5B471D751CF5006E38D5 /* LQSsetRootViewController.m in Sources */,

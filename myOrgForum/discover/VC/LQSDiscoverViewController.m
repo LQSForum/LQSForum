@@ -13,13 +13,17 @@
 @property (nonatomic, strong) NSMutableArray *titleButtons;
 @property (nonatomic, weak) UIView *titleIndicatorView;
 @property (nonatomic, weak) UIButton *selectedTitleButton;
-
-
-
-
 @end
 
 @implementation LQSDiscoverViewController
+
+- (void)dealloc{
+    self.scrollView = nil;
+    self.titleButtons = nil;
+    self.titleIndicatorView = nil;
+    self.selectedTitleButton = nil;
+
+}
 
 - (NSMutableArray *)titleButtons
 {

@@ -35,6 +35,7 @@
 #import "LQSSettingPersonalSettingViewCell.h"
 #import "LQSHomePagePersonalMessageView.h"
 #import "LQSHomePagePersonalPresentTableViewCell.h"
+#import "LQSNodataTopCell.h"
 //main
 #import "LQSCompostToolbar.h"
 #import "LQSComposePhotosView.h"

@@ -38,7 +38,6 @@
 
     
     
-    if ([LQSUserManager isLoging]) {
         //    用户名
         _userNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _userNameLabel.font = [UIFont systemFontOfSize:12];
@@ -63,33 +62,18 @@
         //    _userDescription.backgroundColor = [UIColor lightGrayColor];
         [self.contentView addSubview:_userDescription];
 
-    }else{
-        _noLoginLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _noLoginLabel.backgroundColor = [UIColor purpleColor];
-        [self.contentView addSubview:_noLoginLabel];
-    }
+   
 }
 
 - (void)pushSettingTopDataModel:(LQSSettingTopDataModel *)model{//???????????????????此处没有使用接口返回的数据用了本地存储的用户信息忘后来师兄修改
     self.model = model;
-    if ([LQSUserManager isLoging]) {
         [_userImage sd_setImageWithURL:[NSURL URLWithString:[LQSUserManager user].avatar] placeholderImage:nil];
-        
+        _noLoginLabel = nil;
         _userNameLabel.text = [LQSUserManager user].userName;
         _jifenLabel.text =[NSString stringWithFormat:@"积分:%@", [LQSUserManager user].score];
         _xianghuaLabel.text = [NSString stringWithFormat:@"香华:%@", [LQSUserManager user].score];
         _userDescription.text = [LQSUserManager user].userTitle;
-    }else{
-        [_userImage sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"setting_profile_bgWall.jpg"]];
- 
-    _noLoginLabel.text = @"请点击登录/注册";
-    }
-    
-    
-    
-    
-    
-    
+  
     [self layoutIfNeeded];
 }
 
@@ -99,18 +83,11 @@
     CGFloat picH = picW;
     _userImage.frame = CGRectMake(LQSMargin, LQSMargin, picW, picH);
     
-    if ([LQSUserManager isLoging]) {
         _userNameLabel.frame = CGRectMake(LQSMargin * 2 + picW, LQSMargin, LQSScreenW - 2 *LQSMargin - picW, picW/3);
         _jifenLabel.frame = CGRectMake(LQSMargin * 2 + picW, LQSMargin + picW /3, 50, picW/3);
         _xianghuaLabel.frame = CGRectMake(LQSMargin * 2 + picW + 50, LQSMargin + picW /3, 50, picW/3);
         _userDescription.frame = CGRectMake(LQSMargin * 2 + picW, LQSMargin + picW /3 * 2, kScreenWidth - (LQSMargin * 2 + picW + 100), picW/3);
-    }else{
-        _noLoginLabel.frame = CGRectMake(LQSMargin * 2 + picW, LQSMargin, kScreenWidth - (LQSMargin * 2 + picW + 100), picH);
-        _noLoginLabel.textAlignment = NSTextAlignmentCenter;
-        _noLoginLabel.font = [UIFont systemFontOfSize:15];
-    
-    
-    }
+   
     
     
     

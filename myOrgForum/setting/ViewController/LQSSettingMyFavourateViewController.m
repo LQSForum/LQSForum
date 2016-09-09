@@ -25,6 +25,13 @@
 
 @implementation LQSSettingMyFavourateViewController
 
+- (void)dealloc{
+    _tableView = nil;
+    self.shouchangArr = nil;
+    self.shouchangArray = nil;
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的收藏";

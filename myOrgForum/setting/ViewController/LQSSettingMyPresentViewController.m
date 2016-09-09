@@ -27,6 +27,13 @@
 @end
 @implementation LQSSettingMyPresentViewController
 
+- (void)dealloc{
+    _tableView = nil;
+    self.shouchangArray = nil;
+    self.shouchangArr = nil;
+
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
