@@ -38,11 +38,6 @@
     [super viewDidLoad];
     self.cishanArray = [NSMutableArray array];
     self.cishanArr = [NSMutableArray array];
-    [self createTableView];
-    self.page = 1;
-    [self reloadCishanDateRequestWithPage:self.page];
-//
-    _tableView.mj_footer.hidden = YES;
 }
 
 
@@ -61,8 +56,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.page = 1;
+    [self reloadCishanDateRequestWithPage:self.page];
+    [self createTableView];
     [self setupRefresh];
     [_tableView.mj_header beginRefreshing];
+    _tableView.mj_footer.hidden = YES;
+
 }
 
 
@@ -132,18 +132,21 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     __weak typeof(self) weakSelf = self;
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"sucess");
+        NSLog(@"cishan--------sucess");
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
 //        数据模型放到frame模型
-              if (weakSelf.cishanArray.count > 0 && self.page == 1) {
+              if (weakSelf.cishanArray.count > 0 && weakSelf.page == 1) {
             [weakSelf.cishanArr removeAllObjects];
         }else{
             weakSelf.cishanArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
         }
+        if (weakSelf.cishanArray.count <= 0 && weakSelf.page == 1) {
+            [weakSelf.cishanArray addObjectsFromArray:weakSelf.cishanArr];
+        }
         [_tableView reloadData];
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"failure");
+        NSLog(@"cishan---------failure");
         [_tableView.mj_header endRefreshing];
         kNetworkNotReachedMessage;
     }];

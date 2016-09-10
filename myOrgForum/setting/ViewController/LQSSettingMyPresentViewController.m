@@ -86,6 +86,9 @@
         }else{
             weakSelf.fabiaoArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         }
+        if (weakSelf.fabiaoArray.count <= 0 && weakSelf.page == 1) {
+            [weakSelf.fabiaoArray addObjectsFromArray:weakSelf.fabiaoArr];
+        }
         [_tableView reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

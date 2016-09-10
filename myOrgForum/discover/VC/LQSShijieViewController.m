@@ -96,6 +96,10 @@
             weakSelf.disArr = disArr;
         }
         weakSelf.disArr = [LQSShijieDataListModel mj_objectArrayWithKeyValuesArray:dict[@"list"]];
+        
+        if (weakSelf.discoriesArr.count <= 0 && weakSelf.page == 1) {
+            [weakSelf.discoriesArr addObjectsFromArray:weakSelf.disArr];
+        }
         [weakSelf.waterFlowView reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

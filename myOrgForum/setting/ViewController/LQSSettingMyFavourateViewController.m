@@ -86,6 +86,9 @@
         }else{
             weakSelf.shouchangArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         }
+        if (weakSelf.shouchangArray.count <= 0 && weakSelf.page == 1) {
+            [weakSelf.shouchangArray addObjectsFromArray:weakSelf.shouchangArr];
+        }
         [_tableView reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
