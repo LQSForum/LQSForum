@@ -144,6 +144,7 @@
             [weakSelf.cishanArray addObjectsFromArray:weakSelf.cishanArr];
         }
         [_tableView reloadData];
+        [_tableView.mj_header endRefreshing];
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"cishan---------failure");
@@ -157,7 +158,7 @@
 #pragma mark - 数据源方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    tableView.mj_footer.hidden = self.cishanArray.count == 0;
+    tableView.mj_footer.hidden = self.cishanArr.count == 0;
 
     return self.cishanArray.count;
 }
@@ -170,11 +171,8 @@
     if (cishanCell == nil) {
         cishanCell = [[LQSCishanTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
     }
-    
-    
     [cishanCell pushesCishanDataModel:[self.cishanArray objectAtIndex:indexPath.row]];
     return cishanCell;
-    
 }
 
 #pragma mark - 代理方法

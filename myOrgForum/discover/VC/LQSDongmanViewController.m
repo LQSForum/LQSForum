@@ -155,7 +155,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    _tableView.mj_footer.hidden = _dongManDataArray.count == 0;
+    _tableView.mj_footer.hidden = _dongManDataArr.count == 0;
     return _dongManDataArray.count;
 
 

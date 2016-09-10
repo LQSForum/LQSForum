@@ -101,7 +101,8 @@
             [weakSelf.discoriesArr addObjectsFromArray:weakSelf.disArr];
         }
         [weakSelf.waterFlowView reloadData];
-        
+        [_waterFlowView.mj_header endRefreshing];
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败");
     }];
