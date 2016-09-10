@@ -41,9 +41,18 @@
     self.markSectionCoutArray = [NSMutableArray array];
     
     self.title = @"选择板块";
+//    返回
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    
+    
     //   创建tableview
     [self createTableView];
     [self reloadData];
+}
+
+- (void)back{
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 - (void)createTableView{

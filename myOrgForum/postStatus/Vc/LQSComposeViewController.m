@@ -188,6 +188,7 @@
  */
 - (void)send
 {
+    [self.textView resignFirstResponder];
     // 1.发表微博
     [self requestOfFaTie];
     
