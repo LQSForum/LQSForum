@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NSTextAttachment (ArticleContent)
+@interface LQSTextAttachment : NSTextAttachment
 
-@property (nonatomic, readwrite, strong) NSString *url;
+@property (nonatomic, readwrite, strong) UIImageView *imageView;
+@property (nonatomic, readwrite, assign) NSRange range;
+
+@end
+
+@interface NSTextAttachment (ArticleContent)
 
 - (void)sd_setImageWithURL:(NSURL *)url completed:(SDWebImageCompletionBlock)completedBlock;
 

@@ -18,5 +18,8 @@
  *  根据图片名返回一张能够自由拉伸的图片
  */
 + (UIImage *)resizedImage:(NSString *)name;
-
+/**
+ * 根据颜色生成图片
+ */
++ (UIImage *)imageWithColor:(UIColor *)color;
 @end
