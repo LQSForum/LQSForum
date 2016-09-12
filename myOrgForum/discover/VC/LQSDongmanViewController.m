@@ -139,6 +139,10 @@
         _picListArr = [NSMutableArray array];
         _picListArr = [LQSShijieDataModel mj_objectArrayWithKeyValuesArray:dict[@"piclist"]];
 //        [_dongManDataArray addObjectsFromArray:_dongManDataArr];
+        
+        if (_dongManDataArray.count <= 0 && _page == 1) {
+            [_dongManDataArray addObjectsFromArray:_dongManDataArr];
+        }
         [_tableView reloadData];
         [_tableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -151,7 +155,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    _tableView.mj_footer.hidden = _dongManDataArray.count == 0;
+    _tableView.mj_footer.hidden = _dongManDataArr.count == 0;
     return _dongManDataArray.count;
 
 

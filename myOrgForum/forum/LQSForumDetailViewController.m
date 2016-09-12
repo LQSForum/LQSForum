@@ -16,6 +16,7 @@
 #import "LQSForumDetailChildCell.h"
 #import "LQSForumDetailOptionViewController.h"
 #import "LQSMoreDataTableViewController.h"
+#import "LQSBBSDetailViewController.h"
 @interface LQSForumDetailViewController ()<LQSForumDetailSectionDelegete,LQSForumDetailOptionDelegate>{
     BOOL   _isShowOption;
     NSMutableDictionary   *_optionDict;
@@ -328,7 +329,11 @@
     if (self.topArray.count != 0 && indexPath.section == 0) {
         if (indexPath.row < 3) {
             //置顶的前三个点击方向  Model:self.topArray[indexPath.row]
-            
+            LQSBBSDetailViewController *detailVc = [LQSBBSDetailViewController new];
+            LQSForumDetailTopModel *model = self.topArray[indexPath.row];
+            detailVc.selectModel.board_id = [NSString stringWithFormat:@"%zd",self.tableHeadView.model.fid];
+            detailVc.selectModel.topicId = [NSString stringWithFormat:@"%zd",model.fid];
+            [self.navigationController pushViewController:detailVc animated:NO];
             return;
         }
         //更多的点击方向
@@ -340,7 +345,11 @@
         return ;
     }
     //下面列表的点击方向  Model:self.mainArray[self.sortBy][indexPath.row];
-    return;
+    LQSBBSDetailViewController *detailVc = [LQSBBSDetailViewController new];
+    LQSForumDetailListModel *model = self.mainArray[self.sortBy][indexPath.row];
+    detailVc.selectModel.board_id = [NSString stringWithFormat:@"%zd",self.tableHeadView.model.fid];
+    detailVc.selectModel.topicId = [NSString stringWithFormat:@"%zd",model.topicId];
+    [self.navigationController pushViewController:detailVc animated:NO];
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

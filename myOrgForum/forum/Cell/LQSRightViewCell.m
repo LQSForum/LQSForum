@@ -20,7 +20,7 @@
 @property (nonatomic, strong) UILabel *contentNum;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIButton *focusBtn;
-
+@property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
 @end
 
 @implementation LQSRightViewCell
@@ -156,14 +156,15 @@
 
 
 - (void)selectedFocusBtn:(UIButton *)sender{
-    sender.selected = !sender.isSelected;
-    self.cellModel.selected = sender.selected;
-    if (self.cellModel.isSelected == YES) {
+    self.cellModel.is_focus = !sender.isSelected;
+    if (self.cellModel.is_focus == 1) {
+        [self changeFocusStateWithFocusString:@"favorite" boardId:self.cellModel.board_id];
         [self.focusBtn setTitle:@"取消" forState:UIControlStateNormal];
         if ([self.delegate respondsToSelector:@selector(rightViewAddFocus:)]) {
             [self.delegate rightViewAddFocus:self];
         }
     }else{
+        [self changeFocusStateWithFocusString:@"delfavorite" boardId:self.cellModel.board_id];
         [self.focusBtn setTitle:@"关注" forState:UIControlStateNormal];
         if ([self.delegate respondsToSelector:@selector(rightViewCancleFocus:)]) {
             [self.delegate rightViewCancleFocus:self];
@@ -173,6 +174,54 @@
     }
     
 }
+
+- (AFHTTPSessionManager *)sessionManager {
+    if (!_sessionManager) {
+        _sessionManager = [AFHTTPSessionManager manager];
+        //        _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
+        //        _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
+        _sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        NSSet *set = [NSSet setWithObjects:@"text/plain", @"text/html", nil];
+        _sessionManager.responseSerializer.acceptableContentTypes = [_sessionManager.responseSerializer.acceptableContentTypes setByAddingObjectsFromSet:set];
+    }
+    return _sessionManager;
+}
+
+- (void)changeFocusStateWithFocusString:(NSString *)focusString boardId:(NSInteger)boardId{
+    
+    NSString *urlString = @"http://forum.longquanzs.org//index.php?r=user/userfavorite";
+    NSDictionary *parameters = @{@"accessSecret":@"f24c29a8120733daf65db8635f049",
+                                 @"accessToken":@"9681504c5bd171bdc02c2f66a4dee",
+                                 @"forumKey":@"BW0L5ISVRsOTVLCTJx",
+                                 @"sdkVersion":@"2.4.3.0",
+                                 @"apphash":@"8f34970d",
+                                 @"idType":@"fid",
+                                 @"action":focusString,
+                                 @"id":@(boardId)
+                                 };
+    
+    [self.sessionManager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSData *data = responseObject;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+        
+        //        NSString *p = @"/Users/yuhan/Desktop/plist";
+        //        NSString *path = [p stringByAppendingPathComponent:@"forum.plist"];
+        //        [dict writeToFile:path atomically:YES];
+        LQSLog(@"%@",dict);
+        //        LQSLog(@"%s", __FUNCTION__);
+        
+    }failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //        [self.mj_header endRefreshing];
+        NSLog(@"error%@",error);
+        
+    }];
+    
+    
+}
+
+
 
 - (NSMutableArray *)addFocusArrayBoardID{
     if (_addFocusArrayBoardID == nil) {

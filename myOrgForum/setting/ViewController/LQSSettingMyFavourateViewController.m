@@ -86,8 +86,12 @@
         }else{
             weakSelf.shouchangArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         }
+        if (weakSelf.shouchangArray.count <= 0 && weakSelf.page == 1) {
+            [weakSelf.shouchangArray addObjectsFromArray:weakSelf.shouchangArr];
+        }
         [_tableView reloadData];
-        
+        [_tableView.mj_header endRefreshing];
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"favirate------failure");
         [_tableView.mj_header endRefreshing];
@@ -161,7 +165,7 @@
 #pragma mark - 数据源方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    tableView.mj_footer.hidden = self.shouchangArray.count == 0;
+    tableView.mj_footer.hidden = self.shouchangArr.count == 0;
     
     return self.shouchangArray.count;
 }
@@ -188,6 +192,7 @@
     LQSCishanListModel *model = [_shouchangArray objectAtIndex:indexPath.row];
     DetailVc.selectModel.board_id = model.board_id;
     DetailVc.selectModel.topicId = model.source_id;
+    
     [self.navigationController pushViewController:DetailVc animated:NO];
     
     

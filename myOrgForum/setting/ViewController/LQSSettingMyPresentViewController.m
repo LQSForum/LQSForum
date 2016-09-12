@@ -86,8 +86,12 @@
         }else{
             weakSelf.fabiaoArr = [LQSCishanListModel mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         }
+        if (weakSelf.fabiaoArray.count <= 0 && weakSelf.page == 1) {
+            [weakSelf.fabiaoArray addObjectsFromArray:weakSelf.fabiaoArr];
+        }
         [_tableView reloadData];
-        
+        [_tableView.mj_header endRefreshing];
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"favirate------failure");
         [_tableView.mj_header endRefreshing];
@@ -161,7 +165,7 @@
 #pragma mark - 数据源方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    tableView.mj_footer.hidden = self.fabiaoArray.count == 0;
+    tableView.mj_footer.hidden = self.fabiaoArr.count == 0;
     
     return self.fabiaoArray.count;
 }
