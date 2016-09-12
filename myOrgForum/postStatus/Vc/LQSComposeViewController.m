@@ -72,7 +72,7 @@
     LQSComposePhotosView *photosView = [[LQSComposePhotosView alloc] init];
     photosView.width = self.textView.width;
     photosView.height = self.textView.height;
-    photosView.y = 70;
+    photosView.y = 100;
     [self.textView addSubview:photosView];
     self.photosView = photosView;
     photosView.delegate = self;
