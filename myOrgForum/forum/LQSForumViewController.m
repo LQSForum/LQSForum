@@ -15,8 +15,9 @@
 #import "LQSSectionModel.h"
 #import "LQSCellModel.h"
 #import "YYModel.h"
+#import "LQSLatestMarrowTableView.h"
 
-@interface LQSForumViewController ()<LQSMainViewDelegate>
+@interface LQSForumViewController ()<LQSMainViewDelegate,LQSLatestMarrowTableViewDelegate>
 
 @property (nonatomic, strong) UIView *bgView;//三个主题导航条背景
 @property (nonatomic, weak) UIView *sliderbarView;//滑动条
@@ -45,10 +46,16 @@
     mainView.idelegate = self;
     [self.view addSubview:mainView];
     self.mainView = mainView;
-    
+    self.mainView.latestView.idelegate = self;
+    self.mainView.marrowView.idelegate = self;
     [self loadTopView];
     
 }
+
+- (void)latestMarrowTableView:(LQSLatestMarrowTableView *)latestMarrowTableView detailVc:(LQSBBSDetailViewController *)dvc{
+    [self.navigationController pushViewController:dvc animated:NO];
+}
+
 
 
 - (void)loadTopView{

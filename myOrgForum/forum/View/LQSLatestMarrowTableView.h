@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class LQSLatestMarrowTableView,LQSBBSDetailViewController;
+@protocol LQSLatestMarrowTableViewDelegate <NSObject>
+
+- (void)latestMarrowTableView:(LQSLatestMarrowTableView *)latestMarrowTableView detailVc:(LQSBBSDetailViewController *)dvc;
+
+@end
 
 @interface LQSLatestMarrowTableView : UITableView
 @property (nonatomic, strong) NSString *sortby;
+@property (nonatomic, weak) id<LQSLatestMarrowTableViewDelegate> idelegate;
 @end

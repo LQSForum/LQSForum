@@ -11,7 +11,6 @@
 #import "Masonry.h"
 #import "LQSLeftTableView.h"
 #import "LQSRightTableView.h"
-#import "LQSLatestMarrowTableView.h"
 #import "LQSCellModel.h"
 #define LQSMainCell @"LQSMainViewCell"
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -21,8 +20,6 @@
 
 @property (nonatomic,strong) LQSLeftTableView *leftView;//我的关注左侧页面
 @property (nonatomic,strong) LQSRightTableView *rightView;//我的关注右侧页面
-@property (nonatomic, strong) LQSLatestMarrowTableView *latestView;//最新页面
-@property (nonatomic, strong) LQSLatestMarrowTableView *marrowView;//精华页面
 @property (nonatomic, strong) NSMutableArray *focusData;//默认显示的右侧视图数据
 @property (nonatomic, strong) NSMutableArray *allData;
 

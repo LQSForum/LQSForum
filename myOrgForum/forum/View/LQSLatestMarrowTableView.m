@@ -73,6 +73,19 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    LQSBBSDetailViewController *detailVc = [LQSBBSDetailViewController new];
+    LQSLastestMarrowModel *model = self.arrm[indexPath.row];
+    detailVc.selectModel.board_id = [NSString stringWithFormat:@"%zd",model.board_id];
+    detailVc.selectModel.topicId = [NSString stringWithFormat:@"%zd",model.topic_id];
+    if ([self.idelegate respondsToSelector:@selector(latestMarrowTableView:detailVc:)]) {
+        [self.idelegate latestMarrowTableView:self detailVc:detailVc];
+    }
+    
+    
+}
+
+
 - (void)setupRefresh {
     self.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
                                                                 refreshingAction:@selector(loadServerDataWithSortby:pageNum:)];

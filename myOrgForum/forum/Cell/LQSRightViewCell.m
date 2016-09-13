@@ -160,12 +160,14 @@
     if (self.cellModel.is_focus == 1) {
         [self changeFocusStateWithFocusString:@"favorite" boardId:self.cellModel.board_id];
         [self.focusBtn setTitle:@"取消" forState:UIControlStateNormal];
+        [kAppDelegate showHUDMessage:@"关注成功!" hideDelay:1.0];
         if ([self.delegate respondsToSelector:@selector(rightViewAddFocus:)]) {
             [self.delegate rightViewAddFocus:self];
         }
     }else{
         [self changeFocusStateWithFocusString:@"delfavorite" boardId:self.cellModel.board_id];
         [self.focusBtn setTitle:@"关注" forState:UIControlStateNormal];
+        [kAppDelegate showHUDMessage:@"取消关注成功!" hideDelay:1.0];
         if ([self.delegate respondsToSelector:@selector(rightViewCancleFocus:)]) {
             [self.delegate rightViewCancleFocus:self];
             
@@ -190,7 +192,7 @@
 
 - (void)changeFocusStateWithFocusString:(NSString *)focusString boardId:(NSInteger)boardId{
     
-    NSString *urlString = @"http://forum.longquanzs.org//index.php?r=user/userfavorite";
+    NSString *urlString = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=user/userfavorite";
     NSDictionary *parameters = @{@"accessSecret":@"f24c29a8120733daf65db8635f049",
                                  @"accessToken":@"9681504c5bd171bdc02c2f66a4dee",
                                  @"forumKey":@"BW0L5ISVRsOTVLCTJx",
@@ -200,7 +202,6 @@
                                  @"action":focusString,
                                  @"id":@(boardId)
                                  };
-    
     [self.sessionManager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSData *data = responseObject;
