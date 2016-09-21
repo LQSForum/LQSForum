@@ -9,6 +9,7 @@
 #import "LQSRightViewCell.h"
 #import "Masonry.h"
 #import "UIImageView+WebCache.h"
+#import "LQSUserManager.h"
 #define LQSForumTextSize 14
 
 @interface LQSRightViewCell ()
@@ -157,23 +158,34 @@
 
 - (void)selectedFocusBtn:(UIButton *)sender{
     self.cellModel.is_focus = !sender.isSelected;
-    if (self.cellModel.is_focus == 1) {
-        [self changeFocusStateWithFocusString:@"favorite" boardId:self.cellModel.board_id];
-        [self.focusBtn setTitle:@"取消" forState:UIControlStateNormal];
-        [kAppDelegate showHUDMessage:@"关注成功!" hideDelay:1.0];
-        if ([self.delegate respondsToSelector:@selector(rightViewAddFocus:)]) {
-            [self.delegate rightViewAddFocus:self];
-        }
-    }else{
-        [self changeFocusStateWithFocusString:@"delfavorite" boardId:self.cellModel.board_id];
-        [self.focusBtn setTitle:@"关注" forState:UIControlStateNormal];
-        [kAppDelegate showHUDMessage:@"取消关注成功!" hideDelay:1.0];
-        if ([self.delegate respondsToSelector:@selector(rightViewCancleFocus:)]) {
-            [self.delegate rightViewCancleFocus:self];
+//    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+//    NSString *state = [user objectForKey:@"userLoginState"];
+//    NSLog(@"%@",state);
+//    if ([state isEqualToString:@"FALSE"]) {
+//        
+//        LQLoginViewController *loginVc = [LQLoginViewController new];
+//        LQSNavigationController *navVC = [[LQSNavigationController alloc] initWithRootViewController:loginVc];
+//        [[NSNotificationCenter defaultCenter]postNotificationName:@"loginVC" object:navVC];
+//    }else{
+    
+        if (self.cellModel.is_focus == 1) {
+            [self changeFocusStateWithFocusString:@"favorite" boardId:self.cellModel.board_id];
+            [self.focusBtn setTitle:@"取消" forState:UIControlStateNormal];
+            [kAppDelegate showHUDMessage:@"关注成功!" hideDelay:1.0];
+            if ([self.delegate respondsToSelector:@selector(rightViewAddFocus:)]) {
+                [self.delegate rightViewAddFocus:self];
+            }
+        }else{
+            [self changeFocusStateWithFocusString:@"delfavorite" boardId:self.cellModel.board_id];
+            [self.focusBtn setTitle:@"关注" forState:UIControlStateNormal];
+            [kAppDelegate showHUDMessage:@"取消关注成功!" hideDelay:1.0];
+            if ([self.delegate respondsToSelector:@selector(rightViewCancleFocus:)]) {
+                [self.delegate rightViewCancleFocus:self];
+                
+            }
             
         }
-        
-    }
+//    }
     
 }
 

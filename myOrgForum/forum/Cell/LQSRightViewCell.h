@@ -14,6 +14,7 @@
 - (void)rightViewAddFocus:(LQSRightViewCell *)rightViewCell;
 - (void)rightViewCancleFocus:(LQSRightViewCell *)rightViewCell;
 
+
 @end
 @interface LQSRightViewCell : UITableViewCell
 

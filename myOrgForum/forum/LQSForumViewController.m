@@ -48,8 +48,13 @@
     self.mainView = mainView;
     self.mainView.latestView.idelegate = self;
     self.mainView.marrowView.idelegate = self;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(skipLoginVC:) name:@"loginVC" object:nil];
     [self loadTopView];
     
+}
+
+- (void)skipLoginVC:(NSNotification *)notification{
+    [self presentViewController:notification.object animated:YES completion:nil];
 }
 
 - (void)latestMarrowTableView:(LQSLatestMarrowTableView *)latestMarrowTableView detailVc:(LQSBBSDetailViewController *)dvc{
@@ -149,6 +154,10 @@
         self.sliderbarView.center = center;
     }];
     
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 
