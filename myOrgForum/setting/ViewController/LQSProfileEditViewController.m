@@ -68,10 +68,13 @@
         NSLog(@"sucess");
         
         _dataArr = responseObject[@"list"];
+        //获取返回的数据模型
+        for (LQSProfileEditDetailDataModel *model in _dataArr) {
+            
+        }
         
-        
-        NSInteger k;
-        for (NSDictionary *dict in _dataArr) {
+       // NSInteger k;
+        /*for (NSDictionary *dict in _dataArr) {
             _fieldAtaArr = dict[@"field"];
             k = _fieldAtaArr.count;
             [_countArr addObject:[NSString stringWithFormat:@"%lu",k]];
@@ -88,7 +91,7 @@
                 [_nowSetArr addObject:_detailModel.nowSet];
 
             }
-        }
+        }*/
         
         
         

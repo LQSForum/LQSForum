@@ -238,6 +238,7 @@
 		149364A91D76D2B200517A99 /* LQSArticleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSArticleContentView.m; path = introduce/introduceView/LQSArticleContentView.m; sourceTree = "<group>"; };
 		149364AB1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTextAttachment+ArticleContent.h"; path = "categories/NSTextAttachment+ArticleContent.h"; sourceTree = "<group>"; };
 		149364AC1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTextAttachment+ArticleContent.m"; path = "categories/NSTextAttachment+ArticleContent.m"; sourceTree = "<group>"; };
+		2C056CC31D92FEF0000A740F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		2CA7813C1D4388DE00D35288 /* myOrgForum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = myOrgForum.entitlements; sourceTree = "<group>"; };
 		2CA781521D446A8000D35288 /* APIS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIS.h; sourceTree = "<group>"; };
 		2CB084B11D6029F900167F4D /* NSDate+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+MJ.h"; path = "categories/NSDate+MJ.h"; sourceTree = "<group>"; };
@@ -853,6 +854,7 @@
 		415C55461CC8CCEE00408B90 = {
 			isa = PBXGroup;
 			children = (
+				2C056CC31D92FEF0000A740F /* Header.h */,
 				417269BD1D704CA1000AC13B /* setting_profile_bgWall.jpg */,
 				415C55511CC8CCEE00408B90 /* myOrgForum */,
 				415C556B1CC8CCEE00408B90 /* myOrgForumTests */,
@@ -1945,7 +1947,7 @@
 					"-framework",
 					Reveal,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForums.app;
+				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForum.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1997,7 +1999,7 @@
 					"-framework",
 					Reveal,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForums.app;
+				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForum.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2010,7 +2012,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = myOrgForumTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForums.app;
+				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForum.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myOrgForum.app/myOrgForum";
 			};
@@ -2023,7 +2025,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = myOrgForumTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForums.app;
+				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForum.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myOrgForum.app/myOrgForum";
 			};
@@ -2035,7 +2037,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = myOrgForumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForums.app;
+				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForum.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = myOrgForum;
 			};
@@ -2047,7 +2049,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = myOrgForumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForums.app;
+				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForum.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = myOrgForum;
 			};

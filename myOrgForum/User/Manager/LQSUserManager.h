@@ -50,18 +50,17 @@ extern NSString * const KLQSLoginFailedNotification;
 
 
 //zss
-+ (BOOL)isLoging;
++ (BOOL)isLoging;//判断是否登陆
 
 + (instancetype)userManager;
 
-+ (LQSUserInfo *)user;
++ (LQSUserInfo *)user;//用户模型
 
-+ (NSDictionary *)userDict;
++ (NSDictionary *)userDict;//存放用户信息字典
 
-+ (LQSUserInfo *)userWithDict:(NSDictionary *)dict;
++ (LQSUserInfo *)userWithDict:(NSDictionary *)dict;//存放用户信息的字典
 
-
-+ (void)clearUser;
++ (void)clearUser;//清空用户信息
 
 
 -(void) clearAccessInfo;

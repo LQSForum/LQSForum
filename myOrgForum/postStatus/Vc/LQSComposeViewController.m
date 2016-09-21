@@ -187,9 +187,20 @@
  *  发送
  */
 - (void)send
-{
+{//
     [self.textView resignFirstResponder];
-    // 1.发表微博
+    // 1.发表微博（先上传图片成功后调用发帖接口）
+    //判断发送条件，有蚊子内容，选择板块
+    if (self.textView.text.length <= 0) {
+        [kAppDelegate showHUDMessage:@"请输入发帖内容" hideDelay:2];
+        return;
+    }
+    if ([self.title isEqualToString:@"聚焦龙泉"]) {
+        [kAppDelegate showHUDMessage:@"请输入板块名称" hideDelay:2];
+        return;
+    }
+    //上传图片
+    //
     [self requestOfFaTie];
     
 }

@@ -102,6 +102,7 @@
     
     
 }
+
 //返回按钮
 -(void)backHistory
 {
@@ -199,11 +200,13 @@
         
         if (errCodeString !=nil &&  [errCodeString isEqualToString:@"00000000"]) {
             NSLog(@"aaadddd");
+            [LQSUserManager user] ;
             //将当前的用户名和密码保存起来
+            [LQSUserManager userWithDict:dic];//存储用户信息
             NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
             [user setObject:inputUserName forKey:@"userName"];
             [user setObject:inputPSW forKey:@"userPassWord"];
-            [user setObject:@"TRUE" forKey:@"userLoginState"];
+            //[user setObject:@"TRUE" forKey:@"userLoginState"];
             UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:nil
                                                               message:@"登录成功"
                                                              delegate:self
@@ -489,7 +492,7 @@
 {
     if(100==alertView.tag)
     {
-        //如果弹出提示成功
+        //如果弹出提示成功弹出发帖页面应该不在这里处理（zss）
         //        LQSComposeViewController *vc = [[LQSComposeViewController alloc] init];
         //        LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:vc];
         //        [self presentViewController:navVc animated:YES completion:nil];
