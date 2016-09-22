@@ -20,9 +20,12 @@
     NSMutableArray *_userProfileArray;
     LQSProfileEditDataModel *_editModel;
     NSMutableArray *_dataArr;
-    NSMutableArray *_fieldAtaArr;
-    NSMutableArray *_nameArr;
-    NSMutableArray *_nowSetArr;
+    NSMutableArray *_fieldAtaArr;//默认信息
+    NSMutableArray *_contactArr;//联系信息
+    NSMutableArray *_educateArr;//教育信息
+    NSMutableArray *_workArr;//工作信息
+    NSMutableArray *_personalArr;//个人信息
+
     LQSProfileEditDetailDataModel *_detailModel;
     NSMutableArray *_countArr;
 }
@@ -37,10 +40,18 @@
     _userProfileArr = [NSMutableArray array];
     _userProfileArray = [NSMutableArray array];
     _dataArr = [NSMutableArray array];
-    _fieldAtaArr = [NSMutableArray array];
-    _nameArr = [NSMutableArray array];
-    _nowSetArr = [NSMutableArray array];
+    _fieldAtaArr = [NSMutableArray array];//defautlt组
+    _contactArr = [NSMutableArray array];
+    _educateArr = [NSMutableArray array];
+    _workArr = [NSMutableArray array];
+    _personalArr = [NSMutableArray array];
+    
+    
+    
+    
+    
     _countArr = [NSMutableArray array];
+    
 [self requestData];
     self.title = @"编辑";
     self.view.backgroundColor = [UIColor cyanColor];
@@ -66,34 +77,32 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager POST:baseStr parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"sucess");
-        
         _dataArr = responseObject[@"list"];
         //获取返回的数据模型
-        for (LQSProfileEditDetailDataModel *model in _dataArr) {
-            
-        }
-        
-       // NSInteger k;
-        /*for (NSDictionary *dict in _dataArr) {
-            _fieldAtaArr = dict[@"field"];
-            k = _fieldAtaArr.count;
-            [_countArr addObject:[NSString stringWithFormat:@"%lu",k]];
-            for (NSDictionary *dicts in _fieldAtaArr) {
-                _detailModel.fieldid = dicts[@"fieldid"];
-                _detailModel.required = dicts[@"required"];
-                _detailModel.unchangeable = dicts[@"unchangeable"];
-//                _detailModel.description = dict[@"description"];
-                _detailModel.type = dicts[@"type"];
-                _detailModel.size = dicts[@"size"];
-                _detailModel.nowSet = dicts[@"nowSet"];
-                _detailModel.name = dicts[@"name"];
-                [_nameArr addObject:_detailModel.name];
-                [_nowSetArr addObject:_detailModel.nowSet];
-
+        for (NSDictionary *dict in _dataArr) {
+        if ([[dict objectForKey:@"name"] isEqualToString:@"default"]) {
+                //获取name是default的的分组的cell的数据模型数组
+            _fieldAtaArr = [LQSProfileEditDetailDataModel mj_objectArrayWithKeyValuesArray:dict[@"field"]];
             }
-        }*/
-        
-        
+            if ([[dict objectForKey:@"name"] isEqualToString:@"联系方式"]) {
+                //获取name是default的的分组的cell的数据模型数组
+                _contactArr = [LQSProfileEditDetailDataModel mj_objectArrayWithKeyValuesArray:dict[@"field"]];
+            }
+            
+            if ([[dict objectForKey:@"name"] isEqualToString:@"教育情况"]) {
+                //获取name是default的的分组的cell的数据模型数组
+                _educateArr = [LQSProfileEditDetailDataModel mj_objectArrayWithKeyValuesArray:dict[@"field"]];
+            }
+            if ([[dict objectForKey:@"name"] isEqualToString:@"工作情况"]) {
+                //获取name是default的的分组的cell的数据模型数组
+                _workArr = [LQSProfileEditDetailDataModel mj_objectArrayWithKeyValuesArray:dict[@"field"]];
+            }
+            
+            if ([[dict objectForKey:@"name"] isEqualToString:@"个人信息"]) {
+                //获取name是default的的分组的cell的数据模型数组
+                _personalArr = [LQSProfileEditDetailDataModel mj_objectArrayWithKeyValuesArray:dict[@"field"]];
+            }
+        }
         
         LQSLog(@"success_____");
         [_tableView reloadData];
@@ -152,23 +161,20 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    if (section == 0) {
-        return 2;
-    }else if (section == 1){
-        
-        return 3;
-    }else if (section == 2){
-        return 2;
-    }else if (section == 3){
-        return 2;
-    }else{
-        
-        return 4;
-        
+{//获取数组里面相应组的里面的字典对应field字典数组的个数
+    NSUInteger sectionCount;
+    if ([[_dataArr[section] objectForKey:@"name"] isEqualToString:@"default"]) {
+        sectionCount = _fieldAtaArr.count;
+    }else if ([[_dataArr[section] objectForKey:@"name"] isEqualToString:@"联系方式"]){
+        sectionCount = _contactArr.count;
+    }else if ([[_dataArr[section] objectForKey:@"name"] isEqualToString:@"教育情况"]){
+        sectionCount = _educateArr.count;
+    }else if ([[_dataArr[section] objectForKey:@"name"] isEqualToString:@"工作情况"]){
+        sectionCount = _workArr.count;
+    }else if ([[_dataArr[section] objectForKey:@"name"] isEqualToString:@"个人信息"]){
+        sectionCount = _personalArr.count;
     }
-    
+    return sectionCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -185,37 +191,48 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        cell.textLabel.text = [_nameArr objectAtIndex:0];
-        //        创建头像imageView
-        UIImageView *imagView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth - 30 - 70, 5, 70, 70)];
-        imagView.layer.cornerRadius = 35;
-        NSString *imagName = [_nowSetArr objectAtIndex:0];
-        [imagView sd_setImageWithURL:[NSURL URLWithString:imagName]  placeholderImage:nil ];//接口上传头像
-        imagView.backgroundColor = [UIColor greenColor];
-        cell.contentView.backgroundColor = [UIColor blueColor];
-        [cell.contentView addSubview:imagView];
-    }else if (indexPath.section == 0 && indexPath.row == 1){
-        cell.textLabel.text = [_nameArr objectAtIndex:1];
-        cell.detailTextLabel.text = [_nowSetArr objectAtIndex:1];
-    }else if (indexPath.section == 1){//二组
-        cell.textLabel.text = [_nameArr objectAtIndex:2 + indexPath.row];
-        cell.detailTextLabel.text = [_nowSetArr objectAtIndex:2 + indexPath.row];
-
-    }else if (indexPath.section == 2){//三组
-        if (indexPath.row == 5) {
-            cell.textLabel.text = [_nameArr objectAtIndex:5];
-            cell.detailTextLabel.text = [_nowSetArr objectAtIndex:5];
+//    说明是第一组
+    if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"default"]) {
+        LQSProfileEditDetailDataModel *detailModel = _fieldAtaArr[indexPath.row];
+//        获取第一组的详情模型
+        if (indexPath.row == 0) {//如果是第一组的第一行
+            cell.textLabel.text = detailModel.name;
+            //        创建头像imageView
+            UIImageView *imagView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth - 30 - 70, 5, 70, 70)];
+            imagView.layer.cornerRadius = 35;
+            NSString *imagName = detailModel.nowSet;
+            [imagView sd_setImageWithURL:[NSURL URLWithString:imagName]  placeholderImage:nil ];//接口上传头像
+            imagView.backgroundColor = [UIColor greenColor];
+            cell.contentView.backgroundColor = [UIColor blueColor];
+            [cell.contentView addSubview:imagView];
+        }else{
+            cell.textLabel.text = detailModel.name;
+            cell.detailTextLabel.text = detailModel.nowSet;
         }
-        
-    }else if (indexPath.section == 3){//四组
-        cell.textLabel.text = [_nameArr objectAtIndex:7 + indexPath.row];
-        cell.detailTextLabel.text = [_nowSetArr objectAtIndex:7 + indexPath.row];
-        
-    }else if (indexPath.section == 4 && indexPath.row == 9 ){//五组
-        cell.textLabel.text = [_nameArr objectAtIndex:9 ];
-        cell.detailTextLabel.text = [_nowSetArr objectAtIndex:9];
-        
+    }
+    
+    if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"联系方式"]) {
+        //获取第二组的每一行
+        LQSProfileEditDetailDataModel *detailModel = _contactArr[indexPath.row];
+        cell.textLabel.text = detailModel.name;
+        cell.detailTextLabel.text = detailModel.nowSet;
+    }if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"教育情况"]) {
+        //获取第二组的每一行
+        LQSProfileEditDetailDataModel *detailModel = _educateArr[indexPath.row];
+        cell.textLabel.text = detailModel.name;
+        cell.detailTextLabel.text = detailModel.nowSet;
+    }
+    if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"工作情况"]) {
+        //获取第二组的每一行
+        LQSProfileEditDetailDataModel *detailModel = _workArr[indexPath.row];
+        cell.textLabel.text = detailModel.name;
+        cell.detailTextLabel.text = detailModel.nowSet;
+    }
+    if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"个人信息"]) {
+        //获取第二组的每一行
+        LQSProfileEditDetailDataModel *detailModel = _personalArr[indexPath.row];
+        cell.textLabel.text = detailModel.name;
+        cell.detailTextLabel.text = detailModel.nowSet;
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
@@ -223,41 +240,32 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        if (_avarSheet) {
-            [_avarSheet removeFromSuperview];
-            _avarSheet = nil;
+    if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"default"]) {//第一组条件下判断第一行
+        if (indexPath.row == 0) {
+            if (_avarSheet) {
+                [_avarSheet removeFromSuperview];
+                _avarSheet = nil;
+            }
+            _avarSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从手机相册选择", nil];
+            _avarSheet.tag = kavarTag;
+            [_avarSheet showInView:self.view];
         }
-        _avarSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从手机相册选择", nil];
-        _avarSheet.tag = kavarTag;
-        [_avarSheet showInView:self.view];
-    }else if (indexPath.section == 2 && indexPath.row == 1){
-        //    选择学历
-        if (_xueliSheet) {
-            [_xueliSheet removeFromSuperview];
-            _xueliSheet = nil;
+        if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"教育情况"]) {//第二组条件下判断第二行
+//            获取当前组所在的详情模型
+            LQSProfileEditDetailDataModel *detailModel = _educateArr[indexPath.row];
+            if ([detailModel.name isEqualToString:@"学历"]) {
+                //    选择学历
+                if (_xueliSheet) {
+                    [_xueliSheet removeFromSuperview];
+                    _xueliSheet = nil;
+                }
+                _xueliSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"其他",@"小学",@"中学",@"专科",@"本科",@"硕士",@"博士", nil];
+                _xueliSheet.tag = kxueliTag;
+                [_xueliSheet showInView:self.view];
+            }
         }
-        _xueliSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"其他",@"小学",@"中学",@"专科",@"本科",@"硕士",@"博士", nil];
-        _xueliSheet.tag = kxueliTag;
-        [_xueliSheet showInView:self.view];
-    }else if (indexPath.section == 4 && indexPath.row == 1){
-        //    性别选择
-        if (_xingbieSheet) {
-            [_xingbieSheet removeFromSuperview];
-            _xingbieSheet = nil;
-        }
-        
-        _xingbieSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"男",@"女",@"保密", nil];
-        _xingbieSheet.tag = kxingbieTag;
-        [_xingbieSheet showInView:self.view];
-        
     }
-    
-    
-    
-    
 }
-
 #pragma mark ActionSheetDelegate&datasource
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

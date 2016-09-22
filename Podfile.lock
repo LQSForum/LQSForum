@@ -30,7 +30,7 @@ PODS:
   - FoundationExtension/UIKitExtension (1.2.4):
     - cdebug (~> 1.0)
     - FoundationExtension/FoundationExtension
-  - Masonry (1.0.1)
+  - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJExtension (3.0.13)
   - MJPhotoBrowser (1.0.2):
@@ -38,9 +38,9 @@ PODS:
     - SVProgressHUD
     - YLGIFImage
   - MJRefresh (3.1.12)
-  - SDWebImage (3.8.1):
-    - SDWebImage/Core (= 3.8.1)
-  - SDWebImage/Core (3.8.1)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - SVProgressHUD (2.0.3)
   - YLGIFImage (0.11)
 
@@ -60,15 +60,15 @@ SPEC CHECKSUMS:
   cdebug: 5c96a55c303a3705afc5babbde8e054fdd9f8511
   FDStackView: 3a4bbe0ce9c35e974246a585168b9da8c32213f1
   FoundationExtension: 09439c8a1d1cd7b33b54bda3581ebfff9cc1bafa
-  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJPhotoBrowser: f55e8490231f44a78ca6455105a1c798a142c95f
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   YLGIFImage: c0ae132fe80e5282b2762a97d14e23ba71a748ae
 
 PODFILE CHECKSUM: 6311aa9ef6d513d9161220f0b338729df0f4c903
 
-COCOAPODS: 1.1.0.beta.1
+COCOAPODS: 1.0.1

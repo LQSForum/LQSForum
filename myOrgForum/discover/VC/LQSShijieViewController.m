@@ -87,7 +87,7 @@
         NSLog(@"请求成功");
         
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];//[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-        NSLog(@"返回数据：%@",dict);
+        //NSLog(@"返回数据：%@",dict);
         if (weakSelf.disArr.count > 0) {
             [weakSelf.disArr removeAllObjects];
         }else{

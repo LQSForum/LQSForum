@@ -73,7 +73,7 @@
     [session POST:loginUrlStr parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"请求成功");
         NSDictionary *resultDic = [NSDictionary dictionaryWithDictionary:responseObject];
-        NSLog(@"请求数据：%@",resultDic);
+        //NSLog(@"请求数据：%@",resultDic);
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface LQSProfileEditDataModel : NSObject
-@property (nonatomic, strong) NSString *rs;
-@property (nonatomic, strong) NSMutableArray *listModel;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSMutableArray *field;
 
 
 @end

@@ -206,7 +206,7 @@
         NSLog(@"请求成功");
         //        [self cleanData];
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];//[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-        NSLog(@"返回数据：%@",dict);
+       // NSLog(@"返回数据：%@",dict);
         [self getBBSDetailModelFrom:dict];
         [self creatTableViewList];
         self.title = self.bbsDetailModel.forumName;
