@@ -7,6 +7,9 @@
 //
 
 #import "LQSHomePagePersonalMessageViewController.h"
+#import "LQSUserManager.h"
+
+
 #define StretchHeaderHeight 200
 @interface LQSHomePagePersonalMessageViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -147,7 +150,7 @@
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     paramDic[@"r"] = @"user/topiclist";
     paramDic[@"pageSize"] = @"20";
-    paramDic[@"uid"] = @"216734";
+    paramDic[@"uid"] = [LQSUserManager user].uid;;
     paramDic[@"egnVersion"] = @"v2035.2";
     paramDic[@"type"] = @"topic";
     paramDic[@"sdkVersion"] = @"2.4.3.0";

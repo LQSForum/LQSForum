@@ -17,7 +17,7 @@ typedef NS_ENUM(NSUInteger, LQSTypeGender) {
 
 @property (strong, nonatomic) NSDictionary *dicData;
 @property (strong, nonatomic) NSString *userName;
-@property (strong, nonatomic) NSNumber *uid;
+@property (copy, nonatomic) NSNumber *uid;
 @property (assign, nonatomic) LQSTypeGender gender;
 @property (strong, nonatomic) NSString *score;
 @property (strong, nonatomic) NSString *avatar;
