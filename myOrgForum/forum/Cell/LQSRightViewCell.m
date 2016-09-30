@@ -158,16 +158,12 @@
 
 - (void)selectedFocusBtn:(UIButton *)sender{
     self.cellModel.is_focus = !sender.isSelected;
-//    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-//    NSString *state = [user objectForKey:@"userLoginState"];
-//    NSLog(@"%@",state);
-//    if ([state isEqualToString:@"FALSE"]) {
-//        
-//        LQLoginViewController *loginVc = [LQLoginViewController new];
-//        LQSNavigationController *navVC = [[LQSNavigationController alloc] initWithRootViewController:loginVc];
-//        [[NSNotificationCenter defaultCenter]postNotificationName:@"loginVC" object:navVC];
-//    }else{
-    
+    if (![LQSUserManager isLoging]) {
+        LQLoginViewController *loginVc = [[LQLoginViewController alloc]init];
+        LQSNavigationController *navVC = [[LQSNavigationController alloc] initWithRootViewController:loginVc];
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"loginVC" object:navVC];
+    }else{
+
         if (self.cellModel.is_focus == 1) {
             [self changeFocusStateWithFocusString:@"favorite" boardId:self.cellModel.board_id];
             [self.focusBtn setTitle:@"取消" forState:UIControlStateNormal];
@@ -183,9 +179,9 @@
                 [self.delegate rightViewCancleFocus:self];
                 
             }
-            
+         }
         }
-//    }
+
     
 }
 

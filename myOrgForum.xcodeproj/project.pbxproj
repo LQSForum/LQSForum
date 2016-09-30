@@ -1937,7 +1937,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForum.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8b046b80-f375-4635-8b5a-bb0baac3cb8b";
+				PROVISIONING_PROFILE = "0b729c36-8a2c-4343-90a6-1f9f00e746c6";
 			};
 			name = Debug;
 		};
@@ -1989,7 +1989,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForum.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8b046b80-f375-4635-8b5a-bb0baac3cb8b";
+				PROVISIONING_PROFILE = "0b729c36-8a2c-4343-90a6-1f9f00e746c6";
 			};
 			name = Release;
 		};
