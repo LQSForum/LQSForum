@@ -1935,9 +1935,9 @@
 					"-framework",
 					Reveal,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForum.app;
+				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0b729c36-8a2c-4343-90a6-1f9f00e746c6";
+				PROVISIONING_PROFILE = "bb3d6642-c76b-4d05-a6d5-740f789ebf26";
 			};
 			name = Debug;
 		};
@@ -1987,9 +1987,9 @@
 					"-framework",
 					Reveal,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForum.app;
+				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0b729c36-8a2c-4343-90a6-1f9f00e746c6";
+				PROVISIONING_PROFILE = "bb3d6642-c76b-4d05-a6d5-740f789ebf26";
 			};
 			name = Release;
 		};
