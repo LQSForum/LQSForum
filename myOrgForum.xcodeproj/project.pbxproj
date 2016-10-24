@@ -1384,10 +1384,10 @@
 				TargetAttributes = {
 					415C554E1CC8CCEE00408B90 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = SCY46TJ5AJ;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1398,7 +1398,8 @@
 					};
 					415C55721CC8CCEE00408B90 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = VKS2SV893P;
+						DevelopmentTeam = SCY46TJ5AJ;
+						ProvisioningStyle = Manual;
 						TestTargetID = 415C554E1CC8CCEE00408B90;
 					};
 				};
@@ -1819,8 +1820,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1842,7 +1843,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "2f645c25-1c64-4082-be49-245c93dc145f";
+				PROVISIONING_PROFILE = "bb3d6642-c76b-4d05-a6d5-740f789ebf26";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1866,8 +1867,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: hang zhou jian jiao Information and Technology Co. Ltd (JC6F2Q2R9X)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: hang zhou jian jiao Information and Technology Co. Ltd (JC6F2Q2R9X)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Media Television Planning Co., Ltd. (SCY46TJ5AJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Media Television Planning Co., Ltd. (SCY46TJ5AJ)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1882,7 +1883,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "2f645c25-1c64-4082-be49-245c93dc145f";
+				PROVISIONING_PROFILE = "bb3d6642-c76b-4d05-a6d5-740f789ebf26";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1895,9 +1896,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
-				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: longquansi.dev@gmail.com (GM63YGGSB2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: longquansi.dev@gmail.com (GM63YGGSB2)";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1937,7 +1938,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bb3d6642-c76b-4d05-a6d5-740f789ebf26";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = LQSProfiles1020;
 			};
 			name = Debug;
 		};
@@ -1947,9 +1949,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
-				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Media Television Planning Co., Ltd. (SCY46TJ5AJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Media Television Planning Co., Ltd. (SCY46TJ5AJ)";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1989,7 +1991,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bb3d6642-c76b-4d05-a6d5-740f789ebf26";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = LQSProfiles1020;
 			};
 			name = Release;
 		};
@@ -2023,10 +2026,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 72F7FCE84BA2B2676C40B54F /* Pods-myOrgForumUITests.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = myOrgForumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForum.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_TARGET_NAME = myOrgForum;
 			};
 			name = Debug;
@@ -2035,10 +2042,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 00FEB73F9DC5773AF24CCEB9 /* Pods-myOrgForumUITests.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = SCY46TJ5AJ;
 				INFOPLIST_FILE = myOrgForumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = temple.LQSForum.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "bb3d6642-c76b-4d05-a6d5-740f789ebf26";
+				PROVISIONING_PROFILE_SPECIFIER = LQS555;
 				TEST_TARGET_NAME = myOrgForum;
 			};
 			name = Release;
