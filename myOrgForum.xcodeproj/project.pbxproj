@@ -358,7 +358,6 @@
 		416AD5961D7FB3E700BCB2E5 /* LQSSelectPlatesDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSelectPlatesDataModel.h; sourceTree = "<group>"; };
 		416AD5971D7FB3E700BCB2E5 /* LQSSelectPlatesDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSelectPlatesDataModel.m; sourceTree = "<group>"; };
 		417269BD1D704CA1000AC13B /* setting_profile_bgWall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = setting_profile_bgWall.jpg; sourceTree = "<group>"; };
-		417487F81CE99C0500B5E26C /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		417F34C01CC9F6BC00F9714F /* LQSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAppDelegate.h; sourceTree = "<group>"; };
 		417F34C11CC9F6BC00F9714F /* LQSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAppDelegate.m; sourceTree = "<group>"; };
 		417F34C31CCA017B00F9714F /* LQSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LQSPrefixHeader.pch; sourceTree = "<group>"; };
@@ -1183,7 +1182,6 @@
 		D2FF60D40CEE75621BCC406D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				417487F81CE99C0500B5E26C /* Reveal.framework */,
 				7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */,
 				EC19ADA87E03C1ABA83791ED /* libPods-myOrgForumTests.a */,
 				A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */,
@@ -1384,6 +1382,7 @@
 				TargetAttributes = {
 					415C554E1CC8CCEE00408B90 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = SCY46TJ5AJ;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -1897,8 +1896,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
 				CODE_SIGN_IDENTITY = "iPhone Developer: longquansi.dev@gmail.com (GM63YGGSB2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: longquansi.dev@gmail.com (GM63YGGSB2)";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = SCY46TJ5AJ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1933,12 +1932,10 @@
 					"\"UIKit\"",
 					"-ObjC",
 					"-lz",
-					"-framework",
-					Reveal,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "26230b51-08c7-4d65-b875-c3a8a406807d";
 				PROVISIONING_PROFILE_SPECIFIER = LQSProfiles1020;
 			};
 			name = Debug;
@@ -1950,8 +1947,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Media Television Planning Co., Ltd. (SCY46TJ5AJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Media Television Planning Co., Ltd. (SCY46TJ5AJ)";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = SCY46TJ5AJ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1986,12 +1983,10 @@
 					"\"UIKit\"",
 					"-ObjC",
 					"-lz",
-					"-framework",
-					Reveal,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "26230b51-08c7-4d65-b875-c3a8a406807d";
 				PROVISIONING_PROFILE_SPECIFIER = LQSProfiles1020;
 			};
 			name = Release;
