@@ -24,7 +24,7 @@ static NSMutableArray *_recentEmotions;
 + (NSArray *)defaultEmotions
 {
     if (!_defaultEmotions) {
-        NSString *plist = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/Info.plist" ofType:nil];
+        NSString *plist = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/Emo.plist" ofType:nil];
         _defaultEmotions = [LQSEmotion objectArrayWithFile:plist];//goback
         [_defaultEmotions makeObjectsPerformSelector:@selector(setDirectory:) withObject:@"EmotionIcons/default"];
     }
@@ -34,7 +34,7 @@ static NSMutableArray *_recentEmotions;
 + (NSArray *)emojiEmotions
 {
     if (!_emojiEmotions) {
-        NSString *plist = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/Info.plist" ofType:nil];
+        NSString *plist = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/Emo.plist" ofType:nil];
         _emojiEmotions = [LQSEmotion objectArrayWithFile:plist];//goback
         [_emojiEmotions makeObjectsPerformSelector:@selector(setDirectory:) withObject:@"EmotionIcons/emoji"];
     }
@@ -44,7 +44,7 @@ static NSMutableArray *_recentEmotions;
 + (NSArray *)lxhEmotions
 {
     if (!_lxhEmotions) {
-        NSString *plist = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/Info.plist" ofType:nil];
+        NSString *plist = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/Emo.plist" ofType:nil];
         _lxhEmotions = [LQSEmotion objectArrayWithFile:plist];//goback
         [_lxhEmotions makeObjectsPerformSelector:@selector(setDirectory:) withObject:@"EmotionIcons/lxh"];
     }

@@ -85,7 +85,9 @@
         NSLog(@"请求成功");
         [self cleanData];
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];//[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-        //NSLog(@"返回数据：%@",dict);
+//        NSLog(@"返回数据：%@",dict);
+
+
         [self getDataModelFor:dict];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -103,13 +105,14 @@
     [self.btnDataArrB  removeAllObjects];
     self.DHSKSDataE = nil;
 }
+
 - (void)getDataModelFor:(NSDictionary *)dataDic
 {
     NSMutableArray *yChengData = nil;
     if (dataDic[@"body"][@"module"][@"componentList"]) {
        yChengData = dataDic[@"body"][@"module"][@"componentList"];
     }
-    if (yChengData.count >= 6) {
+    if (yChengData.count >= 5) {
         //轮播数据
         NSArray *arr = [yChengData objectAtIndex: 0][@"componentList"];
         
@@ -153,20 +156,22 @@
             bModel.id = LQSTR(sChengData[@"id"]);
             [self.btnDataArrB addObject:bModel];
         }
+        
         //龙泉闻思修
-        NSDictionary *eChengDataDic;
-        eChengDataDic = yChengData[2][@"componentList"][0][@"componentList"][0];
-        if (eChengDataDic) {
-            self.LQWSXDataC.px = LQSTR(eChengDataDic[@"px"]);
-            self.LQWSXDataC.type = LQSTR(eChengDataDic[@"type"]);
-            self.LQWSXDataC.icon = LQSTR(eChengDataDic[@"icon"]);
-            self.LQWSXDataC.title = LQSTR(eChengDataDic[@"title"]);
-            self.LQWSXDataC.desc = LQSTR(eChengDataDic[@"desc"]);
-            self.LQWSXDataC.topicId = LQSTR(eChengDataDic[@"extParams"][@"topicId"]);
-            self.LQWSXDataC.redirect = LQSTR(eChengDataDic[@"extParams"][@"redirect"]);
-        }
+//        NSDictionary *eChengDataDic;
+//        eChengDataDic = yChengData[2][@"componentList"][0][@"componentList"][0];
+//        if (eChengDataDic) {
+//            self.LQWSXDataC.px = LQSTR(eChengDataDic[@"px"]);
+//            self.LQWSXDataC.type = LQSTR(eChengDataDic[@"type"]);
+//            self.LQWSXDataC.icon = LQSTR(eChengDataDic[@"icon"]);
+//            self.LQWSXDataC.title = LQSTR(eChengDataDic[@"title"]);
+//            self.LQWSXDataC.desc = LQSTR(eChengDataDic[@"desc"]);
+//            self.LQWSXDataC.topicId = LQSTR(eChengDataDic[@"extParams"][@"topicId"]);
+//            self.LQWSXDataC.redirect = LQSTR(eChengDataDic[@"extParams"][@"redirect"]);
+//        }
+        
         //活动报名、学佛小组
-        eChengData = yChengData[3][@"componentList"][0][@"componentList"];
+        eChengData = yChengData[2][@"componentList"][0][@"componentList"];
         for (NSDictionary *sChengData in eChengData) {
             LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
             xModel.px = LQSTR(sChengData[@"px"]);
@@ -179,10 +184,29 @@
             xModel.redirect = LQSTR(sChengData[@"extParams"][@"redirect"]);
             xModel.id = LQSTR(sChengData[@"id"]);
             [self.XFXZDataD addObject:xModel];
+            //                LQSLog(@"%@",self.XFXZDataD);
         }
+        
+        eChengData = yChengData[2][@"componentList"][1][@"componentList"];
+        for (NSDictionary *sChengData in eChengData) {
+            LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
+            xModel.px = LQSTR(sChengData[@"px"]);
+            xModel.type = LQSTR(sChengData[@"type"]);
+            xModel.icon = LQSTR(sChengData[@"icon"]);
+            xModel.title = LQSTR(sChengData[@"title"]);
+            xModel.desc = LQSTR(sChengData[@"desc"]);
+            xModel.forumId = LQSTR(sChengData[@"forumId"]);
+            xModel.topicId = LQSTR(sChengData[@"extParams"][@"topicId"]);
+            xModel.redirect = LQSTR(sChengData[@"extParams"][@"redirect"]);
+            xModel.id = LQSTR(sChengData[@"id"]);
+            [self.XFXZDataD addObject:xModel];
+            //                LQSLog(@"%@",self.XFXZDataD);
+        }
+        
+        
         //大和尚开示
         //[[[yChengData[4][@"componentList"] objectAtIndex:0] objectForKey:@"componentList"] objectAtIndex:1]
-        eChengData = yChengData[4][@"componentList"][0][@"componentList"];
+        eChengData = yChengData[3][@"componentList"][0][@"componentList"];
         for (NSDictionary *sChengData in eChengData) {
             LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
             xModel.px = LQSTR(sChengData[@"px"]);
@@ -198,7 +222,7 @@
         }
 
         //师父开示
-        eChengData = yChengData[5][@"componentList"][0][@"componentList"];
+        eChengData = yChengData[4][@"componentList"][0][@"componentList"];
         for (NSDictionary *sChengData in eChengData) {
             LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
             xModel.px = LQSTR(sChengData[@"px"]);
@@ -282,11 +306,11 @@
 #pragma mark - mainList delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 6;
+    return 5;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 5) {
+    if (section == 4) {
         return self.KSDataF.count;
     }else{
         return 1;
@@ -303,16 +327,18 @@
         }case 1:{
             height = KLQScreenFrameSize.width *360/750;
             break;
-        }case 2:{
-            height = KLQScreenFrameSize.width *180/750;
+        }
+//        case 2:{
+//            height = KLQScreenFrameSize.width *180/750;
+//            break;
+//        }
+        case 2:{
+            height = KLQScreenFrameSize.width *380/750;
             break;
         }case 3:{
-            height = KLQScreenFrameSize.width *190/750;
-            break;
-        }case 4:{
             height = KLQScreenFrameSize.width *230/750;
             break;
-        }case 5:{
+        }case 4:{
             height = KLQScreenFrameSize.width *180/750;
             break;
         }
@@ -337,19 +363,21 @@
             cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.btnDataArrB,@"indexPath":indexPath}];
 //            [cell setCellForIndexPath:indexPath];
             break;
-        }case 2:{
-            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.LQWSXDataC,@"indexPath":indexPath}];
-//            [cell setCellForIndexPath:indexPath];
-            break;
-        }case 3:{
+        }
+//        case 2:{
+//            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.LQWSXDataC,@"indexPath":indexPath}];
+////            [cell setCellForIndexPath:indexPath];
+//            break;
+//        }
+        case 2:{
             cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.XFXZDataD,@"indexPath":indexPath}];
 //            [cell setCellForIndexPath:indexPath];
             break;
-        }case 4:{
+        }case 3:{
             cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.DHSKSDataE,@"indexPath":indexPath}];
 //            [cell setCellForIndexPath:indexPath];
             break;
-        }case 5:{
+        }case 4:{
             cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.KSDataF,@"indexPath":indexPath}];
 //            [cell setCellForIndexPath:indexPath];
             break;
@@ -365,7 +393,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     CGFloat height = 5.0;
-    if (section == 5) {
+    if (section == 4) {
         height = LQSgetHeight(60);
     }
     return height;
@@ -378,7 +406,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *view = [[UIView alloc] init];
-    if (section == 5) {
+    if (section == 4) {
         view.frame = CGRectMake(0, 0, self.view.frame.size.width, LQSgetHeight(60));
         UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(15, 7, 100, 15)];
         lab.text = @"师父法语开示";
@@ -406,7 +434,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 5) {
+    if (indexPath.section == 4) {
         //师父法语开示点击
         NSLog(@"点击师父法语开示");
         LQSIntroduceMainListModel *model = self.KSDataF[indexPath.row];

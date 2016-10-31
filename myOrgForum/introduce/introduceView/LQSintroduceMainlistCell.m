@@ -59,22 +59,24 @@
                 }
                 
                 break;
-            }case 2:{
-                LQSIntroduceMainListModel *model = self.paramDict[@"data"];
-                if (model) {
-                    self.height = KLQScreenFrameSize.width *180/750;
-                    [self createLQwensixiu:model];
-                }
-                break;
-            }case 3:{
+            }
+//            case 2:{
+//                LQSIntroduceMainListModel *model = self.paramDict[@"data"];
+//                if (model) {
+//                    self.height = KLQScreenFrameSize.width *180/750;
+//                    [self createLQwensixiu:model];
+//                }
+//                break;
+//            }
+            case 2:{
                 NSArray *dataArr = self.paramDict[@"data"];
                 if (dataArr.count > 0) {
-                    self.height = KLQScreenFrameSize.width *190/750;
+                    self.height = KLQScreenFrameSize.width *380/750;
                     [self createXuefoxiaozu:dataArr];
                 }
                 self.isCreated = YES;
                 break;
-            }case 4:{
+            }case 3:{
                 NSArray *dataArr = self.paramDict[@"data"];
                 if (dataArr.count > 0) {
                     self.height = KLQScreenFrameSize.width *230/750;
@@ -82,7 +84,7 @@
                 }
                 self.isCreated = YES;
                 break;
-            }case 5:{
+            }case 4:{
 //                图片
 //                165*130
 //                15
@@ -128,25 +130,44 @@
 #pragma mark - 学佛小组
 - (void)createXuefoxiaozu:(NSArray *)modelArr
 {
-    if (modelArr.count >= 2) {
+    if (modelArr.count >= 4) {
+        
         LQSIntroduceMainListModel *model1 = modelArr[0];
         UIButton *btn1;
-        [self addButton:&btn1 WithModel:model1 frame:CGRectMake(0, 0, (self.frame.size.width - 4)/2 , self.frame.size.height) imgViewFrame:CGRectMake(0, 0, (self.frame.size.width - 2)/2 , self.frame.size.height) titleLabFrame:CGRectZero backgroundColor:[UIColor clearColor] superView:self.contentView tag:KXFXZBTN_TAG_BEGAN + 1 selector:@selector(xuefoxiaozuClick:)];
+        [self addButton:&btn1 WithModel:model1 frame:CGRectMake(0, 0, (self.frame.size.width - 4)/2 , self.frame.size.height/2) imgViewFrame:CGRectMake(0, 0, (self.frame.size.width - 2)/2 , self.frame.size.height/2) titleLabFrame:CGRectZero backgroundColor:[UIColor clearColor] superView:self.contentView tag:KXFXZBTN_TAG_BEGAN + 1 selector:@selector(xuefoxiaozuClick:)];
         UIView *line;
         [self addLine:&line withFrame:CGRectMake(btn1.frame.size.width + 1, 8, KSingleLine_Width, self.frame.size.height - 16) superView:self.contentView color:[UIColor lightGrayColor]];
         LQSIntroduceMainListModel *model2 = modelArr[1];
         UIButton *btn2;
-        [self addButton:&btn2 WithModel:model2 frame:CGRectMake((self.frame.size.width - KSingleLine_Width)/2, 0, (self.frame.size.width - KSingleLine_Width)/2 , self.frame.size.height) imgViewFrame:CGRectMake(0, 0, (self.frame.size.width - 2)/2 , self.frame.size.height) titleLabFrame:CGRectZero backgroundColor:[UIColor clearColor] superView:self.contentView tag:KXFXZBTN_TAG_BEGAN + 2 selector:@selector(xuefoxiaozuClick:)];
+        [self addButton:&btn2 WithModel:model2 frame:CGRectMake((self.frame.size.width - KSingleLine_Width)/2, 0, (self.frame.size.width - KSingleLine_Width)/2 , self.frame.size.height/2) imgViewFrame:CGRectMake(0, 0, (self.frame.size.width - 2)/2 , self.frame.size.height/2) titleLabFrame:CGRectZero backgroundColor:[UIColor clearColor] superView:self.contentView tag:KXFXZBTN_TAG_BEGAN + 2 selector:@selector(xuefoxiaozuClick:)];
+        
+        
+        LQSIntroduceMainListModel *model3 = modelArr[2];
+        UIButton *btn3;
+        [self addButton:&btn3 WithModel:model3 frame:CGRectMake(0, self.frame.size.height/2, (self.frame.size.width - 4)/2 , self.frame.size.height/2) imgViewFrame:CGRectMake(0, 0, (self.frame.size.width - 2)/2 , self.frame.size.height/2) titleLabFrame:CGRectZero backgroundColor:[UIColor clearColor] superView:self.contentView tag:KXFXZBTN_TAG_BEGAN + 3 selector:@selector(xuefoxiaozuClick:)];
+        UIView *line2;
+        [self addLine:&line2 withFrame:CGRectMake(btn1.frame.size.width + 1, 8+self.frame.size.height/2, KSingleLine_Width, self.frame.size.height/2 - 16) superView:self.contentView color:[UIColor lightGrayColor]];
+        LQSIntroduceMainListModel *model4 = modelArr[3];
+        UIButton *btn4;
+        [self addButton:&btn4 WithModel:model4 frame:CGRectMake((self.frame.size.width - KSingleLine_Width)/2, self.frame.size.height/2, (self.frame.size.width - KSingleLine_Width)/2 , self.frame.size.height/2) imgViewFrame:CGRectMake(0, 0, (self.frame.size.width - 2)/2 , self.frame.size.height/2) titleLabFrame:CGRectZero backgroundColor:[UIColor clearColor] superView:self.contentView tag:KXFXZBTN_TAG_BEGAN + 4 selector:@selector(xuefoxiaozuClick:)];
     }
 }
+
+
 - (void)xuefoxiaozuClick:(UIButton *)sender
 {
 #warning 完善点击方法
     //tag值 1 2
     if (sender.tag - KXFXZBTN_TAG_BEGAN == 1) {
-        //活动报名
-        NSLog(@"点击活动报名");
+        //龙泉闻思修
+        NSLog(@"龙泉闻思修");
     }else if(sender.tag - KXFXZBTN_TAG_BEGAN ==2){
+        //贤二数据组报名
+        NSLog(@"贤二数据组报名");
+    }else if(sender.tag - KXFXZBTN_TAG_BEGAN ==3){
+        //活动报名
+        NSLog(@"活动报名");
+    }else if(sender.tag - KXFXZBTN_TAG_BEGAN ==4){
         //学佛小组报名
         NSLog(@"点击学佛小组报名");
     }else{
@@ -154,11 +175,11 @@
     }
 }
 #pragma mark - 龙泉闻思修
-- (void)createLQwensixiu:(LQSIntroduceMainListModel *)model
-{
-    UIImageView *imgView;
-    [self addImageView:&imgView frame:CGRectMake(0, 0, self.width, self.height) tag:(self.indexP.section * 10 + KIMGTAG_BEGAN) superView:self.contentView imgUrlStr:model.icon];
-}
+//- (void)createLQwensixiu:(LQSIntroduceMainListModel *)model
+//{
+//    UIImageView *imgView;
+//    [self addImageView:&imgView frame:CGRectMake(0, 0, self.width, self.height) tag:(self.indexP.section * 10 + KIMGTAG_BEGAN) superView:self.contentView imgUrlStr:model.icon];
+//}
 
 #pragma mark - 第二个 八个按钮
 - (void)createButtonsWithData:(NSArray *)modeArr
@@ -342,9 +363,11 @@
             }
         }
         
-    }else if(tag/10 == 2){
-        NSLog(@"点击龙泉闻思修");
-    }else if(tag/10 == 4){
+    }
+//    else if(tag/10 == 2){
+//        NSLog(@"点击龙泉闻思修");
+//    }
+    else if(tag/10 == 4){
         NSLog(@"点击第二轮播图第%ld个图片",(tag%10));
     }
 }
