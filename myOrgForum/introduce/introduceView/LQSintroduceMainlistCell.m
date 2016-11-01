@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIPageControl *pageCtrlA;
 @property (nonatomic, strong) NSIndexPath *indexP;
 @property (nonatomic, assign) BOOL isCreated;
+@property (nonatomic, strong) NSArray *btnArr;//8个按钮数据
 
 @end
 
@@ -29,14 +30,22 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
     return self;
 }
+
+
+
 - (void)layoutSubviews{
+    [super layoutSubviews];
     if (!self.isCreated) {
         [self setCellForIndexPath];
     }
 }
+
+
 - (void)setCellForIndexPath
 {
     if (self) {
@@ -52,15 +61,16 @@
                 }
                 break;
             }case 1:{
-                NSArray *dataArr = self.paramDict[@"data"];
-                self.height = (dataArr.count/4)*(180/750);
-                if (dataArr.count > 0) {
-                    [self createButtonsWithData:dataArr];
+                if (self.btnArr == nil) {
+                    self.btnArr = self.paramDict[@"data"];
+                    self.height = (self.btnArr.count/4)*(180/750);
+                    [self createButtonsWithData:self.btnArr];
+                    NSLog(@"%@",self.btnArr);
                 }
                 
                 break;
             }
-//            case 2:{
+    //            case 2:{
 //                LQSIntroduceMainListModel *model = self.paramDict[@"data"];
 //                if (model) {
 //                    self.height = KLQScreenFrameSize.width *180/750;
@@ -72,6 +82,7 @@
                 NSArray *dataArr = self.paramDict[@"data"];
                 if (dataArr.count > 0) {
                     self.height = KLQScreenFrameSize.width *380/750;
+                    
                     [self createXuefoxiaozu:dataArr];
                 }
                 self.isCreated = YES;
@@ -140,6 +151,7 @@
         LQSIntroduceMainListModel *model2 = modelArr[1];
         UIButton *btn2;
         [self addButton:&btn2 WithModel:model2 frame:CGRectMake((self.frame.size.width - KSingleLine_Width)/2, 0, (self.frame.size.width - KSingleLine_Width)/2 , self.frame.size.height/2) imgViewFrame:CGRectMake(0, 0, (self.frame.size.width - 2)/2 , self.frame.size.height/2) titleLabFrame:CGRectZero backgroundColor:[UIColor clearColor] superView:self.contentView tag:KXFXZBTN_TAG_BEGAN + 2 selector:@selector(xuefoxiaozuClick:)];
+#warning 添加上下横线
         
         
         LQSIntroduceMainListModel *model3 = modelArr[2];
@@ -188,6 +200,7 @@
     CGFloat y = 0;
     CGFloat w = KLQScreenFrameSize.width/4;
     CGFloat h = KLQScreenFrameSize.width*180/750;
+   
     for (NSInteger i = 0; i < modeArr.count; i++) {
         LQSIntroduceMainListModel *model = modeArr[i];
         CGRect frame = CGRectMake(x+(i%4*w), y+(i/4*h), w, h);
@@ -201,6 +214,7 @@
 #warning 完善点击事件
     NSLog(@"点击8个按钮");
 }
+
 - (void)addButton:(UIButton **)button WithModel:(LQSIntroduceMainListModel *)model frame:(CGRect)frame imgViewFrame:(CGRect)imgFrame titleLabFrame:(CGRect)labFrame backgroundColor:(UIColor *)color superView:(UIView *)superVew tag:(NSInteger)tag selector:(SEL)selector
 {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -337,7 +351,7 @@
         imgView.image = image;
     }];
     if (tag != 0) {
-        imgView.userInteractionEnabled = YES;
+       imgView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick:)];
         [imgView addGestureRecognizer:tap];
     }

@@ -170,7 +170,7 @@
 //            self.LQWSXDataC.redirect = LQSTR(eChengDataDic[@"extParams"][@"redirect"]);
 //        }
         
-        //活动报名、学佛小组
+        //龙泉闻思修\数据组\活动报名\学佛小组
         eChengData = yChengData[2][@"componentList"][0][@"componentList"];
         for (NSDictionary *sChengData in eChengData) {
             LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
