@@ -9,6 +9,7 @@
 #import "LQSintroduceMainlistCell.h"
 #import "SDWebImageManager.h"
 #import "LQSBBSDetailViewController.h"
+#import "LQSHTMLViewController.h"
 
 #define KBUTTON_TAG_BEGAN 2016081010
 #define KXFXZBTN_TAG_BEGAN 2016081020
@@ -65,7 +66,7 @@
                     self.btnArr = self.paramDict[@"data"];
                     self.height = (self.btnArr.count/4)*(180/750);
                     [self createButtonsWithData:self.btnArr];
-                    NSLog(@"%@",self.btnArr);
+//                    NSLog(@"%@",self.btnArr);
                 }
                 
                 break;
@@ -212,7 +213,38 @@
 - (void)buttonCilck:(UIButton *)sender
 {
 #warning 完善点击事件
-    NSLog(@"点击8个按钮");
+//    NSLog(@"点击8个按钮");
+    switch (sender.tag - KBUTTON_TAG_BEGAN) {
+        case 0:{
+            NSURL *url = [NSURL URLWithString:@"http://wap.longquanzs.org"];
+            LQSHTMLViewController *htmlVc = [[LQSHTMLViewController alloc]init];
+            [htmlVc loadHtmlControllerWithUrl:url];
+            [self.myCtrl.navigationController pushViewController:htmlVc animated:YES];
+            
+            break;
+        }case 1:{
+            NSURL *url = [NSURL URLWithString:@"http://blog.sina.cn/dpool/blog/xuecheng"];
+            LQSHTMLViewController *htmlVc = [[LQSHTMLViewController alloc]init];
+            [htmlVc loadHtmlControllerWithUrl:url];
+            [self.myCtrl.navigationController pushViewController:htmlVc animated:YES];
+            break;
+        }case 2:{
+            NSURL *url = [NSURL URLWithString:@"http://weibo.cn/xuecheng?&jumpfrom=weibocom"];
+            LQSHTMLViewController *htmlVc = [[LQSHTMLViewController alloc]init];
+            [htmlVc loadHtmlControllerWithUrl:url];
+            [self.myCtrl.navigationController pushViewController:htmlVc animated:YES];
+            break;
+        }case 3:{
+            LQSHTMLViewController *htmlVc = [[LQSHTMLViewController alloc]init];
+            [htmlVc loadVideoView];
+            [self.myCtrl.navigationController pushViewController:htmlVc animated:YES];
+            break;
+        }
+            
+        default:
+            break;
+    }
+
 }
 
 - (void)addButton:(UIButton **)button WithModel:(LQSIntroduceMainListModel *)model frame:(CGRect)frame imgViewFrame:(CGRect)imgFrame titleLabFrame:(CGRect)labFrame backgroundColor:(UIColor *)color superView:(UIView *)superVew tag:(NSInteger)tag selector:(SEL)selector
