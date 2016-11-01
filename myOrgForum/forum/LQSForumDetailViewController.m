@@ -355,18 +355,18 @@
 {
     if (self.topArray.count != 0 && indexPath.section == 0) {
         if (indexPath.row < 3) {
-            LQSForumDetailTopCell* cell = [tableView dequeueReusableCellWithIdentifier:@"LQSForumDetailTopCell"];
+            LQSForumDetailTopCell* cell = [tableView dequeueReusableCellWithIdentifier:@"DetailTop"];
             cell.model = self.topArray[indexPath.row];
             return cell;
         }
-        return [tableView dequeueReusableCellWithIdentifier:@"LQSForumDetailTopMoreCell"];
+        return [tableView dequeueReusableCellWithIdentifier:@"DeMore"];
     }
     if (self.sortBy == 3) {
-        LQSForumDetailChildCell* cell = [tableView dequeueReusableCellWithIdentifier:@"LQSForumDetailChildCell"];
+        LQSForumDetailChildCell* cell = [tableView dequeueReusableCellWithIdentifier:@"DeChild"];
         cell.model = self.mainArray[self.sortBy][indexPath.row];
         return cell;
     }
-    LQSForumDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LQSForumDetailCell"];
+    LQSForumDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeCell"];
     cell.model = self.mainArray[self.sortBy][indexPath.row];
     return cell;
 }
