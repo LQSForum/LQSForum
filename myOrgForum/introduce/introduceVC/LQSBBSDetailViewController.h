@@ -14,5 +14,7 @@
 
 @property (nonatomic, strong) LQSBBSDetailModel *bbsDetailModel;
 @property (nonatomic, strong) LQSIntroduceMainListModel *selectModel;
-
+// 用于跳转帖子
+@property (nonatomic,strong)NSString *boardID;
+@property (nonatomic,strong)NSString *topicID;
 @end

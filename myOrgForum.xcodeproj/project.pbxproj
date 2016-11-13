@@ -29,6 +29,7 @@
 		149364AD1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 149364AC1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m */; };
 		2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084B21D6029F900167F4D /* NSDate+MJ.m */; };
 		2CC8C2E11D7F1D2300297B9B /* LQSSelectPlatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C2E01D7F1D2300297B9B /* LQSSelectPlatesViewController.m */; };
+		2EA1A9EA1DD8141800F6360A /* LQSReportDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1A9E91DD8141800F6360A /* LQSReportDetailViewController.m */; };
 		410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E51D38EB7E0021B7E2 /* NSArray+Log.m */; };
 		410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E91D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m */; };
 		410FA1F51D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1EB1D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m */; };
@@ -244,6 +245,8 @@
 		2CB084B21D6029F900167F4D /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MJ.m"; path = "categories/NSDate+MJ.m"; sourceTree = "<group>"; };
 		2CC8C2DF1D7F1D2300297B9B /* LQSSelectPlatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSelectPlatesViewController.h; sourceTree = "<group>"; };
 		2CC8C2E01D7F1D2300297B9B /* LQSSelectPlatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSelectPlatesViewController.m; sourceTree = "<group>"; };
+		2EA1A9E81DD8141800F6360A /* LQSReportDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSReportDetailViewController.h; sourceTree = "<group>"; };
+		2EA1A9E91DD8141800F6360A /* LQSReportDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSReportDetailViewController.m; sourceTree = "<group>"; };
 		410FA1DB1D38EB6B0021B7E2 /* categoryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = categoryHeader.h; path = config/categoryHeader.h; sourceTree = "<group>"; };
 		410FA1DC1D38EB6B0021B7E2 /* configHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = configHeader.h; path = config/configHeader.h; sourceTree = "<group>"; };
 		410FA1DD1D38EB6B0021B7E2 /* modelHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = modelHeader.h; path = config/modelHeader.h; sourceTree = "<group>"; };
@@ -1147,6 +1150,8 @@
 				6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */,
 				6E7378B01D6E944E009B6C66 /* LQSBBSDetailViewController.h */,
 				6E7378B11D6E944E009B6C66 /* LQSBBSDetailViewController.m */,
+				2EA1A9E81DD8141800F6360A /* LQSReportDetailViewController.h */,
+				2EA1A9E91DD8141800F6360A /* LQSReportDetailViewController.m */,
 			);
 			name = introduceVC;
 			sourceTree = "<group>";
@@ -1632,6 +1637,7 @@
 				41AC5AF51D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.m in Sources */,
 				410FA2261D38EBA30021B7E2 /* LQSTabBar.m in Sources */,
 				0000C4A41D645CF5007C969C /* LQSRightTableView.m in Sources */,
+				2EA1A9EA1DD8141800F6360A /* LQSReportDetailViewController.m in Sources */,
 				411FE79E1D6D6DC000563324 /* LQSShijieDataModel.m in Sources */,
 				6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */,
 				DFDC33171D714BF20059BDB4 /* UIColor+Hex.m in Sources */,
