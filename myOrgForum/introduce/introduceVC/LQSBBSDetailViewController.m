@@ -13,6 +13,10 @@
 #import "LQSArticleContentView.h"
 // 跳转举报页
 #import "LQSReportDetailViewController.h"
+// 跳转打赏页
+#import "LQSDaShangTableViewController.h"
+// baseManager,获取apphash等信息
+#import "LQSBaseManager.h"
 
 @interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate,LQSBBSDetailCellDelegate>{
     /*帖子最好实现在 tableHeaderView 里面，现在实现在cell里面，
@@ -34,6 +38,7 @@
     // 下面这行代码解决pop回本页时tableView自动下移问题.
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self postForData];
+    
     
 }
 
@@ -186,9 +191,15 @@
 }
 
 #pragma mark -  cell的代理任务
+// 举报
 -(void)pushToReport{
     LQSReportDetailViewController *reportVC = [[LQSReportDetailViewController alloc]init];
     [self.navigationController pushViewController:reportVC animated:YES];
+}
+// 打赏
+-(void)pushToDashang{
+    LQSDaShangTableViewController *dashangVC = [[LQSDaShangTableViewController alloc]init];
+    [self.navigationController pushViewController:dashangVC animated:YES];
 }
 #pragma mark -  获取数据
 - (void)postForData
@@ -211,7 +222,12 @@
     //[dict setObject:@"a15172f4" forKey:@"apphash"];//待变
     // ---------------接口文档2.0中的参数改变>>>>>>>-------------------//
     // 接口文档2.0中的apphash:004f025c
-    [dict setObject:@"004f025c" forKey:@"apphash"];//待变
+    // 获取存储的apphash
+    NSString *appHash =  [LQSBaseManager defaultManager].appHash;
+    if (appHash) {
+        [dict setObject:appHash forKey:@"apphash"];
+    }else{
+        [dict setObject:@"004f025c" forKey:@"apphash"];}//待变
     
     //  [dict setObject:LQSTR(self.selectModel.board_id) forKey:@"boardId"];//待变
     // 接口文档2.0的boardId:538
@@ -228,9 +244,17 @@
         [dict setObject:self.topicID forKey:@"topicId"];}
     // NSLog(@"传入的topicID:%@",self.selectModel.topicId);
     // -----------<<<<<<<接口文档2.0中的参数改变----------------------//
-    [dict setObject:@"7e3972a7a729e541ee373e7da3d06" forKey:@"accessToken"];// 每个人登陆后会有固定的accessToken,但是每次登陆的token都不同.需要在一个固定的位置保存起来.现在暂时用这个.
+    NSString *accessToken = [LQSBaseManager defaultManager].token;
+    if (accessToken ) {
+        [dict setObject:accessToken forKey:@"accessToken"];
+    }else{
+        [dict setObject:@"7e3972a7a729e541ee373e7da3d06" forKey:@"accessToken"];}// 每个人登陆后会有固定的accessToken,但是每次登陆的token都不同.需要在一个固定的位置保存起来.现在暂时用这个.
     [dict setObject:@"1" forKey:@"page"];//待变
-    [dict setObject:@"39a68e4d5473e75669bce2d70c4b9" forKey:@"accessSecret"];
+    NSString *accessSecret = [LQSBaseManager defaultManager].secret;
+    if (accessSecret) {
+        [dict setObject:accessSecret forKey:@"accessSecret"];
+    }else{
+        [dict setObject:@"39a68e4d5473e75669bce2d70c4b9" forKey:@"accessSecret"];}
     [dict setObject:@"BW0L5ISVRsOTVLCTJx" forKey:@"forumKey"];
     
     [session POST:loginUrlStr parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

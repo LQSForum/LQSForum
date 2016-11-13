@@ -13,6 +13,8 @@
 // 暂时不定义方法.只用这个delegate来拿到cell所在的vc.
 // 通过代理来完成跳转事件或其他事件,而不是在cell这里控制控制器的跳转.
 - (void)pushToReport;
+// 跳转打赏页面
+- (void)pushToDashang;
 @end
 @interface LQSBBSDetailCell : UITableViewCell
 

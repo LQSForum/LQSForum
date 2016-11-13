@@ -204,6 +204,7 @@
     [shangBtn setBackgroundImage:[UIImage imageNamed:@"dz_posts_grade"] forState:UIControlStateHighlighted];
     [shangBtn addTarget:self action:@selector(shangAct) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:shangBtn];
+    self.isCreated = YES;
     
 }
 
@@ -325,6 +326,9 @@
 // 赏点击方法--xg
 - (void)shangAct{
     NSLog(@"赏的点击方法");
+    if ([self.bbsDetailDelegate respondsToSelector:@selector(pushToDashang)]) {
+        [self.bbsDetailDelegate pushToDashang];
+    }
 }
 //添加text内容
 - (void)addTextContentForText:(NSString *)string
