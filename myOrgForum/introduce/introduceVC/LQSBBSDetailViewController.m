@@ -26,7 +26,10 @@
 }
 
 @property (nonatomic, strong) UITableView *mainList;
-
+@property (nonatomic,strong)UIView *inputView;
+@property (nonatomic,strong)UITextField *inputTF;
+@property (nonatomic,assign)BOOL textFieldIsShowing;
+@property (nonatomic,strong)UIButton *shildBtn;
 @end
 
 @implementation LQSBBSDetailViewController
@@ -37,25 +40,233 @@
     self.view.backgroundColor = [UIColor whiteColor];
     // 下面这行代码解决pop回本页时tableView自动下移问题.
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self setupInputbtn];
+    [self setUpInputView];
     [self postForData];
     
-    
 }
+// 输入view的懒加载
+//-(UIView *)inputView{
+- (void)setUpInputView{
+//    if (!_inputView) {
+        _inputView = [[UIView alloc]init];
+        [self.view addSubview:_inputView];
+    _inputView.backgroundColor = [UIColor greenColor];
+        [_inputView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view.mas_left);
+            make.right.equalTo(self.view.mas_right);
+            make.top.equalTo(self.view.mas_bottom);
+            make.height.equalTo(@44);
+        }];
+    self.textFieldIsShowing = NO;
+        // 加号btn
+        UIButton *plusBtn = [[UIButton alloc]init];
+        [_inputView addSubview:plusBtn];
+        [plusBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_more_n"] forState:UIControlStateNormal];
+        [plusBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_more_h"] forState:UIControlStateHighlighted];
+        [plusBtn addTarget:self action:@selector(inputMoreAct) forControlEvents:UIControlEventTouchUpInside];
+        [plusBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_inputView.mas_left).offset(5);
+            make.top.equalTo(_inputView.mas_top).offset(7);
+            make.bottom.equalTo(_inputView.mas_bottom).offset(-7);
+            make.width.equalTo(@30);
+        }];
+        // 笑脸btn
+        UIButton *faceBtn = [[UIButton alloc]init];
+        [_inputView addSubview:faceBtn];
+        [faceBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_face_n"] forState:UIControlStateNormal];
+        [faceBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_face_h"] forState:UIControlStateHighlighted];
+        [faceBtn addTarget:self action:@selector(faceBtnAct) forControlEvents:UIControlEventTouchUpInside];
+        [faceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(plusBtn.mas_right).offset(5);
+            make.top.equalTo(_inputView.mas_top).offset(7);
+            make.bottom.equalTo(_inputView.mas_bottom).offset(-7);
+            make.width.equalTo(@30);
+        }];
+        // 输入框textFiled
+        UITextField *inputTextField = [[UITextField alloc]init];
+        [_inputView addSubview:inputTextField];
+        inputTextField.borderStyle = UITextBorderStyleRoundedRect;
+        [inputTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(faceBtn.mas_right).offset(5);
+            make.top.equalTo(_inputView.mas_top).offset(7);
+            make.bottom.equalTo(_inputView.mas_bottom).offset(-7);
+            make.right.equalTo(_inputView.mas_right).offset(-40);
+//            make.height.equalTo(@30);
+        }];
+        self.inputTF = inputTextField;
+        // 发送按钮
+        UIButton *sendBtn = [[UIButton alloc]init];
+        [_inputView addSubview:sendBtn];
+        [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
+        [sendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(inputTextField.mas_right);
+            make.top.equalTo(_inputView.mas_top);
+            make.right.equalTo(_inputView.mas_right);
+            make.bottom.equalTo(_inputView.mas_bottom);
+        }];
+        [sendBtn addTarget:self action:@selector(sendMsgAct) forControlEvents:UIControlEventTouchUpInside];
+//    }
+//    return _inputView;
 
+}
+// 输入按钮
+- (void)setupInputbtn{
+//    self.inputView.backgroundColor = [UIColor blueColor];
+    // 输入栏的底层view
+    UIView *inputView = [[UIView alloc]init];
+    inputView.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:inputView];
+    [inputView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.bottom.equalTo(self.view.mas_bottom);
+        make.height.equalTo(@44);
+    }];
+    // 回个话鼓励下楼主
+    UIButton *guliBtn = [[UIButton alloc]init];
+    [inputView addSubview:guliBtn];
+    guliBtn.layer.cornerRadius = 5;
+    guliBtn.layer.masksToBounds = YES;
+    guliBtn.backgroundColor = [UIColor lightGrayColor];
+    [guliBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_icon_pen"] forState:UIControlStateNormal];
+//    [guliBtn setImageEdgeInsets:UIEdgeInsetsMake(5, 5, 5, 0)];
+//    guliBtn.imageEdgeInsets = UIEdgeInsetsMake(5, 20, 0, 0);
+    
+    guliBtn.contentEdgeInsets = UIEdgeInsetsMake(0, -30, 0, 0);
+    [guliBtn setTitle:@"回个话鼓励下楼主" forState:UIControlStateNormal];
+    [guliBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(inputView.mas_left).offset(10);
+                make.top.equalTo(inputView.mas_top).offset(5);
+                make.bottom.equalTo(inputView.mas_bottom).offset(-5);
+                make.right.equalTo(inputView.mas_right).offset(-54);
+    }];
+    [guliBtn.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(guliBtn.mas_left).offset(10);
+        make.top.equalTo(guliBtn.mas_top).offset(5);
+        make.bottom.equalTo(guliBtn.mas_bottom).offset(-5);
+        
+    }];
+    [guliBtn.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(guliBtn.imageView.mas_right).offset(5);
+        make.top.equalTo(guliBtn.mas_top).offset(5);
+        make.bottom.equalTo(guliBtn.mas_bottom).offset(-5);
+    }];
+    // *条评论label
+    UILabel *comontCountLabel = [[UILabel alloc]init];
+    [guliBtn addSubview:comontCountLabel];
+    // 评论条数.参数由接口提供
+    NSInteger i = 1;
+    comontCountLabel.text = [NSString stringWithFormat:@"%zd条评论",i];
+    [comontCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(guliBtn.mas_right).offset(-8);
+        make.top.equalTo(guliBtn.mas_top).offset(5);
+        make.bottom.equalTo(guliBtn.mas_bottom).offset(-5);
+    }];
+    [guliBtn addTarget:self action:@selector(guliAct) forControlEvents:UIControlEventTouchUpInside];
+    // 由点击鼓励按钮,触发弹出输入框事件,在这里注册键盘通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    // 分享btn
+    UIButton *shareBtn = [[UIButton alloc]init];
+    [inputView addSubview:shareBtn];
+    [shareBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_share_n"] forState:UIControlStateNormal];
+    [shareBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_share_h"] forState:UIControlStateHighlighted];
+    [shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(inputView.mas_right);
+        make.top.equalTo(inputView.mas_top);
+        make.bottom.equalTo(inputView.mas_bottom);
+        make.width.equalTo(@44);
+    }];
+    [shareBtn addTarget:self action:@selector(toolbarShareAct) forControlEvents:UIControlEventTouchUpInside];
+    }
+#pragma mark - 点击输入框的按钮事件
+// 分享按钮事件
+- (void)toolbarShareAct{
+    NSLog(@"点击分享");
+}
+// 鼓励事件,触发输入框
+- (void)guliAct{
+    NSLog(@"点击鼓励按钮,触发键盘弹出事件");
+    [self.inputTF becomeFirstResponder];
+
+}
+// 加号按钮的点击事件
+- (void)inputMoreAct{
+    NSLog(@"加号按钮的点击事件");
+}
+// 笑脸的点击事件
+- (void)faceBtnAct{
+    NSLog(@"笑脸的点击事件");
+}
+// 发送按钮的点击事件
+- (void)sendMsgAct{
+    NSLog(@"发送按钮的点击事件");
+}
+- (void)keyboardWillChangeFrame:(NSNotification *)note
+{
+    // 键盘显示\隐藏完毕的frame
+    CGRect frame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    // 修改底部约束
+//    self.bottomSapce.constant = XMGScreenH - frame.origin.y;
+//    [self.inputView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.equalTo(@(kScreenWidth - frame.origin.y));
+//    }];
+    [self.view bringSubviewToFront:self.inputView];
+    if (!self.textFieldIsShowing) {
+        [self.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view.mas_bottom).offset(-(kScreenHeight - frame.origin.y)-44);
+            // 设定tableView不能滚动
+            self.mainList.scrollEnabled = NO;
+            // 添加透明遮罩层,阻挡下面的触摸事件.
+            UIButton *shieldbtn = [[UIButton alloc]init];
+            [self.view addSubview:shieldbtn];
+            // 这里遮罩层没有隐藏navigationBar的点击事件,但是线上版本是有隐藏的.
+            [shieldbtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view.mas_top);
+                make.bottom.equalTo(self.inputView.mas_top);
+                make.left.equalTo(self.view.mas_left);
+                make.right.equalTo(self.view.mas_right);
+            }];
+            [shieldbtn addTarget:self action:@selector(hideKeyBoard) forControlEvents:UIControlEventTouchUpInside];
+            shieldbtn.backgroundColor = [UIColor brownColor];
+            self.shildBtn = shieldbtn;
+            self.textFieldIsShowing = YES;
+        }];
+    }else{
+        [self.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view.mas_bottom);
+        }];
+        [self.shildBtn removeFromSuperview];
+        self.textFieldIsShowing = NO;
+    }
+        // 动画时间
+    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    // 动画
+    [UIView animateWithDuration:duration animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+- (void)hideKeyBoard{
+    [self.inputTF resignFirstResponder];
+}
 - (void)creatTableViewList
 {
     [self.view addSubview:self.mainList];
-    self.mainList.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+    self.view.backgroundColor = [UIColor redColor];
+//    self.mainList.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+    self.mainList.backgroundColor = [UIColor yellowColor];
 }
 
 - (UITableView *)mainList
 {
     if (!_mainList) {
-        _mainList = [[UITableView alloc] initWithFrame:CGRectMake(0, 64/*0*/, self.view.width, self.view.height - 50-64) style:UITableViewStylePlain];
+        _mainList = [[UITableView alloc] initWithFrame:CGRectMake(0, 64/*0*/, self.view.width, self.view.height - 64-44) style:UITableViewStylePlain];
         _mainList.showsVerticalScrollIndicator = NO;
         _mainList.showsHorizontalScrollIndicator = YES;
         _mainList.delegate = self;
         _mainList.dataSource = self;
+        _mainList.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
         _mainList.separatorStyle = UITableViewCellSeparatorStyleNone;
         
     }
@@ -102,6 +313,8 @@
             break;
         }case 3:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell"];
+            cell.contentView.backgroundColor = [UIColor yellowColor];
+
             break;
         }
         default:
@@ -129,6 +342,7 @@
                 break;
             }case 3:{
                 cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"posterCell"];
+                cell.contentView.backgroundColor = [UIColor yellowColor];
                 //                dic = @{@"indexPath":indexPath,@"paramData":self.bbsDetailModel}
                 break;
             }
