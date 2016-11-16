@@ -17,8 +17,11 @@
 #import "LQSDaShangTableViewController.h"
 // baseManager,获取apphash等信息
 #import "LQSBaseManager.h"
+// 输入框
+#import "LQSTextView.h"
+#import "LQSEmotionTextView.h"
 
-@interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate,LQSBBSDetailCellDelegate>{
+@interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate,LQSBBSDetailCellDelegate,UITextViewDelegate>{
     /*帖子最好实现在 tableHeaderView 里面，现在实现在cell里面，
      所以现在声明一个ContentView来专门算高，权宜之计
      */
@@ -27,9 +30,11 @@
 
 @property (nonatomic, strong) UITableView *mainList;
 @property (nonatomic,strong)UIView *inputView;
-@property (nonatomic,strong)UITextField *inputTF;
+@property (nonatomic,strong)LQSTextView *inputTV;
 @property (nonatomic,assign)BOOL textFieldIsShowing;
 @property (nonatomic,strong)UIButton *shildBtn;
+// 临时keyboardFrame
+@property (nonatomic,assign)CGRect tempKBF;
 @end
 
 @implementation LQSBBSDetailViewController
@@ -45,20 +50,19 @@
     [self postForData];
     
 }
-// 输入view的懒加载
-//-(UIView *)inputView{
+
 - (void)setUpInputView{
-//    if (!_inputView) {
+
         _inputView = [[UIView alloc]init];
         [self.view addSubview:_inputView];
-    _inputView.backgroundColor = [UIColor greenColor];
+        _inputView.backgroundColor = [UIColor greenColor];
         [_inputView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.view.mas_left);
             make.right.equalTo(self.view.mas_right);
-            make.top.equalTo(self.view.mas_bottom);
+            make.bottom.equalTo(self.view.mas_bottom).offset(44);
             make.height.equalTo(@44);
         }];
-    self.textFieldIsShowing = NO;
+        self.textFieldIsShowing = NO;
         // 加号btn
         UIButton *plusBtn = [[UIButton alloc]init];
         [_inputView addSubview:plusBtn];
@@ -68,7 +72,8 @@
         [plusBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_inputView.mas_left).offset(5);
             make.top.equalTo(_inputView.mas_top).offset(7);
-            make.bottom.equalTo(_inputView.mas_bottom).offset(-7);
+//            make.bottom.equalTo(_inputView.mas_bottom).offset(-7);
+            make.height.equalTo(@30);
             make.width.equalTo(@30);
         }];
         // 笑脸btn
@@ -80,36 +85,71 @@
         [faceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(plusBtn.mas_right).offset(5);
             make.top.equalTo(_inputView.mas_top).offset(7);
-            make.bottom.equalTo(_inputView.mas_bottom).offset(-7);
+            make.height.equalTo(@30);
             make.width.equalTo(@30);
         }];
-        // 输入框textFiled
-        UITextField *inputTextField = [[UITextField alloc]init];
-        [_inputView addSubview:inputTextField];
-        inputTextField.borderStyle = UITextBorderStyleRoundedRect;
-        [inputTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(faceBtn.mas_right).offset(5);
-            make.top.equalTo(_inputView.mas_top).offset(7);
-            make.bottom.equalTo(_inputView.mas_bottom).offset(-7);
-            make.right.equalTo(_inputView.mas_right).offset(-40);
-//            make.height.equalTo(@30);
-        }];
-        self.inputTF = inputTextField;
+        // 输入框textview
+//        UITextView *inputTextView = [[UITextView alloc]init];
+//        [_inputView addSubview:inputTextView];
+//        [inputTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(faceBtn.mas_right).offset(5);
+//            make.top.equalTo(_inputView.mas_top).offset(7);
+//            make.bottom.equalTo(_inputView.mas_bottom).offset(-7);
+//            make.right.equalTo(_inputView.mas_right).offset(-40);
+////            make.height.equalTo(@30);
+//        }];
+    // 5 + 30 + 5 + 30+5 = 75;75 + 5 + 40 = 120
+//        self.inputTV = [[LQSTextView alloc]initWithFrame:CGRectMake(75, 5, kScreenWidth - 120, 30)];
+    self.inputTV = [[LQSTextView alloc]init];
+    self.inputTV.delegate = self;
+    [self.inputView addSubview:self.inputTV];
+    self.inputTV.maxNumberOfLines = 5;
+    __weak typeof(self) weakSelf = self;
+    self.inputTV.lqs_textHeightChangeBlock = ^(NSString *text,CGFloat textHeight){
+        // 文本框文字高度改变会自动执行这个【block】，可以在这【修改底部View的高度】
+        // 设置底部条的高度 = 文字高度 + textView距离上下间距约束
+        // 为什么添加10 ？（10 = 底部View距离上（5）底部View距离下（5）间距总和）
+        [weakSelf changeF:textHeight];
+//        _bottomHCons.constant = textHeight + 10;
+    };
+
+    [self.inputTV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(faceBtn.mas_right).offset(5);
+                    make.top.equalTo(_inputView.mas_top).offset(7);
+                    make.bottom.equalTo(_inputView.mas_bottom).offset(-7);
+                    make.right.equalTo(_inputView.mas_right).offset(-40);
+//                    make.height.equalTo(@30);
+
+    }];
+    
+
+//    self.inputTV.LQS_textHeightChangeBlock =
+  
         // 发送按钮
         UIButton *sendBtn = [[UIButton alloc]init];
         [_inputView addSubview:sendBtn];
         [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
         [sendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(inputTextField.mas_right);
-            make.top.equalTo(_inputView.mas_top);
+            make.left.equalTo(_inputTV.mas_right);
+            make.top.equalTo(_inputView.mas_top).offset(5);
             make.right.equalTo(_inputView.mas_right);
-            make.bottom.equalTo(_inputView.mas_bottom);
+//            make.bottom.equalTo(_inputView.mas_bottom);
+            make.height.equalTo(@30);
         }];
         [sendBtn addTarget:self action:@selector(sendMsgAct) forControlEvents:UIControlEventTouchUpInside];
-//    }
-//    return _inputView;
 
 }
+- (void)changeF:(NSInteger)height{
+    NSLog(@"输入文字后计算出的高度:%zd",height);
+//    if (height >40) {
+        [self.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.bottom.equalTo(self.view.mas_bottom).offset(-(kScreenHeight - self.tempKBF.origin.y) - 44 -height);
+            make.height.equalTo(@(height+10));
+        }];
+
+//    }
+}
+
 // 输入按钮
 - (void)setupInputbtn{
 //    self.inputView.backgroundColor = [UIColor blueColor];
@@ -130,8 +170,6 @@
     guliBtn.layer.masksToBounds = YES;
     guliBtn.backgroundColor = [UIColor lightGrayColor];
     [guliBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_icon_pen"] forState:UIControlStateNormal];
-//    [guliBtn setImageEdgeInsets:UIEdgeInsetsMake(5, 5, 5, 0)];
-//    guliBtn.imageEdgeInsets = UIEdgeInsetsMake(5, 20, 0, 0);
     
     guliBtn.contentEdgeInsets = UIEdgeInsetsMake(0, -30, 0, 0);
     [guliBtn setTitle:@"回个话鼓励下楼主" forState:UIControlStateNormal];
@@ -188,7 +226,7 @@
 // 鼓励事件,触发输入框
 - (void)guliAct{
     NSLog(@"点击鼓励按钮,触发键盘弹出事件");
-    [self.inputTF becomeFirstResponder];
+    [self.inputTV becomeFirstResponder];
 
 }
 // 加号按钮的点击事件
@@ -207,17 +245,11 @@
 {
     // 键盘显示\隐藏完毕的frame
     CGRect frame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    // 修改底部约束
-//    self.bottomSapce.constant = XMGScreenH - frame.origin.y;
-//    [self.inputView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.equalTo(@(kScreenWidth - frame.origin.y));
-//    }];
+    self.tempKBF = frame;
     [self.view bringSubviewToFront:self.inputView];
     if (!self.textFieldIsShowing) {
         [self.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.view.mas_bottom).offset(-(kScreenHeight - frame.origin.y)-44);
-            // 设定tableView不能滚动
-            self.mainList.scrollEnabled = NO;
+            make.bottom.equalTo(self.view.mas_bottom).offset(-(kScreenHeight - frame.origin.y));
             // 添加透明遮罩层,阻挡下面的触摸事件.
             UIButton *shieldbtn = [[UIButton alloc]init];
             [self.view addSubview:shieldbtn];
@@ -235,7 +267,7 @@
         }];
     }else{
         [self.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.view.mas_bottom);
+            make.bottom.equalTo(self.view.mas_bottom).offset(44);
         }];
         [self.shildBtn removeFromSuperview];
         self.textFieldIsShowing = NO;
@@ -248,7 +280,10 @@
     }];
 }
 - (void)hideKeyBoard{
-    [self.inputTF resignFirstResponder];
+    // 这里线上版的功能是,点击遮罩层,然后自动发送输入框内的内容.然后就隐藏输入框,展示输入btn...所以这里暂时模仿线上功能.将来需要讨论这个设计.
+    // 先假装发送内容.实际是直接清空数据
+    self.inputTV.text = nil;
+    [self.inputTV resignFirstResponder];
 }
 - (void)creatTableViewList
 {
