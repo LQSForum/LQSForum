@@ -134,18 +134,13 @@
     [reportBtn addTarget:self action:@selector(reportAct:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:reportBtn];
     reportBtn.backgroundColor = [UIColor blueColor];
-    //    [reportBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.right.equalTo(self.contentView.mas_right);
-    //        make.top.equalTo(articleView.mas_bottom).offset(5);
-    //        make.width.equalTo(@50);
-    //        make.height.equalTo(@28);
-    //    }];
     
     // 警察按钮
-    self.policeBtn = [[UIButton alloc]initWithFrame:reportBtn.frame];
-    
+    self.policeBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMinX(reportBtn.frame), CGRectGetMinY(reportBtn.frame), 80, 28)];
+    _policeBtn.layer.cornerRadius = 5;
     [_policeBtn setTitle:@"举报" forState:UIControlStateNormal];
-    
+    [_policeBtn setImage:[UIImage imageNamed:@"dz_posts_manage_report"] forState:UIControlStateNormal];
+    [_policeBtn setImageEdgeInsets:UIEdgeInsetsMake(3, 3, 3, 0)];
     [self.contentView addSubview:_policeBtn];
     [self.contentView insertSubview:_policeBtn belowSubview:reportBtn];
     _policeBtn.tintColor = [UIColor whiteColor];
@@ -180,10 +175,10 @@
 - (void)reportAct:(UIButton *)sender{
     NSLog(@"此处弹出举报事件");
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:3.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        if (self.policeBtn.centerX == sender.centerX) {
-            _policeBtn.centerX -= _policeBtn.width;
+        if (self.policeBtn.x == sender.x) {
+            _policeBtn.x -= _policeBtn.width;
         }else{
-            _policeBtn.centerX = sender.centerX;
+            _policeBtn.x = sender.x;
         }
     } completion:^(BOOL finished) {
         NSLog(@"警察按扭动画完成");

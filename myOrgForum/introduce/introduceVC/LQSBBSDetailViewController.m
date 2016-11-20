@@ -20,7 +20,7 @@
 // 输入框
 #import "LQSTextView.h"
 #import "LQSEmotionTextView.h"
-
+#import "LQSEmotionKeyboard.h"
 @interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate,LQSBBSDetailCellDelegate,UITextViewDelegate>{
     /*帖子最好实现在 tableHeaderView 里面，现在实现在cell里面，
      所以现在声明一个ContentView来专门算高，权宜之计
@@ -30,11 +30,20 @@
 
 @property (nonatomic, strong) UITableView *mainList;
 @property (nonatomic,strong)UIView *inputView;
-@property (nonatomic,strong)LQSTextView *inputTV;
+@property (nonatomic,strong)LQSEmotionTextView *inputTV;
 @property (nonatomic,assign)BOOL textFieldIsShowing;
 @property (nonatomic,strong)UIButton *shildBtn;
 // 临时keyboardFrame
 @property (nonatomic,assign)CGRect tempKBF;
+// 用于判断是否显示表情,yes为显示,no为不显示.
+@property (nonatomic,assign)BOOL emotionIsShowing;
+// 拷贝过来的表情view
+@property (nonatomic, strong) LQSEmotionKeyboard *emotionKeyBoard;
+/**
+ *  是否正在切换键盘
+ */
+@property (nonatomic, assign, getter = isChangingKeyboard) BOOL changingKeyboard;
+
 @end
 
 @implementation LQSBBSDetailViewController
@@ -72,35 +81,24 @@
         [plusBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_inputView.mas_left).offset(5);
             make.top.equalTo(_inputView.mas_top).offset(7);
-//            make.bottom.equalTo(_inputView.mas_bottom).offset(-7);
             make.height.equalTo(@30);
             make.width.equalTo(@30);
         }];
         // 笑脸btn
         UIButton *faceBtn = [[UIButton alloc]init];
         [_inputView addSubview:faceBtn];
+        self.emotionIsShowing = NO;
         [faceBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_face_n"] forState:UIControlStateNormal];
         [faceBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_face_h"] forState:UIControlStateHighlighted];
-        [faceBtn addTarget:self action:@selector(faceBtnAct) forControlEvents:UIControlEventTouchUpInside];
+        [faceBtn addTarget:self action:@selector(faceBtnAct:) forControlEvents:UIControlEventTouchUpInside];
         [faceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(plusBtn.mas_right).offset(5);
             make.top.equalTo(_inputView.mas_top).offset(7);
             make.height.equalTo(@30);
             make.width.equalTo(@30);
         }];
-        // 输入框textview
-//        UITextView *inputTextView = [[UITextView alloc]init];
-//        [_inputView addSubview:inputTextView];
-//        [inputTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(faceBtn.mas_right).offset(5);
-//            make.top.equalTo(_inputView.mas_top).offset(7);
-//            make.bottom.equalTo(_inputView.mas_bottom).offset(-7);
-//            make.right.equalTo(_inputView.mas_right).offset(-40);
-////            make.height.equalTo(@30);
-//        }];
-    // 5 + 30 + 5 + 30+5 = 75;75 + 5 + 40 = 120
-//        self.inputTV = [[LQSTextView alloc]initWithFrame:CGRectMake(75, 5, kScreenWidth - 120, 30)];
-    self.inputTV = [[LQSTextView alloc]init];
+    // 输入textView
+    self.inputTV = [[LQSEmotionTextView alloc]init];
     self.inputTV.delegate = self;
     [self.inputView addSubview:self.inputTV];
     self.inputTV.maxNumberOfLines = 5;
@@ -121,10 +119,6 @@
 //                    make.height.equalTo(@30);
 
     }];
-    
-
-//    self.inputTV.LQS_textHeightChangeBlock =
-  
         // 发送按钮
         UIButton *sendBtn = [[UIButton alloc]init];
         [_inputView addSubview:sendBtn];
@@ -204,7 +198,6 @@
     [guliBtn addTarget:self action:@selector(guliAct) forControlEvents:UIControlEventTouchUpInside];
     // 由点击鼓励按钮,触发弹出输入框事件,在这里注册键盘通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    
     // 分享btn
     UIButton *shareBtn = [[UIButton alloc]init];
     [inputView addSubview:shareBtn];
@@ -219,6 +212,21 @@
     [shareBtn addTarget:self action:@selector(toolbarShareAct) forControlEvents:UIControlEventTouchUpInside];
     }
 #pragma mark - 点击输入框的按钮事件
+// 表情键盘的初始化
+- (LQSEmotionKeyboard *)emotionKeyBoard
+{
+    if (!_emotionKeyBoard) {
+        self.emotionKeyBoard = [LQSEmotionKeyboard keyboard];
+        self.emotionKeyBoard.width = LQSScreenW;
+        self.emotionKeyBoard.height = 216;
+        // 监听表情选中的通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelected:) name:LQSEmotionDidSelectedNotification object:nil];
+        // 监听删除按钮点击的通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidDeleted:) name:LQSEmotionDidDeletedNotification object:nil];
+    }
+    return _emotionKeyBoard;
+}
+
 // 分享按钮事件
 - (void)toolbarShareAct{
     NSLog(@"点击分享");
@@ -227,27 +235,75 @@
 - (void)guliAct{
     NSLog(@"点击鼓励按钮,触发键盘弹出事件");
     [self.inputTV becomeFirstResponder];
-
 }
 // 加号按钮的点击事件
 - (void)inputMoreAct{
     NSLog(@"加号按钮的点击事件");
 }
 // 笑脸的点击事件
-- (void)faceBtnAct{
-    NSLog(@"笑脸的点击事件");
+- (void)faceBtnAct:(UIButton *)sender{
+    
+    if ([self.inputTV.inputView isEqual:self.emotionKeyBoard]) {
+        NSLog(@"现在键盘是表情键盘");
+        [sender setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_face_n"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_face_h"] forState:UIControlStateHighlighted];
+        self.inputTV.inputView = nil;
+        [self.inputTV reloadInputViews];
+    }else{
+        NSLog(@"现在键盘是正常键盘");
+        [sender setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_keyboard_n"] forState:UIControlStateNormal];
+                [sender setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_keyboard_h"] forState:UIControlStateHighlighted];
+//        [self.inputTV resignFirstResponder];
+        self.inputTV.inputView = self.emotionKeyBoard;
+        [self.inputTV reloadInputViews];
+    }
+    if (![self.inputTV isFirstResponder]) {
+        [self.inputTV becomeFirstResponder];
+    }
+    
 }
 // 发送按钮的点击事件
 - (void)sendMsgAct{
     NSLog(@"发送按钮的点击事件");
 }
+#pragma mark - 表情选中的通知事件
+/**
+ *  当表情选中的时候调用
+ *
+ *  @param note 里面包含了选中的表情
+ */
+- (void)emotionDidSelected:(NSNotification *)note
+{
+    LQSEmotion *emotion = note.userInfo[LQSSelectedEmotion];
+    
+    // 1.拼接表情
+    [self.inputTV appendEmotion:emotion];
+    
+}
+/**
+ *  当点击表情键盘上的删除按钮时调用
+ */
+- (void)emotionDidDeleted:(NSNotification *)note
+{
+    // 往回删
+    [self.inputTV deleteBackward];
+}
+
+
+#pragma mark -键盘通知的监听处理
 - (void)keyboardWillChangeFrame:(NSNotification *)note
 {
+    // 由于是键盘每次改变frame后都会触发这个方法,每次改变都会创建一个不同的shieldbtn,所以需要判断是否之前有一个shield,如果有,则移除,然后添加新的.
+    if (self.shildBtn) {
+        [self.shildBtn removeFromSuperview];
+        self.shildBtn = nil;
+    }
     // 键盘显示\隐藏完毕的frame
     CGRect frame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    // 用拿到的键盘的frame.origin.y与屏幕高度对比,如果相等则为隐藏,否则就是显示键盘,显示则要输入栏和键盘高度匹配
     self.tempKBF = frame;
     [self.view bringSubviewToFront:self.inputView];
-    if (!self.textFieldIsShowing) {
+    if (!(frame.origin.y == LQSScreenH)) {
         [self.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.view.mas_bottom).offset(-(kScreenHeight - frame.origin.y));
             // 添加透明遮罩层,阻挡下面的触摸事件.
@@ -261,7 +317,7 @@
                 make.right.equalTo(self.view.mas_right);
             }];
             [shieldbtn addTarget:self action:@selector(hideKeyBoard) forControlEvents:UIControlEventTouchUpInside];
-            shieldbtn.backgroundColor = [UIColor brownColor];
+            shieldbtn.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
             self.shildBtn = shieldbtn;
             self.textFieldIsShowing = YES;
         }];
@@ -270,7 +326,7 @@
             make.bottom.equalTo(self.view.mas_bottom).offset(44);
         }];
         [self.shildBtn removeFromSuperview];
-        self.textFieldIsShowing = NO;
+//        self.textFieldIsShowing = NO;
     }
         // 动画时间
     CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];

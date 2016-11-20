@@ -127,13 +127,15 @@
  */
 - (void)emotionClick:(LQSEmotionView *)emotionView
 {
-    [self.popView showFromEmotionView:emotionView];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.popView dismiss];
-        
-        // 选中表情
-        [self selecteEmotion:emotionView.emotion];
-    });
+//    [self.popView showFromEmotionView:emotionView];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self.popView dismiss];
+//        
+//        // 选中表情
+//        [self selecteEmotion:emotionView.emotion];
+//    });
+    // 这里去掉了原来设置的,选中表情就弹出表情的详情动作.而是直接展示表情.
+    [self selecteEmotion:emotionView.emotion];
 }
 
 /**
