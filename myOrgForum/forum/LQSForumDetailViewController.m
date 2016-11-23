@@ -119,6 +119,10 @@
     }];
 }
 -(void)loadServerData{
+    if (self.sortBy == 3) {
+        [self loadChildForum];
+        return;
+    }
     self.pageNum[self.sortBy] = @"1";
     [self.mainArray[self.sortBy] removeAllObjects];
     NSString *urlString = [NSString stringWithFormat:@"http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topiclist"];
