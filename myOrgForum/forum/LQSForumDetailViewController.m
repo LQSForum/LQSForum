@@ -188,11 +188,11 @@
 }
 -(void)loadServerMoreData{
     if (self.sortBy == 3) {
-
         [self.mainTableView.mj_footer endRefreshingWithNoMoreData];
-
         return;
     }
+   
+
     NSString *urlString = [NSString stringWithFormat:@"http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topiclist"];
     NSString* sortStr = @"all";
     switch (self.sortBy) {
@@ -262,16 +262,19 @@
 }
 #pragma mark - LQSForumDetailSectionDelegete
 - (void)selectTheType:(NSInteger)type{
-    //NSLog(@"type = %zd",type);
+    [self.mainTableView.mj_footer resetNoMoreData];
+       //NSLog(@"type = %zd",type);
     self.sortBy = type;
     if (type == 3) {
         [self loadChildForum];
     }
     else{
+        
         if ([self.pageNum[self.sortBy] isEqualToString:@"1"]) {
             [self loadServerData];
         }
         else{
+            
             [self.mainTableView reloadData];
         }
     }
