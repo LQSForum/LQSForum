@@ -10,7 +10,7 @@
 #import "SDWebImageManager.h"
 #import "LQSBBSDetailViewController.h"
 #import "LQSHTMLViewController.h"
-
+#import "LQSForumDetailViewController.h"
 #define KBUTTON_TAG_BEGAN 2016081010
 #define KXFXZBTN_TAG_BEGAN 2016081020
 #define KIMGTAG_BEGAN 20160815100
@@ -212,32 +212,37 @@
 
 - (void)buttonCilck:(UIButton *)sender
 {
-#warning 完善点击事件
+
 //    NSLog(@"点击8个按钮");
     switch (sender.tag - KBUTTON_TAG_BEGAN) {
         case 0:{
-            NSURL *url = [NSURL URLWithString:@"http://wap.longquanzs.org"];
-            LQSHTMLViewController *htmlVc = [[LQSHTMLViewController alloc]init];
-            [htmlVc loadHtmlControllerWithUrl:url];
-            [self.myCtrl.navigationController pushViewController:htmlVc animated:YES];
-            
+            NSString *urlStr = @"http://wap.longquanzs.org";
+            [self presentHTMLVcWithUrlStr:urlStr];
             break;
         }case 1:{
-            NSURL *url = [NSURL URLWithString:@"http://blog.sina.cn/dpool/blog/xuecheng"];
-            LQSHTMLViewController *htmlVc = [[LQSHTMLViewController alloc]init];
-            [htmlVc loadHtmlControllerWithUrl:url];
-            [self.myCtrl.navigationController pushViewController:htmlVc animated:YES];
+            NSString *urlStr = @"http://blog.sina.cn/dpool/blog/xuecheng";
+            [self presentHTMLVcWithUrlStr:urlStr];
             break;
         }case 2:{
-            NSURL *url = [NSURL URLWithString:@"http://weibo.cn/xuecheng?&jumpfrom=weibocom"];
-            LQSHTMLViewController *htmlVc = [[LQSHTMLViewController alloc]init];
-            [htmlVc loadHtmlControllerWithUrl:url];
-            [self.myCtrl.navigationController pushViewController:htmlVc animated:YES];
+             NSString *urlStr = @"http://weibo.cn/xuecheng?&jumpfrom=weibocom";
+            [self presentHTMLVcWithUrlStr:urlStr];
             break;
         }case 3:{
             LQSHTMLViewController *htmlVc = [[LQSHTMLViewController alloc]init];
             [htmlVc loadVideoView];
             [self.myCtrl.navigationController pushViewController:htmlVc animated:YES];
+            break;
+        }case 4:{
+            [self presentDetailVcWithBoardid:502 boardChild:0 title:@"聚焦龙泉"];
+            break;
+        }case 5:{
+            [self presentDetailVcWithBoardid:538 boardChild:0 title:@"走近师父"];
+            break;
+        }case 6:{
+            [self presentDetailVcWithBoardid:394 boardChild:0 title:@"学佛问答"];
+            break;
+        }case 7:{
+            [self presentDetailVcWithBoardid:348 boardChild:0 title:@"银杏树下"];
             break;
         }
             
@@ -245,6 +250,21 @@
             break;
     }
 
+}
+
+- (void)presentHTMLVcWithUrlStr:(NSString *)urlStr{
+    NSURL *url = [NSURL URLWithString:urlStr];
+    LQSHTMLViewController *htmlVc = [[LQSHTMLViewController alloc]init];
+    [htmlVc loadHtmlControllerWithUrl:url];
+    [self.myCtrl.navigationController pushViewController:htmlVc animated:YES];
+}
+
+- (void)presentDetailVcWithBoardid:(NSInteger)boardid boardChild:(NSInteger)boardChild title:(NSString *)title{
+    LQSForumDetailViewController* detailVC = [[UIStoryboard storyboardWithName:@"Forum" bundle:nil] instantiateViewControllerWithIdentifier:@"ForumDetail"];
+    detailVC.boardid = boardid;
+    detailVC.boardChild = boardChild;
+    detailVC.title = title;
+    [self.myCtrl.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (void)addButton:(UIButton **)button WithModel:(LQSIntroduceMainListModel *)model frame:(CGRect)frame imgViewFrame:(CGRect)imgFrame titleLabFrame:(CGRect)labFrame backgroundColor:(UIColor *)color superView:(UIView *)superVew tag:(NSInteger)tag selector:(SEL)selector
