@@ -172,7 +172,7 @@
         if ([dict[@"topTopicList"] count] > 0) {
             [weakSelf.topArray removeAllObjects];
             for (NSDictionary* item in dict[@"topTopicList"]) {
-                [weakSelf.topArray addObject:[LQSForumDetailListModel yy_modelWithDictionary:item]];
+                [weakSelf.topArray addObject:[LQSForumDetailTopModel yy_modelWithDictionary:item]];
             }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -188,7 +188,9 @@
 }
 -(void)loadServerMoreData{
     if (self.sortBy == 3) {
+
         [self.mainTableView.mj_footer endRefreshingWithNoMoreData];
+
         return;
     }
     NSString *urlString = [NSString stringWithFormat:@"http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topiclist"];
