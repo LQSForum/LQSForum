@@ -76,8 +76,10 @@
         [_mainArray addObject:[NSMutableArray new]];
     }
     self.mainTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadServerData)];
+
     self.mainTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadServerMoreData)];
-    [self loadServerData];
+
+        [self loadServerData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -185,6 +187,10 @@
     }];
 }
 -(void)loadServerMoreData{
+    if (self.sortBy == 3) {
+        [self.mainTableView.mj_footer endRefreshingWithNoMoreData];
+        return;
+    }
     NSString *urlString = [NSString stringWithFormat:@"http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topiclist"];
     NSString* sortStr = @"all";
     switch (self.sortBy) {
@@ -219,10 +225,10 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf.mainTableView reloadData];
-            [self.mainTableView.mj_header endRefreshing];
+            [self.mainTableView.mj_footer endRefreshing];
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self.mainTableView.mj_header endRefreshing];
+        [self.mainTableView.mj_footer endRefreshing];
         LQSLog(@"error%@",error);
         kNetworkNotReachedMessage;
     }];
