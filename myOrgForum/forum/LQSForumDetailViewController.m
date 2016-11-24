@@ -333,7 +333,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.sortBy == 3) {
-        LQSCellModel *cellModel = self.mainArray[3];
+        LQSCellModel *cellModel = self.mainArray[3][indexPath.row];
         LQSForumDetailViewController* detailVC = [[UIStoryboard storyboardWithName:@"Forum" bundle:nil] instantiateViewControllerWithIdentifier:@"ForumDetail"];
         detailVC.boardid = cellModel.board_id;
         detailVC.boardChild = cellModel.board_child;
