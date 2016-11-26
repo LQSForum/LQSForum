@@ -76,8 +76,10 @@
         [_mainArray addObject:[NSMutableArray new]];
     }
     self.mainTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadServerData)];
+
     self.mainTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadServerMoreData)];
-    [self loadServerData];
+
+        [self loadServerData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -119,6 +121,10 @@
     }];
 }
 -(void)loadServerData{
+    if (self.sortBy == 3) {
+        [self loadChildForum];
+        return;
+    }
     self.pageNum[self.sortBy] = @"1";
     [self.mainArray[self.sortBy] removeAllObjects];
     NSString *urlString = [NSString stringWithFormat:@"http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topiclist"];
@@ -166,7 +172,7 @@
         if ([dict[@"topTopicList"] count] > 0) {
             [weakSelf.topArray removeAllObjects];
             for (NSDictionary* item in dict[@"topTopicList"]) {
-                [weakSelf.topArray addObject:[LQSForumDetailListModel yy_modelWithDictionary:item]];
+                [weakSelf.topArray addObject:[LQSForumDetailTopModel yy_modelWithDictionary:item]];
             }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -181,6 +187,12 @@
     }];
 }
 -(void)loadServerMoreData{
+    if (self.sortBy == 3) {
+        [self.mainTableView.mj_footer endRefreshingWithNoMoreData];
+        return;
+    }
+   
+
     NSString *urlString = [NSString stringWithFormat:@"http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topiclist"];
     NSString* sortStr = @"all";
     switch (self.sortBy) {
@@ -215,10 +227,10 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf.mainTableView reloadData];
-            [self.mainTableView.mj_header endRefreshing];
+            [self.mainTableView.mj_footer endRefreshing];
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self.mainTableView.mj_header endRefreshing];
+        [self.mainTableView.mj_footer endRefreshing];
         LQSLog(@"error%@",error);
         kNetworkNotReachedMessage;
     }];
@@ -250,16 +262,19 @@
 }
 #pragma mark - LQSForumDetailSectionDelegete
 - (void)selectTheType:(NSInteger)type{
-    //NSLog(@"type = %zd",type);
+    [self.mainTableView.mj_footer resetNoMoreData];
+       //NSLog(@"type = %zd",type);
     self.sortBy = type;
     if (type == 3) {
         [self loadChildForum];
     }
     else{
+        
         if ([self.pageNum[self.sortBy] isEqualToString:@"1"]) {
             [self loadServerData];
         }
         else{
+            
             [self.mainTableView reloadData];
         }
     }
@@ -318,7 +333,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.sortBy == 3) {
-        LQSCellModel *cellModel = self.mainArray[3];
+        LQSCellModel *cellModel = self.mainArray[3][indexPath.row];
         LQSForumDetailViewController* detailVC = [[UIStoryboard storyboardWithName:@"Forum" bundle:nil] instantiateViewControllerWithIdentifier:@"ForumDetail"];
         detailVC.boardid = cellModel.board_id;
         detailVC.boardChild = cellModel.board_child;
