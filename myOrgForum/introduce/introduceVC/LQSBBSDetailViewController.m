@@ -21,7 +21,8 @@
 #import "LQSTextView.h"
 #import "LQSEmotionTextView.h"
 #import "LQSEmotionKeyboard.h"
-@interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate,LQSBBSDetailCellDelegate,UITextViewDelegate>{
+#import "LQSPluginView.h"
+@interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate,LQSBBSDetailCellDelegate,UITextViewDelegate,LQSPluginViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     /*帖子最好实现在 tableHeaderView 里面，现在实现在cell里面，
      所以现在声明一个ContentView来专门算高，权宜之计
      */
@@ -39,10 +40,8 @@
 @property (nonatomic,assign)BOOL emotionIsShowing;
 // 拷贝过来的表情view
 @property (nonatomic, strong) LQSEmotionKeyboard *emotionKeyBoard;
-/**
- *  是否正在切换键盘
- */
-@property (nonatomic, assign, getter = isChangingKeyboard) BOOL changingKeyboard;
+// pluginBoardView
+@property (nonatomic,strong)LQSPluginView *pluginBoardView;
 
 @end
 
@@ -77,7 +76,7 @@
         [_inputView addSubview:plusBtn];
         [plusBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_more_n"] forState:UIControlStateNormal];
         [plusBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_more_h"] forState:UIControlStateHighlighted];
-        [plusBtn addTarget:self action:@selector(inputMoreAct) forControlEvents:UIControlEventTouchUpInside];
+        [plusBtn addTarget:self action:@selector(plusBtnAct) forControlEvents:UIControlEventTouchUpInside];
         [plusBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_inputView.mas_left).offset(5);
             make.top.equalTo(_inputView.mas_top).offset(7);
@@ -226,7 +225,17 @@
     }
     return _emotionKeyBoard;
 }
-
+// + 号点击栏的初始化
+-(LQSPluginView *)pluginBoardView{
+    if (!_pluginBoardView) {
+        _pluginBoardView = [LQSPluginView pluginView];
+        _pluginBoardView.width = LQSScreenW;
+        _pluginBoardView.height = 216;
+        [_pluginBoardView setupSubViews];
+        _pluginBoardView.lqsPluginViewDelegate = self;
+    }
+    return _pluginBoardView;
+}
 // 分享按钮事件
 - (void)toolbarShareAct{
     NSLog(@"点击分享");
@@ -237,8 +246,21 @@
     [self.inputTV becomeFirstResponder];
 }
 // 加号按钮的点击事件
-- (void)inputMoreAct{
+- (void)plusBtnAct{
     NSLog(@"加号按钮的点击事件");
+    if ([self.inputTV.inputView isEqual:self.pluginBoardView]) {
+        NSLog(@"现在键盘是+键盘");
+        self.inputTV.inputView = nil;
+        [self.inputTV reloadInputViews];
+    }else{
+        NSLog(@"现在键盘是正常键盘");
+        //        [self.inputTV resignFirstResponder];
+        self.inputTV.inputView = self.pluginBoardView;
+        [self.inputTV reloadInputViews];
+    }
+    if (![self.inputTV isFirstResponder]) {
+        [self.inputTV becomeFirstResponder];
+    }
 }
 // 笑脸的点击事件
 - (void)faceBtnAct:(UIButton *)sender{
@@ -288,8 +310,63 @@
     // 往回删
     [self.inputTV deleteBackward];
 }
+#pragma mark -pluginView的代理事件
+-(void)didSelectBtnAtIndex:(UIButton *)selectedBtn{
+    switch (selectedBtn.tag) {
+        case 10010:
+            NSLog(@"添加图片按钮的点击事件");
+            [self openPhotoLibrary];
+            break;
+        case 10011:
+            NSLog(@"添加拍照按钮的点击事件");
+            [self openCamera];
+            break;
+        case 10012:
+            NSLog(@"添加定位按钮的点击事件");
+            break;
+        default:
+            break;
+    }
+}
+#pragma mark - 调用照相机和相册和delegate
+- (void)openCamera{
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
+    pickerController.delegate = self;
+    pickerController.allowsEditing = YES;
+    // 判断能否打开照相机
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        // 摄像头
+        pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:pickerController animated:YES completion:nil];
+    }else{
+        NSLog(@"没有摄像头");
+    }
+}
+// 打开相册
+- (void)openPhotoLibrary{
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
+    pickerController.delegate = self;
+    pickerController.allowsEditing = YES;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:pickerController animated:YES completion:nil];
+        NSLog(@"代开相册");
+        // 接下来的操作还没写.
+    }else{
+        NSLog(@"未能打开相册");
+    }
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        NSLog(@"拿到照片进行下一步操作.这里先不做");
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+// 取消事件
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:nil];
 
-
+}
 #pragma mark -键盘通知的监听处理
 - (void)keyboardWillChangeFrame:(NSNotification *)note
 {

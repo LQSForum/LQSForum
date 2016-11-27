@@ -30,6 +30,7 @@
 		149364AD1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 149364AC1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m */; };
 		2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084B21D6029F900167F4D /* NSDate+MJ.m */; };
 		2CC8C2E11D7F1D2300297B9B /* LQSSelectPlatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C2E01D7F1D2300297B9B /* LQSSelectPlatesViewController.m */; };
+		2E3E9EC71DE9533500D0EC2D /* LQSPluginBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E9EC61DE9533500D0EC2D /* LQSPluginBoardView.m */; };
 		2E9EB6B11DE1E25200FBB0B0 /* LQSPluginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9EB6B01DE1E25200FBB0B0 /* LQSPluginView.m */; };
 		2E9EB6B41DE1E67A00FBB0B0 /* LQSPluginListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9EB6B31DE1E67A00FBB0B0 /* LQSPluginListView.m */; };
 		2EA1A9EA1DD8141800F6360A /* LQSReportDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1A9E91DD8141800F6360A /* LQSReportDetailViewController.m */; };
@@ -253,6 +254,8 @@
 		2CB084B21D6029F900167F4D /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MJ.m"; path = "categories/NSDate+MJ.m"; sourceTree = "<group>"; };
 		2CC8C2DF1D7F1D2300297B9B /* LQSSelectPlatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSelectPlatesViewController.h; sourceTree = "<group>"; };
 		2CC8C2E01D7F1D2300297B9B /* LQSSelectPlatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSelectPlatesViewController.m; sourceTree = "<group>"; };
+		2E3E9EC51DE9533500D0EC2D /* LQSPluginBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPluginBoardView.h; sourceTree = "<group>"; };
+		2E3E9EC61DE9533500D0EC2D /* LQSPluginBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSPluginBoardView.m; sourceTree = "<group>"; };
 		2E9EB6AF1DE1E25200FBB0B0 /* LQSPluginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPluginView.h; sourceTree = "<group>"; };
 		2E9EB6B01DE1E25200FBB0B0 /* LQSPluginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSPluginView.m; sourceTree = "<group>"; };
 		2E9EB6B21DE1E67A00FBB0B0 /* LQSPluginListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPluginListView.h; sourceTree = "<group>"; };
@@ -955,6 +958,8 @@
 				2E9EB6B01DE1E25200FBB0B0 /* LQSPluginView.m */,
 				2E9EB6B21DE1E67A00FBB0B0 /* LQSPluginListView.h */,
 				2E9EB6B31DE1E67A00FBB0B0 /* LQSPluginListView.m */,
+				2E3E9EC51DE9533500D0EC2D /* LQSPluginBoardView.h */,
+				2E3E9EC61DE9533500D0EC2D /* LQSPluginBoardView.m */,
 				41F86FFC1D767E7B00E05FAB /* LQSEmotionListView.h */,
 				41F86FFD1D767E7B00E05FAB /* LQSEmotionListView.m */,
 				41F86FFE1D767E7B00E05FAB /* LQSEmotionPopView.h */,
@@ -1744,6 +1749,7 @@
 				6E62B0681D73D1BE001FB2A4 /* LQSBBSDetailCell.m in Sources */,
 				41F870091D767E7B00E05FAB /* LQSEmotionPopView.m in Sources */,
 				E4D8E1DC1D542A2B00EE6171 /* LQSUserInfo.m in Sources */,
+				2E3E9EC71DE9533500D0EC2D /* LQSPluginBoardView.m in Sources */,
 				410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */,
 				411FE79D1D6D6DC000563324 /* LQSDongmanModel.m in Sources */,
 				E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */,

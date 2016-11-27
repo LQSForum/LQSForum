@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol LQSPluginViewDelegate <NSObject>
+- (void)didSelectBtnAtIndex:(UIButton *)selectedBtn;
+@end
 @interface LQSPluginView : UIView
+@property (nonatomic,weak)id <LQSPluginViewDelegate> lqsPluginViewDelegate;
 + (instancetype)pluginView;
+- (void)setupSubViews;
 - (void)addPlugBtn:(UIButton *)btn WithBtnNormImg:(NSString *)normImgName andhightlightImgName:(NSString *)heightlightImgName;
 @end
