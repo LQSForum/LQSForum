@@ -153,6 +153,13 @@
 		6E62B0681D73D1BE001FB2A4 /* LQSBBSDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E62B0661D73D1BE001FB2A4 /* LQSBBSDetailCell.m */; };
 		6E7378B21D6E944E009B6C66 /* LQSBBSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7378B11D6E944E009B6C66 /* LQSBBSDetailViewController.m */; };
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
+		751941E61E5588C6000BDFE1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941E51E5588C6000BDFE1 /* libsqlite3.tbd */; };
+		751941E81E558A36000BDFE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941E71E558A36000BDFE1 /* CoreGraphics.framework */; };
+		751941EA1E559174000BDFE1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941E91E559174000BDFE1 /* SystemConfiguration.framework */; };
+		751941EC1E559182000BDFE1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941EB1E559182000BDFE1 /* CoreTelephony.framework */; };
+		751941EE1E559194000BDFE1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941ED1E559194000BDFE1 /* libc++.tbd */; };
+		751941F01E5591A1000BDFE1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941EF1E5591A1000BDFE1 /* libz.tbd */; };
+		751941F21E5591BB000BDFE1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941F11E5591BB000BDFE1 /* ImageIO.framework */; };
 		DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */; };
 		DF5A072C1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072B1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m */; };
 		DF5A072F1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072E1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m */; };
@@ -502,6 +509,13 @@
 		6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSUserBasicInfo.m; path = core/LQSUserBasicInfo.m; sourceTree = "<group>"; };
 		6E75DCFD1D3FC0D900C7BD82 /* LQSCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCommonDefine.h; path = Utilities/LQSCommonDefine.h; sourceTree = "<group>"; };
 		72F7FCE84BA2B2676C40B54F /* Pods-myOrgForumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		751941E51E5588C6000BDFE1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		751941E71E558A36000BDFE1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		751941E91E559174000BDFE1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		751941EB1E559182000BDFE1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		751941ED1E559194000BDFE1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		751941EF1E5591A1000BDFE1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		751941F11E5591BB000BDFE1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C12DEEB8E74CDD3E0CF002 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
@@ -566,6 +580,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				751941F21E5591BB000BDFE1 /* ImageIO.framework in Frameworks */,
+				751941F01E5591A1000BDFE1 /* libz.tbd in Frameworks */,
+				751941EE1E559194000BDFE1 /* libc++.tbd in Frameworks */,
+				751941EC1E559182000BDFE1 /* CoreTelephony.framework in Frameworks */,
+				751941EA1E559174000BDFE1 /* SystemConfiguration.framework in Frameworks */,
+				751941E81E558A36000BDFE1 /* CoreGraphics.framework in Frameworks */,
+				751941E61E5588C6000BDFE1 /* libsqlite3.tbd in Frameworks */,
 				E66318282059FD59F7685FD7 /* libPods-myOrgForum.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1222,6 +1243,13 @@
 		D2FF60D40CEE75621BCC406D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				751941F11E5591BB000BDFE1 /* ImageIO.framework */,
+				751941EF1E5591A1000BDFE1 /* libz.tbd */,
+				751941ED1E559194000BDFE1 /* libc++.tbd */,
+				751941EB1E559182000BDFE1 /* CoreTelephony.framework */,
+				751941E91E559174000BDFE1 /* SystemConfiguration.framework */,
+				751941E71E558A36000BDFE1 /* CoreGraphics.framework */,
+				751941E51E5588C6000BDFE1 /* libsqlite3.tbd */,
 				7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */,
 				EC19ADA87E03C1ABA83791ED /* libPods-myOrgForumTests.a */,
 				A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */,
@@ -1423,10 +1451,13 @@
 					415C554E1CC8CCEE00408B90 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = SCY46TJ5AJ;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 						};
 					};
@@ -1526,7 +1557,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		70C075022D848D3A3FDDE527 /* [CP] Embed Pods Frameworks */ = {
@@ -1601,7 +1632,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BE6A0856402362E4B251B0F3 /* [CP] Check Pods Manifest.lock */ = {
@@ -1616,7 +1647,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C17B041A92AFEED641A445A6 /* [CP] Copy Pods Resources */ = {
@@ -1943,19 +1974,29 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
+				CODE_SIGN_ENTITLEMENTS = myOrgForum/myOrgForum.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: longquansi.dev@gmail.com (GM63YGGSB2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = SCY46TJ5AJ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/UMSocialSDK",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/UMSocialUI",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/WeChat",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1981,10 +2022,10 @@
 					"-ObjC",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbs;
+				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "26230b51-08c7-4d65-b875-c3a8a406807d";
-				PROVISIONING_PROFILE_SPECIFIER = LQSProfiles1020;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -1994,19 +2035,29 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
+				CODE_SIGN_ENTITLEMENTS = myOrgForum/myOrgForum.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Media Television Planning Co., Ltd. (SCY46TJ5AJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = SCY46TJ5AJ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/UMSocialSDK",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/UMSocialUI",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/WeChat",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2032,10 +2083,10 @@
 					"-ObjC",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbs;
+				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "26230b51-08c7-4d65-b875-c3a8a406807d";
-				PROVISIONING_PROFILE_SPECIFIER = LQSProfiles1020;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
