@@ -65,7 +65,7 @@
 @property (nonatomic, strong) NSString *icon;//发帖者头像 y
 @property (nonatomic, strong) NSString *level;  //  y
 @property (nonatomic, strong) NSString *userTitle;
-@property (nonatomic, strong) NSString *isFollow;//?量 y
+@property (nonatomic, assign) NSInteger isFollow;//?量 y 0表示未关注,1表示已关注
 @property (nonatomic, strong) NSString *mobileSign;//"来自龙泉论坛手机客户端"
 @property (nonatomic, strong) NSString *gender;
 @property (nonatomic, strong) NSString *status;

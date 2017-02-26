@@ -30,6 +30,13 @@
 		149364AD1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 149364AC1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m */; };
 		2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084B21D6029F900167F4D /* NSDate+MJ.m */; };
 		2CC8C2E11D7F1D2300297B9B /* LQSSelectPlatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C2E01D7F1D2300297B9B /* LQSSelectPlatesViewController.m */; };
+		2E3E9EC71DE9533500D0EC2D /* LQSPluginBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E9EC61DE9533500D0EC2D /* LQSPluginBoardView.m */; };
+		2E9EB6B11DE1E25200FBB0B0 /* LQSPluginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9EB6B01DE1E25200FBB0B0 /* LQSPluginView.m */; };
+		2E9EB6B41DE1E67A00FBB0B0 /* LQSPluginListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9EB6B31DE1E67A00FBB0B0 /* LQSPluginListView.m */; };
+		2EA1A9EA1DD8141800F6360A /* LQSReportDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1A9E91DD8141800F6360A /* LQSReportDetailViewController.m */; };
+		2EA1A9ED1DD8465C00F6360A /* LQSDaShangTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1A9EC1DD8465C00F6360A /* LQSDaShangTableViewController.m */; };
+		2EA1A9F01DD84E4B00F6360A /* LQSdashangSecView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1A9EF1DD84E4B00F6360A /* LQSdashangSecView.m */; };
+		2EA1A9F31DD855FA00F6360A /* LQSDashangTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1A9F21DD855FA00F6360A /* LQSDashangTableViewCell.m */; };
 		410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E51D38EB7E0021B7E2 /* NSArray+Log.m */; };
 		410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1E91D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m */; };
 		410FA1F51D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 410FA1EB1D38EB7E0021B7E2 /* UIBarButtonItem+LQSConst.m */; };
@@ -247,6 +254,20 @@
 		2CB084B21D6029F900167F4D /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MJ.m"; path = "categories/NSDate+MJ.m"; sourceTree = "<group>"; };
 		2CC8C2DF1D7F1D2300297B9B /* LQSSelectPlatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSelectPlatesViewController.h; sourceTree = "<group>"; };
 		2CC8C2E01D7F1D2300297B9B /* LQSSelectPlatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSelectPlatesViewController.m; sourceTree = "<group>"; };
+		2E3E9EC51DE9533500D0EC2D /* LQSPluginBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPluginBoardView.h; sourceTree = "<group>"; };
+		2E3E9EC61DE9533500D0EC2D /* LQSPluginBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSPluginBoardView.m; sourceTree = "<group>"; };
+		2E9EB6AF1DE1E25200FBB0B0 /* LQSPluginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPluginView.h; sourceTree = "<group>"; };
+		2E9EB6B01DE1E25200FBB0B0 /* LQSPluginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSPluginView.m; sourceTree = "<group>"; };
+		2E9EB6B21DE1E67A00FBB0B0 /* LQSPluginListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPluginListView.h; sourceTree = "<group>"; };
+		2E9EB6B31DE1E67A00FBB0B0 /* LQSPluginListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSPluginListView.m; sourceTree = "<group>"; };
+		2EA1A9E81DD8141800F6360A /* LQSReportDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSReportDetailViewController.h; sourceTree = "<group>"; };
+		2EA1A9E91DD8141800F6360A /* LQSReportDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSReportDetailViewController.m; sourceTree = "<group>"; };
+		2EA1A9EB1DD8465B00F6360A /* LQSDaShangTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDaShangTableViewController.h; sourceTree = "<group>"; };
+		2EA1A9EC1DD8465C00F6360A /* LQSDaShangTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSDaShangTableViewController.m; sourceTree = "<group>"; };
+		2EA1A9EE1DD84E4B00F6360A /* LQSdashangSecView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSdashangSecView.h; sourceTree = "<group>"; };
+		2EA1A9EF1DD84E4B00F6360A /* LQSdashangSecView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSdashangSecView.m; sourceTree = "<group>"; };
+		2EA1A9F11DD855FA00F6360A /* LQSDashangTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDashangTableViewCell.h; sourceTree = "<group>"; };
+		2EA1A9F21DD855FA00F6360A /* LQSDashangTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSDashangTableViewCell.m; sourceTree = "<group>"; };
 		410FA1DB1D38EB6B0021B7E2 /* categoryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = categoryHeader.h; path = config/categoryHeader.h; sourceTree = "<group>"; };
 		410FA1DC1D38EB6B0021B7E2 /* configHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = configHeader.h; path = config/configHeader.h; sourceTree = "<group>"; };
 		410FA1DD1D38EB6B0021B7E2 /* modelHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = modelHeader.h; path = config/modelHeader.h; sourceTree = "<group>"; };
@@ -933,6 +954,12 @@
 				41F86FF91D767E7B00E05FAB /* LQSEmotionGridView.m */,
 				41F86FFA1D767E7B00E05FAB /* LQSEmotionKeyboard.h */,
 				41F86FFB1D767E7B00E05FAB /* LQSEmotionKeyboard.m */,
+				2E9EB6AF1DE1E25200FBB0B0 /* LQSPluginView.h */,
+				2E9EB6B01DE1E25200FBB0B0 /* LQSPluginView.m */,
+				2E9EB6B21DE1E67A00FBB0B0 /* LQSPluginListView.h */,
+				2E9EB6B31DE1E67A00FBB0B0 /* LQSPluginListView.m */,
+				2E3E9EC51DE9533500D0EC2D /* LQSPluginBoardView.h */,
+				2E3E9EC61DE9533500D0EC2D /* LQSPluginBoardView.m */,
 				41F86FFC1D767E7B00E05FAB /* LQSEmotionListView.h */,
 				41F86FFD1D767E7B00E05FAB /* LQSEmotionListView.m */,
 				41F86FFE1D767E7B00E05FAB /* LQSEmotionPopView.h */,
@@ -1152,6 +1179,10 @@
 				006F1CB01DC87D3900A992B5 /* LQSHTMLViewController.m */,
 				6E7378B01D6E944E009B6C66 /* LQSBBSDetailViewController.h */,
 				6E7378B11D6E944E009B6C66 /* LQSBBSDetailViewController.m */,
+				2EA1A9E81DD8141800F6360A /* LQSReportDetailViewController.h */,
+				2EA1A9E91DD8141800F6360A /* LQSReportDetailViewController.m */,
+				2EA1A9EB1DD8465B00F6360A /* LQSDaShangTableViewController.h */,
+				2EA1A9EC1DD8465C00F6360A /* LQSDaShangTableViewController.m */,
 			);
 			name = introduceVC;
 			sourceTree = "<group>";
@@ -1167,6 +1198,10 @@
 				6E0476661D55B32600FD6CE0 /* LQSintroduceMainlistCell.m */,
 				149364A81D76D2B200517A99 /* LQSArticleContentView.h */,
 				149364A91D76D2B200517A99 /* LQSArticleContentView.m */,
+				2EA1A9EE1DD84E4B00F6360A /* LQSdashangSecView.h */,
+				2EA1A9EF1DD84E4B00F6360A /* LQSdashangSecView.m */,
+				2EA1A9F11DD855FA00F6360A /* LQSDashangTableViewCell.h */,
+				2EA1A9F21DD855FA00F6360A /* LQSDashangTableViewCell.m */,
 			);
 			name = introduceView;
 			sourceTree = "<group>";
@@ -1637,6 +1672,7 @@
 				41AC5AF51D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.m in Sources */,
 				410FA2261D38EBA30021B7E2 /* LQSTabBar.m in Sources */,
 				0000C4A41D645CF5007C969C /* LQSRightTableView.m in Sources */,
+				2EA1A9EA1DD8141800F6360A /* LQSReportDetailViewController.m in Sources */,
 				411FE79E1D6D6DC000563324 /* LQSShijieDataModel.m in Sources */,
 				6E04766A1D55D7C300FD6CE0 /* LQSIntroduceMainListModel.m in Sources */,
 				DFDC33171D714BF20059BDB4 /* UIColor+Hex.m in Sources */,
@@ -1666,6 +1702,7 @@
 				6E2893DA1D6C4E8F00EF9CCA /* LQSBBSDetailModel.m in Sources */,
 				41AC5AF71D751C3E006E38D5 /* LQSHomePagePersonalZiliaoDataModel.m in Sources */,
 				41AC5B121D751C58006E38D5 /* LQSHomePagePersonalPresentTableViewCell.m in Sources */,
+				2EA1A9ED1DD8465C00F6360A /* LQSDaShangTableViewController.m in Sources */,
 				41F870071D767E7B00E05FAB /* LQSEmotionKeyboard.m in Sources */,
 				41F870121D767E8800E05FAB /* LQSEmotionAttachment.m in Sources */,
 				415588D21D814556006508FE /* LQSSettingFavirateDataModel.m in Sources */,
@@ -1703,13 +1740,16 @@
 				410FA2211D38EBA30021B7E2 /* LQSNavigationController.m in Sources */,
 				00AD95D91D815225003DF089 /* LQSLeftViewCell.m in Sources */,
 				41AC5B3D1D751C83006E38D5 /* LQSSettingMyFavourateViewController.m in Sources */,
+				2E9EB6B11DE1E25200FBB0B0 /* LQSPluginView.m in Sources */,
 				1477F9E21D7019C500EE102C /* LQSForumDetailCell.m in Sources */,
 				413F925A1D791C9500D7974D /* LQLoginViewController.m in Sources */,
+				2EA1A9F31DD855FA00F6360A /* LQSDashangTableViewCell.m in Sources */,
 				41AC5B3E1D751C83006E38D5 /* LQSSettingMyFriendViewController.m in Sources */,
 				E4D8E1B91D54188500EE6171 /* LQSBaseManager.m in Sources */,
 				6E62B0681D73D1BE001FB2A4 /* LQSBBSDetailCell.m in Sources */,
 				41F870091D767E7B00E05FAB /* LQSEmotionPopView.m in Sources */,
 				E4D8E1DC1D542A2B00EE6171 /* LQSUserInfo.m in Sources */,
+				2E3E9EC71DE9533500D0EC2D /* LQSPluginBoardView.m in Sources */,
 				410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */,
 				411FE79D1D6D6DC000563324 /* LQSDongmanModel.m in Sources */,
 				E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */,
@@ -1740,7 +1780,9 @@
 				E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */,
 				41AC5B3F1D751C83006E38D5 /* LQSSettingMyPresentViewController.m in Sources */,
 				41AC5B461D751CF5006E38D5 /* LQSAccountManagementViewController.m in Sources */,
+				2EA1A9F01DD84E4B00F6360A /* LQSdashangSecView.m in Sources */,
 				0000C4B71D645EB5007C969C /* LQSLastestMarrowModel.m in Sources */,
+				2E9EB6B41DE1E67A00FBB0B0 /* LQSPluginListView.m in Sources */,
 				41AC5B151D751C58006E38D5 /* LQSSettingCell.m in Sources */,
 				41F870081D767E7B00E05FAB /* LQSEmotionListView.m in Sources */,
 				41AC5AF81D751C3E006E38D5 /* LQSMessageDataModel.m in Sources */,
