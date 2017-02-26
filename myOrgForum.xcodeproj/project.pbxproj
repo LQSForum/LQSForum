@@ -1980,7 +1980,7 @@
 					"-ObjC",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbs;
+				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2041,7 +2041,7 @@
 					"-ObjC",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbs;
+				PRODUCT_BUNDLE_IDENTIFIER = org.longquanzs.bbss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
