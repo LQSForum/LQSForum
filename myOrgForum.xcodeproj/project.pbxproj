@@ -174,6 +174,7 @@
 		E4430D561D54B74C0014A6FE /* Home.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D4A1D54B74C0014A6FE /* Home.js */; };
 		E4430D571D54B74C0014A6FE /* index.ios.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D4B1D54B74C0014A6FE /* index.ios.js */; };
 		E4430D581D54B74C0014A6FE /* package.json in Resources */ = {isa = PBXBuildFile; fileRef = E4430D4C1D54B74C0014A6FE /* package.json */; };
+		E494EB831E6A732700AAD1B2 /* YBPopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E494EB821E6A732700AAD1B2 /* YBPopupMenu.m */; };
 		E4D8E1B91D54188500EE6171 /* LQSBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1B81D54188500EE6171 /* LQSBaseManager.m */; };
 		E4D8E1C51D54193000EE6171 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C01D54193000EE6171 /* AsyncSocket.m */; };
 		E4D8E1C61D54193000EE6171 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C21D54193000EE6171 /* GCDAsyncSocket.m */; };
@@ -535,6 +536,8 @@
 		E4430D4A1D54B74C0014A6FE /* Home.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Home.js; sourceTree = "<group>"; };
 		E4430D4B1D54B74C0014A6FE /* index.ios.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.ios.js; sourceTree = "<group>"; };
 		E4430D4C1D54B74C0014A6FE /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		E494EB811E6A732700AAD1B2 /* YBPopupMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBPopupMenu.h; sourceTree = "<group>"; };
+		E494EB821E6A732700AAD1B2 /* YBPopupMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBPopupMenu.m; sourceTree = "<group>"; };
 		E4D8E1B71D54188500EE6171 /* LQSBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSBaseManager.h; path = ../../core/LQSBaseManager.h; sourceTree = "<group>"; };
 		E4D8E1B81D54188500EE6171 /* LQSBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSBaseManager.m; path = ../../core/LQSBaseManager.m; sourceTree = "<group>"; };
 		E4D8E1BF1D54193000EE6171 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
@@ -1202,6 +1205,8 @@
 				2EA1A9EF1DD84E4B00F6360A /* LQSdashangSecView.m */,
 				2EA1A9F11DD855FA00F6360A /* LQSDashangTableViewCell.h */,
 				2EA1A9F21DD855FA00F6360A /* LQSDashangTableViewCell.m */,
+				E494EB811E6A732700AAD1B2 /* YBPopupMenu.h */,
+				E494EB821E6A732700AAD1B2 /* YBPopupMenu.m */,
 			);
 			name = introduceView;
 			sourceTree = "<group>";
@@ -1726,6 +1731,7 @@
 				41AC5B3A1D751C83006E38D5 /* LQSMyDraftViewController.m in Sources */,
 				0000C4B41D645E89007C969C /* LQSMainViewCell.m in Sources */,
 				410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */,
+				E494EB831E6A732700AAD1B2 /* YBPopupMenu.m in Sources */,
 				E436F2BD1D72CECD001CB8FE /* LQSMessage.m in Sources */,
 				004FD1C41D800EF2003AA2FF /* LQSMoreDataTableViewController.m in Sources */,
 				41AC5B371D751C83006E38D5 /* LQSMessageFriendsApplyViewController.m in Sources */,

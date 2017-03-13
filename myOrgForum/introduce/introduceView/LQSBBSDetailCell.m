@@ -10,10 +10,11 @@
 #import "LQSAddViewHelper.h"
 #import "LQSArticleContentView.h"
 #import "LQSSettingViewController.h"
-// 判断用户是否登录.xg
+// 判断用户是否登录
 #import "LQSUserManager.h"
 #import "LQSHomePagePersonalMessageViewController.h"
-
+// 解析评论数据
+#import "LQSBBSDetailModel.h"
 #define kCONTENTIMAGETAG_BEGIN 20160830
 #define kGUANZHUTA @"关注TA"
 #define kYIGUANZHUTA @"已关注TA"
@@ -40,7 +41,7 @@
     if (!self.isCreated) {
         [self createCellForIndexPath];
     }
-    
+
 }
 
 - (void)createCellForIndexPath
@@ -57,7 +58,7 @@
             [self setCellForContentSection2];
             break;
         }case 3:{
-            
+            [self setCellForContentSection3];
             break;
         }case 4:{
             
@@ -88,9 +89,11 @@
 {
     //抬头
     UIImageView *userImgView;
-    // 在这个类里面又有LQSAddViewHelper的同名方法.而且目测没什么不同...但是调用LQSAddViewHelper的方法会崩,不知前面为什么这么写,现在改成用self调用自己的方法.xg
+    // 在这个类里面又有LQSAddViewHelper的同名方法.而且目测没什么不同...但是调用LQSAddViewHelper的方法会崩,不知前面为什么这么写,现在改成用self调用自己的方法。
     //  [LQSAddViewHelper addImageView:&userImgView frame:CGRectMake(10, 10, 40, 40) tag:1001 image:[UIImage imageNamed:@"mc_forum_add_new_img.png"] superView:self.contentView imgUrlStr:self.myCtrl.bbsDetailModel.icon selector:@selector(sec1HeadAct)];
     [self addImageView:&userImgView frame:CGRectMake(10, 10, 40, 40) tag:1001 image:[UIImage imageNamed:@"mc_forum_add_new_img.png"] superView:self.contentView imgUrlStr:self.myCtrl.bbsDetailModel.icon selector:@selector(sec1HeadAct)];
+    userImgView.clipsToBounds = YES;
+    userImgView.layer.cornerRadius = 5;
     
     UILabel *userNameLab;
     NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
@@ -115,9 +118,9 @@
         NSLog(@"isfollow:%zd",self.myCtrl.bbsDetailModel.isFollow);
         isFollow = self.myCtrl.bbsDetailModel.isFollow == 0 ?  kGUANZHUTA : kYIGUANZHUTA;
     }
-    [self addButton:&guanzhuBtn frame:CGRectMake(KLQScreenFrameSize.width - 10 - 78, 10, 78, 25) title:isFollow titleFont:[UIFont systemFontOfSize:13] titleColor:[UIColor blackColor] borderwidth:KSingleLine_Width cornerRadius:0 selector:@selector(guanzhuTA:) superView:self.contentView];
+    [self addButton:&guanzhuBtn frame:CGRectMake(KLQScreenFrameSize.width - 10 - 78, 9, 78, 25) title:isFollow titleFont:[UIFont systemFontOfSize:13] titleColor:[UIColor blackColor] borderwidth:KSingleLine_Width cornerRadius:0 selector:@selector(guanzhuTA:) superView:self.contentView];
     //内容
-    LQSArticleContentView *articleView = [[LQSArticleContentView alloc] initWithFrame:CGRectMake(15, 55.0f, KLQScreenFrameSize.width-30, 500)];
+    LQSArticleContentView *articleView = [[LQSArticleContentView alloc] initWithFrame:CGRectMake(11, 55.0f, KLQScreenFrameSize.width-22, 500)];
     articleView.preferredMaxLayoutWidth = KLQScreenFrameSize.width-30;
     articleView.content = self.myCtrl.bbsDetailModel.content;
     articleView.scrollEnabled = NO;
@@ -160,6 +163,27 @@
     //        }
     //    }
     self.isCreated = YES;
+}
+- (void)setCellForContentSection3{
+    // 从传过来的bbsDetailModel.list中根据index获取对应的数据。
+    NSInteger index = self.indexPath.row;
+    LQSBBSPosterModel *pinglunModel =self.myCtrl.bbsDetailModel.list[index];
+    //抬头
+    UIImageView *userImgView;
+    [self addImageView:&userImgView frame:CGRectMake(10, 10, 40, 40) tag:1001 image:[UIImage imageNamed:@"mc_forum_add_new_img.png"] superView:self.contentView imgUrlStr:pinglunModel.icon selector:@selector(sec1HeadAct)];
+    userImgView.clipsToBounds = YES;
+    userImgView.layer.cornerRadius = 5;
+    
+    UILabel *userNameLab;
+    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
+    CGRect rect = [self.myCtrl.bbsDetailModel.user_nick_name  boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 55 - 78 - 10, 20) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
+    [LQSAddViewHelper addLable:&userNameLab withFrame:CGRectMake(55, 9, rect.size.width, 20) text:self.myCtrl.bbsDetailModel.user_nick_name textFont:[UIFont systemFontOfSize:15] textColor:[UIColor grayColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
+    UILabel *timeLab;
+    //    NSLog(@"createDate:%@",self.myCtrl.bbsDetailModel.create_date);
+    [LQSAddViewHelper addLable:&timeLab withFrame:CGRectMake(55, CGRectGetMaxY(userNameLab.frame), 200, 20) text:/*@"1天前"*/LQSTR(self.myCtrl.bbsDetailModel.create_date) textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
+    // 楼层
+    UILabel *postionLabel;
+    [LQSAddViewHelper addLable:&postionLabel withFrame:CGRectMake(self.contentView.width - 10, 5, 6, 6) text:@"" textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] textAlignment:NSTextAlignmentRight lineNumber:1 tag:0 superView:self.contentView];
 }
 // postToReportPage
 - (void)postToReportPage:(UIButton *)sender{

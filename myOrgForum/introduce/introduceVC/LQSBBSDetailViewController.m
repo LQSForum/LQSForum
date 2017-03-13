@@ -47,15 +47,23 @@
 
 @implementation LQSBBSDetailViewController
 
+#pragma mark - LifeCycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     // 下面这行代码解决pop回本页时tableView自动下移问题.
     self.automaticallyAdjustsScrollViewInsets = NO;
+    NSLog(@"详情页boardID：%@",self.selectModel.board_id);
     [self setupInputbtn];
     [self setUpInputView];
     [self postForData];
+    
+}
+// 在这里处理一下自动刷新操作。
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
 }
 
@@ -735,6 +743,7 @@
         NSArray  *zanListArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict[@"topic"] objectForKey:@"zanList"]];
         self.bbsDetailModel.zanList = [NSMutableArray arrayWithArray:zanListArr];
     }
+    // 回复列表
     if (nil != dict[@"list"]) {
         self.bbsDetailModel.list = [NSMutableArray array];
         for (NSDictionary *listDict in dict[@"list"]) {

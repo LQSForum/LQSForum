@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef NS_ENUM (NSInteger,headerOrFooter){
+    header,
+    footer
+};
+typedef void(^sureBtnClkBlock)(UIButton *);
 @interface LQSdashangSecView : UIView
-
+@property (nonatomic,assign)headerOrFooter headerOrFooter;
+@property (nonatomic,copy)sureBtnClkBlock sureBtnclkBlock;
+- (void)setupViews;
 @end

@@ -57,7 +57,6 @@
         
         // 设置默认的占位文字颜色
         self.placehoderColor = [UIColor lightGrayColor];
-        
         // 设置默认的字体
         self.font = [UIFont systemFontOfSize:14];
         [self setUp];
@@ -105,7 +104,7 @@
 {
     // 占位文字是否显示
     //    self.placeholderView.hidden = self.text.length > 0;
-    
+    self.placehoderLabel.hidden = self.text.length > 0;
     NSInteger height = ceilf([self sizeThatFits:CGSizeMake(self.bounds.size.width, MAXFLOAT)].height);
     
     if (_textH != height) { // 高度不一样，就改变了高度
