@@ -19,8 +19,8 @@
 @interface LQSBBSDetailCell : UITableViewCell
 
 //@property (nonatomic, strong) NSMutableDictionary *paramDict;//参数字典
-@property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, weak) LQSBBSDetailViewController *myCtrl;
+//@property (nonatomic, strong) NSIndexPath *indexPath;
+//@property (nonatomic, weak) LQSBBSDetailViewController *myCtrl;
 @property (nonatomic,assign)id <LQSBBSDetailCellDelegate> bbsDetailDelegate;
-
+- (void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath;
 @end

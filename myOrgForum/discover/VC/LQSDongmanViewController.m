@@ -190,8 +190,10 @@
 
     LQSBBSDetailViewController *detailVc = [LQSBBSDetailViewController new];
     LQSDongmanListModel *model = [_dongManDataArray objectAtIndex:indexPath.row];
-    detailVc.selectModel.board_id = model.board_id;
-    detailVc.selectModel.topicId = model.fid;
+//    detailVc.selectModel.board_id = model.board_id;
+//    detailVc.selectModel.topicId = model.fid;
+    detailVc.boardID = model.board_id;
+    detailVc.topicID = model.source_id;
     [self.navigationController pushViewController:detailVc animated:NO];
 
 

@@ -42,7 +42,7 @@
 @property (nonatomic, strong) LQSEmotionKeyboard *emotionKeyBoard;
 // pluginBoardView
 @property (nonatomic,strong)LQSPluginView *pluginBoardView;
-
+@property (nonatomic,strong)NSMutableArray *replysArr;
 @end
 
 @implementation LQSBBSDetailViewController
@@ -451,7 +451,7 @@
 #pragma mark - tableView delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return 4 ;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -463,7 +463,8 @@
             numForRow =1;
             break;
         }case 3:{
-            numForRow =  self.bbsDetailModel.list.count + 1;
+            numForRow =  self.bbsDetailModel.list.count ;
+            // 这里的行数，可以加上最后一个“没有更多了”作为最后一个cell。
             break;
         }
             
@@ -503,11 +504,12 @@
                 cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"titleCell"];
                 //                dic = @{@"indexPath":indexPath,@"title":LQSTR(self.bbsDetailModel.title),@"isEssence":LQSTR(self.bbsDetailModel.essence),@"hits":LQSTR(self.bbsDetailModel.hits)};
                 //                ((LQSBBSDetailCell*)cell).paramDict = [NSMutableDictionary dictionaryWithDictionary:dic];
+                [(LQSBBSDetailCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
                 
                 break;
             }case 1:{
                 cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contentCell"];
-                
+                [(LQSBBSDetailCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
                 //                dic = @{@"indexPath":indexPath,@"paramData":self.bbsDetailModel};
                 //                ((LQSBBSDetailCell*)cell).paramDict = [NSMutableDictionary dictionaryWithDictionary:dic];
                 
@@ -515,26 +517,30 @@
             }case 2:{
                 cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"voteCell"];
                 //                dic;
+                [(LQSBBSDetailCell *)cell setCellWithData:self.bbsDetailPosterModel indexpath:indexPath];
                 break;
             }case 3:{
                 cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"posterCell"];
-                cell.contentView.backgroundColor = [UIColor yellowColor];
+                cell.contentView.backgroundColor = [UIColor cyanColor];
+                
                 //                dic = @{@"indexPath":indexPath,@"paramData":self.bbsDetailModel}
                 break;
             }
             default:
                 break;
         }
+//        ((LQSBBSDetailCell*)cell).indexPath = indexPath;
+//        ((LQSBBSDetailCell*)cell).myCtrl = self;
         
-        ((LQSBBSDetailCell*)cell).indexPath = indexPath;
-        ((LQSBBSDetailCell*)cell).myCtrl = self;
     }
     // 让controller成为cell的代理
     ((LQSBBSDetailCell*)cell).bbsDetailDelegate = self;
     return cell;
     
 }
-
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat height = 0;
@@ -546,10 +552,11 @@
             height = [self getHeightForContentCell:self.bbsDetailModel.content];//待定
             break;
         }case 2:{
-            height = 75;
+            height = 65;
             break;
         }case 3:{
-            height = 60;//待定
+            LQSBBSPosterModel *model = self.bbsDetailModel.list[indexPath.row];
+            height = model.contentHeight + 104;//待定
             break;
         }
         default:
@@ -697,7 +704,18 @@
     }
     return _bbsDetailModel;
 }
-
+-(LQSBBSDetailTopicModel *)bbsDetailTopicModel{
+    if (!_bbsDetailTopicModel) {
+        _bbsDetailTopicModel = [[LQSBBSDetailTopicModel alloc]init];
+    }
+    return _bbsDetailTopicModel;
+}
+-(NSMutableArray *)replysArr{
+    if (!_replysArr) {
+        _replysArr = [NSMutableArray array];
+    }
+    return _replysArr;
+}
 - (void)getBBSDetailModelFrom:(NSDictionary *)dict
 {
     //帖子信息
@@ -706,76 +724,87 @@
         self.bbsDetailModel.rs = LQSTR(dict[@"rs"]);
         self.bbsDetailModel.total_num = LQSTR(dict[@"total_num"]);
         self.bbsDetailModel.has_next = LQSTR(dict[@"has_next"]);
-        self.bbsDetailModel.hits = LQSTR(dict[@"topic"][@"hits"]);
-        self.bbsDetailModel.icon = LQSTR(dict[@"topic"][@"icon"]);
-        self.bbsDetailModel.level = LQSTR(dict[@"topic"][@"level"]);
-        self.bbsDetailModel.replies = LQSTR(dict[@"topic"][@"replies"]);
-        self.bbsDetailModel.isFollow = [dict[@"topic"][@"isFollow"] integerValue];
-        self.bbsDetailModel.hot = LQSTR(dict[@"topic"][@"hot"]);
-        self.bbsDetailModel.essence = dict[@"topic"][@"essence"];
-        //        self.bbsDetailModel.location = LQSTR(dict[@"topic"][@"location"]);
-        self.bbsDetailModel.reply_status = LQSTR(dict[@"topic"][@"reply_status"]);
-        self.bbsDetailModel.flag = LQSTR(dict[@"topic"][@"flag"]);
-        self.bbsDetailModel.vote = LQSTR(dict[@"topic"][@"vote"]);
-        self.bbsDetailModel.type = LQSTR(dict[@"topic"][@"type"]);
-        self.bbsDetailModel.create_date = LQSTR(dict[@"topic"][@"create_date"]);
-        self.bbsDetailModel.is_favor = LQSTR(dict[@"topic"][@"is_favor"]);
-        self.bbsDetailModel.top = LQSTR(dict[@"topic"][@"top"]);
-        self.bbsDetailModel.status = LQSTR(dict[@"topic"][@"status"]);
-        self.bbsDetailModel.user_nick_name = LQSTR(dict[@"topic"][@"user_nick_name"]);
-        self.bbsDetailModel.user_id = LQSTR(dict[@"topic"][@"user_id"]);
-        self.bbsDetailModel.userTitle = LQSTR(dict[@"topic"][@"userTitle"]);
-        self.bbsDetailModel.gender = LQSTR(dict[@"topic"][@"gender"]);
-        self.bbsDetailModel.mobileSign = LQSTR(dict[@"topic"][@"mobileSign"]);
-        self.bbsDetailModel.reply_posts_id = LQSTR(dict[@"topic"][@"reply_posts_id"]);
-        self.bbsDetailModel.title = LQSTR(dict[@"topic"][@"title"]);
-        //        self.bbsDetailModel.sortId = LQSTR(dict[@"sortId"]);
-        self.bbsDetailModel.forumTopicUrl = LQSTR(dict[@"forumTopicUrl"]);
-        self.bbsDetailModel.page = LQSTR(dict[@"page"]);
+        
+        [self.bbsDetailTopicModel ModelWithDict:dict[@"topic"]];
+//        self.bbsDetailModel.hits = LQSTR(dict[@"topic"][@"hits"]);
+//        self.bbsDetailModel.icon = LQSTR(dict[@"topic"][@"icon"]);
+//        self.bbsDetailModel.level = LQSTR(dict[@"topic"][@"level"]);
+//        self.bbsDetailModel.replies = LQSTR(dict[@"topic"][@"replies"]);
+//        self.bbsDetailModel.isFollow = [dict[@"topic"][@"isFollow"] integerValue];
+//        self.bbsDetailModel.hot = LQSTR(dict[@"topic"][@"hot"]);
+//        self.bbsDetailModel.essence = dict[@"topic"][@"essence"];
+//        //        self.bbsDetailModel.location = LQSTR(dict[@"topic"][@"location"]);
+//        self.bbsDetailModel.reply_status = LQSTR(dict[@"topic"][@"reply_status"]);
+//        self.bbsDetailModel.flag = LQSTR(dict[@"topic"][@"flag"]);
+//        self.bbsDetailModel.vote = LQSTR(dict[@"topic"][@"vote"]);
+//        self.bbsDetailModel.type = LQSTR(dict[@"topic"][@"type"]);
+//        self.bbsDetailModel.create_date = LQSTR(dict[@"topic"][@"create_date"]);
+//        self.bbsDetailModel.is_favor = LQSTR(dict[@"topic"][@"is_favor"]);
+//        self.bbsDetailModel.top = LQSTR(dict[@"topic"][@"top"]);
+//        self.bbsDetailModel.status = LQSTR(dict[@"topic"][@"status"]);
+//        self.bbsDetailModel.user_nick_name = LQSTR(dict[@"topic"][@"user_nick_name"]);
+//        self.bbsDetailModel.user_id = LQSTR(dict[@"topic"][@"user_id"]);
+//        self.bbsDetailModel.userTitle = LQSTR(dict[@"topic"][@"userTitle"]);
+//        self.bbsDetailModel.gender = LQSTR(dict[@"topic"][@"gender"]);
+//        self.bbsDetailModel.mobileSign = LQSTR(dict[@"topic"][@"mobileSign"]);
+//        self.bbsDetailModel.reply_posts_id = LQSTR(dict[@"topic"][@"reply_posts_id"]);
+//        self.bbsDetailModel.title = LQSTR(dict[@"topic"][@"title"]);
+//        //        self.bbsDetailModel.sortId = LQSTR(dict[@"sortId"]);
+//        self.bbsDetailModel.forumTopicUrl = LQSTR(dict[@"forumTopicUrl"]);
+//        self.bbsDetailModel.page = LQSTR(dict[@"page"]);
     }
     //帖子内容
-    if (nil != [dict[@"topic"] objectForKey:@"content"]) {
-        NSArray  *contenArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict[@"topic"] objectForKey:@"content"]];
-        self.bbsDetailModel.content = [NSMutableArray arrayWithArray:contenArr];
-        NSLog(@"arr: %@",contenArr);
-    }
-    if (nil != [dict[@"topic"] objectForKey:@"zanList"]) {
-        NSArray  *zanListArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict[@"topic"] objectForKey:@"zanList"]];
-        self.bbsDetailModel.zanList = [NSMutableArray arrayWithArray:zanListArr];
-    }
+//    if (nil != [dict[@"topic"] objectForKey:@"content"]) {
+//        NSArray  *contenArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict[@"topic"] objectForKey:@"content"]];
+//        self.bbsDetailModel.content = [NSMutableArray arrayWithArray:contenArr];
+//        NSLog(@"arr: %@",contenArr);
+//    }
+//    if (nil != [dict[@"topic"] objectForKey:@"zanList"]) {
+//        NSArray  *zanListArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict[@"topic"] objectForKey:@"zanList"]];
+//        self.bbsDetailModel.zanList = [NSMutableArray arrayWithArray:zanListArr];
+//    }
     // 回复列表
     if (nil != dict[@"list"]) {
-        self.bbsDetailModel.list = [NSMutableArray array];
+//        self.bbsDetailModel.list = [NSMutableArray array];
         for (NSDictionary *listDict in dict[@"list"]) {
             LQSBBSPosterModel *model = [[LQSBBSPosterModel alloc] init];
-            model.reply_content = [[NSMutableArray alloc] initWithArray:listDict[@"reply_content"]];
-            model.location = LQSTR(listDict[@"location"]);
-            model.mobileSign = LQSTR(listDict[@"mobileSign"]);
-            model.position = LQSTR(listDict[@"position"]);
-            model.status = LQSTR(listDict[@"status"]);
-            model.title = LQSTR(listDict[@"title"]);
-            model.delThread = LQSTR(listDict[@"delThread"]);
-            model.icon = LQSTR(listDict[@"icon"]);
-            model.reply_status = LQSTR(listDict[@"reply_status"]);
-            model.role_num = LQSTR(listDict[@"role_num"]);
-            model.level = LQSTR(listDict[@"level"]);
-            model.reply_id = LQSTR(listDict[@"reply_id"]);
-            model.reply_type = LQSTR(listDict[@"reply_type"]);
-            model.reply_name = LQSTR(listDict[@"reply_name"]);
-            model.reply_posts_id = LQSTR(listDict[@"reply_posts_id"]);
-            model.role_num = LQSTR(listDict[@"role_num"]);
-            model.is_quote = LQSTR(listDict[@"is_quote"]);
-            model.userTitle = LQSTR(listDict[@"userTitle"]);
-            model.quote_pid = LQSTR(listDict[@"quote_pid"]);
-            model.posts_date = LQSTR(listDict[@"posts_date"]);
-            model.quote_content = LQSTR(listDict[@"quote_content"]);
-            model.quote_user_name = LQSTR(listDict[@"quote_user_name"]);
-            [self.bbsDetailModel.list addObject:model];
+            [model modelWithDict:listDict];
+//            model.location = LQSTR(listDict[@"location"]);
+//            model.mobileSign = LQSTR(listDict[@"mobileSign"]);
+//            model.position = LQSTR(listDict[@"position"]);
+//            model.status = LQSTR(listDict[@"status"]);
+//            model.title = LQSTR(listDict[@"title"]);
+//            model.delThread = LQSTR(listDict[@"delThread"]);
+//            model.icon = LQSTR(listDict[@"icon"]);
+//            model.reply_status = LQSTR(listDict[@"reply_status"]);
+//            model.role_num = LQSTR(listDict[@"role_num"]);
+//            model.level = LQSTR(listDict[@"level"]);
+//            model.reply_id = LQSTR(listDict[@"reply_id"]);
+//            model.reply_type = LQSTR(listDict[@"reply_type"]);
+//            model.reply_name = LQSTR(listDict[@"reply_name"]);
+//            model.reply_posts_id = LQSTR(listDict[@"reply_posts_id"]);
+//            model.role_num = LQSTR(listDict[@"role_num"]);
+//            model.is_quote = LQSTR(listDict[@"is_quote"]);
+            // is_quote,如果是0，表示没有回复，如果是1，表示有对原来评论的引用，也就是TA评论了这个引用的评论。
+//            model.userTitle = LQSTR(listDict[@"userTitle"]);
+//            model.quote_pid = LQSTR(listDict[@"quote_pid"]);
+//            model.posts_date = LQSTR(listDict[@"posts_date"]);
+//            model.quote_content = LQSTR(listDict[@"quote_content"]);
+//            //quote_content，二级评论的内容。也就是他评论的是那个评论的，而且，发现，二级评论的层数只有一层，就是不能直接回复楼中楼。不知道为什么做成这样的效果。和微信等主流效果并不相同。
+//            // 如果做成线上版的这种效果，就不需要处理成一级回复为sectionheader，二级回复等是cell的效果。直接用cell，以及cell内置的一个label就可以了。
+//            model.quote_user_name = LQSTR(listDict[@"quote_user_name"]);
+            [self.replysArr addObject:model];
             
         }
     }
 }
-
+//- (CGFloat)caculateCellHeightWithWidth:(CGFloat)width contentStr:(NSString *)str{
+//    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
+//    // 计算文字高度
+//    CGRect rect = [str  boundingRectWithSize:CGSizeMake(width, 1000) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
+//    return rect.size.height;
+//
+//}
 
 /*
  {

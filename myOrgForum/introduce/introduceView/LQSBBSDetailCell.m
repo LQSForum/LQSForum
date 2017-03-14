@@ -108,7 +108,7 @@
     [LQSAddViewHelper addLable:&titleNamelab withFrame:CGRectMake(x, 9, rectForTitle.size.width, 20) text:self.myCtrl.bbsDetailModel.userTitle textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.8 green:0.5 blue:0.3 alpha:1] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
     
     UILabel *timeLab;
-//    NSLog(@"createDate:%@",self.myCtrl.bbsDetailModel.create_date);
+    NSLog(@"createDate:%@",self.myCtrl.bbsDetailModel.create_date);
     [LQSAddViewHelper addLable:&timeLab withFrame:CGRectMake(55, CGRectGetMaxY(userNameLab.frame), 200, 20) text:/*@"1天前"*/LQSTR(self.myCtrl.bbsDetailModel.create_date) textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
     
     UIButton *guanzhuBtn;
@@ -176,14 +176,36 @@
     
     UILabel *userNameLab;
     NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
-    CGRect rect = [self.myCtrl.bbsDetailModel.user_nick_name  boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 55 - 78 - 10, 20) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
-    [LQSAddViewHelper addLable:&userNameLab withFrame:CGRectMake(55, 9, rect.size.width, 20) text:self.myCtrl.bbsDetailModel.user_nick_name textFont:[UIFont systemFontOfSize:15] textColor:[UIColor grayColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
+    CGRect rect = [pinglunModel.reply_name  boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 55 - 78 - 10, 20) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
+    [LQSAddViewHelper addLable:&userNameLab withFrame:CGRectMake(55, 9, rect.size.width, 20) text:pinglunModel.reply_name textFont:[UIFont systemFontOfSize:15] textColor:[UIColor grayColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
     UILabel *timeLab;
     //    NSLog(@"createDate:%@",self.myCtrl.bbsDetailModel.create_date);
-    [LQSAddViewHelper addLable:&timeLab withFrame:CGRectMake(55, CGRectGetMaxY(userNameLab.frame), 200, 20) text:/*@"1天前"*/LQSTR(self.myCtrl.bbsDetailModel.create_date) textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
+    [LQSAddViewHelper addLable:&timeLab withFrame:CGRectMake(55, CGRectGetMaxY(userNameLab.frame), 200, 20) text:LQSTR(pinglunModel.posts_date) textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
     // 楼层
     UILabel *postionLabel;
-    [LQSAddViewHelper addLable:&postionLabel withFrame:CGRectMake(self.contentView.width - 10, 5, 6, 6) text:@"" textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] textAlignment:NSTextAlignmentRight lineNumber:1 tag:0 superView:self.contentView];
+    // 此处的楼层label的位置是固定的，以后可以看UI设计来改。
+    [LQSAddViewHelper addLable:&postionLabel withFrame:CGRectMake(self.contentView.width - 50, 5, 40, 20) text:[NSString stringWithFormat:@"%@楼",pinglunModel.position] textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] textAlignment:NSTextAlignmentRight lineNumber:1 tag:0 superView:self.contentView];
+    postionLabel.backgroundColor = [UIColor blueColor];
+    // 一级评论内容展示
+    UILabel *replyContentLabel = [[UILabel alloc]init];
+    NSDictionary *dic = pinglunModel.reply_content[0];
+//    replyContentLabel.numberOfLines = 0;
+//    replyContentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    [LQSAddViewHelper addLable:&replyContentLabel withFrame:CGRectMake(55, CGRectGetMaxY(timeLab.frame)+5, KLQScreenFrameSize.width - 55 - 78 - 10, pinglunModel.contentHeight) text:dic[@"infor"] textFont:[UIFont systemFontOfSize:15] textColor:[UIColor grayColor] textAlignment:NSTextAlignmentLeft lineNumber:0 tag:0 superView:self.contentView];
+//    [self.contentView addSubview:replyContentLabel];
+//    replyContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(timeLab.mas_bottom).offset(5);
+//        make.left.equalTo(self.contentView.mas_left).offset(55);
+//        make.width.equalTo();
+//        
+//    }
+    // 二级评论内容的展示label,根据model中的is_quote属性判断是否有二级评论内容需要展示，quote_content为二级评论的内容。
+//    if ([pinglunModel.is_quote isEqualToString:@"1"]) {
+//        UILabel *quoteContentLabel;
+//       
+//        
+//    }
+    
 }
 // postToReportPage
 - (void)postToReportPage:(UIButton *)sender{
@@ -194,6 +216,12 @@
     }
     
     
+}
+- (CGRect )resultRectWithText:(NSString *)text width:(CGFloat)width{
+    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
+    // 计算文字高度
+    CGRect rect = [text  boundingRectWithSize:CGSizeMake(width, 1000) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
+    return rect;
 }
 // 举报点击事件
 - (void)reportAct:(UIButton *)sender{
@@ -209,7 +237,7 @@
     }];
     
 }
-// 帖子详情页的第二个section--xg
+// 帖子详情页的第二个section
 - (void)setCellForContentSection2{
     // 打赏文字label
     UILabel *daShangLabel;
