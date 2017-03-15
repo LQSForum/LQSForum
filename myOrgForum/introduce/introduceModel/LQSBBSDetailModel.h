@@ -43,6 +43,9 @@
 @property (nonatomic, strong) NSArray *zanList;
 @property (nonatomic, strong) NSMutableArray *content;//帖子内容
 - (void)ModelWithDict:(NSDictionary *)dict;
+// 记录cell的高度
+@property (nonatomic,assign)CGFloat topicCellHeight;
+
 @end
 
 //@property (nonatomic, strong) NSString *topic_id;//帖子ID

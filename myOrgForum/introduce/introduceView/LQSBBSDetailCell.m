@@ -25,6 +25,7 @@
 @property (nonatomic,strong)UIActionSheet *myActSheet;
 // 举报警察按钮
 @property (nonatomic,strong)UIButton *policeBtn;
+@property (nonatomic,strong)LQSArticleContentView *articleContentView;
 @end
 
 @implementation LQSBBSDetailCell
@@ -37,28 +38,29 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     return self;
 }
-- (void)layoutSubviews{
-    if (!self.isCreated) {
-        [self createCellForIndexPath];
-    }
-
-}
-
-- (void)createCellForIndexPath
-{
-    switch (self.indexPath.section) {
+//- (void)layoutSubviews{
+//    if (!self.isCreated) {
+//        [self createCellForIndexPath];
+//    }
+//
+//}
+- (void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath{
+    switch (indexpath.section) {
         case 0:{
             self.height = 73;
-            [self setCellForSection0];
+            LQSBBSDetailTopicModel *model = modelData;
+            [self setCellForSection0WithModal:model];
             break;
         }case 1:{
-            [self setCellForContentSection1];
+            LQSBBSDetailTopicModel *model = modelData;
+            [self setCellForContentSection1WithModal:model];
             break;
         }case 2:{
             [self setCellForContentSection2];
             break;
         }case 3:{
-            [self setCellForContentSection3];
+            LQSBBSPosterModel* pinglunModel = modelData;
+            [self setCellForContentSection3WithModel:(LQSBBSPosterModel *)pinglunModel];
             break;
         }case 4:{
             
@@ -67,16 +69,42 @@
         default:
             break;
     }
+
+
 }
-- (void)setCellForSection0
+//- (void)createCellForIndexPath
+//{
+//    switch (self.indexPath.section) {
+//        case 0:{
+//            self.height = 73;
+//            [self setCellForSection0];
+//            break;
+//        }case 1:{
+//            [self setCellForContentSection1];
+//            break;
+//        }case 2:{
+//            [self setCellForContentSection2];
+//            break;
+//        }case 3:{
+//            [self setCellForContentSection3];
+//            break;
+//        }case 4:{
+//            
+//            break;
+//        }
+//        default:
+//            break;
+//    }
+//}
+- (void)setCellForSection0WithModal:(LQSBBSDetailTopicModel *)model
 {
     UILabel *titleLab;
-    [LQSAddViewHelper addLable:&titleLab withFrame:CGRectMake(15, 10, KLQScreenFrameSize.width - 15 - 25, 39) text:LQSTR(self.myCtrl.bbsDetailModel.title) textFont:[UIFont boldSystemFontOfSize:15] textColor:[UIColor blackColor] textAlignment:NSTextAlignmentLeft lineNumber:2 tag:0 superView:self.contentView];
+    [LQSAddViewHelper addLable:&titleLab withFrame:CGRectMake(15, 10, KLQScreenFrameSize.width - 15 - 25, 39) text:LQSTR(model.title) textFont:[UIFont boldSystemFontOfSize:15] textColor:[UIColor blackColor] textAlignment:NSTextAlignmentLeft lineNumber:2 tag:0 superView:self.contentView];
     UIImageView *scanImgView;
     [LQSAddViewHelper addImageView:&scanImgView frame:CGRectMake(15, 50, 12, 11) tag:0 image:[UIImage imageNamed:@"mc_forum_ico53_n"] superView:self.contentView imgUrlStr:@"" selector:nil];
     UILabel *scanLab;
-    [LQSAddViewHelper addLable:&scanLab withFrame:CGRectMake(32, 49, KLQScreenFrameSize.width - 32 - 25, 14) text:LQSTR(self.myCtrl.bbsDetailModel.hits) textFont:[UIFont systemFontOfSize:13] textColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
-    if ([self.myCtrl.bbsDetailModel.essence  isEqual: @1]) {
+    [LQSAddViewHelper addLable:&scanLab withFrame:CGRectMake(32, 49, KLQScreenFrameSize.width - 32 - 25, 14) text:LQSTR(model.hits) textFont:[UIFont systemFontOfSize:13] textColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
+    if ([model.essence  isEqual: @1]) {
         UILabel *essenceLab;
         [LQSAddViewHelper addLable:&essenceLab withFrame:CGRectMake(KLQScreenFrameSize.width - 10 -16, 10, 16, 16) text:@"精" textFont:[UIFont boldSystemFontOfSize:13] textColor:[UIColor whiteColor] textAlignment:NSTextAlignmentCenter lineNumber:1 tag:0 superView:self.contentView];
         essenceLab.layer.cornerRadius = 2;
@@ -85,44 +113,44 @@
     }
     self.isCreated = YES;
 }
-- (void)setCellForContentSection1
+- (void)setCellForContentSection1WithModal:(LQSBBSDetailTopicModel *)model
 {
     //抬头
     UIImageView *userImgView;
     // 在这个类里面又有LQSAddViewHelper的同名方法.而且目测没什么不同...但是调用LQSAddViewHelper的方法会崩,不知前面为什么这么写,现在改成用self调用自己的方法。
     //  [LQSAddViewHelper addImageView:&userImgView frame:CGRectMake(10, 10, 40, 40) tag:1001 image:[UIImage imageNamed:@"mc_forum_add_new_img.png"] superView:self.contentView imgUrlStr:self.myCtrl.bbsDetailModel.icon selector:@selector(sec1HeadAct)];
-    [self addImageView:&userImgView frame:CGRectMake(10, 10, 40, 40) tag:1001 image:[UIImage imageNamed:@"mc_forum_add_new_img.png"] superView:self.contentView imgUrlStr:self.myCtrl.bbsDetailModel.icon selector:@selector(sec1HeadAct)];
+    [self addImageView:&userImgView frame:CGRectMake(10, 10, 40, 40) tag:1001 image:[UIImage imageNamed:@"mc_forum_add_new_img.png"] superView:self.contentView imgUrlStr:model.icon selector:@selector(sec1HeadAct)];
     userImgView.clipsToBounds = YES;
     userImgView.layer.cornerRadius = 5;
     
     UILabel *userNameLab;
     NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
-    CGRect rect = [self.myCtrl.bbsDetailModel.user_nick_name  boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 55 - 78 - 10, 20) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
-    [LQSAddViewHelper addLable:&userNameLab withFrame:CGRectMake(55, 9, rect.size.width, 20) text:self.myCtrl.bbsDetailModel.user_nick_name textFont:[UIFont systemFontOfSize:15] textColor:[UIColor grayColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
+    CGRect rect = [model.user_nick_name  boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 55 - 78 - 10, 20) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
+    [LQSAddViewHelper addLable:&userNameLab withFrame:CGRectMake(55, 9, rect.size.width, 20) text:model.user_nick_name textFont:[UIFont systemFontOfSize:15] textColor:[UIColor grayColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
     
     UILabel *titleNamelab;
     CGFloat x = CGRectGetMaxX(userNameLab.frame);
     x += 5;
     NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:12]};
-    CGRect rectForTitle = [self.myCtrl.bbsDetailModel.userTitle  boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 55 - 78 - 10, 20) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
-    [LQSAddViewHelper addLable:&titleNamelab withFrame:CGRectMake(x, 9, rectForTitle.size.width, 20) text:self.myCtrl.bbsDetailModel.userTitle textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.8 green:0.5 blue:0.3 alpha:1] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
+    CGRect rectForTitle = [model.userTitle  boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 55 - 78 - 10, 20) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
+    [LQSAddViewHelper addLable:&titleNamelab withFrame:CGRectMake(x, 9, rectForTitle.size.width, 20) text:model.userTitle textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.8 green:0.5 blue:0.3 alpha:1] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
     
     UILabel *timeLab;
-    NSLog(@"createDate:%@",self.myCtrl.bbsDetailModel.create_date);
-    [LQSAddViewHelper addLable:&timeLab withFrame:CGRectMake(55, CGRectGetMaxY(userNameLab.frame), 200, 20) text:/*@"1天前"*/LQSTR(self.myCtrl.bbsDetailModel.create_date) textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
+    NSLog(@"createDate:%@",model.create_date);
+    [LQSAddViewHelper addLable:&timeLab withFrame:CGRectMake(55, CGRectGetMaxY(userNameLab.frame), 200, 20) text:/*@"1天前"*/LQSTR(model.create_date) textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
     
     UIButton *guanzhuBtn;
     // isFollow:0表示未关注,1表示已关注
     NSString *isFollow = kGUANZHUTA;// 设置默认为未关注.
-    if (self.myCtrl.bbsDetailModel.isFollow) {
-        NSLog(@"isfollow:%zd",self.myCtrl.bbsDetailModel.isFollow);
-        isFollow = self.myCtrl.bbsDetailModel.isFollow == 0 ?  kGUANZHUTA : kYIGUANZHUTA;
+    if (model.isFollow) {
+        NSLog(@"isfollow:%zd",model.isFollow);
+        isFollow = model.isFollow == 0 ?  kGUANZHUTA : kYIGUANZHUTA;
     }
     [self addButton:&guanzhuBtn frame:CGRectMake(KLQScreenFrameSize.width - 10 - 78, 9, 78, 25) title:isFollow titleFont:[UIFont systemFontOfSize:13] titleColor:[UIColor blackColor] borderwidth:KSingleLine_Width cornerRadius:0 selector:@selector(guanzhuTA:) superView:self.contentView];
     //内容
     LQSArticleContentView *articleView = [[LQSArticleContentView alloc] initWithFrame:CGRectMake(11, 55.0f, KLQScreenFrameSize.width-22, 500)];
     articleView.preferredMaxLayoutWidth = KLQScreenFrameSize.width-30;
-    articleView.content = self.myCtrl.bbsDetailModel.content;
+    articleView.content = model.content;
     articleView.scrollEnabled = NO;
     articleView.editable = NO;
     articleView.backgroundColor = [UIColor redColor];
@@ -130,6 +158,7 @@
     [articleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(55, 15, 40, 15));// 之前是(55,15,10,15),改为40,为留出举报按钮的高度
     }];
+    self.articleContentView = articleView;
     // 举报按钮,articleView距离底部为40,这里设定举报按钮高28,距离上面6,下面6
     UIButton *reportBtn = [[UIButton alloc]initWithFrame:CGRectMake(KLQScreenFrameSize.width-40, CGRectGetMaxY(self.contentView.frame)-34, 50, 28)];
     [reportBtn setImage:[UIImage imageNamed:@"dz_posts_manage_btn"] forState:UIControlStateNormal];
@@ -150,24 +179,11 @@
     _policeBtn.backgroundColor = [UIColor grayColor];
     _policeBtn.tag = 1100;
     [_policeBtn addTarget:self action:@selector(postToReportPage:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //    for (NSInteger i = 0; i < self.myCtrl.bbsDetailModel.content.count; i++) {
-    //        if (i == 0) {
-    //            self.totalHeight = 55;
-    //        }
-    //        LQSBBSContentModel *model = self.myCtrl.bbsDetailModel.content[i];
-    //        if ((![model.infor containsString:@".png"] && ![model.infor containsString:@".jpg"] ) && model.infor.length > 0) {
-    //            [self addTextContentForText:model.infor];
-    //        }else{
-    //            [self addImageContentForUrl:model.originalInfo tag:kCONTENTIMAGETAG_BEGIN+i];
-    //        }
-    //    }
+    [self setNeedsLayout];
     self.isCreated = YES;
 }
-- (void)setCellForContentSection3{
+- (void)setCellForContentSection3WithModel:(LQSBBSPosterModel *)pinglunModel{
     // 从传过来的bbsDetailModel.list中根据index获取对应的数据。
-    NSInteger index = self.indexPath.row;
-    LQSBBSPosterModel *pinglunModel =self.myCtrl.bbsDetailModel.list[index];
     //抬头
     UIImageView *userImgView;
     [self addImageView:&userImgView frame:CGRectMake(10, 10, 40, 40) tag:1001 image:[UIImage imageNamed:@"mc_forum_add_new_img.png"] superView:self.contentView imgUrlStr:pinglunModel.icon selector:@selector(sec1HeadAct)];
@@ -303,7 +319,7 @@
         NSLog(@"只看作者");
     }]];
     [alertController addAction: [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:nil]];
-    [self.myCtrl presentViewController:alertController animated:YES completion:nil];
+    [(UIViewController *)self.bbsDetailDelegate presentViewController:alertController animated:YES completion:nil];
     
 }
 

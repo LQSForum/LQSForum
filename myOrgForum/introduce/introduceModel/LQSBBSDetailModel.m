@@ -24,16 +24,40 @@
     return [LQSAddViewHelper createDataDescriptionWithStr:_create_date];
 }
 -(void)ModelWithDict:(NSDictionary *)dict{
-//    LQSBBSDetailTopicModel *model = [[LQSBBSDetailTopicModel alloc]init];
-    [self setValuesForKeysWithDictionary:dict];
-//    return model;
+
+//    [self setValuesForKeysWithDictionary:dict];
+    self.hits = LQSTR(dict[@"hits"]);
+    self.icon = LQSTR(dict[@"icon"]);
+    self.level = LQSTR(dict[@"level"]);
+    self.replies = LQSTR(dict[@"replies"]);
+    self.isFollow = [dict[@"isFollow"] integerValue];
+    self.hot = LQSTR(dict[@"hot"]);
+    self.essence = dict[@"essence"];
+
+    self.reply_status = LQSTR(dict[@"reply_status"]);
+    self.flag = LQSTR(dict[@"flag"]);
+    self.vote = LQSTR(dict[@"vote"]);
+    self.type = LQSTR(dict[@"type"]);
+    self.create_date = LQSTR(dict[@"create_date"]);
+    self.is_favor = LQSTR(dict[@"is_favor"]);
+    self.top = LQSTR(dict[@"top"]);
+    self.status = LQSTR(dict[@"status"]);
+    self.user_nick_name = LQSTR(dict[@"user_nick_name"]);
+    self.user_id = LQSTR(dict[@"user_id"]);
+    self.userTitle = LQSTR(dict[@"userTitle"]);
+    self.gender = LQSTR(dict[@"gender"]);
+    self.mobileSign = LQSTR(dict[@"mobileSign"]);
+    self.reply_posts_id = LQSTR(dict[@"reply_posts_id"]);
+    self.title = LQSTR(dict[@"title"]);
+    self.forumTopicUrl = LQSTR(dict[@"forumTopicUrl"]);
+    self.page = LQSTR(dict[@"page"]);
     if (nil != [dict objectForKey:@"content"]) {
-        NSArray  *contenArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict[@"topic"] objectForKey:@"content"]];
+        NSArray  *contenArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict objectForKey:@"content"]];
         self.content = [NSMutableArray arrayWithArray:contenArr];
         NSLog(@"arr: %@",contenArr);
     }
     if (nil != [dict objectForKey:@"zanList"]) {
-        NSArray  *zanListArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict[@"topic"] objectForKey:@"zanList"]];
+        NSArray  *zanListArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict objectForKey:@"zanList"]];
         self.zanList = [NSMutableArray arrayWithArray:zanListArr];
     }
 }

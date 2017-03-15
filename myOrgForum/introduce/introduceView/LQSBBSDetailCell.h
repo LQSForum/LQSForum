@@ -23,4 +23,5 @@
 //@property (nonatomic, weak) LQSBBSDetailViewController *myCtrl;
 @property (nonatomic,assign)id <LQSBBSDetailCellDelegate> bbsDetailDelegate;
 - (void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath;
+
 @end

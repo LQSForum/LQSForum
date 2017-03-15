@@ -455,15 +455,15 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger numForRow = 0;
+    NSInteger numOfRow = 0;
     switch (section) {
         case 0:
         case 1:
         case 2:{
-            numForRow =1;
+            numOfRow =1;
             break;
         }case 3:{
-            numForRow =  self.bbsDetailModel.list.count ;
+            numOfRow =  self.replysArr.count;
             // 这里的行数，可以加上最后一个“没有更多了”作为最后一个cell。
             break;
         }
@@ -471,7 +471,7 @@
         default:
             break;
     }
-    return numForRow;
+    return numOfRow;
 }
 
 
@@ -481,57 +481,45 @@
     switch (indexPath.section) {
         case 0:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"titleCell"];
+            if (!cell) {
+                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"titleCell"];
+            }
+             [(LQSBBSDetailCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
             break;
         }case 1:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"contentCell"];
+            if (!cell) {
+                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contentCell"];
+            }
+            [(LQSBBSDetailCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
             break;
         }case 2:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell"];
+            if (!cell) {
+                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"voteCell"];
+            }
+             [(LQSBBSDetailCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
             break;
         }case 3:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell"];
             cell.contentView.backgroundColor = [UIColor yellowColor];
-
+            if (!cell) {
+                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"posterCell"];
+                //                cell.contentView.backgroundColor = [UIColor cyanColor];
+            }else
+            {
+                //删除cell的所有子视图
+                while ([cell.contentView.subviews lastObject] != nil)
+                {
+                    [(UIView*)[cell.contentView.subviews lastObject] removeFromSuperview];
+                } 
+            } 
+            [(LQSBBSDetailCell *)cell setCellWithData:self.replysArr[indexPath.row] indexpath:indexPath];
+            NSLog(@"==>>indexpath.row:%zd",indexPath.row);
             break;
         }
         default:
             break;
-    }
-    if (!cell) {
-        //        NSDictionary *dic;
-        switch (indexPath.section) {
-            case 0:{
-                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"titleCell"];
-                //                dic = @{@"indexPath":indexPath,@"title":LQSTR(self.bbsDetailModel.title),@"isEssence":LQSTR(self.bbsDetailModel.essence),@"hits":LQSTR(self.bbsDetailModel.hits)};
-                //                ((LQSBBSDetailCell*)cell).paramDict = [NSMutableDictionary dictionaryWithDictionary:dic];
-                [(LQSBBSDetailCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
-                
-                break;
-            }case 1:{
-                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contentCell"];
-                [(LQSBBSDetailCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
-                //                dic = @{@"indexPath":indexPath,@"paramData":self.bbsDetailModel};
-                //                ((LQSBBSDetailCell*)cell).paramDict = [NSMutableDictionary dictionaryWithDictionary:dic];
-                
-                break;
-            }case 2:{
-                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"voteCell"];
-                //                dic;
-                [(LQSBBSDetailCell *)cell setCellWithData:self.bbsDetailPosterModel indexpath:indexPath];
-                break;
-            }case 3:{
-                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"posterCell"];
-                cell.contentView.backgroundColor = [UIColor cyanColor];
-                
-                //                dic = @{@"indexPath":indexPath,@"paramData":self.bbsDetailModel}
-                break;
-            }
-            default:
-                break;
-        }
-//        ((LQSBBSDetailCell*)cell).indexPath = indexPath;
-//        ((LQSBBSDetailCell*)cell).myCtrl = self;
-        
     }
     // 让controller成为cell的代理
     ((LQSBBSDetailCell*)cell).bbsDetailDelegate = self;
@@ -549,13 +537,13 @@
             height = 73;
             break;
         }case 1:{
-            height = [self getHeightForContentCell:self.bbsDetailModel.content];//待定
+            height = [self getHeightForContentCell:self.bbsDetailTopicModel.content];//待定
             break;
         }case 2:{
             height = 65;
             break;
         }case 3:{
-            LQSBBSPosterModel *model = self.bbsDetailModel.list[indexPath.row];
+            LQSBBSPosterModel *model = self.replysArr[indexPath.row];
             height = model.contentHeight + 104;//待定
             break;
         }
@@ -726,43 +714,7 @@
         self.bbsDetailModel.has_next = LQSTR(dict[@"has_next"]);
         
         [self.bbsDetailTopicModel ModelWithDict:dict[@"topic"]];
-//        self.bbsDetailModel.hits = LQSTR(dict[@"topic"][@"hits"]);
-//        self.bbsDetailModel.icon = LQSTR(dict[@"topic"][@"icon"]);
-//        self.bbsDetailModel.level = LQSTR(dict[@"topic"][@"level"]);
-//        self.bbsDetailModel.replies = LQSTR(dict[@"topic"][@"replies"]);
-//        self.bbsDetailModel.isFollow = [dict[@"topic"][@"isFollow"] integerValue];
-//        self.bbsDetailModel.hot = LQSTR(dict[@"topic"][@"hot"]);
-//        self.bbsDetailModel.essence = dict[@"topic"][@"essence"];
-//        //        self.bbsDetailModel.location = LQSTR(dict[@"topic"][@"location"]);
-//        self.bbsDetailModel.reply_status = LQSTR(dict[@"topic"][@"reply_status"]);
-//        self.bbsDetailModel.flag = LQSTR(dict[@"topic"][@"flag"]);
-//        self.bbsDetailModel.vote = LQSTR(dict[@"topic"][@"vote"]);
-//        self.bbsDetailModel.type = LQSTR(dict[@"topic"][@"type"]);
-//        self.bbsDetailModel.create_date = LQSTR(dict[@"topic"][@"create_date"]);
-//        self.bbsDetailModel.is_favor = LQSTR(dict[@"topic"][@"is_favor"]);
-//        self.bbsDetailModel.top = LQSTR(dict[@"topic"][@"top"]);
-//        self.bbsDetailModel.status = LQSTR(dict[@"topic"][@"status"]);
-//        self.bbsDetailModel.user_nick_name = LQSTR(dict[@"topic"][@"user_nick_name"]);
-//        self.bbsDetailModel.user_id = LQSTR(dict[@"topic"][@"user_id"]);
-//        self.bbsDetailModel.userTitle = LQSTR(dict[@"topic"][@"userTitle"]);
-//        self.bbsDetailModel.gender = LQSTR(dict[@"topic"][@"gender"]);
-//        self.bbsDetailModel.mobileSign = LQSTR(dict[@"topic"][@"mobileSign"]);
-//        self.bbsDetailModel.reply_posts_id = LQSTR(dict[@"topic"][@"reply_posts_id"]);
-//        self.bbsDetailModel.title = LQSTR(dict[@"topic"][@"title"]);
-//        //        self.bbsDetailModel.sortId = LQSTR(dict[@"sortId"]);
-//        self.bbsDetailModel.forumTopicUrl = LQSTR(dict[@"forumTopicUrl"]);
-//        self.bbsDetailModel.page = LQSTR(dict[@"page"]);
     }
-    //帖子内容
-//    if (nil != [dict[@"topic"] objectForKey:@"content"]) {
-//        NSArray  *contenArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict[@"topic"] objectForKey:@"content"]];
-//        self.bbsDetailModel.content = [NSMutableArray arrayWithArray:contenArr];
-//        NSLog(@"arr: %@",contenArr);
-//    }
-//    if (nil != [dict[@"topic"] objectForKey:@"zanList"]) {
-//        NSArray  *zanListArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict[@"topic"] objectForKey:@"zanList"]];
-//        self.bbsDetailModel.zanList = [NSMutableArray arrayWithArray:zanListArr];
-//    }
     // 回复列表
     if (nil != dict[@"list"]) {
 //        self.bbsDetailModel.list = [NSMutableArray array];
