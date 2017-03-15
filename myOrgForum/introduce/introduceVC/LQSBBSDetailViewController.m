@@ -26,7 +26,7 @@
     /*帖子最好实现在 tableHeaderView 里面，现在实现在cell里面，
      所以现在声明一个ContentView来专门算高，权宜之计
      */
-    LQSArticleContentView*    _articleView;
+//    LQSArticleContentView*    _articleView;
 }
 
 @property (nonatomic, strong) UITableView *mainList;
@@ -43,6 +43,8 @@
 // pluginBoardView
 @property (nonatomic,strong)LQSPluginView *pluginBoardView;
 @property (nonatomic,strong)NSMutableArray *replysArr;
+// 缓存帖子内容高度
+@property (nonatomic,assign)CGFloat contentHeight;
 @end
 
 @implementation LQSBBSDetailViewController
@@ -444,7 +446,11 @@
         _mainList.dataSource = self;
         _mainList.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
         _mainList.separatorStyle = UITableViewCellSeparatorStyleNone;
-        
+        // 注册几种cell
+        [_mainList registerClass:[LQSBBSDetailTitleCell class] forCellReuseIdentifier:@"titleCell"];
+        [_mainList registerClass:[LQSBBSDetailContentCell class] forCellReuseIdentifier:@"contentCell"];
+        [_mainList registerClass:[LQSBBSDetailVoteCell class] forCellReuseIdentifier:@"voteCell"];
+        [_mainList registerClass:[LQSBBSDetailReplyCell class] forCellReuseIdentifier:@"posterCell"];
     }
     return _mainList;
 }
@@ -480,41 +486,30 @@
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"titleCell"];
-            if (!cell) {
-                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"titleCell"];
-            }
-             [(LQSBBSDetailCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"titleCell"forIndexPath:indexPath];
+//            if (!cell) {
+//                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"titleCell"];
+//            }
+             [(LQSBBSDetailTitleCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
             break;
         }case 1:{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"contentCell"];
-            if (!cell) {
-                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contentCell"];
-            }
-            [(LQSBBSDetailCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"contentCell"forIndexPath:indexPath];
+//            if (!cell) {
+//                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contentCell"];
+//            }
+            [(LQSBBSDetailContentCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
             break;
         }case 2:{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell"];
-            if (!cell) {
-                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"voteCell"];
-            }
-             [(LQSBBSDetailCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell"forIndexPath:indexPath];
+//            if (!cell) {
+//                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"voteCell"];
+//            }
+             [(LQSBBSDetailVoteCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
             break;
         }case 3:{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell"];
-            cell.contentView.backgroundColor = [UIColor yellowColor];
-            if (!cell) {
-                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"posterCell"];
-                //                cell.contentView.backgroundColor = [UIColor cyanColor];
-            }else
-            {
-                //删除cell的所有子视图
-                while ([cell.contentView.subviews lastObject] != nil)
-                {
-                    [(UIView*)[cell.contentView.subviews lastObject] removeFromSuperview];
-                } 
-            } 
-            [(LQSBBSDetailCell *)cell setCellWithData:self.replysArr[indexPath.row] indexpath:indexPath];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell" forIndexPath:indexPath];
+            cell.contentView.backgroundColor = [UIColor orangeColor];
+            [(LQSBBSDetailReplyCell *)cell setCellWithData:self.replysArr[indexPath.row] indexpath:indexPath];
             NSLog(@"==>>indexpath.row:%zd",indexPath.row);
             break;
         }
@@ -522,7 +517,7 @@
             break;
     }
     // 让controller成为cell的代理
-    ((LQSBBSDetailCell*)cell).bbsDetailDelegate = self;
+    ((LQSBBSDetailCell*)cell).delegate = self;
     return cell;
     
 }
@@ -537,7 +532,11 @@
             height = 73;
             break;
         }case 1:{
+            if (self.contentHeight > 0) {
+                height = self.contentHeight;
+            }else{
             height = [self getHeightForContentCell:self.bbsDetailTopicModel.content];//待定
+            }
             break;
         }case 2:{
             height = 65;
@@ -556,13 +555,13 @@
 - (CGFloat)getHeightForContentCell:(NSArray *)contentArr
 {
     CGFloat height = 55;
-    if (_articleView == nil) {
-        _articleView = [[LQSArticleContentView alloc] initWithFrame:CGRectMake(0, 0, KLQScreenFrameSize.width-30, 500)];
-        _articleView.preferredMaxLayoutWidth = KLQScreenFrameSize.width-30;
-    }
-    _articleView.content = contentArr;
-    height += _articleView.contentSize.height;
+      LQSArticleContentView *articleView = [[LQSArticleContentView alloc] initWithFrame:CGRectMake(0, 0, KLQScreenFrameSize.width-30, 500)];
+        articleView.preferredMaxLayoutWidth = KLQScreenFrameSize.width-30;
+    
+    articleView.content = contentArr;
+    height += articleView.contentSize.height;
     //NSLog(@"height = %f,%@",height,_articleView);
+    self.contentHeight = height + 10 + 50;// 仅在这里为self.contentHeight赋值一次。
     return height+10 + 50;// 30为举报按钮的高度
 }
 

@@ -23,8 +23,7 @@
 @property (nonatomic, assign) BOOL isCreated;
 @property (nonatomic, assign) CGFloat totalHeight;
 @property (nonatomic,strong)UIActionSheet *myActSheet;
-// 举报警察按钮
-@property (nonatomic,strong)UIButton *policeBtn;
+
 @property (nonatomic,strong)LQSArticleContentView *articleContentView;
 @end
 
@@ -38,66 +37,175 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     return self;
 }
-//- (void)layoutSubviews{
-//    if (!self.isCreated) {
-//        [self createCellForIndexPath];
-//    }
-//
-//}
-- (void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath{
-    switch (indexpath.section) {
-        case 0:{
-            self.height = 73;
-            LQSBBSDetailTopicModel *model = modelData;
-            [self setCellForSection0WithModal:model];
-            break;
-        }case 1:{
-            LQSBBSDetailTopicModel *model = modelData;
-            [self setCellForContentSection1WithModal:model];
-            break;
-        }case 2:{
-            [self setCellForContentSection2];
-            break;
-        }case 3:{
-            LQSBBSPosterModel* pinglunModel = modelData;
-            [self setCellForContentSection3WithModel:(LQSBBSPosterModel *)pinglunModel];
-            break;
-        }case 4:{
-            
-            break;
-        }
-        default:
-            break;
-    }
-
-
+-(void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath{
+    // 暂时不用写什么东西
 }
-//- (void)createCellForIndexPath
-//{
-//    switch (self.indexPath.section) {
-//        case 0:{
-//            self.height = 73;
-//            [self setCellForSection0];
-//            break;
-//        }case 1:{
-//            [self setCellForContentSection1];
-//            break;
-//        }case 2:{
-//            [self setCellForContentSection2];
-//            break;
-//        }case 3:{
-//            [self setCellForContentSection3];
-//            break;
-//        }case 4:{
-//            
-//            break;
-//        }
-//        default:
-//            break;
-//    }
-//}
-- (void)setCellForSection0WithModal:(LQSBBSDetailTopicModel *)model
+- (CGRect )resultRectWithText:(NSString *)text width:(CGFloat)width{
+    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
+    // 计算文字高度
+    CGRect rect = [text  boundingRectWithSize:CGSizeMake(width, 1000) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
+    return rect;
+}
+// 跳转到大赏页
+- (void)postToReportPage:(UIButton *)sender{
+    NSLog(@"举报按钮的点击事件");
+    if ([self.delegate respondsToSelector:@selector(pushToReport)]) {
+        // 让自己的代理跳转页面
+        [self.delegate pushToReport];
+    }
+    
+}
+// 赏点击方法--xg
+- (void)shangAct{
+    NSLog(@"赏的点击方法");
+    if ([self.delegate respondsToSelector:@selector(pushToDashang)]) {
+        [self.delegate pushToDashang];
+    }
+}
+
+#pragma mark - 帖子详情点击头像方法
+
+
+// 关注点击方法
+- (void)guanzhuTA:(UIButton *)sender
 {
+    // 关注或取关逻辑:比较现在显示的title,如果是关注则为follow,如果是已关注,则为unfollow.
+    // 还有处理网络的逻辑.
+    NSString *guanzhuTAUrlStr = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=user/useradmin";
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    //    session.requestSerializer = [AFHTTPRequestSerializer serializer];
+    session.responseSerializer = [AFJSONResponseSerializer serializer];
+    session.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    // 关注功能的请求参数:uid,egnVersion,sdkVersion,apphash,type,accessToken,accessSecret,forumKey
+    // 这是我抓到的参数包,暂时用这个,以后替换
+    // 关注Ta:uid=217900&egnVersion=v2035.2&sdkVersion=2.4.3.0&apphash=9bd98586&type=follow&accessToken=caf68203b950537adbe1bcf6bc7ad&accessSecret=84f18779cf550aac2fce53e8eb266&forumKey=BW0L5ISVRsOTVLCTJx
+    // 取消关注:uid=217900&egnVersion=v2035.2&sdkVersion=2.4.3.0&apphash=9bd98586&type=unfollow&accessToken=caf68203b950537adbe1bcf6bc7ad&accessSecret=84f18779cf550aac2fce53e8eb266&forumKey=BW0L5ISVRsOTVLCTJx
+    // 关注和取关,type字段的参数为follow和unfollow
+    [dict setObject:@"217900" forKey:@"uid"];
+    [dict setObject:@"v2035.2" forKey:@"egnVersion"];
+    [dict setObject:@"2.4.3.0" forKey:@"sdkVersion"];
+    [dict setObject:@"9bd98586" forKey:@"apphash"];
+    // 判断当前title,如果是关注,则发送follow,如果是已关注则发送UNfollow.
+    [sender.currentTitle isEqualToString:kGUANZHUTA]?
+    [dict setObject:@"follow" forKey:@"type"]:[dict setObject:@"unfollow" forKey:@"type"];
+    [dict setObject:@"caf68203b950537adbe1bcf6bc7ad" forKey:@"accessToken"];
+    [dict setObject:@"84f18779cf550aac2fce53e8eb266" forKey:@"accessSecret"];
+    [dict setObject:@"BW0L5ISVRsOTVLCTJx" forKey:@"forumKey"];
+    [session POST:guanzhuTAUrlStr parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"请求成功");
+        NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
+        NSLog(@"返回数据：%@",dict);
+        // 返回参数如下:
+        /*{
+         "rs": 1,   rs为1时,为成功,rs为0,则弹框提示已关注过ta了.
+         "errcode": "\u53d6\u6d88\u6210\u529f",
+         "head": {
+         "errCode": "02000024",
+         "errInfo": "\u53d6\u6d88\u6210\u529f",
+         "version": "2.6.0.1",
+         "alert": 1
+         },
+         "body": {
+         "externInfo": {
+         "padding": ""
+         }
+         }
+         }
+         */
+        if ([dict[@"rs"]integerValue] == 1) {
+            [kAppDelegate showHUDMessage:dict[@"errcode"] hideDelay:1.0];
+        }else if([dict[@"rs"]integerValue] == 0){
+            [kAppDelegate showHUDMessage:dict[@"errcode"] hideDelay:1.0];
+        }
+        // 在网络请求成功的回调里,改变button的文字,如果之前是关注,则改为已关注,反之.
+        [sender.currentTitle isEqualToString:kGUANZHUTA]? [sender setTitle:kYIGUANZHUTA forState:UIControlStateNormal] : [sender setTitle:kGUANZHUTA forState:UIControlStateNormal ];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"请求失败");
+    }];
+    // 还有关注成功后的回调,弹框显示关注成功和取消关注成功.
+    //     NSLog(@"关注的点击方法");
+}
+
+//添加text内容
+- (void)addTextContentForText:(NSString *)string
+{
+
+    
+    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:13]};
+    CGRect rect = [string boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 10, 10000) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
+    
+    NSInteger nCount = [LQSAddViewHelper getCountOfString:string forCharacter:@"\n"]+[LQSAddViewHelper getCountOfString:string forCharacter:@"\r"];
+    UILabel *textLable;
+    [LQSAddViewHelper addLable:&textLable withFrame:CGRectMake(5, self.totalHeight, rect.size.width, rect.size.height + nCount*10) text:string textFont:[UIFont systemFontOfSize:13] textColor:[UIColor blackColor] textAlignment:NSTextAlignmentLeft lineNumber:0 tag:0 superView:self.contentView];
+    //    textLable.backgroundColor = [UIColor redColor];
+    
+    self.totalHeight += (rect.size.height + nCount*10);
+}
+//添加图片text
+- (void)addImageContentForUrl:(NSString *)urlStr tag:(NSInteger)tag
+{
+    UIImageView *contentIngView;
+    [self addImageView:&contentIngView frame:CGRectMake(5, self.totalHeight, KLQScreenFrameSize.width - 15, 470*(KLQScreenFrameSize.width - 15)/690) tag:tag image:[UIImage imageNamed:@"mc_forum_add_new_img.png"] superView:self.contentView imgUrlStr:urlStr selector:@selector(imageClick)];
+    self.totalHeight += 470*(KLQScreenFrameSize.width - 15)/690;
+}
+- (void)addImageView:(UIImageView **)imageView frame:(CGRect)frame tag:(NSInteger)tag image:(UIImage *)img superView:(UIView *)superView imgUrlStr:(NSString *)urlStr selector:(SEL)selector
+{
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:frame];
+    [superView addSubview:imgView];
+    imgView.tag = tag;
+    if (urlStr.length > 0) {
+        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:LQSTR(urlStr)] options:SDWebImageProgressiveDownload progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            if (!image) {
+                imgView.image = img;
+            }else{
+                imgView.image = image;
+                //                imgView.frame = CGRectMake(frame.origin.x, frame.origin.y, KLQScreenFrameSize.width - 10,image.size.width*image.size.height/(KLQScreenFrameSize.width - 10));
+                
+            }
+        }];
+    }else{
+        imgView.image = img;
+    }
+    if (tag != 0) {
+        imgView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:selector];
+        [imgView addGestureRecognizer:tap];
+    }
+    
+    *imageView = imgView;
+}
+- (void)imageClick
+{
+    
+}
+
+- (void)addButton:(UIButton **)button frame:(CGRect)frame  title:(NSString *)title titleFont:(UIFont *)font titleColor:(UIColor *)color borderwidth:(CGFloat)bwidth cornerRadius:(CGFloat)cornerRadius selector:(SEL)selector superView:(UIView *)superView
+{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = frame;
+    [btn setTitle:title forState:UIControlStateNormal];
+    [btn setTitleColor:color forState:UIControlStateNormal];
+    btn.titleLabel.font = font;
+    btn.layer.borderWidth = bwidth;
+    btn.layer.cornerRadius = cornerRadius;
+    btn.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    [btn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+    [superView addSubview:btn];
+    *button = btn;
+    
+}
+@end
+#pragma mark - titleCell 帖子顶部标题
+
+@implementation LQSBBSDetailTitleCell
+
+-(void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath{
+    LQSBBSDetailTopicModel *model = modelData;
+//    [self setCellForSection0WithModal:model];
     UILabel *titleLab;
     [LQSAddViewHelper addLable:&titleLab withFrame:CGRectMake(15, 10, KLQScreenFrameSize.width - 15 - 25, 39) text:LQSTR(model.title) textFont:[UIFont boldSystemFontOfSize:15] textColor:[UIColor blackColor] textAlignment:NSTextAlignmentLeft lineNumber:2 tag:0 superView:self.contentView];
     UIImageView *scanImgView;
@@ -113,8 +221,19 @@
     }
     self.isCreated = YES;
 }
-- (void)setCellForContentSection1WithModal:(LQSBBSDetailTopicModel *)model
+@end
+#pragma  mark - contentCell 帖子内容
+
+@interface LQSBBSDetailContentCell()
+// 举报警察按钮
+@property (nonatomic,strong)UIButton *policeBtn;
+@end
+@implementation LQSBBSDetailContentCell
+
+-(void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath
 {
+    LQSBBSDetailTopicModel *model = modelData;
+//    [self setCellForContentSection1WithModal:model];
     //抬头
     UIImageView *userImgView;
     // 在这个类里面又有LQSAddViewHelper的同名方法.而且目测没什么不同...但是调用LQSAddViewHelper的方法会崩,不知前面为什么这么写,现在改成用self调用自己的方法。
@@ -182,7 +301,126 @@
     [self setNeedsLayout];
     self.isCreated = YES;
 }
-- (void)setCellForContentSection3WithModel:(LQSBBSPosterModel *)pinglunModel{
+- (void)sec1HeadAct{
+    NSLog(@"点击头像应该弹出actionSheet,选择框");
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction: [UIAlertAction actionWithTitle: @"发送私信" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        // 处理发送私信的点击事件
+        NSLog(@"发送私信");
+        // 这里应该是需要集成及时通讯.但是好像还没有集成.
+        
+    }]];
+    [alertController addAction: [UIAlertAction actionWithTitle: @"查看主页" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        // 处理查看主页的点击事件
+        NSLog(@"查看主页");
+        // 判定是否登录,没登录则跳转登录,登录后则跳转用户主页
+        if (![LQSUserManager isLoging]) {
+            //        跳转登陆
+            LQLoginViewController *loginVc = [LQLoginViewController new];
+            LQSNavigationController *navVC = [[LQSNavigationController alloc] initWithRootViewController:loginVc];
+            if (self.delegate) {
+                [(LQSBBSDetailViewController *) self.delegate presentViewController:navVC animated:YES completion:nil];
+            }
+            // [self.contentView.window.rootViewController presentViewController:navVC animated:YES completion:nil];
+        }else{
+            if ([LQSUserManager isLoging]) {
+                LQSHomePagePersonalMessageViewController *personalVc = [LQSHomePagePersonalMessageViewController new];
+                //[self.contentView.window.rootViewController.navigationController pushViewController:personalVc animated:YES];
+                if (self.delegate) {
+                    LQSBBSDetailViewController *detailVC = self.delegate;
+                    [detailVC.navigationController pushViewController:personalVc animated:NO];
+                }
+                
+            }else{
+                LQLoginViewController *loginVC = [LQLoginViewController new];
+                LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:loginVC];
+                // [self.contentView.window.rootViewController presentViewController:navVc animated:YES completion:nil];
+                if (self.delegate) {
+                    [(LQSBBSDetailViewController *) self.delegate presentViewController:navVc animated:YES completion:nil];
+                }
+            }
+        }
+    }]];
+    
+    [alertController addAction: [UIAlertAction actionWithTitle: @"只看作者" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        // 处理只看作者的点击事件
+        NSLog(@"只看作者");
+    }]];
+    [alertController addAction: [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:nil]];
+    [(UIViewController *)self.delegate presentViewController:alertController animated:YES completion:nil];
+    
+}
+// 举报点击事件
+- (void)reportAct:(UIButton *)sender{
+    NSLog(@"此处弹出举报事件");
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:3.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        if (self.policeBtn.x == sender.x) {
+            _policeBtn.x -= _policeBtn.width;
+        }else{
+            _policeBtn.x = sender.x;
+        }
+    } completion:^(BOOL finished) {
+        NSLog(@"警察按扭动画完成");
+    }];
+    
+}
+
+@end
+#pragma mark - voteCell 打赏cell
+
+@implementation LQSBBSDetailVoteCell
+
+-(void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath
+{
+    // 打赏文字label
+    UILabel *daShangLabel;
+    [LQSAddViewHelper addLable:&daShangLabel withFrame:CGRectMake(0, 0,KLQScreenFrameSize.width - 80, 75) text:@"内容不错就任性地打赏吧!" textFont:[UIFont systemFontOfSize:15] textColor:/*[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1]*/[UIColor grayColor] textAlignment:NSTextAlignmentCenter lineNumber:1 tag:0 superView:self.contentView];
+    // 竖线lineView
+    UIView *lineView2;
+    [LQSAddViewHelper addLine:&lineView2 withFrame:CGRectMake(CGRectGetMaxX(daShangLabel.frame), 15, 1, 45) superView:self.contentView color:[UIColor grayColor]];
+    // 赏图标
+    UIButton *shangBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(lineView2.frame) + 10, 15, 45, 45)];
+    [shangBtn setBackgroundImage:[UIImage imageNamed:@"dz_posts_grade"] forState:UIControlStateNormal];
+    [shangBtn setBackgroundImage:[UIImage imageNamed:@"dz_posts_grade"] forState:UIControlStateHighlighted];
+    [shangBtn addTarget:self action:@selector(shangAct) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:shangBtn];
+    self.isCreated = YES;
+}
+// 跳转到大赏页
+- (void)postToReportPage:(UIButton *)sender{
+    NSLog(@"举报按钮的点击事件");
+    if ([self.delegate respondsToSelector:@selector(pushToReport)]) {
+        // 让自己的代理跳转页面
+        [self.delegate pushToReport];
+    }
+    
+}
+// 赏点击方法--xg
+- (void)shangAct{
+    NSLog(@"赏的点击方法");
+    if ([self.delegate respondsToSelector:@selector(pushToDashang)]) {
+        [self.delegate pushToDashang];
+    }
+}
+@end
+#pragma mark - replyCell 评论列表cell
+
+@implementation LQSBBSDetailReplyCell
+
+-(void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath
+{
+    if (!self.isCreated) {
+        NSLog(@"replyCell");
+        
+    }else{
+        NSLog(@"复用错啦兄哋");
+        while (self.contentView.subviews.lastObject != nil) {
+            [self.contentView.subviews.lastObject removeFromSuperview];
+        }
+    }
+    LQSBBSPosterModel* pinglunModel = modelData;
+    //    [self setCellForContentSection3WithModel:(LQSBBSPosterModel *)pinglunModel];
     // 从传过来的bbsDetailModel.list中根据index获取对应的数据。
     //抬头
     UIImageView *userImgView;
@@ -205,279 +443,10 @@
     // 一级评论内容展示
     UILabel *replyContentLabel = [[UILabel alloc]init];
     NSDictionary *dic = pinglunModel.reply_content[0];
-//    replyContentLabel.numberOfLines = 0;
-//    replyContentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    //    replyContentLabel.numberOfLines = 0;
+    //    replyContentLabel.lineBreakMode = NSLineBreakByWordWrapping;
     [LQSAddViewHelper addLable:&replyContentLabel withFrame:CGRectMake(55, CGRectGetMaxY(timeLab.frame)+5, KLQScreenFrameSize.width - 55 - 78 - 10, pinglunModel.contentHeight) text:dic[@"infor"] textFont:[UIFont systemFontOfSize:15] textColor:[UIColor grayColor] textAlignment:NSTextAlignmentLeft lineNumber:0 tag:0 superView:self.contentView];
-//    [self.contentView addSubview:replyContentLabel];
-//    replyContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(timeLab.mas_bottom).offset(5);
-//        make.left.equalTo(self.contentView.mas_left).offset(55);
-//        make.width.equalTo();
-//        
-//    }
-    // 二级评论内容的展示label,根据model中的is_quote属性判断是否有二级评论内容需要展示，quote_content为二级评论的内容。
-//    if ([pinglunModel.is_quote isEqualToString:@"1"]) {
-//        UILabel *quoteContentLabel;
-//       
-//        
-//    }
-    
-}
-// postToReportPage
-- (void)postToReportPage:(UIButton *)sender{
-    NSLog(@"举报按钮的点击事件");
-    if ([self.bbsDetailDelegate respondsToSelector:@selector(pushToReport)]) {
-        // 让自己的代理跳转页面
-        [self.bbsDetailDelegate pushToReport];
-    }
-    
-    
-}
-- (CGRect )resultRectWithText:(NSString *)text width:(CGFloat)width{
-    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
-    // 计算文字高度
-    CGRect rect = [text  boundingRectWithSize:CGSizeMake(width, 1000) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
-    return rect;
-}
-// 举报点击事件
-- (void)reportAct:(UIButton *)sender{
-    NSLog(@"此处弹出举报事件");
-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:3.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        if (self.policeBtn.x == sender.x) {
-            _policeBtn.x -= _policeBtn.width;
-        }else{
-            _policeBtn.x = sender.x;
-        }
-    } completion:^(BOOL finished) {
-        NSLog(@"警察按扭动画完成");
-    }];
-    
-}
-// 帖子详情页的第二个section
-- (void)setCellForContentSection2{
-    // 打赏文字label
-    UILabel *daShangLabel;
-    [LQSAddViewHelper addLable:&daShangLabel withFrame:CGRectMake(0, 0,KLQScreenFrameSize.width - 80, 75) text:@"内容不错就任性地打赏吧!" textFont:[UIFont systemFontOfSize:15] textColor:/*[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1]*/[UIColor grayColor] textAlignment:NSTextAlignmentCenter lineNumber:1 tag:0 superView:self.contentView];
-    // 竖线lineView
-    UIView *lineView2;
-    [LQSAddViewHelper addLine:&lineView2 withFrame:CGRectMake(CGRectGetMaxX(daShangLabel.frame), 15, 1, 45) superView:self.contentView color:[UIColor grayColor]];
-    // 赏图标
-    UIButton *shangBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(lineView2.frame) + 10, 15, 45, 45)];
-    [shangBtn setBackgroundImage:[UIImage imageNamed:@"dz_posts_grade"] forState:UIControlStateNormal];
-    [shangBtn setBackgroundImage:[UIImage imageNamed:@"dz_posts_grade"] forState:UIControlStateHighlighted];
-    [shangBtn addTarget:self action:@selector(shangAct) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:shangBtn];
     self.isCreated = YES;
-    
 }
-
-#pragma mark - 帖子详情点击头像方法
-- (void)sec1HeadAct{
-    NSLog(@"点击头像应该弹出actionSheet,选择框");
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    [alertController addAction: [UIAlertAction actionWithTitle: @"发送私信" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        // 处理发送私信的点击事件
-        NSLog(@"发送私信");
-        // 这里应该是需要集成及时通讯.但是好像还没有集成.
-        
-    }]];
-    [alertController addAction: [UIAlertAction actionWithTitle: @"查看主页" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        // 处理查看主页的点击事件
-        NSLog(@"查看主页");
-        // 判定是否登录,没登录则跳转登录,登录后则跳转用户主页
-        if (![LQSUserManager isLoging]) {
-            //        跳转登陆
-            LQLoginViewController *loginVc = [LQLoginViewController new];
-            LQSNavigationController *navVC = [[LQSNavigationController alloc] initWithRootViewController:loginVc];
-            if (self.bbsDetailDelegate) {
-                [(LQSBBSDetailViewController *) self.bbsDetailDelegate presentViewController:navVC animated:YES completion:nil];
-            }
-            // [self.contentView.window.rootViewController presentViewController:navVC animated:YES completion:nil];
-        }else{
-            if ([LQSUserManager isLoging]) {
-                LQSHomePagePersonalMessageViewController *personalVc = [LQSHomePagePersonalMessageViewController new];
-                //[self.contentView.window.rootViewController.navigationController pushViewController:personalVc animated:YES];
-                if (self.bbsDetailDelegate) {
-                    LQSBBSDetailViewController *detailVC = self.bbsDetailDelegate;
-                    [detailVC.navigationController pushViewController:personalVc animated:NO];
-                }
-                
-            }else{
-                LQLoginViewController *loginVC = [LQLoginViewController new];
-                LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:loginVC];
-                // [self.contentView.window.rootViewController presentViewController:navVc animated:YES completion:nil];
-                if (self.bbsDetailDelegate) {
-                    [(LQSBBSDetailViewController *) self.bbsDetailDelegate presentViewController:navVc animated:YES completion:nil];
-                }
-            }
-        }
-    }]];
-    
-    [alertController addAction: [UIAlertAction actionWithTitle: @"只看作者" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        // 处理只看作者的点击事件
-        NSLog(@"只看作者");
-    }]];
-    [alertController addAction: [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:nil]];
-    [(UIViewController *)self.bbsDetailDelegate presentViewController:alertController animated:YES completion:nil];
-    
-}
-
-// 关注点击方法
-- (void)guanzhuTA:(UIButton *)sender
-{
-    //    [sender.currentTitle isEqualToString:kGUANZHUBTNUNSELECT]? [sender setTitle:kGUANZHUBTNSELECT forState:UIControlStateNormal] : [sender setTitle:kGUANZHUBTNUNSELECT forState:UIControlStateNormal ];
-    // 关注或取关逻辑:比较现在显示的title,如果是关注则为follow,如果是已关注,则为unfollow.
-    
-    // 还有处理网络的逻辑.
-    NSString *guanzhuTAUrlStr = @"http://forum.longquanzs.org//mobcent/app/web/index.php?r=user/useradmin";
-    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
-    //    session.requestSerializer = [AFHTTPRequestSerializer serializer];
-    session.responseSerializer = [AFJSONResponseSerializer serializer];
-    session.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    // 关注功能的请求参数:uid,egnVersion,sdkVersion,apphash,type,accessToken,accessSecret,forumKey
-    // 这是我抓到的参数包,暂时用这个,以后替换
-    // 关注Ta:uid=217900&egnVersion=v2035.2&sdkVersion=2.4.3.0&apphash=9bd98586&type=follow&accessToken=caf68203b950537adbe1bcf6bc7ad&accessSecret=84f18779cf550aac2fce53e8eb266&forumKey=BW0L5ISVRsOTVLCTJx
-    // 取消关注:uid=217900&egnVersion=v2035.2&sdkVersion=2.4.3.0&apphash=9bd98586&type=unfollow&accessToken=caf68203b950537adbe1bcf6bc7ad&accessSecret=84f18779cf550aac2fce53e8eb266&forumKey=BW0L5ISVRsOTVLCTJx
-    // 关注和取关,type字段的参数为follow和unfollow
-    [dict setObject:@"217900" forKey:@"uid"];
-    [dict setObject:@"v2035.2" forKey:@"egnVersion"];
-    [dict setObject:@"2.4.3.0" forKey:@"sdkVersion"];
-    [dict setObject:@"9bd98586" forKey:@"apphash"];
-    // 判断当前title,如果是关注,则发送follow,如果是已关注则发送UNfollow.
-    [sender.currentTitle isEqualToString:kGUANZHUTA]?
-    [dict setObject:@"follow" forKey:@"type"]:[dict setObject:@"unfollow" forKey:@"type"];
-    [dict setObject:@"caf68203b950537adbe1bcf6bc7ad" forKey:@"accessToken"];
-    [dict setObject:@"84f18779cf550aac2fce53e8eb266" forKey:@"accessSecret"];
-    [dict setObject:@"BW0L5ISVRsOTVLCTJx" forKey:@"forumKey"];
-    [session POST:guanzhuTAUrlStr parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"请求成功");
-        NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
-        NSLog(@"返回数据：%@",dict);
-        // 返回参数如下:
-        /*{
-         "rs": 1,   rs为1时,为成功,rs为0,则弹框提示已关注过ta了.
-         "errcode": "\u53d6\u6d88\u6210\u529f",
-         "head": {
-         "errCode": "02000024",
-         "errInfo": "\u53d6\u6d88\u6210\u529f",
-         "version": "2.6.0.1",
-         "alert": 1
-         },
-         "body": {
-         "externInfo": {
-         "padding": ""
-         }
-         }
-         }
-         */
-        if ([dict[@"rs"]integerValue] == 1) {
-            [kAppDelegate showHUDMessage:dict[@"errcode"] hideDelay:1.0];
-        }else if([dict[@"rs"]integerValue] == 0){
-            [kAppDelegate showHUDMessage:dict[@"errcode"] hideDelay:1.0];
-        }
-        // 在网络请求成功的回调里,改变button的文字,如果之前是关注,则改为已关注,反之.
-        [sender.currentTitle isEqualToString:kGUANZHUTA]? [sender setTitle:kYIGUANZHUTA forState:UIControlStateNormal] : [sender setTitle:kGUANZHUTA forState:UIControlStateNormal ];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"请求失败");
-    }];
-    // 还有关注成功后的回调,弹框显示关注成功和取消关注成功.
-    //     NSLog(@"关注的点击方法");
-}
-// 赏点击方法--xg
-- (void)shangAct{
-    NSLog(@"赏的点击方法");
-    if ([self.bbsDetailDelegate respondsToSelector:@selector(pushToDashang)]) {
-        [self.bbsDetailDelegate pushToDashang];
-    }
-}
-//添加text内容
-- (void)addTextContentForText:(NSString *)string
-{
-    //    while ([string rangeOfString:@"\n"].location == 0 ) {
-    //        string = [string substringWithRange:NSMakeRange([string rangeOfString:@"\n"].location, [string rangeOfString:@"\n"].length)];
-    //    }
-    //    while ([string rangeOfString:@"\r"].location == 0) {
-    //        string = [string substringWithRange:NSMakeRange([string rangeOfString:@"\r"].location, [string rangeOfString:@"\r"].length)];
-    //    }
-    
-    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:13]};
-    CGRect rect = [string boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 10, 10000) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
-    
-    NSInteger nCount = [LQSAddViewHelper getCountOfString:string forCharacter:@"\n"]+[LQSAddViewHelper getCountOfString:string forCharacter:@"\r"];//([LQSAddViewHelper getCountOfString:string forCharacter:@"\n"]+[LQSAddViewHelper getCountOfString:string forCharacter:@"\r"]>5?5:[LQSAddViewHelper getCountOfString:string forCharacter:@"\n"]+[LQSAddViewHelper getCountOfString:string forCharacter:@"\r"]);
-    
-    //        UITextView *atextView = [[UITextView alloc] initWithFrame:CGRectMake(5, 0, rect.size.width, rect.size.height + nCount*10)];
-    //
-    //        atextView.font = [UIFont systemFontOfSize:13];
-    //
-    //        atextView.text = string;
-    //
-    //        atextView.backgroundColor = [UIColor cyanColor];
-    //
-    //        [self.contentView addSubview:atextView];
-    UILabel *textLable;
-    [LQSAddViewHelper addLable:&textLable withFrame:CGRectMake(5, self.totalHeight, rect.size.width, rect.size.height + nCount*10) text:string textFont:[UIFont systemFontOfSize:13] textColor:[UIColor blackColor] textAlignment:NSTextAlignmentLeft lineNumber:0 tag:0 superView:self.contentView];
-    //    textLable.backgroundColor = [UIColor redColor];
-    
-    self.totalHeight += (rect.size.height + nCount*10);
-}
-//添加图片text
-- (void)addImageContentForUrl:(NSString *)urlStr tag:(NSInteger)tag
-{
-    UIImageView *contentIngView;
-    [self addImageView:&contentIngView frame:CGRectMake(5, self.totalHeight, KLQScreenFrameSize.width - 15, 470*(KLQScreenFrameSize.width - 15)/690) tag:tag image:[UIImage imageNamed:@"mc_forum_add_new_img.png"] superView:self.contentView imgUrlStr:urlStr selector:@selector(imageClick)];
-    self.totalHeight += 470*(KLQScreenFrameSize.width - 15)/690;
-}
-- (void)addImageView:(UIImageView **)imageView frame:(CGRect)frame tag:(NSInteger)tag image:(UIImage *)img superView:(UIView *)superView imgUrlStr:(NSString *)urlStr selector:(SEL)selector
-{
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:frame];
-    [superView addSubview:imgView];
-    imgView.tag = tag;
-    if (urlStr.length > 0) {
-        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:LQSTR(urlStr)] options:SDWebImageProgressiveDownload progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-            
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-            if (!image) {
-                imgView.image = img;
-            }else{
-                imgView.image = image;
-                //                imgView.frame = CGRectMake(frame.origin.x, frame.origin.y, KLQScreenFrameSize.width - 10,image.size.width*image.size.height/(KLQScreenFrameSize.width - 10));
-                
-            }
-        }];
-    }else{
-        imgView.image = img;
-    }
-    if (tag != 0) {
-        imgView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:selector];
-        [imgView addGestureRecognizer:tap];
-    }
-    
-    *imageView = imgView;
-}
-- (void)imageClick
-{
-    
-}
-
-- (void)addButton:(UIButton **)button frame:(CGRect)frame  title:(NSString *)title titleFont:(UIFont *)font titleColor:(UIColor *)color borderwidth:(CGFloat)bwidth cornerRadius:(CGFloat)cornerRadius selector:(SEL)selector superView:(UIView *)superView
-{
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = frame;
-    [btn setTitle:title forState:UIControlStateNormal];
-    [btn setTitleColor:color forState:UIControlStateNormal];
-    btn.titleLabel.font = font;
-    btn.layer.borderWidth = bwidth;
-    btn.layer.cornerRadius = cornerRadius;
-    btn.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    [btn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
-    [superView addSubview:btn];
-    *button = btn;
-    
-}
-
 
 @end
