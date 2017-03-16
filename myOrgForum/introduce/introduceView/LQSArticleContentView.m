@@ -34,7 +34,7 @@ static NSString * const kPatternPhiz = @"\\[mobcent_phiz=(http[s]?://[\\w./]*)\\
     for (LQSTextAttachment* item in _attachmentArray) {
         UIImageView* view = item.imageView;
         view.frame = [self p_boundingRectForCharacterRange:item.range];
-        NSLog(@"%@\n%@",NSStringFromCGRect(view.frame),NSStringFromRange(item.range));
+//        NSLog(@"%@\n%@",NSStringFromCGRect(view.frame),NSStringFromRange(item.range));
     }
 }
 - (void)setContent:(NSArray<LQSBBSContentModel *> *)content{

@@ -413,6 +413,7 @@
 @property (nonatomic,strong)UILabel *postionLabel;
 @property (nonatomic,strong)UILabel *replyContentLabel;
 @property (nonatomic,strong)UILabel *secReplyContentLabel;
+@property (nonatomic,strong)UIImageView *bgImgView;
 @end
 @implementation LQSBBSDetailReplyCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier
@@ -484,16 +485,26 @@
     self.replyContentLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.replyContentLabel.textAlignment = NSTextAlignmentLeft;
     self.replyContentLabel.font = [UIFont systemFontOfSize:15];
-    self.replyContentLabel.textColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+    self.replyContentLabel.textColor = [UIColor blackColor];
+    self.replyContentLabel.preferredMaxLayoutWidth = LQSScreenW - 85;
+
     // 二级评论
     self.secReplyContentLabel = [[UILabel alloc]init];
     [self.contentView addSubview:self.secReplyContentLabel];
     [self.secReplyContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.replyContentLabel.mas_left).offset(55);
+        make.left.equalTo(self.replyContentLabel.mas_left);
         make.top.equalTo(self.replyContentLabel.mas_bottom).offset(5);
         make.right.equalTo(self.contentView.mas_right).offset(-30);
     }];
-    
+    self.secReplyContentLabel.numberOfLines = 0;
+    self.secReplyContentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.secReplyContentLabel.textAlignment = NSTextAlignmentLeft;
+    self.secReplyContentLabel.font = [UIFont systemFontOfSize:15];
+    self.secReplyContentLabel.textColor = [UIColor blackColor];
+    self.secReplyContentLabel.preferredMaxLayoutWidth = LQSScreenW - 85;
+// 二级回复的底部图片
+    _bgImgView = [[UIImageView alloc] init];
+
 }
 -(void)setPinglunModel:(LQSBBSPosterModel *)pinglunModel{
     _pinglunModel = pinglunModel;
@@ -516,8 +527,6 @@
         self.headerImgV.image = img;
     }
     //  配置昵称
-    //    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
-    //    CGRect rect = [pinglunModel.reply_name  boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 55 - 78 - 10, 20) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
     self.nameLabel.text = LQSTR(pinglunModel.reply_name);
     // 配置时间label
     self.timeLab.text = LQSTR(pinglunModel.posts_date);
@@ -529,23 +538,35 @@
     self.replyContentLabel.text = dic[@"infor"];
     if ([pinglunModel.is_quote integerValue] == 1) {
         self.secReplyContentLabel.text = pinglunModel.quote_content;
-        UIImageView * bgImgView = [[UIImageView alloc] init];
-        [self.contentView addSubview:bgImgView];
-        [bgImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.secReplyContentLabel.mas_top);
-            make.left.equalTo(self.secReplyContentLabel.mas_left);
-            make.right.equalTo(self.secReplyContentLabel.mas_right);
-            make.bottom.equalTo(self.secReplyContentLabel.mas_bottom);
-        }];
-        UIEdgeInsets edge = UIEdgeInsetsMake(50, 50, 50, 50);
+        CGRect rec = [pinglunModel.quote_content boundingRectWithSize:CGSizeMake(kScreenWidth - 85, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil];
+        self.bgImgView.frame = CGRectMake(self.secReplyContentLabel.origin.x, self.secReplyContentLabel.origin.y, rec.size.width + 20, rec.size.height + 20);
         UIImage * frameImg1 = [UIImage imageNamed:@"dz_toolbar_reply_outer_bg"];
-        frameImg1 = [frameImg1 resizableImageWithCapInsets:edge resizingMode:UIImageResizingModeStretch];
-        [bgImgView setImage:frameImg1];
-        [self.contentView insertSubview:bgImgView belowSubview:self.secReplyContentLabel];
+        frameImg1 = [frameImg1 stretchableImageWithLeftCapWidth:frameImg1.size.width/2 topCapHeight:frameImg1.size.height/2];
+        [_bgImgView setImage:frameImg1];
+        [self.contentView insertSubview:_bgImgView belowSubview:self.secReplyContentLabel];
+        _bgImgView.hidden = NO;
+    }else{
+        self.secReplyContentLabel.hidden = YES;
+        self.bgImgView.hidden = YES;
     }
     // 强制布局
     [self layoutIfNeeded];
-    NSLog(@"contentH:%f,position:%@",self.replyContentLabel.frame.size.height,pinglunModel.position);
+    
+//        [self.contentView addSubview:_bgImgView];
+//        [_bgImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(self.secReplyContentLabel.mas_top).offset(-5);
+//            make.left.equalTo(self.secReplyContentLabel.mas_left);
+//            make.right.equalTo(self.secReplyContentLabel.mas_right);
+//            make.bottom.equalTo(self.secReplyContentLabel.mas_bottom).offset(-5);
+//        }];
+//        UIEdgeInsets edge = UIEdgeInsetsMake(50, 50, 50, 50);
+    
+//        frameImg1 = [frameImg1 resizableImageWithCapInsets:edge resizingMode:UIImageResizingModeStretch];
+    
+//     [self layoutIfNeeded];
+//        _bgImgView.hidden = YES;
+
+//    NSLog(@"contentH:%f,position:%@",self.replyContentLabel.frame.size.height,pinglunModel.position);
     pinglunModel.contentHeight = CGRectGetMaxY(self.secReplyContentLabel.frame)+20;
 }
 

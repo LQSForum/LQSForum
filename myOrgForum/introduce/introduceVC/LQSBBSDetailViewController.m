@@ -500,9 +500,7 @@
         }case 3:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell" forIndexPath:indexPath];
             cell.contentView.backgroundColor = [UIColor orangeColor];
-//            [(LQSBBSDetailReplyCell *)cell setCellWithData:self.replysArr[indexPath.row] indexpath:indexPath];
             [(LQSBBSDetailReplyCell *)cell setPinglunModel:self.replysArr[indexPath.row]];
-            NSLog(@"==>>indexpath.row:%zd",indexPath.row);
             break;
         }
         default:
@@ -514,7 +512,7 @@
     
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    return 200;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -703,7 +701,6 @@
         self.bbsDetailModel.rs = LQSTR(dict[@"rs"]);
         self.bbsDetailModel.total_num = LQSTR(dict[@"total_num"]);
         self.bbsDetailModel.has_next = LQSTR(dict[@"has_next"]);
-        
         [self.bbsDetailTopicModel ModelWithDict:dict[@"topic"]];
     }
     // 回复列表
