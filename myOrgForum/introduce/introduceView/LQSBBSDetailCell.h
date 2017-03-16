@@ -45,6 +45,7 @@
 @end
 @interface LQSBBSDetailReplyCell : LQSBBSDetailCell
 
+@property (nonatomic,strong)LQSBBSPosterModel *pinglunModel;
 //- (void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath;
 
 @end

@@ -445,7 +445,7 @@
         _mainList.delegate = self;
         _mainList.dataSource = self;
         _mainList.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-        _mainList.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _mainList.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         // 注册几种cell
         [_mainList registerClass:[LQSBBSDetailTitleCell class] forCellReuseIdentifier:@"titleCell"];
         [_mainList registerClass:[LQSBBSDetailContentCell class] forCellReuseIdentifier:@"contentCell"];
@@ -487,29 +487,21 @@
     switch (indexPath.section) {
         case 0:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"titleCell"forIndexPath:indexPath];
-//            if (!cell) {
-//                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"titleCell"];
-//            }
              [(LQSBBSDetailTitleCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
             break;
         }case 1:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"contentCell"forIndexPath:indexPath];
-//            if (!cell) {
-//                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contentCell"];
-//            }
             [(LQSBBSDetailContentCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
             break;
         }case 2:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell"forIndexPath:indexPath];
-//            if (!cell) {
-//                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"voteCell"];
-//            }
              [(LQSBBSDetailVoteCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
             break;
         }case 3:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell" forIndexPath:indexPath];
             cell.contentView.backgroundColor = [UIColor orangeColor];
-            [(LQSBBSDetailReplyCell *)cell setCellWithData:self.replysArr[indexPath.row] indexpath:indexPath];
+//            [(LQSBBSDetailReplyCell *)cell setCellWithData:self.replysArr[indexPath.row] indexpath:indexPath];
+            [(LQSBBSDetailReplyCell *)cell setPinglunModel:self.replysArr[indexPath.row]];
             NSLog(@"==>>indexpath.row:%zd",indexPath.row);
             break;
         }
@@ -543,7 +535,7 @@
             break;
         }case 3:{
             LQSBBSPosterModel *model = self.replysArr[indexPath.row];
-            height = model.contentHeight + 104;//待定
+            height = model.contentHeight ;//待定
             break;
         }
         default:

@@ -406,47 +406,147 @@
 @end
 #pragma mark - replyCell 评论列表cell
 
+@interface LQSBBSDetailReplyCell ()
+@property (nonatomic,strong)UIImageView *headerImgV;
+@property (nonatomic,strong)UILabel *nameLabel;
+@property (nonatomic,strong)UILabel *timeLab;
+@property (nonatomic,strong)UILabel *postionLabel;
+@property (nonatomic,strong)UILabel *replyContentLabel;
+@property (nonatomic,strong)UILabel *secReplyContentLabel;
+@end
 @implementation LQSBBSDetailReplyCell
-
--(void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier
 {
-    if (!self.isCreated) {
-        NSLog(@"replyCell");
-        
-    }else{
-        NSLog(@"复用错啦兄哋");
-        while (self.contentView.subviews.lastObject != nil) {
-            [self.contentView.subviews.lastObject removeFromSuperview];
-        }
-    }
-    LQSBBSPosterModel* pinglunModel = modelData;
-    //    [self setCellForContentSection3WithModel:(LQSBBSPosterModel *)pinglunModel];
-    // 从传过来的bbsDetailModel.list中根据index获取对应的数据。
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    [self setupViews];
+    return self;
+}
+- (void)setupViews{
     //抬头
-    UIImageView *userImgView;
-    [self addImageView:&userImgView frame:CGRectMake(10, 10, 40, 40) tag:1001 image:[UIImage imageNamed:@"mc_forum_add_new_img.png"] superView:self.contentView imgUrlStr:pinglunModel.icon selector:@selector(sec1HeadAct)];
-    userImgView.clipsToBounds = YES;
-    userImgView.layer.cornerRadius = 5;
+    // 头像
+    self.headerImgV = [[UIImageView alloc]init];
+    [self.contentView addSubview:self.headerImgV];
+    [self.headerImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.top.equalTo(self.contentView).offset(10);
+        make.size.mas_equalTo(CGSizeMake(40, 40));
+    }];
+    self.headerImgV.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sec1HeadAct)];
+    [self.headerImgV addGestureRecognizer:tap];
+    self.headerImgV.tag = 1001;
+    // 用户名
+    self.nameLabel = [[UILabel alloc]init];
+    [self.contentView addSubview:self.nameLabel];
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).offset(55);
+        make.top.equalTo(self.contentView.mas_top).offset(9);
+        make.height.equalTo(@20);
+    }];
+    self.nameLabel.numberOfLines = 1;
+    self.nameLabel.textAlignment = NSTextAlignmentLeft;
+    self.nameLabel.font = [UIFont systemFontOfSize:15];
+    self.nameLabel.textColor = [UIColor grayColor];
+    // timeLabel
+    self.timeLab = [[UILabel alloc]init];
+    [self.contentView addSubview:self.timeLab];
+    [self.timeLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).offset(55);
+        make.top.equalTo(self.nameLabel.mas_bottom);
+        make.height.equalTo(@20);
+    }];
+    self.timeLab.numberOfLines = 1;
+    self.timeLab.textAlignment = NSTextAlignmentLeft;
+    self.timeLab.font = [UIFont systemFontOfSize:12];
+    self.timeLab.textColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+    // 楼层label
+    self.postionLabel = [[UILabel alloc]init];
+    [self.contentView addSubview:self.postionLabel];
+    [self.postionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentView.mas_right).offset(-5);
+        make.top.equalTo(self.contentView.mas_top).offset(5);
+        make.size.mas_equalTo(CGSizeMake(40, 20));
+    }];
+    self.postionLabel.numberOfLines = 1;
+    self.postionLabel.textAlignment = NSTextAlignmentRight;
+    self.postionLabel.font = [UIFont systemFontOfSize:12];
+    self.postionLabel.textColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+    _postionLabel.backgroundColor = [UIColor blueColor];
+    // 评论内容
+    self.replyContentLabel = [[UILabel alloc]init];
+    [self.contentView addSubview:self.replyContentLabel];
+    [self.replyContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).offset(55);
+        make.top.equalTo(self.timeLab.mas_bottom).offset(5);
+//        make.width.equalTo(@(KLQScreenFrameSize.width- 55 - 78 - 10));
+        make.right.equalTo(self.contentView.mas_right).offset(-30);
+    }];
+    self.replyContentLabel.numberOfLines = 0;
+    self.replyContentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.replyContentLabel.textAlignment = NSTextAlignmentLeft;
+    self.replyContentLabel.font = [UIFont systemFontOfSize:15];
+    self.replyContentLabel.textColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+    // 二级评论
+    self.secReplyContentLabel = [[UILabel alloc]init];
+    [self.contentView addSubview:self.secReplyContentLabel];
+    [self.secReplyContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.replyContentLabel.mas_left).offset(55);
+        make.top.equalTo(self.replyContentLabel.mas_bottom).offset(5);
+        make.right.equalTo(self.contentView.mas_right).offset(-30);
+    }];
     
-    UILabel *userNameLab;
-    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
-    CGRect rect = [pinglunModel.reply_name  boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 55 - 78 - 10, 20) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
-    [LQSAddViewHelper addLable:&userNameLab withFrame:CGRectMake(55, 9, rect.size.width, 20) text:pinglunModel.reply_name textFont:[UIFont systemFontOfSize:15] textColor:[UIColor grayColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
-    UILabel *timeLab;
-    //    NSLog(@"createDate:%@",self.myCtrl.bbsDetailModel.create_date);
-    [LQSAddViewHelper addLable:&timeLab withFrame:CGRectMake(55, CGRectGetMaxY(userNameLab.frame), 200, 20) text:LQSTR(pinglunModel.posts_date) textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
+}
+-(void)setPinglunModel:(LQSBBSPosterModel *)pinglunModel{
+    _pinglunModel = pinglunModel;
+    // 根据传过来的数据配置头像
+    UIImage *img = [UIImage imageNamed:@"mc_forum_add_new_img.png"];
+    NSString *imgURLStr = pinglunModel.icon;
+    if (imgURLStr.length > 0) {
+        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:LQSTR(imgURLStr)] options:SDWebImageProgressiveDownload progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            if (!image) {
+                self.headerImgV.image = img;
+            }else{
+                self.headerImgV.image = image;
+                //                imgView.frame = CGRectMake(frame.origin.x, frame.origin.y, KLQScreenFrameSize.width - 10,image.size.width*image.size.height/(KLQScreenFrameSize.width - 10));
+                
+            }
+        }];
+    }else{
+        self.headerImgV.image = img;
+    }
+    //  配置昵称
+    //    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
+    //    CGRect rect = [pinglunModel.reply_name  boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 55 - 78 - 10, 20) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
+    self.nameLabel.text = LQSTR(pinglunModel.reply_name);
+    // 配置时间label
+    self.timeLab.text = LQSTR(pinglunModel.posts_date);
     // 楼层
-    UILabel *postionLabel;
+    self.postionLabel.text = [NSString stringWithFormat:@"%@楼",pinglunModel.position];
     // 此处的楼层label的位置是固定的，以后可以看UI设计来改。
-    [LQSAddViewHelper addLable:&postionLabel withFrame:CGRectMake(self.contentView.width - 50, 5, 40, 20) text:[NSString stringWithFormat:@"%@楼",pinglunModel.position] textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] textAlignment:NSTextAlignmentRight lineNumber:1 tag:0 superView:self.contentView];
-    postionLabel.backgroundColor = [UIColor blueColor];
     // 一级评论内容展示
-    UILabel *replyContentLabel = [[UILabel alloc]init];
     NSDictionary *dic = pinglunModel.reply_content[0];
-    //    replyContentLabel.numberOfLines = 0;
-    //    replyContentLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    [LQSAddViewHelper addLable:&replyContentLabel withFrame:CGRectMake(55, CGRectGetMaxY(timeLab.frame)+5, KLQScreenFrameSize.width - 55 - 78 - 10, pinglunModel.contentHeight) text:dic[@"infor"] textFont:[UIFont systemFontOfSize:15] textColor:[UIColor grayColor] textAlignment:NSTextAlignmentLeft lineNumber:0 tag:0 superView:self.contentView];
-    self.isCreated = YES;
+    self.replyContentLabel.text = dic[@"infor"];
+    if ([pinglunModel.is_quote integerValue] == 1) {
+        self.secReplyContentLabel.text = pinglunModel.quote_content;
+        UIImageView * bgImgView = [[UIImageView alloc] init];
+        [self.contentView addSubview:bgImgView];
+        [bgImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.secReplyContentLabel.mas_top);
+            make.left.equalTo(self.secReplyContentLabel.mas_left);
+            make.right.equalTo(self.secReplyContentLabel.mas_right);
+            make.bottom.equalTo(self.secReplyContentLabel.mas_bottom);
+        }];
+        UIEdgeInsets edge = UIEdgeInsetsMake(50, 50, 50, 50);
+        UIImage * frameImg1 = [UIImage imageNamed:@"dz_toolbar_reply_outer_bg"];
+        frameImg1 = [frameImg1 resizableImageWithCapInsets:edge resizingMode:UIImageResizingModeStretch];
+        [bgImgView setImage:frameImg1];
+        [self.contentView insertSubview:bgImgView belowSubview:self.secReplyContentLabel];
+    }
+    // 强制布局
+    [self layoutIfNeeded];
+    NSLog(@"contentH:%f,position:%@",self.replyContentLabel.frame.size.height,pinglunModel.position);
+    pinglunModel.contentHeight = CGRectGetMaxY(self.secReplyContentLabel.frame)+20;
 }
 
 @end
