@@ -18,35 +18,28 @@
 @interface LQSBBSDetailCell : UITableViewCell
 @property (nonatomic,assign)id <LQSBBSDetailCellDelegate> delegate;
 
-//@property (nonatomic, strong) NSMutableDictionary *paramDict;//参数字典
-//@property (nonatomic, strong) NSIndexPath *indexPath;
-//@property (nonatomic, weak) LQSBBSDetailViewController *myCtrl;
 - (void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath;
 
 @end
-
+// 标题cell
 @interface LQSBBSDetailTitleCell : LQSBBSDetailCell
 
-//- (void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath;
+@property (nonatomic,strong)LQSBBSDetailTopicModel *topicModel;
 
 @end
-
+// 内容cell
 @interface LQSBBSDetailContentCell : LQSBBSDetailCell
-//- (void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath;
+@property (nonatomic,strong)LQSBBSDetailTopicModel *topicModel;
 
 @end
-
-
+// 打赏cell
 @interface LQSBBSDetailVoteCell : LQSBBSDetailCell
 
-//- (void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath;
-
-
+@property (nonatomic,strong)LQSBBSDetailTopicModel *topicModel;
 @end
+// 评论回复cell
 @interface LQSBBSDetailReplyCell : LQSBBSDetailCell
-
 @property (nonatomic,strong)LQSBBSPosterModel *pinglunModel;
-//- (void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath;
 
 @end
 

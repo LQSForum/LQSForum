@@ -15,6 +15,7 @@
 #import "LQSHomePagePersonalMessageViewController.h"
 // 解析评论数据
 #import "LQSBBSDetailModel.h"
+
 #define kCONTENTIMAGETAG_BEGIN 20160830
 #define kGUANZHUTA @"关注TA"
 #define kYIGUANZHUTA @"已关注TA"
@@ -131,8 +132,6 @@
 //添加text内容
 - (void)addTextContentForText:(NSString *)string
 {
-
-    
     NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:13]};
     CGRect rect = [string boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 10, 10000) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
     
@@ -149,6 +148,25 @@
     UIImageView *contentIngView;
     [self addImageView:&contentIngView frame:CGRectMake(5, self.totalHeight, KLQScreenFrameSize.width - 15, 470*(KLQScreenFrameSize.width - 15)/690) tag:tag image:[UIImage imageNamed:@"mc_forum_add_new_img.png"] superView:self.contentView imgUrlStr:urlStr selector:@selector(imageClick)];
     self.totalHeight += 470*(KLQScreenFrameSize.width - 15)/690;
+}
+- (void)imageView:(UIImageView *)imageView addImgWithUrlStr:(NSString *)urlStr placeHolderImg:(UIImage *)img selector:(SEL)selector{
+    if (urlStr.length > 0) {
+        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:LQSTR(urlStr)] options:SDWebImageProgressiveDownload progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            if (!image) {
+                imageView.image = img;
+            }else{
+                imageView.image = image;
+            }
+        }];
+    }else{
+        imageView.image = img;
+    }
+    
+        imageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:selector];
+        [imageView addGestureRecognizer:tap];
 }
 - (void)addImageView:(UIImageView **)imageView frame:(CGRect)frame tag:(NSInteger)tag image:(UIImage *)img superView:(UIView *)superView imgUrlStr:(NSString *)urlStr selector:(SEL)selector
 {
@@ -201,25 +219,77 @@
 @end
 #pragma mark - titleCell 帖子顶部标题
 
+@interface LQSBBSDetailTitleCell ()
+@property (nonatomic,strong)UILabel *titleLabel;
+@property (nonatomic,strong)UIImageView *scanImgView;
+@property (nonatomic,strong)UILabel *scanLab;
+// 精华label
+@property (nonatomic,strong)UIImageView *essenceImgV;
+@end
+
 @implementation LQSBBSDetailTitleCell
 
--(void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath{
-    LQSBBSDetailTopicModel *model = modelData;
-//    [self setCellForSection0WithModal:model];
-    UILabel *titleLab;
-    [LQSAddViewHelper addLable:&titleLab withFrame:CGRectMake(15, 10, KLQScreenFrameSize.width - 15 - 25, 39) text:LQSTR(model.title) textFont:[UIFont boldSystemFontOfSize:15] textColor:[UIColor blackColor] textAlignment:NSTextAlignmentLeft lineNumber:2 tag:0 superView:self.contentView];
-    UIImageView *scanImgView;
-    [LQSAddViewHelper addImageView:&scanImgView frame:CGRectMake(15, 50, 12, 11) tag:0 image:[UIImage imageNamed:@"mc_forum_ico53_n"] superView:self.contentView imgUrlStr:@"" selector:nil];
-    UILabel *scanLab;
-    [LQSAddViewHelper addLable:&scanLab withFrame:CGRectMake(32, 49, KLQScreenFrameSize.width - 32 - 25, 14) text:LQSTR(model.hits) textFont:[UIFont systemFontOfSize:13] textColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
-    if ([model.essence  isEqual: @1]) {
-        UILabel *essenceLab;
-        [LQSAddViewHelper addLable:&essenceLab withFrame:CGRectMake(KLQScreenFrameSize.width - 10 -16, 10, 16, 16) text:@"精" textFont:[UIFont boldSystemFontOfSize:13] textColor:[UIColor whiteColor] textAlignment:NSTextAlignmentCenter lineNumber:1 tag:0 superView:self.contentView];
-        essenceLab.layer.cornerRadius = 2;
-        essenceLab.clipsToBounds = YES;
-        essenceLab.backgroundColor = [UIColor redColor];
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self setupViews];
     }
-    self.isCreated = YES;
+    return self;
+}
+- (void)setupViews{
+    // 标题label
+    self.titleLabel = [[UILabel alloc]init];
+    [self.contentView addSubview:self.titleLabel];
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).offset(15);
+        make.top.equalTo(self.contentView.mas_top).offset(10);
+        make.width.equalTo(@(LQSScreenW - 15-25));
+        make.height.equalTo(@39);
+    }];
+    self.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    self.titleLabel.textColor = [UIColor blackColor];
+    self.titleLabel.textAlignment = NSTextAlignmentLeft;
+    self.titleLabel.numberOfLines = 2;// 暂定为2，看先上版的好像是最多2行。
+    // 浏览图片
+    self.scanImgView = [[UIImageView alloc]init];
+    [self.contentView addSubview:self.scanImgView];
+    [self.scanImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.titleLabel.mas_left);
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(1);
+        make.width.equalTo(@12);
+        make.height.equalTo(@11);
+    }];
+    self.scanImgView.image = [UIImage imageNamed:@"mc_forum_ico53_n"];
+    // 浏览次数lable
+    self.scanLab = [[UILabel alloc]init];
+    [self.contentView addSubview:self.scanLab];
+    [self.scanLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.scanImgView.mas_right).offset(1);
+        make.top.equalTo(self.scanImgView.mas_top);
+        make.height.equalTo(self.scanImgView.mas_height);
+    }];
+    self.scanLab.font = [UIFont boldSystemFontOfSize:13];
+    self.scanLab.textColor = [UIColor lightGrayColor];
+    self.scanLab.textAlignment = NSTextAlignmentLeft;
+    self.scanLab.numberOfLines = 1;
+    // 精华label
+    self.essenceImgV = [[UIImageView alloc]init];
+    [self.contentView addSubview:self.essenceImgV];
+    [self.essenceImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentView.mas_right).offset(-25);
+        make.top.equalTo(self.contentView.mas_top).offset(10);
+        make.width.and.height.equalTo(@16);
+    }];
+    self.essenceImgV.image = [UIImage imageNamed:@"marrow"];
+    self.essenceImgV.hidden = YES;
+    self.essenceImgV.layer.cornerRadius = 2;
+}
+-(void)setTopicModel:(LQSBBSDetailTopicModel *)topicModel{
+    _topicModel = topicModel;
+    self.titleLabel.text = topicModel.title;
+    self.scanLab.text = [NSString stringWithFormat:@"%@",topicModel.hits];
+    self.essenceImgV.hidden = ![topicModel.essence isEqual:@1];
+    [self layoutIfNeeded];
+    topicModel.topicCellHeight = CGRectGetMaxY(self.scanLab.frame)+3;
 }
 @end
 #pragma  mark - contentCell 帖子内容
@@ -227,83 +297,123 @@
 @interface LQSBBSDetailContentCell()
 // 举报警察按钮
 @property (nonatomic,strong)UIButton *policeBtn;
+@property (nonatomic,strong)UIImageView *userImgView;
+@property (nonatomic,strong)UILabel *userNameLable;
+@property (nonatomic,strong)UILabel *memberDegreeLabel;// 会员级别label
+@property (nonatomic,strong)UILabel *timeLabel;
+@property (nonatomic,strong)UIButton *guanZhuBtn;// 关注按钮
+@property (nonatomic,strong)LQSArticleContentView *articleView;// 内容view
+@property (nonatomic,strong)UIButton *reportBtn;// 举报按钮
+
 @end
 @implementation LQSBBSDetailContentCell
-
--(void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath
-{
-    LQSBBSDetailTopicModel *model = modelData;
-//    [self setCellForContentSection1WithModal:model];
-    //抬头
-    UIImageView *userImgView;
-    // 在这个类里面又有LQSAddViewHelper的同名方法.而且目测没什么不同...但是调用LQSAddViewHelper的方法会崩,不知前面为什么这么写,现在改成用self调用自己的方法。
-    //  [LQSAddViewHelper addImageView:&userImgView frame:CGRectMake(10, 10, 40, 40) tag:1001 image:[UIImage imageNamed:@"mc_forum_add_new_img.png"] superView:self.contentView imgUrlStr:self.myCtrl.bbsDetailModel.icon selector:@selector(sec1HeadAct)];
-    [self addImageView:&userImgView frame:CGRectMake(10, 10, 40, 40) tag:1001 image:[UIImage imageNamed:@"mc_forum_add_new_img.png"] superView:self.contentView imgUrlStr:model.icon selector:@selector(sec1HeadAct)];
-    userImgView.clipsToBounds = YES;
-    userImgView.layer.cornerRadius = 5;
-    
-    UILabel *userNameLab;
-    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
-    CGRect rect = [model.user_nick_name  boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 55 - 78 - 10, 20) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
-    [LQSAddViewHelper addLable:&userNameLab withFrame:CGRectMake(55, 9, rect.size.width, 20) text:model.user_nick_name textFont:[UIFont systemFontOfSize:15] textColor:[UIColor grayColor] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
-    
-    UILabel *titleNamelab;
-    CGFloat x = CGRectGetMaxX(userNameLab.frame);
-    x += 5;
-    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:12]};
-    CGRect rectForTitle = [model.userTitle  boundingRectWithSize:CGSizeMake(KLQScreenFrameSize.width - 55 - 78 - 10, 20) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
-    [LQSAddViewHelper addLable:&titleNamelab withFrame:CGRectMake(x, 9, rectForTitle.size.width, 20) text:model.userTitle textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.8 green:0.5 blue:0.3 alpha:1] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
-    
-    UILabel *timeLab;
-    NSLog(@"createDate:%@",model.create_date);
-    [LQSAddViewHelper addLable:&timeLab withFrame:CGRectMake(55, CGRectGetMaxY(userNameLab.frame), 200, 20) text:/*@"1天前"*/LQSTR(model.create_date) textFont:[UIFont systemFontOfSize:12] textColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] textAlignment:NSTextAlignmentLeft lineNumber:1 tag:0 superView:self.contentView];
-    
-    UIButton *guanzhuBtn;
-    // isFollow:0表示未关注,1表示已关注
-    NSString *isFollow = kGUANZHUTA;// 设置默认为未关注.
-    if (model.isFollow) {
-        NSLog(@"isfollow:%zd",model.isFollow);
-        isFollow = model.isFollow == 0 ?  kGUANZHUTA : kYIGUANZHUTA;
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self setupViews];
     }
-    [self addButton:&guanzhuBtn frame:CGRectMake(KLQScreenFrameSize.width - 10 - 78, 9, 78, 25) title:isFollow titleFont:[UIFont systemFontOfSize:13] titleColor:[UIColor blackColor] borderwidth:KSingleLine_Width cornerRadius:0 selector:@selector(guanzhuTA:) superView:self.contentView];
-    //内容
-    LQSArticleContentView *articleView = [[LQSArticleContentView alloc] initWithFrame:CGRectMake(11, 55.0f, KLQScreenFrameSize.width-22, 500)];
-    articleView.preferredMaxLayoutWidth = KLQScreenFrameSize.width-30;
-    articleView.content = model.content;
-    articleView.scrollEnabled = NO;
-    articleView.editable = NO;
-    articleView.backgroundColor = [UIColor redColor];
-    [self.contentView addSubview:articleView];
-    [articleView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView).with.insets(UIEdgeInsetsMake(55, 15, 40, 15));// 之前是(55,15,10,15),改为40,为留出举报按钮的高度
+    return self;
+}
+- (void)setupViews{
+    self.userImgView = [[UIImageView alloc]init];
+    [self.contentView addSubview:self.userImgView];
+    [self.userImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).offset(10);
+        make.top.equalTo(self.contentView.mas_top).offset(10);
+        make.width.and.height.equalTo(@40);
     }];
-    self.articleContentView = articleView;
-    // 举报按钮,articleView距离底部为40,这里设定举报按钮高28,距离上面6,下面6
-    UIButton *reportBtn = [[UIButton alloc]initWithFrame:CGRectMake(KLQScreenFrameSize.width-40, CGRectGetMaxY(self.contentView.frame)-34, 50, 28)];
-    [reportBtn setImage:[UIImage imageNamed:@"dz_posts_manage_btn"] forState:UIControlStateNormal];
-    [reportBtn setImageEdgeInsets:UIEdgeInsetsMake(5, 5, 5, 20)];
-    [reportBtn addTarget:self action:@selector(reportAct:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:reportBtn];
-    reportBtn.backgroundColor = [UIColor blueColor];
-    
-    // 警察按钮
-    self.policeBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMinX(reportBtn.frame), CGRectGetMinY(reportBtn.frame), 80, 28)];
+    self.userImgView.clipsToBounds = YES;
+    self.userImgView.layer.cornerRadius = 5;
+    self.userNameLable = [[UILabel alloc]init];
+    [self.contentView addSubview:self.userNameLable];
+    [self.userNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.userImgView.mas_right);
+        make.top.equalTo(self.userImgView.mas_top);
+        make.height.equalTo(@20);
+    }];
+    self.userNameLable.font = [UIFont systemFontOfSize:15];
+    self.userNameLable.textColor = [UIColor grayColor];
+    self.userNameLable.textAlignment = NSTextAlignmentLeft;
+    self.userNameLable.numberOfLines = 1;
+    self.memberDegreeLabel = [[UILabel alloc]init];
+    [self.contentView addSubview:self.memberDegreeLabel];
+    [self.memberDegreeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.userNameLable.mas_right);
+        make.top.equalTo(self.userNameLable.mas_top);
+        make.height.equalTo(self.userNameLable.mas_height);
+    }];
+    self.memberDegreeLabel.textAlignment = NSTextAlignmentLeft;
+    self.memberDegreeLabel.textColor = [UIColor colorWithRed:0.8 green:0.5 blue:0.3 alpha:1];
+    self.memberDegreeLabel.numberOfLines = 1;
+    self.memberDegreeLabel.font = [UIFont systemFontOfSize:12];
+    self.timeLabel = [[UILabel alloc]init];
+    [self.contentView addSubview:self.timeLabel];
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.userImgView.mas_right);
+        make.top.equalTo(self.userNameLable.mas_bottom);
+        make.height.equalTo(@20);
+    }];
+    self.timeLabel.font = [UIFont systemFontOfSize:12];
+    self.timeLabel.textColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+    self.timeLabel.textAlignment = NSTextAlignmentLeft;
+    self.guanZhuBtn = [[UIButton alloc]init];
+    [self.contentView addSubview:self.guanZhuBtn];
+    [self.guanZhuBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentView.mas_right).offset(-5);
+        make.top.equalTo(self.contentView.mas_top).offset(9);
+        make.width.equalTo(@80);
+        make.height.equalTo(@25);
+    }];
+    self.guanZhuBtn.titleLabel.textColor = [UIColor blackColor];
+    self.guanZhuBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    self.guanZhuBtn.layer.borderWidth = 1;
+    [self.guanZhuBtn addTarget:self action:@selector(guanzhuTA:) forControlEvents:UIControlEventTouchUpInside];
+    self.articleView = [[LQSArticleContentView alloc]init];
+    [self.contentView addSubview:self.articleView];
+    [self.articleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).offset(11);
+        make.top.equalTo(self.userImgView.mas_bottom).offset(3);
+        make.width.equalTo(@(LQSScreenW - 30));
+    }];
+    self.articleView.preferredMaxLayoutWidth = LQSScreenW - 30;
+    self.articleView.scrollEnabled = NO;
+    self.articleView.editable = NO;
+    self.reportBtn = [[UIButton alloc]init];
+    [self.contentView addSubview:self.reportBtn];
+    [self.reportBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentView.mas_right).offset(-10);
+        make.top.equalTo(self.articleView.mas_bottom).offset(5);
+        make.width.equalTo(@50);
+        make.height.equalTo(@28);
+    }];
+    [self.reportBtn setImage:[UIImage imageNamed:@"dz_posts_manage_btn"] forState:UIControlStateNormal];
+    [self.reportBtn addTarget:self action:@selector(reportAct:) forControlEvents:UIControlEventTouchUpInside];
+    self.reportBtn.backgroundColor = [UIColor blueColor];
+    self.policeBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMinX(_reportBtn.frame), CGRectGetMinY(_reportBtn.frame), 80, 28)];
     _policeBtn.layer.cornerRadius = 5;
     [_policeBtn setTitle:@"举报" forState:UIControlStateNormal];
     [_policeBtn setImage:[UIImage imageNamed:@"dz_posts_manage_report"] forState:UIControlStateNormal];
     [_policeBtn setImageEdgeInsets:UIEdgeInsetsMake(3, 3, 3, 0)];
     [self.contentView addSubview:_policeBtn];
-    [self.contentView insertSubview:_policeBtn belowSubview:reportBtn];
+    [self.contentView insertSubview:_policeBtn belowSubview:_reportBtn];
     _policeBtn.tintColor = [UIColor whiteColor];
     _policeBtn.backgroundColor = [UIColor grayColor];
     _policeBtn.tag = 1100;
     [_policeBtn addTarget:self action:@selector(postToReportPage:) forControlEvents:UIControlEventTouchUpInside];
-    [self setNeedsLayout];
-    self.isCreated = YES;
+}
+-(void)setTopicModel:(LQSBBSDetailTopicModel *)topicModel{
+    _topicModel = topicModel;
+    [self imageView:self.userImgView addImgWithUrlStr:topicModel.icon placeHolderImg:[UIImage imageNamed:@"mc_forum_add_new_img.png"] selector:@selector(sec1HeadAct)];
+    _userImgView.clipsToBounds = YES;
+    _userImgView.layer.cornerRadius = 5;
+    self.userNameLable.text = topicModel.user_nick_name;
+    self.memberDegreeLabel.text = topicModel.userTitle;
+    self.timeLabel.text = topicModel.create_date;
+    NSString *guanZhuStr = topicModel.isFollow == 0 ? kGUANZHUTA : kYIGUANZHUTA;
+    [self.guanZhuBtn setTitle:guanZhuStr forState:UIControlStateNormal];
+    self.articleView.content = topicModel.content;
 }
 - (void)sec1HeadAct{
     NSLog(@"点击头像应该弹出actionSheet,选择框");
-    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertController addAction: [UIAlertAction actionWithTitle: @"发送私信" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         // 处理发送私信的点击事件
@@ -328,7 +438,7 @@
                 LQSHomePagePersonalMessageViewController *personalVc = [LQSHomePagePersonalMessageViewController new];
                 //[self.contentView.window.rootViewController.navigationController pushViewController:personalVc animated:YES];
                 if (self.delegate) {
-                    LQSBBSDetailViewController *detailVC = self.delegate;
+                    LQSBBSDetailViewController *detailVC = (LQSBBSDetailViewController *)self.delegate;
                     [detailVC.navigationController pushViewController:personalVc animated:NO];
                 }
                 
@@ -369,8 +479,108 @@
 @end
 #pragma mark - voteCell 打赏cell
 
+@interface LQSBBSDetailVoteCell ()
+@property (nonatomic,strong)UILabel *dashangLabel;
+@property (nonatomic,strong)UIView *vLineView;
+@property (nonatomic,strong)UIButton *shangBtn;
+@property (nonatomic,strong)UILabel *dashangInfoLabel;
+@property (nonatomic,strong)UIImageView *dashangUserIconImgV;
+@end
 @implementation LQSBBSDetailVoteCell
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self setupViews];
+    }
+    return self;
+}
+- (void)setupViews{
+    self.dashangLabel = [[UILabel alloc]init];
+    [self.contentView addSubview:self.dashangLabel];
+    [self.dashangLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.top.equalTo(self.contentView).offset(15);
+        make.width.equalTo(@(LQSScreenW - 80));
+        make.height.equalTo(@75);
+    }];
+    self.dashangLabel.textColor = [UIColor grayColor];
+    self.dashangLabel.font = [UIFont systemFontOfSize:15];
+    self.dashangLabel.textAlignment = NSTextAlignmentCenter;
+    self.vLineView = [[UIView alloc]init];
+    [self.contentView addSubview:self.vLineView];
+    [self.vLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.dashangLabel.mas_right);
+        make.top.equalTo(self.dashangLabel.mas_top).offset(15);
+        make.width.equalTo(@1);
+        make.height.equalTo(@45);
+    }];
+    self.dashangLabel.text = @"内容不错就任性地打赏吧!";
+    self.vLineView.backgroundColor = [UIColor grayColor];
+    self.shangBtn = [[UIButton alloc]init];
+    [self.contentView addSubview:self.shangBtn];
+    [self.shangBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.vLineView.mas_right).offset(10);
+        make.top.equalTo(self.contentView.mas_top).offset(15);
+        make.width.and.height.equalTo(@45);
+    }];
+    [self.shangBtn setBackgroundImage:[UIImage imageNamed:@"dz_posts_grade"] forState:UIControlStateNormal];
+    [self.shangBtn setBackgroundImage:[UIImage imageNamed:@"dz_posts_grade"] forState:UIControlStateHighlighted];
+    [self.shangBtn addTarget:self action:@selector(shangAct) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:self.shangBtn];
+    // 几人打赏，几个微笑的展示label。
+    self.dashangInfoLabel = [[UILabel alloc]init];
+    [self.contentView addSubview:self.dashangInfoLabel];
+    [self.dashangInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).offset(5);
+        make.top.equalTo(self.contentView.mas_top).offset(1);
+        make.height.equalTo(@15);
+    }];
+    self.dashangInfoLabel.hidden = YES;
+    // 打赏人员的头像
+//    self.dashangUserIconImgV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+//    self.dashangUserIconImgV.clipsToBounds = YES;
+//    self.dashangUserIconImgV.layer.cornerRadius = 20;
+//    [self.contentView addSubview:self.dashangUserIconImgV];
+    /*
+     */
 
+}
+-(void)setTopicModel:(LQSBBSDetailTopicModel *)topicModel{
+    _topicModel = topicModel;
+    if (topicModel.daShangRenShu > 0) {
+        self.dashangLabel.hidden = YES;
+        self.dashangInfoLabel.attributedText = topicModel.daShangInfoStr;
+        NSInteger showCount = topicModel.daShangRenShu >= 4 ? 4:topicModel.daShangRenShu;
+        for (NSInteger i = 0; i <= showCount; i ++) {
+            // 间距为5，每个图片大小为30*30，顶部距离为3，
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5+(30*i), 3, 30, 30)];
+            imageView.layer.cornerRadius = 15;
+            imageView.clipsToBounds = YES;
+            if (i != showCount) {
+                daShangRenInfoModel *infoModel = topicModel.dashangIconArr[i];
+                [self imageView:imageView addImgWithUrlStr:[NSString stringWithFormat:@"%@",infoModel.userIcon] placeHolderImg:[UIImage imageNamed:@"dz_icon_article_default"] selector:@selector(voteUserIconClick:)];
+            }else{
+                // 最后一个图片不同，点击事件不同
+                [self imageView:imageView addImgWithUrlStr:nil placeHolderImg:[UIImage imageNamed:@"navigationbar_more"] selector:@selector(moreImgClicked:)];
+            }
+            imageView.tag = 10086+i;// 用于标记不同的imgview的点击事件。
+            [self.contentView addSubview:imageView];
+        }
+        
+        
+    }else{
+        // 不做操作，默认就是现实让打赏吧的label
+    }
+}
+// 打赏栏的更多点击事件
+- (void)moreImgClicked{
+    //
+    NSLog(@"打赏栏的更多点击事件");
+}
+// 打赏栏的用户头像点击事件
+- (void)voteUserIconClick:(UIImageView *)sender{
+    NSInteger tag = sender.tag - 10086;
+    NSLog(@"打赏头像的tag：%zd",tag);
+
+}
 -(void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath
 {
     // 打赏文字label

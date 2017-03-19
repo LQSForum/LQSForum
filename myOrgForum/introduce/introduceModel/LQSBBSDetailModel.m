@@ -8,6 +8,7 @@
 
 #import "LQSBBSDetailModel.h"
 #import "LQSAddViewHelper.h"
+
 @implementation LQSBBSDetailModel
 //- (void) setContent:(NSArray *)content
 //{
@@ -56,10 +57,43 @@
         self.content = [NSMutableArray arrayWithArray:contenArr];
         NSLog(@"arr: %@",contenArr);
     }
+    // 下面的这段暂时不注释掉了，因为不知道原来是干嘛用的，而且这个zanlist好像没什么用处。
     if (nil != [dict objectForKey:@"zanList"]) {
         NSArray  *zanListArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict objectForKey:@"zanList"]];
         self.zanList = [NSMutableArray arrayWithArray:zanListArr];
     }
+    // 这里拿到数据中的reward字典，直接解析，把有用的提取出来，添加到model中，没用的不必存储。
+    NSDictionary *rewardDic = dict[@"reward"];
+    self.daShangRenShu = [rewardDic[@"userNumber"] integerValue];
+    self.showAllUrl = LQSTR(rewardDic[@"showAllUrl"]);
+    // 获取字典中的score数组，读取打赏的内容
+    NSArray *scoreArr = rewardDic[@"score"];
+    NSMutableAttributedString *numAttriStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%zd",self.daShangRenShu] attributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]}];
+    [numAttriStr appendAttributedString:[[NSMutableAttributedString alloc]initWithString:@"人共打赏 "]];
+    NSMutableAttributedString *tempStr = [[NSMutableAttributedString alloc]init];
+    for (NSDictionary *dashangDict in scoreArr) {
+        NSMutableAttributedString *valueAttriStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%zd",[dashangDict[@"value"] integerValue]] attributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]}];
+        [tempStr appendAttributedString:valueAttriStr];
+        [tempStr appendAttributedString:[[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",dashangDict[@"info"]]
+         ]];
+    }
+    if (!self.daShangInfoStr) {
+        self.daShangInfoStr = [[NSMutableAttributedString alloc]init];
+    }
+    [self.daShangInfoStr appendAttributedString:numAttriStr];
+    [self.daShangInfoStr appendAttributedString:tempStr];
+    //  获取打赏用户的头像URL
+    for (NSDictionary *userInfoDict in rewardDic[@"userList"]) {
+        if (!self.dashangIconArr) {
+            self.dashangIconArr = [NSMutableArray array];
+        }
+        daShangRenInfoModel *model = [[daShangRenInfoModel alloc]init];
+        model.userIcon = userInfoDict[@"userIcon"];
+        model.userName = userInfoDict[@"userName"];
+        model.uid = [userInfoDict[@"uid"] stringValue];
+        [self.dashangIconArr addObject:model];
+    }
+    
 }
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
     NSLog(@"LQSBBSDetailTopicModel.forUndefinedKey:%@",key);
@@ -84,5 +118,11 @@
 @end
 
 @implementation LQSBBSModel
+
+@end
+
+@implementation daShangRenInfoModel
+
+
 
 @end

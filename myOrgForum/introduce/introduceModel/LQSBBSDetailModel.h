@@ -11,7 +11,7 @@
 @interface LQSBBSDetailModel : NSObject
 @property (nonatomic, strong) NSString *forumName;//“银杏树下”所在版名
 @property (nonatomic, strong) NSString *rs;
-@property (nonatomic, strong) NSString *total_num;// 13
+@property (nonatomic, strong) NSString *total_num;// 13，表示总的评论数，用于在输入框的展示。
 @property (nonatomic, strong) NSString *has_next;
 
 @end
@@ -40,7 +40,11 @@
 @property (nonatomic, strong) NSString *title;//贴纸标题
 @property (nonatomic, strong) NSString *forumTopicUrl;//浏览器论坛URL
 @property (nonatomic, strong) NSString *page; //1
-@property (nonatomic, strong) NSArray *zanList;
+@property (nonatomic, strong) NSArray *zanList;// 这个zanList里面并没有东西。打赏列表里面的是reward字段。
+@property (nonatomic, strong) NSMutableAttributedString *daShangInfoStr; // 打赏的拼接好的内容，比如50微笑，如果将来还有别的，比如鲜花，就是拼接好的50微笑，20鲜花。他这个内容是以数组形式存储起来的，value：个数。info:打赏的种类。然后存在数组里面，可以做成结构体。或者直接解析都可以。这里直接解析出来，然后拼接好，提供给view展示。
+@property (nonatomic,assign)NSInteger daShangRenShu;// 打赏的人数
+@property (nonatomic,strong)NSMutableArray *dashangIconArr;// 打赏人们的头像URL数组。
+@property (nonatomic,strong)NSString *showAllUrl; // 展示所有打赏人员的网页URL。
 @property (nonatomic, strong) NSMutableArray *content;//帖子内容
 - (void)ModelWithDict:(NSDictionary *)dict;
 // 记录cell的高度
@@ -155,6 +159,10 @@
 @property (nonatomic, strong) NSString *icon_url;
 @end
 
-
+@interface daShangRenInfoModel : NSObject
+@property (nonatomic,strong)NSString *userName;
+@property (nonatomic,strong)NSString *userIcon;
+@property (nonatomic,strong)NSString *uid;// 用于跳转到用户的主页
+@end
 
 

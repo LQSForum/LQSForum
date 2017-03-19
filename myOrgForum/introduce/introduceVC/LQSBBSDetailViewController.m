@@ -463,8 +463,14 @@
 {
     NSInteger numOfRow = 0;
     switch (section) {
-        case 0:
-        case 1:
+        case 0:{
+            numOfRow =1;
+            break;
+        }
+        case 1:{
+            numOfRow =1;
+            break;
+        }
         case 2:{
             numOfRow =1;
             break;
@@ -487,15 +493,15 @@
     switch (indexPath.section) {
         case 0:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"titleCell"forIndexPath:indexPath];
-             [(LQSBBSDetailTitleCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
+             [(LQSBBSDetailTitleCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 1:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"contentCell"forIndexPath:indexPath];
-            [(LQSBBSDetailContentCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
+            [(LQSBBSDetailContentCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 2:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell"forIndexPath:indexPath];
-             [(LQSBBSDetailVoteCell *)cell setCellWithData:self.bbsDetailTopicModel indexpath:indexPath];
+             [(LQSBBSDetailVoteCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 3:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell" forIndexPath:indexPath];
@@ -519,7 +525,8 @@
     CGFloat height = 0;
     switch (indexPath.section) {
         case 0:{
-            height = 73;
+//            height = 73;
+            height = self.bbsDetailTopicModel.topicCellHeight;
             break;
         }case 1:{
             if (self.contentHeight > 0) {
