@@ -48,7 +48,9 @@
 @property (nonatomic, strong) NSMutableArray *content;//帖子内容
 - (void)ModelWithDict:(NSDictionary *)dict;
 // 记录cell的高度
-@property (nonatomic,assign)CGFloat topicCellHeight;
+@property (nonatomic,assign)CGFloat topicTitleHeight;
+@property (nonatomic,assign)CGFloat topicContenHeight;
+@property (nonatomic,assign)CGFloat topicVoteheight;
 
 @end
 

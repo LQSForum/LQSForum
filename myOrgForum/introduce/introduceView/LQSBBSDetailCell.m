@@ -236,6 +236,17 @@
     return self;
 }
 - (void)setupViews{
+    // 精华imgv
+    self.essenceImgV = [[UIImageView alloc]init];
+    [self.contentView addSubview:self.essenceImgV];
+    [self.essenceImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentView.mas_right).offset(-5);
+        make.top.equalTo(self.contentView.mas_top).offset(5);
+        make.width.and.height.equalTo(@30);
+    }];
+    self.essenceImgV.image = [UIImage imageNamed:@"marrow"];
+    self.essenceImgV.hidden = YES;
+    self.essenceImgV.layer.cornerRadius = 2;
     // 标题label
     self.titleLabel = [[UILabel alloc]init];
     [self.contentView addSubview:self.titleLabel];
@@ -245,7 +256,7 @@
         make.width.equalTo(@(LQSScreenW - 15-25));
         make.height.equalTo(@39);
     }];
-    self.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    self.titleLabel.font = [UIFont boldSystemFontOfSize:20];
     self.titleLabel.textColor = [UIColor blackColor];
     self.titleLabel.textAlignment = NSTextAlignmentLeft;
     self.titleLabel.numberOfLines = 2;// 暂定为2，看先上版的好像是最多2行。
@@ -271,17 +282,7 @@
     self.scanLab.textColor = [UIColor lightGrayColor];
     self.scanLab.textAlignment = NSTextAlignmentLeft;
     self.scanLab.numberOfLines = 1;
-    // 精华label
-    self.essenceImgV = [[UIImageView alloc]init];
-    [self.contentView addSubview:self.essenceImgV];
-    [self.essenceImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.contentView.mas_right).offset(-25);
-        make.top.equalTo(self.contentView.mas_top).offset(10);
-        make.width.and.height.equalTo(@16);
-    }];
-    self.essenceImgV.image = [UIImage imageNamed:@"marrow"];
-    self.essenceImgV.hidden = YES;
-    self.essenceImgV.layer.cornerRadius = 2;
+   
 }
 -(void)setTopicModel:(LQSBBSDetailTopicModel *)topicModel{
     _topicModel = topicModel;
@@ -289,7 +290,7 @@
     self.scanLab.text = [NSString stringWithFormat:@"%@",topicModel.hits];
     self.essenceImgV.hidden = ![topicModel.essence isEqual:@1];
     [self layoutIfNeeded];
-    topicModel.topicCellHeight = CGRectGetMaxY(self.scanLab.frame)+3;
+    topicModel.topicTitleHeight = CGRectGetMaxY(self.scanLab.frame)+3;
 }
 @end
 #pragma  mark - contentCell 帖子内容
@@ -304,7 +305,6 @@
 @property (nonatomic,strong)UIButton *guanZhuBtn;// 关注按钮
 @property (nonatomic,strong)LQSArticleContentView *articleView;// 内容view
 @property (nonatomic,strong)UIButton *reportBtn;// 举报按钮
-
 @end
 @implementation LQSBBSDetailContentCell
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -363,7 +363,7 @@
         make.width.equalTo(@80);
         make.height.equalTo(@25);
     }];
-    self.guanZhuBtn.titleLabel.textColor = [UIColor blackColor];
+    [self.guanZhuBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.guanZhuBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     self.guanZhuBtn.layer.borderWidth = 1;
     [self.guanZhuBtn addTarget:self action:@selector(guanzhuTA:) forControlEvents:UIControlEventTouchUpInside];
@@ -380,15 +380,22 @@
     self.reportBtn = [[UIButton alloc]init];
     [self.contentView addSubview:self.reportBtn];
     [self.reportBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.contentView.mas_right).offset(-10);
+        make.right.equalTo(self.contentView.mas_right);
         make.top.equalTo(self.articleView.mas_bottom).offset(5);
-        make.width.equalTo(@50);
-        make.height.equalTo(@28);
+        make.width.equalTo(@80);
+        make.height.equalTo(@30);
     }];
     [self.reportBtn setImage:[UIImage imageNamed:@"dz_posts_manage_btn"] forState:UIControlStateNormal];
     [self.reportBtn addTarget:self action:@selector(reportAct:) forControlEvents:UIControlEventTouchUpInside];
-    self.reportBtn.backgroundColor = [UIColor blueColor];
-    self.policeBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMinX(_reportBtn.frame), CGRectGetMinY(_reportBtn.frame), 80, 28)];
+    self.reportBtn.backgroundColor = [UIColor whiteColor];
+    self.policeBtn = [[UIButton alloc]init];
+    [self.contentView addSubview:self.policeBtn];
+    [self.policeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.reportBtn.mas_left);
+        make.top.equalTo(self.reportBtn.mas_top);
+        make.width.equalTo(@80);
+        make.height.equalTo(@30);
+    }];
     _policeBtn.layer.cornerRadius = 5;
     [_policeBtn setTitle:@"举报" forState:UIControlStateNormal];
     [_policeBtn setImage:[UIImage imageNamed:@"dz_posts_manage_report"] forState:UIControlStateNormal];
@@ -411,6 +418,8 @@
     NSString *guanZhuStr = topicModel.isFollow == 0 ? kGUANZHUTA : kYIGUANZHUTA;
     [self.guanZhuBtn setTitle:guanZhuStr forState:UIControlStateNormal];
     self.articleView.content = topicModel.content;
+  [self layoutIfNeeded];
+    topicModel.topicContenHeight = CGRectGetMaxY(self.reportBtn.frame)+20;
 }
 - (void)sec1HeadAct{
     NSLog(@"点击头像应该弹出actionSheet,选择框");
@@ -485,6 +494,8 @@
 @property (nonatomic,strong)UIButton *shangBtn;
 @property (nonatomic,strong)UILabel *dashangInfoLabel;
 @property (nonatomic,strong)UIImageView *dashangUserIconImgV;
+@property (nonatomic,strong)NSMutableArray *voteIconArr;// 存储打赏用户头像的arr
+@property (nonatomic,assign)CGFloat totalCellHeight;// 记录cell高度的变量
 @end
 @implementation LQSBBSDetailVoteCell
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -493,7 +504,14 @@
     }
     return self;
 }
+-(NSMutableArray *)voteIconArr{
+    if (!_voteIconArr) {
+        _voteIconArr = [NSMutableArray array];
+    }
+    return _voteIconArr;
+}
 - (void)setupViews{
+    NSLog(@"voteCellsetupViews");
     self.dashangLabel = [[UILabel alloc]init];
     [self.contentView addSubview:self.dashangLabel];
     [self.dashangLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -530,30 +548,47 @@
     [self.contentView addSubview:self.dashangInfoLabel];
     [self.dashangInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).offset(5);
-        make.top.equalTo(self.contentView.mas_top).offset(1);
+        make.top.equalTo(self.contentView.mas_top).offset(3);
         make.height.equalTo(@15);
     }];
     self.dashangInfoLabel.hidden = YES;
     // 打赏人员的头像
-//    self.dashangUserIconImgV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
-//    self.dashangUserIconImgV.clipsToBounds = YES;
-//    self.dashangUserIconImgV.layer.cornerRadius = 20;
-//    [self.contentView addSubview:self.dashangUserIconImgV];
+    NSInteger maxCountOfIcon = 4;
+    CGFloat imgVWidth = (LQSScreenW - 45 - 15-20 - 5*4)/5;
+    for (NSInteger i = 0; i <= maxCountOfIcon; i ++) {
+        NSLog(@"VoteCellForLoop");
+        // 间距为5，每个图片大小为30*30，顶部距离为3.
+        // 5个头像view。平分screenW - 赏按钮.width - 两边边距 - 空隙*4
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5+(imgVWidth*i), 23, imgVWidth, imgVWidth)];
+        imageView.layer.cornerRadius = 15;
+        imageView.clipsToBounds = YES;
+        [self.voteIconArr addObject:imageView];
+        imageView.tag = 10086+i;// 用于标记不同的imgview的点击事件。
+        [self.contentView addSubview:imageView];
+        imageView.hidden = YES;
+        // 初始化时隐藏视图，需要展示时，根据model数据展示。
+    }
+    // 这里其实已经可以计算出这个打赏栏的总高了，加起来就可以了。
+    self.totalHeight = 3+15+3+imgVWidth+5;
     /*
      */
 
 }
 -(void)setTopicModel:(LQSBBSDetailTopicModel *)topicModel{
+    NSLog(@"打赏cellsetModel");
+    // 这个方法会在cell再次出现时再次调用。cell初始化时写好的东西，布局不会改变。但是这里代码中的东西会反复执行，所以这里应该写变动的东西，或者把变化性的东西反复擦除，然后重新执行。
     _topicModel = topicModel;
     if (topicModel.daShangRenShu > 0) {
         self.dashangLabel.hidden = YES;
+        self.dashangInfoLabel.hidden = NO;
         self.dashangInfoLabel.attributedText = topicModel.daShangInfoStr;
-        NSInteger showCount = topicModel.daShangRenShu >= 4 ? 4:topicModel.daShangRenShu;
+        // self.voteIconArr默认存储了5个imageView.下面的代码就是比较model中的照片个数是否大于4，大于4则展示4个。
+        NSInteger showCount = topicModel.daShangRenShu >= self.voteIconArr.count-1 ? self.voteIconArr.count-1:topicModel.daShangRenShu;
         for (NSInteger i = 0; i <= showCount; i ++) {
-            // 间距为5，每个图片大小为30*30，顶部距离为3，
-            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5+(30*i), 3, 30, 30)];
-            imageView.layer.cornerRadius = 15;
-            imageView.clipsToBounds = YES;
+            NSLog(@"VoteCellForLoop");
+            // 取出创建好的imageViewArr中的imageview展示
+            UIImageView *imageView = self.voteIconArr[i];
+            imageView.hidden = NO;
             if (i != showCount) {
                 daShangRenInfoModel *infoModel = topicModel.dashangIconArr[i];
                 [self imageView:imageView addImgWithUrlStr:[NSString stringWithFormat:@"%@",infoModel.userIcon] placeHolderImg:[UIImage imageNamed:@"dz_icon_article_default"] selector:@selector(voteUserIconClick:)];
@@ -561,17 +596,18 @@
                 // 最后一个图片不同，点击事件不同
                 [self imageView:imageView addImgWithUrlStr:nil placeHolderImg:[UIImage imageNamed:@"navigationbar_more"] selector:@selector(moreImgClicked:)];
             }
-            imageView.tag = 10086+i;// 用于标记不同的imgview的点击事件。
-            [self.contentView addSubview:imageView];
         }
         
         
     }else{
-        // 不做操作，默认就是现实让打赏吧的label
+        // 不做操作，默认就是显示让打赏吧的label
     }
+  [self layoutIfNeeded];
+    // 把cell高度传递过去
+    topicModel.topicVoteheight = self.totalCellHeight;
 }
 // 打赏栏的更多点击事件
-- (void)moreImgClicked{
+- (void)moreImgClicked:(UIImageView *)sender{
     //
     NSLog(@"打赏栏的更多点击事件");
 }
@@ -580,22 +616,6 @@
     NSInteger tag = sender.tag - 10086;
     NSLog(@"打赏头像的tag：%zd",tag);
 
-}
--(void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath
-{
-    // 打赏文字label
-    UILabel *daShangLabel;
-    [LQSAddViewHelper addLable:&daShangLabel withFrame:CGRectMake(0, 0,KLQScreenFrameSize.width - 80, 75) text:@"内容不错就任性地打赏吧!" textFont:[UIFont systemFontOfSize:15] textColor:/*[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1]*/[UIColor grayColor] textAlignment:NSTextAlignmentCenter lineNumber:1 tag:0 superView:self.contentView];
-    // 竖线lineView
-    UIView *lineView2;
-    [LQSAddViewHelper addLine:&lineView2 withFrame:CGRectMake(CGRectGetMaxX(daShangLabel.frame), 15, 1, 45) superView:self.contentView color:[UIColor grayColor]];
-    // 赏图标
-    UIButton *shangBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(lineView2.frame) + 10, 15, 45, 45)];
-    [shangBtn setBackgroundImage:[UIImage imageNamed:@"dz_posts_grade"] forState:UIControlStateNormal];
-    [shangBtn setBackgroundImage:[UIImage imageNamed:@"dz_posts_grade"] forState:UIControlStateHighlighted];
-    [shangBtn addTarget:self action:@selector(shangAct) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:shangBtn];
-    self.isCreated = YES;
 }
 // 跳转到大赏页
 - (void)postToReportPage:(UIButton *)sender{
@@ -760,7 +780,7 @@
         self.bgImgView.hidden = YES;
     }
     // 强制布局
-    [self layoutIfNeeded];
+  [self layoutIfNeeded];
     
 //        [self.contentView addSubview:_bgImgView];
 //        [_bgImgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -773,7 +793,7 @@
     
 //        frameImg1 = [frameImg1 resizableImageWithCapInsets:edge resizingMode:UIImageResizingModeStretch];
     
-//     [self layoutIfNeeded];
+//   [self layoutIfNeeded];
 //        _bgImgView.hidden = YES;
 
 //    NSLog(@"contentH:%f,position:%@",self.replyContentLabel.frame.size.height,pinglunModel.position);

@@ -43,8 +43,9 @@
 // pluginBoardView
 @property (nonatomic,strong)LQSPluginView *pluginBoardView;
 @property (nonatomic,strong)NSMutableArray *replysArr;
-// 缓存帖子内容高度
+// 缓存帖子内容高度,这个高度不是cell传过来的，而是再次计算然后缓存的。
 @property (nonatomic,assign)CGFloat contentHeight;
+@property (nonatomic,assign)CGFloat voteCellHeight;
 @end
 
 @implementation LQSBBSDetailViewController
@@ -486,27 +487,47 @@
     return numOfRow;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.section) {
+        case 0:{
+            [(LQSBBSDetailTitleCell *)cell setTopicModel:self.bbsDetailTopicModel];
+            break;
+        }case 1:{
+//            [(LQSBBSDetailContentCell *)cell setTopicModel:self.bbsDetailTopicModel];
+            break;
+        }case 2:{
+//            [(LQSBBSDetailVoteCell *)cell setTopicModel:self.bbsDetailTopicModel];
+            break;
+        }case 3:{
+//            [(LQSBBSDetailReplyCell *)cell setPinglunModel:self.replysArr[indexPath.row]];
+            break;
+        }
+        default:
+            break;
+    }
 
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"CELLForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"titleCell"forIndexPath:indexPath];
-             [(LQSBBSDetailTitleCell *)cell setTopicModel:self.bbsDetailTopicModel];
+//             [(LQSBBSDetailTitleCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 1:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"contentCell"forIndexPath:indexPath];
-            [(LQSBBSDetailContentCell *)cell setTopicModel:self.bbsDetailTopicModel];
+//            [(LQSBBSDetailContentCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 2:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell"forIndexPath:indexPath];
-             [(LQSBBSDetailVoteCell *)cell setTopicModel:self.bbsDetailTopicModel];
+//             [(LQSBBSDetailVoteCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 3:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell" forIndexPath:indexPath];
-            cell.contentView.backgroundColor = [UIColor orangeColor];
-            [(LQSBBSDetailReplyCell *)cell setPinglunModel:self.replysArr[indexPath.row]];
+//            cell.contentView.backgroundColor = [UIColor orangeColor];
+//            [(LQSBBSDetailReplyCell *)cell setPinglunModel:self.replysArr[indexPath.row]];
             break;
         }
         default:
@@ -514,29 +535,48 @@
     }
     // 让controller成为cell的代理
     ((LQSBBSDetailCell*)cell).delegate = self;
+//    NSLog(@"cellForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     return cell;
     
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 200;
+    // 写上这个预估高度后，也并没有先运行cell再计算高度啊。还是先heightForRow,再cellForRow。。。
+    if (indexPath.section == 0) {
+        return 80;
+    }else if (indexPath.section == 1){
+        return 500;
+    }else if(indexPath.section == 2){
+        return 80;
+    }else{
+        return 100.0;
+    }
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"heightForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
+    
     CGFloat height = 0;
     switch (indexPath.section) {
         case 0:{
 //            height = 73;
-            height = self.bbsDetailTopicModel.topicCellHeight;
+            height = self.bbsDetailTopicModel.topicTitleHeight;
+//            NSLog(@"标题的height:%f",height);
             break;
         }case 1:{
-            if (self.contentHeight > 0) {
-                height = self.contentHeight;
-            }else{
-            height = [self getHeightForContentCell:self.bbsDetailTopicModel.content];//待定
-            }
+            height = self.bbsDetailTopicModel.topicContenHeight;
+//            if (self.contentHeight > 0) {
+//                height = self.contentHeight;
+//            }else{
+//            height = [self getHeightForContentCell:self.bbsDetailTopicModel.content];//待定
+//            }
             break;
         }case 2:{
-            height = 65;
+            height = self.bbsDetailTopicModel.topicVoteheight;
+//            if (self.voteCellHeight > 0) {
+//                height = self.voteCellHeight;
+//            }else{
+//                height = [self getVoteCellHeight];}
             break;
         }case 3:{
             LQSBBSPosterModel *model = self.replysArr[indexPath.row];
@@ -547,6 +587,12 @@
             break;
     }
     return height;
+}
+// 计算打赏cell的高度，这里的计算方法是根据cell中的布局方式来计算的。间接依赖性很强，那边改了，这边也要改。主要是我这里调了estimated方法后，它还是先执行两次heightForRow,再执行cellForRow,然后高度就各种不对，让我很困扰啊。所以都在这里计算出来吧。。。
+- (CGFloat)getVoteCellHeight{
+    CGFloat imgVWidth = (LQSScreenW - 45 - 15-20 - 5*4)/5;
+    self.voteCellHeight = 3+15+3+imgVWidth+5;
+    return self.voteCellHeight;
 }
 //获取contentCell的高度
 - (CGFloat)getHeightForContentCell:(NSArray *)contentArr
