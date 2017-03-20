@@ -44,8 +44,8 @@
 @property (nonatomic,strong)LQSPluginView *pluginBoardView;
 @property (nonatomic,strong)NSMutableArray *replysArr;
 // 缓存帖子内容高度,这个高度不是cell传过来的，而是再次计算然后缓存的。
-@property (nonatomic,assign)CGFloat contentHeight;
-@property (nonatomic,assign)CGFloat voteCellHeight;
+//@property (nonatomic,assign)CGFloat contentHeight;
+//@property (nonatomic,assign)CGFloat voteCellHeight;
 @end
 
 @implementation LQSBBSDetailViewController
@@ -448,10 +448,10 @@
         _mainList.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
         _mainList.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         // 注册几种cell
-        [_mainList registerClass:[LQSBBSDetailTitleCell class] forCellReuseIdentifier:@"titleCell"];
-        [_mainList registerClass:[LQSBBSDetailContentCell class] forCellReuseIdentifier:@"contentCell"];
-        [_mainList registerClass:[LQSBBSDetailVoteCell class] forCellReuseIdentifier:@"voteCell"];
-        [_mainList registerClass:[LQSBBSDetailReplyCell class] forCellReuseIdentifier:@"posterCell"];
+//        [_mainList registerClass:[LQSBBSDetailTitleCell class] forCellReuseIdentifier:@"titleCell"];
+//        [_mainList registerClass:[LQSBBSDetailContentCell class] forCellReuseIdentifier:@"contentCell"];
+//        [_mainList registerClass:[LQSBBSDetailVoteCell class] forCellReuseIdentifier:@"voteCell"];
+//        [_mainList registerClass:[LQSBBSDetailReplyCell class] forCellReuseIdentifier:@"posterCell"];
     }
     return _mainList;
 }
@@ -487,47 +487,61 @@
     return numOfRow;
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.section) {
-        case 0:{
-            [(LQSBBSDetailTitleCell *)cell setTopicModel:self.bbsDetailTopicModel];
-            break;
-        }case 1:{
-//            [(LQSBBSDetailContentCell *)cell setTopicModel:self.bbsDetailTopicModel];
-            break;
-        }case 2:{
-//            [(LQSBBSDetailVoteCell *)cell setTopicModel:self.bbsDetailTopicModel];
-            break;
-        }case 3:{
-//            [(LQSBBSDetailReplyCell *)cell setPinglunModel:self.replysArr[indexPath.row]];
-            break;
-        }
-        default:
-            break;
-    }
-
-}
+//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//      NSLog(@"willDisplayCell,section:%zd,row:%zd",indexPath.section,indexPath.row);
+//    switch (indexPath.section) {
+//        case 0:{
+//            [(LQSBBSDetailTitleCell *)cell setTopicModel:self.bbsDetailTopicModel];
+//            break;
+//        }case 1:{
+////            [(LQSBBSDetailContentCell *)cell setTopicModel:self.bbsDetailTopicModel];
+//            break;
+//        }case 2:{
+////            [(LQSBBSDetailVoteCell *)cell setTopicModel:self.bbsDetailTopicModel];
+//            break;
+//        }case 3:{
+////            [(LQSBBSDetailReplyCell *)cell setPinglunModel:self.replysArr[indexPath.row]];
+//            break;
+//        }
+//        default:
+//            break;
+//    }
+//
+//}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"CELLForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
+    // 使用先注册cell，然后dequeueReusableCellWithIdentifier withIndexPath的方法会出问题，执行顺序是先height，再cell，然后这里的赋值就没把高度赋值过去。就出现高度问题。还是得用这个!cell,创建cell。
+//    NSLog(@"CELLForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"titleCell"forIndexPath:indexPath];
-//             [(LQSBBSDetailTitleCell *)cell setTopicModel:self.bbsDetailTopicModel];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"titleCell"];
+            if (!cell) {
+                cell = [[LQSBBSDetailTitleCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"titleCell"];
+            }
+             [(LQSBBSDetailTitleCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 1:{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"contentCell"forIndexPath:indexPath];
-//            [(LQSBBSDetailContentCell *)cell setTopicModel:self.bbsDetailTopicModel];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"contentCell"];
+            if (!cell) {
+                cell = [[LQSBBSDetailContentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contentCell"];
+            }
+            [(LQSBBSDetailContentCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 2:{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell"forIndexPath:indexPath];
-//             [(LQSBBSDetailVoteCell *)cell setTopicModel:self.bbsDetailTopicModel];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell"];
+            if (!cell) {
+                cell = [[LQSBBSDetailVoteCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"voteCell"];
+            }
+             [(LQSBBSDetailVoteCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 3:{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell" forIndexPath:indexPath];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell" ];
+            if (!cell) {
+                cell = [[LQSBBSDetailReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"posterCell"];
+            }
 //            cell.contentView.backgroundColor = [UIColor orangeColor];
-//            [(LQSBBSDetailReplyCell *)cell setPinglunModel:self.replysArr[indexPath.row]];
+            [(LQSBBSDetailReplyCell *)cell setPinglunModel:self.replysArr[indexPath.row]];
             break;
         }
         default:
@@ -588,25 +602,20 @@
     }
     return height;
 }
-// 计算打赏cell的高度，这里的计算方法是根据cell中的布局方式来计算的。间接依赖性很强，那边改了，这边也要改。主要是我这里调了estimated方法后，它还是先执行两次heightForRow,再执行cellForRow,然后高度就各种不对，让我很困扰啊。所以都在这里计算出来吧。。。
-- (CGFloat)getVoteCellHeight{
-    CGFloat imgVWidth = (LQSScreenW - 45 - 15-20 - 5*4)/5;
-    self.voteCellHeight = 3+15+3+imgVWidth+5;
-    return self.voteCellHeight;
-}
-//获取contentCell的高度
-- (CGFloat)getHeightForContentCell:(NSArray *)contentArr
-{
-    CGFloat height = 55;
-      LQSArticleContentView *articleView = [[LQSArticleContentView alloc] initWithFrame:CGRectMake(0, 0, KLQScreenFrameSize.width-30, 500)];
-        articleView.preferredMaxLayoutWidth = KLQScreenFrameSize.width-30;
-    
-    articleView.content = contentArr;
-    height += articleView.contentSize.height;
-    //NSLog(@"height = %f,%@",height,_articleView);
-    self.contentHeight = height + 10 + 50;// 仅在这里为self.contentHeight赋值一次。
-    return height+10 + 50;// 30为举报按钮的高度
-}
+
+////获取contentCell的高度
+//- (CGFloat)getHeightForContentCell:(NSArray *)contentArr
+//{
+//    CGFloat height = 55;
+//      LQSArticleContentView *articleView = [[LQSArticleContentView alloc] initWithFrame:CGRectMake(0, 0, KLQScreenFrameSize.width-30, 500)];
+//        articleView.preferredMaxLayoutWidth = KLQScreenFrameSize.width-30;
+//    
+//    articleView.content = contentArr;
+//    height += articleView.contentSize.height;
+//    //NSLog(@"height = %f,%@",height,_articleView);
+//    self.contentHeight = height + 10 + 50;// 仅在这里为self.contentHeight赋值一次。
+//    return height+10 + 50;// 30为举报按钮的高度
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {

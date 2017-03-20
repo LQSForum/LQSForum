@@ -526,18 +526,18 @@
     [self.contentView addSubview:self.vLineView];
     [self.vLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.dashangLabel.mas_right);
-        make.top.equalTo(self.dashangLabel.mas_top).offset(15);
+        make.top.equalTo(self.contentView.mas_top).offset(15);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-15);
         make.width.equalTo(@1);
-        make.height.equalTo(@45);
     }];
     self.dashangLabel.text = @"内容不错就任性地打赏吧!";
     self.vLineView.backgroundColor = [UIColor grayColor];
     self.shangBtn = [[UIButton alloc]init];
     [self.contentView addSubview:self.shangBtn];
     [self.shangBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.vLineView.mas_right).offset(10);
-        make.top.equalTo(self.contentView.mas_top).offset(15);
-        make.width.and.height.equalTo(@45);
+        make.left.equalTo(self.vLineView.mas_right).offset(5);
+        make.centerY.equalTo(self.vLineView.mas_centerY);
+        make.width.and.height.equalTo(@(55));
     }];
     [self.shangBtn setBackgroundImage:[UIImage imageNamed:@"dz_posts_grade"] forState:UIControlStateNormal];
     [self.shangBtn setBackgroundImage:[UIImage imageNamed:@"dz_posts_grade"] forState:UIControlStateHighlighted];
@@ -554,13 +554,14 @@
     self.dashangInfoLabel.hidden = YES;
     // 打赏人员的头像
     NSInteger maxCountOfIcon = 4;
-    CGFloat imgVWidth = (LQSScreenW - 45 - 15-20 - 5*4)/5;
+    // 竖线距离右边65，两边间距10，中间间距5
+    CGFloat imgVWidth = (LQSScreenW - 65 - 5*4-20)/5;
     for (NSInteger i = 0; i <= maxCountOfIcon; i ++) {
         NSLog(@"VoteCellForLoop");
         // 间距为5，每个图片大小为30*30，顶部距离为3.
         // 5个头像view。平分screenW - 赏按钮.width - 两边边距 - 空隙*4
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5+(imgVWidth*i), 23, imgVWidth, imgVWidth)];
-        imageView.layer.cornerRadius = 15;
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(12.5+((imgVWidth+5)*i), 23, imgVWidth, imgVWidth)];
+        imageView.layer.cornerRadius = imgVWidth/2;
         imageView.clipsToBounds = YES;
         [self.voteIconArr addObject:imageView];
         imageView.tag = 10086+i;// 用于标记不同的imgview的点击事件。
@@ -569,7 +570,7 @@
         // 初始化时隐藏视图，需要展示时，根据model数据展示。
     }
     // 这里其实已经可以计算出这个打赏栏的总高了，加起来就可以了。
-    self.totalHeight = 3+15+3+imgVWidth+5;
+    self.totalCellHeight = 3+15+3+imgVWidth+5;
     /*
      */
 
@@ -595,6 +596,8 @@
             }else{
                 // 最后一个图片不同，点击事件不同
                 [self imageView:imageView addImgWithUrlStr:nil placeHolderImg:[UIImage imageNamed:@"navigationbar_more"] selector:@selector(moreImgClicked:)];
+                imageView.layer.borderWidth = 1;
+                imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
             }
         }
         
@@ -722,7 +725,7 @@
     self.secReplyContentLabel = [[UILabel alloc]init];
     [self.contentView addSubview:self.secReplyContentLabel];
     [self.secReplyContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.replyContentLabel.mas_left);
+        make.left.equalTo(self.replyContentLabel.mas_left).offset(3);
         make.top.equalTo(self.replyContentLabel.mas_bottom).offset(5);
         make.right.equalTo(self.contentView.mas_right).offset(-30);
     }];
@@ -769,7 +772,9 @@
     if ([pinglunModel.is_quote integerValue] == 1) {
         self.secReplyContentLabel.text = pinglunModel.quote_content;
         CGRect rec = [pinglunModel.quote_content boundingRectWithSize:CGSizeMake(kScreenWidth - 85, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil];
-        self.bgImgView.frame = CGRectMake(self.secReplyContentLabel.origin.x, self.secReplyContentLabel.origin.y, rec.size.width + 20, rec.size.height + 20);
+        // 强制布局
+        [self layoutIfNeeded];
+        self.bgImgView.frame = CGRectMake(CGRectGetMinX(self.secReplyContentLabel.frame)-3, CGRectGetMinY(self.secReplyContentLabel.frame)-3, kScreenWidth - 85, rec.size.height + 6);
         UIImage * frameImg1 = [UIImage imageNamed:@"dz_toolbar_reply_outer_bg"];
         frameImg1 = [frameImg1 stretchableImageWithLeftCapWidth:frameImg1.size.width/2 topCapHeight:frameImg1.size.height/2];
         [_bgImgView setImage:frameImg1];
