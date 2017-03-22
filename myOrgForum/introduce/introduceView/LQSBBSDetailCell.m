@@ -418,7 +418,7 @@
     NSString *guanZhuStr = topicModel.isFollow == 0 ? kGUANZHUTA : kYIGUANZHUTA;
     [self.guanZhuBtn setTitle:guanZhuStr forState:UIControlStateNormal];
     self.articleView.content = topicModel.content;
-  [self layoutIfNeeded];
+    [self layoutIfNeeded];
     topicModel.topicContenHeight = CGRectGetMaxY(self.reportBtn.frame)+20;
 }
 - (void)sec1HeadAct{
@@ -720,14 +720,21 @@
     self.replyContentLabel.font = [UIFont systemFontOfSize:15];
     self.replyContentLabel.textColor = [UIColor blackColor];
     self.replyContentLabel.preferredMaxLayoutWidth = LQSScreenW - 85;
-
-    // 二级评论
-    self.secReplyContentLabel = [[UILabel alloc]init];
-    [self.contentView addSubview:self.secReplyContentLabel];
-    [self.secReplyContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+// 二级回复的底部图片
+    _bgImgView = [[UIImageView alloc] init];
+    [self.contentView addSubview:_bgImgView];
+    [self.bgImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.replyContentLabel.mas_left).offset(3);
         make.top.equalTo(self.replyContentLabel.mas_bottom).offset(5);
         make.right.equalTo(self.contentView.mas_right).offset(-30);
+    }];
+    // 二级评论
+    self.secReplyContentLabel = [[UILabel alloc]init];
+    [self.bgImgView addSubview:self.secReplyContentLabel];
+    [self.secReplyContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.bgImgView.mas_left).offset(3);
+        make.top.equalTo(self.bgImgView.mas_top).offset(5);
+        make.right.equalTo(self.bgImgView.mas_right);
     }];
     self.secReplyContentLabel.numberOfLines = 0;
     self.secReplyContentLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -735,9 +742,7 @@
     self.secReplyContentLabel.font = [UIFont systemFontOfSize:15];
     self.secReplyContentLabel.textColor = [UIColor blackColor];
     self.secReplyContentLabel.preferredMaxLayoutWidth = LQSScreenW - 85;
-// 二级回复的底部图片
-    _bgImgView = [[UIImageView alloc] init];
-
+    
 }
 -(void)setPinglunModel:(LQSBBSPosterModel *)pinglunModel{
     _pinglunModel = pinglunModel;
@@ -770,16 +775,25 @@
     NSDictionary *dic = pinglunModel.reply_content[0];
     self.replyContentLabel.text = dic[@"infor"];
     if ([pinglunModel.is_quote integerValue] == 1) {
-        self.secReplyContentLabel.text = pinglunModel.quote_content;
+        
+        NSLog(@"二级评论内容:%@",pinglunModel.quote_content);
         CGRect rec = [pinglunModel.quote_content boundingRectWithSize:CGSizeMake(kScreenWidth - 85, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil];
-        // 强制布局
-        [self layoutIfNeeded];
-        self.bgImgView.frame = CGRectMake(CGRectGetMinX(self.secReplyContentLabel.frame)-3, CGRectGetMinY(self.secReplyContentLabel.frame)-3, kScreenWidth - 85, rec.size.height + 6);
+        
+//        self.bgImgView.frame = CGRectMake(CGRectGetMinX(self.secReplyContentLabel.frame)-3, CGRectGetMinY(self.secReplyContentLabel.frame)-3, kScreenWidth - 85, rec.size.height + 6);
+        [self.bgImgView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(rec.size.height+10));
+            
+        }];
         UIImage * frameImg1 = [UIImage imageNamed:@"dz_toolbar_reply_outer_bg"];
         frameImg1 = [frameImg1 stretchableImageWithLeftCapWidth:frameImg1.size.width/2 topCapHeight:frameImg1.size.height/2];
         [_bgImgView setImage:frameImg1];
-        [self.contentView insertSubview:_bgImgView belowSubview:self.secReplyContentLabel];
+        self.secReplyContentLabel.text = pinglunModel.quote_content;
+        // 强制布局
+        [self layoutIfNeeded];
+//        [self.contentView insertSubview:_bgImgView belowSubview:self.secReplyContentLabel];
+//        [self.bgImgView addSubview:self.secReplyContentLabel];
         _bgImgView.hidden = NO;
+        self.secReplyContentLabel.hidden = NO;
     }else{
         self.secReplyContentLabel.hidden = YES;
         self.bgImgView.hidden = YES;
@@ -802,7 +816,7 @@
 //        _bgImgView.hidden = YES;
 
 //    NSLog(@"contentH:%f,position:%@",self.replyContentLabel.frame.size.height,pinglunModel.position);
-    pinglunModel.contentHeight = CGRectGetMaxY(self.secReplyContentLabel.frame)+20;
+    pinglunModel.contentHeight = CGRectGetMaxY(self.bgImgView.frame)+20;
 }
 
 @end
