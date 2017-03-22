@@ -4,7 +4,7 @@
 //  功能：帖子详情页cell
 //  Created by XJW on 16/8/28.
 //  Copyright © 2016年 SkyAndSea. All rights reserved.
-//
+// 这页的按钮功能是点击弹出，然后点击屏幕就自动收回。这个效果不确定要不要做。感觉不是很有必要。看情况，现在还没有实现。
 
 #import "LQSBBSDetailCell.h"
 #import "LQSAddViewHelper.h"
@@ -647,7 +647,12 @@
 @property (nonatomic,strong)UILabel *replyContentLabel;
 @property (nonatomic,strong)UILabel *secReplyContentLabel;
 @property (nonatomic,strong)UIImageView *bgImgView;
+@property (nonatomic,strong)UIButton *reportBtn;// 举报按钮
+@property (nonatomic,strong)UIView *replyBottomView;// 承载两个按钮的底部view
+@property (nonatomic,strong)UIButton *replyBtn;// 回复按钮
+@property (nonatomic,strong)UIButton *policeBtn;// 举报警察按钮
 @end
+
 @implementation LQSBBSDetailReplyCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier
 {
@@ -742,7 +747,75 @@
     self.secReplyContentLabel.font = [UIFont systemFontOfSize:15];
     self.secReplyContentLabel.textColor = [UIColor blackColor];
     self.secReplyContentLabel.preferredMaxLayoutWidth = LQSScreenW - 85;
+    // 回复按钮
+    self.reportBtn = [[UIButton alloc]init];
+    [self.contentView addSubview:self.reportBtn];
+    [self.reportBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentView.mas_right);
+        make.top.equalTo(self.bgImgView.mas_bottom).offset(5);
+        make.width.equalTo(@50);
+        make.height.equalTo(@30);
+    }];
+    [self.reportBtn setImage:[UIImage imageNamed:@"dz_posts_manage_btn"] forState:UIControlStateNormal];
+    [self.reportBtn setImageEdgeInsets:UIEdgeInsetsMake(6, 10, 6, 10)];
+    [self.reportBtn addTarget:self action:@selector(reportAct:) forControlEvents:UIControlEventTouchUpInside];
+    self.reportBtn.backgroundColor = [UIColor whiteColor];
+    // 警察和回复的底部view
+    self.replyBottomView = [[UIView alloc]init];
+    [self.contentView addSubview:self.replyBottomView];
+    [self.replyBottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.top.and.bottom.equalTo(self.reportBtn);
+        make.width.equalTo(@160);
+    }];
+    [self.contentView insertSubview:self.replyBottomView belowSubview:self.reportBtn];
+    self.replyBottomView.backgroundColor = [UIColor grayColor];
+    self.replyBottomView.layer.cornerRadius = 5;
+    // 警察按钮
+    self.policeBtn = [[UIButton alloc]init];
+    [self.replyBottomView addSubview:self.policeBtn];
+    [self.policeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.top.and.bottom.equalTo(self.replyBottomView);
+        make.right.equalTo(self.replyBottomView.mas_centerX);
+    }];
+    [self.policeBtn setImage:[UIImage imageNamed:@"dz_posts_manage_report"] forState:UIControlStateNormal];
+    [self.policeBtn setTitle:@"举报" forState:UIControlStateNormal];
+    [_policeBtn addTarget:self action:@selector(postToReportPage:) forControlEvents:UIControlEventTouchUpInside];
+    //中间的竖线
+    UIView *lineView = [[UIView alloc]init];
+    [self.replyBottomView addSubview:lineView];
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.policeBtn.mas_right);
+        make.top.equalTo(self.replyBottomView.mas_top).offset(3);
+        make.bottom.equalTo(self.replyBottomView.mas_bottom).offset(-3);
+        make.width.equalTo(@1);
+    }];
+    lineView.backgroundColor = [UIColor whiteColor];
+    // 评论按钮
+    self.replyBtn = [[UIButton alloc]init];
+    [self.replyBottomView addSubview:self.replyBtn];
+    [self.replyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(lineView.mas_right);
+        make.top.and.bottom.and.right.equalTo(self.replyBottomView);
+    }];
+    [self.replyBtn setImage:[UIImage imageNamed:@"dz_board_icon_reply"] forState:UIControlStateNormal];
+    [self.replyBtn setTitle:@"回复" forState:UIControlStateNormal];
+    [self.replyBtn addTarget:self action:@selector(pushToReply:) forControlEvents:UIControlEventTouchUpInside];
     
+}
+- (void)pushToReply:(UIButton *)sender{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pushToReply)]){
+        [self.delegate pushToReply];
+    }
+}
+// 评论列表底部的回复按钮点击事件
+- (void)reportAct:(UIButton *)sender{
+    [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        if (self.replyBottomView.x == sender.x) {
+            self.replyBottomView.x -= self.replyBottomView.width;
+        }else{
+            self.replyBottomView.x = sender.x;
+        }
+    } completion:nil];
 }
 -(void)setPinglunModel:(LQSBBSPosterModel *)pinglunModel{
     _pinglunModel = pinglunModel;
@@ -757,8 +830,6 @@
                 self.headerImgV.image = img;
             }else{
                 self.headerImgV.image = image;
-                //                imgView.frame = CGRectMake(frame.origin.x, frame.origin.y, KLQScreenFrameSize.width - 10,image.size.width*image.size.height/(KLQScreenFrameSize.width - 10));
-                
             }
         }];
     }else{
@@ -778,8 +849,6 @@
         
         NSLog(@"二级评论内容:%@",pinglunModel.quote_content);
         CGRect rec = [pinglunModel.quote_content boundingRectWithSize:CGSizeMake(kScreenWidth - 85, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil];
-        
-//        self.bgImgView.frame = CGRectMake(CGRectGetMinX(self.secReplyContentLabel.frame)-3, CGRectGetMinY(self.secReplyContentLabel.frame)-3, kScreenWidth - 85, rec.size.height + 6);
         [self.bgImgView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(rec.size.height+10));
             
@@ -788,35 +857,15 @@
         frameImg1 = [frameImg1 stretchableImageWithLeftCapWidth:frameImg1.size.width/2 topCapHeight:frameImg1.size.height/2];
         [_bgImgView setImage:frameImg1];
         self.secReplyContentLabel.text = pinglunModel.quote_content;
-        // 强制布局
-        [self layoutIfNeeded];
-//        [self.contentView insertSubview:_bgImgView belowSubview:self.secReplyContentLabel];
-//        [self.bgImgView addSubview:self.secReplyContentLabel];
         _bgImgView.hidden = NO;
-        self.secReplyContentLabel.hidden = NO;
+        self.secReplyContentLabel.hidden = NO;// 之前不显示竟然是因为在这里忘了设置secReplyContenLabel.hidden = NO了。。。
     }else{
         self.secReplyContentLabel.hidden = YES;
         self.bgImgView.hidden = YES;
     }
     // 强制布局
-  [self layoutIfNeeded];
-    
-//        [self.contentView addSubview:_bgImgView];
-//        [_bgImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(self.secReplyContentLabel.mas_top).offset(-5);
-//            make.left.equalTo(self.secReplyContentLabel.mas_left);
-//            make.right.equalTo(self.secReplyContentLabel.mas_right);
-//            make.bottom.equalTo(self.secReplyContentLabel.mas_bottom).offset(-5);
-//        }];
-//        UIEdgeInsets edge = UIEdgeInsetsMake(50, 50, 50, 50);
-    
-//        frameImg1 = [frameImg1 resizableImageWithCapInsets:edge resizingMode:UIImageResizingModeStretch];
-    
-//   [self layoutIfNeeded];
-//        _bgImgView.hidden = YES;
-
-//    NSLog(@"contentH:%f,position:%@",self.replyContentLabel.frame.size.height,pinglunModel.position);
-    pinglunModel.contentHeight = CGRectGetMaxY(self.bgImgView.frame)+20;
+    [self layoutIfNeeded];
+    pinglunModel.contentHeight = CGRectGetMaxY(self.reportBtn.frame)+20;
 }
 
 @end

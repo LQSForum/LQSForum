@@ -153,6 +153,7 @@
 		6E62B0681D73D1BE001FB2A4 /* LQSBBSDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E62B0661D73D1BE001FB2A4 /* LQSBBSDetailCell.m */; };
 		6E7378B21D6E944E009B6C66 /* LQSBBSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7378B11D6E944E009B6C66 /* LQSBBSDetailViewController.m */; };
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
+		CD2D803F1E827605002D3E09 /* LQSHuiFuPingLunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2D803E1E827605002D3E09 /* LQSHuiFuPingLunViewController.m */; };
 		DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */; };
 		DF5A072C1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072B1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m */; };
 		DF5A072F1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072E1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m */; };
@@ -507,6 +508,8 @@
 		A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C12DEEB8E74CDD3E0CF002 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
 		CCAA7D55F8D7734222CE3140 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD2D803D1E827605002D3E09 /* LQSHuiFuPingLunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHuiFuPingLunViewController.h; sourceTree = "<group>"; };
+		CD2D803E1E827605002D3E09 /* LQSHuiFuPingLunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHuiFuPingLunViewController.m; sourceTree = "<group>"; };
 		DF5A07271D72F2AB001B2ED7 /* LQSForumDetailChildCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSForumDetailChildCell.h; sourceTree = "<group>"; };
 		DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSForumDetailChildCell.m; sourceTree = "<group>"; };
 		DF5A072A1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumDetailOptionViewController.h; path = forum/LQSForumDetailOptionViewController.h; sourceTree = "<group>"; };
@@ -1186,6 +1189,8 @@
 				2EA1A9E91DD8141800F6360A /* LQSReportDetailViewController.m */,
 				2EA1A9EB1DD8465B00F6360A /* LQSDaShangTableViewController.h */,
 				2EA1A9EC1DD8465C00F6360A /* LQSDaShangTableViewController.m */,
+				CD2D803D1E827605002D3E09 /* LQSHuiFuPingLunViewController.h */,
+				CD2D803E1E827605002D3E09 /* LQSHuiFuPingLunViewController.m */,
 			);
 			name = introduceVC;
 			sourceTree = "<group>";
@@ -1753,6 +1758,7 @@
 				41AC5B3E1D751C83006E38D5 /* LQSSettingMyFriendViewController.m in Sources */,
 				E4D8E1B91D54188500EE6171 /* LQSBaseManager.m in Sources */,
 				6E62B0681D73D1BE001FB2A4 /* LQSBBSDetailCell.m in Sources */,
+				CD2D803F1E827605002D3E09 /* LQSHuiFuPingLunViewController.m in Sources */,
 				41F870091D767E7B00E05FAB /* LQSEmotionPopView.m in Sources */,
 				E4D8E1DC1D542A2B00EE6171 /* LQSUserInfo.m in Sources */,
 				2E3E9EC71DE9533500D0EC2D /* LQSPluginBoardView.m in Sources */,

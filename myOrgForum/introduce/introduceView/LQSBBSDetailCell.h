@@ -14,6 +14,7 @@
 - (void)pushToReport;
 // 跳转打赏页面
 - (void)pushToDashang;
+- (void)pushToReply;
 @end
 @interface LQSBBSDetailCell : UITableViewCell
 @property (nonatomic,assign)id <LQSBBSDetailCellDelegate> delegate;

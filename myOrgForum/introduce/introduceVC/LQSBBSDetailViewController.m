@@ -15,6 +15,8 @@
 #import "LQSReportDetailViewController.h"
 // 跳转打赏页
 #import "LQSDaShangTableViewController.h"
+// 跳转评论页
+#import "LQSHuiFuPingLunViewController.h"
 // baseManager,获取apphash等信息
 #import "LQSBaseManager.h"
 // 输入框
@@ -23,10 +25,7 @@
 #import "LQSEmotionKeyboard.h"
 #import "LQSPluginView.h"
 @interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate,LQSBBSDetailCellDelegate,UITextViewDelegate,LQSPluginViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
-    /*帖子最好实现在 tableHeaderView 里面，现在实现在cell里面，
-     所以现在声明一个ContentView来专门算高，权宜之计
-     */
-//    LQSArticleContentView*    _articleView;
+    
 }
 
 @property (nonatomic, strong) UITableView *mainList;
@@ -43,9 +42,7 @@
 // pluginBoardView
 @property (nonatomic,strong)LQSPluginView *pluginBoardView;
 @property (nonatomic,strong)NSMutableArray *replysArr;
-// 缓存帖子内容高度,这个高度不是cell传过来的，而是再次计算然后缓存的。
-//@property (nonatomic,assign)CGFloat contentHeight;
-//@property (nonatomic,assign)CGFloat voteCellHeight;
+
 @end
 
 @implementation LQSBBSDetailViewController
@@ -447,11 +444,6 @@
         _mainList.dataSource = self;
         _mainList.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
         _mainList.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        // 注册几种cell
-//        [_mainList registerClass:[LQSBBSDetailTitleCell class] forCellReuseIdentifier:@"titleCell"];
-//        [_mainList registerClass:[LQSBBSDetailContentCell class] forCellReuseIdentifier:@"contentCell"];
-//        [_mainList registerClass:[LQSBBSDetailVoteCell class] forCellReuseIdentifier:@"voteCell"];
-//        [_mainList registerClass:[LQSBBSDetailReplyCell class] forCellReuseIdentifier:@"posterCell"];
     }
     return _mainList;
 }
@@ -487,27 +479,6 @@
     return numOfRow;
 }
 
-//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-//      NSLog(@"willDisplayCell,section:%zd,row:%zd",indexPath.section,indexPath.row);
-//    switch (indexPath.section) {
-//        case 0:{
-//            [(LQSBBSDetailTitleCell *)cell setTopicModel:self.bbsDetailTopicModel];
-//            break;
-//        }case 1:{
-////            [(LQSBBSDetailContentCell *)cell setTopicModel:self.bbsDetailTopicModel];
-//            break;
-//        }case 2:{
-////            [(LQSBBSDetailVoteCell *)cell setTopicModel:self.bbsDetailTopicModel];
-//            break;
-//        }case 3:{
-////            [(LQSBBSDetailReplyCell *)cell setPinglunModel:self.replysArr[indexPath.row]];
-//            break;
-//        }
-//        default:
-//            break;
-//    }
-//
-//}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // 使用先注册cell，然后dequeueReusableCellWithIdentifier withIndexPath的方法会出问题，执行顺序是先height，再cell，然后这里的赋值就没把高度赋值过去。就出现高度问题。还是得用这个!cell,创建cell。
@@ -573,24 +544,13 @@
     CGFloat height = 0;
     switch (indexPath.section) {
         case 0:{
-//            height = 73;
             height = self.bbsDetailTopicModel.topicTitleHeight;
-//            NSLog(@"标题的height:%f",height);
             break;
         }case 1:{
             height = self.bbsDetailTopicModel.topicContenHeight;
-//            if (self.contentHeight > 0) {
-//                height = self.contentHeight;
-//            }else{
-//            height = [self getHeightForContentCell:self.bbsDetailTopicModel.content];//待定
-//            }
             break;
         }case 2:{
             height = self.bbsDetailTopicModel.topicVoteheight;
-//            if (self.voteCellHeight > 0) {
-//                height = self.voteCellHeight;
-//            }else{
-//                height = [self getVoteCellHeight];}
             break;
         }case 3:{
             LQSBBSPosterModel *model = self.replysArr[indexPath.row];
@@ -603,19 +563,6 @@
     return height;
 }
 
-////获取contentCell的高度
-//- (CGFloat)getHeightForContentCell:(NSArray *)contentArr
-//{
-//    CGFloat height = 55;
-//      LQSArticleContentView *articleView = [[LQSArticleContentView alloc] initWithFrame:CGRectMake(0, 0, KLQScreenFrameSize.width-30, 500)];
-//        articleView.preferredMaxLayoutWidth = KLQScreenFrameSize.width-30;
-//    
-//    articleView.content = contentArr;
-//    height += articleView.contentSize.height;
-//    //NSLog(@"height = %f,%@",height,_articleView);
-//    self.contentHeight = height + 10 + 50;// 仅在这里为self.contentHeight赋值一次。
-//    return height+10 + 50;// 30为举报按钮的高度
-//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -636,6 +583,11 @@
 -(void)pushToDashang{
     LQSDaShangTableViewController *dashangVC = [[LQSDaShangTableViewController alloc]init];
     [self.navigationController pushViewController:dashangVC animated:YES];
+}
+// 评论
+- (void)pushToReply{
+    LQSHuiFuPingLunViewController *huiFuVC = [[LQSHuiFuPingLunViewController alloc]init];
+    [self.navigationController pushViewController:huiFuVC animated:YES];
 }
 #pragma mark -  获取数据
 - (void)postForData
