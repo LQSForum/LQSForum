@@ -594,6 +594,15 @@
         [htmlVC loadHtmlControllerWithUrl:[NSURL URLWithString:url]];
     }
 }
+// 跳转到显示更多打赏人的页面
+-(void)pushToMoreIconWebWithUrl:(NSString *)url{
+    if (url.length > 0) {
+        LQSHTMLViewController *htmlVC = [[LQSHTMLViewController alloc]init];
+        htmlVC.title = @"全部打赏";
+        [self.navigationController pushViewController:htmlVC animated:YES];
+        [htmlVC loadHtmlControllerWithUrl:[NSURL URLWithString:url]];
+    }
+}
 // 评论
 - (void)pushToReply{
     LQSHuiFuPingLunViewController *huiFuVC = [[LQSHuiFuPingLunViewController alloc]init];

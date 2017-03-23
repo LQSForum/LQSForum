@@ -618,6 +618,10 @@
 - (void)moreImgClicked:(UIImageView *)sender{
     //
     NSLog(@"打赏栏的更多点击事件");
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pushToMoreIconWebWithUrl:)]) {
+        [self.delegate pushToMoreIconWebWithUrl:self.topicModel.showAllUrl];
+    }
+    
 }
 // 打赏栏的用户头像点击事件
 - (void)voteUserIconClick:(UIImageView *)sender{

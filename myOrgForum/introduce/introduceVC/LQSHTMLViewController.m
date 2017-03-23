@@ -8,11 +8,18 @@
 
 #import "LQSHTMLViewController.h"
 #import <WebKit/WebKit.h>
-@interface LQSHTMLViewController ()<WKUIDelegate,WKScriptMessageHandler,WKNavigationDelegate,UITableViewDelegate,UITableViewDataSource>
+// 下拉菜单
+#import "YBPopupMenu.h"
+#define TITLES @[@"复制链接", @"浏览器打开", @"分享",@"刷新"]
+@interface LQSHTMLViewController ()<WKUIDelegate,WKScriptMessageHandler,WKNavigationDelegate,UITableViewDelegate,UITableViewDataSource,YBPopupMenuDelegate>
 @property (nonatomic, strong) UITableView *videoView;
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
 @property (nonatomic, strong) NSMutableArray *videoData;
 @property (nonatomic, strong) NSMutableArray *redirectData;
+@property (nonatomic,strong)UIButton *rightItemBtn;
+@property (nonatomic,strong)NSURL *urlToPaste;// 用来复制的URL
+@property (nonatomic,strong)WKWebView *webView;
+
 @end
 
 @implementation LQSHTMLViewController
@@ -23,18 +30,32 @@
     // 如果是打赏页的话，需要改变右上角的按钮功能，改成在浏览器打开等操作。
     if ([self.title isEqualToString:@"打赏"]) {
         [self changeRightNaviItem];
+    }else if ([self.title isEqualToString:@"全部打赏"]){
+        [self removeRightNaviItem];
+        
     }
 }
-- (void)changeRightNaviItem{
-//    [self.navigationItem.rightBarButtonItem.action ]
 
+// 如果是全部打赏页，则移除右上角的按钮
+- (void)removeRightNaviItem{
+    self.navigationItem.rightBarButtonItem = nil;
+}
+- (void)changeRightNaviItem{
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(popupListAct) image:@"navigationbar_more" highImage:@"navigationbar_more_highlighted"];
+
+}
+- (void)popupListAct{
+    NSLog(@"切换右上角");
+    // 弹出下拉菜单
+    [YBPopupMenu showAtPoint:CGPointMake(kScreenWidth - 30, 64) titles:TITLES icons:nil menuWidth:120 delegate:self];
 }
 //html
 - (void)loadHtmlControllerWithUrl:(NSURL *)url{
-    
+    self.urlToPaste = url;
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     WKWebView *web = [[WKWebView alloc] initWithFrame:self.view.bounds];
     web.UIDelegate = self;
+    self.webView = web;
     web.navigationDelegate = self;
     web.opaque = NO;
     web.backgroundColor = [UIColor whiteColor];
@@ -99,6 +120,31 @@
     }];
     
     
+}
+#pragma mark - YBPopupMenuDelegate
+- (void)ybPopupMenuDidSelectedAtIndex:(NSInteger)index ybPopupMenu:(YBPopupMenu *)ybPopupMenu
+{
+    NSString *selectedStr =TITLES[index];
+    NSLog(@"点击了 %@ 选项",selectedStr);
+    if (index == 0) {
+        UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+        [pasteBoard setURL:self.urlToPaste];
+        if (!pasteBoard) {
+            [kAppDelegate showHUDMessage:@"复制失败" hideDelay:1.0];
+        }else{
+        [kAppDelegate showHUDMessage:@"成功复制到剪切板" hideDelay:1.0];
+        }
+    }else if(index == 1){
+     BOOL openResult = [[UIApplication sharedApplication] openURL:self.urlToPaste];
+        if (!openResult) {
+            [kAppDelegate showHUDMessage:@"打开链接失败" hideDelay:1.0];
+        }
+    }else if(index == 2){
+        // 分享功能等待集成进来
+    }else if(index == 3){
+        [self.webView reload];
+    }
+//    [UIPasteboard generalPasteboard]
 }
 
 #pragma mark - UITableViewDelegate

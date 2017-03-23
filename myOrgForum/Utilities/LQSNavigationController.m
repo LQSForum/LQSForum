@@ -57,6 +57,7 @@
 
 - (void)more
 {
+    // 等分享功能完成后，在这里把分享功能加进来。
     [self popToRootViewControllerAnimated:YES];
 }
 

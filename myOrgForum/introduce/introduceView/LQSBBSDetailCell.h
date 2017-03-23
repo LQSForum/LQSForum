@@ -15,7 +15,7 @@
 // 跳转打赏页面
 - (void)pushToDashang;// 之前写的原生页面，然后发现是用的网页。这个作废
 - (void)pushToDashangWebWithUrl:(NSString *)url;
-
+- (void)pushToMoreIconWebWithUrl:(NSString *)url;
 - (void)pushToReply;
 @end
 @interface LQSBBSDetailCell : UITableViewCell
