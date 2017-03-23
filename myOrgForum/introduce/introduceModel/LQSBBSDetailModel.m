@@ -93,6 +93,15 @@
         model.uid = [userInfoDict[@"uid"] stringValue];
         [self.dashangIconArr addObject:model];
     }
+    // 获取大赏的网页url
+    NSArray *extraPanel = dict[@"extraPanel"];
+    for (NSDictionary *innerDict in extraPanel) {
+        // 这里还是先不用这个字段作为判断了，因为不知道它这个字段有什么用处，万一以后改了，就很麻烦。
+//        if ([innerDict[@"title"] isEqualToString:@"评分"]) {
+            self.dashangWebUrl = innerDict[@"action"];
+             NSLog(@"拿到了大赏页的URL:%@",self.dashangWebUrl);
+//        }
+    }
     
 }
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{

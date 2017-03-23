@@ -65,7 +65,55 @@
 }
 
 #pragma mark - 帖子详情点击头像方法
-
+- (void)sec1HeadAct{
+    NSLog(@"点击头像应该弹出actionSheet,选择框");
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction: [UIAlertAction actionWithTitle: @"发送私信" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        // 处理发送私信的点击事件
+        NSLog(@"发送私信");
+        // 这里应该是需要集成及时通讯.但是好像还没有集成.
+        
+    }]];
+    [alertController addAction: [UIAlertAction actionWithTitle: @"查看主页" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        // 处理查看主页的点击事件
+        NSLog(@"查看主页");
+        // 判定是否登录,没登录则跳转登录,登录后则跳转用户主页
+        if (![LQSUserManager isLoging]) {
+            //        跳转登陆
+            LQLoginViewController *loginVc = [LQLoginViewController new];
+            LQSNavigationController *navVC = [[LQSNavigationController alloc] initWithRootViewController:loginVc];
+            if (self.delegate) {
+                [(LQSBBSDetailViewController *) self.delegate presentViewController:navVC animated:YES completion:nil];
+            }
+            // [self.contentView.window.rootViewController presentViewController:navVC animated:YES completion:nil];
+        }else{
+            if ([LQSUserManager isLoging]) {
+                LQSHomePagePersonalMessageViewController *personalVc = [LQSHomePagePersonalMessageViewController new];
+                //[self.contentView.window.rootViewController.navigationController pushViewController:personalVc animated:YES];
+                if (self.delegate) {
+                    LQSBBSDetailViewController *detailVC = (LQSBBSDetailViewController *)self.delegate;
+                    [detailVC.navigationController pushViewController:personalVc animated:NO];
+                }
+                
+            }else{
+                LQLoginViewController *loginVC = [LQLoginViewController new];
+                LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:loginVC];
+                // [self.contentView.window.rootViewController presentViewController:navVc animated:YES completion:nil];
+                if (self.delegate) {
+                    [(LQSBBSDetailViewController *) self.delegate presentViewController:navVc animated:YES completion:nil];
+                }
+            }
+        }
+    }]];
+    
+    [alertController addAction: [UIAlertAction actionWithTitle: @"只看作者" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        // 处理只看作者的点击事件
+        NSLog(@"只看作者");
+    }]];
+    [alertController addAction: [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:nil]];
+    [(UIViewController *)self.delegate presentViewController:alertController animated:YES completion:nil];
+    
+}
 
 // 关注点击方法
 - (void)guanzhuTA:(UIButton *)sender
@@ -421,55 +469,6 @@
     [self layoutIfNeeded];
     topicModel.topicContenHeight = CGRectGetMaxY(self.reportBtn.frame)+20;
 }
-- (void)sec1HeadAct{
-    NSLog(@"点击头像应该弹出actionSheet,选择框");
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    [alertController addAction: [UIAlertAction actionWithTitle: @"发送私信" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        // 处理发送私信的点击事件
-        NSLog(@"发送私信");
-        // 这里应该是需要集成及时通讯.但是好像还没有集成.
-        
-    }]];
-    [alertController addAction: [UIAlertAction actionWithTitle: @"查看主页" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        // 处理查看主页的点击事件
-        NSLog(@"查看主页");
-        // 判定是否登录,没登录则跳转登录,登录后则跳转用户主页
-        if (![LQSUserManager isLoging]) {
-            //        跳转登陆
-            LQLoginViewController *loginVc = [LQLoginViewController new];
-            LQSNavigationController *navVC = [[LQSNavigationController alloc] initWithRootViewController:loginVc];
-            if (self.delegate) {
-                [(LQSBBSDetailViewController *) self.delegate presentViewController:navVC animated:YES completion:nil];
-            }
-            // [self.contentView.window.rootViewController presentViewController:navVC animated:YES completion:nil];
-        }else{
-            if ([LQSUserManager isLoging]) {
-                LQSHomePagePersonalMessageViewController *personalVc = [LQSHomePagePersonalMessageViewController new];
-                //[self.contentView.window.rootViewController.navigationController pushViewController:personalVc animated:YES];
-                if (self.delegate) {
-                    LQSBBSDetailViewController *detailVC = (LQSBBSDetailViewController *)self.delegate;
-                    [detailVC.navigationController pushViewController:personalVc animated:NO];
-                }
-                
-            }else{
-                LQLoginViewController *loginVC = [LQLoginViewController new];
-                LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:loginVC];
-                // [self.contentView.window.rootViewController presentViewController:navVc animated:YES completion:nil];
-                if (self.delegate) {
-                    [(LQSBBSDetailViewController *) self.delegate presentViewController:navVc animated:YES completion:nil];
-                }
-            }
-        }
-    }]];
-    
-    [alertController addAction: [UIAlertAction actionWithTitle: @"只看作者" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        // 处理只看作者的点击事件
-        NSLog(@"只看作者");
-    }]];
-    [alertController addAction: [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:nil]];
-    [(UIViewController *)self.delegate presentViewController:alertController animated:YES completion:nil];
-    
-}
 // 举报点击事件
 - (void)reportAct:(UIButton *)sender{
     NSLog(@"此处弹出举报事件");
@@ -575,6 +574,12 @@
      */
 
 }
+- (void)shangAct{
+    NSLog(@"赏的点击方法");
+    if ([self.delegate respondsToSelector:@selector(pushToDashangWebWithUrl:)]) {
+        [self.delegate pushToDashangWebWithUrl:self.topicModel.dashangWebUrl];
+    }
+}
 -(void)setTopicModel:(LQSBBSDetailTopicModel *)topicModel{
     NSLog(@"打赏cellsetModel");
     // 这个方法会在cell再次出现时再次调用。cell初始化时写好的东西，布局不会改变。但是这里代码中的东西会反复执行，所以这里应该写变动的东西，或者把变化性的东西反复擦除，然后重新执行。
@@ -620,7 +625,7 @@
     NSLog(@"打赏头像的tag：%zd",tag);
 
 }
-// 跳转到大赏页
+// 举报
 - (void)postToReportPage:(UIButton *)sender{
     NSLog(@"举报按钮的点击事件");
     if ([self.delegate respondsToSelector:@selector(pushToReport)]) {
@@ -629,13 +634,15 @@
     }
     
 }
-// 赏点击方法--xg
-- (void)shangAct{
-    NSLog(@"赏的点击方法");
-    if ([self.delegate respondsToSelector:@selector(pushToDashang)]) {
-        [self.delegate pushToDashang];
-    }
-}
+// 赏点击方法
+//- (void)shangAct{
+//    NSLog(@"赏的点击方法");
+//    if ([self.delegate respondsToSelector:@selector(pushToDashang)]) {
+//        [self.delegate pushToDashang];
+//    }
+//}
+
+
 @end
 #pragma mark - replyCell 评论列表cell
 
@@ -669,6 +676,7 @@
         make.left.and.top.equalTo(self.contentView).offset(10);
         make.size.mas_equalTo(CGSizeMake(40, 40));
     }];
+    self.headerImgV.layer.cornerRadius = 5;
     self.headerImgV.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sec1HeadAct)];
     [self.headerImgV addGestureRecognizer:tap];
@@ -802,6 +810,9 @@
     [self.replyBtn addTarget:self action:@selector(pushToReply:) forControlEvents:UIControlEventTouchUpInside];
     
 }
+//- (void)sec1HeadAct{
+//    [super sec1HeadAct];
+//}
 - (void)pushToReply:(UIButton *)sender{
     if (self.delegate && [self.delegate respondsToSelector:@selector(pushToReply)]){
         [self.delegate pushToReply];

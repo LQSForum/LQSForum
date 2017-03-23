@@ -20,9 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // 如果是打赏页的话，需要改变右上角的按钮功能，改成在浏览器打开等操作。
+    if ([self.title isEqualToString:@"打赏"]) {
+        [self changeRightNaviItem];
+    }
 }
+- (void)changeRightNaviItem{
+//    [self.navigationItem.rightBarButtonItem.action ]
 
+}
 //html
 - (void)loadHtmlControllerWithUrl:(NSURL *)url{
     

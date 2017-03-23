@@ -13,14 +13,16 @@
 // 通过代理来完成跳转事件或其他事件,而不是在cell这里控制控制器的跳转.
 - (void)pushToReport;
 // 跳转打赏页面
-- (void)pushToDashang;
+- (void)pushToDashang;// 之前写的原生页面，然后发现是用的网页。这个作废
+- (void)pushToDashangWebWithUrl:(NSString *)url;
+
 - (void)pushToReply;
 @end
 @interface LQSBBSDetailCell : UITableViewCell
 @property (nonatomic,assign)id <LQSBBSDetailCellDelegate> delegate;
 
 - (void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath;
-
+- (void)sec1HeadAct;
 @end
 // 标题cell
 @interface LQSBBSDetailTitleCell : LQSBBSDetailCell

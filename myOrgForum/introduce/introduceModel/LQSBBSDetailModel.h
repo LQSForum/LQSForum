@@ -46,6 +46,8 @@
 @property (nonatomic,strong)NSMutableArray *dashangIconArr;// 打赏人们的头像URL数组。
 @property (nonatomic,strong)NSString *showAllUrl; // 展示所有打赏人员的网页URL。
 @property (nonatomic, strong) NSMutableArray *content;//帖子内容
+// 跳转到打赏网页的url
+@property (nonatomic,strong)NSString *dashangWebUrl;
 - (void)ModelWithDict:(NSDictionary *)dict;
 // 记录cell的高度
 @property (nonatomic,assign)CGFloat topicTitleHeight;

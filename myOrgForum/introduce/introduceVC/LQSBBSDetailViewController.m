@@ -11,6 +11,7 @@
 #import "LQSBBSDetailCell.h"
 #import "LQSAddViewHelper.h"
 #import "LQSArticleContentView.h"
+#import "LQSHTMLViewController.h"
 // 跳转举报页
 #import "LQSReportDetailViewController.h"
 // 跳转打赏页
@@ -579,10 +580,19 @@
     LQSReportDetailViewController *reportVC = [[LQSReportDetailViewController alloc]init];
     [self.navigationController pushViewController:reportVC animated:YES];
 }
-// 打赏
--(void)pushToDashang{
-    LQSDaShangTableViewController *dashangVC = [[LQSDaShangTableViewController alloc]init];
-    [self.navigationController pushViewController:dashangVC animated:YES];
+// 打赏,不用这个了。因为线上版的是个网页打赏。而不是原生页面。
+//-(void)pushToDashang{
+//    LQSDaShangTableViewController *dashangVC = [[LQSDaShangTableViewController alloc]init];
+//    [self.navigationController pushViewController:dashangVC animated:YES];
+//}
+// 跳转到网页打赏页
+-(void)pushToDashangWebWithUrl:(NSString *)url{
+    if (url.length > 0) {
+        LQSHTMLViewController *htmlVC = [[LQSHTMLViewController alloc]init];
+        htmlVC.title = @"打赏";
+        [self.navigationController pushViewController:htmlVC animated:YES];
+        [htmlVC loadHtmlControllerWithUrl:[NSURL URLWithString:url]];
+    }
 }
 // 评论
 - (void)pushToReply{
