@@ -77,33 +77,7 @@
     [alertController addAction: [UIAlertAction actionWithTitle: @"查看主页" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
         // 处理查看主页的点击事件
         NSLog(@"查看主页");
-        // 判定是否登录,没登录则跳转登录,登录后则跳转用户主页
-        if (![LQSUserManager isLoging]) {
-            //        跳转登陆
-            LQLoginViewController *loginVc = [LQLoginViewController new];
-            LQSNavigationController *navVC = [[LQSNavigationController alloc] initWithRootViewController:loginVc];
-            if (self.delegate) {
-                [(LQSBBSDetailViewController *) self.delegate presentViewController:navVC animated:YES completion:nil];
-            }
-            // [self.contentView.window.rootViewController presentViewController:navVC animated:YES completion:nil];
-        }else{
-            if ([LQSUserManager isLoging]) {
-                LQSHomePagePersonalMessageViewController *personalVc = [LQSHomePagePersonalMessageViewController new];
-                //[self.contentView.window.rootViewController.navigationController pushViewController:personalVc animated:YES];
-                if (self.delegate) {
-                    LQSBBSDetailViewController *detailVC = (LQSBBSDetailViewController *)self.delegate;
-                    [detailVC.navigationController pushViewController:personalVc animated:NO];
-                }
-                
-            }else{
-                LQLoginViewController *loginVC = [LQLoginViewController new];
-                LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:loginVC];
-                // [self.contentView.window.rootViewController presentViewController:navVc animated:YES completion:nil];
-                if (self.delegate) {
-                    [(LQSBBSDetailViewController *) self.delegate presentViewController:navVc animated:YES completion:nil];
-                }
-            }
-        }
+        [self pushToPersonalMainPage];
     }]];
     
     [alertController addAction: [UIAlertAction actionWithTitle: @"只看作者" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
@@ -114,7 +88,36 @@
     [(UIViewController *)self.delegate presentViewController:alertController animated:YES completion:nil];
     
 }
-
+// 抽出的跳转到用户主页的方法，由于个人部分还没怎么写，所以该有的接口参数都没有，等有了再接入进来。
+- (void)pushToPersonalMainPage{
+    // 判定是否登录,没登录则跳转登录,登录后则跳转用户主页
+    if (![LQSUserManager isLoging]) {
+        //        跳转登陆
+        LQLoginViewController *loginVc = [LQLoginViewController new];
+        LQSNavigationController *navVC = [[LQSNavigationController alloc] initWithRootViewController:loginVc];
+        if (self.delegate) {
+            [(LQSBBSDetailViewController *) self.delegate presentViewController:navVC animated:YES completion:nil];
+        }
+        // [self.contentView.window.rootViewController presentViewController:navVC animated:YES completion:nil];
+    }else{
+        if ([LQSUserManager isLoging]) {
+            LQSHomePagePersonalMessageViewController *personalVc = [LQSHomePagePersonalMessageViewController new];
+            //[self.contentView.window.rootViewController.navigationController pushViewController:personalVc animated:YES];
+            if (self.delegate) {
+                LQSBBSDetailViewController *detailVC = (LQSBBSDetailViewController *)self.delegate;
+                [detailVC.navigationController pushViewController:personalVc animated:NO];
+            }
+            
+        }else{
+            LQLoginViewController *loginVC = [LQLoginViewController new];
+            LQSNavigationController *navVc = [[LQSNavigationController alloc] initWithRootViewController:loginVC];
+            // [self.contentView.window.rootViewController presentViewController:navVc animated:YES completion:nil];
+            if (self.delegate) {
+                [(LQSBBSDetailViewController *) self.delegate presentViewController:navVc animated:YES completion:nil];
+            }
+        }
+    }
+}
 // 关注点击方法
 - (void)guanzhuTA:(UIButton *)sender
 {
@@ -624,9 +627,11 @@
     
 }
 // 打赏栏的用户头像点击事件
-- (void)voteUserIconClick:(UIImageView *)sender{
-    NSInteger tag = sender.tag - 10086;
-    NSLog(@"打赏头像的tag：%zd",tag);
+- (void)voteUserIconClick:(UIGestureRecognizer *)gesture{
+    UIView *gestureView = gesture.view;
+    NSInteger index = gestureView.tag -10086;
+    // 到时候肯定需要这个参数，但是目前用不到。
+    [self pushToPersonalMainPage];
 
 }
 // 举报
