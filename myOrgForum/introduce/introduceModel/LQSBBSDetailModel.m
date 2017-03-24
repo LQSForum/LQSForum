@@ -115,7 +115,32 @@
     return [LQSAddViewHelper createDataDescriptionWithStr:_posts_date];
 }
 -(void)modelWithDict:(NSDictionary *)dict{
-    [self setValuesForKeysWithDictionary:dict];
+//    [self setValuesForKeysWithDictionary:dict];
+    self.reply_id = LQSTR(dict[@"reply_id"]);
+    self.reply_type = LQSTR(dict[@"reply_type"]);
+    self.reply_posts_id = LQSTR(dict[@"reply_posts_id"]);
+    self.reply_name = LQSTR(dict[@"reply_name"]);
+    self.position = LQSTR(dict[@"position"]);
+    self.posts_date = LQSTR(dict[@"posts_date"]);
+    self.icon = LQSTR(dict[@"icon"]);
+    self.level = LQSTR(dict[@"level"]);
+    self.userTitle = LQSTR(dict[@"userTitle"]);
+    self.location = LQSTR(dict[@"location"]);
+    self.mobileSign = LQSTR(dict[@"mobileSign"]);
+    self.reply_status = LQSTR(dict[@"reply_status"]);
+    self.status = LQSTR(dict[@"status"]);
+    self.role_num = LQSTR(dict[@"role_num"]);
+    self.title = LQSTR(dict[@"title"]);
+    self.is_quote = LQSTR(dict[@"is_quote"]);
+    self.quote_pid = LQSTR(dict[@"quote_pid"]);
+    self.quote_content = LQSTR(dict[@"quote_content"]);
+    self.quote_user_name = LQSTR(dict[@"quote_user_name"]);
+    self.delThread = LQSTR(dict[@"delThread"]);
+    if (nil != [dict objectForKey:@"reply_content"]) {
+        NSArray  *contenArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict objectForKey:@"reply_content"]];
+        self.reply_content = [NSMutableArray arrayWithArray:contenArr];
+        NSLog(@"arr: %@",contenArr);
+    }
 }
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
     NSLog(@"posterModel.undefinedKey:%@",key);

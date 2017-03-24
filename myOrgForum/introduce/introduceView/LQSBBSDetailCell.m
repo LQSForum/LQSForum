@@ -660,7 +660,8 @@
 @property (nonatomic,strong)UILabel *nameLabel;
 @property (nonatomic,strong)UILabel *timeLab;
 @property (nonatomic,strong)UILabel *postionLabel;
-@property (nonatomic,strong)UILabel *replyContentLabel;
+//@property (nonatomic,strong)UILabel *replyContentLabel;
+@property (nonatomic,strong)LQSArticleContentView *replyContentView;
 @property (nonatomic,strong)UILabel *secReplyContentLabel;
 @property (nonatomic,strong)UIImageView *bgImgView;
 @property (nonatomic,strong)UIButton *reportBtn;// 举报按钮
@@ -727,27 +728,39 @@
     self.postionLabel.font = [UIFont systemFontOfSize:12];
     self.postionLabel.textColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
     _postionLabel.backgroundColor = [UIColor blueColor];
-    // 评论内容
-    self.replyContentLabel = [[UILabel alloc]init];
-    [self.contentView addSubview:self.replyContentLabel];
-    [self.replyContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView.mas_left).offset(55);
-        make.top.equalTo(self.timeLab.mas_bottom).offset(5);
-//        make.width.equalTo(@(KLQScreenFrameSize.width- 55 - 78 - 10));
-        make.right.equalTo(self.contentView.mas_right).offset(-30);
+//    // 评论内容
+//    self.replyContentLabel = [[UILabel alloc]init];
+//    [self.contentView addSubview:self.replyContentLabel];
+//    [self.replyContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.contentView.mas_left).offset(55);
+//        make.top.equalTo(self.timeLab.mas_bottom).offset(5);
+////        make.width.equalTo(@(KLQScreenFrameSize.width- 55 - 78 - 10));
+//        make.right.equalTo(self.contentView.mas_right).offset(-30);
+//    }];
+//    self.replyContentLabel.numberOfLines = 0;
+//    self.replyContentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+//    self.replyContentLabel.textAlignment = NSTextAlignmentLeft;
+//    self.replyContentLabel.font = [UIFont systemFontOfSize:15];
+//    self.replyContentLabel.textColor = [UIColor blackColor];
+//    self.replyContentLabel.preferredMaxLayoutWidth = LQSScreenW - 85;
+    // 评论内容view
+    self.replyContentView = [[LQSArticleContentView alloc]init];
+    [self.contentView addSubview:self.replyContentView];
+    [self.replyContentView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.contentView.mas_left).offset(55);
+                make.top.equalTo(self.timeLab.mas_bottom).offset(5);
+        //        make.width.equalTo(@(KLQScreenFrameSize.width- 55 - 78 - 10));
+                make.right.equalTo(self.contentView.mas_right).offset(-30);
     }];
-    self.replyContentLabel.numberOfLines = 0;
-    self.replyContentLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.replyContentLabel.textAlignment = NSTextAlignmentLeft;
-    self.replyContentLabel.font = [UIFont systemFontOfSize:15];
-    self.replyContentLabel.textColor = [UIColor blackColor];
-    self.replyContentLabel.preferredMaxLayoutWidth = LQSScreenW - 85;
+    self.replyContentView.preferredMaxLayoutWidth = LQSScreenW - 85;
+    self.replyContentView.scrollEnabled = NO;
+    self.replyContentView.editable = NO;
 // 二级回复的底部图片
     _bgImgView = [[UIImageView alloc] init];
     [self.contentView addSubview:_bgImgView];
     [self.bgImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.replyContentLabel.mas_left).offset(3);
-        make.top.equalTo(self.replyContentLabel.mas_bottom).offset(5);
+        make.left.equalTo(self.replyContentView.mas_left).offset(3);
+        make.top.equalTo(self.replyContentView.mas_bottom).offset(5);
         make.right.equalTo(self.contentView.mas_right).offset(-30);
     }];
     // 二级评论
@@ -863,11 +876,12 @@
     self.postionLabel.text = [NSString stringWithFormat:@"%@楼",pinglunModel.position];
     // 此处的楼层label的位置是固定的，以后可以看UI设计来改。
     // 一级评论内容展示
-    NSDictionary *dic = pinglunModel.reply_content[0];
-    self.replyContentLabel.text = dic[@"infor"];
+//    NSDictionary *dic = pinglunModel.reply_content[0];
+//    self.replyContentLabel.text = dic[@"infor"];
+    self.replyContentView.content = self.pinglunModel.reply_content;
     if ([pinglunModel.is_quote integerValue] == 1) {
         
-        NSLog(@"二级评论内容:%@",pinglunModel.quote_content);
+//        NSLog(@"二级评论内容:%@",pinglunModel.quote_content);
         CGRect rec = [pinglunModel.quote_content boundingRectWithSize:CGSizeMake(kScreenWidth - 85, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil];
         [self.bgImgView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(rec.size.height+10));
