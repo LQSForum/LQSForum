@@ -7,6 +7,15 @@
 //
 
 #import "LQSProfileEditViewController.h"
+#import "LQSUserManager.h"
+#import "LSKSignNameVC.h"
+#import "LSKSetTelephoneVC.h"
+#import "LSKQQVC.h"
+#import "LSKEmailVC.h"
+#import "LSKSchoolVC.h"
+#import "LSKCompanyVC.h"
+#import "LSKProfessionVC.h"
+#import "LSKNickNameVC.h"
 #define kavarTag 111
 #define kxueliTag 222
 #define kxingbieTag 333
@@ -53,7 +62,7 @@
     _countArr = [NSMutableArray array];
     
 [self requestData];
-    self.title = @"编辑";
+    self.title = @"编辑资料";
     self.view.backgroundColor = [UIColor cyanColor];
     
     [self loadTableView];
@@ -200,10 +209,12 @@
             //        创建头像imageView
             UIImageView *imagView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth - 30 - 70, 5, 70, 70)];
             imagView.layer.cornerRadius = 35;
-            NSString *imagName = detailModel.nowSet;
-            [imagView sd_setImageWithURL:[NSURL URLWithString:imagName]  placeholderImage:nil ];//接口上传头像
+            [imagView.layer setMasksToBounds:YES];
+//            NSString *imagName = detailModel.nowSet;
+//            [imagView sd_setImageWithURL:[NSURL URLWithString:imagName]  placeholderImage:nil ];//接口上传头像
+            [imagView sd_setImageWithURL:[NSURL URLWithString:[LQSUserManager user].avatar]  placeholderImage:nil ];//接口上传头像
             imagView.backgroundColor = [UIColor greenColor];
-            cell.contentView.backgroundColor = [UIColor blueColor];
+            cell.contentView.backgroundColor = [UIColor clearColor];
             [cell.contentView addSubview:imagView];
         }else{
             cell.textLabel.text = detailModel.name;
@@ -250,8 +261,47 @@
             _avarSheet.tag = kavarTag;
             [_avarSheet showInView:self.view];
         }
-        if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"教育情况"]) {//第二组条件下判断第二行
-//            获取当前组所在的详情模型
+        
+        
+        if (indexPath.row == 1) {//签名
+            //
+            LSKSignNameVC * singNameVC = [[LSKSignNameVC alloc]init];
+            singNameVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:singNameVC animated:YES];
+        }
+    }
+    
+    NSLog(@"%@",[_dataArr[indexPath.section] objectForKey:@"name"]);
+    
+    if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"联系方式"]) {//第二组条件下判断
+        if (indexPath.row == 0) {//手机
+            //
+            LSKSetTelephoneVC * telephoneVC = [[LSKSetTelephoneVC alloc]init];
+            telephoneVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:telephoneVC animated:YES];
+        }
+        if (indexPath.row == 1) {//QQ
+            //
+            LSKQQVC * qqVC = [[LSKQQVC alloc]init];
+            qqVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:qqVC animated:YES];
+        }
+        if (indexPath.row == 2) {//常用邮箱
+            //
+            LSKEmailVC * emailVC = [[LSKEmailVC alloc] init];
+            emailVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:emailVC animated:YES];
+        }
+    }
+    if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"教育情况"]) {//第三组条件下判断
+        if (indexPath.row == 0) {//毕业学校
+            //
+            LSKSchoolVC * schoolVC = [[LSKSchoolVC alloc] init];
+            schoolVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:schoolVC animated:YES];
+        }
+        if (indexPath.row == 1) {//学历
+            //            获取当前组所在的详情模型
             LQSProfileEditDetailDataModel *detailModel = _educateArr[indexPath.row];
             if ([detailModel.name isEqualToString:@"学历"]) {
                 //    选择学历
@@ -263,6 +313,30 @@
                 _xueliSheet.tag = kxueliTag;
                 [_xueliSheet showInView:self.view];
             }
+        }
+        
+    }
+    if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"工作情况"]) {//第三组条件下判断
+        if (indexPath.row == 0) {//公司
+            //
+            LSKCompanyVC * companyVC = [[LSKCompanyVC alloc] init];
+            companyVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:companyVC animated:YES];
+        }
+        if (indexPath.row == 1) {//职业
+            //
+            LSKProfessionVC * professionVC = [[LSKProfessionVC alloc] init];
+            professionVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:professionVC animated:YES];
+        }
+    }
+    
+    if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"个人信息"]) {//第四组条件下判断
+        if (indexPath.row == 0) {//昵称
+            //
+            LSKNickNameVC * nickNameVC = [[LSKNickNameVC alloc] init];
+            nickNameVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:nickNameVC animated:YES];
         }
     }
 }

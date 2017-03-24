@@ -34,6 +34,7 @@
 @property (nonatomic,assign)NSUInteger page;
 @property (nonatomic,strong)LQSHomePagePersonalMessageView *stretchHeaderView;
 @property (nonatomic,strong)LQSUITableView *tableView;
+@property (nonatomic,strong)UIView *emptyFooterView;/*tableview 数据为空时 footerview*/
 @property (nonatomic,strong)NSMutableArray *fabiaoArr;
 @property (nonatomic,strong)NSMutableArray *fabiaoArray;
 @property (nonatomic,strong)NSMutableArray *detailArr;
@@ -53,9 +54,28 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.showsVerticalScrollIndicator = NO;
+        [_tableView setTableFooterView:self.emptyFooterView];
         [self.view addSubview:_tableView];
     }
     return _tableView;
+}
+- (UIView *)emptyFooterView
+{
+    if (!_emptyFooterView)
+    {
+        _emptyFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150)];
+        _emptyFooterView.backgroundColor = [UIColor whiteColor];
+        
+        UILabel *emptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+        emptyLabel.text = @"暂无相关内容";
+        emptyLabel.textColor = [UIColor lightGrayColor];
+        emptyLabel.textAlignment = NSTextAlignmentCenter;
+        emptyLabel.font = [UIFont systemFontOfSize:14];
+        emptyLabel.center = CGPointMake(self.view.frame.size.width / 2, _emptyFooterView.frame.size.height / 2);
+        [_emptyFooterView addSubview:emptyLabel];
+    }
+    
+    return _emptyFooterView;
 }
 
 - (void)viewDidLoad {
@@ -100,12 +120,51 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-
+    
     [super viewWillAppear:animated];
     [_tableView.mj_header beginRefreshing];
-
-
+    //设置NaviagtionBarType
+    [self setNaviagtionBarType:1];
 }
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    //设置NaviagtionBarType
+    [self setNaviagtionBarType:0];
+}
+- (void)setNaviagtionBarType:(NSInteger)type
+{
+    if (type == 1) {
+        //设置透明背景图片，空图片，连图片文件都可以不需要的
+        UIImage * image = [[UIImage alloc] init];
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+        //设置导航条样式
+        self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+        //设置导航条背景颜色
+        [self.navigationController.navigationBar setBarTintColor:[UIColor clearColor]];
+        [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+    }else{//LQSColor(21, 194, 251, 1)
+        //设置透明背景图片，空图片，连图片文件都可以不需要的
+        UIImage * image = [self createImageWithColor:LQSColor(21, 194, 251, 1)];
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+        //设置导航条背景颜色
+        [self.navigationController.navigationBar setBarTintColor:[UIColor clearColor]];
+        [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+    }
+    
+}
+- (UIImage*) createImageWithColor: (UIColor*) color
+{
+    CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return theImage;
+}
+
 
 - (void)loadNewData{
     self.page = 1;
@@ -288,18 +347,83 @@
     UIView *contentView = [[UIView alloc] initWithFrame:bgImageView.bounds];
     
     
-     UIImageView *avater = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
-    [avater sd_setImageWithURL:[NSURL URLWithString:_personalZiliaoModel.icon] placeholderImage:[UIImage imageNamed:@"setting_profile_bgWall.jpg"]];///????????接口获得背景图片
-     avater.center = contentView.center;
+    UIImageView *avater = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
+    [avater sd_setImageWithURL:[NSURL URLWithString:[LQSUserManager user].avatar] placeholderImage:[UIImage imageNamed:@"setting_profile_bgWall.jpg"]];///????????接口获得背景图片
+    avater.center = CGPointMake(contentView.center.x, contentView.center.y-40);
     avater.layer.cornerRadius = 35;
     avater.clipsToBounds = YES;
-     [contentView addSubview:avater];
-//    创建可选按钮
+    [contentView addSubview:avater];
+    
+    UILabel * userLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(avater.frame)+10, LQSScreenW, 20)];
+    [userLabel setFont:[UIFont systemFontOfSize:14]];
+    [userLabel setTextColor:[UIColor whiteColor]];
+    [userLabel setText:[LQSUserManager user].userName];
+    [userLabel setTextAlignment:NSTextAlignmentCenter];
+    [contentView addSubview:userLabel];
+    
+    //    用户描述
+    UILabel * userDescription = [[UILabel alloc] initWithFrame:CGRectZero];
+    userDescription.font = [UIFont systemFontOfSize:11];
+    [userDescription setTextColor:[UIColor whiteColor]];
+    [userDescription setText:[LQSUserManager user].userTitle];
+    [userDescription setTextAlignment:NSTextAlignmentCenter];
+    [userDescription setBackgroundColor:LQSColor(22, 191, 251, 1)];
+    CGFloat picW = 70;
+    userDescription.frame = CGRectMake((kScreenWidth - picW)/2, CGRectGetMaxY(userLabel.frame)+5, picW, 15);
+    [contentView addSubview:userDescription];
+    
+    
+    UIView * sectionView  =[[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(userDescription.frame)+5, kScreenWidth, 20)];
+    sectionView.userInteractionEnabled = YES;
+    //        创建三个按钮
+    CGFloat labelW = kScreenWidth /3;
+    CGFloat labelH = 20;
+    //        第一个btn
+    NSArray *nameArr = @[@"参与",@"关注",@"粉丝"];
+    for (NSUInteger i = 0; i < 3; i++) {
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(i * labelW, 0, labelW, labelH)];
+        label.tag = i;
+        label.textAlignment = NSTextAlignmentCenter;
+        label.text = [nameArr objectAtIndex:i];
+        label.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEvent:)];
+        [label addGestureRecognizer:tapGesture];
+        label.backgroundColor = [UIColor clearColor];
+        [label setTextColor:[UIColor whiteColor]];
+        [label setFont:[UIFont systemFontOfSize:13]];
+        [sectionView addSubview:label];
+        
+    }
+    
+    //        添加高度为10的分割线
+    UIView *gapView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, kScreenWidth, 10)];
+    gapView.backgroundColor = [UIColor clearColor];
+    [sectionView addSubview:gapView];
+    //        添加分割线
+    CGFloat fengeW = 1;
+    CGFloat fengeH = 20;
+    for (NSUInteger j= 0; j < 2; j++) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake((j + 1) * labelW, LQSMargin, fengeW, fengeH)];
+        view.userInteractionEnabled = YES;
+        view.backgroundColor = [UIColor lightGrayColor];
+        [sectionView addSubview:view];
+    }
+    [contentView addSubview:sectionView];
+    
+    //签名
+    UILabel * signLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(sectionView.frame)+2, LQSScreenW, 15)];
+    [signLabel setFont:[UIFont systemFontOfSize:11]];
+    [signLabel setTextColor:[UIColor whiteColor]];
+    [signLabel setText:@"暂无签名"];
+    [signLabel setTextAlignment:NSTextAlignmentCenter];
+    [contentView addSubview:signLabel];
+    
+    //    创建可选按钮
     _selectView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(bgImageView.frame) - 40, kScreenWidth, 40)];
     _selectView.backgroundColor = [UIColor whiteColor];
     [contentView addSubview:_selectView];
     
-//    创建按钮
+    //    创建按钮
     NSString *firstName = [NSString stringWithFormat:@"发表（%@）",nil];//????????接口获得发表数量
     NSArray *arrar = [NSArray arrayWithObjects:firstName,@"资料", nil];
     _btnW = kScreenWidth * 0.5;
@@ -310,15 +434,15 @@
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         button.titleLabel.font = [UIFont systemFontOfSize:14];
-//        button.backgroundColor = [UIColor greenColor];
+        //        button.backgroundColor = [UIColor greenColor];
         button.tag = i;
-//        添加点击事件
+        //        添加点击事件
         [button addTarget:self action:@selector(touchDown:) forControlEvents:UIControlEventTouchUpInside];
         
         
         [_selectView addSubview:button];
     }
-//    初始化底部的蓝线
+    //    初始化底部的蓝线
     _blueView = [[UIView alloc] initWithFrame:CGRectMake(_btnW * 0.25, _selectView.height - 1, _btnW * 0.5, 1)];
     _blueView.backgroundColor = LQSColor(22, 191, 251, 1);
     [_selectView addSubview:_blueView];
@@ -327,6 +451,7 @@
     
 }
 
+#pragma mark - customMethods
 - (void)touchDown:(UIButton *)sender
 {
     if (sender.tag == 0) {
@@ -361,7 +486,10 @@
     }
 }
 
-
+- (void)tapEvent:(UITapGestureRecognizer *)tap
+{
+    NSLog(@"%@",tap);
+}
 #pragma mark - table delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
