@@ -155,6 +155,25 @@
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
 		CD2D803F1E827605002D3E09 /* LQSHuiFuPingLunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2D803E1E827605002D3E09 /* LQSHuiFuPingLunViewController.m */; };
 		CDF9C9D01E8A63C500EC031C /* lqsemoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDF9C9CF1E8A63C500EC031C /* lqsemoji.plist */; };
+		751941E61E5588C6000BDFE1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941E51E5588C6000BDFE1 /* libsqlite3.tbd */; };
+		751941E81E558A36000BDFE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941E71E558A36000BDFE1 /* CoreGraphics.framework */; };
+		751941EA1E559174000BDFE1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941E91E559174000BDFE1 /* SystemConfiguration.framework */; };
+		751941EC1E559182000BDFE1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941EB1E559182000BDFE1 /* CoreTelephony.framework */; };
+		751941EE1E559194000BDFE1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941ED1E559194000BDFE1 /* libc++.tbd */; };
+		751941F01E5591A1000BDFE1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941EF1E5591A1000BDFE1 /* libz.tbd */; };
+		751941F21E5591BB000BDFE1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941F11E5591BB000BDFE1 /* ImageIO.framework */; };
+		7974222F1E8A1E3200EC369F /* LQSAboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974221A1E8A1E3100EC369F /* LQSAboutUsVC.m */; };
+		797422301E8A1E3200EC369F /* LQSChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974221C1E8A1E3100EC369F /* LQSChangePasswordVC.m */; };
+		797422311E8A1E3200EC369F /* LQSCompanyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974221E1E8A1E3100EC369F /* LQSCompanyVC.m */; };
+		797422321E8A1E3200EC369F /* LQSEmailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 797422201E8A1E3100EC369F /* LQSEmailVC.m */; };
+		797422331E8A1E3200EC369F /* LQSNickNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 797422221E8A1E3100EC369F /* LQSNickNameVC.m */; };
+		797422341E8A1E3200EC369F /* LQSProfessionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 797422241E8A1E3100EC369F /* LQSProfessionVC.m */; };
+		797422351E8A1E3200EC369F /* LQSQQVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 797422261E8A1E3100EC369F /* LQSQQVC.m */; };
+		797422361E8A1E3200EC369F /* LQSSchoolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 797422281E8A1E3100EC369F /* LQSSchoolVC.m */; };
+		797422371E8A1E3200EC369F /* LQSSetTelephoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974222A1E8A1E3100EC369F /* LQSSetTelephoneVC.m */; };
+		797422381E8A1E3200EC369F /* LQSSignNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974222C1E8A1E3200EC369F /* LQSSignNameVC.m */; };
+		797422391E8A1E3200EC369F /* LQSWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974222E1E8A1E3200EC369F /* LQSWebVC.m */; };
+		7974223C1E8A1E4100EC369F /* LQSAboutUsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974223B1E8A1E4100EC369F /* LQSAboutUsModel.m */; };
 		DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */; };
 		DF5A072C1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072B1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m */; };
 		DF5A072F1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072E1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m */; };
@@ -178,7 +197,6 @@
 		E4430D581D54B74C0014A6FE /* package.json in Resources */ = {isa = PBXBuildFile; fileRef = E4430D4C1D54B74C0014A6FE /* package.json */; };
 		E494EB831E6A732700AAD1B2 /* YBPopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E494EB821E6A732700AAD1B2 /* YBPopupMenu.m */; };
 		E4D8E1B91D54188500EE6171 /* LQSBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1B81D54188500EE6171 /* LQSBaseManager.m */; };
-		E4D8E1C51D54193000EE6171 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C01D54193000EE6171 /* AsyncSocket.m */; };
 		E4D8E1C61D54193000EE6171 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C21D54193000EE6171 /* GCDAsyncSocket.m */; };
 		E4D8E1C71D54193000EE6171 /* GCDMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C41D54193000EE6171 /* GCDMulticastDelegate.m */; };
 		E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C91D541B6700EE6171 /* LQSUserManager.m */; };
@@ -505,7 +523,39 @@
 		6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSUserBasicInfo.m; path = core/LQSUserBasicInfo.m; sourceTree = "<group>"; };
 		6E75DCFD1D3FC0D900C7BD82 /* LQSCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCommonDefine.h; path = Utilities/LQSCommonDefine.h; sourceTree = "<group>"; };
 		72F7FCE84BA2B2676C40B54F /* Pods-myOrgForumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		751941E51E5588C6000BDFE1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		751941E51E5588C6000BDFE1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		751941E71E558A36000BDFE1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		751941E91E559174000BDFE1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		751941EB1E559182000BDFE1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		751941ED1E559194000BDFE1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		751941EF1E5591A1000BDFE1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		751941F11E5591BB000BDFE1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		797422191E8A1E3100EC369F /* LQSAboutUsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAboutUsVC.h; sourceTree = "<group>"; };
+		7974221A1E8A1E3100EC369F /* LQSAboutUsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAboutUsVC.m; sourceTree = "<group>"; };
+		7974221B1E8A1E3100EC369F /* LQSChangePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSChangePasswordVC.h; sourceTree = "<group>"; };
+		7974221C1E8A1E3100EC369F /* LQSChangePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSChangePasswordVC.m; sourceTree = "<group>"; };
+		7974221D1E8A1E3100EC369F /* LQSCompanyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCompanyVC.h; sourceTree = "<group>"; };
+		7974221E1E8A1E3100EC369F /* LQSCompanyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSCompanyVC.m; sourceTree = "<group>"; };
+		7974221F1E8A1E3100EC369F /* LQSEmailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSEmailVC.h; sourceTree = "<group>"; };
+		797422201E8A1E3100EC369F /* LQSEmailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSEmailVC.m; sourceTree = "<group>"; };
+		797422211E8A1E3100EC369F /* LQSNickNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSNickNameVC.h; sourceTree = "<group>"; };
+		797422221E8A1E3100EC369F /* LQSNickNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSNickNameVC.m; sourceTree = "<group>"; };
+		797422231E8A1E3100EC369F /* LQSProfessionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSProfessionVC.h; sourceTree = "<group>"; };
+		797422241E8A1E3100EC369F /* LQSProfessionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSProfessionVC.m; sourceTree = "<group>"; };
+		797422251E8A1E3100EC369F /* LQSQQVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSQQVC.h; sourceTree = "<group>"; };
+		797422261E8A1E3100EC369F /* LQSQQVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSQQVC.m; sourceTree = "<group>"; };
+		797422271E8A1E3100EC369F /* LQSSchoolVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSchoolVC.h; sourceTree = "<group>"; };
+		797422281E8A1E3100EC369F /* LQSSchoolVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSchoolVC.m; sourceTree = "<group>"; };
+		797422291E8A1E3100EC369F /* LQSSetTelephoneVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSetTelephoneVC.h; sourceTree = "<group>"; };
+		7974222A1E8A1E3100EC369F /* LQSSetTelephoneVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSetTelephoneVC.m; sourceTree = "<group>"; };
+		7974222B1E8A1E3200EC369F /* LQSSignNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSignNameVC.h; sourceTree = "<group>"; };
+		7974222C1E8A1E3200EC369F /* LQSSignNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSignNameVC.m; sourceTree = "<group>"; };
+		7974222D1E8A1E3200EC369F /* LQSWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSWebVC.h; sourceTree = "<group>"; };
+		7974222E1E8A1E3200EC369F /* LQSWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSWebVC.m; sourceTree = "<group>"; };
+		7974223A1E8A1E4100EC369F /* LQSAboutUsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAboutUsModel.h; sourceTree = "<group>"; };
+		7974223B1E8A1E4100EC369F /* LQSAboutUsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAboutUsModel.m; sourceTree = "<group>"; };
+		79F5A51E1E893928005C727F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C12DEEB8E74CDD3E0CF002 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
 		CCAA7D55F8D7734222CE3140 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -574,7 +624,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E66318282059FD59F7685FD7 /* libPods-myOrgForum.a in Frameworks */,
+				751941F21E5591BB000BDFE1 /* ImageIO.framework in Frameworks */,
+				751941F21E5591BB000BDFE1 /* ImageIO.framework in Frameworks */,
+				751941F01E5591A1000BDFE1 /* libz.tbd in Frameworks */,
+				751941EE1E559194000BDFE1 /* libc++.tbd in Frameworks */,
+				751941EC1E559182000BDFE1 /* CoreTelephony.framework in Frameworks */,
+				751941EA1E559174000BDFE1 /* SystemConfiguration.framework in Frameworks */,
+				751941E81E558A36000BDFE1 /* CoreGraphics.framework in Frameworks */,
+				751941E61E5588C6000BDFE1 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +828,28 @@
 		414600EF1CEF2C0500628B60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				797422191E8A1E3100EC369F /* LQSAboutUsVC.h */,
+				7974221A1E8A1E3100EC369F /* LQSAboutUsVC.m */,
+				7974221B1E8A1E3100EC369F /* LQSChangePasswordVC.h */,
+				7974221C1E8A1E3100EC369F /* LQSChangePasswordVC.m */,
+				7974221D1E8A1E3100EC369F /* LQSCompanyVC.h */,
+				7974221E1E8A1E3100EC369F /* LQSCompanyVC.m */,
+				7974221F1E8A1E3100EC369F /* LQSEmailVC.h */,
+				797422201E8A1E3100EC369F /* LQSEmailVC.m */,
+				797422211E8A1E3100EC369F /* LQSNickNameVC.h */,
+				797422221E8A1E3100EC369F /* LQSNickNameVC.m */,
+				797422231E8A1E3100EC369F /* LQSProfessionVC.h */,
+				797422241E8A1E3100EC369F /* LQSProfessionVC.m */,
+				797422251E8A1E3100EC369F /* LQSQQVC.h */,
+				797422261E8A1E3100EC369F /* LQSQQVC.m */,
+				797422271E8A1E3100EC369F /* LQSSchoolVC.h */,
+				797422281E8A1E3100EC369F /* LQSSchoolVC.m */,
+				797422291E8A1E3100EC369F /* LQSSetTelephoneVC.h */,
+				7974222A1E8A1E3100EC369F /* LQSSetTelephoneVC.m */,
+				7974222B1E8A1E3200EC369F /* LQSSignNameVC.h */,
+				7974222C1E8A1E3200EC369F /* LQSSignNameVC.m */,
+				7974222D1E8A1E3200EC369F /* LQSWebVC.h */,
+				7974222E1E8A1E3200EC369F /* LQSWebVC.m */,
 				41AC5B2A1D751C83006E38D5 /* LQSSettingMyFavourateViewController.h */,
 				41AC5B2B1D751C83006E38D5 /* LQSSettingMyFavourateViewController.m */,
 				41AC5B2E1D751C83006E38D5 /* LQSSettingMyPresentViewController.h */,
@@ -839,6 +918,8 @@
 		414600F11CEF2C2500628B60 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7974223A1E8A1E4100EC369F /* LQSAboutUsModel.h */,
+				7974223B1E8A1E4100EC369F /* LQSAboutUsModel.m */,
 				413F925D1D791CFF00D7974D /* LQSProfileEditDataModel.h */,
 				413F925E1D791CFF00D7974D /* LQSProfileEditDataModel.m */,
 				41AC5AE51D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.h */,
@@ -1235,6 +1316,14 @@
 		D2FF60D40CEE75621BCC406D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79F5A51E1E893928005C727F /* MessageUI.framework */,
+				751941F11E5591BB000BDFE1 /* ImageIO.framework */,
+				751941EF1E5591A1000BDFE1 /* libz.tbd */,
+				751941ED1E559194000BDFE1 /* libc++.tbd */,
+				751941EB1E559182000BDFE1 /* CoreTelephony.framework */,
+				751941E91E559174000BDFE1 /* SystemConfiguration.framework */,
+				751941E71E558A36000BDFE1 /* CoreGraphics.framework */,
+				751941E51E5588C6000BDFE1 /* libsqlite3.tbd */,
 				7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */,
 				EC19ADA87E03C1ABA83791ED /* libPods-myOrgForumTests.a */,
 				A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */,
@@ -1440,6 +1529,9 @@
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 						};
 					};
@@ -1680,12 +1772,15 @@
 				41AC5B141D751C58006E38D5 /* LQSMessageTableViewCell.m in Sources */,
 				6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */,
 				6E0476671D55B32600FD6CE0 /* LQSintroduceMainlistCell.m in Sources */,
+				7974223C1E8A1E4100EC369F /* LQSAboutUsModel.m in Sources */,
 				41AC5B341D751C83006E38D5 /* LQSDetailSettingViewController.m in Sources */,
 				6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */,
 				1477F9E61D70292900EE102C /* LQSForumDetailForumInfoModel.m in Sources */,
 				DF6E05CB1D72E72E0099395A /* LQSForumDetailSectionHeadView.m in Sources */,
 				41AC5AF51D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.m in Sources */,
 				410FA2261D38EBA30021B7E2 /* LQSTabBar.m in Sources */,
+				797422321E8A1E3200EC369F /* LQSEmailVC.m in Sources */,
+				797422361E8A1E3200EC369F /* LQSSchoolVC.m in Sources */,
 				0000C4A41D645CF5007C969C /* LQSRightTableView.m in Sources */,
 				2EA1A9EA1DD8141800F6360A /* LQSReportDetailViewController.m in Sources */,
 				411FE79E1D6D6DC000563324 /* LQSShijieDataModel.m in Sources */,
@@ -1693,6 +1788,7 @@
 				DFDC33171D714BF20059BDB4 /* UIColor+Hex.m in Sources */,
 				41F870051D767E7B00E05FAB /* LQSCompostToolbar.m in Sources */,
 				410FA2241D38EBA30021B7E2 /* LQSSpecifyFooter.m in Sources */,
+				797422391E8A1E3200EC369F /* LQSWebVC.m in Sources */,
 				413F925B1D791C9500D7974D /* LQRegisterViewController.m in Sources */,
 				E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */,
 				411FE7AB1D6D6DC700563324 /* LQSDongmanTableViewCell.m in Sources */,
@@ -1712,9 +1808,11 @@
 				413F925F1D791CFF00D7974D /* LQSProfileEditDataModel.m in Sources */,
 				41F870111D767E8800E05FAB /* LQSEmotion.m in Sources */,
 				410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */,
+				797422311E8A1E3200EC369F /* LQSCompanyVC.m in Sources */,
 				6E62B0671D73D1BE001FB2A4 /* LQSAddViewHelper.m in Sources */,
 				410FA2221D38EBA30021B7E2 /* LQSNewfeatureViewController.m in Sources */,
 				6E2893DA1D6C4E8F00EF9CCA /* LQSBBSDetailModel.m in Sources */,
+				797422371E8A1E3200EC369F /* LQSSetTelephoneVC.m in Sources */,
 				41AC5AF71D751C3E006E38D5 /* LQSHomePagePersonalZiliaoDataModel.m in Sources */,
 				41AC5B121D751C58006E38D5 /* LQSHomePagePersonalPresentTableViewCell.m in Sources */,
 				2EA1A9ED1DD8465C00F6360A /* LQSDaShangTableViewController.m in Sources */,
@@ -1734,6 +1832,7 @@
 				41F86FF31D767E7200E05FAB /* LQSComposePhotosView.m in Sources */,
 				410FA2291D38EBA30021B7E2 /* LQSTitleButton.m in Sources */,
 				41F870061D767E7B00E05FAB /* LQSEmotionGridView.m in Sources */,
+				797422331E8A1E3200EC369F /* LQSNickNameVC.m in Sources */,
 				41AC5B161D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.m in Sources */,
 				410FA22B1D38EBA30021B7E2 /* NSString+Emoji.m in Sources */,
 				0000C4A11D645CDD007C969C /* LQSLeftTableView.m in Sources */,
@@ -1759,6 +1858,7 @@
 				2E9EB6B11DE1E25200FBB0B0 /* LQSPluginView.m in Sources */,
 				1477F9E21D7019C500EE102C /* LQSForumDetailCell.m in Sources */,
 				413F925A1D791C9500D7974D /* LQLoginViewController.m in Sources */,
+				797422301E8A1E3200EC369F /* LQSChangePasswordVC.m in Sources */,
 				2EA1A9F31DD855FA00F6360A /* LQSDashangTableViewCell.m in Sources */,
 				41AC5B3E1D751C83006E38D5 /* LQSSettingMyFriendViewController.m in Sources */,
 				E4D8E1B91D54188500EE6171 /* LQSBaseManager.m in Sources */,
@@ -1788,12 +1888,15 @@
 				416AD5981D7FB3E700BCB2E5 /* LQSSelectPlatesDataModel.m in Sources */,
 				0000C4AE1D645E42007C969C /* LQSRightViewCell.m in Sources */,
 				41AC5AF61D751C3E006E38D5 /* LQSHomePagePersonalPresentDataModel.m in Sources */,
+				797422341E8A1E3200EC369F /* LQSProfessionVC.m in Sources */,
 				006F1CB11DC87D3900A992B5 /* LQSHTMLViewController.m in Sources */,
 				41AC5B101D751C58006E38D5 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,
 				410FA1FE1D38EB8B0021B7E2 /* NSObject+YYModel.m in Sources */,
+				797422351E8A1E3200EC369F /* LQSQQVC.m in Sources */,
 				0000C49E1D645C4A007C969C /* LQSMainView.m in Sources */,
 				410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */,
 				E436F2BA1D72BC23001CB8FE /* LQSMessageRequest.m in Sources */,
+				7974222F1E8A1E3200EC369F /* LQSAboutUsVC.m in Sources */,
 				E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */,
 				41AC5B3F1D751C83006E38D5 /* LQSSettingMyPresentViewController.m in Sources */,
 				41AC5B461D751CF5006E38D5 /* LQSAccountManagementViewController.m in Sources */,
@@ -1818,6 +1921,7 @@
 				E4D8E1C71D54193000EE6171 /* GCDMulticastDelegate.m in Sources */,
 				41F870151D767E9300E05FAB /* LQSComposeViewController.m in Sources */,
 				41AC5AFC1D751C3E006E38D5 /* LQSUserProfileDataModel.m in Sources */,
+				797422381E8A1E3200EC369F /* LQSSignNameVC.m in Sources */,
 				41AC5B391D751C83006E38D5 /* LQSMessageViewController.m in Sources */,
 				411FE7AA1D6D6DC700563324 /* LQSDiscoverCell.m in Sources */,
 			);
@@ -1960,6 +2064,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
+				CODE_SIGN_ENTITLEMENTS = myOrgForum/myOrgForum.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: longquansi.dev@gmail.com (GM63YGGSB2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = SCY46TJ5AJ;
@@ -1967,12 +2072,21 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/UMSocialSDK",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/UMSocialUI",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/WeChat",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2011,6 +2125,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
+				CODE_SIGN_ENTITLEMENTS = myOrgForum/myOrgForum.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Media Television Planning Co., Ltd. (SCY46TJ5AJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = SCY46TJ5AJ;
@@ -2018,12 +2133,21 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/UMSocialSDK",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/UMSocialUI",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = myOrgForum/LQSPrefixHeader.pch;
 				INFOPLIST_FILE = myOrgForum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/myOrgForum/libs/UMSocial/SocialLibraries/WeChat",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

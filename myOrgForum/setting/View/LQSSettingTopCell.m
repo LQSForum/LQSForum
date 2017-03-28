@@ -33,6 +33,8 @@
     _userImage = [[UIImageView alloc] initWithFrame:CGRectZero];
     _userImage.contentMode = UIViewContentModeCenter;
     _userImage.clipsToBounds = YES;
+    [_userImage.layer setCornerRadius:4.0f];
+    [_userImage.layer setMasksToBounds:YES];
     //    _userImage.backgroundColor = [UIColor cyanColor];
     [self.contentView addSubview:_userImage];
 
@@ -40,24 +42,25 @@
     
         //    用户名
         _userNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _userNameLabel.font = [UIFont systemFontOfSize:12];
+        _userNameLabel.font = [UIFont systemFontOfSize:14];
         //    _userNameLabel.backgroundColor = [UIColor magentaColor];
         [self.contentView addSubview:_userNameLabel];
         
         //    积分
         _jifenLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _jifenLabel.font = [UIFont systemFontOfSize:11];
+    [_jifenLabel setTextColor:[UIColor lightGrayColor]];
         //    _jifenLabel.backgroundColor = [UIColor greenColor];
         [self.contentView addSubview:_jifenLabel];
         //    香华
         _xianghuaLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _xianghuaLabel.font = [UIFont systemFontOfSize:11];
-        
+    [_xianghuaLabel setTextColor:[UIColor lightGrayColor]];
         [self.contentView addSubview:_xianghuaLabel];
         //    用户描述
         _userDescription = [[UILabel alloc] initWithFrame:CGRectZero];
         _userDescription.font = [UIFont systemFontOfSize:12];
-        
+    [_userDescription setTextColor:[UIColor orangeColor]];
         //    _userDescription.backgroundColor = [UIColor lightGrayColor];
         [self.contentView addSubview:_userDescription];
 

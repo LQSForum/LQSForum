@@ -47,7 +47,8 @@
     _userNameTextField.clearButtonMode = UITextFieldViewModeAlways;
     _userNameTextField.backgroundColor = [UIColor clearColor];
     _userNameTextField.textAlignment = UITextAlignmentLeft;
-    _userNameTextField.keyboardType = UIKeyboardTypeAlphabet;
+//    _userNameTextField.keyboardType = UIKeyboardTypeAlphabet;
+    _userNameTextField.keyboardType = UIKeyboardTypeDefault;
     _userNameTextField.tag = userNameTFTag;
     _userNameTextField.delegate = self;
     
