@@ -154,6 +154,7 @@
 		6E7378B21D6E944E009B6C66 /* LQSBBSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7378B11D6E944E009B6C66 /* LQSBBSDetailViewController.m */; };
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
 		CD2D803F1E827605002D3E09 /* LQSHuiFuPingLunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2D803E1E827605002D3E09 /* LQSHuiFuPingLunViewController.m */; };
+		CDF9C9D01E8A63C500EC031C /* lqsemoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDF9C9CF1E8A63C500EC031C /* lqsemoji.plist */; };
 		DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */; };
 		DF5A072C1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072B1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m */; };
 		DF5A072F1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072E1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m */; };
@@ -510,6 +511,7 @@
 		CCAA7D55F8D7734222CE3140 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CD2D803D1E827605002D3E09 /* LQSHuiFuPingLunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHuiFuPingLunViewController.h; sourceTree = "<group>"; };
 		CD2D803E1E827605002D3E09 /* LQSHuiFuPingLunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHuiFuPingLunViewController.m; sourceTree = "<group>"; };
+		CDF9C9CF1E8A63C500EC031C /* lqsemoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lqsemoji.plist; sourceTree = "<group>"; };
 		DF5A07271D72F2AB001B2ED7 /* LQSForumDetailChildCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSForumDetailChildCell.h; sourceTree = "<group>"; };
 		DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSForumDetailChildCell.m; sourceTree = "<group>"; };
 		DF5A072A1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSForumDetailOptionViewController.h; path = forum/LQSForumDetailOptionViewController.h; sourceTree = "<group>"; };
@@ -913,6 +915,7 @@
 				410FBB6F1CCDEBC500761192 /* classes */,
 				415C555E1CC8CCEE00408B90 /* Assets.xcassets */,
 				415C55601CC8CCEE00408B90 /* LaunchScreen.storyboard */,
+				CDF9C9CF1E8A63C500EC031C /* lqsemoji.plist */,
 				415C55631CC8CCEE00408B90 /* Info.plist */,
 				412FF25D1CD1A155005F39AB /* config */,
 				415C55521CC8CCEE00408B90 /* Supporting Files */,
@@ -1503,6 +1506,7 @@
 				E4430D541D54B74C0014A6FE /* WebView.js in Resources */,
 				1477F9D91D7019A600EE102C /* Forum.storyboard in Resources */,
 				E4430D521D54B74C0014A6FE /* MenuCard.js in Resources */,
+				CDF9C9D01E8A63C500EC031C /* lqsemoji.plist in Resources */,
 				E4430D511D54B74C0014A6FE /* ListView.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
