@@ -31,6 +31,8 @@
     _userImage.contentMode = UIViewContentModeCenter;
     _userImage.clipsToBounds = YES;
     //    _userImage.backgroundColor = [UIColor cyanColor];
+    [_userImage.layer setCornerRadius:4.0f];
+    [_userImage.layer setMasksToBounds:YES];
     [self.contentView addSubview:_userImage];
     
     _noLoginLabel = [[UILabel alloc] initWithFrame:CGRectZero];

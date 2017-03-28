@@ -48,7 +48,9 @@
 // 屏幕尺寸
 #define LQSScreenW [UIScreen mainScreen].bounds.size.width
 #define LQSScreenH [UIScreen mainScreen].bounds.size.height
-
+//屏幕宽高
+#define WIDTH [UIScreen mainScreen].bounds.size.width
+#define HEIGHT [UIScreen mainScreen].bounds.size.height
 
 #import "Header.h"
 #import "LQSCommonDefine.h"

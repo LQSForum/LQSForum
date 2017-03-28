@@ -8,7 +8,9 @@
 //
 
 #import "LQSDetailSettingViewController.h"
-
+#import "LQSChangePasswordVC.h"
+#import "LQSAboutUsVC.h"
+#import <UShareUI/UShareUI.h>
 @interface LQSDetailSettingViewController ()<UITableViewDelegate , UITableViewDataSource>
 {
     LQSUITableView *_tableView;
@@ -75,7 +77,7 @@
     self.title = @"个人设置";
     [self createTableView];
 }
-
+#pragma mark - customMethods
 - (void)createTableView
 {
     _tableView = [[LQSUITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - LQSNavBarBottom) style:UITableViewStylePlain];
@@ -85,6 +87,48 @@
     [self.view addSubview:_tableView];
 
 
+}
+- (void)shareMethod
+{
+    //    [self popToRootViewControllerAnimated:YES];
+    //    U-Share
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        // 根据获取的platformType确定所选平台进行下一步操作
+        [self shareWebPageToPlatformType:platformType];
+    }];}
+
+- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    
+    //创建网页内容对象
+    UIImage* thumbURL =  [UIImage imageNamed:@"icon.png"];
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"测试分享功能" descr:@"龙泉寺论坛" thumImage:thumbURL];
+    //设置网页地址
+    shareObject.webpageUrl = @"http://forum.longquanzs.org/forum.php?tid=32335";
+    
+    //分享消息对象设置分享内容对象
+    messageObject.shareObject = shareObject;
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            UMSocialLogInfo(@"************Share fail with error %@*********",error);
+        }else{
+            if ([data isKindOfClass:[UMSocialShareResponse class]]) {
+                UMSocialShareResponse *resp = data;
+                //分享结果消息
+                UMSocialLogInfo(@"response message is %@",resp.message);
+                //第三方原始返回的数据
+                UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
+                
+            }else{
+                UMSocialLogInfo(@"response data is %@",data);
+            }
+        }
+        //        [self alertWithError:error];
+    }];
 }
 
 
@@ -132,5 +176,26 @@
 
 
     return 50;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+     LQSSettingPersonalSettingDataModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    if ([model.title isEqualToString:@"修改密码"]) {
+        //
+        LQSChangePasswordVC * changePasswordVC = [[LQSChangePasswordVC alloc] init];
+        changePasswordVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:changePasswordVC animated:YES];
+    }
+    if ([model.title isEqualToString:@"关于"]) {
+        //
+        LQSAboutUsVC * aboutUsVC = [[LQSAboutUsVC alloc] init];
+        aboutUsVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:aboutUsVC animated:YES];
+    }
+    if ([model.title isEqualToString:@"分享"]) {
+        //
+        [self shareMethod];
+    }
 }
 @end
