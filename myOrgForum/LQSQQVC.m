@@ -1,14 +1,14 @@
 //
-//  LSKSignNameVC.m
+//  LQSQQVC.m
 //  myOrgForum
 //
-//  Created by lsm on 17/3/23.
+//  Created by lsm on 17/3/24.
 //  Copyright © 2017年 SkyAndSea. All rights reserved.
 //
 
-#import "LSKSignNameVC.h"
+#import "LQSQQVC.h"
 
-@interface LSKSignNameVC ()<UITextViewDelegate>
+@interface LQSQQVC ()<UITextViewDelegate>
 {
     int width;
     int height;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation LSKSignNameVC
+@implementation LQSQQVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,7 +37,7 @@
 {
     //自定义tablebar
     UILabel * label = [[UILabel alloc]init];
-    [label setText:@"签名"];
+    [label setText:@"QQ"];
     [label setTextAlignment:NSTextAlignmentCenter];
     [label setTextColor:[UIColor whiteColor]];
     [label setFrame:CGRectMake(0, 0, 100, 40)];
@@ -115,7 +115,7 @@
     _messageLabel.textAlignment = NSTextAlignmentRight;
     _messageLabel.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:_messageLabel];
-//    [self.view addSubview:commitButton];
+    //    [self.view addSubview:commitButton];
     [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 - (void)resignKeyboard

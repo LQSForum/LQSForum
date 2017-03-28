@@ -1,14 +1,14 @@
 //
-//  LSKChangePasswordVC.m
+//  LQSChangePasswordVC.m
 //  myOrgForum
 //
 //  Created by lsm on 17/3/24.
 //  Copyright © 2017年 SkyAndSea. All rights reserved.
 //
 
-#import "LSKChangePasswordVC.h"
+#import "LQSChangePasswordVC.h"
 
-@interface LSKChangePasswordVC ()<UITextFieldDelegate>
+@interface LQSChangePasswordVC ()<UITextFieldDelegate>
 {
     int width;
     int height;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation LSKChangePasswordVC
+@implementation LQSChangePasswordVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

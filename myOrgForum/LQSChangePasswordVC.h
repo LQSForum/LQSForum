@@ -1,5 +1,5 @@
 //
-//  LSKChangePasswordVC.h
+//  LQSChangePasswordVC.h
 //  myOrgForum
 //
 //  Created by lsm on 17/3/24.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LSKChangePasswordVC : UIViewController
+@interface LQSChangePasswordVC : UIViewController
 
 @end

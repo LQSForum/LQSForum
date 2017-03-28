@@ -1,14 +1,14 @@
 //
-//  LSKNickNameVC.m
+//  LQSNickNameVC.m
 //  myOrgForum
 //
 //  Created by lsm on 17/3/24.
 //  Copyright © 2017年 SkyAndSea. All rights reserved.
 //
 
-#import "LSKNickNameVC.h"
+#import "LQSNickNameVC.h"
 
-@interface LSKNickNameVC ()<UITextViewDelegate>
+@interface LQSNickNameVC ()<UITextViewDelegate>
 {
     int width;
     int height;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation LSKNickNameVC
+@implementation LQSNickNameVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

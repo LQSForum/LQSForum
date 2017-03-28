@@ -1,5 +1,5 @@
 //
-//  LSKSetTelephoneVC.h
+//  LQSEmailVC.h
 //  myOrgForum
 //
 //  Created by lsm on 17/3/24.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LSKSetTelephoneVC : UIViewController
+@interface LQSEmailVC : UIViewController
 
 @end

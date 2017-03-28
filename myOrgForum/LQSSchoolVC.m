@@ -1,14 +1,14 @@
 //
-//  LSKSchoolVC.m
+//  LQSSchoolVC.m
 //  myOrgForum
 //
 //  Created by lsm on 17/3/24.
 //  Copyright © 2017年 SkyAndSea. All rights reserved.
 //
 
-#import "LSKSchoolVC.h"
+#import "LQSSchoolVC.h"
 
-@interface LSKSchoolVC ()<UITextViewDelegate>
+@interface LQSSchoolVC ()<UITextViewDelegate>
 {
     int width;
     int height;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation LSKSchoolVC
+@implementation LQSSchoolVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

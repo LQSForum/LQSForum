@@ -1,14 +1,14 @@
 //
-//  LSKSetTelephoneVC.m
+//  LQSSetTelephoneVC.m
 //  myOrgForum
 //
 //  Created by lsm on 17/3/24.
 //  Copyright © 2017年 SkyAndSea. All rights reserved.
 //
 
-#import "LSKSetTelephoneVC.h"
+#import "LQSSetTelephoneVC.h"
 
-@interface LSKSetTelephoneVC ()<UITextViewDelegate>
+@interface LQSSetTelephoneVC ()<UITextViewDelegate>
 {
     int width;
     int height;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation LSKSetTelephoneVC
+@implementation LQSSetTelephoneVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

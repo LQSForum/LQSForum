@@ -1,5 +1,5 @@
 //
-//  LSKQQVC.h
+//  LQSQQVC.h
 //  myOrgForum
 //
 //  Created by lsm on 17/3/24.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LSKQQVC : UIViewController
+@interface LQSQQVC : UIViewController
 
 @end

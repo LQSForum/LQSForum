@@ -1,14 +1,14 @@
 //
-//  LSKQQVC.m
+//  LQSCompanyVC.m
 //  myOrgForum
 //
 //  Created by lsm on 17/3/24.
 //  Copyright © 2017年 SkyAndSea. All rights reserved.
 //
 
-#import "LSKQQVC.h"
+#import "LQSCompanyVC.h"
 
-@interface LSKQQVC ()<UITextViewDelegate>
+@interface LQSCompanyVC ()<UITextViewDelegate>
 {
     int width;
     int height;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation LSKQQVC
+@implementation LQSCompanyVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,7 +37,7 @@
 {
     //自定义tablebar
     UILabel * label = [[UILabel alloc]init];
-    [label setText:@"QQ"];
+    [label setText:@"公司"];
     [label setTextAlignment:NSTextAlignmentCenter];
     [label setTextColor:[UIColor whiteColor]];
     [label setFrame:CGRectMake(0, 0, 100, 40)];

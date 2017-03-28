@@ -1,5 +1,5 @@
 //
-//  LSKWebVC.h
+//  LQSWebVC.h
 //  myOrgForum
 //
 //  Created by lsm on 17/3/27.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LSKWebVC : UIViewController
+@interface LQSWebVC : UIViewController
 @property (nonatomic, strong)NSString * urlString;
 @end

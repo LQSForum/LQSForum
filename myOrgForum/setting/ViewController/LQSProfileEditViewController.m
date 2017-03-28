@@ -8,14 +8,14 @@
 
 #import "LQSProfileEditViewController.h"
 #import "LQSUserManager.h"
-#import "LSKSignNameVC.h"
-#import "LSKSetTelephoneVC.h"
-#import "LSKQQVC.h"
-#import "LSKEmailVC.h"
-#import "LSKSchoolVC.h"
-#import "LSKCompanyVC.h"
-#import "LSKProfessionVC.h"
-#import "LSKNickNameVC.h"
+#import "LQSSignNameVC.h"
+#import "LQSSetTelephoneVC.h"
+#import "LQSQQVC.h"
+#import "LQSEmailVC.h"
+#import "LQSSchoolVC.h"
+#import "LQSCompanyVC.h"
+#import "LQSProfessionVC.h"
+#import "LQSNickNameVC.h"
 #define kavarTag 111
 #define kxueliTag 222
 #define kxingbieTag 333
@@ -265,7 +265,7 @@
         
         if (indexPath.row == 1) {//签名
             //
-            LSKSignNameVC * singNameVC = [[LSKSignNameVC alloc]init];
+            LQSSignNameVC * singNameVC = [[LQSSignNameVC alloc]init];
             singNameVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:singNameVC animated:YES];
         }
@@ -276,19 +276,19 @@
     if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"联系方式"]) {//第二组条件下判断
         if (indexPath.row == 0) {//手机
             //
-            LSKSetTelephoneVC * telephoneVC = [[LSKSetTelephoneVC alloc]init];
+            LQSSetTelephoneVC * telephoneVC = [[LQSSetTelephoneVC alloc]init];
             telephoneVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:telephoneVC animated:YES];
         }
         if (indexPath.row == 1) {//QQ
             //
-            LSKQQVC * qqVC = [[LSKQQVC alloc]init];
+            LQSQQVC * qqVC = [[LQSQQVC alloc]init];
             qqVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:qqVC animated:YES];
         }
         if (indexPath.row == 2) {//常用邮箱
             //
-            LSKEmailVC * emailVC = [[LSKEmailVC alloc] init];
+            LQSEmailVC * emailVC = [[LQSEmailVC alloc] init];
             emailVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:emailVC animated:YES];
         }
@@ -296,7 +296,7 @@
     if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"教育情况"]) {//第三组条件下判断
         if (indexPath.row == 0) {//毕业学校
             //
-            LSKSchoolVC * schoolVC = [[LSKSchoolVC alloc] init];
+            LQSSchoolVC * schoolVC = [[LQSSchoolVC alloc] init];
             schoolVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:schoolVC animated:YES];
         }
@@ -319,13 +319,13 @@
     if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"工作情况"]) {//第三组条件下判断
         if (indexPath.row == 0) {//公司
             //
-            LSKCompanyVC * companyVC = [[LSKCompanyVC alloc] init];
+            LQSCompanyVC * companyVC = [[LQSCompanyVC alloc] init];
             companyVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:companyVC animated:YES];
         }
         if (indexPath.row == 1) {//职业
             //
-            LSKProfessionVC * professionVC = [[LSKProfessionVC alloc] init];
+            LQSProfessionVC * professionVC = [[LQSProfessionVC alloc] init];
             professionVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:professionVC animated:YES];
         }
@@ -334,7 +334,7 @@
     if ([[_dataArr[indexPath.section] objectForKey:@"name"] isEqualToString:@"个人信息"]) {//第四组条件下判断
         if (indexPath.row == 0) {//昵称
             //
-            LSKNickNameVC * nickNameVC = [[LSKNickNameVC alloc] init];
+            LQSNickNameVC * nickNameVC = [[LQSNickNameVC alloc] init];
             nickNameVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:nickNameVC animated:YES];
         }

@@ -160,19 +160,18 @@
 		751941EE1E559194000BDFE1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941ED1E559194000BDFE1 /* libc++.tbd */; };
 		751941F01E5591A1000BDFE1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941EF1E5591A1000BDFE1 /* libz.tbd */; };
 		751941F21E5591BB000BDFE1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941F11E5591BB000BDFE1 /* ImageIO.framework */; };
-		79337CFA1E83AB1B00821680 /* LSKSignNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79337CF91E83AB1B00821680 /* LSKSignNameVC.m */; };
-		79F5A4FF1E84AD9B005C727F /* LSKSetTelephoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A4FE1E84AD9B005C727F /* LSKSetTelephoneVC.m */; };
-		79F5A5021E84AE06005C727F /* LSKQQVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A5011E84AE06005C727F /* LSKQQVC.m */; };
-		79F5A5051E84AE59005C727F /* LSKEmailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A5041E84AE59005C727F /* LSKEmailVC.m */; };
-		79F5A5081E84AE8E005C727F /* LSKSchoolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A5071E84AE8E005C727F /* LSKSchoolVC.m */; };
-		79F5A50B1E84AEBE005C727F /* LSKCompanyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A50A1E84AEBE005C727F /* LSKCompanyVC.m */; };
-		79F5A50E1E84AF0D005C727F /* LSKProfessionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A50D1E84AF0D005C727F /* LSKProfessionVC.m */; };
-		79F5A5111E84AF3B005C727F /* LSKNickNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A5101E84AF3B005C727F /* LSKNickNameVC.m */; };
-		79F5A5141E84B3FD005C727F /* LSKChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A5131E84B3FD005C727F /* LSKChangePasswordVC.m */; };
-		79F5A5171E84B755005C727F /* LSKAboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A5161E84B755005C727F /* LSKAboutUsVC.m */; };
-		79F5A51A1E88A481005C727F /* LSKAboutUsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A5191E88A481005C727F /* LSKAboutUsModel.m */; };
-		79F5A51D1E88B66C005C727F /* LSKWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A51C1E88B66C005C727F /* LSKWebVC.m */; };
-		79F5A51F1E893928005C727F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F5A51E1E893928005C727F /* MessageUI.framework */; };
+		7974222F1E8A1E3200EC369F /* LQSAboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974221A1E8A1E3100EC369F /* LQSAboutUsVC.m */; };
+		797422301E8A1E3200EC369F /* LQSChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974221C1E8A1E3100EC369F /* LQSChangePasswordVC.m */; };
+		797422311E8A1E3200EC369F /* LQSCompanyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974221E1E8A1E3100EC369F /* LQSCompanyVC.m */; };
+		797422321E8A1E3200EC369F /* LQSEmailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 797422201E8A1E3100EC369F /* LQSEmailVC.m */; };
+		797422331E8A1E3200EC369F /* LQSNickNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 797422221E8A1E3100EC369F /* LQSNickNameVC.m */; };
+		797422341E8A1E3200EC369F /* LQSProfessionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 797422241E8A1E3100EC369F /* LQSProfessionVC.m */; };
+		797422351E8A1E3200EC369F /* LQSQQVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 797422261E8A1E3100EC369F /* LQSQQVC.m */; };
+		797422361E8A1E3200EC369F /* LQSSchoolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 797422281E8A1E3100EC369F /* LQSSchoolVC.m */; };
+		797422371E8A1E3200EC369F /* LQSSetTelephoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974222A1E8A1E3100EC369F /* LQSSetTelephoneVC.m */; };
+		797422381E8A1E3200EC369F /* LQSSignNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974222C1E8A1E3200EC369F /* LQSSignNameVC.m */; };
+		797422391E8A1E3200EC369F /* LQSWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974222E1E8A1E3200EC369F /* LQSWebVC.m */; };
+		7974223C1E8A1E4100EC369F /* LQSAboutUsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974223B1E8A1E4100EC369F /* LQSAboutUsModel.m */; };
 		DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */; };
 		DF5A072C1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072B1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m */; };
 		DF5A072F1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072E1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m */; };
@@ -529,30 +528,30 @@
 		751941ED1E559194000BDFE1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		751941EF1E5591A1000BDFE1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		751941F11E5591BB000BDFE1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		79337CF81E83AB1B00821680 /* LSKSignNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKSignNameVC.h; sourceTree = "<group>"; };
-		79337CF91E83AB1B00821680 /* LSKSignNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKSignNameVC.m; sourceTree = "<group>"; };
-		79F5A4FD1E84AD9B005C727F /* LSKSetTelephoneVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKSetTelephoneVC.h; sourceTree = "<group>"; };
-		79F5A4FE1E84AD9B005C727F /* LSKSetTelephoneVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKSetTelephoneVC.m; sourceTree = "<group>"; };
-		79F5A5001E84AE06005C727F /* LSKQQVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKQQVC.h; sourceTree = "<group>"; };
-		79F5A5011E84AE06005C727F /* LSKQQVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKQQVC.m; sourceTree = "<group>"; };
-		79F5A5031E84AE59005C727F /* LSKEmailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKEmailVC.h; sourceTree = "<group>"; };
-		79F5A5041E84AE59005C727F /* LSKEmailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKEmailVC.m; sourceTree = "<group>"; };
-		79F5A5061E84AE8E005C727F /* LSKSchoolVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKSchoolVC.h; sourceTree = "<group>"; };
-		79F5A5071E84AE8E005C727F /* LSKSchoolVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKSchoolVC.m; sourceTree = "<group>"; };
-		79F5A5091E84AEBE005C727F /* LSKCompanyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCompanyVC.h; sourceTree = "<group>"; };
-		79F5A50A1E84AEBE005C727F /* LSKCompanyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCompanyVC.m; sourceTree = "<group>"; };
-		79F5A50C1E84AF0D005C727F /* LSKProfessionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKProfessionVC.h; sourceTree = "<group>"; };
-		79F5A50D1E84AF0D005C727F /* LSKProfessionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKProfessionVC.m; sourceTree = "<group>"; };
-		79F5A50F1E84AF3B005C727F /* LSKNickNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKNickNameVC.h; sourceTree = "<group>"; };
-		79F5A5101E84AF3B005C727F /* LSKNickNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKNickNameVC.m; sourceTree = "<group>"; };
-		79F5A5121E84B3FD005C727F /* LSKChangePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKChangePasswordVC.h; sourceTree = "<group>"; };
-		79F5A5131E84B3FD005C727F /* LSKChangePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKChangePasswordVC.m; sourceTree = "<group>"; };
-		79F5A5151E84B755005C727F /* LSKAboutUsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKAboutUsVC.h; sourceTree = "<group>"; };
-		79F5A5161E84B755005C727F /* LSKAboutUsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKAboutUsVC.m; sourceTree = "<group>"; };
-		79F5A5181E88A481005C727F /* LSKAboutUsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKAboutUsModel.h; sourceTree = "<group>"; };
-		79F5A5191E88A481005C727F /* LSKAboutUsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKAboutUsModel.m; sourceTree = "<group>"; };
-		79F5A51B1E88B66C005C727F /* LSKWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKWebVC.h; sourceTree = "<group>"; };
-		79F5A51C1E88B66C005C727F /* LSKWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKWebVC.m; sourceTree = "<group>"; };
+		797422191E8A1E3100EC369F /* LQSAboutUsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAboutUsVC.h; sourceTree = "<group>"; };
+		7974221A1E8A1E3100EC369F /* LQSAboutUsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAboutUsVC.m; sourceTree = "<group>"; };
+		7974221B1E8A1E3100EC369F /* LQSChangePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSChangePasswordVC.h; sourceTree = "<group>"; };
+		7974221C1E8A1E3100EC369F /* LQSChangePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSChangePasswordVC.m; sourceTree = "<group>"; };
+		7974221D1E8A1E3100EC369F /* LQSCompanyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSCompanyVC.h; sourceTree = "<group>"; };
+		7974221E1E8A1E3100EC369F /* LQSCompanyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSCompanyVC.m; sourceTree = "<group>"; };
+		7974221F1E8A1E3100EC369F /* LQSEmailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSEmailVC.h; sourceTree = "<group>"; };
+		797422201E8A1E3100EC369F /* LQSEmailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSEmailVC.m; sourceTree = "<group>"; };
+		797422211E8A1E3100EC369F /* LQSNickNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSNickNameVC.h; sourceTree = "<group>"; };
+		797422221E8A1E3100EC369F /* LQSNickNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSNickNameVC.m; sourceTree = "<group>"; };
+		797422231E8A1E3100EC369F /* LQSProfessionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSProfessionVC.h; sourceTree = "<group>"; };
+		797422241E8A1E3100EC369F /* LQSProfessionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSProfessionVC.m; sourceTree = "<group>"; };
+		797422251E8A1E3100EC369F /* LQSQQVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSQQVC.h; sourceTree = "<group>"; };
+		797422261E8A1E3100EC369F /* LQSQQVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSQQVC.m; sourceTree = "<group>"; };
+		797422271E8A1E3100EC369F /* LQSSchoolVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSchoolVC.h; sourceTree = "<group>"; };
+		797422281E8A1E3100EC369F /* LQSSchoolVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSchoolVC.m; sourceTree = "<group>"; };
+		797422291E8A1E3100EC369F /* LQSSetTelephoneVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSetTelephoneVC.h; sourceTree = "<group>"; };
+		7974222A1E8A1E3100EC369F /* LQSSetTelephoneVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSetTelephoneVC.m; sourceTree = "<group>"; };
+		7974222B1E8A1E3200EC369F /* LQSSignNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSignNameVC.h; sourceTree = "<group>"; };
+		7974222C1E8A1E3200EC369F /* LQSSignNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSignNameVC.m; sourceTree = "<group>"; };
+		7974222D1E8A1E3200EC369F /* LQSWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSWebVC.h; sourceTree = "<group>"; };
+		7974222E1E8A1E3200EC369F /* LQSWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSWebVC.m; sourceTree = "<group>"; };
+		7974223A1E8A1E4100EC369F /* LQSAboutUsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAboutUsModel.h; sourceTree = "<group>"; };
+		7974223B1E8A1E4100EC369F /* LQSAboutUsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAboutUsModel.m; sourceTree = "<group>"; };
 		79F5A51E1E893928005C727F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -618,7 +617,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79F5A51F1E893928005C727F /* MessageUI.framework in Frameworks */,
 				751941F21E5591BB000BDFE1 /* ImageIO.framework in Frameworks */,
 				751941F01E5591A1000BDFE1 /* libz.tbd in Frameworks */,
 				751941EE1E559194000BDFE1 /* libc++.tbd in Frameworks */,
@@ -823,6 +821,28 @@
 		414600EF1CEF2C0500628B60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				797422191E8A1E3100EC369F /* LQSAboutUsVC.h */,
+				7974221A1E8A1E3100EC369F /* LQSAboutUsVC.m */,
+				7974221B1E8A1E3100EC369F /* LQSChangePasswordVC.h */,
+				7974221C1E8A1E3100EC369F /* LQSChangePasswordVC.m */,
+				7974221D1E8A1E3100EC369F /* LQSCompanyVC.h */,
+				7974221E1E8A1E3100EC369F /* LQSCompanyVC.m */,
+				7974221F1E8A1E3100EC369F /* LQSEmailVC.h */,
+				797422201E8A1E3100EC369F /* LQSEmailVC.m */,
+				797422211E8A1E3100EC369F /* LQSNickNameVC.h */,
+				797422221E8A1E3100EC369F /* LQSNickNameVC.m */,
+				797422231E8A1E3100EC369F /* LQSProfessionVC.h */,
+				797422241E8A1E3100EC369F /* LQSProfessionVC.m */,
+				797422251E8A1E3100EC369F /* LQSQQVC.h */,
+				797422261E8A1E3100EC369F /* LQSQQVC.m */,
+				797422271E8A1E3100EC369F /* LQSSchoolVC.h */,
+				797422281E8A1E3100EC369F /* LQSSchoolVC.m */,
+				797422291E8A1E3100EC369F /* LQSSetTelephoneVC.h */,
+				7974222A1E8A1E3100EC369F /* LQSSetTelephoneVC.m */,
+				7974222B1E8A1E3200EC369F /* LQSSignNameVC.h */,
+				7974222C1E8A1E3200EC369F /* LQSSignNameVC.m */,
+				7974222D1E8A1E3200EC369F /* LQSWebVC.h */,
+				7974222E1E8A1E3200EC369F /* LQSWebVC.m */,
 				41AC5B2A1D751C83006E38D5 /* LQSSettingMyFavourateViewController.h */,
 				41AC5B2B1D751C83006E38D5 /* LQSSettingMyFavourateViewController.m */,
 				41AC5B2E1D751C83006E38D5 /* LQSSettingMyPresentViewController.h */,
@@ -855,28 +875,6 @@
 				41AC5B431D751CF5006E38D5 /* LQSAccountManagementViewController.m */,
 				41AC5B441D751CF5006E38D5 /* LQSsetRootViewController.h */,
 				41AC5B451D751CF5006E38D5 /* LQSsetRootViewController.m */,
-				79337CF81E83AB1B00821680 /* LSKSignNameVC.h */,
-				79337CF91E83AB1B00821680 /* LSKSignNameVC.m */,
-				79F5A4FD1E84AD9B005C727F /* LSKSetTelephoneVC.h */,
-				79F5A4FE1E84AD9B005C727F /* LSKSetTelephoneVC.m */,
-				79F5A5001E84AE06005C727F /* LSKQQVC.h */,
-				79F5A5011E84AE06005C727F /* LSKQQVC.m */,
-				79F5A5031E84AE59005C727F /* LSKEmailVC.h */,
-				79F5A5041E84AE59005C727F /* LSKEmailVC.m */,
-				79F5A5061E84AE8E005C727F /* LSKSchoolVC.h */,
-				79F5A5071E84AE8E005C727F /* LSKSchoolVC.m */,
-				79F5A5091E84AEBE005C727F /* LSKCompanyVC.h */,
-				79F5A50A1E84AEBE005C727F /* LSKCompanyVC.m */,
-				79F5A50C1E84AF0D005C727F /* LSKProfessionVC.h */,
-				79F5A50D1E84AF0D005C727F /* LSKProfessionVC.m */,
-				79F5A50F1E84AF3B005C727F /* LSKNickNameVC.h */,
-				79F5A5101E84AF3B005C727F /* LSKNickNameVC.m */,
-				79F5A5121E84B3FD005C727F /* LSKChangePasswordVC.h */,
-				79F5A5131E84B3FD005C727F /* LSKChangePasswordVC.m */,
-				79F5A5151E84B755005C727F /* LSKAboutUsVC.h */,
-				79F5A5161E84B755005C727F /* LSKAboutUsVC.m */,
-				79F5A51B1E88B66C005C727F /* LSKWebVC.h */,
-				79F5A51C1E88B66C005C727F /* LSKWebVC.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -913,6 +911,8 @@
 		414600F11CEF2C2500628B60 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7974223A1E8A1E4100EC369F /* LQSAboutUsModel.h */,
+				7974223B1E8A1E4100EC369F /* LQSAboutUsModel.m */,
 				413F925D1D791CFF00D7974D /* LQSProfileEditDataModel.h */,
 				413F925E1D791CFF00D7974D /* LQSProfileEditDataModel.m */,
 				41AC5AE51D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.h */,
@@ -933,8 +933,6 @@
 				41AC5AF41D751C3E006E38D5 /* LQSUserProfileDataModel.m */,
 				415588D01D814556006508FE /* LQSSettingFavirateDataModel.h */,
 				415588D11D814556006508FE /* LQSSettingFavirateDataModel.m */,
-				79F5A5181E88A481005C727F /* LSKAboutUsModel.h */,
-				79F5A5191E88A481005C727F /* LSKAboutUsModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1754,20 +1752,21 @@
 				1477F9DA1D7019A600EE102C /* LQSForumDetailViewController.m in Sources */,
 				410FA1F71D38EB7E0021B7E2 /* UIView+Extension.m in Sources */,
 				1477F9DD1D7019BB00EE102C /* LQSForumDetailHeadView.m in Sources */,
-				79F5A5081E84AE8E005C727F /* LSKSchoolVC.m in Sources */,
 				410FA2B11D38EC830021B7E2 /* LQSForumViewController.m in Sources */,
 				149364AA1D76D2B200517A99 /* LQSArticleContentView.m in Sources */,
 				411FE79C1D6D6DC000563324 /* LQSCishanModel.m in Sources */,
 				41AC5B141D751C58006E38D5 /* LQSMessageTableViewCell.m in Sources */,
-				79337CFA1E83AB1B00821680 /* LSKSignNameVC.m in Sources */,
 				6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */,
 				6E0476671D55B32600FD6CE0 /* LQSintroduceMainlistCell.m in Sources */,
+				7974223C1E8A1E4100EC369F /* LQSAboutUsModel.m in Sources */,
 				41AC5B341D751C83006E38D5 /* LQSDetailSettingViewController.m in Sources */,
 				6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */,
 				1477F9E61D70292900EE102C /* LQSForumDetailForumInfoModel.m in Sources */,
 				DF6E05CB1D72E72E0099395A /* LQSForumDetailSectionHeadView.m in Sources */,
 				41AC5AF51D751C3E006E38D5 /* LQSHomePagePersonalMessageDataModel.m in Sources */,
 				410FA2261D38EBA30021B7E2 /* LQSTabBar.m in Sources */,
+				797422321E8A1E3200EC369F /* LQSEmailVC.m in Sources */,
+				797422361E8A1E3200EC369F /* LQSSchoolVC.m in Sources */,
 				0000C4A41D645CF5007C969C /* LQSRightTableView.m in Sources */,
 				2EA1A9EA1DD8141800F6360A /* LQSReportDetailViewController.m in Sources */,
 				411FE79E1D6D6DC000563324 /* LQSShijieDataModel.m in Sources */,
@@ -1775,11 +1774,11 @@
 				DFDC33171D714BF20059BDB4 /* UIColor+Hex.m in Sources */,
 				41F870051D767E7B00E05FAB /* LQSCompostToolbar.m in Sources */,
 				410FA2241D38EBA30021B7E2 /* LQSSpecifyFooter.m in Sources */,
+				797422391E8A1E3200EC369F /* LQSWebVC.m in Sources */,
 				413F925B1D791C9500D7974D /* LQRegisterViewController.m in Sources */,
 				E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */,
 				411FE7AB1D6D6DC700563324 /* LQSDongmanTableViewCell.m in Sources */,
 				0000C4A71D645D0F007C969C /* LQSLatestMarrowTableView.m in Sources */,
-				79F5A5141E84B3FD005C727F /* LSKChangePasswordVC.m in Sources */,
 				DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */,
 				41F86FF41D767E7200E05FAB /* LQSEmotionToolbar.m in Sources */,
 				41AC5AFB1D751C3E006E38D5 /* LQSSettingTopDataModel.m in Sources */,
@@ -1795,16 +1794,17 @@
 				413F925F1D791CFF00D7974D /* LQSProfileEditDataModel.m in Sources */,
 				41F870111D767E8800E05FAB /* LQSEmotion.m in Sources */,
 				410FA2AD1D38EC790021B7E2 /* LQSCellModel.m in Sources */,
+				797422311E8A1E3200EC369F /* LQSCompanyVC.m in Sources */,
 				6E62B0671D73D1BE001FB2A4 /* LQSAddViewHelper.m in Sources */,
 				410FA2221D38EBA30021B7E2 /* LQSNewfeatureViewController.m in Sources */,
 				6E2893DA1D6C4E8F00EF9CCA /* LQSBBSDetailModel.m in Sources */,
+				797422371E8A1E3200EC369F /* LQSSetTelephoneVC.m in Sources */,
 				41AC5AF71D751C3E006E38D5 /* LQSHomePagePersonalZiliaoDataModel.m in Sources */,
 				41AC5B121D751C58006E38D5 /* LQSHomePagePersonalPresentTableViewCell.m in Sources */,
 				2EA1A9ED1DD8465C00F6360A /* LQSDaShangTableViewController.m in Sources */,
 				41F870071D767E7B00E05FAB /* LQSEmotionKeyboard.m in Sources */,
 				41F870121D767E8800E05FAB /* LQSEmotionAttachment.m in Sources */,
 				415588D21D814556006508FE /* LQSSettingFavirateDataModel.m in Sources */,
-				79F5A5021E84AE06005C727F /* LSKQQVC.m in Sources */,
 				004FD1C71D800F57003AA2FF /* LQSMoreDataTableViewCell.m in Sources */,
 				0028857E1D8263610045B0FF /* LQFoundPSWViewController.m in Sources */,
 				149364AD1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m in Sources */,
@@ -1815,11 +1815,10 @@
 				41AC5B361D751C83006E38D5 /* LQSMessageCommentViewController.m in Sources */,
 				41AC5B3B1D751C83006E38D5 /* LQSMyHomePageViewController.m in Sources */,
 				410FA2271D38EBA30021B7E2 /* LQSTabBarViewController.m in Sources */,
-				79F5A51A1E88A481005C727F /* LSKAboutUsModel.m in Sources */,
 				41F86FF31D767E7200E05FAB /* LQSComposePhotosView.m in Sources */,
-				79F5A4FF1E84AD9B005C727F /* LSKSetTelephoneVC.m in Sources */,
 				410FA2291D38EBA30021B7E2 /* LQSTitleButton.m in Sources */,
 				41F870061D767E7B00E05FAB /* LQSEmotionGridView.m in Sources */,
+				797422331E8A1E3200EC369F /* LQSNickNameVC.m in Sources */,
 				41AC5B161D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.m in Sources */,
 				410FA22B1D38EBA30021B7E2 /* NSString+Emoji.m in Sources */,
 				0000C4A11D645CDD007C969C /* LQSLeftTableView.m in Sources */,
@@ -1837,7 +1836,6 @@
 				41AC5B171D751C58006E38D5 /* LQSSettingTopCell.m in Sources */,
 				410FA1FF1D38EB8B0021B7E2 /* YYClassInfo.m in Sources */,
 				41AC5B471D751CF5006E38D5 /* LQSsetRootViewController.m in Sources */,
-				79F5A5111E84AF3B005C727F /* LSKNickNameVC.m in Sources */,
 				6E7378B21D6E944E009B6C66 /* LQSBBSDetailViewController.m in Sources */,
 				410FA2211D38EBA30021B7E2 /* LQSNavigationController.m in Sources */,
 				00AD95D91D815225003DF089 /* LQSLeftViewCell.m in Sources */,
@@ -1845,20 +1843,18 @@
 				2E9EB6B11DE1E25200FBB0B0 /* LQSPluginView.m in Sources */,
 				1477F9E21D7019C500EE102C /* LQSForumDetailCell.m in Sources */,
 				413F925A1D791C9500D7974D /* LQLoginViewController.m in Sources */,
+				797422301E8A1E3200EC369F /* LQSChangePasswordVC.m in Sources */,
 				2EA1A9F31DD855FA00F6360A /* LQSDashangTableViewCell.m in Sources */,
 				41AC5B3E1D751C83006E38D5 /* LQSSettingMyFriendViewController.m in Sources */,
-				79F5A50E1E84AF0D005C727F /* LSKProfessionVC.m in Sources */,
 				E4D8E1B91D54188500EE6171 /* LQSBaseManager.m in Sources */,
 				6E62B0681D73D1BE001FB2A4 /* LQSBBSDetailCell.m in Sources */,
 				41F870091D767E7B00E05FAB /* LQSEmotionPopView.m in Sources */,
-				79F5A5171E84B755005C727F /* LSKAboutUsVC.m in Sources */,
 				E4D8E1DC1D542A2B00EE6171 /* LQSUserInfo.m in Sources */,
 				2E3E9EC71DE9533500D0EC2D /* LQSPluginBoardView.m in Sources */,
 				410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */,
 				411FE79D1D6D6DC000563324 /* LQSDongmanModel.m in Sources */,
 				E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */,
 				41F8700B1D767E7B00E05FAB /* LQSEmotionTextView.m in Sources */,
-				79F5A5051E84AE59005C727F /* LSKEmailVC.m in Sources */,
 				417F34C21CC9F6BC00F9714F /* LQSAppDelegate.m in Sources */,
 				E4D8E1D11D54237200EE6171 /* LQSBaseRestRequest.m in Sources */,
 				E436F2B71D72B6F7001CB8FE /* LQSMessageCenterManager.m in Sources */,
@@ -1876,12 +1872,15 @@
 				416AD5981D7FB3E700BCB2E5 /* LQSSelectPlatesDataModel.m in Sources */,
 				0000C4AE1D645E42007C969C /* LQSRightViewCell.m in Sources */,
 				41AC5AF61D751C3E006E38D5 /* LQSHomePagePersonalPresentDataModel.m in Sources */,
+				797422341E8A1E3200EC369F /* LQSProfessionVC.m in Sources */,
 				006F1CB11DC87D3900A992B5 /* LQSHTMLViewController.m in Sources */,
 				41AC5B101D751C58006E38D5 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,
 				410FA1FE1D38EB8B0021B7E2 /* NSObject+YYModel.m in Sources */,
+				797422351E8A1E3200EC369F /* LQSQQVC.m in Sources */,
 				0000C49E1D645C4A007C969C /* LQSMainView.m in Sources */,
 				410FA22A1D38EBA30021B7E2 /* LQSUITableView.m in Sources */,
 				E436F2BA1D72BC23001CB8FE /* LQSMessageRequest.m in Sources */,
+				7974222F1E8A1E3200EC369F /* LQSAboutUsVC.m in Sources */,
 				E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */,
 				41AC5B3F1D751C83006E38D5 /* LQSSettingMyPresentViewController.m in Sources */,
 				41AC5B461D751CF5006E38D5 /* LQSAccountManagementViewController.m in Sources */,
@@ -1899,15 +1898,14 @@
 				410FA22C1D38EBA30021B7E2 /* rootViewController.m in Sources */,
 				41AC5B411D751C83006E38D5 /* LQSSystemMessageViewController.m in Sources */,
 				41AC5B131D751C58006E38D5 /* LQSHomePagePersonalZiliaoTableViewCell.m in Sources */,
-				79F5A50B1E84AEBE005C727F /* LSKCompanyVC.m in Sources */,
 				41AC5B3C1D751C83006E38D5 /* LQSProfileEditViewController.m in Sources */,
-				79F5A51D1E88B66C005C727F /* LSKWebVC.m in Sources */,
 				410FA1F61D38EB7E0021B7E2 /* UIImage+Extension.m in Sources */,
 				E4D8E1D61D5423D700EE6171 /* LQSBaseModel.m in Sources */,
 				415588D81D816F04006508FE /* LQSFavirateTableViewCell.m in Sources */,
 				E4D8E1C71D54193000EE6171 /* GCDMulticastDelegate.m in Sources */,
 				41F870151D767E9300E05FAB /* LQSComposeViewController.m in Sources */,
 				41AC5AFC1D751C3E006E38D5 /* LQSUserProfileDataModel.m in Sources */,
+				797422381E8A1E3200EC369F /* LQSSignNameVC.m in Sources */,
 				41AC5B391D751C83006E38D5 /* LQSMessageViewController.m in Sources */,
 				411FE7AA1D6D6DC700563324 /* LQSDiscoverCell.m in Sources */,
 			);

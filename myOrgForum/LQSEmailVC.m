@@ -1,14 +1,14 @@
 //
-//  LSKEmailVC.m
+//  LQSEmailVC.m
 //  myOrgForum
 //
 //  Created by lsm on 17/3/24.
 //  Copyright © 2017年 SkyAndSea. All rights reserved.
 //
 
-#import "LSKEmailVC.h"
+#import "LQSEmailVC.h"
 
-@interface LSKEmailVC ()<UITextViewDelegate>
+@interface LQSEmailVC ()<UITextViewDelegate>
 {
     int width;
     int height;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation LSKEmailVC
+@implementation LQSEmailVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

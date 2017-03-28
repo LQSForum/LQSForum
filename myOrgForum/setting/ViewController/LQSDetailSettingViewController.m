@@ -8,8 +8,8 @@
 //
 
 #import "LQSDetailSettingViewController.h"
-#import "LSKChangePasswordVC.h"
-#import "LSKAboutUsVC.h"
+#import "LQSChangePasswordVC.h"
+#import "LQSAboutUsVC.h"
 #import <UShareUI/UShareUI.h>
 @interface LQSDetailSettingViewController ()<UITableViewDelegate , UITableViewDataSource>
 {
@@ -183,13 +183,13 @@
      LQSSettingPersonalSettingDataModel *model = [self.dataSource objectAtIndex:indexPath.row];
     if ([model.title isEqualToString:@"修改密码"]) {
         //
-        LSKChangePasswordVC * changePasswordVC = [[LSKChangePasswordVC alloc] init];
+        LQSChangePasswordVC * changePasswordVC = [[LQSChangePasswordVC alloc] init];
         changePasswordVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:changePasswordVC animated:YES];
     }
     if ([model.title isEqualToString:@"关于"]) {
         //
-        LSKAboutUsVC * aboutUsVC = [[LSKAboutUsVC alloc] init];
+        LQSAboutUsVC * aboutUsVC = [[LQSAboutUsVC alloc] init];
         aboutUsVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:aboutUsVC animated:YES];
     }

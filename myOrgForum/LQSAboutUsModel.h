@@ -1,5 +1,5 @@
 //
-//  LSKAboutUsModel.h
+//  LQSAboutUsModel.h
 //  myOrgForum
 //
 //  Created by lsm on 17/3/27.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LSKAboutUsModel : NSObject
+@interface LQSAboutUsModel : NSObject
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *url;
 

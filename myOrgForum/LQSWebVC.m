@@ -1,20 +1,20 @@
 //
-//  LSKWebVC.m
+//  LQSWebVC.m
 //  myOrgForum
 //
 //  Created by lsm on 17/3/27.
 //  Copyright © 2017年 SkyAndSea. All rights reserved.
 //
 
-#import "LSKWebVC.h"
+#import "LQSWebVC.h"
 
-@interface LSKWebVC ()<UIWebViewDelegate>
+@interface LQSWebVC ()<UIWebViewDelegate>
 
 @property (nonatomic, strong)UIWebView * webView;
 
 @end
 
-@implementation LSKWebVC
+@implementation LQSWebVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

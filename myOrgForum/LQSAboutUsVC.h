@@ -1,5 +1,5 @@
 //
-//  LSKEmailVC.h
+//  LQSAboutUsVC.h
 //  myOrgForum
 //
 //  Created by lsm on 17/3/24.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LSKEmailVC : UIViewController
+@interface LQSAboutUsVC : UIViewController
 
 @end

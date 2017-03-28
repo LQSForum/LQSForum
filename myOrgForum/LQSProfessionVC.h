@@ -1,5 +1,5 @@
 //
-//  LSKNickNameVC.h
+//  LQSProfessionVC.h
 //  myOrgForum
 //
 //  Created by lsm on 17/3/24.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LSKNickNameVC : UIViewController
+@interface LQSProfessionVC : UIViewController
 
 @end

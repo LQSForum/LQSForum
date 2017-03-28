@@ -1,13 +1,13 @@
 //
-//  LSKAboutUsModel.m
+//  LQSAboutUsModel.m
 //  myOrgForum
 //
 //  Created by lsm on 17/3/27.
 //  Copyright © 2017年 SkyAndSea. All rights reserved.
 //
 
-#import "LSKAboutUsModel.h"
+#import "LQSAboutUsModel.h"
 
-@implementation LSKAboutUsModel
+@implementation LQSAboutUsModel
 
 @end
