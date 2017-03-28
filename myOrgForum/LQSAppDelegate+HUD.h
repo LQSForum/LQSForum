@@ -19,4 +19,6 @@
             hideDelay:(NSTimeInterval)delay;
 //从view上移除HUD
 - (void)removeHUDFromViewDelay:(NSTimeInterval)delay;
+// 显示网络loadingView
+-(void) showIndicatorWithMessage:(NSString *)msg hudMode:(MBProgressHUDMode )mode;
 @end

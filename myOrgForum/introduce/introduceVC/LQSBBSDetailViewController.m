@@ -11,10 +11,13 @@
 #import "LQSBBSDetailCell.h"
 #import "LQSAddViewHelper.h"
 #import "LQSArticleContentView.h"
+#import "LQSHTMLViewController.h"
 // 跳转举报页
 #import "LQSReportDetailViewController.h"
 // 跳转打赏页
 #import "LQSDaShangTableViewController.h"
+// 跳转评论页
+#import "LQSHuiFuPingLunViewController.h"
 // baseManager,获取apphash等信息
 #import "LQSBaseManager.h"
 // 输入框
@@ -23,10 +26,7 @@
 #import "LQSEmotionKeyboard.h"
 #import "LQSPluginView.h"
 @interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate,LQSBBSDetailCellDelegate,UITextViewDelegate,LQSPluginViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
-    /*帖子最好实现在 tableHeaderView 里面，现在实现在cell里面，
-     所以现在声明一个ContentView来专门算高，权宜之计
-     */
-    LQSArticleContentView*    _articleView;
+    
 }
 
 @property (nonatomic, strong) UITableView *mainList;
@@ -42,10 +42,13 @@
 @property (nonatomic, strong) LQSEmotionKeyboard *emotionKeyBoard;
 // pluginBoardView
 @property (nonatomic,strong)LQSPluginView *pluginBoardView;
+@property (nonatomic,strong)NSMutableArray *replysArr;
 
 @end
 
 @implementation LQSBBSDetailViewController
+
+#pragma mark - LifeCycle
 
 - (void)viewDidLoad
 {
@@ -53,9 +56,15 @@
     self.view.backgroundColor = [UIColor whiteColor];
     // 下面这行代码解决pop回本页时tableView自动下移问题.
     self.automaticallyAdjustsScrollViewInsets = NO;
+    NSLog(@"详情页boardID：%@",self.selectModel.board_id);
     [self setupInputbtn];
     [self setUpInputView];
     [self postForData];
+    
+}
+// 在这里处理一下自动刷新操作。
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
 }
 
@@ -435,113 +444,118 @@
         _mainList.delegate = self;
         _mainList.dataSource = self;
         _mainList.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-        _mainList.separatorStyle = UITableViewCellSeparatorStyleNone;
-        
+        _mainList.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     }
     return _mainList;
 }
 #pragma mark - tableView delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return 4 ;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger numForRow = 0;
+    NSInteger numOfRow = 0;
     switch (section) {
-        case 0:
-        case 1:
+        case 0:{
+            numOfRow =1;
+            break;
+        }
+        case 1:{
+            numOfRow =1;
+            break;
+        }
         case 2:{
-            numForRow =1;
+            numOfRow =1;
             break;
         }case 3:{
-            numForRow =  self.bbsDetailModel.list.count + 1;
+            numOfRow =  self.replysArr.count;
+            // 这里的行数，可以加上最后一个“没有更多了”作为最后一个cell。
             break;
         }
             
         default:
             break;
     }
-    return numForRow;
+    return numOfRow;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // 使用先注册cell，然后dequeueReusableCellWithIdentifier withIndexPath的方法会出问题，执行顺序是先height，再cell，然后这里的赋值就没把高度赋值过去。就出现高度问题。还是得用这个!cell,创建cell。
+//    NSLog(@"CELLForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"titleCell"];
+            if (!cell) {
+                cell = [[LQSBBSDetailTitleCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"titleCell"];
+            }
+             [(LQSBBSDetailTitleCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 1:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"contentCell"];
+            if (!cell) {
+                cell = [[LQSBBSDetailContentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contentCell"];
+            }
+            [(LQSBBSDetailContentCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 2:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"voteCell"];
+            if (!cell) {
+                cell = [[LQSBBSDetailVoteCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"voteCell"];
+            }
+             [(LQSBBSDetailVoteCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 3:{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell"];
-            cell.contentView.backgroundColor = [UIColor yellowColor];
-
+            cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell" ];
+            if (!cell) {
+                cell = [[LQSBBSDetailReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"posterCell"];
+            }
+//            cell.contentView.backgroundColor = [UIColor orangeColor];
+            [(LQSBBSDetailReplyCell *)cell setPinglunModel:self.replysArr[indexPath.row]];
             break;
         }
         default:
             break;
     }
-    if (!cell) {
-        //        NSDictionary *dic;
-        switch (indexPath.section) {
-            case 0:{
-                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"titleCell"];
-                //                dic = @{@"indexPath":indexPath,@"title":LQSTR(self.bbsDetailModel.title),@"isEssence":LQSTR(self.bbsDetailModel.essence),@"hits":LQSTR(self.bbsDetailModel.hits)};
-                //                ((LQSBBSDetailCell*)cell).paramDict = [NSMutableDictionary dictionaryWithDictionary:dic];
-                
-                break;
-            }case 1:{
-                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contentCell"];
-                
-                //                dic = @{@"indexPath":indexPath,@"paramData":self.bbsDetailModel};
-                //                ((LQSBBSDetailCell*)cell).paramDict = [NSMutableDictionary dictionaryWithDictionary:dic];
-                
-                break;
-            }case 2:{
-                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"voteCell"];
-                //                dic;
-                break;
-            }case 3:{
-                cell = [[LQSBBSDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"posterCell"];
-                cell.contentView.backgroundColor = [UIColor yellowColor];
-                //                dic = @{@"indexPath":indexPath,@"paramData":self.bbsDetailModel}
-                break;
-            }
-            default:
-                break;
-        }
-        
-        ((LQSBBSDetailCell*)cell).indexPath = indexPath;
-        ((LQSBBSDetailCell*)cell).myCtrl = self;
-    }
     // 让controller成为cell的代理
-    ((LQSBBSDetailCell*)cell).bbsDetailDelegate = self;
+    ((LQSBBSDetailCell*)cell).delegate = self;
+//    NSLog(@"cellForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     return cell;
     
+}
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    // 写上这个预估高度后，也并没有先运行cell再计算高度啊。还是先heightForRow,再cellForRow。。。
+    if (indexPath.section == 0) {
+        return 80;
+    }else if (indexPath.section == 1){
+        return 500;
+    }else if(indexPath.section == 2){
+        return 80;
+    }else{
+        return 100.0;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"heightForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
+    
     CGFloat height = 0;
     switch (indexPath.section) {
         case 0:{
-            height = 73;
+            height = self.bbsDetailTopicModel.topicTitleHeight;
             break;
         }case 1:{
-            height = [self getHeightForContentCell:self.bbsDetailModel.content];//待定
+            height = self.bbsDetailTopicModel.topicContenHeight;
             break;
         }case 2:{
-            height = 75;
+            height = self.bbsDetailTopicModel.topicVoteheight;
             break;
         }case 3:{
-            height = 60;//待定
+            LQSBBSPosterModel *model = self.replysArr[indexPath.row];
+            height = model.contentHeight ;//待定
             break;
         }
         default:
@@ -549,19 +563,7 @@
     }
     return height;
 }
-//获取contentCell的高度
-- (CGFloat)getHeightForContentCell:(NSArray *)contentArr
-{
-    CGFloat height = 55;
-    if (_articleView == nil) {
-        _articleView = [[LQSArticleContentView alloc] initWithFrame:CGRectMake(0, 0, KLQScreenFrameSize.width-30, 500)];
-        _articleView.preferredMaxLayoutWidth = KLQScreenFrameSize.width-30;
-    }
-    _articleView.content = contentArr;
-    height += _articleView.contentSize.height;
-    //NSLog(@"height = %f,%@",height,_articleView);
-    return height+10 + 50;// 30为举报按钮的高度
-}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -578,10 +580,33 @@
     LQSReportDetailViewController *reportVC = [[LQSReportDetailViewController alloc]init];
     [self.navigationController pushViewController:reportVC animated:YES];
 }
-// 打赏
--(void)pushToDashang{
-    LQSDaShangTableViewController *dashangVC = [[LQSDaShangTableViewController alloc]init];
-    [self.navigationController pushViewController:dashangVC animated:YES];
+// 打赏,不用这个了。因为线上版的是个网页打赏。而不是原生页面。
+//-(void)pushToDashang{
+//    LQSDaShangTableViewController *dashangVC = [[LQSDaShangTableViewController alloc]init];
+//    [self.navigationController pushViewController:dashangVC animated:YES];
+//}
+// 跳转到网页打赏页
+-(void)pushToDashangWebWithUrl:(NSString *)url{
+    if (url.length > 0) {
+        LQSHTMLViewController *htmlVC = [[LQSHTMLViewController alloc]init];
+        htmlVC.title = @"打赏";
+        [self.navigationController pushViewController:htmlVC animated:YES];
+        [htmlVC loadHtmlControllerWithUrl:[NSURL URLWithString:url]];
+    }
+}
+// 跳转到显示更多打赏人的页面
+-(void)pushToMoreIconWebWithUrl:(NSString *)url{
+    if (url.length > 0) {
+        LQSHTMLViewController *htmlVC = [[LQSHTMLViewController alloc]init];
+        htmlVC.title = @"全部打赏";
+        [self.navigationController pushViewController:htmlVC animated:YES];
+        [htmlVC loadHtmlControllerWithUrl:[NSURL URLWithString:url]];
+    }
+}
+// 评论
+- (void)pushToReply{
+    LQSHuiFuPingLunViewController *huiFuVC = [[LQSHuiFuPingLunViewController alloc]init];
+    [self.navigationController pushViewController:huiFuVC animated:YES];
 }
 #pragma mark -  获取数据
 - (void)postForData
@@ -689,7 +714,18 @@
     }
     return _bbsDetailModel;
 }
-
+-(LQSBBSDetailTopicModel *)bbsDetailTopicModel{
+    if (!_bbsDetailTopicModel) {
+        _bbsDetailTopicModel = [[LQSBBSDetailTopicModel alloc]init];
+    }
+    return _bbsDetailTopicModel;
+}
+-(NSMutableArray *)replysArr{
+    if (!_replysArr) {
+        _replysArr = [NSMutableArray array];
+    }
+    return _replysArr;
+}
 - (void)getBBSDetailModelFrom:(NSDictionary *)dict
 {
     //帖子信息
@@ -698,75 +734,50 @@
         self.bbsDetailModel.rs = LQSTR(dict[@"rs"]);
         self.bbsDetailModel.total_num = LQSTR(dict[@"total_num"]);
         self.bbsDetailModel.has_next = LQSTR(dict[@"has_next"]);
-        self.bbsDetailModel.hits = LQSTR(dict[@"topic"][@"hits"]);
-        self.bbsDetailModel.icon = LQSTR(dict[@"topic"][@"icon"]);
-        self.bbsDetailModel.level = LQSTR(dict[@"topic"][@"level"]);
-        self.bbsDetailModel.replies = LQSTR(dict[@"topic"][@"replies"]);
-        self.bbsDetailModel.isFollow = [dict[@"topic"][@"isFollow"] integerValue];
-        self.bbsDetailModel.hot = LQSTR(dict[@"topic"][@"hot"]);
-        self.bbsDetailModel.essence = dict[@"topic"][@"essence"];
-        //        self.bbsDetailModel.location = LQSTR(dict[@"topic"][@"location"]);
-        self.bbsDetailModel.reply_status = LQSTR(dict[@"topic"][@"reply_status"]);
-        self.bbsDetailModel.flag = LQSTR(dict[@"topic"][@"flag"]);
-        self.bbsDetailModel.vote = LQSTR(dict[@"topic"][@"vote"]);
-        self.bbsDetailModel.type = LQSTR(dict[@"topic"][@"type"]);
-        self.bbsDetailModel.create_date = LQSTR(dict[@"topic"][@"create_date"]);
-        self.bbsDetailModel.is_favor = LQSTR(dict[@"topic"][@"is_favor"]);
-        self.bbsDetailModel.top = LQSTR(dict[@"topic"][@"top"]);
-        self.bbsDetailModel.status = LQSTR(dict[@"topic"][@"status"]);
-        self.bbsDetailModel.user_nick_name = LQSTR(dict[@"topic"][@"user_nick_name"]);
-        self.bbsDetailModel.user_id = LQSTR(dict[@"topic"][@"user_id"]);
-        self.bbsDetailModel.userTitle = LQSTR(dict[@"topic"][@"userTitle"]);
-        self.bbsDetailModel.gender = LQSTR(dict[@"topic"][@"gender"]);
-        self.bbsDetailModel.mobileSign = LQSTR(dict[@"topic"][@"mobileSign"]);
-        self.bbsDetailModel.reply_posts_id = LQSTR(dict[@"topic"][@"reply_posts_id"]);
-        self.bbsDetailModel.title = LQSTR(dict[@"topic"][@"title"]);
-        //        self.bbsDetailModel.sortId = LQSTR(dict[@"sortId"]);
-        self.bbsDetailModel.forumTopicUrl = LQSTR(dict[@"forumTopicUrl"]);
-        self.bbsDetailModel.page = LQSTR(dict[@"page"]);
+        [self.bbsDetailTopicModel ModelWithDict:dict[@"topic"]];
     }
-    //帖子内容
-    if (nil != [dict[@"topic"] objectForKey:@"content"]) {
-        NSArray  *contenArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict[@"topic"] objectForKey:@"content"]];
-        self.bbsDetailModel.content = [NSMutableArray arrayWithArray:contenArr];
-        NSLog(@"arr: %@",contenArr);
-    }
-    if (nil != [dict[@"topic"] objectForKey:@"zanList"]) {
-        NSArray  *zanListArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict[@"topic"] objectForKey:@"zanList"]];
-        self.bbsDetailModel.zanList = [NSMutableArray arrayWithArray:zanListArr];
-    }
+    // 回复列表
     if (nil != dict[@"list"]) {
-        self.bbsDetailModel.list = [NSMutableArray array];
+//        self.bbsDetailModel.list = [NSMutableArray array];
         for (NSDictionary *listDict in dict[@"list"]) {
             LQSBBSPosterModel *model = [[LQSBBSPosterModel alloc] init];
-            model.reply_content = [[NSMutableArray alloc] initWithArray:listDict[@"reply_content"]];
-            model.location = LQSTR(listDict[@"location"]);
-            model.mobileSign = LQSTR(listDict[@"mobileSign"]);
-            model.position = LQSTR(listDict[@"position"]);
-            model.status = LQSTR(listDict[@"status"]);
-            model.title = LQSTR(listDict[@"title"]);
-            model.delThread = LQSTR(listDict[@"delThread"]);
-            model.icon = LQSTR(listDict[@"icon"]);
-            model.reply_status = LQSTR(listDict[@"reply_status"]);
-            model.role_num = LQSTR(listDict[@"role_num"]);
-            model.level = LQSTR(listDict[@"level"]);
-            model.reply_id = LQSTR(listDict[@"reply_id"]);
-            model.reply_type = LQSTR(listDict[@"reply_type"]);
-            model.reply_name = LQSTR(listDict[@"reply_name"]);
-            model.reply_posts_id = LQSTR(listDict[@"reply_posts_id"]);
-            model.role_num = LQSTR(listDict[@"role_num"]);
-            model.is_quote = LQSTR(listDict[@"is_quote"]);
-            model.userTitle = LQSTR(listDict[@"userTitle"]);
-            model.quote_pid = LQSTR(listDict[@"quote_pid"]);
-            model.posts_date = LQSTR(listDict[@"posts_date"]);
-            model.quote_content = LQSTR(listDict[@"quote_content"]);
-            model.quote_user_name = LQSTR(listDict[@"quote_user_name"]);
-            [self.bbsDetailModel.list addObject:model];
+            [model modelWithDict:listDict];
+//            model.location = LQSTR(listDict[@"location"]);
+//            model.mobileSign = LQSTR(listDict[@"mobileSign"]);
+//            model.position = LQSTR(listDict[@"position"]);
+//            model.status = LQSTR(listDict[@"status"]);
+//            model.title = LQSTR(listDict[@"title"]);
+//            model.delThread = LQSTR(listDict[@"delThread"]);
+//            model.icon = LQSTR(listDict[@"icon"]);
+//            model.reply_status = LQSTR(listDict[@"reply_status"]);
+//            model.role_num = LQSTR(listDict[@"role_num"]);
+//            model.level = LQSTR(listDict[@"level"]);
+//            model.reply_id = LQSTR(listDict[@"reply_id"]);
+//            model.reply_type = LQSTR(listDict[@"reply_type"]);
+//            model.reply_name = LQSTR(listDict[@"reply_name"]);
+//            model.reply_posts_id = LQSTR(listDict[@"reply_posts_id"]);
+//            model.role_num = LQSTR(listDict[@"role_num"]);
+//            model.is_quote = LQSTR(listDict[@"is_quote"]);
+            // is_quote,如果是0，表示没有回复，如果是1，表示有对原来评论的引用，也就是TA评论了这个引用的评论。
+//            model.userTitle = LQSTR(listDict[@"userTitle"]);
+//            model.quote_pid = LQSTR(listDict[@"quote_pid"]);
+//            model.posts_date = LQSTR(listDict[@"posts_date"]);
+//            model.quote_content = LQSTR(listDict[@"quote_content"]);
+//            //quote_content，二级评论的内容。也就是他评论的是那个评论的，而且，发现，二级评论的层数只有一层，就是不能直接回复楼中楼。不知道为什么做成这样的效果。和微信等主流效果并不相同。
+//            // 如果做成线上版的这种效果，就不需要处理成一级回复为sectionheader，二级回复等是cell的效果。直接用cell，以及cell内置的一个label就可以了。
+//            model.quote_user_name = LQSTR(listDict[@"quote_user_name"]);
+            [self.replysArr addObject:model];
             
         }
     }
 }
-
+//- (CGFloat)caculateCellHeightWithWidth:(CGFloat)width contentStr:(NSString *)str{
+//    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
+//    // 计算文字高度
+//    CGRect rect = [str  boundingRectWithSize:CGSizeMake(width, 1000) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
+//    return rect.size.height;
+//
+//}
 
 /*
  {

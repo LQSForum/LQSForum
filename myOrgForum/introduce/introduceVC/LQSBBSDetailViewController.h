@@ -13,7 +13,11 @@
 @interface LQSBBSDetailViewController : UIViewController
 
 @property (nonatomic, strong) LQSBBSDetailModel *bbsDetailModel;
-@property (nonatomic, strong) LQSIntroduceMainListModel *selectModel;
+// topicModel
+@property (nonatomic, strong) LQSBBSDetailTopicModel *bbsDetailTopicModel;
+// replayModel
+@property (nonatomic, strong) LQSBBSPosterModel *bbsDetailPosterModel;
+@property (nonatomic, strong) LQSIntroduceMainListModel *selectModel;// 暂时不用。
 // 用于跳转帖子
 @property (nonatomic,strong)NSString *boardID;
 @property (nonatomic,strong)NSString *topicID;

@@ -21,4 +21,5 @@
 #pragma mark - 小工具
 //计算特定字符出现的次数
 + (NSInteger)getCountOfString:(NSString *)string forCharacter:(NSString *)charaStr;
++ (NSString *)createDataDescriptionWithStr:(NSString *)string;
 @end

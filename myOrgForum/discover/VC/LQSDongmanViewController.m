@@ -163,6 +163,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"CELLForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     static NSString *identifier = @"dongManCell";
     LQSDongmanTableViewCell *dongmancell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (dongmancell == nil) {
@@ -177,7 +178,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+NSLog(@"heightForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     LQSDongmanTableViewCell *dongmanCell = (LQSDongmanTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
     return dongmanCell.cellHeight;
 
@@ -190,8 +191,10 @@
 
     LQSBBSDetailViewController *detailVc = [LQSBBSDetailViewController new];
     LQSDongmanListModel *model = [_dongManDataArray objectAtIndex:indexPath.row];
-    detailVc.selectModel.board_id = model.board_id;
-    detailVc.selectModel.topicId = model.fid;
+//    detailVc.selectModel.board_id = model.board_id;
+//    detailVc.selectModel.topicId = model.fid;
+    detailVc.boardID = model.board_id;
+    detailVc.topicID = model.source_id;
     [self.navigationController pushViewController:detailVc animated:NO];
 
 

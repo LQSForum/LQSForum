@@ -49,28 +49,56 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (section) {
-        case 0:
-            return 1;
-            break;
-        case 1:
-            return 2;
-            break;
-        case 2:
-            return 1;
-            break;
-        default:
-            break;
-    }
-    return 0;
+
+    return 1;
 }
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headerView;
+-(LQSdashangSecView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    LQSdashangSecView *headerView;
     if (section == 0) {
         headerView = [[LQSdashangSecView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 60)];
-        
+        headerView.headerOrFooter = header;
+        [headerView setupViews];
     }
     return headerView;
+}
+-(LQSdashangSecView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    LQSdashangSecView *footerView;
+    if (section == 2) {
+        footerView = [[LQSdashangSecView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
+        footerView.headerOrFooter = footer;
+        [footerView setupViews];
+        footerView.sureBtnclkBlock = ^(UIButton *btn){
+            NSLog(@"viewForFooterInSection.btnClick");
+        };
+    }
+    return footerView;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell;
+    if (indexPath.section == 0) {
+        LQSDashangTableViewCell *weixiaoCell = [tableView dequeueReusableCellWithIdentifier:@"weixiaoCell"];
+        if (!weixiaoCell) {
+            weixiaoCell = [[LQSDashangTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"weixiaoCell"];
+        }
+        weixiaoCell.indexPath = indexPath;
+        return weixiaoCell;
+    }else if (indexPath.section == 1){
+        LQSDashangTableViewCell *pingfenCell = [tableView dequeueReusableCellWithIdentifier:@"pingfenCell"];
+        if (!pingfenCell) {
+            pingfenCell = [[LQSDashangTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"pingfenCell"];
+        }
+        pingfenCell.indexPath = indexPath;
+        return pingfenCell;
+    }
+    else if (indexPath.section == 2){
+        LQSDashangTableViewCell *tongZhiZuoZheCell = [tableView dequeueReusableCellWithIdentifier:@"tongZhiCell"];
+        if (!tongZhiZuoZheCell) {
+            tongZhiZuoZheCell = [[LQSDashangTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tongZhiCell"];
+        }
+        tongZhiZuoZheCell.indexPath = indexPath;
+        return tongZhiZuoZheCell;
+    }
+    return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
@@ -78,50 +106,12 @@
     }
     else {return 20;}
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
-    switch (indexPath.section) {
-        case 0:{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"weixiaoCell"];
-            break;
-        }case 1:{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"pingfenCell"];
-            break;
-        }case 2:{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"tongzhiCell"];
-            break;
-        }
-        default:
-            break;
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if (section == 2){
+        return 56;
     }
-    if (!cell) {
-        //        NSDictionary *dic;
-        switch (indexPath.section) {
-            case 0:{
-                cell = [[LQSDashangTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"weixiaoCell"];
-                //                dic = @{@"indexPath":indexPath,@"title":LQSTR(self.bbsDetailModel.title),@"isEssence":LQSTR(self.bbsDetailModel.essence),@"hits":LQSTR(self.bbsDetailModel.hits)};
-                //                ((LQSBBSDetailCell*)cell).paramDict = [NSMutableDictionary dictionaryWithDictionary:dic];
-                
-                break;
-            }case 1:{
-                cell = [[LQSDashangTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"pingfenCell"];
-                
-                //                dic = @{@"indexPath":indexPath,@"paramData":self.bbsDetailModel};
-                //                ((LQSBBSDetailCell*)cell).paramDict = [NSMutableDictionary dictionaryWithDictionary:dic];
-                
-                break;
-            }case 2:{
-                cell = [[LQSDashangTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tongzhiCell"];
-                //                dic;
-                break;
-            }
-            default:
-                break;
-        }}
-
-    return cell;
+    return 0.1;
 }
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat height = 0;
     switch (indexPath.section) {
@@ -129,10 +119,10 @@
             height = 50;
             break;
         }case 1:{
-            return 60;
+            return 115;
             break;
         }case 2:{
-            height = 75;
+            height = 40;
             break;
         }
         default:

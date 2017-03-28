@@ -195,8 +195,10 @@
 
     LQSBBSDetailViewController *detailVc = [LQSBBSDetailViewController new];
     LQSShijieDataListModel *model = [_discoriesArr objectAtIndex:index];
-    detailVc.selectModel.board_id = model.board_id;
-    detailVc.selectModel.topicId = model.source_id;
+//    detailVc.selectModel.board_id = model.board_id;
+//    detailVc.selectModel.topicId = model.source_id;
+    detailVc.boardID = model.board_id;
+    detailVc.topicID = model.source_id;
     [self.navigationController pushViewController:detailVc animated:NO];
 
 
