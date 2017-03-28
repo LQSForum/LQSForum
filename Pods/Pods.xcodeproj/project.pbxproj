@@ -1212,6 +1212,55 @@
 			path = UMengUShare;
 			sourceTree = "<group>";
 		};
+		2B2C71BA0C3F0CC735897FDA7A30077E /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				CFF3027EC6D774B180B9DBDD08A7F733 /* MJRefresh.h */,
+				FDB528E805CA5C5D214B9E4E8AC4EBA1 /* MJRefreshAutoFooter.h */,
+				08A020941363D420BBE7F10158F7ACA7 /* MJRefreshAutoFooter.m */,
+				559F14DFC2C8E1BC7B1AC29A66E48E6D /* MJRefreshAutoGifFooter.h */,
+				61F9CC302714D77CAAD2BBCC590B0148 /* MJRefreshAutoGifFooter.m */,
+				7920E70EDE43E53435043C09368B49F1 /* MJRefreshAutoNormalFooter.h */,
+				ACB868AC22978CD760DCFD9901E03A13 /* MJRefreshAutoNormalFooter.m */,
+				A56E3509B91FDC457BD2E4D719BC422F /* MJRefreshAutoStateFooter.h */,
+				25A668E0E992923EC0638080EB40C41B /* MJRefreshAutoStateFooter.m */,
+				F14CEF965A7B07875C16E75366C24EF5 /* MJRefreshBackFooter.h */,
+				B88A739018DC2B08AC085F1F953EB98D /* MJRefreshBackFooter.m */,
+				AB80B6EB85CD6B46ECAE6917334AD187 /* MJRefreshBackGifFooter.h */,
+				BC1229FE986BCCE89D5298AE9CFCB14E /* MJRefreshBackGifFooter.m */,
+				7D664105F84B762FBD330FCDCDE1E10A /* MJRefreshBackNormalFooter.h */,
+				35C6B36519E57C12BB9EFAD8B0932601 /* MJRefreshBackNormalFooter.m */,
+				2B14A2B9948397C64C72EA13FFB73CB8 /* MJRefreshBackStateFooter.h */,
+				102AF4200821E4C7507BF324B6AE9591 /* MJRefreshBackStateFooter.m */,
+				70B389ADB17AC2433172AE331636E79E /* MJRefreshComponent.h */,
+				AE24FF5E47CB0DCC4BECEAA572A94E6A /* MJRefreshComponent.m */,
+				62291D4F3BD4985B87B361A11C07761E /* MJRefreshConst.h */,
+				59253AA293AB1B74D21589BFAEFE1C74 /* MJRefreshConst.m */,
+				62BF23E3B9E60D6AE37E87E7A0F56DE7 /* MJRefreshFooter.h */,
+				AD9C85150FA64C088CF894176B4B3C89 /* MJRefreshFooter.m */,
+				1F2E3DE9CA89124A8D3D9F45B41C242F /* MJRefreshGifHeader.h */,
+				F682B5940D92373311AE468F6D2D3E8A /* MJRefreshGifHeader.m */,
+				6D41C2E30EC2489BA3F28E57F7718E94 /* MJRefreshHeader.h */,
+				CB36FF2143884D4B3647455DC526B972 /* MJRefreshHeader.m */,
+				2F01ABBF562D624BF4CB4084C2E041E2 /* MJRefreshNormalHeader.h */,
+				0C5940ACD8D2396795642412B532D4D4 /* MJRefreshNormalHeader.m */,
+				E78699487BA21354D13C25B729123B77 /* MJRefreshStateHeader.h */,
+				A0B68D84C6EB62D9B4BAE0D33336B740 /* MJRefreshStateHeader.m */,
+				DD75D3B4CFA553EBC5474B4D6B7A43C0 /* NSBundle+MJRefresh.h */,
+				3F2053CB050129CAD7ACC4169B47289B /* NSBundle+MJRefresh.m */,
+				AE88291FF0005A5A49537C0E2A7FCBE0 /* UIScrollView+MJExtension.h */,
+				235F2EA3974D5423331893522DC1BF58 /* UIScrollView+MJExtension.m */,
+				36CA06AA5F7B812DD67CE74BCD02AF03 /* UIScrollView+MJRefresh.h */,
+				277BAC67A150A840F52D24B985DAC30B /* UIScrollView+MJRefresh.m */,
+				56B9290CA87EED3EC4FF99A1AF46DB87 /* UIView+MJExtension.h */,
+				38FE2E3C0C1C9570E8000ADD1235CFF1 /* UIView+MJExtension.m */,
+				10CD69C8A6D2AA8C7D5A3F59594909F9 /* Resources */,
+				9AAD57708BBC6F321B80BB7E03845D3D /* Support Files */,
+			);
+			name = MJRefresh;
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
 		406833B1655554E6492301F22C54E002 /* Pods-myOrgForumTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1515,6 +1564,40 @@
 				EEDF00B0AB815FE4164E2E1FA8576485 /* Resources */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		7AC5572F131E98E60EFE0D44A27DBEBE /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				299B7993C02FDB8430BA13CE61269CA0 /* MASCompositeConstraint.h */,
+				834C20690FE1A331AFBDD31F4B5F9430 /* MASCompositeConstraint.m */,
+				97605CF5BB688246F8EE06A7F5F4E75B /* MASConstraint.h */,
+				BE798400F3BB3E50B40A3B24285DA695 /* MASConstraint.m */,
+				97EF5EA7939ED497C201AC36974F5503 /* MASConstraint+Private.h */,
+				1ECEC11ADB4933AB133FDD9ECDEDF3FC /* MASConstraintMaker.h */,
+				5A866F0E37357074BDE67D092BF82B83 /* MASConstraintMaker.m */,
+				6F1CF619FE2C5AFBCDF2C874F8B792A9 /* MASLayoutConstraint.h */,
+				23FD4C02D53CE2173315275904A5E3A5 /* MASLayoutConstraint.m */,
+				094DFAE272CAE3F830AC1BA6C85229F9 /* Masonry.h */,
+				337DB5F4B63E115805BC8F3E9E113113 /* MASUtilities.h */,
+				ACE42136D0010FBBE55A0EE0635EBCB3 /* MASViewAttribute.h */,
+				CE180540CBF4FBE4E74D89A111399D64 /* MASViewAttribute.m */,
+				71C6EE7424F4882FC58F60C67C757B4B /* MASViewConstraint.h */,
+				DA84AF15D26A8FF760AA143E17C8F386 /* MASViewConstraint.m */,
+				453BD78EAE8786B8A6CEA93A9336461A /* NSArray+MASAdditions.h */,
+				842C6191BCA441F550307BF2066A7BB7 /* NSArray+MASAdditions.m */,
+				6387B9602D15EC4017CE4BB2B1217EB0 /* NSArray+MASShorthandAdditions.h */,
+				C771447421DAD748D7B2F266A4D9B8A0 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				2E89E7B922BF36650B1382AF616AB4E2 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				B9E014C30829322C5A31B97F5E2AB3F9 /* View+MASAdditions.h */,
+				FC1FCA6B365DB36936BAD64618FD6D8D /* View+MASAdditions.m */,
+				CB162837118CD52BB160C04FE8B34A70 /* View+MASShorthandAdditions.h */,
+				347F834B1612032C1E287F90B609CB95 /* ViewController+MASAdditions.h */,
+				6074FBD4C540D6FF1BD80B9AAFBE0867 /* ViewController+MASAdditions.m */,
+				62B523C9807F31B95C401A24469477A6 /* Support Files */,
+			);
+			name = Masonry;
+			path = Masonry;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -2906,7 +2989,53 @@
 		};
 		17AD33588C1FCF4AF4106B82A677F1F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C03ADEA8B873A8F83B5C48893104DA3C /* MJPhotoBrowser.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		17AD33588C1FCF4AF4106B82A677F1F6 /* Release */ = {
+			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01BC2B24F24C424319211705E96379FB /* MJPhotoBrowser.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		24455948D3A3C98235995A605DB59FFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4F33F7A758FE8B7583E2A52446B6D5B /* MJExtension.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2962,7 +3091,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/MJExtension/MJExtension-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -2971,7 +3100,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
 		2B14B11887182D5C343DD7F87AFE5961 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2994,7 +3123,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		2D6505E4F84AB187E42E7D1F17C02FC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -3008,7 +3137,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -3017,7 +3146,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		36F5EBA563994CD0425B619F4F652961 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -3090,7 +3219,6 @@
 		};
 		44CDBB6D11DE06DB64D6268622BDC47E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1BF00DDE4C30C55A6288D4E9AF726448 /* YLGIFImage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -3139,14 +3267,14 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/YLGIFImage/YLGIFImage-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -3242,7 +3370,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		81D27BBFE39221A11085CC94C71E9978 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -3308,6 +3436,30 @@
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9B54957FA80C6157AC7F4F57ACAB32ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A93BA482591B16FFA3A27BC35EC66D3B /* Pods-myOrgForumUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -3328,13 +3480,13 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		BD72C910CF06A908E01F9641AE3A95B5 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -3397,9 +3549,9 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -3438,14 +3590,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/FDStackView/FDStackView-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};

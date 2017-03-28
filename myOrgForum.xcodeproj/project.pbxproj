@@ -153,6 +153,8 @@
 		6E62B0681D73D1BE001FB2A4 /* LQSBBSDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E62B0661D73D1BE001FB2A4 /* LQSBBSDetailCell.m */; };
 		6E7378B21D6E944E009B6C66 /* LQSBBSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7378B11D6E944E009B6C66 /* LQSBBSDetailViewController.m */; };
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
+		CD2D803F1E827605002D3E09 /* LQSHuiFuPingLunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2D803E1E827605002D3E09 /* LQSHuiFuPingLunViewController.m */; };
+		CDF9C9D01E8A63C500EC031C /* lqsemoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDF9C9CF1E8A63C500EC031C /* lqsemoji.plist */; };
 		751941E61E5588C6000BDFE1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941E51E5588C6000BDFE1 /* libsqlite3.tbd */; };
 		751941E81E558A36000BDFE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941E71E558A36000BDFE1 /* CoreGraphics.framework */; };
 		751941EA1E559174000BDFE1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941E91E559174000BDFE1 /* SystemConfiguration.framework */; };
@@ -195,7 +197,6 @@
 		E4430D581D54B74C0014A6FE /* package.json in Resources */ = {isa = PBXBuildFile; fileRef = E4430D4C1D54B74C0014A6FE /* package.json */; };
 		E494EB831E6A732700AAD1B2 /* YBPopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E494EB821E6A732700AAD1B2 /* YBPopupMenu.m */; };
 		E4D8E1B91D54188500EE6171 /* LQSBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1B81D54188500EE6171 /* LQSBaseManager.m */; };
-		E4D8E1C51D54193000EE6171 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C01D54193000EE6171 /* AsyncSocket.m */; };
 		E4D8E1C61D54193000EE6171 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C21D54193000EE6171 /* GCDAsyncSocket.m */; };
 		E4D8E1C71D54193000EE6171 /* GCDMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C41D54193000EE6171 /* GCDMulticastDelegate.m */; };
 		E4D8E1CA1D541B6700EE6171 /* LQSUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1C91D541B6700EE6171 /* LQSUserManager.m */; };
@@ -523,6 +524,7 @@
 		6E75DCFD1D3FC0D900C7BD82 /* LQSCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCommonDefine.h; path = Utilities/LQSCommonDefine.h; sourceTree = "<group>"; };
 		72F7FCE84BA2B2676C40B54F /* Pods-myOrgForumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		751941E51E5588C6000BDFE1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		751941E51E5588C6000BDFE1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		751941E71E558A36000BDFE1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		751941E91E559174000BDFE1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		751941EB1E559182000BDFE1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -554,7 +556,6 @@
 		7974223A1E8A1E4100EC369F /* LQSAboutUsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAboutUsModel.h; sourceTree = "<group>"; };
 		7974223B1E8A1E4100EC369F /* LQSAboutUsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAboutUsModel.m; sourceTree = "<group>"; };
 		79F5A51E1E893928005C727F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C12DEEB8E74CDD3E0CF002 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
 		CCAA7D55F8D7734222CE3140 /* Pods-myOrgForumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -624,13 +625,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				751941F21E5591BB000BDFE1 /* ImageIO.framework in Frameworks */,
+				751941F21E5591BB000BDFE1 /* ImageIO.framework in Frameworks */,
 				751941F01E5591A1000BDFE1 /* libz.tbd in Frameworks */,
 				751941EE1E559194000BDFE1 /* libc++.tbd in Frameworks */,
 				751941EC1E559182000BDFE1 /* CoreTelephony.framework in Frameworks */,
 				751941EA1E559174000BDFE1 /* SystemConfiguration.framework in Frameworks */,
 				751941E81E558A36000BDFE1 /* CoreGraphics.framework in Frameworks */,
 				751941E61E5588C6000BDFE1 /* libsqlite3.tbd in Frameworks */,
-				E66318282059FD59F7685FD7 /* libPods-myOrgForum.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
