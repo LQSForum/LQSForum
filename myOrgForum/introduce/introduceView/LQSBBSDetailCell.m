@@ -346,7 +346,7 @@
 @end
 #pragma  mark - contentCell 帖子内容
 
-@interface LQSBBSDetailContentCell()
+@interface LQSBBSDetailContentCell()<UITextViewDelegate>
 // 举报警察按钮
 @property (nonatomic,strong)UIButton *policeBtn;
 @property (nonatomic,strong)UIImageView *userImgView;
@@ -426,6 +426,7 @@
         make.width.equalTo(@(LQSScreenW - 30));
     }];
     self.articleView.preferredMaxLayoutWidth = LQSScreenW - 30;
+    self.articleView.delegate = self;
     self.articleView.scrollEnabled = NO;
     self.articleView.editable = NO;
     self.reportBtn = [[UIButton alloc]init];
@@ -486,7 +487,32 @@
     }];
     
 }
-
+#pragma mark - textviewdelegate,帖子内容的图片点击事件
+-(BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction{
+    // 在这里获取点击的attachment，处理弹出图片详情.但是这里使用的第三方图片浏览器没有那个分享按钮，需要解决下。
+    // 1.创建浏览器对象
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+    // 拿到图片URL数组
+    NSMutableArray *picUrlStrArr = self.articleView.picUrlArr;
+    // 2.设置浏览器对象的所有图片
+    NSMutableArray *mjphotos = [NSMutableArray array];
+    for (int i = 0; i< picUrlStrArr.count; i++) {
+        // 创建MJPhoto模型
+        MJPhoto *mjphoto = [[MJPhoto alloc] init];
+        // 设置图片的url
+        mjphoto.url = [NSURL URLWithString:[picUrlStrArr objectAtIndex:i]];
+        // 设置图片的来源view
+        mjphoto.srcImageView = [[UIImageView alloc]initWithImage:textAttachment.image] ;
+        [mjphotos addObject:mjphoto];
+    }
+    browser.photos = mjphotos;
+    // 3.设置浏览器默认显示的图片位置
+//    browser.currentPhotoIndex = tap.view.tag;
+    browser.currentPhotoIndex = 1;
+    // 4.显示浏览器
+    [browser show];
+    return YES;
+}
 @end
 #pragma mark - voteCell 打赏cell
 

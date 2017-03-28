@@ -18,6 +18,7 @@ static NSString * const kPatternPhiz = @"\\[mobcent_phiz=(http[s]?://[\\w./]*)\\
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         _attachmentArray = [[NSMutableArray alloc] init];
+        _picUrlArr = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -43,6 +44,7 @@ static NSString * const kPatternPhiz = @"\\[mobcent_phiz=(http[s]?://[\\w./]*)\\
         [item.imageView removeFromSuperview];
     }
     [_attachmentArray removeAllObjects];
+    [_picUrlArr removeAllObjects];
     for (LQSBBSContentModel *model in content) {
         if ([model.type isEqualToString:@"0"]) {
             NSMutableAttributedString* textString = [[NSMutableAttributedString alloc] initWithString:model.infor attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
@@ -67,17 +69,21 @@ static NSString * const kPatternPhiz = @"\\[mobcent_phiz=(http[s]?://[\\w./]*)\\
             }
             
             [resultString appendAttributedString:textString];
-        }
+        }// type为1表示是图片信息
         else if ([model.type isEqualToString:@"1"]){
             NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
             CGFloat width = self.preferredMaxLayoutWidth?:self.width;
             attachment.bounds = CGRectMake(0, 0, width, width*470/690+20);
             attachment.image = [UIImage imageNamed:@"mc_forum_add_new_img"];
             __weak typeof(self) weakSelf = self;
-            [attachment sd_setImageWithURL:[NSURL URLWithString:model.infor] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            NSString *picUrlStr = model.infor;
+            NSURL *picUrl = [NSURL URLWithString:picUrlStr];
+            [attachment sd_setImageWithURL:picUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 [weakSelf setNeedsDisplay];
             }];
             [resultString appendAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
+            // 每次检查到type = 1的信息，就保存图片地址。
+            [_picUrlArr addObject:picUrlStr];
         }
         else{}
     }
