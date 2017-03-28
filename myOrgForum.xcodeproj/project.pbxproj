@@ -170,6 +170,9 @@
 		79F5A5111E84AF3B005C727F /* LSKNickNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A5101E84AF3B005C727F /* LSKNickNameVC.m */; };
 		79F5A5141E84B3FD005C727F /* LSKChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A5131E84B3FD005C727F /* LSKChangePasswordVC.m */; };
 		79F5A5171E84B755005C727F /* LSKAboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A5161E84B755005C727F /* LSKAboutUsVC.m */; };
+		79F5A51A1E88A481005C727F /* LSKAboutUsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A5191E88A481005C727F /* LSKAboutUsModel.m */; };
+		79F5A51D1E88B66C005C727F /* LSKWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A51C1E88B66C005C727F /* LSKWebVC.m */; };
+		79F5A51F1E893928005C727F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F5A51E1E893928005C727F /* MessageUI.framework */; };
 		DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */; };
 		DF5A072C1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072B1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m */; };
 		DF5A072F1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072E1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m */; };
@@ -546,6 +549,11 @@
 		79F5A5131E84B3FD005C727F /* LSKChangePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKChangePasswordVC.m; sourceTree = "<group>"; };
 		79F5A5151E84B755005C727F /* LSKAboutUsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKAboutUsVC.h; sourceTree = "<group>"; };
 		79F5A5161E84B755005C727F /* LSKAboutUsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKAboutUsVC.m; sourceTree = "<group>"; };
+		79F5A5181E88A481005C727F /* LSKAboutUsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKAboutUsModel.h; sourceTree = "<group>"; };
+		79F5A5191E88A481005C727F /* LSKAboutUsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKAboutUsModel.m; sourceTree = "<group>"; };
+		79F5A51B1E88B66C005C727F /* LSKWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKWebVC.h; sourceTree = "<group>"; };
+		79F5A51C1E88B66C005C727F /* LSKWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKWebVC.m; sourceTree = "<group>"; };
+		79F5A51E1E893928005C727F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C12DEEB8E74CDD3E0CF002 /* Pods-myOrgForum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForum/Pods-myOrgForum.debug.xcconfig"; sourceTree = "<group>"; };
@@ -610,6 +618,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F5A51F1E893928005C727F /* MessageUI.framework in Frameworks */,
 				751941F21E5591BB000BDFE1 /* ImageIO.framework in Frameworks */,
 				751941F01E5591A1000BDFE1 /* libz.tbd in Frameworks */,
 				751941EE1E559194000BDFE1 /* libc++.tbd in Frameworks */,
@@ -866,6 +875,8 @@
 				79F5A5131E84B3FD005C727F /* LSKChangePasswordVC.m */,
 				79F5A5151E84B755005C727F /* LSKAboutUsVC.h */,
 				79F5A5161E84B755005C727F /* LSKAboutUsVC.m */,
+				79F5A51B1E88B66C005C727F /* LSKWebVC.h */,
+				79F5A51C1E88B66C005C727F /* LSKWebVC.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -922,6 +933,8 @@
 				41AC5AF41D751C3E006E38D5 /* LQSUserProfileDataModel.m */,
 				415588D01D814556006508FE /* LQSSettingFavirateDataModel.h */,
 				415588D11D814556006508FE /* LQSSettingFavirateDataModel.m */,
+				79F5A5181E88A481005C727F /* LSKAboutUsModel.h */,
+				79F5A5191E88A481005C727F /* LSKAboutUsModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1293,6 +1306,7 @@
 		D2FF60D40CEE75621BCC406D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79F5A51E1E893928005C727F /* MessageUI.framework */,
 				751941F11E5591BB000BDFE1 /* ImageIO.framework */,
 				751941EF1E5591A1000BDFE1 /* libz.tbd */,
 				751941ED1E559194000BDFE1 /* libc++.tbd */,
@@ -1801,6 +1815,7 @@
 				41AC5B361D751C83006E38D5 /* LQSMessageCommentViewController.m in Sources */,
 				41AC5B3B1D751C83006E38D5 /* LQSMyHomePageViewController.m in Sources */,
 				410FA2271D38EBA30021B7E2 /* LQSTabBarViewController.m in Sources */,
+				79F5A51A1E88A481005C727F /* LSKAboutUsModel.m in Sources */,
 				41F86FF31D767E7200E05FAB /* LQSComposePhotosView.m in Sources */,
 				79F5A4FF1E84AD9B005C727F /* LSKSetTelephoneVC.m in Sources */,
 				410FA2291D38EBA30021B7E2 /* LQSTitleButton.m in Sources */,
@@ -1886,6 +1901,7 @@
 				41AC5B131D751C58006E38D5 /* LQSHomePagePersonalZiliaoTableViewCell.m in Sources */,
 				79F5A50B1E84AEBE005C727F /* LSKCompanyVC.m in Sources */,
 				41AC5B3C1D751C83006E38D5 /* LQSProfileEditViewController.m in Sources */,
+				79F5A51D1E88B66C005C727F /* LSKWebVC.m in Sources */,
 				410FA1F61D38EB7E0021B7E2 /* UIImage+Extension.m in Sources */,
 				E4D8E1D61D5423D700EE6171 /* LQSBaseModel.m in Sources */,
 				415588D81D816F04006508FE /* LQSFavirateTableViewCell.m in Sources */,
