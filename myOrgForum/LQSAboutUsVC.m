@@ -105,14 +105,46 @@
 {
     return array.count;
 }
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView * footerView = [[UIView alloc] init];
+    [footerView setFrame:CGRectMake(0, 0, WIDTH, 150)];
+    UILabel * versionLabel = [[UILabel alloc]init];
+    [versionLabel setFrame:CGRectMake(0, 110, WIDTH, 20)];
+    [versionLabel setTextAlignment:NSTextAlignmentCenter];
+    [versionLabel setText:@"version1.1.60 build v2035.2"];
+    
+    UILabel * companyLabel = [[UILabel alloc]init];
+    [companyLabel setFrame:CGRectMake(0, 90, WIDTH, 20)];
+    [companyLabel setTextAlignment:NSTextAlignmentCenter];
+    [companyLabel setText:@"龙泉寺"];
+    
+    UIImageView * imageView = [[UIImageView alloc] init];
+    [imageView setFrame:CGRectMake(WIDTH/2-40, 10, 80, 80)];
+    [imageView setImage:[UIImage imageNamed:@"icon"]];
+    
+    [footerView addSubview:versionLabel];
+    [footerView addSubview:companyLabel];
+    [footerView addSubview:imageView];
+    
+    return footerView;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 150;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString * cellIdentifier = [NSString stringWithFormat:@"cell%ld",(long)indexPath.section];
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
+        
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.accessoryType = UITableViewCellStyleValue1;
+        if (indexPath.row != 0) {
+            cell.accessoryType = UITableViewCellStyleValue1;
+        }
+        
     }
     LQSAboutUsModel * model = array[indexPath.row];
     [cell.textLabel setText:model.title];
@@ -120,6 +152,7 @@
     [cell.textLabel setTextColor:[UIColor blackColor]];
     [cell.detailTextLabel setText:model.url];
     [cell.detailTextLabel setTextColor:LQSColor(21, 194, 251, 1)];
+    
    
  
     return cell;
@@ -135,7 +168,9 @@
     if ([model.title isEqualToString:@"反馈邮箱"]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto://admin@hzlzh.com"]];
         
-    }else if (![model.title isEqualToString:@"龙泉寺官方论坛"]) {
+    }else if ([model.title isEqualToString:@"应用介绍"]) {
+        //无作用
+    }else{
         LQSWebVC * webVC = [[LQSWebVC alloc] init];
         webVC.urlString = model.url;
         webVC.hidesBottomBarWhenPushed = YES;
