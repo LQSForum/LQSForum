@@ -540,7 +540,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"heightForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
+    //NSLog(@"heightForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     
     CGFloat height = 0;
     switch (indexPath.section) {

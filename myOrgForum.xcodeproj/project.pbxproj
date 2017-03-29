@@ -153,8 +153,6 @@
 		6E62B0681D73D1BE001FB2A4 /* LQSBBSDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E62B0661D73D1BE001FB2A4 /* LQSBBSDetailCell.m */; };
 		6E7378B21D6E944E009B6C66 /* LQSBBSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7378B11D6E944E009B6C66 /* LQSBBSDetailViewController.m */; };
 		6E75DCFB1D3FB64F00C7BD82 /* LQSUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */; };
-		CD2D803F1E827605002D3E09 /* LQSHuiFuPingLunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2D803E1E827605002D3E09 /* LQSHuiFuPingLunViewController.m */; };
-		CDF9C9D01E8A63C500EC031C /* lqsemoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDF9C9CF1E8A63C500EC031C /* lqsemoji.plist */; };
 		751941E61E5588C6000BDFE1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941E51E5588C6000BDFE1 /* libsqlite3.tbd */; };
 		751941E81E558A36000BDFE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941E71E558A36000BDFE1 /* CoreGraphics.framework */; };
 		751941EA1E559174000BDFE1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751941E91E559174000BDFE1 /* SystemConfiguration.framework */; };
@@ -174,6 +172,8 @@
 		797422381E8A1E3200EC369F /* LQSSignNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974222C1E8A1E3200EC369F /* LQSSignNameVC.m */; };
 		797422391E8A1E3200EC369F /* LQSWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974222E1E8A1E3200EC369F /* LQSWebVC.m */; };
 		7974223C1E8A1E4100EC369F /* LQSAboutUsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7974223B1E8A1E4100EC369F /* LQSAboutUsModel.m */; };
+		CD2D803F1E827605002D3E09 /* LQSHuiFuPingLunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2D803E1E827605002D3E09 /* LQSHuiFuPingLunViewController.m */; };
+		CDF9C9D01E8A63C500EC031C /* lqsemoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDF9C9CF1E8A63C500EC031C /* lqsemoji.plist */; };
 		DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A07281D72F2AB001B2ED7 /* LQSForumDetailChildCell.m */; };
 		DF5A072C1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072B1D7329AB001B2ED7 /* LQSForumDetailOptionViewController.m */; };
 		DF5A072F1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5A072E1D732DF4001B2ED7 /* LQSForumDetailOptionCell.m */; };
@@ -205,7 +205,6 @@
 		E4D8E1D91D5424CF00EE6171 /* LQSHttpsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1D81D5424CF00EE6171 /* LQSHttpsRequest.m */; };
 		E4D8E1DC1D542A2B00EE6171 /* LQSUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1DB1D542A2B00EE6171 /* LQSUserInfo.m */; };
 		E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8E1DE1D542A4C00EE6171 /* LQSUserRequest.m */; };
-		E66318282059FD59F7685FD7 /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -523,7 +522,6 @@
 		6E75DCFA1D3FB64F00C7BD82 /* LQSUserBasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQSUserBasicInfo.m; path = core/LQSUserBasicInfo.m; sourceTree = "<group>"; };
 		6E75DCFD1D3FC0D900C7BD82 /* LQSCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQSCommonDefine.h; path = Utilities/LQSCommonDefine.h; sourceTree = "<group>"; };
 		72F7FCE84BA2B2676C40B54F /* Pods-myOrgForumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		751941E51E5588C6000BDFE1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		751941E51E5588C6000BDFE1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		751941E71E558A36000BDFE1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		751941E91E559174000BDFE1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -1324,7 +1322,6 @@
 				751941E91E559174000BDFE1 /* SystemConfiguration.framework */,
 				751941E71E558A36000BDFE1 /* CoreGraphics.framework */,
 				751941E51E5588C6000BDFE1 /* libsqlite3.tbd */,
-				7AFF41D479716F80AE6774BF /* libPods-myOrgForum.a */,
 				EC19ADA87E03C1ABA83791ED /* libPods-myOrgForumTests.a */,
 				A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */,
 			);
@@ -1876,7 +1873,6 @@
 				E436F2B71D72B6F7001CB8FE /* LQSMessageCenterManager.m in Sources */,
 				411FE7931D6D6DAE00563324 /* LQSDiscoverViewController.m in Sources */,
 				410FA2251D38EBA30021B7E2 /* LQSSpecifyHeader.m in Sources */,
-				E4D8E1C51D54193000EE6171 /* AsyncSocket.m in Sources */,
 				0000C4B11D645E63007C969C /* LQSLatestMarrowTableViewCell.m in Sources */,
 				E4D8E1C61D54193000EE6171 /* GCDAsyncSocket.m in Sources */,
 				411FE7921D6D6DAE00563324 /* LQSCishanViewController.m in Sources */,

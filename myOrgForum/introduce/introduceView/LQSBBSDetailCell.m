@@ -489,6 +489,10 @@
 }
 #pragma mark - textviewdelegate,帖子内容的图片点击事件
 -(BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction{
+    NSLog(@"textview.text.length:%zd",textView.text.length);
+    NSLog(@"textview.attributetext.length:%zd",textView.attributedText.length);
+    NSLog(@"textAttachment:%@",textAttachment);
+    NSLog(@"rang.loc:%zd,length:%zd",characterRange.location,characterRange.length);
     // 在这里获取点击的attachment，处理弹出图片详情.但是这里使用的第三方图片浏览器没有那个分享按钮，需要解决下。
     // 1.创建浏览器对象
     MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
@@ -506,9 +510,9 @@
         [mjphotos addObject:mjphoto];
     }
     browser.photos = mjphotos;
-    // 3.设置浏览器默认显示的图片位置
+    // 3.设置浏览器点击显示的图片位置
 //    browser.currentPhotoIndex = tap.view.tag;
-    browser.currentPhotoIndex = 1;
+   // browser.currentPhotoIndex = 0;
     // 4.显示浏览器
     [browser show];
     return YES;
@@ -654,8 +658,8 @@
 }
 // 打赏栏的用户头像点击事件
 - (void)voteUserIconClick:(UIGestureRecognizer *)gesture{
-    UIView *gestureView = gesture.view;
-    NSInteger index = gestureView.tag -10086;
+   // UIView *gestureView = gesture.view;
+   // NSInteger index = gestureView.tag -10086;
     // 到时候肯定需要这个参数，但是目前用不到。
     [self pushToPersonalMainPage];
 
