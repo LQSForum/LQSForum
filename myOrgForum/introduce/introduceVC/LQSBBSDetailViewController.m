@@ -37,14 +37,16 @@
 @property (nonatomic,strong)UIButton *shildBtn;
 // 临时keyboardFrame
 @property (nonatomic,assign)CGRect tempKBF;
-// 用于判断是否显示表情,yes为显示,no为不显示.
+// 用于判断键盘选择是否显示表情按钮,yes为显示,no为不显示.
 @property (nonatomic,assign)BOOL emotionIsShowing;
 // 拷贝过来的表情view
 @property (nonatomic, strong) LQSEmotionKeyboard *emotionKeyBoard;
 // pluginBoardView
 @property (nonatomic,strong)LQSPluginView *pluginBoardView;
 @property (nonatomic,strong)NSMutableArray *replysArr;
-
+// 标记当前评论页数
+@property (nonatomic, assign)NSInteger pageCount;
+@property (nonatomic, weak)UILabel *replyCountLabel;// 显示评论条数的lable;
 @end
 
 @implementation LQSBBSDetailViewController
@@ -60,16 +62,16 @@
     [self setupInputbtn];
     [self setUpInputView];
     [self creatTableViewList];
-    
-    [self postForData];
     [self.mainList.mj_header beginRefreshing];
-
+    // 初始化pageCount = 1;
+    self.pageCount = 1;
     
 }
-// 在这里处理一下自动刷新操作。
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    }
+    
+}
 #pragma mark - 自定义方法
 - (void)setUpInputView{
 
@@ -198,9 +200,8 @@
     // *条评论label
     UILabel *comontCountLabel = [[UILabel alloc]init];
     [guliBtn addSubview:comontCountLabel];
-    // 评论条数.参数由接口提供
-    NSInteger i = 1;
-    comontCountLabel.text = [NSString stringWithFormat:@"%zd条评论",i];
+    self.replyCountLabel = comontCountLabel;
+    
     [comontCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(guliBtn.mas_right).offset(-8);
         make.top.equalTo(guliBtn.mas_top).offset(5);
@@ -320,7 +321,6 @@
 - (void)emotionDidDeleted:(NSNotification *)note
 {
     // 往回删
-   // [self.inputTV deleteBackward];
     [self deleteEmotionWithManul:YES];
 }
 #pragma mark -pluginView的代理事件
@@ -715,6 +715,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:@"forum/postlist" forKey:@"r"];
     [dict setObject:@"10" forKey:@"pageSize"];// 每一页要显示的楼层数
+    [dict setObject:[NSString stringWithFormat:@"%zd",self.pageCount] forKey:@"page"];//待变
     [dict setObject:@"v2035.2" forKey:@"egnVersion"];
     [dict setObject:@"0" forKey:@"order"];
     [dict setObject:@"2.4.3.0" forKey:@"sdkVersion"];//待变
@@ -748,7 +749,6 @@
         [dict setObject:accessToken forKey:@"accessToken"];
     }else{
         [dict setObject:@"7e3972a7a729e541ee373e7da3d06" forKey:@"accessToken"];}// 每个人登陆后会有固定的accessToken,但是每次登陆的token都不同.需要在一个固定的位置保存起来.现在暂时用这个.
-    [dict setObject:@"1" forKey:@"page"];//待变
     NSString *accessSecret = [LQSBaseManager defaultManager].secret;
     if (accessSecret) {
         [dict setObject:accessSecret forKey:@"accessSecret"];
@@ -760,12 +760,21 @@
         NSLog(@"请求成功");
         //        [self cleanData];
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];//[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-        NSLog(@"返回数据：%@",dict);
+        //NSLog(@"返回数据：%@",dict);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 评论条数.参数由接口提供
+            NSInteger i = [LQSTR(dict[@"total_num"]) integerValue];
+            self.replyCountLabel.text = [NSString stringWithFormat:@"%zd条评论",i];
+        });
         [self getBBSDetailModelFrom:dict];
         // [self creatTableViewList];
-        [self.mainList reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.mainList reloadData];
+            [self.mainList.mj_header endRefreshing];
+            
+        });
         self.title = self.bbsDetailModel.forumName;
-        [self.mainList.mj_header endRefreshing];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败");
     }];

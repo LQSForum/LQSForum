@@ -547,7 +547,7 @@
     return _voteIconArr;
 }
 - (void)setupViews{
-    NSLog(@"voteCellsetupViews");
+    // NSLog(@"voteCellsetupViews");
     self.dashangLabel = [[UILabel alloc]init];
     [self.contentView addSubview:self.dashangLabel];
     [self.dashangLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -618,7 +618,7 @@
     }
 }
 -(void)setTopicModel:(LQSBBSDetailTopicModel *)topicModel{
-    NSLog(@"打赏cellsetModel");
+  //  NSLog(@"打赏cellsetModel");
     // 这个方法会在cell再次出现时再次调用。cell初始化时写好的东西，布局不会改变。但是这里代码中的东西会反复执行，所以这里应该写变动的东西，或者把变化性的东西反复擦除，然后重新执行。
     _topicModel = topicModel;
     if (topicModel.daShangRenShu > 0) {
