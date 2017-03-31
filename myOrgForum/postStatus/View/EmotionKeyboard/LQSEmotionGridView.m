@@ -96,8 +96,8 @@
     _emotions = emotions;
     
     // 添加新的表情
-    int count = emotions.count;
-    int currentEmotionViewCount = self.emotionViews.count;
+    NSInteger count = emotions.count;
+    NSInteger currentEmotionViewCount = self.emotionViews.count;
     for (int i = 0; i<count; i++) {
         LQSEmotionView *emotionView = nil;
         
@@ -116,7 +116,7 @@
     }
     
     // 隐藏多余的emotionView
-    for (int i = count; i<currentEmotionViewCount; i++) {
+    for (NSInteger i = count; i<currentEmotionViewCount; i++) {
         UIButton *emotionView = self.emotionViews[i];
         emotionView.hidden = YES;
     }
@@ -143,10 +143,13 @@
  */
 - (void)selecteEmotion:(LQSEmotion *)emotion
 {
-    if (emotion == nil) return;
-#warning 注意：先添加使用的表情，再发通知
+    if (emotion == nil){
+        NSLog(@"emotion = nil");
+        return;
+    }
+// #warning 注意：先添加使用的表情，再发通知
     // 保存使用记录
-    [LQSEmotionTool addRecentEmotion:emotion];
+   // [LQSEmotionTool addRecentEmotion:emotion];
     
     // 发出一个选中表情的通知
     [[NSNotificationCenter defaultCenter] postNotificationName:LQSEmotionDidSelectedNotification object:nil userInfo:@{LQSSelectedEmotion : emotion}];

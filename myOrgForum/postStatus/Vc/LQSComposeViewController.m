@@ -394,7 +394,7 @@
     
     // 1.拼接表情
     [self.textView appendEmotion:emotion];
-    
+  //  [self.textView appendEmotionStrWith:emotion];
     // 2.检测文字长度
     [self textViewDidChange:self.textView];
 }

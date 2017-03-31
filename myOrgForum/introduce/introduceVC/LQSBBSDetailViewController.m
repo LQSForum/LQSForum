@@ -25,6 +25,7 @@
 #import "LQSEmotionTextView.h"
 #import "LQSEmotionKeyboard.h"
 #import "LQSPluginView.h"
+#define kInputBottomViewHeight 55 // 回个话鼓励下楼主栏的高度，也是输入栏的高度
 @interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate,LQSBBSDetailCellDelegate,UITextViewDelegate,LQSPluginViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     
 }
@@ -58,20 +59,17 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupInputbtn];
     [self setUpInputView];
-//    self.navigationController.navigationBar.translucent = NO;
-    // 配置下拉加载，上拉刷新
-    self.mainList.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(postForData)];
+    [self creatTableViewList];
     
-    self.mainList.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-    self.mainList.mj_footer.hidden = YES;
     [self postForData];
+    [self.mainList.mj_header beginRefreshing];
+
     
 }
 // 在这里处理一下自动刷新操作。
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.mainList.mj_header beginRefreshing];
-}
+    }
 #pragma mark - 自定义方法
 - (void)setUpInputView{
 
@@ -81,8 +79,8 @@
         [_inputView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.view.mas_left);
             make.right.equalTo(self.view.mas_right);
-            make.bottom.equalTo(self.view.mas_bottom).offset(44);
-            make.height.equalTo(@44);
+            make.bottom.equalTo(self.view.mas_bottom).offset(kInputBottomViewHeight);
+            make.height.equalTo(@kInputBottomViewHeight);
         }];
         self.textFieldIsShowing = NO;
         // 加号btn
@@ -150,8 +148,8 @@
     NSLog(@"输入文字后计算出的高度:%zd",height);
 //    if (height >40) {
         [self.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.bottom.equalTo(self.view.mas_bottom).offset(-(kScreenHeight - self.tempKBF.origin.y) - 44 -height);
-            make.height.equalTo(@(height+10));
+//            make.bottom.equalTo(self.view.mas_bottom).offset(-(kScreenHeight - self.tempKBF.origin.y) - kInputBottomViewHeight -height);
+            make.height.equalTo(@(height+15));
         }];
 
 //    }
@@ -168,7 +166,7 @@
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.bottom.equalTo(self.view.mas_bottom);
-        make.height.equalTo(@44);
+        make.height.equalTo(@kInputBottomViewHeight);
     }];
     // 回个话鼓励下楼主
     UIButton *guliBtn = [[UIButton alloc]init];
@@ -220,7 +218,7 @@
         make.right.equalTo(inputView.mas_right);
         make.top.equalTo(inputView.mas_top);
         make.bottom.equalTo(inputView.mas_bottom);
-        make.width.equalTo(@44);
+        make.width.equalTo(@kInputBottomViewHeight);
     }];
     [shareBtn addTarget:self action:@selector(toolbarShareAct) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -313,8 +311,8 @@
     LQSEmotion *emotion = note.userInfo[LQSSelectedEmotion];
     
     // 1.拼接表情
-    [self.inputTV appendEmotion:emotion];
-    
+   // [self.inputTV appendEmotion:emotion];
+    [self.inputTV appendEmotionStrWith:emotion];
 }
 /**
  *  当点击表情键盘上的删除按钮时调用
@@ -322,7 +320,8 @@
 - (void)emotionDidDeleted:(NSNotification *)note
 {
     // 往回删
-    [self.inputTV deleteBackward];
+   // [self.inputTV deleteBackward];
+    [self deleteEmotionWithManul:YES];
 }
 #pragma mark -pluginView的代理事件
 -(void)didSelectBtnAtIndex:(UIButton *)selectedBtn{
@@ -381,6 +380,85 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }
+// 键盘删除表情文字的处理
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    // text.length == 0的判断用于确定是否输入了新的text，没有这个判断的话，新输入字符也会进行删除操作。
+    if (text.length ==0) {
+    return [self deleteEmotionWithManul:NO];
+    }
+    
+    return YES;
+}
+// manulOrNot标记是否是表情列表的删除键，如果是则执行删除操作。
+- (BOOL)deleteEmotionWithManul:(BOOL)manulOrNot{
+    
+        // 用于针对删除表情特殊字符串处理
+        // 1.特殊情况长按调用系统UIMenuController只选择一个字符串删除
+        if (_inputTV.selectedRange.length == 1) { // 选定的文本长度
+            return YES;
+            //       int loction = _InputTextView.selectedRange.location;// 获取光标位置
+            //       // 获取光标前一个字符串
+            //       unichar strxmlchar = [_InputTextView.text characterAtIndex:(loction -1 )];
+            //       NSString *str=[NSString stringWithFormat:@"%C",strxmlchar];
+            
+        }
+        NSInteger loction = _inputTV.selectedRange.location;// 获取光标位置
+        NSString *frontContent = [_inputTV.text substringToIndex:loction];// 获取光标位置前的字符串
+        // 字符串以结尾比较,存在“]”
+        if ([frontContent hasSuffix:@"]"])
+        {
+            NSInteger stringLength = frontContent.length;
+            NSString *string = nil;
+            BOOL exist = NO;
+            if ( stringLength >= 3)// 表情转义字符的长度（ [1个长度，x占1个长度，,]1个长度，最少3个长度 ）
+            { // 符合表情特殊字符串条件
+                NSString*  tempStr = [frontContent componentsSeparatedByString:@"["].lastObject;
+                string = [NSString stringWithFormat:@"[%@",tempStr];
+                //string = [frontContent substringFromIndex:stringLength - 3];// 截取此时字符串的后四位
+                NSRange range = [string rangeOfString:@"["];// 判断首位是否存在“[”
+                if ( range.location == 0 ) { // 存在表情特殊字符串
+                    string = [frontContent substringToIndex:[frontContent rangeOfString:@"[" options:NSBackwardsSearch].location];// 将获取的光标位置前的字符串删减表情特殊字符串（四个字符）
+                    exist = YES;
+                }
+                else { // 不存在表情特殊字符串
+                    string = [frontContent substringToIndex:stringLength - 1];
+                    exist = NO;
+                }
+                
+            }
+            else
+            {
+                return YES;
+            }
+            
+            NSString *backContent = [_inputTV.text substringFromIndex:loction];// 获取光标位置后的字符串
+            if (backContent.length > 0) {
+                // 拼接删除字符后的字符串
+                _inputTV.text = [string stringByAppendingString:backContent];
+            }
+            else{
+                _inputTV.text = string;
+            }
+            NSRange range;
+            range.length = 0;
+            if (exist) {
+                range.location = string.length;
+            }
+            else{
+                range.location = loction - 1;
+            }
+            _inputTV.selectedRange = range; // 调整光标位置
+            return NO;
+            
+        }
+        else{
+            if (manulOrNot == YES) {
+                [self.inputTV deleteBackward];
+            }
+            return YES;
+        }
+    
+}
 #pragma mark -键盘通知的监听处理
 - (void)keyboardWillChangeFrame:(NSNotification *)note
 {
@@ -414,7 +492,7 @@
         }];
     }else{
         [self.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self.view.mas_bottom).offset(44);
+            make.bottom.equalTo(self.view.mas_bottom).offset(kInputBottomViewHeight);
         }];
         [self.shildBtn removeFromSuperview];
 //        self.textFieldIsShowing = NO;
@@ -443,14 +521,19 @@
 - (UITableView *)mainList
 {
     if (!_mainList) {
-        _mainList = [[UITableView alloc] initWithFrame:CGRectMake(0, 64/*0*/, self.view.width, self.view.height - 64-44) style:UITableViewStylePlain];
+        _mainList = [[UITableView alloc] initWithFrame:CGRectMake(0, 64/*0*/, self.view.width, self.view.height - 64-kInputBottomViewHeight) style:UITableViewStylePlain];
         _mainList.showsVerticalScrollIndicator = NO;
         _mainList.showsHorizontalScrollIndicator = YES;
         _mainList.delegate = self;
         _mainList.dataSource = self;
+        _mainList.autoresizingMask = NO;
+        _mainList.autoresizesSubviews = NO;
         _mainList.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
         _mainList.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        
+        // 配置下拉加载，上拉刷新
+        _mainList.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(postForData)];
+        _mainList.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+        _mainList.mj_footer.hidden = YES;
     }
     return _mainList;
 }
@@ -679,7 +762,8 @@
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];//[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
         NSLog(@"返回数据：%@",dict);
         [self getBBSDetailModelFrom:dict];
-        [self creatTableViewList];
+        // [self creatTableViewList];
+        [self.mainList reloadData];
         self.title = self.bbsDetailModel.forumName;
         [self.mainList.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -887,12 +971,12 @@
  extraPanel = (
  {
  extParams = {
- beforeAction = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topicrate&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=331950&type=check;
+ beforeAction = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topicrate&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=331950&type=check;
  }
  ;
  title = 评分;
  type = rate;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topicrate&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=331950&type=view;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topicrate&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=331950&type=view;
  }
  ,
  );
@@ -915,7 +999,7 @@
  infor = http://forum.longquanzs.org/data/attachment/forum/201608/27/052215q4nj3394033j34g4.jpg;
  type = 1;
  originalInfo = http://forum.longquanzs.org/data/attachment/forum/201608/27/052215q4nj3394033j34g4.jpg;
- aid = 138544;
+ aid = 1385kInputBottomViewHeight;
  }
  ,
  {
@@ -938,7 +1022,7 @@
  gender = 1;
  mobileSign = 来自龙泉论坛手机客户端;
  reply_posts_id = 331950;
- topic_id = 64434;
+ topic_id = 6kInputBottomViewHeight34;
  title = [仁爱心栈]每天拿走3杯粥却让我落泪～～;
  zanList = (
  );
@@ -987,7 +1071,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332019&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332019&type=post;
  }
  ,
  );
@@ -1036,7 +1120,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332111&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332111&type=post;
  }
  ,
  );
@@ -1117,7 +1201,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332138&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332138&type=post;
  }
  ,
  );
@@ -1185,7 +1269,7 @@
  is_quote = 0;
  userTitle = 初级会员;
  quote_pid = 0;
- posts_date = 1472285044000;
+ posts_date = 14722850kInputBottomViewHeight000;
  quote_content = ;
  extraPanel = (
  {
@@ -1198,7 +1282,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332150&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332150&type=post;
  }
  ,
  );
@@ -1245,7 +1329,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332155&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332155&type=post;
  }
  ,
  );
@@ -1292,7 +1376,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332261&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332261&type=post;
  }
  ,
  );
@@ -1340,7 +1424,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332265&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332265&type=post;
  }
  ,
  );
@@ -1388,7 +1472,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332273&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332273&type=post;
  }
  ,
  );
@@ -1397,7 +1481,7 @@
  ,
  );
  page = 1;
- forumTopicUrl = http://forum.longquanzs.org/forum.php?mod=viewthread&tid=64434;
+ forumTopicUrl = http://forum.longquanzs.org/forum.php?mod=viewthread&tid=6kInputBottomViewHeight34;
  }
  */
 /*

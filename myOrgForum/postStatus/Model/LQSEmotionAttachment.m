@@ -12,8 +12,10 @@
 - (void)setEmotion:(LQSEmotion *)emotion
 {
     _emotion = emotion;
-    
-    self.image = [UIImage imageWithName:[NSString stringWithFormat:@"%@/%@", emotion.directory, emotion.png]];
+    /* 之前的拼接方法，以后估计用不到了。
+     self.image = [UIImage imageWithName:[NSString stringWithFormat:@"%@/%@", emotion.directory, emotion.png]];
+     */
+    self.image = [UIImage imageWithName:[NSString stringWithFormat:@"%@", emotion.png]];
 }
 
 @end
