@@ -21,6 +21,7 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
     if (self = [super initWithFrame:frame]) {
         _attachmentArray = [[NSMutableArray alloc] init];
         _picUrlArr = [[NSMutableArray alloc]init];
+        _attImgArr = [[NSMutableArray alloc]init];
         self.selectable = NO;
     }
     return self;
@@ -57,6 +58,7 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
     }
     [_attachmentArray removeAllObjects];
     [_picUrlArr removeAllObjects];
+    [_attImgArr removeAllObjects];
     for (LQSBBSContentModel *model in content) {
         if ([model.type isEqualToString:@"0"]) {
             NSMutableAttributedString* textString = [[NSMutableAttributedString alloc] initWithString:model.infor attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
@@ -75,12 +77,6 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
                     attachment.imageView = [[UIImageView alloc] init];
                     attachment.imageView.contentMode = UIViewContentModeScaleAspectFill;
                     [self addSubview:attachment.imageView];
-                    // 实验得出，这里可以使用手势。
-                    /*
-                    UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(articlePicTap)];
-                    attachment.imageView.userInteractionEnabled = YES;
-                    [attachment.imageView addGestureRecognizer:ges];
-                     */
                     [attachment.imageView sd_setImageWithURL:[NSURL URLWithString:[textString.string substringWithRange:[result rangeAtIndex:1]]]];
                     [_attachmentArray addObject:attachment];
                     [textString replaceCharactersInRange:[result rangeAtIndex:0] withAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
@@ -122,14 +118,12 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
             [resultString appendAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
             // 每次检查到type = 1的信息，就保存图片地址。
             [_picUrlArr addObject:picUrlStr];
+            [_attImgArr addObject:attachment.image];
         }
         else{}
     }
     self.attributedText = resultString;
     [self setNeedsLayout];
-}
-- (void)articlePicTap{
-    NSLog(@"articleViewPicTap");
 }
 - (CGRect)p_boundingRectForCharacterRange:(NSRange)range
 {

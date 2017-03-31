@@ -429,6 +429,7 @@
     self.articleView.delegate = self;
     self.articleView.scrollEnabled = NO;
     self.articleView.editable = NO;
+    self.articleView.selectable = YES;// 标记textView可选属性，如果不写点击没反应。
     self.reportBtn = [[UIButton alloc]init];
     [self.contentView addSubview:self.reportBtn];
     [self.reportBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -489,10 +490,7 @@
 }
 #pragma mark - textviewdelegate,帖子内容的图片点击事件
 -(BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction{
-    NSLog(@"textview.text.length:%zd",textView.text.length);
-    NSLog(@"textview.attributetext.length:%zd",textView.attributedText.length);
-    NSLog(@"textAttachment:%@",textAttachment);
-    NSLog(@"rang.loc:%zd,length:%zd",characterRange.location,characterRange.length);
+    NSLog(@"帖子内容的图片点击事件");
     // 在这里获取点击的attachment，处理弹出图片详情.但是这里使用的第三方图片浏览器没有那个分享按钮，需要解决下。
     // 1.创建浏览器对象
     MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
@@ -511,8 +509,14 @@
     }
     browser.photos = mjphotos;
     // 3.设置浏览器点击显示的图片位置
+    NSInteger index = 0;
+    for (NSInteger i = 0; i < self.articleView.attImgArr.count; i++) {
+        if ([self.articleView.attImgArr[i] isEqual:textAttachment.image]) {
+            index = i;
+        }
+    }
 //    browser.currentPhotoIndex = tap.view.tag;
-   // browser.currentPhotoIndex = 0;
+    browser.currentPhotoIndex = index;
     // 4.显示浏览器
     [browser show];
     return YES;
