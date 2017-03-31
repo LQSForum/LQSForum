@@ -57,12 +57,12 @@
     
 }
 // 赏点击方法--xg
-- (void)shangAct{
-    NSLog(@"赏的点击方法");
-    if ([self.delegate respondsToSelector:@selector(pushToDashang)]) {
-        [self.delegate pushToDashang];
-    }
-}
+//- (void)shangAct{
+//    NSLog(@"赏的点击方法");
+//    if ([self.delegate respondsToSelector:@selector(pushToDashang)]) {
+//        [self.delegate pushToDashang];
+//    }
+//}
 
 #pragma mark - 帖子详情点击头像方法
 - (void)sec1HeadAct{

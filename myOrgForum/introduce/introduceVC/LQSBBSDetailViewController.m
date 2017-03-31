@@ -56,18 +56,23 @@
     self.view.backgroundColor = [UIColor whiteColor];
     // 下面这行代码解决pop回本页时tableView自动下移问题.
     self.automaticallyAdjustsScrollViewInsets = NO;
-    NSLog(@"详情页boardID：%@",self.selectModel.board_id);
     [self setupInputbtn];
     [self setUpInputView];
+//    self.navigationController.navigationBar.translucent = NO;
+    // 配置下拉加载，上拉刷新
+    self.mainList.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(postForData)];
+    
+    self.mainList.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    self.mainList.mj_footer.hidden = YES;
     [self postForData];
     
 }
 // 在这里处理一下自动刷新操作。
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    [self.mainList.mj_header beginRefreshing];
 }
-
+#pragma mark - 自定义方法
 - (void)setUpInputView{
 
         _inputView = [[UIView alloc]init];
@@ -445,8 +450,12 @@
         _mainList.dataSource = self;
         _mainList.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
         _mainList.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        
     }
     return _mainList;
+}
+- (void)loadMoreData{
+    
 }
 #pragma mark - tableView delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -672,7 +681,7 @@
         [self getBBSDetailModelFrom:dict];
         [self creatTableViewList];
         self.title = self.bbsDetailModel.forumName;
-        
+        [self.mainList.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败");
     }];
