@@ -61,7 +61,10 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
     [_attImgArr removeAllObjects];
     for (LQSBBSContentModel *model in content) {
         if ([model.type isEqualToString:@"0"]) {
-            NSMutableAttributedString* textString = [[NSMutableAttributedString alloc] initWithString:model.infor attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
+            NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc]init];
+            paraStyle.lineSpacing = 10;// 行间距
+            paraStyle.paragraphSpacing = 10;//段间距
+            NSMutableAttributedString* textString = [[NSMutableAttributedString alloc] initWithString:model.infor attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor darkGrayColor],NSParagraphStyleAttributeName:paraStyle,NSKernAttributeName:@2}];
             NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:kPatternPhiz options:0 error:NULL];
             NSRegularExpression *emojiRegex = [NSRegularExpression regularExpressionWithPattern:regex_emoji options:0 error:NULL];
             while (YES) {
@@ -72,7 +75,7 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
                 if (result != nil) {
                     LQSTextAttachment *attachment = [[LQSTextAttachment alloc] init];
                     attachment.image = [[UIImage alloc] init];
-                    attachment.bounds = CGRectMake(0, -8, 14,14);
+                    attachment.bounds = CGRectMake(0, 0, 14,14);
                     attachment.range = NSMakeRange([result rangeAtIndex:0].location, 1);
                     attachment.imageView = [[UIImageView alloc] init];
                     attachment.imageView.contentMode = UIViewContentModeScaleAspectFill;

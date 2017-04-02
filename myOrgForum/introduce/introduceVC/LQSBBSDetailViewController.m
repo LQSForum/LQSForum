@@ -25,6 +25,7 @@
 #import "LQSEmotionTextView.h"
 #import "LQSEmotionKeyboard.h"
 #import "LQSPluginView.h"
+#import "NSString+Color.h"
 #define kInputBottomViewHeight 55 // 回个话鼓励下楼主栏的高度，也是输入栏的高度
 @interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate,LQSBBSDetailCellDelegate,UITextViewDelegate,LQSPluginViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     
@@ -515,7 +516,12 @@
     [self.view addSubview:self.mainList];
     self.view.backgroundColor = [UIColor redColor];
 //    self.mainList.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
-    self.mainList.backgroundColor = [UIColor yellowColor];
+    self.mainList.backgroundColor = [@"F5F5F5" colorWithHexString];
+    // 配置上拉加载，下拉刷新
+    _mainList.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(reloadData)];
+    // 使用这个自动回弹到底部的下拉刷新控件，自动刷新的指示效果不是很好。
+    _mainList.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    //_mainList.mj_footer.hidden = YES;
 }
 
 - (UITableView *)mainList
@@ -530,15 +536,18 @@
         _mainList.autoresizesSubviews = NO;
         _mainList.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
         _mainList.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        // 配置下拉加载，上拉刷新
-        _mainList.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(postForData)];
-        _mainList.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-        _mainList.mj_footer.hidden = YES;
     }
     return _mainList;
 }
+- (void)reloadData{
+    self.pageCount = 1;
+    [self postForData];
+}
 - (void)loadMoreData{
-    
+    NSLog(@"loadMoreData");
+    self.pageCount += 1;
+    [self postForData];
+    //[self.mainList.mj_footer endRefreshing];
 }
 #pragma mark - tableView delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -561,8 +570,8 @@
             numOfRow =1;
             break;
         }case 3:{
-            numOfRow =  self.replysArr.count;
-            // 这里的行数，可以加上最后一个“没有更多了”作为最后一个cell。
+            // 在这里判断，如果has_next = 0,则需要加一个没有更多数据了。
+                numOfRow =  self.replysArr.count;
             break;
         }
             
@@ -600,19 +609,24 @@
              [(LQSBBSDetailVoteCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 3:{
+            // 根据cell的indexpath.row判断，是否是没有更多数据的cell;
+            //if ([[NSString stringWithFormat:@"%@",self.bbsDetailModel.has_next]isEqualToString:@"0"]) {
+                
+           // }
             cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell" ];
             if (!cell) {
                 cell = [[LQSBBSDetailReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"posterCell"];
             }
 //            cell.contentView.backgroundColor = [UIColor orangeColor];
             [(LQSBBSDetailReplyCell *)cell setPinglunModel:self.replysArr[indexPath.row]];
+            
             break;
         }
         default:
             break;
     }
     // 让controller成为cell的代理
-    ((LQSBBSDetailCell*)cell).delegate = self;
+        ((LQSBBSDetailCell*)cell).delegate = self;
 //    NSLog(@"cellForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     return cell;
     
@@ -646,8 +660,8 @@
             height = self.bbsDetailTopicModel.topicVoteheight;
             break;
         }case 3:{
-            LQSBBSPosterModel *model = self.replysArr[indexPath.row];
-            height = model.contentHeight ;//待定
+                LQSBBSPosterModel *model = self.replysArr[indexPath.row];
+                height = model.contentHeight ;//待定
             break;
         }
         default:
@@ -760,18 +774,33 @@
         NSLog(@"请求成功");
         //        [self cleanData];
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];//[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-        //NSLog(@"返回数据：%@",dict);
+        NSLog(@"返回数据：%@",dict);
         dispatch_async(dispatch_get_main_queue(), ^{
             // 评论条数.参数由接口提供
             NSInteger i = [LQSTR(dict[@"total_num"]) integerValue];
             self.replyCountLabel.text = [NSString stringWithFormat:@"%zd条评论",i];
         });
         [self getBBSDetailModelFrom:dict];
+        if ([[NSString stringWithFormat:@"%@",self.bbsDetailModel.has_next]isEqualToString:@"0"]) {
+            self.mainList.mj_footer.hidden = YES;
+            UIView *noMoreDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, LQSScreenW, 60)];
+            noMoreDataView.backgroundColor = [UIColor clearColor];
+            UILabel *desLabel = [[UILabel alloc]initWithFrame:noMoreDataView.bounds];
+            desLabel.textAlignment = NSTextAlignmentCenter;
+            desLabel.text = @"wowo, 没有更多了^_^";
+            [noMoreDataView addSubview:desLabel];
+            self.mainList.tableFooterView = noMoreDataView;
+        }
         // [self creatTableViewList];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.mainList reloadData];
+            if ([self.mainList.mj_header isRefreshing]) {
+                [self.mainList.mj_header endRefreshing];
+            }
             [self.mainList.mj_header endRefreshing];
-            
+            if ([self.mainList.mj_footer isRefreshing]) {
+                [self.mainList.mj_footer endRefreshing];
+            }
         });
         self.title = self.bbsDetailModel.forumName;
         
@@ -830,8 +859,8 @@
 }
 - (void)getBBSDetailModelFrom:(NSDictionary *)dict
 {
-    //帖子信息
-    if(nil != dict){
+    //帖子信息,如果已经加载过了就不重复加载了。
+    if(nil != dict&&!(self.bbsDetailModel.forumName.length > 0)){
         self.bbsDetailModel.forumName = LQSTR(dict[@"forumName"]);
         self.bbsDetailModel.rs = LQSTR(dict[@"rs"]);
         self.bbsDetailModel.total_num = LQSTR(dict[@"total_num"]);
@@ -840,6 +869,9 @@
     }
     // 回复列表
     if (nil != dict[@"list"]) {
+        if (self.replysArr.count > 0&&self.pageCount == 1) {
+            [self.replysArr removeAllObjects];
+        }
 //        self.bbsDetailModel.list = [NSMutableArray array];
         for (NSDictionary *listDict in dict[@"list"]) {
             LQSBBSPosterModel *model = [[LQSBBSPosterModel alloc] init];
