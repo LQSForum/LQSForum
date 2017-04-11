@@ -183,6 +183,7 @@
 		E436F2B71D72B6F7001CB8FE /* LQSMessageCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E436F2B61D72B6F7001CB8FE /* LQSMessageCenterManager.m */; };
 		E436F2BA1D72BC23001CB8FE /* LQSMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E436F2B91D72BC23001CB8FE /* LQSMessageRequest.m */; };
 		E436F2BD1D72CECD001CB8FE /* LQSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E436F2BC1D72CECD001CB8FE /* LQSMessage.m */; };
+		E4429D7A1E9CF4C5008A373F /* LQSNewArticleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4429D791E9CF4C5008A373F /* LQSNewArticleContentView.m */; };
 		E4430D4D1D54B74C0014A6FE /* CloverSlider.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D411D54B74C0014A6FE /* CloverSlider.js */; };
 		E4430D4E1D54B74C0014A6FE /* getImageSource.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D421D54B74C0014A6FE /* getImageSource.js */; };
 		E4430D4F1D54B74C0014A6FE /* Discount.js in Resources */ = {isa = PBXBuildFile; fileRef = E4430D431D54B74C0014A6FE /* Discount.js */; };
@@ -578,6 +579,8 @@
 		E436F2B91D72BC23001CB8FE /* LQSMessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageRequest.m; sourceTree = "<group>"; };
 		E436F2BB1D72CECD001CB8FE /* LQSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessage.h; sourceTree = "<group>"; };
 		E436F2BC1D72CECD001CB8FE /* LQSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessage.m; sourceTree = "<group>"; };
+		E4429D781E9CF4C5008A373F /* LQSNewArticleContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSNewArticleContentView.h; sourceTree = "<group>"; };
+		E4429D791E9CF4C5008A373F /* LQSNewArticleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSNewArticleContentView.m; sourceTree = "<group>"; };
 		E4430D411D54B74C0014A6FE /* CloverSlider.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = CloverSlider.js; sourceTree = "<group>"; };
 		E4430D421D54B74C0014A6FE /* getImageSource.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = getImageSource.js; sourceTree = "<group>"; };
 		E4430D431D54B74C0014A6FE /* Discount.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Discount.js; sourceTree = "<group>"; };
@@ -1293,6 +1296,8 @@
 				6E0476661D55B32600FD6CE0 /* LQSintroduceMainlistCell.m */,
 				149364A81D76D2B200517A99 /* LQSArticleContentView.h */,
 				149364A91D76D2B200517A99 /* LQSArticleContentView.m */,
+				E4429D781E9CF4C5008A373F /* LQSNewArticleContentView.h */,
+				E4429D791E9CF4C5008A373F /* LQSNewArticleContentView.m */,
 				2EA1A9EE1DD84E4B00F6360A /* LQSdashangSecView.h */,
 				2EA1A9EF1DD84E4B00F6360A /* LQSdashangSecView.m */,
 				2EA1A9F11DD855FA00F6360A /* LQSDashangTableViewCell.h */,
@@ -1826,6 +1831,7 @@
 				149364AD1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m in Sources */,
 				411FE7AD1D6D6DC700563324 /* LQSWaterFlowViewCell.m in Sources */,
 				2CC8C2E11D7F1D2300297B9B /* LQSSelectPlatesViewController.m in Sources */,
+				E4429D7A1E9CF4C5008A373F /* LQSNewArticleContentView.m in Sources */,
 				410FA1F81D38EB7E0021B7E2 /* UIWindow+Extension.m in Sources */,
 				411FE7A91D6D6DC700563324 /* LQSCishanTableViewCell.m in Sources */,
 				41AC5B361D751C83006E38D5 /* LQSMessageCommentViewController.m in Sources */,

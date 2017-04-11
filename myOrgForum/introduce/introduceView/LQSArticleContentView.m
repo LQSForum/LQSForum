@@ -123,7 +123,21 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
             [_picUrlArr addObject:picUrlStr];
             [_attImgArr addObject:attachment.image];
         }
-        else{}
+        else if ([NSString stringWithFormat:@"%@",model.extParams[@"videoType"]].length > 0){
+            NSString *picUrlStr = model.infor;
+            NSURL *picUrl = [NSURL URLWithString:picUrlStr];
+            NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+            attachment.image = [UIImage imageNamed:@"mc_forum_add_new_img"];
+            __weak typeof(self) weakSelf = self;
+            [attachment sd_setImageWithURL:picUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                [weakSelf setNeedsDisplay];
+            }];
+            // 先拿到图片，然后求出原图的高宽比，然后按原图比例渲染。
+            CGFloat width = self.preferredMaxLayoutWidth?:self.width;
+            CGFloat gaoKuanBi = attachment.image.size.height / attachment.image.size.width;
+            attachment.bounds = CGRectMake(0, 0, width, width*gaoKuanBi );
+            [resultString appendAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
+        }
     }
     self.attributedText = resultString;
     [self setNeedsLayout];

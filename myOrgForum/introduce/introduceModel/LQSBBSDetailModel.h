@@ -148,7 +148,7 @@
 @property (nonatomic, strong) NSString *type; //0 帖子内容？ 1 图片URL？
 @property (nonatomic, strong) NSString *originalInfo;//不造是啥
 @property (nonatomic, strong) NSString *aid;//136076 不造是啥
-
+@property (nonatomic, strong) NSDictionary *extParams;// 存放其他信息，比如说视频相关信息。
 @end
 
 @interface LQSBBSModel : NSObject

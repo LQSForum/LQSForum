@@ -15,7 +15,7 @@
 #import "LQSHomePagePersonalMessageViewController.h"
 // 解析评论数据
 #import "LQSBBSDetailModel.h"
-
+#import "LQSNewArticleContentView.h"
 #define kCONTENTIMAGETAG_BEGIN 20160830
 #define kGUANZHUTA @"关注TA"
 #define kYIGUANZHUTA @"已关注TA"
@@ -354,7 +354,9 @@
 @property (nonatomic,strong)UILabel *memberDegreeLabel;// 会员级别label
 @property (nonatomic,strong)UILabel *timeLabel;
 @property (nonatomic,strong)UIButton *guanZhuBtn;// 关注按钮
-@property (nonatomic,strong)LQSArticleContentView *articleView;// 内容view
+//@property (nonatomic,strong)LQSArticleContentView *articleView;// 内容view
+@property (nonatomic,strong)LQSNewArticleContentView *articleView;// 内容view
+
 @property (nonatomic,strong)UIButton *reportBtn;// 举报按钮
 @end
 @implementation LQSBBSDetailContentCell
@@ -418,7 +420,8 @@
     self.guanZhuBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     self.guanZhuBtn.layer.borderWidth = 1;
     [self.guanZhuBtn addTarget:self action:@selector(guanzhuTA:) forControlEvents:UIControlEventTouchUpInside];
-    self.articleView = [[LQSArticleContentView alloc]init];
+   // self.articleView = [[LQSArticleContentView alloc]init];
+    self.articleView = [[LQSNewArticleContentView alloc]init];
     [self.contentView addSubview:self.articleView];
     [self.articleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).offset(11);
@@ -426,10 +429,10 @@
         make.width.equalTo(@(LQSScreenW - 30));
     }];
     self.articleView.preferredMaxLayoutWidth = LQSScreenW - 30;
-    self.articleView.delegate = self;
-    self.articleView.scrollEnabled = NO;
-    self.articleView.editable = NO;
-    self.articleView.selectable = YES;// 标记textView可选属性，如果不写点击没反应。
+   // self.articleView.delegate = self;
+    //self.articleView.scrollEnabled = NO;
+    //self.articleView.editable = NO;
+    //self.articleView.selectable = YES;// 标记textView可选属性，如果不写点击没反应。
     self.reportBtn = [[UIButton alloc]init];
     [self.contentView addSubview:self.reportBtn];
     [self.reportBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -471,6 +474,9 @@
     NSString *guanZhuStr = topicModel.isFollow == 0 ? kGUANZHUTA : kYIGUANZHUTA;
     [self.guanZhuBtn setTitle:guanZhuStr forState:UIControlStateNormal];
     self.articleView.content = topicModel.content;
+    [self.articleView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(self.articleView.totalH);
+    }];
     [self layoutIfNeeded];
     topicModel.topicContenHeight = CGRectGetMaxY(self.reportBtn.frame)+20;
 }
@@ -510,8 +516,8 @@
     browser.photos = mjphotos;
     // 3.设置浏览器点击显示的图片位置
     NSInteger index = 0;
-    for (NSInteger i = 0; i < self.articleView.attImgArr.count; i++) {
-        if ([self.articleView.attImgArr[i] isEqual:textAttachment.image]) {
+    for (NSInteger i = 0; i < self.articleView.ImgArr.count; i++) {
+        if ([self.articleView.ImgArr[i] isEqual:textAttachment.image]) {
             index = i;
         }
     }
