@@ -4,7 +4,7 @@
 //
 //  Created by g x on 2017/4/11.
 //  Copyright © 2017年 SkyAndSea. All rights reserved.
-//
+//  注：这个新的类，是代替之前的LQSArticleContentView的，因为那个类使用的是textView的attachment，但是无法随机地显示视频位置。所以改为现在的这个，最简单的笨方法。
 
 #import <UIKit/UIKit.h>
 #import "LQSBBSDetailModel.h"

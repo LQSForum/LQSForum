@@ -4,7 +4,7 @@
 //
 //  Created by g x on 2017/4/11.
 //  Copyright © 2017年 SkyAndSea. All rights reserved.
-//
+//  注：这个新的类，是代替之前的LQSArticleContentView的，因为那个类使用的是textView的attachment，但是无法随机地显示视频位置。所以改为现在的这个，最简单的笨方法。
 
 #import "LQSNewArticleContentView.h"
 #import "NSTextAttachment+ArticleContent.h"
@@ -42,20 +42,28 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
     CGSize size = [self sizeThatFits:CGSizeMake(self.preferredMaxLayoutWidth ?: self.width, MAXFLOAT)];
     return CGSizeMake(self.preferredMaxLayoutWidth ?: self.width, ceilf(size.height));
 }
+
 -(void)setContent:(NSArray<LQSBBSContentModel *> *)content{
     CGRect frame = CGRectMake(0, 0, self.preferredMaxLayoutWidth, 0);
     [_picUrlArr removeAllObjects];
     [_ImgArr removeAllObjects];
+    for (UIView *view in self.subviews) {
+        [view removeFromSuperview];
+    }
     for (LQSBBSContentModel *model in content) {
         if ([model.type isEqualToString:@"0"]) {
-            UILabel *label = [self createLabelWithText:model.infor preferedWidth:self.preferredMaxLayoutWidth originY:frame.size.height];
-            frame.size.height +=label.height;
+            // 留出段落之间的空隙 :5
+            CGFloat totalHeight = frame.size.height + 5;
+            UILabel *label = [self createLabelWithText:model.infor preferedWidth:self.preferredMaxLayoutWidth originY:totalHeight];
+            frame.size.height +=label.height+5;
             [self addSubview:label];
             
         }else if ([model.type isEqualToString:@"1"]){
+            // 留出段落之间的空隙 :5
+            CGFloat totalHeight = frame.size.height + 5;
             UIImageView *imageView = [self createImageViewWithImageUrlStr:model.infor preferredWidth:self.preferredMaxLayoutWidth];
-            imageView.origin = CGPointMake(0, frame.size.height);
-            frame.size.height += imageView.height;
+            imageView.origin = CGPointMake(0, totalHeight);
+            frame.size.height += imageView.height+5;
             [self addSubview:imageView];
         }else if ([NSString stringWithFormat:@"%@",model.extParams[@"videoType"]].length > 0){
             WKWebView *webView = [self createWebViewWithUrlStr:model.infor preferredWidth:self.preferredMaxLayoutWidth];
@@ -82,7 +90,6 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
 - (UIImageView *)createImageViewWithImageUrlStr:(NSString *)urlStr preferredWidth:(CGFloat)preferredWidth{
     NSString *picUrlStr = urlStr;
     NSURL *picUrl = [NSURL URLWithString:picUrlStr];
-   // NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
     UIImageView *imageView = [[UIImageView alloc]init];
     imageView.image = [UIImage imageNamed:@"mc_forum_add_new_img"];
     [[SDWebImageManager sharedManager] downloadImageWithURL:picUrl options:SDWebImageHighPriority progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
@@ -90,8 +97,10 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
             imageView.image = image;
         }
     }];
+    
     // 先拿到图片，然后求出原图的高宽比，然后按原图比例渲染。
     CGFloat width = self.preferredMaxLayoutWidth?:self.width;
+    imageView.contentMode = UIViewContentModeScaleToFill;
     CGFloat gaoKuanBi = imageView.image.size.height / imageView.image.size.width;
     imageView.bounds = CGRectMake(0, 0, width, width*gaoKuanBi );
     // 每次检查到type = 1的信息，就保存图片地址。
@@ -130,7 +139,7 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
                  attachment.range = NSMakeRange([result rangeAtIndex:0].location, 1);
                  attachment.imageView = [[UIImageView alloc] init];
                  attachment.imageView.contentMode = UIViewContentModeScaleAspectFill;
-                 [self addSubview:attachment.imageView];
+                 [label addSubview:attachment.imageView];
                  [attachment.imageView sd_setImageWithURL:[NSURL URLWithString:[textString.string substringWithRange:[result rangeAtIndex:1]]]];
                  //  [_attachmentArray addObject:attachment];
                  [textString replaceCharactersInRange:[result rangeAtIndex:0] withAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];

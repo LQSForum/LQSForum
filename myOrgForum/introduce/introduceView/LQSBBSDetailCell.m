@@ -25,7 +25,6 @@
 @property (nonatomic, assign) CGFloat totalHeight;
 @property (nonatomic,strong)UIActionSheet *myActSheet;
 
-@property (nonatomic,strong)LQSArticleContentView *articleContentView;
 @end
 
 @implementation LQSBBSDetailCell
@@ -41,12 +40,7 @@
 -(void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath{
     // 暂时不用写什么东西
 }
-- (CGRect )resultRectWithText:(NSString *)text width:(CGFloat)width{
-    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
-    // 计算文字高度
-    CGRect rect = [text  boundingRectWithSize:CGSizeMake(width, 1000) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
-    return rect;
-}
+
 // 跳转到大赏页
 - (void)postToReportPage:(UIButton *)sender{
     NSLog(@"举报按钮的点击事件");
@@ -494,39 +488,7 @@
     }];
     
 }
-#pragma mark - textviewdelegate,帖子内容的图片点击事件
--(BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction{
-    NSLog(@"帖子内容的图片点击事件");
-    // 在这里获取点击的attachment，处理弹出图片详情.但是这里使用的第三方图片浏览器没有那个分享按钮，需要解决下。
-    // 1.创建浏览器对象
-    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
-    // 拿到图片URL数组
-    NSMutableArray *picUrlStrArr = self.articleView.picUrlArr;
-    // 2.设置浏览器对象的所有图片
-    NSMutableArray *mjphotos = [NSMutableArray array];
-    for (int i = 0; i< picUrlStrArr.count; i++) {
-        // 创建MJPhoto模型
-        MJPhoto *mjphoto = [[MJPhoto alloc] init];
-        // 设置图片的url
-        mjphoto.url = [NSURL URLWithString:[picUrlStrArr objectAtIndex:i]];
-        // 设置图片的来源view
-        mjphoto.srcImageView = [[UIImageView alloc]initWithImage:textAttachment.image] ;
-        [mjphotos addObject:mjphoto];
-    }
-    browser.photos = mjphotos;
-    // 3.设置浏览器点击显示的图片位置
-    NSInteger index = 0;
-    for (NSInteger i = 0; i < self.articleView.ImgArr.count; i++) {
-        if ([self.articleView.ImgArr[i] isEqual:textAttachment.image]) {
-            index = i;
-        }
-    }
-//    browser.currentPhotoIndex = tap.view.tag;
-    browser.currentPhotoIndex = index;
-    // 4.显示浏览器
-    [browser show];
-    return YES;
-}
+
 @end
 #pragma mark - voteCell 打赏cell
 
@@ -701,7 +663,8 @@
 @property (nonatomic,strong)UILabel *timeLab;
 @property (nonatomic,strong)UILabel *postionLabel;
 //@property (nonatomic,strong)UILabel *replyContentLabel;
-@property (nonatomic,strong)LQSArticleContentView *replyContentView;
+//@property (nonatomic,strong)LQSArticleContentView *replyContentView;
+@property (nonatomic,strong)LQSNewArticleContentView *replyContentView;
 @property (nonatomic,strong)UILabel *secReplyContentLabel;
 @property (nonatomic,strong)UIImageView *bgImgView;
 @property (nonatomic,strong)UIButton *reportBtn;// 举报按钮
@@ -784,7 +747,7 @@
 //    self.replyContentLabel.textColor = [UIColor blackColor];
 //    self.replyContentLabel.preferredMaxLayoutWidth = LQSScreenW - 85;
     // 评论内容view
-    self.replyContentView = [[LQSArticleContentView alloc]init];
+    self.replyContentView = [[LQSNewArticleContentView alloc]init];
     [self.contentView addSubview:self.replyContentView];
     [self.replyContentView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.contentView.mas_left).offset(55);
@@ -793,8 +756,8 @@
                 make.right.equalTo(self.contentView.mas_right).offset(-30);
     }];
     self.replyContentView.preferredMaxLayoutWidth = LQSScreenW - 85;
-    self.replyContentView.scrollEnabled = NO;
-    self.replyContentView.editable = NO;
+//    self.replyContentView.scrollEnabled = NO;
+//    self.replyContentView.editable = NO;
 // 二级回复的底部图片
     _bgImgView = [[UIImageView alloc] init];
     [self.contentView addSubview:_bgImgView];
@@ -919,6 +882,9 @@
 //    NSDictionary *dic = pinglunModel.reply_content[0];
 //    self.replyContentLabel.text = dic[@"infor"];
     self.replyContentView.content = self.pinglunModel.reply_content;
+    [self.replyContentView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(self.replyContentView.totalH);
+    }];
     if ([pinglunModel.is_quote integerValue] == 1) {
         
 //        NSLog(@"二级评论内容:%@",pinglunModel.quote_content);
