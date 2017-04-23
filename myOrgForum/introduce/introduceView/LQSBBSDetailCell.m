@@ -663,8 +663,8 @@
 @property (nonatomic,strong)UILabel *timeLab;
 @property (nonatomic,strong)UILabel *postionLabel;
 //@property (nonatomic,strong)UILabel *replyContentLabel;
-//@property (nonatomic,strong)LQSArticleContentView *replyContentView;
-@property (nonatomic,strong)LQSNewArticleContentView *replyContentView;
+@property (nonatomic,strong)LQSArticleContentView *replyContentView;
+//@property (nonatomic,strong)LQSNewArticleContentView *replyContentView;
 @property (nonatomic,strong)UILabel *secReplyContentLabel;
 @property (nonatomic,strong)UIImageView *bgImgView;
 @property (nonatomic,strong)UIButton *reportBtn;// 举报按钮
@@ -747,7 +747,7 @@
 //    self.replyContentLabel.textColor = [UIColor blackColor];
 //    self.replyContentLabel.preferredMaxLayoutWidth = LQSScreenW - 85;
     // 评论内容view
-    self.replyContentView = [[LQSNewArticleContentView alloc]init];
+    self.replyContentView = [[LQSArticleContentView alloc]init];
     [self.contentView addSubview:self.replyContentView];
     [self.replyContentView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.contentView.mas_left).offset(55);
@@ -756,8 +756,8 @@
                 make.right.equalTo(self.contentView.mas_right).offset(-30);
     }];
     self.replyContentView.preferredMaxLayoutWidth = LQSScreenW - 85;
-//    self.replyContentView.scrollEnabled = NO;
-//    self.replyContentView.editable = NO;
+    self.replyContentView.scrollEnabled = NO;
+    self.replyContentView.editable = NO;
 // 二级回复的底部图片
     _bgImgView = [[UIImageView alloc] init];
     [self.contentView addSubview:_bgImgView];
@@ -879,12 +879,13 @@
     self.postionLabel.text = [NSString stringWithFormat:@"%@楼",pinglunModel.position];
     // 此处的楼层label的位置是固定的，以后可以看UI设计来改。
     // 一级评论内容展示
+    // 原本使用统一的LQSArticleContentView做的，后来改成统一用LQSNewArticleContentView做，现在是帖子内容用New的，回复内容用old的。
 //    NSDictionary *dic = pinglunModel.reply_content[0];
 //    self.replyContentLabel.text = dic[@"infor"];
     self.replyContentView.content = self.pinglunModel.reply_content;
-    [self.replyContentView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(self.replyContentView.totalH);
-    }];
+//    [self.replyContentView mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.height.mas_equalTo(self.replyContentView.totalH);
+//    }];
     if ([pinglunModel.is_quote integerValue] == 1) {
         
 //        NSLog(@"二级评论内容:%@",pinglunModel.quote_content);
@@ -901,6 +902,11 @@
         self.secReplyContentLabel.hidden = NO;// 之前不显示竟然是因为在这里忘了设置secReplyContenLabel.hidden = NO了。。。
     }else{
         self.secReplyContentLabel.hidden = YES;
+        // 这里还是要设定背景图的高度，因为下面的回复按钮是根据这个bgImgView来布局的。如果不设定高度，可能会导致高度错乱。
+        [self.bgImgView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@1);
+            
+        }];
         self.bgImgView.hidden = YES;
     }
     // 强制布局

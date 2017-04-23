@@ -113,6 +113,7 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
     return imageView;
 }
 // 根据文字创建label
+
 - (UILabel *)createLabelWithText:(NSString *)text preferedWidth:(CGFloat)preferedWidth originY:(CGFloat)originY{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, originY, self.preferredMaxLayoutWidth, 0)];
     label.numberOfLines = 0;
@@ -143,6 +144,15 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
                  [attachment.imageView sd_setImageWithURL:[NSURL URLWithString:[textString.string substringWithRange:[result rangeAtIndex:1]]]];
                  //  [_attachmentArray addObject:attachment];
                  [textString replaceCharactersInRange:[result rangeAtIndex:0] withAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
+//                 // 重写下这个方法
+//                 NSTextAttachment *att = [[NSTextAttachment alloc]init];
+//                 att.bounds = CGRectMake(0, 0, 14,14);
+//                 UIImageView *imgV = [[UIImageView alloc]init];
+//                 [imgV sd_setImageWithURL:[NSURL URLWithString:[textString.string substringWithRange:[result rangeAtIndex:1]]]];
+//                 NSLog(@"截取的字符串%@",[textString.string substringWithRange:[result rangeAtIndex:1]]);
+//                 att.image = imgV.image;
+//                 [textString replaceCharactersInRange:[result rangeAtIndex:0] withAttributedString:[NSAttributedString attributedStringWithAttachment:att]];
+                 
              }else if (emojiResult != nil) {
                  NSRange range = [emojiResult range];
                  // 获取原字符串中对应的值

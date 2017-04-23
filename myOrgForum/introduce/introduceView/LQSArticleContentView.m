@@ -73,9 +73,10 @@ static NSString * const regex_emoji =@"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";//�
                 NSTextCheckingResult *emojiResult = [emojiRegex firstMatchInString:textString.string options:0 range:NSMakeRange(0, textString.string.length)];
                 
                 if (result != nil) {
+                    // 这里有个需要做的，就是gif图，现在是定制的大小。而不是原图多大，就是多大。
                     LQSTextAttachment *attachment = [[LQSTextAttachment alloc] init];
                     attachment.image = [[UIImage alloc] init];
-                    attachment.bounds = CGRectMake(0, 0, 14,14);
+                    attachment.bounds = CGRectMake(0, 0, 20,20);
                     attachment.range = NSMakeRange([result rangeAtIndex:0].location, 1);
                     attachment.imageView = [[UIImageView alloc] init];
                     attachment.imageView.contentMode = UIViewContentModeScaleAspectFill;
