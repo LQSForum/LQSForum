@@ -15,7 +15,7 @@
 #import "LQSHomePagePersonalMessageViewController.h"
 // 解析评论数据
 #import "LQSBBSDetailModel.h"
-
+#import "LQSNewArticleContentView.h"
 #define kCONTENTIMAGETAG_BEGIN 20160830
 #define kGUANZHUTA @"关注TA"
 #define kYIGUANZHUTA @"已关注TA"
@@ -25,7 +25,6 @@
 @property (nonatomic, assign) CGFloat totalHeight;
 @property (nonatomic,strong)UIActionSheet *myActSheet;
 
-@property (nonatomic,strong)LQSArticleContentView *articleContentView;
 @end
 
 @implementation LQSBBSDetailCell
@@ -41,12 +40,7 @@
 -(void)setCellWithData:(id)modelData indexpath:(NSIndexPath *)indexpath{
     // 暂时不用写什么东西
 }
-- (CGRect )resultRectWithText:(NSString *)text width:(CGFloat)width{
-    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
-    // 计算文字高度
-    CGRect rect = [text  boundingRectWithSize:CGSizeMake(width, 1000) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
-    return rect;
-}
+
 // 跳转到大赏页
 - (void)postToReportPage:(UIButton *)sender{
     NSLog(@"举报按钮的点击事件");
@@ -57,12 +51,12 @@
     
 }
 // 赏点击方法--xg
-- (void)shangAct{
-    NSLog(@"赏的点击方法");
-    if ([self.delegate respondsToSelector:@selector(pushToDashang)]) {
-        [self.delegate pushToDashang];
-    }
-}
+//- (void)shangAct{
+//    NSLog(@"赏的点击方法");
+//    if ([self.delegate respondsToSelector:@selector(pushToDashang)]) {
+//        [self.delegate pushToDashang];
+//    }
+//}
 
 #pragma mark - 帖子详情点击头像方法
 - (void)sec1HeadAct{
@@ -354,7 +348,9 @@
 @property (nonatomic,strong)UILabel *memberDegreeLabel;// 会员级别label
 @property (nonatomic,strong)UILabel *timeLabel;
 @property (nonatomic,strong)UIButton *guanZhuBtn;// 关注按钮
-@property (nonatomic,strong)LQSArticleContentView *articleView;// 内容view
+//@property (nonatomic,strong)LQSArticleContentView *articleView;// 内容view
+@property (nonatomic,strong)LQSNewArticleContentView *articleView;// 内容view
+
 @property (nonatomic,strong)UIButton *reportBtn;// 举报按钮
 @end
 @implementation LQSBBSDetailContentCell
@@ -418,7 +414,8 @@
     self.guanZhuBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     self.guanZhuBtn.layer.borderWidth = 1;
     [self.guanZhuBtn addTarget:self action:@selector(guanzhuTA:) forControlEvents:UIControlEventTouchUpInside];
-    self.articleView = [[LQSArticleContentView alloc]init];
+   // self.articleView = [[LQSArticleContentView alloc]init];
+    self.articleView = [[LQSNewArticleContentView alloc]init];
     [self.contentView addSubview:self.articleView];
     [self.articleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).offset(11);
@@ -426,9 +423,10 @@
         make.width.equalTo(@(LQSScreenW - 30));
     }];
     self.articleView.preferredMaxLayoutWidth = LQSScreenW - 30;
-    self.articleView.delegate = self;
-    self.articleView.scrollEnabled = NO;
-    self.articleView.editable = NO;
+   // self.articleView.delegate = self;
+    //self.articleView.scrollEnabled = NO;
+    //self.articleView.editable = NO;
+    //self.articleView.selectable = YES;// 标记textView可选属性，如果不写点击没反应。
     self.reportBtn = [[UIButton alloc]init];
     [self.contentView addSubview:self.reportBtn];
     [self.reportBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -470,6 +468,9 @@
     NSString *guanZhuStr = topicModel.isFollow == 0 ? kGUANZHUTA : kYIGUANZHUTA;
     [self.guanZhuBtn setTitle:guanZhuStr forState:UIControlStateNormal];
     self.articleView.content = topicModel.content;
+    [self.articleView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(self.articleView.totalH);
+    }];
     [self layoutIfNeeded];
     topicModel.topicContenHeight = CGRectGetMaxY(self.reportBtn.frame)+20;
 }
@@ -487,32 +488,7 @@
     }];
     
 }
-#pragma mark - textviewdelegate,帖子内容的图片点击事件
--(BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction{
-    // 在这里获取点击的attachment，处理弹出图片详情.但是这里使用的第三方图片浏览器没有那个分享按钮，需要解决下。
-    // 1.创建浏览器对象
-    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
-    // 拿到图片URL数组
-    NSMutableArray *picUrlStrArr = self.articleView.picUrlArr;
-    // 2.设置浏览器对象的所有图片
-    NSMutableArray *mjphotos = [NSMutableArray array];
-    for (int i = 0; i< picUrlStrArr.count; i++) {
-        // 创建MJPhoto模型
-        MJPhoto *mjphoto = [[MJPhoto alloc] init];
-        // 设置图片的url
-        mjphoto.url = [NSURL URLWithString:[picUrlStrArr objectAtIndex:i]];
-        // 设置图片的来源view
-        mjphoto.srcImageView = [[UIImageView alloc]initWithImage:textAttachment.image] ;
-        [mjphotos addObject:mjphoto];
-    }
-    browser.photos = mjphotos;
-    // 3.设置浏览器默认显示的图片位置
-//    browser.currentPhotoIndex = tap.view.tag;
-    browser.currentPhotoIndex = 1;
-    // 4.显示浏览器
-    [browser show];
-    return YES;
-}
+
 @end
 #pragma mark - voteCell 打赏cell
 
@@ -539,7 +515,7 @@
     return _voteIconArr;
 }
 - (void)setupViews{
-    NSLog(@"voteCellsetupViews");
+    // NSLog(@"voteCellsetupViews");
     self.dashangLabel = [[UILabel alloc]init];
     [self.contentView addSubview:self.dashangLabel];
     [self.dashangLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -610,7 +586,7 @@
     }
 }
 -(void)setTopicModel:(LQSBBSDetailTopicModel *)topicModel{
-    NSLog(@"打赏cellsetModel");
+  //  NSLog(@"打赏cellsetModel");
     // 这个方法会在cell再次出现时再次调用。cell初始化时写好的东西，布局不会改变。但是这里代码中的东西会反复执行，所以这里应该写变动的东西，或者把变化性的东西反复擦除，然后重新执行。
     _topicModel = topicModel;
     if (topicModel.daShangRenShu > 0) {
@@ -654,8 +630,8 @@
 }
 // 打赏栏的用户头像点击事件
 - (void)voteUserIconClick:(UIGestureRecognizer *)gesture{
-    UIView *gestureView = gesture.view;
-    NSInteger index = gestureView.tag -10086;
+   // UIView *gestureView = gesture.view;
+   // NSInteger index = gestureView.tag -10086;
     // 到时候肯定需要这个参数，但是目前用不到。
     [self pushToPersonalMainPage];
 
@@ -688,6 +664,7 @@
 @property (nonatomic,strong)UILabel *postionLabel;
 //@property (nonatomic,strong)UILabel *replyContentLabel;
 @property (nonatomic,strong)LQSArticleContentView *replyContentView;
+//@property (nonatomic,strong)LQSNewArticleContentView *replyContentView;
 @property (nonatomic,strong)UILabel *secReplyContentLabel;
 @property (nonatomic,strong)UIImageView *bgImgView;
 @property (nonatomic,strong)UIButton *reportBtn;// 举报按钮
@@ -902,9 +879,13 @@
     self.postionLabel.text = [NSString stringWithFormat:@"%@楼",pinglunModel.position];
     // 此处的楼层label的位置是固定的，以后可以看UI设计来改。
     // 一级评论内容展示
+    // 原本使用统一的LQSArticleContentView做的，后来改成统一用LQSNewArticleContentView做，现在是帖子内容用New的，回复内容用old的。
 //    NSDictionary *dic = pinglunModel.reply_content[0];
 //    self.replyContentLabel.text = dic[@"infor"];
     self.replyContentView.content = self.pinglunModel.reply_content;
+//    [self.replyContentView mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.height.mas_equalTo(self.replyContentView.totalH);
+//    }];
     if ([pinglunModel.is_quote integerValue] == 1) {
         
 //        NSLog(@"二级评论内容:%@",pinglunModel.quote_content);
@@ -921,6 +902,11 @@
         self.secReplyContentLabel.hidden = NO;// 之前不显示竟然是因为在这里忘了设置secReplyContenLabel.hidden = NO了。。。
     }else{
         self.secReplyContentLabel.hidden = YES;
+        // 这里还是要设定背景图的高度，因为下面的回复按钮是根据这个bgImgView来布局的。如果不设定高度，可能会导致高度错乱。
+        [self.bgImgView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@1);
+            
+        }];
         self.bgImgView.hidden = YES;
     }
     // 强制布局

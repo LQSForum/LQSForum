@@ -55,7 +55,7 @@
     if (nil != [dict objectForKey:@"content"]) {
         NSArray  *contenArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict objectForKey:@"content"]];
         self.content = [NSMutableArray arrayWithArray:contenArr];
-        NSLog(@"arr: %@",contenArr);
+       // NSLog(@"arr: %@",contenArr);
     }
     // 下面的这段暂时不注释掉了，因为不知道原来是干嘛用的，而且这个zanlist好像没什么用处。
     if (nil != [dict objectForKey:@"zanList"]) {
@@ -99,7 +99,7 @@
         // 这里还是先不用这个字段作为判断了，因为不知道它这个字段有什么用处，万一以后改了，就很麻烦。
 //        if ([innerDict[@"title"] isEqualToString:@"评分"]) {
             self.dashangWebUrl = innerDict[@"action"];
-             NSLog(@"拿到了大赏页的URL:%@",self.dashangWebUrl);
+            // NSLog(@"拿到了大赏页的URL:%@",self.dashangWebUrl);
 //        }
     }
     
@@ -139,7 +139,7 @@
     if (nil != [dict objectForKey:@"reply_content"]) {
         NSArray  *contenArr = [LQSBBSContentModel mj_objectArrayWithKeyValuesArray:[dict objectForKey:@"reply_content"]];
         self.reply_content = [NSMutableArray arrayWithArray:contenArr];
-        NSLog(@"arr: %@",contenArr);
+        // NSLog(@"arr: %@",contenArr);
     }
 }
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{

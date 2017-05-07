@@ -16,7 +16,7 @@
 /** 表情工具条 */
 @property (nonatomic, weak) LQSEmotionToolbar *toollbar;
 
-
+@property (nonatomic, strong) NSArray *emojiArr;
 
 
 
@@ -38,11 +38,21 @@
         [self addSubview:listView];
         self.listView = listView;
         
+        // 配置表情集合
+        NSString *plist = [[NSBundle mainBundle] pathForResource:@"lqsemoji.plist" ofType:nil];
+        _emojiArr = [LQSEmotion mj_objectArrayWithFile:plist];//goback
+        //[_emojiArr makeObjectsPerformSelector:@selector(setDirectory:) withObject:@"EmotionIcons/lxh"];
+        //NSLog(@"emojiArr:%@",_emojiArr);
+        
+        self.listView.emotions = _emojiArr;
+        // 注释：本来工具条已经加上了，后来对比线上版发现完全不是一回事，既没有工具条，表情更是一个都不同，那这些代码就都注释掉了。
+        /*
         // 2.添加表情工具条
         LQSEmotionToolbar *toollbar = [[LQSEmotionToolbar alloc] init];
         toollbar.delegate = self;
         [self addSubview:toollbar];
         self.toollbar = toollbar;
+         */
     }
     return self;
 }
@@ -50,15 +60,15 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
+    /*
     // 1.设置工具条的frame
     self.toollbar.width = self.width;
     self.toollbar.height = 35;
     self.toollbar.y = self.height - self.toollbar.height;
-    
+    */
     // 2.设置表情列表的frame
     self.listView.width = self.width;
-    self.listView.height = self.toollbar.y;
+    self.listView.height = self.height;
 }
 
 #pragma mark - LQSEmotionToolbarDelegate

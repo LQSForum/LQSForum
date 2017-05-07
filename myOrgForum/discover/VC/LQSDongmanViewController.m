@@ -163,7 +163,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"CELLForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
+   // NSLog(@"CELLForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     static NSString *identifier = @"dongManCell";
     LQSDongmanTableViewCell *dongmancell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (dongmancell == nil) {
@@ -178,7 +178,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-NSLog(@"heightForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
+//NSLog(@"heightForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     LQSDongmanTableViewCell *dongmanCell = (LQSDongmanTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
     return dongmanCell.cellHeight;
 

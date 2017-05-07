@@ -50,8 +50,8 @@
     _emotions = emotions;
     
     // 设置总页数
-    int totalPages = (emotions.count + LQSEmotionMaxCountPerPage - 1) / LQSEmotionMaxCountPerPage;
-    int currentGridViewCount = self.scrollView.subviews.count;
+    NSInteger totalPages = (emotions.count + LQSEmotionMaxCountPerPage - 1) / LQSEmotionMaxCountPerPage;
+    NSInteger currentGridViewCount = self.scrollView.subviews.count;
     self.pageControl.numberOfPages = totalPages;
     self.pageControl.currentPage = 0;
     
@@ -68,8 +68,8 @@
         }
         
         // 给LQSEmotionGridView设置表情数据
-        int loc = i * LQSEmotionMaxCountPerPage;
-        int len = LQSEmotionMaxCountPerPage;
+        NSInteger loc = i * LQSEmotionMaxCountPerPage;
+        NSInteger len = LQSEmotionMaxCountPerPage;
         if (loc + len > emotions.count) { // 对越界进行判断处理
             len = emotions.count - loc;
         }
@@ -80,7 +80,7 @@
     }
     
     // 隐藏后面的不需要用到的gridView
-    for (int i = totalPages; i<currentGridViewCount; i++) {
+    for (NSInteger i = totalPages; i<currentGridViewCount; i++) {
         LQSEmotionGridView *gridView = self.scrollView.subviews[i];
         gridView.hidden = YES;
     }
@@ -108,7 +108,7 @@
     self.scrollView.height = self.pageControl.y;
     
     // 3.设置UIScrollView内部控件的尺寸
-    int count = self.pageControl.numberOfPages;
+    NSInteger count = self.pageControl.numberOfPages;
     CGFloat gridW = self.scrollView.width;
     CGFloat gridH = self.scrollView.height;
     self.scrollView.contentSize = CGSizeMake(count * gridW, 0);

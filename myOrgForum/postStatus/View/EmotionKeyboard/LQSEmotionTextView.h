@@ -14,7 +14,10 @@
  *  拼接表情到最后面
  */
 - (void)appendEmotion:(LQSEmotion *)emotion;
-
+/**
+ *  拼接表情描述文字到最后面
+ */
+- (void)appendEmotionStrWith:(LQSEmotion *)emotion;
 /**
  *  具体的文字内容
  */

@@ -132,6 +132,9 @@
     //设置NaviagtionBarType
     [self setNaviagtionBarType:0];
 }
+-(void)dealloc{
+    NSLog(@"主页的dealloc");
+}
 - (void)setNaviagtionBarType:(NSInteger)type
 {
     if (type == 1) {
