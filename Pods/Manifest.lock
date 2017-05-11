@@ -42,16 +42,25 @@ PODS:
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - SVProgressHUD (2.1.2)
-  - UMengUShare/Core (6.2.2):
+  - UMengUShare/Core (6.4.3):
     - UMengUShare/Network
-  - UMengUShare/Network (6.2.2)
-  - UMengUShare/Social/QQ (6.2.2):
+  - UMengUShare/Network (6.4.3)
+  - UMengUShare/Social/QQ (6.4.3):
     - UMengUShare/Core
-  - UMengUShare/Social/Sina (6.2.2):
+    - UMengUShare/Social/ReducedQQ
+  - UMengUShare/Social/ReducedQQ (6.4.3):
     - UMengUShare/Core
-  - UMengUShare/Social/WeChat (6.2.2):
+  - UMengUShare/Social/ReducedSina (6.4.3):
     - UMengUShare/Core
-  - UMengUShare/UI (6.2.2):
+  - UMengUShare/Social/ReducedWeChat (6.4.3):
+    - UMengUShare/Core
+  - UMengUShare/Social/Sina (6.4.3):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedSina
+  - UMengUShare/Social/WeChat (6.4.3):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedWeChat
+  - UMengUShare/UI (6.4.3):
     - UMengUShare/Core
   - YLGIFImage (0.11)
 
@@ -82,9 +91,9 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
-  UMengUShare: fc0a98b8d5297632e82874318fd72a10d17da228
+  UMengUShare: d39cb682598df87ebdd3c055d03d00eb0102d42c
   YLGIFImage: c0ae132fe80e5282b2762a97d14e23ba71a748ae
 
 PODFILE CHECKSUM: 708671bbc541e4c8661407591aadb4442376ab23
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0.beta.1

@@ -23,7 +23,7 @@
     [self addChileVc:introduceVc title:@"首页" image:@"tab_introduce_common" selectedImage:@"tab_introduce_hilighted"];
     
     LQSForumViewController *forumVc = [[LQSForumViewController alloc] init];
-    [self addChileVc:forumVc title:@"论坛" image:@"tab_forum_common" selectedImage:@"tab_forum_hilighted"];
+    [self addChileVc:forumVc title:@"版块" image:@"tab_forum_common" selectedImage:@"tab_forum_hilighted"];
     
     LQSDiscoverViewController *discoverVc = [[LQSDiscoverViewController alloc] init];
     [self addChileVc:discoverVc title:@"发现" image:@"tab_discover_common" selectedImage:@"tab_discover_hilighted"];
