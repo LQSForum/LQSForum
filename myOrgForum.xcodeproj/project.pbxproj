@@ -30,6 +30,9 @@
 		149364AD1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 149364AC1D76DA6C00517A99 /* NSTextAttachment+ArticleContent.m */; };
 		2CB084B31D6029F900167F4D /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB084B21D6029F900167F4D /* NSDate+MJ.m */; };
 		2CC8C2E11D7F1D2300297B9B /* LQSSelectPlatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C2E01D7F1D2300297B9B /* LQSSelectPlatesViewController.m */; };
+		2D3184421EED68F700DAB17C /* LQSRecommendListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3184411EED68F700DAB17C /* LQSRecommendListModel.m */; };
+		2D87D24E1EED3A41006773A4 /* LQSHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D87D24A1EED3A41006773A4 /* LQSHomePageViewController.m */; };
+		2D87D24F1EED3A41006773A4 /* LQSRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D87D24D1EED3A41006773A4 /* LQSRecommendViewController.m */; };
 		2E3E9EC71DE9533500D0EC2D /* LQSPluginBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E9EC61DE9533500D0EC2D /* LQSPluginBoardView.m */; };
 		2E9EB6B11DE1E25200FBB0B0 /* LQSPluginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9EB6B01DE1E25200FBB0B0 /* LQSPluginView.m */; };
 		2E9EB6B41DE1E67A00FBB0B0 /* LQSPluginListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9EB6B31DE1E67A00FBB0B0 /* LQSPluginListView.m */; };
@@ -276,6 +279,12 @@
 		2CB084B21D6029F900167F4D /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MJ.m"; path = "categories/NSDate+MJ.m"; sourceTree = "<group>"; };
 		2CC8C2DF1D7F1D2300297B9B /* LQSSelectPlatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSSelectPlatesViewController.h; sourceTree = "<group>"; };
 		2CC8C2E01D7F1D2300297B9B /* LQSSelectPlatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSSelectPlatesViewController.m; sourceTree = "<group>"; };
+		2D3184401EED68F700DAB17C /* LQSRecommendListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRecommendListModel.h; sourceTree = "<group>"; };
+		2D3184411EED68F700DAB17C /* LQSRecommendListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRecommendListModel.m; sourceTree = "<group>"; };
+		2D87D2491EED3A41006773A4 /* LQSHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePageViewController.h; sourceTree = "<group>"; };
+		2D87D24A1EED3A41006773A4 /* LQSHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePageViewController.m; sourceTree = "<group>"; };
+		2D87D24C1EED3A41006773A4 /* LQSRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRecommendViewController.h; sourceTree = "<group>"; };
+		2D87D24D1EED3A41006773A4 /* LQSRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRecommendViewController.m; sourceTree = "<group>"; };
 		2E3E9EC51DE9533500D0EC2D /* LQSPluginBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPluginBoardView.h; sourceTree = "<group>"; };
 		2E3E9EC61DE9533500D0EC2D /* LQSPluginBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSPluginBoardView.m; sourceTree = "<group>"; };
 		2E9EB6AF1DE1E25200FBB0B0 /* LQSPluginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPluginView.h; sourceTree = "<group>"; };
@@ -712,6 +721,35 @@
 			name = VC;
 			sourceTree = "<group>";
 		};
+		2D31843F1EED68CC00DAB17C /* RecommendModel */ = {
+			isa = PBXGroup;
+			children = (
+				2D3184401EED68F700DAB17C /* LQSRecommendListModel.h */,
+				2D3184411EED68F700DAB17C /* LQSRecommendListModel.m */,
+			);
+			path = RecommendModel;
+			sourceTree = "<group>";
+		};
+		2D87D2481EED3A41006773A4 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				2D87D2491EED3A41006773A4 /* LQSHomePageViewController.h */,
+				2D87D24A1EED3A41006773A4 /* LQSHomePageViewController.m */,
+				2D87D24B1EED3A41006773A4 /* Recommend */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		2D87D24B1EED3A41006773A4 /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				2D31843F1EED68CC00DAB17C /* RecommendModel */,
+				2D87D24C1EED3A41006773A4 /* LQSRecommendViewController.h */,
+				2D87D24D1EED3A41006773A4 /* LQSRecommendViewController.m */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
 		410FA1D91D38E9F10021B7E2 /* categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -753,6 +791,7 @@
 		410FBB6F1CCDEBC500761192 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				2D87D2481EED3A41006773A4 /* HomePage */,
 				E4D8E1BA1D5418A400EE6171 /* User */,
 				413F924A1D791B0E00D7974D /* login&register */,
 				413F92601D791D6200D7974D /* resources */,
@@ -1846,6 +1885,7 @@
 				0000C4A11D645CDD007C969C /* LQSLeftTableView.m in Sources */,
 				411FE7951D6D6DAE00563324 /* LQSShijieViewController.m in Sources */,
 				41AC5B3A1D751C83006E38D5 /* LQSMyDraftViewController.m in Sources */,
+				2D87D24F1EED3A41006773A4 /* LQSRecommendViewController.m in Sources */,
 				0000C4B41D645E89007C969C /* LQSMainViewCell.m in Sources */,
 				410FA1F41D38EB7E0021B7E2 /* UIBarButtonItem+Extension.m in Sources */,
 				E494EB831E6A732700AAD1B2 /* YBPopupMenu.m in Sources */,
@@ -1869,10 +1909,12 @@
 				797422301E8A1E3200EC369F /* LQSChangePasswordVC.m in Sources */,
 				2EA1A9F31DD855FA00F6360A /* LQSDashangTableViewCell.m in Sources */,
 				41AC5B3E1D751C83006E38D5 /* LQSSettingMyFriendViewController.m in Sources */,
+				2D87D24E1EED3A41006773A4 /* LQSHomePageViewController.m in Sources */,
 				E4D8E1B91D54188500EE6171 /* LQSBaseManager.m in Sources */,
 				6E62B0681D73D1BE001FB2A4 /* LQSBBSDetailCell.m in Sources */,
 				CD2D803F1E827605002D3E09 /* LQSHuiFuPingLunViewController.m in Sources */,
 				41F870091D767E7B00E05FAB /* LQSEmotionPopView.m in Sources */,
+				2D3184421EED68F700DAB17C /* LQSRecommendListModel.m in Sources */,
 				E4D8E1DC1D542A2B00EE6171 /* LQSUserInfo.m in Sources */,
 				2E3E9EC71DE9533500D0EC2D /* LQSPluginBoardView.m in Sources */,
 				410FA1F21D38EB7E0021B7E2 /* NSArray+Log.m in Sources */,
