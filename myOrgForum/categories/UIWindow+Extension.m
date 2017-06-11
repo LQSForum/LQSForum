@@ -30,4 +30,8 @@
     }
 
 }
+
+- (void)initUI {
+    //请求UI接口，拿到首页推荐的轮播图和按钮等数据。 http://forum.longquanzs.org//mobcent/app/web/index.php?r=app/initui
+}
 @end

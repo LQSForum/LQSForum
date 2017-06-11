@@ -23,8 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [super viewDidLoad];
     //    添加自控制器
     [self setUpChildVc];
     //添加ScrollView

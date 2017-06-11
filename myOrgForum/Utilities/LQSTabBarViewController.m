@@ -19,8 +19,10 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     //初始化子控制器
-    LQSIntroduceViewController *introduceVc = [[LQSIntroduceViewController alloc] init];
-    [self addChileVc:introduceVc title:@"首页" image:@"tab_introduce_common" selectedImage:@"tab_introduce_hilighted"];
+//    LQSIntroduceViewController *introduceVc = [[LQSIntroduceViewController alloc] init];
+//    [self addChileVc:introduceVc title:@"首页" image:@"tab_introduce_common" selectedImage:@"tab_introduce_hilighted"];
+    LQSHomePageViewController *homePageVc = [[LQSHomePageViewController alloc] init];
+    [self addChileVc:homePageVc title:@"首页" image:@"tab_introduce_common" selectedImage:@"tab_introduce_hilighted"];
     
     LQSForumViewController *forumVc = [[LQSForumViewController alloc] init];
     [self addChileVc:forumVc title:@"论坛" image:@"tab_forum_common" selectedImage:@"tab_forum_hilighted"];
