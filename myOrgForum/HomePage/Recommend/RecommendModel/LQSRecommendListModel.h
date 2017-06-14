@@ -8,38 +8,55 @@
 
 #import <Foundation/Foundation.h>
 
-//后期改为JSONModel比较好些
+//TODO: 后期改为JSONModel比较好些
 @interface LQSRecommendListModel : NSObject
 
-@property (nonatomic, assign) NSInteger essence;
-@property (nonatomic, assign) NSInteger status;
+//@property (nonatomic, assign) NSInteger essence;
+@property (nonatomic, strong) NSString *essence;
+//@property (nonatomic, assign) NSInteger status;
+@property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *userAvatar;
-@property (nonatomic, assign) NSInteger replies;
-@property (nonatomic, strong) NSString* user_id;
-@property (nonatomic, assign) NSInteger top;
+//@property (nonatomic, assign) NSInteger replies;
+@property (nonatomic, strong) NSString *replies;
+@property (nonatomic, strong) NSString *user_id;
+//@property (nonatomic, assign) NSInteger top;
+@property (nonatomic, strong) NSString *top;
 @property (nonatomic, strong) NSMutableArray *imageList;
 @property (nonatomic, strong) NSMutableArray *videoList;
-@property (nonatomic, assign) NSInteger hits;
-@property (nonatomic, assign) NSInteger isHasRecommendAdd;
+//@property (nonatomic, assign) NSInteger hits;
+@property (nonatomic, strong) NSString *hits;
+//@property (nonatomic, assign) NSInteger isHasRecommendAdd;
+@property (nonatomic, strong) NSString *isHasRecommendAdd;
 @property (nonatomic, strong) NSString *subject;
-@property (nonatomic, assign) NSInteger hot;
+//@property (nonatomic, assign) NSInteger hot;
+@property (nonatomic, strong) NSString *hot;
 @property (nonatomic, strong) NSMutableArray *verify;
 @property (nonatomic, strong) NSString *type;
-@property (nonatomic, assign) NSInteger gender;
+//@property (nonatomic, assign) NSInteger gender;
+@property (nonatomic, strong) NSString *gender;
 @property (nonatomic, strong) NSString *last_reply_date;
 @property (nonatomic, strong) NSString *pic_path;
-@property (nonatomic, assign) NSInteger topic_id;
+//@property (nonatomic, assign) NSInteger topic_id;
+@property (nonatomic, strong) NSString *topic_id;
 @property (nonatomic, strong) NSString *userTitle;
 @property (nonatomic, strong) NSString *sourceWebUrl;
 @property (nonatomic, strong) NSString *user_nick_name;
-@property (nonatomic, assign) NSInteger vote;
-@property (nonatomic, assign) NSInteger isTopic;
+//@property (nonatomic, assign) NSInteger vote;
+@property (nonatomic, strong) NSString *vote;
+//@property (nonatomic, assign) NSInteger isTopic;
+@property (nonatomic, strong) NSString *isTopic;
 @property (nonatomic, strong) NSString *ratio;
-@property (nonatomic, assign) NSInteger special;
-@property (nonatomic, assign) NSInteger board_id;
-@property (nonatomic, assign) NSInteger recommendAdd;
+//@property (nonatomic, assign) NSInteger special;
+@property (nonatomic, strong) NSString *special;
+//@property (nonatomic, assign) NSInteger board_id;
+@property (nonatomic, strong) NSString *board_id;
+//@property (nonatomic, assign) NSInteger recommendAdd;
+@property (nonatomic, strong) NSString *recommendAdd;
 @property (nonatomic, strong) NSString *board_name;
+
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
 

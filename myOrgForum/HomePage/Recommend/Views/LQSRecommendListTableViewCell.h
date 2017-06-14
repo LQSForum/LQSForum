@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LQSRecommendListModel.h"
 
 @interface LQSRecommendListTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) LQSRecommendListModel *recommendModel;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "LQSRecommendViewController.h"
 #import "LQSintroduceMainlistCell.h"
+#import "LQSRecommendListModel.h"
 
 @interface LQSRecommendViewController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -203,7 +204,7 @@
 //        [weakSelf cleanData];
 //        [self getDataModelFor:dict];
         
-//        [weakSelf refreshDataWithDict:dict];
+        [weakSelf refreshDataWithDict:dict];
         
         [_recommendTableView reloadData];
         [_recommendTableView.mj_header endRefreshing];
@@ -244,17 +245,10 @@
             }
             //给数组赋值
             for (NSDictionary *sChengData in list) {
-                LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
-                xModel.px = LQSTR(sChengData[@"px"]);
-                xModel.type = LQSTR(sChengData[@"type"]);
-                xModel.icon = LQSTR(sChengData[@"icon"]);
-                xModel.title = LQSTR(sChengData[@"title"]);
-                xModel.desc = LQSTR(sChengData[@"subject"]);
-                xModel.forumId = LQSTR(sChengData[@"forumId"]);
-                xModel.topicId = LQSTR(sChengData[@"topic_id"]);
-                xModel.redirect = LQSTR(sChengData[@"sourceWebUrl"]);
-                xModel.id = LQSTR(sChengData[@"topic_id"]);
-                [self.recommendArray addObject:xModel];
+                LQSRecommendListModel *model = [self getModelWithDict:sChengData];
+                if (sChengData) {
+                    [self.recommendArray addObject:model];
+                }
             }
         } else {
             if ([self.recommendNewArray count] > 0) {
@@ -262,17 +256,10 @@
             }
             //给数组添加值
             for (NSDictionary *sChengData in list) {
-                LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
-                xModel.px = LQSTR(sChengData[@"px"]);
-                xModel.type = LQSTR(sChengData[@"type"]);
-                xModel.icon = LQSTR(sChengData[@"icon"]);
-                xModel.title = LQSTR(sChengData[@"title"]);
-                xModel.desc = LQSTR(sChengData[@"desc"]);
-                xModel.forumId = LQSTR(sChengData[@"forumId"]);
-                xModel.topicId = LQSTR(sChengData[@"extParams"][@"topicId"]);
-                xModel.redirect = LQSTR(sChengData[@"extParams"][@"redirect"]);
-                xModel.id = LQSTR(sChengData[@"id"]);
-                [self.recommendNewArray addObject:xModel];
+                LQSRecommendListModel *model = [self getModelWithDict:sChengData];
+                if (sChengData) {
+                    [self.recommendNewArray addObject:model];
+                }
             }
             
             if ([self.recommendNewArray count] > 0) {
@@ -280,6 +267,16 @@
             }
         }
     }
+}
+
+- (LQSRecommendListModel *)getModelWithDict:(NSDictionary *)dict {
+//    if (!dict || ![dict isKindOfClass:[NSDictionary class]]) {
+//        return nil;
+//    }
+    
+    LQSRecommendListModel *model = [[LQSRecommendListModel alloc] initWithDictionary:dict];
+    
+    return model;
 }
 
 - (void)getDataModelFor:(NSDictionary *)dataDic
@@ -427,16 +424,16 @@
     cell.myCtrl = self;
     switch (indexPath.section) {
         case 0:{
-            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.lbDataArrA,@"indexPath":indexPath}];
+//            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.lbDataArrA,@"indexPath":indexPath}];
             //            [cell setCellForIndexPath:indexPath];
             break;
         }case 1:{
-            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.btnDataArrB,@"indexPath":indexPath}];
+//            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.btnDataArrB,@"indexPath":indexPath}];
             //            [cell setCellForIndexPath:indexPath];
             break;
         }
         case 2:{
-            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.recommendArray,@"indexPath":indexPath}];
+//            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.recommendArray,@"indexPath":indexPath}];
             //            [cell setCellForIndexPath:indexPath];
             break;
         }
@@ -472,11 +469,11 @@
     if (indexPath.section == 2) {
         //师父法语开示点击
         NSLog(@"点击师父法语开示");
-        LQSIntroduceMainListModel *model = self.recommendArray[indexPath.row];
+        LQSRecommendListModel *model = self.recommendArray[indexPath.row];
         if ([model.type isEqualToString:@"postlist"]) {
-            LQSBBSDetailViewController *vc = [[LQSBBSDetailViewController alloc] init];
-            vc.selectModel = model;
-            [self.navigationController pushViewController:vc animated:YES];
+//            LQSBBSDetailViewController *vc = [[LQSBBSDetailViewController alloc] init];
+//            vc.selectModel = model;
+//            [self.navigationController pushViewController:vc animated:YES];
         }
         
     }
