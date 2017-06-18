@@ -81,7 +81,16 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
     }
     
     if (recommendModel.imageList && [recommendModel.imageList count] > 0) {
-        return RecommendListCellTypeMultiImage;
+        
+        if ([recommendModel.imageList count] >= 3) {
+            return RecommendListCellTypeMultiImage;
+        } else {
+            if (recommendModel.pic_path && recommendModel.pic_path.length > 0) {
+                return RecommendListCellTypeSingeImage;
+            } else {
+                return RecommendListCellTypeMultiImage;
+            }
+        }
     }
     
     if (recommendModel.pic_path && recommendModel.pic_path.length > 0) {
@@ -173,16 +182,16 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
         self.essenceIcon.hidden = YES;
     }
     
-    self.detailImageView.frame = CGRectMake(LQSScreenW - RecommendRightMargin - 100, self.timeLabel.frame.origin.y, 100.0f, 60.0f);
+    self.detailImageView.frame = CGRectMake(LQSScreenW - RecommendRightMargin - 10, self.titleLabel.frame.origin.y, 100.0f, 60.0f);
     [self.detailImageView sd_setImageWithURL:[NSURL URLWithString:self.recommendModel.pic_path] placeholderImage:nil];
     self.detailImageView.hidden = NO;
     
     self.titleLabel.text = LQSTR(self.recommendModel.title);
-    self.titleLabel.frame = CGRectMake(titleLeftOffset, RecommendTopMargin, LQSScreenW - titleLeftOffset - self.detailImageView.frame.origin.x - 10, 20.0f);
+    self.titleLabel.frame = CGRectMake(titleLeftOffset, RecommendTopMargin, LQSScreenW - titleLeftOffset - self.detailImageView.frame.size.width - 10 - RecommendRightMargin, 20.0f);
     
     self.subjectLabel.text = LQSTR(self.recommendModel.subject);
     self.subjectLabel.numberOfLines = 2;
-    self.subjectLabel.frame = CGRectMake(RecommendLeftMargin, self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height, LQSScreenW - RecommendLeftMargin - self.detailImageView.frame.origin.x - 10, 40);
+    self.subjectLabel.frame = CGRectMake(RecommendLeftMargin, self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height, LQSScreenW - RecommendLeftMargin - self.detailImageView.frame.size.width - 10 - RecommendRightMargin, 40);
     
     self.timeLabel.frame = CGRectMake(RecommendLeftMargin, self.subjectLabel.frame.origin.y + self.subjectLabel.frame.size.height, 90, 16);
     
