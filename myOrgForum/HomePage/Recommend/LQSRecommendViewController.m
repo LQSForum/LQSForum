@@ -8,6 +8,7 @@
 
 #import "LQSRecommendViewController.h"
 #import "LQSintroduceMainlistCell.h"
+#import "LQSRecommendListTableViewCell.h"
 #import "LQSRecommendListModel.h"
 
 @interface LQSRecommendViewController () <UITableViewDataSource,UITableViewDelegate>
@@ -407,7 +408,12 @@
             break;
         }
         case 2:{
-            height = KLQScreenFrameSize.width *180/750;
+//            height = KLQScreenFrameSize.width *180/750;
+            
+            if (indexPath.row >= 0 && indexPath.row < [self.recommendArray count]) {
+                LQSRecommendListModel *listModel = [self.recommendArray objectAtIndex:indexPath.row];
+                height = [LQSRecommendListTableViewCell heightWithRecommendListModel:listModel];
+            }
             break;
         }
             
@@ -435,6 +441,16 @@
         case 2:{
 //            cell.paramDict =[NSMutableDictionary dictionaryWithDictionary: @{@"data":self.recommendArray,@"indexPath":indexPath}];
             //            [cell setCellForIndexPath:indexPath];
+            
+            LQSRecommendListTableViewCell *cell = [[LQSRecommendListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RecommendListCell"];
+            
+            if (indexPath.row >= 0 && indexPath.row < [self.recommendArray count]) {
+                LQSRecommendListModel *listModel = [self.recommendArray objectAtIndex:indexPath.row];
+                [cell updateCellWithModel:listModel];
+            }
+            
+            return cell;
+            
             break;
         }
             

@@ -11,6 +11,10 @@
 
 @interface LQSRecommendListTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) LQSRecommendListModel *recommendModel;
+@property (nonatomic, strong, readonly) LQSRecommendListModel *recommendModel;
+
+- (void)updateCellWithModel:(LQSRecommendListModel *)recommendModel;
+
++ (CGFloat)heightWithRecommendListModel:(LQSRecommendListModel *)recommendModel;
 
 @end
