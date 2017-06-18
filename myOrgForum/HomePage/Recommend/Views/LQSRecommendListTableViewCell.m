@@ -182,7 +182,7 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
         self.essenceIcon.hidden = YES;
     }
     
-    self.detailImageView.frame = CGRectMake(LQSScreenW - RecommendRightMargin - 10, self.titleLabel.frame.origin.y, 100.0f, 60.0f);
+    self.detailImageView.frame = CGRectMake(LQSScreenW - RecommendRightMargin - 100, self.titleLabel.frame.origin.y, 100.0f, 60.0f);
     [self.detailImageView sd_setImageWithURL:[NSURL URLWithString:self.recommendModel.pic_path] placeholderImage:nil];
     self.detailImageView.hidden = NO;
     
