@@ -71,11 +71,12 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
     [self.contentView addSubview:self.timeLabel];
     [self.contentView addSubview:self.nickNameLabel];
     [self.contentView addSubview:self.detailImageView];
+    [self.contentView addSubview:self.multiImageBgView];
     [self.contentView addSubview:self.hitsLabel];
     [self.contentView addSubview:self.bottomLineView];
 }
 
-- (RecommendListCellType)cellTypeWithModel:(LQSRecommendListModel *)recommendModel {
++ (RecommendListCellType)cellTypeWithModel:(LQSRecommendListModel *)recommendModel {
     if (!recommendModel) {
         return RecommendListCellTypeNone;
     }
@@ -101,7 +102,7 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
 }
 
 - (void)updateCellWithModel:(LQSRecommendListModel *)recommendModel {
-    self.cellUIType = [self cellTypeWithModel:recommendModel];
+    self.cellUIType = [LQSRecommendListTableViewCell cellTypeWithModel:recommendModel];
     self.recommendModel = recommendModel;
     
     switch (self.cellUIType) {
@@ -148,6 +149,7 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
     
     self.detailImageView.hidden = YES;
     self.detailImageView.image = nil;
+    self.multiImageBgView.hidden = YES;
     
     self.titleLabel.text = LQSTR(self.recommendModel.title);
     self.titleLabel.frame = CGRectMake(titleLeftOffset, RecommendTopMargin, LQSScreenW - titleLeftOffset - RecommendRightMargin, 20.0f);
@@ -157,10 +159,12 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
     self.subjectLabel.frame = CGRectMake(RecommendLeftMargin, self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height, LQSScreenW - RecommendLeftMargin - RecommendRightMargin, 50);
     
     self.timeLabel.frame = CGRectMake(RecommendLeftMargin, self.subjectLabel.frame.origin.y + self.subjectLabel.frame.size.height, 90, 16);
+    self.timeLabel.text = [self last_reply_date];
     
     self.nickNameLabel.text = LQSTR(self.recommendModel.user_nick_name);
     self.nickNameLabel.frame = CGRectMake(self.timeLabel.origin.x + self.timeLabel.size.width + 5, self.timeLabel.origin.y, 100, 16);
     
+    //TODO: 可以拆分成两个label，如果阅读数过大，数字可能会显示不全
     self.hitsLabel.frame = CGRectMake(LQSScreenW - RecommendRightMargin - 90, self.nickNameLabel.origin.y, 90, 16);
     self.hitsLabel.text = [NSString stringWithFormat:@"%@阅读", self.recommendModel.hits];
 //    if (self.recommendModel.hits.length > 0) {
@@ -182,9 +186,10 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
         self.essenceIcon.hidden = YES;
     }
     
-    self.detailImageView.frame = CGRectMake(LQSScreenW - RecommendRightMargin - 100, self.titleLabel.frame.origin.y, 100.0f, 60.0f);
+    self.detailImageView.frame = CGRectMake(LQSScreenW - RecommendRightMargin - 100, RecommendTopMargin, 100.0f, 60.0f);
     [self.detailImageView sd_setImageWithURL:[NSURL URLWithString:self.recommendModel.pic_path] placeholderImage:nil];
     self.detailImageView.hidden = NO;
+    self.multiImageBgView.hidden = YES;
     
     self.titleLabel.text = LQSTR(self.recommendModel.title);
     self.titleLabel.frame = CGRectMake(titleLeftOffset, RecommendTopMargin, LQSScreenW - titleLeftOffset - self.detailImageView.frame.size.width - 10 - RecommendRightMargin, 20.0f);
@@ -194,10 +199,12 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
     self.subjectLabel.frame = CGRectMake(RecommendLeftMargin, self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height, LQSScreenW - RecommendLeftMargin - self.detailImageView.frame.size.width - 10 - RecommendRightMargin, 40);
     
     self.timeLabel.frame = CGRectMake(RecommendLeftMargin, self.subjectLabel.frame.origin.y + self.subjectLabel.frame.size.height, 90, 16);
+    self.timeLabel.text = [self last_reply_date];
     
     self.nickNameLabel.text = LQSTR(self.recommendModel.user_nick_name);
     self.nickNameLabel.frame = CGRectMake(self.timeLabel.origin.x + self.timeLabel.size.width + 5, self.timeLabel.origin.y, 100, 16);
     
+    //TODO: 可以拆分成两个label，如果阅读数过大，数字可能会显示不全
     self.hitsLabel.text = [NSString stringWithFormat:@"%@阅读", self.recommendModel.hits];
     self.hitsLabel.frame = CGRectMake(LQSScreenW - RecommendRightMargin - 90, self.nickNameLabel.origin.y, 90, 16);
     self.bottomLineView.frame = CGRectMake(RecommendLeftMargin, self.hitsLabel.frame.origin.y + self.hitsLabel.frame.size.height, LQSScreenW - RecommendLeftMargin - RecommendRightMargin, 0.5f);
@@ -205,6 +212,7 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
 
 - (void)layoutMultiImageType  {
     CGFloat titleLeftOffset = RecommendLeftMargin;
+    //精品按钮
     if ([self.recommendModel.essence boolValue]) {
         self.essenceIcon.frame = CGRectMake(RecommendLeftMargin, RecommendTopMargin, 20.0f, 20.0f);
         self.essenceIcon.hidden = NO;
@@ -213,22 +221,51 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
         self.essenceIcon.hidden = YES;
     }
     
-    
+    //标题栏
     self.titleLabel.text = LQSTR(self.recommendModel.title);
     self.titleLabel.frame = CGRectMake(titleLeftOffset, RecommendTopMargin, LQSScreenW - titleLeftOffset - RecommendRightMargin, 20.0f);
     
+    //子标题
     self.subjectLabel.text = LQSTR(self.recommendModel.subject);
     self.subjectLabel.numberOfLines = 1;
     self.subjectLabel.frame = CGRectMake(RecommendLeftMargin, self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height, LQSScreenW - RecommendLeftMargin - RecommendRightMargin, 20);
     
+    //右边一张图 隐藏
+    self.detailImageView.hidden = YES;
+    self.detailImageView.image = nil;
+    self.multiImageBgView.hidden = NO;
     
-    //
+    for (UIView *viewObj in [self.multiImageBgView subviews]) {
+        [viewObj removeFromSuperview];
+    }
     
-    self.timeLabel.frame = CGRectMake(RecommendLeftMargin, self.subjectLabel.frame.origin.y + self.subjectLabel.frame.size.height, 90, 16);
+    //三张图区
+    CGFloat imageBgWidth = LQSScreenW - RecommendLeftMargin - RecommendRightMargin;
+    CGFloat imageBgHeight = 60.0f;
+    self.multiImageBgView.frame = CGRectMake(RecommendLeftMargin, self.subjectLabel.frame.origin.y + self.subjectLabel.frame.size.height, imageBgWidth, imageBgHeight);
+    //取值是保证数据大于3
+    CGFloat imageLeft = 0.0f;
+    CGFloat imageTop = 0.0f;
+    CGFloat spaceWidth = 8.0f;
+    CGFloat imageWith = (imageBgWidth - spaceWidth * 2) / 3;
+    CGFloat imageHeight = imageBgHeight;
+    for (NSInteger index = 0; index <= 2; index ++) {
+        NSString *imageUrl = [self.recommendModel.imageList objectAtIndex:index];
+        CGRect rect = CGRectMake(imageLeft, imageTop, imageWith, imageHeight);
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:rect];
+        imageView.backgroundColor = [UIColor grayColor];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil];
+        [self.multiImageBgView addSubview:imageView];
+        imageLeft  = imageLeft + spaceWidth + imageWith;
+    }
+    
+    self.timeLabel.frame = CGRectMake(RecommendLeftMargin, self.multiImageBgView.frame.origin.y + self.multiImageBgView.frame.size.height + 5, 90, 16);
+    self.timeLabel.text = [self last_reply_date];
     
     self.nickNameLabel.text = LQSTR(self.recommendModel.user_nick_name);
     self.nickNameLabel.frame = CGRectMake(self.timeLabel.origin.x + self.timeLabel.size.width + 5, self.timeLabel.origin.y, 100, 16);
     
+    //TODO: 可以拆分成两个label，如果阅读数过大，数字可能会显示不全
     self.hitsLabel.text = [NSString stringWithFormat:@"%@阅读", self.recommendModel.hits];
     self.hitsLabel.frame = CGRectMake(LQSScreenW - RecommendRightMargin - 90, self.nickNameLabel.origin.y, 90, 16);
     self.bottomLineView.frame = CGRectMake(RecommendLeftMargin, self.hitsLabel.frame.origin.y + self.hitsLabel.frame.size.height, LQSScreenW - RecommendLeftMargin - RecommendRightMargin, 0.5f);
@@ -236,19 +273,28 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
 
 #pragma mark - 类方法 取cell的高度
 + (CGFloat)heightWithRecommendListModel:(LQSRecommendListModel *)recommendModel {
-    if (!recommendModel || recommendModel.title.length == 0) {
-        return 0.0f;
+    RecommendListCellType cellUIType = [LQSRecommendListTableViewCell cellTypeWithModel:recommendModel];
+    CGFloat height = 0.0f;
+    
+    switch (cellUIType) {
+        case RecommendListCellTypeText:
+            height = 100;
+            break;
+            
+        case RecommendListCellTypeSingeImage:
+            height = 100;
+            break;
+            
+        case RecommendListCellTypeMultiImage:
+            height = 130;
+            break;
+            
+        case RecommendListCellTypeNone:
+        default:
+            break;
     }
     
-    if (recommendModel.imageList && [recommendModel.imageList count] > 0) {
-        return 120; //RecommendListCellTypeMultiImage
-    }
-    
-    if (recommendModel.pic_path && recommendModel.pic_path.length > 0) {
-        return 110; //RecommendListCellTypeSingeImage
-    }
-    
-    return 110;
+    return height;
 }
 
 #pragma mark - tool 移至公共区域
@@ -293,6 +339,48 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
 //    }
     
     return finalTime;
+}
+
+- (NSString *)last_reply_date
+{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    // 如果是真机调试，转换这种欧美时间，需要设置locale
+    fmt.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    fmt.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
+    
+    //时间戳转换
+    NSDate *createDate = [NSDate dateWithTimeIntervalSince1970:[self.recommendModel.last_reply_date doubleValue] / 1000];
+    NSDate *now = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    // NSCalendarUnit枚举代表想获得哪些差值
+    NSCalendarUnit unit = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    // 计算两个日期之间的差值
+    NSDateComponents *cmps = [calendar components:unit fromDate:createDate toDate:now options:0];
+    
+    //    NSLog(@"两个时间相差%ld年%ld月%ld日%ld小时%ld分钟%ld秒", cmps.year, cmps.month, cmps.day, cmps.hour, cmps.minute, cmps.second);
+    
+    if ([createDate isThisYear]) { // 今年
+        if ([createDate isYesterday]) { // 昨天
+            fmt.dateFormat = @"昨天";
+            return [fmt stringFromDate:createDate];
+        } else if ([createDate isToday]) { // 今天
+            if (cmps.hour >= 1) {
+                return [NSString stringWithFormat:@"%ld小时前", (long)cmps.hour];
+            } else if (cmps.minute >= 1) {
+                return [NSString stringWithFormat:@"%ld分钟前", (long)cmps.minute];
+            } else {
+                return @"刚刚";
+            }
+        } else { // 今年的其他日子
+            //            fmt.dateFormat = @"MM-dd HH:mm";
+            //            return [fmt stringFromDate:createDate];
+            return [NSString stringWithFormat:@"%ld天前",(long)cmps.day];
+        }
+    } else { // 非今年
+        //        fmt.dateFormat = @"yyyy-MM-dd HH:mm";
+        return @"暂无内容";
+    }
 }
 
 #pragma mark - getter
@@ -378,6 +466,15 @@ typedef NS_ENUM(NSUInteger, RecommendListCellType) {
     }
     
     return _detailImageView;
+}
+
+- (UIView *)multiImageBgView {
+    if (!_multiImageBgView) {
+        _multiImageBgView = [[UIView alloc] init];
+        _multiImageBgView.backgroundColor = [UIColor clearColor];
+    }
+    
+    return _multiImageBgView;
 }
 
 - (UIView *)bottomLineView {
