@@ -14,6 +14,7 @@ pod 'MJRefresh'
 pod 'MJExtension'
 pod 'Masonry'
 pod 'FDStackView'
+pod 'JSONModel'
 
 # U-Share SDK UI模块（分享面板，建议添加）
     pod ‘UMengUShare/UI’

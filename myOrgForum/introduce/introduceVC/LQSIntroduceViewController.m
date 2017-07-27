@@ -14,6 +14,7 @@
 
 @interface LQSIntroduceViewController ()<UITableViewDataSource,UITableViewDelegate>
 
+@property (nonatomic, assign) NSUInteger page;
 @property (nonatomic, strong) UITableView *mainList;
 @property (nonatomic, strong) NSMutableArray *lbDataArrA;//最上轮播数据
 @property (nonatomic, strong) NSMutableArray *btnDataArrB;//八个按钮数据
@@ -21,7 +22,7 @@
 @property (nonatomic, strong) NSMutableArray *XFXZDataD;//学佛小组
 @property (nonatomic, strong) NSMutableArray *DHSKSDataE;//大和尚开示
 @property (nonatomic, strong) NSMutableArray *KSDataF;//师父法语开示
-
+@property (nonatomic, strong) NSMutableArray *KSDataFNewArr;//师父法语开示 下拉新增数组
 
 @end
 
@@ -34,7 +35,7 @@
     self.title = @"首页";
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    self.page = 1;
     [self postForData];
     
 }
@@ -70,6 +71,7 @@
     params[@"accessToken"] = @"7e3972a7a729e541ee373e7da3d06";//换
     params[@"accessSecret"] = @"39a68e4d5473e75669bce2d70c4b9";
     params[@"forumKey"] = @"BW0L5ISVRsOTVLCTJx";
+    params[@"page"] = [NSString stringWithFormat:@"%lu",(unsigned long)self.page];
     /*
      r:app/moduleconfig
      egnVersion:v2035.2
@@ -89,9 +91,11 @@
 
 
         [self getDataModelFor:dict];
+        [_mainList.mj_header endRefreshing];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败");
+        [_mainList.mj_header endRefreshing];
     }];
 
 }
@@ -223,19 +227,53 @@
 
         //师父开示
         eChengData = yChengData[4][@"componentList"][0][@"componentList"];
-        for (NSDictionary *sChengData in eChengData) {
-            LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
-            xModel.px = LQSTR(sChengData[@"px"]);
-            xModel.type = LQSTR(sChengData[@"type"]);
-            xModel.icon = LQSTR(sChengData[@"icon"]);
-            xModel.title = LQSTR(sChengData[@"title"]);
-            xModel.desc = LQSTR(sChengData[@"desc"]);
-            xModel.forumId = LQSTR(sChengData[@"forumId"]);
-            xModel.topicId = LQSTR(sChengData[@"extParams"][@"topicId"]);
-            xModel.redirect = LQSTR(sChengData[@"extParams"][@"redirect"]);
-            xModel.id = LQSTR(sChengData[@"id"]);
-            [self.KSDataF addObject:xModel];
+        
+        if (1 == self.page) {
+            if ([self.KSDataFNewArr count] > 0) {
+                [self.KSDataFNewArr removeAllObjects];
+            }
+            
+            if ([self.KSDataF count] > 0) {
+                [self.KSDataF removeAllObjects];
+            }
+            //给数组赋值
+            for (NSDictionary *sChengData in eChengData) {
+                LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
+                xModel.px = LQSTR(sChengData[@"px"]);
+                xModel.type = LQSTR(sChengData[@"type"]);
+                xModel.icon = LQSTR(sChengData[@"icon"]);
+                xModel.title = LQSTR(sChengData[@"title"]);
+                xModel.desc = LQSTR(sChengData[@"desc"]);
+                xModel.forumId = LQSTR(sChengData[@"forumId"]);
+                xModel.topicId = LQSTR(sChengData[@"extParams"][@"topicId"]);
+                xModel.redirect = LQSTR(sChengData[@"extParams"][@"redirect"]);
+                xModel.id = LQSTR(sChengData[@"id"]);
+                [self.KSDataF addObject:xModel];
+            }
+        } else {
+            if ([self.KSDataFNewArr count] > 0) {
+                [self.KSDataFNewArr removeAllObjects];
+            }
+            //给数组添加值
+            for (NSDictionary *sChengData in eChengData) {
+                LQSIntroduceMainListModel *xModel = [[LQSIntroduceMainListModel alloc] init];
+                xModel.px = LQSTR(sChengData[@"px"]);
+                xModel.type = LQSTR(sChengData[@"type"]);
+                xModel.icon = LQSTR(sChengData[@"icon"]);
+                xModel.title = LQSTR(sChengData[@"title"]);
+                xModel.desc = LQSTR(sChengData[@"desc"]);
+                xModel.forumId = LQSTR(sChengData[@"forumId"]);
+                xModel.topicId = LQSTR(sChengData[@"extParams"][@"topicId"]);
+                xModel.redirect = LQSTR(sChengData[@"extParams"][@"redirect"]);
+                xModel.id = LQSTR(sChengData[@"id"]);
+                [self.KSDataFNewArr addObject:xModel];
+            }
+            
+            if ([self.KSDataFNewArr count] > 0) {
+                [self.KSDataF addObjectsFromArray:self.KSDataFNewArr];
+            }
         }
+        
 
         [self createMainlist];
         [self.mainList reloadData];
@@ -275,6 +313,14 @@
     return _KSDataF;
 }
 
+- (NSMutableArray *)KSDataFNewArr {
+    if (!_KSDataFNewArr) {
+        _KSDataFNewArr = [NSMutableArray array];
+    }
+    
+    return _KSDataFNewArr;
+}
+
 - (NSMutableArray *)DHSKSDataE
 {
     if (!_DHSKSDataE) {
@@ -296,11 +342,56 @@
 {
     if (!_mainList) {
         _mainList = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64 - 49) style:UITableViewStyleGrouped];
+        [self setupRefresh];
     }
     _mainList.separatorStyle = UITableViewCellSeparatorStyleNone;
     _mainList.showsVerticalScrollIndicator = NO;
     
     return _mainList;
+}
+
+- (void)setupRefresh
+{
+    // 1.添加下拉刷新控件
+    
+    _mainList.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewStatus)];
+    
+    // 2.添加上拉刷新控件
+    _mainList.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreStatus)];
+    
+}
+
+/**
+ *  加载最新的数据
+ */
+- (void)loadNewStatus
+{
+    self.page = 1;
+    [self postForData];
+//[self.cishanArray insertObjects:self.cishanArr atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.cishanArr.count)]];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_mainList reloadData];
+        // 停止刷新
+        [_mainList.mj_header endRefreshing];
+    });
+    
+}
+/**
+ *  加载更多的微博数据(时间比较早的)
+ */
+- (void)loadMoreStatus
+{
+    self.page++;
+    [self postForData];
+    //[self.cishanArray addObjectsFromArray:self.cishanArr];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 刷新瀑布流控件
+        [_mainList reloadData];
+        // 停止刷新
+        [_mainList.mj_footer endRefreshing];
+    });
+    
 }
 
 #pragma mark - mainList delegate

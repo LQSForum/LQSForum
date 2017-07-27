@@ -1,14 +1,18 @@
 //
-//  LQSReRotationImageModel.m
+//  LQSRecommendItemModel.m
 //  myOrgForum
 //
 //  Created by wangbo on 2017/7/16.
 //  Copyright © 2017年 SkyAndSea. All rights reserved.
 //
 
-#import "LQSReRotationImageModel.h"
+#import "LQSRecommendItemModel.h"
 
-@implementation LQSReRotationImageModel
+@implementation LQSReItemExtParam
+
+@end
+
+@implementation LQSRecommendItemModel
 
 - (instancetype)init {
     self = [super init];
@@ -21,10 +25,9 @@
 }
 
 #pragma mark - getter
-
-- (LQSReImageExtParam *)extParams {
+- (LQSReItemExtParam *)extParams {
     if (!_extParams) {
-        _extParams = [[LQSReImageExtParam alloc] init];
+        _extParams = [[LQSReItemExtParam alloc] init];
     }
     
     return _extParams;

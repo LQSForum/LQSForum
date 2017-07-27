@@ -1,5 +1,5 @@
 //
-//  LQSReRotationImageModel.h
+//  LQSRecommendItemModel.h
 //  myOrgForum
 //
 //  Created by wangbo on 2017/7/16.
@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LQSReImageExtParam : NSObject
+@protocol LQSRecommendItemModel <NSObject>
+
+@end
+
+@interface LQSReItemExtParam : NSObject
 
 @property (nonatomic, strong) NSMutableArray *fastpostForumIds;
 @property (nonatomic, strong) NSString *moduleId;
@@ -35,14 +39,14 @@
 
 @end
 
-@interface LQSReRotationImageModel : NSObject
+@interface LQSRecommendItemModel : NSObject
 
 @property (nonatomic, strong) NSString *belongId;               //属于哪一个 id 对应 id
 @property (nonatomic, strong) NSString *iconStyle;              // "image"
 @property (nonatomic, strong) NSString *icon;                   // "http://7xs527.com2.z0.glb.qiniucdn.com/user-icon-1496783788761-be230cae"
 @property (nonatomic, strong) NSString *title;                  // 1、2、3、4、5
 @property (nonatomic, strong) NSString *desc;                   //实际使用的标题
-@property (nonatomic, strong) LQSReImageExtParam *extParams;    //
+@property (nonatomic, strong) LQSReItemExtParam *extParams;     //
 @property (nonatomic, strong) NSString *style;                  
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSMutableArray *componentList;

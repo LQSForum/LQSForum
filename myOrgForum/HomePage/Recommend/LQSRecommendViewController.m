@@ -145,7 +145,8 @@
 
 - (void)reloadRecommendDateRequestWithPage:(NSUInteger)page
 {
-    NSString *baseStr = @"http://forum.longquanzs.org//mobcent/app/web/index.php?";
+//    NSString *baseStr = @"http://forum.longquanzs.org//mobcent/app/web/index.php?";
+    NSString *baseStr = @"http://lqs.zphoo.com/mobcent/app/web/index.php?";
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     paramDic[@"r"] = @"forum/topiclistex";
     paramDic[@"isImageList"] = @"1";

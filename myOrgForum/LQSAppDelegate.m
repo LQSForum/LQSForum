@@ -12,6 +12,7 @@
 
 #import "AFNetworking.h"
 #import "LQSMessageCenterManager.h"
+#import "LQSUIManager.h"
 
 #import <UMSocialCore/UMSocialCore.h>
 
@@ -38,6 +39,8 @@
     [self.window makeKeyAndVisible];
     
     [self getUserInfor];
+    [LQSUIManager sharedManager];
+    
     [LQSMessageCenterManager defaultManager];
     
     // U-Share

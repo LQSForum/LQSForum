@@ -32,8 +32,14 @@
 		2CC8C2E11D7F1D2300297B9B /* LQSSelectPlatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C2E01D7F1D2300297B9B /* LQSSelectPlatesViewController.m */; };
 		2D3184421EED68F700DAB17C /* LQSRecommendListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3184411EED68F700DAB17C /* LQSRecommendListModel.m */; };
 		2D31844A1EF0438600DAB17C /* LQSRecommendListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3184491EF0438600DAB17C /* LQSRecommendListTableViewCell.m */; };
+		2D31844E1EFFC2CB00DAB17C /* LQSUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D31844D1EFFC2CB00DAB17C /* LQSUIManager.m */; };
+		2D6127F81F1F4D2F00FAE443 /* LQSRotationPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6127F71F1F4D2F00FAE443 /* LQSRotationPictureView.m */; };
 		2D87D24E1EED3A41006773A4 /* LQSHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D87D24A1EED3A41006773A4 /* LQSHomePageViewController.m */; };
 		2D87D24F1EED3A41006773A4 /* LQSRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D87D24D1EED3A41006773A4 /* LQSRecommendViewController.m */; };
+		2DDED4321F10D15A00089140 /* LQSBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDED4311F10D15A00089140 /* LQSBaseRequest.m */; };
+		2DDED4351F10F23000089140 /* LQSBaseJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDED4341F10F23000089140 /* LQSBaseJSONModel.m */; };
+		2DE1AA4D1F1B8BCC008CE92A /* LQSInitUIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1AA4C1F1B8BCC008CE92A /* LQSInitUIModel.m */; };
+		2DE1AA501F1B94BE008CE92A /* LQSRecommendItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1AA4F1F1B94BE008CE92A /* LQSRecommendItemModel.m */; };
 		2E3E9EC71DE9533500D0EC2D /* LQSPluginBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E9EC61DE9533500D0EC2D /* LQSPluginBoardView.m */; };
 		2E9EB6B11DE1E25200FBB0B0 /* LQSPluginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9EB6B01DE1E25200FBB0B0 /* LQSPluginView.m */; };
 		2E9EB6B41DE1E67A00FBB0B0 /* LQSPluginListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9EB6B31DE1E67A00FBB0B0 /* LQSPluginListView.m */; };
@@ -147,6 +153,7 @@
 		41F870151D767E9300E05FAB /* LQSComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F870141D767E9300E05FAB /* LQSComposeViewController.m */; };
 		41F870181D767E9C00E05FAB /* LQSEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F870171D767E9C00E05FAB /* LQSEmotionTool.m */; };
 		41FA39271D76A18D00822E0F /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 41FA39261D76A18C00822E0F /* EmotionIcons */; };
+		4FFFA2C0C059471FB181C5E3 /* libPods-myOrgForum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED339F2AB857DD5D79E1037A /* libPods-myOrgForum.a */; };
 		552BA34E9ACDFCCA090E3CCF /* libPods-myOrgForumTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC19ADA87E03C1ABA83791ED /* libPods-myOrgForumTests.a */; };
 		6958BD38C5A6B3D50A2D9A57 /* libPods-myOrgForumUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */; };
 		6E0476611D55AE7000FD6CE0 /* LQSIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0476601D55AE7000FD6CE0 /* LQSIntroduceViewController.m */; };
@@ -284,10 +291,22 @@
 		2D3184411EED68F700DAB17C /* LQSRecommendListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRecommendListModel.m; sourceTree = "<group>"; };
 		2D3184481EF0438600DAB17C /* LQSRecommendListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRecommendListTableViewCell.h; sourceTree = "<group>"; };
 		2D3184491EF0438600DAB17C /* LQSRecommendListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRecommendListTableViewCell.m; sourceTree = "<group>"; };
+		2D31844C1EFFC2CB00DAB17C /* LQSUIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSUIManager.h; sourceTree = "<group>"; };
+		2D31844D1EFFC2CB00DAB17C /* LQSUIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSUIManager.m; sourceTree = "<group>"; };
+		2D6127F61F1F4D2F00FAE443 /* LQSRotationPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRotationPictureView.h; sourceTree = "<group>"; };
+		2D6127F71F1F4D2F00FAE443 /* LQSRotationPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRotationPictureView.m; sourceTree = "<group>"; };
 		2D87D2491EED3A41006773A4 /* LQSHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePageViewController.h; sourceTree = "<group>"; };
 		2D87D24A1EED3A41006773A4 /* LQSHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePageViewController.m; sourceTree = "<group>"; };
 		2D87D24C1EED3A41006773A4 /* LQSRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRecommendViewController.h; sourceTree = "<group>"; };
 		2D87D24D1EED3A41006773A4 /* LQSRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRecommendViewController.m; sourceTree = "<group>"; };
+		2DDED4301F10D15A00089140 /* LQSBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSBaseRequest.h; sourceTree = "<group>"; };
+		2DDED4311F10D15A00089140 /* LQSBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSBaseRequest.m; sourceTree = "<group>"; };
+		2DDED4331F10F23000089140 /* LQSBaseJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSBaseJSONModel.h; sourceTree = "<group>"; };
+		2DDED4341F10F23000089140 /* LQSBaseJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSBaseJSONModel.m; sourceTree = "<group>"; };
+		2DE1AA4B1F1B8BCC008CE92A /* LQSInitUIModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSInitUIModel.h; sourceTree = "<group>"; };
+		2DE1AA4C1F1B8BCC008CE92A /* LQSInitUIModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSInitUIModel.m; sourceTree = "<group>"; };
+		2DE1AA4E1F1B94BE008CE92A /* LQSRecommendItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRecommendItemModel.h; sourceTree = "<group>"; };
+		2DE1AA4F1F1B94BE008CE92A /* LQSRecommendItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRecommendItemModel.m; sourceTree = "<group>"; };
 		2E3E9EC51DE9533500D0EC2D /* LQSPluginBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPluginBoardView.h; sourceTree = "<group>"; };
 		2E3E9EC61DE9533500D0EC2D /* LQSPluginBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSPluginBoardView.m; sourceTree = "<group>"; };
 		2E9EB6AF1DE1E25200FBB0B0 /* LQSPluginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSPluginView.h; sourceTree = "<group>"; };
@@ -632,6 +651,7 @@
 		E4D8E1DD1D542A4C00EE6171 /* LQSUserRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSUserRequest.h; sourceTree = "<group>"; };
 		E4D8E1DE1D542A4C00EE6171 /* LQSUserRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSUserRequest.m; sourceTree = "<group>"; };
 		EC19ADA87E03C1ABA83791ED /* libPods-myOrgForumTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForumTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED339F2AB857DD5D79E1037A /* libPods-myOrgForum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myOrgForum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F08E4F7A0912A6634899944C /* Pods-myOrgForumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumTests/Pods-myOrgForumTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -648,6 +668,7 @@
 				751941EA1E559174000BDFE1 /* SystemConfiguration.framework in Frameworks */,
 				751941E81E558A36000BDFE1 /* CoreGraphics.framework in Frameworks */,
 				751941E61E5588C6000BDFE1 /* libsqlite3.tbd in Frameworks */,
+				4FFFA2C0C059471FB181C5E3 /* libPods-myOrgForum.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +750,8 @@
 			children = (
 				2D3184401EED68F700DAB17C /* LQSRecommendListModel.h */,
 				2D3184411EED68F700DAB17C /* LQSRecommendListModel.m */,
+				2DE1AA4E1F1B94BE008CE92A /* LQSRecommendItemModel.h */,
+				2DE1AA4F1F1B94BE008CE92A /* LQSRecommendItemModel.m */,
 			);
 			path = RecommendModel;
 			sourceTree = "<group>";
@@ -752,8 +775,20 @@
 			children = (
 				2D3184481EF0438600DAB17C /* LQSRecommendListTableViewCell.h */,
 				2D3184491EF0438600DAB17C /* LQSRecommendListTableViewCell.m */,
+				2D6127F61F1F4D2F00FAE443 /* LQSRotationPictureView.h */,
+				2D6127F71F1F4D2F00FAE443 /* LQSRotationPictureView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2D31844B1EFFC26400DAB17C /* UIManager */ = {
+			isa = PBXGroup;
+			children = (
+				2DE1AA4A1F1B8B8F008CE92A /* Model */,
+				2D31844C1EFFC2CB00DAB17C /* LQSUIManager.h */,
+				2D31844D1EFFC2CB00DAB17C /* LQSUIManager.m */,
+			);
+			path = UIManager;
 			sourceTree = "<group>";
 		};
 		2D87D2481EED3A41006773A4 /* HomePage */ = {
@@ -777,6 +812,25 @@
 				2D31843F1EED68CC00DAB17C /* RecommendModel */,
 			);
 			path = Recommend;
+			sourceTree = "<group>";
+		};
+		2DDED42F1F10D15A00089140 /* BaseRequest */ = {
+			isa = PBXGroup;
+			children = (
+				2DDED4301F10D15A00089140 /* LQSBaseRequest.h */,
+				2DDED4311F10D15A00089140 /* LQSBaseRequest.m */,
+			);
+			name = BaseRequest;
+			path = core/BaseRequest;
+			sourceTree = "<group>";
+		};
+		2DE1AA4A1F1B8B8F008CE92A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2DE1AA4B1F1B8BCC008CE92A /* LQSInitUIModel.h */,
+				2DE1AA4C1F1B8BCC008CE92A /* LQSInitUIModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		410FA1D91D38E9F10021B7E2 /* categories */ = {
@@ -820,6 +874,7 @@
 		410FBB6F1CCDEBC500761192 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				2D31844B1EFFC26400DAB17C /* UIManager */,
 				2D87D2481EED3A41006773A4 /* HomePage */,
 				E4D8E1BA1D5418A400EE6171 /* User */,
 				413F924A1D791B0E00D7974D /* login&register */,
@@ -1220,6 +1275,7 @@
 		41852FC11CE31D21003CD9D4 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				2DDED42F1F10D15A00089140 /* BaseRequest */,
 				E436F2B41D72B5B1001CB8FE /* Message */,
 				E4D8E1D21D5423D700EE6171 /* baseModel */,
 				E4D8E1CE1D54237200EE6171 /* RestRequset */,
@@ -1402,6 +1458,7 @@
 				751941E51E5588C6000BDFE1 /* libsqlite3.tbd */,
 				EC19ADA87E03C1ABA83791ED /* libPods-myOrgForumTests.a */,
 				A2FF8438D30A58F37564A80A /* libPods-myOrgForumUITests.a */,
+				ED339F2AB857DD5D79E1037A /* libPods-myOrgForum.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1517,6 +1574,8 @@
 				E4D8E1D31D5423D700EE6171 /* LQSBaseModel.h */,
 				E4D8E1D41D5423D700EE6171 /* LQSBaseModel.m */,
 				E4D8E1D51D5423D700EE6171 /* LQSBaseModel_Private.h */,
+				2DDED4331F10F23000089140 /* LQSBaseJSONModel.h */,
+				2DDED4341F10F23000089140 /* LQSBaseJSONModel.m */,
 			);
 			name = baseModel;
 			path = core/baseModel;
@@ -1868,6 +1927,7 @@
 				413F925B1D791C9500D7974D /* LQRegisterViewController.m in Sources */,
 				E4D8E1DF1D542A4C00EE6171 /* LQSUserRequest.m in Sources */,
 				411FE7AB1D6D6DC700563324 /* LQSDongmanTableViewCell.m in Sources */,
+				2DE1AA501F1B94BE008CE92A /* LQSRecommendItemModel.m in Sources */,
 				0000C4A71D645D0F007C969C /* LQSLatestMarrowTableView.m in Sources */,
 				DF5A07291D72F2AB001B2ED7 /* LQSForumDetailChildCell.m in Sources */,
 				41F86FF41D767E7200E05FAB /* LQSEmotionToolbar.m in Sources */,
@@ -1892,6 +1952,7 @@
 				41AC5AF71D751C3E006E38D5 /* LQSHomePagePersonalZiliaoDataModel.m in Sources */,
 				41AC5B121D751C58006E38D5 /* LQSHomePagePersonalPresentTableViewCell.m in Sources */,
 				2EA1A9ED1DD8465C00F6360A /* LQSDaShangTableViewController.m in Sources */,
+				2DE1AA4D1F1B8BCC008CE92A /* LQSInitUIModel.m in Sources */,
 				41F870071D767E7B00E05FAB /* LQSEmotionKeyboard.m in Sources */,
 				41F870121D767E8800E05FAB /* LQSEmotionAttachment.m in Sources */,
 				415588D21D814556006508FE /* LQSSettingFavirateDataModel.m in Sources */,
@@ -1910,6 +1971,7 @@
 				410FA2291D38EBA30021B7E2 /* LQSTitleButton.m in Sources */,
 				41F870061D767E7B00E05FAB /* LQSEmotionGridView.m in Sources */,
 				797422331E8A1E3200EC369F /* LQSNickNameVC.m in Sources */,
+				2D6127F81F1F4D2F00FAE443 /* LQSRotationPictureView.m in Sources */,
 				41AC5B161D751C58006E38D5 /* LQSSettingPersonalSettingViewCell.m in Sources */,
 				410FA22B1D38EBA30021B7E2 /* NSString+Emoji.m in Sources */,
 				0000C4A11D645CDD007C969C /* LQSLeftTableView.m in Sources */,
@@ -1940,6 +2002,7 @@
 				2EA1A9F31DD855FA00F6360A /* LQSDashangTableViewCell.m in Sources */,
 				41AC5B3E1D751C83006E38D5 /* LQSSettingMyFriendViewController.m in Sources */,
 				2D87D24E1EED3A41006773A4 /* LQSHomePageViewController.m in Sources */,
+				2D31844E1EFFC2CB00DAB17C /* LQSUIManager.m in Sources */,
 				E4D8E1B91D54188500EE6171 /* LQSBaseManager.m in Sources */,
 				6E62B0681D73D1BE001FB2A4 /* LQSBBSDetailCell.m in Sources */,
 				CD2D803F1E827605002D3E09 /* LQSHuiFuPingLunViewController.m in Sources */,
@@ -1971,6 +2034,7 @@
 				006F1CB11DC87D3900A992B5 /* LQSHTMLViewController.m in Sources */,
 				41AC5B101D751C58006E38D5 /* LQSHomePagePersonalMessageTableViewCell.m in Sources */,
 				410FA1FE1D38EB8B0021B7E2 /* NSObject+YYModel.m in Sources */,
+				2DDED4351F10F23000089140 /* LQSBaseJSONModel.m in Sources */,
 				797422351E8A1E3200EC369F /* LQSQQVC.m in Sources */,
 				E478BFCE1E9078CD007FDEAC /* NSString+Color.m in Sources */,
 				0000C49E1D645C4A007C969C /* LQSMainView.m in Sources */,
@@ -2004,6 +2068,7 @@
 				797422381E8A1E3200EC369F /* LQSSignNameVC.m in Sources */,
 				41AC5B391D751C83006E38D5 /* LQSMessageViewController.m in Sources */,
 				411FE7AA1D6D6DC700563324 /* LQSDiscoverCell.m in Sources */,
+				2DDED4321F10D15A00089140 /* LQSBaseRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

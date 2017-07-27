@@ -33,6 +33,9 @@
 #define LQSgetwidth(w) w*([UIScreen mainScreen].applicationFrame.size.width)/750 //1334*750 适用于iPhone6s上的图片转换
 #define LQSgetHeight(h) h*([UIScreen mainScreen].applicationFrame.size.height)/1134 //适用于iPhone6s上的图片转换
 
+#define LQSForumBaseURL  @"http://lqs.zphoo.com"
+//#define LQSForumBaseURL  @"http://forum.longquanzs.org"
+
 #endif /* LQSCommonDefine_h */
 /*
  @property (nonatomic, strong) NSString *token;

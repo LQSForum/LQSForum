@@ -7,7 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LQSRecommendItemModel.h"
+
+@protocol LQSUIManagerDelegate <NSObject>
+
+- (void)LoadDataSuccess;
+- (void)requestDataFailure;
+
+@end
 
 @interface LQSUIManager : NSObject
+
+@property (nonatomic, strong) NSMutableArray<LQSRecommendItemModel> *rotationImageArray;
+@property (nonatomic, strong) NSMutableArray<LQSRecommendItemModel> *recommendButtonArray;
+
++ (LQSUIManager *)sharedManager;
 
 @end
