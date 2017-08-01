@@ -1,0 +1,28 @@
+//
+//  LQSPrefixHeader.pch
+//  myOrgForum
+//
+//  Created by SkyAndSea on 16/4/22.
+//  Copyright © 2016年 SkyAndSea. All rights reserved.
+//
+
+#ifndef LQSPrefixHeader_pch
+#define LQSPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef DEBUG//调试状态，打开LOG功能
+#define LQSLog(...) NSLog(__VA_ARGS__)
+#else//发布状态，关闭LOG功能
+#define LQSLog(...)
+#endif
+
+
+#import "macros.h"
+#import "Header.h"
+#import "LQSCommonDefine.h"
+#import "LQSConstants.h"
+#endif /* LQSPrefixHeader_pch */
+
+
