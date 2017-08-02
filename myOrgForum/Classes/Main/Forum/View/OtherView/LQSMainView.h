@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LQSLatestMarrowTableView.h"
+#import "LQSForumAttentionView.h"
 @class LQSMainView;
 @protocol LQSMainViewDelegate <NSObject>
 
@@ -23,5 +24,6 @@
 //@property (nonatomic,strong)NSMutableArray *rightDataArray;
 @property (nonatomic, strong) LQSLatestMarrowTableView *latestView;//最新页面
 @property (nonatomic, strong) LQSLatestMarrowTableView *marrowView;//精华页面
+
 @end
 

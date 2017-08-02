@@ -42,7 +42,7 @@
     
     // U-Share
     /* 打开调试日志 */
-    [[UMSocialManager defaultManager] openLog:YES];
+//    [[UMSocialManager defaultManager] openLog:YES];
     
     /* 设置友盟appkey */
     [[UMSocialManager defaultManager] setUmSocialAppkey:@"58ac21df04e205455d000b74"];

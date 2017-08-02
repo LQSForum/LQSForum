@@ -14,17 +14,26 @@
 #import "LQSLeftViewCell.h"
 
 @interface LQSLeftTableView ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) NSMutableArray *leftDataArray;//左侧页面数据
+/** 页面右侧竖线 */
+@property (nonatomic, strong) UIView *verticalLine;
+/** 左侧页面数据 */
+@property (nonatomic, strong) NSMutableArray *leftDataArray;
 @property (nonatomic, strong) NSMutableArray *sectionDataArray;
-@property (nonatomic, strong) NSMutableArray *focusData;//添加关注之后的数据
+/** 添加关注之后的数据 */
+@property (nonatomic, strong) NSMutableArray *focusData;
+/** 网络请求管理 */
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
-@property (nonatomic, strong) NSMutableArray *allDataArray;//所有数据
-@property (nonatomic, assign) NSInteger index;//模型索引
+/** 所有数据 */
+@property (nonatomic, strong) NSMutableArray *allDataArray;
+/** 模型索引 */
+@property (nonatomic, assign) NSInteger index;
+/** 选中的数据 */
 @property (nonatomic, strong) NSString *selectedTitle;
 
 @end
 
 @implementation LQSLeftTableView
+
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -33,34 +42,30 @@
         
         self.dataSource = self;
         self.delegate = self;
+        self.separatorStyle = NO;
+        self.showsVerticalScrollIndicator = NO;
         self.tableFooterView = [[UIView alloc] init];
         self.selectedTitle = self.leftDataArray[0];
+        //        [self addSubview:self.verticalLine];
+        //        [self.verticalLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        //            make.top.equalTo(self.mas_top);
+        //            make.bottom.equalTo(self.mas_bottom);
+        //            make.right.equalTo(self.mas_right);
+        //            make.width.mas_equalTo(0.3);
+        //        }];
     }
     
-        //请求论坛版块所有数据
-        [self loadServerData];
+    //请求论坛版块所有数据
+    [self loadServerData];
     
-//    [self selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
-//    [self tableView:self didSelectRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    //    [self selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+    //    [self tableView:self didSelectRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
     
     return self;
 }
 
 
-- (AFHTTPSessionManager *)sessionManager {
-    if (!_sessionManager) {
-        _sessionManager = [AFHTTPSessionManager manager];
-        //        _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-        //        _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
-        _sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
-        _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        NSSet *set = [NSSet setWithObjects:@"text/plain", @"text/html", nil];
-        _sessionManager.responseSerializer.acceptableContentTypes = [_sessionManager.responseSerializer.acceptableContentTypes setByAddingObjectsFromSet:set];
-    }
-    return _sessionManager;
-}
-
-
+#pragma mark - Network
 //请求论坛版块所有数据
 - (void)loadServerData{
     
@@ -73,7 +78,7 @@
     [self loadServerDataWithUrlString:urlStringOthers parameters:parametersOthers];
     
     
-  
+    
     
     
 }
@@ -90,7 +95,7 @@
                                       @"type":@"rec"};
     //    [NSThread sleepForTimeInterval:1.0];
     [self loadFocusDataWithUrlString:urlStringFocus parameters:parametersFocus];
-
+    
 }
 
 //请求我的关注的猜你喜欢数据
@@ -104,7 +109,7 @@
         //        NSString *p = @"/Users/yuhan/Desktop/plist";
         //        NSString *path = [p stringByAppendingPathComponent:@"forum.plist"];
         //        [dict writeToFile:path atomically:YES];
-        LQSLog(@"%@",dict);
+        //        LQSLog(@"%@",dict);
         
         NSArray *listArr = dict[@"recommendedBoard"];
         for (NSDictionary *itemDict in listArr) {
@@ -114,7 +119,7 @@
                     cellModel.ID = cellModel1.ID;
                 }
             }];
-
+            
             [self.focusData addObject:cellModel];
             
         }
@@ -127,7 +132,7 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         //        [self.mj_header endRefreshing];
-        NSLog(@"error%@",error);
+        LQSLog(@"error%@",error);
         
     }];
     
@@ -135,7 +140,7 @@
 }
 
 - (void)loadServerDataWithUrlString:(NSString *)urlString parameters:(NSDictionary *)parameters{
-
+    
     [self.sessionManager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSData *data = responseObject;
@@ -164,7 +169,7 @@
             
             
         }
-         [self loadFocusData];; //请求B
+        [self loadFocusData];; //请求B
         dispatch_async(dispatch_get_main_queue(), ^{
             [self  reloadData];
             //数据传递给mainView用于启动页面时自动选中左侧第一行所对应的右侧视图数据
@@ -177,12 +182,12 @@
         NSLog(@"error%@",error);
         
     }];
-  
+    
     
 }
 
 
-
+#pragma mark - UITableViewDelegate/DataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return self.leftDataArray.count;
@@ -210,7 +215,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     self.selectedTitle = self.leftDataArray[indexPath.row];
-
+    
     if (indexPath.row == 0) {
         NSMutableArray *rightViewDataArray = self.focusData;
         if ([self.leftViewDelegate respondsToSelector:@selector(leftTableView:rightViewFocusArray:allDataArray:)]) {
@@ -218,14 +223,26 @@
         }
         
     }else{
-            LQSSectionModel *sectionModel = self.sectionDataArray[indexPath.row - 1];
-            //        NSLog(@"%@",sectionModel);
-            NSMutableArray *rightViewDataArray = sectionModel.items;
+        LQSSectionModel *sectionModel = self.sectionDataArray[indexPath.row - 1];
+        //        NSLog(@"%@",sectionModel);
+        NSMutableArray *rightViewDataArray = sectionModel.items;
         if ([self.leftViewDelegate respondsToSelector:@selector(leftTableView:rightViewArray:allDataArray:)] ){
             [self.leftViewDelegate leftTableView:self rightViewArray:rightViewDataArray allDataArray:self.allDataArray];
         }
     }
-     [tableView reloadData];
+    [tableView reloadData];
+}
+
+
+#pragma mark - SetterAndGetter
+
+- (UIView *)verticalLine
+{
+    if (_verticalLine == nil) {
+        _verticalLine = [[UIView alloc] init];
+        _verticalLine.backgroundColor = [UIColor lightGrayColor];
+    }
+    return _verticalLine;
 }
 
 
@@ -259,6 +276,21 @@
     }
     return _allDataArray;
 }
+
+
+- (AFHTTPSessionManager *)sessionManager {
+    if (!_sessionManager) {
+        _sessionManager = [AFHTTPSessionManager manager];
+        //        _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
+        //        _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
+        _sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        NSSet *set = [NSSet setWithObjects:@"text/plain", @"text/html", nil];
+        _sessionManager.responseSerializer.acceptableContentTypes = [_sessionManager.responseSerializer.acceptableContentTypes setByAddingObjectsFromSet:set];
+    }
+    return _sessionManager;
+}
+
 
 
 @end

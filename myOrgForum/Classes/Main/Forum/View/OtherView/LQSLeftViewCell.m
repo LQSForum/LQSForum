@@ -12,8 +12,10 @@
 
 @interface LQSLeftViewCell ()
 
-@property (nonatomic, strong) UILabel *titleLabel;
 
+/** 版块主题 */
+@property (nonatomic, strong) UILabel *titleLabel;
+/** cell横线 */
 @property (nonatomic, strong) UIView *bottomLineView;
 
 @end
@@ -22,34 +24,57 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        [self createView];
         self.backgroundColor = [UIColor lightGrayColor];
+        [self.contentView addSubview:self.titleLabel];
+        [self.contentView addSubview:self.bottomLineView];
+        [self createView];
     }
     return self;
 }
 
 - (void)createView {
     
-    [self.contentView addSubview:self.titleLabel];
-    [self.contentView addSubview:self.bottomLineView];
-    
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self.contentView).offset(10);
-        
+        make.top.left.bottom.equalTo(self.contentView);
+        make.right.equalTo(self.contentView.mas_right);
     }];
     
     [self.bottomLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.bottom.right.equalTo(self.contentView);
-        make.height.equalTo(@0.25);
+        make.height.equalTo(@0.3);
     }];
-
+    
 }
 
+- (void)setIsSelected:(BOOL)isSelected {
+    if (isSelected) {
+        self.backgroundColor = [UIColor whiteColor];
+        self.titleLabel.backgroundColor = [UIColor whiteColor];
+        self.titleLabel.textColor = LQSColor(106, 133, 196, 1.0);
+        self.titleLabel.font = [UIFont systemFontOfSize:16.0];
+        
+    } else {
+        
+        self.titleLabel.textColor = [UIColor blackColor];
+        self.titleLabel.font = [UIFont systemFontOfSize:14.0];
+        self.titleLabel.backgroundColor = LQSColor(235, 235, 235, 1.0);
+        self.backgroundColor = LQSColor(235, 235, 235, 1.0);
+        
+    }
+    
+}
+
+- (void)setTitle:(NSString *)title {
+    self.titleLabel.text = title;
+    [self.titleLabel sizeToFit];
+}
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        
     }
     
     return _titleLabel;
@@ -58,27 +83,13 @@
 - (UIView *)bottomLineView {
     if (!_bottomLineView) {
         _bottomLineView = [[UIView alloc] init];
-        _bottomLineView.backgroundColor = [UIColor colorWithRed:233 green:231 blue:233 alpha:1];
+        _bottomLineView.backgroundColor = [UIColor lightGrayColor];
     }
     return _bottomLineView;
 }
 
-- (void)setTitle:(NSString *)title {
-    self.titleLabel.text = title;
-    [self.titleLabel sizeToFit];
-}
 
-- (void)setIsSelected:(BOOL)isSelected {
-    if (isSelected) {
-        self.backgroundColor = [UIColor whiteColor];
-        self.titleLabel.textColor = LQSColor(106, 133, 196, 1.0);
-        self.titleLabel.font = [UIFont systemFontOfSize:16.0];
-    } else {
-        self.titleLabel.textColor = [UIColor blackColor];
-        self.titleLabel.font = [UIFont systemFontOfSize:14.0];
-        self.backgroundColor = LQSColor(235, 235, 235, 1.0);
-    }
-}
+
 
 
 @end

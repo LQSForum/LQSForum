@@ -11,4 +11,5 @@
 @interface LQSLeftViewCell : UITableViewCell
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, assign) BOOL isSelected;
+
 @end

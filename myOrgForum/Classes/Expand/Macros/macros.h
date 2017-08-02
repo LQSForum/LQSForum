@@ -7,6 +7,11 @@
 //
 
 
+//字体大小(常规/粗体)
+#define kBoldSystemFont(lFontSize) [UIFont boldSystemFontOfSize:(lFontSize/2)]
+#define kSystemFont(lFontSize)    [UIFont systemFontOfSize:(lFontSize/2)]
+#define kSetFont(lFontName, lFontSize)    [UIFont fontWithName:(lFontName) size:(lFontSize/2)]
+#define kEngNumFontOfSize(lFontSize) ([UIFont fontWithName:@"Helvetica Neue" size:(lFontSize/2)])
 
 //颜色
 #define LQSColor(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]

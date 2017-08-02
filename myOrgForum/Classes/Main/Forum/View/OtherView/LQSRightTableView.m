@@ -96,10 +96,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    UIView *selectedBackgroundView = [[UIView alloc] init];
-//    selectedBackgroundView.backgroundColor = [UIColor whiteColor];
-//    cell.selectedBackgroundView = selectedBackgroundView;
+    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //    UIView *selectedBackgroundView = [[UIView alloc] init];
+    //    selectedBackgroundView.backgroundColor = [UIColor whiteColor];
+    //    cell.selectedBackgroundView = selectedBackgroundView;
     
     LQSCellModel *cellModel = nil;
     if (self.sectionNum == 1) {
@@ -116,7 +116,7 @@
             
         }
     }
-    NSLog(@"%@,%zd",cellModel.board_name,cellModel.board_id);
+    //    LQSLog(@"%@,%zd",cellModel.board_name,cellModel.board_id);
     LQSForumDetailViewController* detailVC = [[UIStoryboard storyboardWithName:@"Forum" bundle:nil] instantiateViewControllerWithIdentifier:@"ForumDetail"];
     detailVC.boardid = cellModel.board_id;
     detailVC.boardChild = cellModel.board_child;
@@ -172,7 +172,7 @@
     
     LQSCellModel *cellModel = rightViewCell.cellModel;
     if ([self.focusArrayBoardId containsObject:@(cellModel.board_id)]) {
-        NSLog(@"已添加");
+        //        LQSLog(@"已添加");
         return;
     }
     
@@ -186,10 +186,10 @@
     //已关注数据插入排序
     [self insertCellModelInArray:self.focusArray cellModel:cellModel];
     
-//    for (int k=0; k<self.focusArray.count; k++) {
-//        LQSCellModel *cellModelk = self.focusArray[k];
-//        LQSLog(@"%zd/n",cellModelk.ID);
-//    }
+    //    for (int k=0; k<self.focusArray.count; k++) {
+    //        LQSCellModel *cellModelk = self.focusArray[k];
+    //        LQSLog(@"%zd/n",cellModelk.ID);
+    //    }
     
     //从所有数据中移除已关注数据
     [self.allFocusArray enumerateObjectsUsingBlock:^(LQSCellModel *cellModel1, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -216,7 +216,7 @@
     }];
     
     [self reloadData];
-//    NSLog(@"%s", __FUNCTION__);
+    //    NSLog(@"%s", __FUNCTION__);
     //    NSLog(@"%@", self.focusArray);
     //    NSLog(@"%@", self.rightDataArray);
 }
@@ -245,10 +245,10 @@
                 [self.allFocusArray addObject:cellModel];
             }
             
-//            for (int k=0; k<self.allFocusArray.count; k++) {
-//                LQSCellModel *cellModelk = self.allFocusArray[k];
-//                NSLog(@"%zd/n",cellModelk.ID);
-//            }
+            //            for (int k=0; k<self.allFocusArray.count; k++) {
+            //                LQSCellModel *cellModelk = self.allFocusArray[k];
+            //                NSLog(@"%zd/n",cellModelk.ID);
+            //            }
             
             if (self.tempArray.count < 5) {
                 [self insertCellModelInArray:self.tempArray cellModel:cellModel];
@@ -273,7 +273,7 @@
     [self.focusArrayBoardId removeObject:@(cellModel.board_id)];
     [self reloadData];
     
-//    NSLog(@"%s", __FUNCTION__);
+    //    NSLog(@"%s", __FUNCTION__);
     //    NSLog(@"%@", self.focusArray);
     //    NSLog(@"%@", self.rightDataArray);
 }

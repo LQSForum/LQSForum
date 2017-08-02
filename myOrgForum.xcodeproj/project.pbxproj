@@ -150,6 +150,18 @@
 		568CC2F31F30673A0012845A /* LQSMessageCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 568CC2EF1F30673A0012845A /* LQSMessageCenterManager.m */; };
 		568CC2F41F30673A0012845A /* LQSMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 568CC2F11F30673A0012845A /* LQSMessageRequest.m */; };
 		568CC2F61F3069040012845A /* setting_profile_bgWall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 568CC2F51F3069040012845A /* setting_profile_bgWall.jpg */; };
+		56E84B9A1F317DDD009E27D2 /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E84B931F317DDD009E27D2 /* UITableView+FDIndexPathHeightCache.m */; };
+		56E84B9B1F317DDD009E27D2 /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E84B951F317DDD009E27D2 /* UITableView+FDKeyedHeightCache.m */; };
+		56E84B9C1F317DDD009E27D2 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E84B971F317DDD009E27D2 /* UITableView+FDTemplateLayoutCell.m */; };
+		56E84B9D1F317DDD009E27D2 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E84B991F317DDD009E27D2 /* UITableView+FDTemplateLayoutCellDebug.m */; };
+		56E84BA01F317E86009E27D2 /* UIButton+ImageTitleStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E84B9F1F317E86009E27D2 /* UIButton+ImageTitleStyle.m */; };
+		56E84BA31F317F8B009E27D2 /* NSString+Timestamp.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E84BA21F317F8B009E27D2 /* NSString+Timestamp.m */; };
+		56E84BAA1F31821D009E27D2 /* LQSAttentionOnePictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E84BA51F31821D009E27D2 /* LQSAttentionOnePictureView.m */; };
+		56E84BAB1F31821D009E27D2 /* LQSAttentionPicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E84BA71F31821D009E27D2 /* LQSAttentionPicturesView.m */; };
+		56E84BAC1F31821D009E27D2 /* LQSForumAttentionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E84BA91F31821D009E27D2 /* LQSForumAttentionView.m */; };
+		56E84BAF1F318244009E27D2 /* LQSNonAttentionDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E84BAE1F318244009E27D2 /* LQSNonAttentionDataView.m */; };
+		56E84BB21F31829B009E27D2 /* LQSForumAttentionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E84BB11F31829B009E27D2 /* LQSForumAttentionViewCell.m */; };
+		56E84BB51F3182C3009E27D2 /* LQSForumAttentionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E84BB41F3182C3009E27D2 /* LQSForumAttentionModel.m */; };
 		56EA01941F2C016F00F7350F /* LQFoundPSWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EA018D1F2C016F00F7350F /* LQFoundPSWViewController.m */; };
 		56EA01951F2C016F00F7350F /* LQLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EA018F1F2C016F00F7350F /* LQLoginViewController.m */; };
 		56EA01961F2C016F00F7350F /* LQRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EA01911F2C016F00F7350F /* LQRegisterViewController.m */; };
@@ -511,6 +523,30 @@
 		568CC2F01F30673A0012845A /* LQSMessageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSMessageRequest.h; sourceTree = "<group>"; };
 		568CC2F11F30673A0012845A /* LQSMessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSMessageRequest.m; sourceTree = "<group>"; };
 		568CC2F51F3069040012845A /* setting_profile_bgWall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = setting_profile_bgWall.jpg; sourceTree = "<group>"; };
+		56E84B921F317DDD009E27D2 /* UITableView+FDIndexPathHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDIndexPathHeightCache.h"; sourceTree = "<group>"; };
+		56E84B931F317DDD009E27D2 /* UITableView+FDIndexPathHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDIndexPathHeightCache.m"; sourceTree = "<group>"; };
+		56E84B941F317DDD009E27D2 /* UITableView+FDKeyedHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDKeyedHeightCache.h"; sourceTree = "<group>"; };
+		56E84B951F317DDD009E27D2 /* UITableView+FDKeyedHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDKeyedHeightCache.m"; sourceTree = "<group>"; };
+		56E84B961F317DDD009E27D2 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		56E84B971F317DDD009E27D2 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
+		56E84B981F317DDD009E27D2 /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
+		56E84B991F317DDD009E27D2 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
+		56E84B9E1F317E86009E27D2 /* UIButton+ImageTitleStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageTitleStyle.h"; sourceTree = "<group>"; };
+		56E84B9F1F317E86009E27D2 /* UIButton+ImageTitleStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageTitleStyle.m"; sourceTree = "<group>"; };
+		56E84BA11F317F8B009E27D2 /* NSString+Timestamp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Timestamp.h"; sourceTree = "<group>"; };
+		56E84BA21F317F8B009E27D2 /* NSString+Timestamp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Timestamp.m"; sourceTree = "<group>"; };
+		56E84BA41F31821D009E27D2 /* LQSAttentionOnePictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAttentionOnePictureView.h; sourceTree = "<group>"; };
+		56E84BA51F31821D009E27D2 /* LQSAttentionOnePictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAttentionOnePictureView.m; sourceTree = "<group>"; };
+		56E84BA61F31821D009E27D2 /* LQSAttentionPicturesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSAttentionPicturesView.h; sourceTree = "<group>"; };
+		56E84BA71F31821D009E27D2 /* LQSAttentionPicturesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSAttentionPicturesView.m; sourceTree = "<group>"; };
+		56E84BA81F31821D009E27D2 /* LQSForumAttentionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSForumAttentionView.h; sourceTree = "<group>"; };
+		56E84BA91F31821D009E27D2 /* LQSForumAttentionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSForumAttentionView.m; sourceTree = "<group>"; };
+		56E84BAD1F318244009E27D2 /* LQSNonAttentionDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSNonAttentionDataView.h; sourceTree = "<group>"; };
+		56E84BAE1F318244009E27D2 /* LQSNonAttentionDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSNonAttentionDataView.m; sourceTree = "<group>"; };
+		56E84BB01F31829B009E27D2 /* LQSForumAttentionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSForumAttentionViewCell.h; sourceTree = "<group>"; };
+		56E84BB11F31829B009E27D2 /* LQSForumAttentionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSForumAttentionViewCell.m; sourceTree = "<group>"; };
+		56E84BB31F3182C3009E27D2 /* LQSForumAttentionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSForumAttentionModel.h; sourceTree = "<group>"; };
+		56E84BB41F3182C3009E27D2 /* LQSForumAttentionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSForumAttentionModel.m; sourceTree = "<group>"; };
 		56EA018C1F2C016F00F7350F /* LQFoundPSWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQFoundPSWViewController.h; sourceTree = "<group>"; };
 		56EA018D1F2C016F00F7350F /* LQFoundPSWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQFoundPSWViewController.m; sourceTree = "<group>"; };
 		56EA018E1F2C016F00F7350F /* LQLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQLoginViewController.h; sourceTree = "<group>"; };
@@ -917,6 +953,7 @@
 		564BCBEA1F2F343300EF9297 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				56E84B911F317DDD009E27D2 /* FDTemplateLayoutCell */,
 				568CC28C1F3037860012845A /* YYModel */,
 				564BCBEB1F2F343300EF9297 /* GCDAsyncSocket */,
 				564BCBF21F2F343300EF9297 /* YBPopupMenu */,
@@ -1092,6 +1129,8 @@
 				564F65F31F2B50220098E8A7 /* LQSLastestMarrowModel.m */,
 				564F65F41F2B50220098E8A7 /* LQSSectionModel.h */,
 				564F65F51F2B50220098E8A7 /* LQSSectionModel.m */,
+				56E84BB31F3182C3009E27D2 /* LQSForumAttentionModel.h */,
+				56E84BB41F3182C3009E27D2 /* LQSForumAttentionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1146,6 +1185,16 @@
 				564F66151F2B50220098E8A7 /* LQSRightTableView.m */,
 				564F66161F2B50220098E8A7 /* LQSRightViewCell.h */,
 				564F66171F2B50220098E8A7 /* LQSRightViewCell.m */,
+				56E84BA41F31821D009E27D2 /* LQSAttentionOnePictureView.h */,
+				56E84BA51F31821D009E27D2 /* LQSAttentionOnePictureView.m */,
+				56E84BA61F31821D009E27D2 /* LQSAttentionPicturesView.h */,
+				56E84BA71F31821D009E27D2 /* LQSAttentionPicturesView.m */,
+				56E84BA81F31821D009E27D2 /* LQSForumAttentionView.h */,
+				56E84BA91F31821D009E27D2 /* LQSForumAttentionView.m */,
+				56E84BAD1F318244009E27D2 /* LQSNonAttentionDataView.h */,
+				56E84BAE1F318244009E27D2 /* LQSNonAttentionDataView.m */,
+				56E84BB01F31829B009E27D2 /* LQSForumAttentionViewCell.h */,
+				56E84BB11F31829B009E27D2 /* LQSForumAttentionViewCell.m */,
 			);
 			path = OtherView;
 			sourceTree = "<group>";
@@ -1261,6 +1310,8 @@
 				568CC2721F3037060012845A /* NSArray+Log.m */,
 				568CC2731F3037060012845A /* NSDate+MJ.h */,
 				568CC2741F3037060012845A /* NSDate+MJ.m */,
+				56E84BA11F317F8B009E27D2 /* NSString+Timestamp.h */,
+				56E84BA21F317F8B009E27D2 /* NSString+Timestamp.m */,
 				568CC2751F3037060012845A /* NSTextAttachment+ArticleContent.h */,
 				568CC2761F3037060012845A /* NSTextAttachment+ArticleContent.m */,
 				568CC2771F3037060012845A /* UIBarButtonItem+Extension.h */,
@@ -1277,6 +1328,8 @@
 				568CC2821F3037060012845A /* UIWindow+Extension.m */,
 				568CC2AF1F304DED0012845A /* NSString+Emoji.h */,
 				568CC2B01F304DED0012845A /* NSString+Emoji.m */,
+				56E84B9E1F317E86009E27D2 /* UIButton+ImageTitleStyle.h */,
+				56E84B9F1F317E86009E27D2 /* UIButton+ImageTitleStyle.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1419,6 +1472,21 @@
 				568CC2F11F30673A0012845A /* LQSMessageRequest.m */,
 			);
 			path = Message;
+			sourceTree = "<group>";
+		};
+		56E84B911F317DDD009E27D2 /* FDTemplateLayoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				56E84B921F317DDD009E27D2 /* UITableView+FDIndexPathHeightCache.h */,
+				56E84B931F317DDD009E27D2 /* UITableView+FDIndexPathHeightCache.m */,
+				56E84B941F317DDD009E27D2 /* UITableView+FDKeyedHeightCache.h */,
+				56E84B951F317DDD009E27D2 /* UITableView+FDKeyedHeightCache.m */,
+				56E84B961F317DDD009E27D2 /* UITableView+FDTemplateLayoutCell.h */,
+				56E84B971F317DDD009E27D2 /* UITableView+FDTemplateLayoutCell.m */,
+				56E84B981F317DDD009E27D2 /* UITableView+FDTemplateLayoutCellDebug.h */,
+				56E84B991F317DDD009E27D2 /* UITableView+FDTemplateLayoutCellDebug.m */,
+			);
+			path = FDTemplateLayoutCell;
 			sourceTree = "<group>";
 		};
 		56EA018B1F2C013900F7350F /* Controller */ = {
@@ -2163,6 +2231,7 @@
 				564BCBBE1F2F2FFA00EF9297 /* LQSintroduceMainlistCell.m in Sources */,
 				56EA01941F2C016F00F7350F /* LQFoundPSWViewController.m in Sources */,
 				56EA01E51F2C20A300F7350F /* LQSMessageTableViewCell.m in Sources */,
+				56E84BAC1F31821D009E27D2 /* LQSForumAttentionView.m in Sources */,
 				564BCBCB1F2F329800EF9297 /* LQSAddViewHelper.m in Sources */,
 				568CC2B11F304DED0012845A /* NSString+Emoji.m in Sources */,
 				564BCBF71F2F343300EF9297 /* GCDMulticastDelegate.m in Sources */,
@@ -2186,12 +2255,16 @@
 				568CC2F31F30673A0012845A /* LQSMessageCenterManager.m in Sources */,
 				56EA01E11F2C205400F7350F /* LQSMessageViewController.m in Sources */,
 				564BCBCC1F2F329800EF9297 /* LQSArticleContentView.m in Sources */,
+				56E84B9A1F317DDD009E27D2 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				56EA01CB1F2C187500F7350F /* LQSSettingMyFriendViewController.m in Sources */,
 				56EA01A21F2C023900F7350F /* LQSUserManager.m in Sources */,
 				564BCC011F2F34BF00EF9297 /* LQSShijieViewController.m in Sources */,
 				568CC2DD1F3050160012845A /* LQSPluginBoardView.m in Sources */,
 				564F663A1F2B50220098E8A7 /* LQSForumDetailChildCell.m in Sources */,
+				56E84BAF1F318244009E27D2 /* LQSNonAttentionDataView.m in Sources */,
+				56E84B9C1F317DDD009E27D2 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				564BCB881F2EE3D200EF9297 /* LQSNodataTopCell.m in Sources */,
+				56E84BAB1F31821D009E27D2 /* LQSAttentionPicturesView.m in Sources */,
 				564BCC1D1F2F35B900EF9297 /* LQSDiscoverCell.m in Sources */,
 				564F65D91F2B4FA70098E8A7 /* LQSEmotionPopView.m in Sources */,
 				564F66391F2B50220098E8A7 /* LQSForumDetailCell.m in Sources */,
@@ -2213,6 +2286,8 @@
 				564BCBD01F2F32B900EF9297 /* LQSdashangSecView.m in Sources */,
 				56EA02011F2C250D00F7350F /* LQSSettingPersonalSettingViewCell.m in Sources */,
 				564BCBBB1F2F2F4900EF9297 /* LQSIntroduceViewController.m in Sources */,
+				56E84BA01F317E86009E27D2 /* UIButton+ImageTitleStyle.m in Sources */,
+				56E84B9D1F317DDD009E27D2 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				56EA01DE1F2C205400F7350F /* LQSMessageCommentViewController.m in Sources */,
 				415C55541CC8CCEE00408B90 /* main.m in Sources */,
 				564F664D1F2B50220098E8A7 /* LQSSelectPlatesDataModel.m in Sources */,
@@ -2265,8 +2340,11 @@
 				568CC2831F3037060012845A /* NSArray+Log.m in Sources */,
 				564F66321F2B50220098E8A7 /* LQSForumDetailViewController.m in Sources */,
 				564BCC131F2F354900EF9297 /* LQSCishanTableViewCell.m in Sources */,
+				56E84BAA1F31821D009E27D2 /* LQSAttentionOnePictureView.m in Sources */,
+				56E84BB21F31829B009E27D2 /* LQSForumAttentionViewCell.m in Sources */,
 				568CC2881F3037060012845A /* UIColor+Hex.m in Sources */,
 				568CC2D01F304E900012845A /* LQSUITableView.m in Sources */,
+				56E84B9B1F317DDD009E27D2 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				56EA01951F2C016F00F7350F /* LQLoginViewController.m in Sources */,
 				564BCBDF1F2F332D00EF9297 /* LQSDaShangTableViewController.m in Sources */,
 				568CC28B1F3037060012845A /* UIWindow+Extension.m in Sources */,
@@ -2279,10 +2357,12 @@
 				564BCBCD1F2F329800EF9297 /* LQSBBSDetailCell.m in Sources */,
 				564BCB7C1F2EDF9A00EF9297 /* LQSHomePagePersonalMessageView.m in Sources */,
 				564F66311F2B50220098E8A7 /* LQSForumDetailOptionViewController.m in Sources */,
+				56E84BB51F3182C3009E27D2 /* LQSForumAttentionModel.m in Sources */,
 				56EA01E21F2C205400F7350F /* LQSSystemMessageViewController.m in Sources */,
 				568CC2871F3037060012845A /* UIBarButtonItem+LQSConst.m in Sources */,
 				56EA01AD1F2C040D00F7350F /* LQSBaseModel.m in Sources */,
 				56EA01BF1F2C0AA700F7350F /* LQSSettingModel.m in Sources */,
+				56E84BA31F317F8B009E27D2 /* NSString+Timestamp.m in Sources */,
 				564F65DD1F2B4FA70098E8A7 /* LQSPluginView.m in Sources */,
 				564BCBE21F2F332D00EF9297 /* LQSReportDetailViewController.m in Sources */,
 				564BCB821F2EE2B300EF9297 /* LQSHomePagePersonalZiliaoTableViewCell.m in Sources */,

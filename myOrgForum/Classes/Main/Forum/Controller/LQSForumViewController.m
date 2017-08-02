@@ -5,9 +5,7 @@
 //  Created by 昱含 on 16/8/5.
 //  Copyright © 2016年 YuHan. All rights reserved.
 //
-#define kWIDTH [UIScreen mainScreen].bounds.size.width
-#define kHEIGHT [UIScreen mainScreen].bounds.size.height
-#define kScreenSize  [UIScreen mainScreen].bounds.size
+
 #import "LQSForumViewController.h"
 #import "LQSMainView.h"
 #import "Masonry.h"
@@ -19,61 +17,70 @@
 
 @interface LQSForumViewController ()<LQSMainViewDelegate,LQSLatestMarrowTableViewDelegate>
 
-@property (nonatomic, strong) UIView *bgView;//三个主题导航条背景
-@property (nonatomic, weak) UIView *sliderbarView;//滑动条
-@property (nonatomic, strong) LQSMainView *mainView;//主视图
-@property (nonatomic, strong) UIButton *btn;//三个主题按钮
+/** 主题导航条背景 */
+@property (nonatomic, strong) UIView *bgView;
+/** 主题按钮背景 */
+@property (nonatomic, strong) UIView *btnView;
+/** 滑动条 */
+@property (nonatomic, strong) UIView *sliderbarView;
+/** 主视图 */
+@property (nonatomic, strong) LQSMainView *mainView;
+/** 主题按钮 */
+@property (nonatomic, strong) UIButton *btn;
+/** 横线 */
+@property (nonatomic, strong) UIView *horizontalLine;
 
 @end
 
 @implementation LQSForumViewController
 
-
-- (void)viewDidLoad {
+#pragma mark - LifeCycle
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
-    UICollectionViewFlowLayout *layout1 = [[UICollectionViewFlowLayout alloc] init];
-    layout1.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    layout1.minimumLineSpacing = 0;
-    layout1.itemSize = CGSizeMake(kScreenWidth, kScreenHeight-149);
+    // UIExtendedEdge的属性，指定边缘要延伸的方向，默认值是UIRectEdgeAll,一般为了不让tableView不延伸到navigationBar下面，属性设置为UIRectEdgeNone
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    // 让导航栏不透明且占空间位置，所以UI坐标就会从导航栏下面开始算起。
+    self.navigationController.navigationBar.translucent = NO;
     
-    self.bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenSize.width, 36)];
     [self.view addSubview:self.bgView];
-    self.bgView.backgroundColor = [UIColor whiteColor];
+    [self.bgView addSubview:self.horizontalLine];
+    [self.bgView addSubview:self.sliderbarView];
+    [self.bgView addSubview:self.btnView];
+    [self.view addSubview:self.mainView];
     
-    LQSMainView *mainView = [[LQSMainView alloc]initWithFrame:CGRectMake(0, 100, kWIDTH, kHEIGHT-149) collectionViewLayout:layout1];
-    mainView.pagingEnabled = YES;
-    mainView.idelegate = self;
-    [self.view addSubview:mainView];
-    self.mainView = mainView;
-    self.mainView.latestView.idelegate = self;
-    self.mainView.marrowView.idelegate = self;
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(skipLoginVC:) name:@"loginVC" object:nil];
     [self loadTopView];
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(skipLoginVC:) name:@"loginVC" object:nil];
+    
 }
 
-- (void)skipLoginVC:(NSNotification *)notification{
-    [self presentViewController:notification.object animated:YES completion:nil];
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
 }
 
-- (void)latestMarrowTableView:(LQSLatestMarrowTableView *)latestMarrowTableView detailVc:(LQSBBSDetailViewController *)dvc{
-    [self.navigationController pushViewController:dvc animated:NO];
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
+#pragma mark - PrivateMethods
 
-
-- (void)loadTopView{
-    CGFloat w = 120;
-    CGFloat h = 40;
-    CGFloat padding = (self.view.bounds.size.width - 3*w)/4;
+- (void)loadTopView
+{
+    
+    CGFloat w = LQSScreenW/2;
+    CGFloat h = 35;
     CGFloat y = 0;
     
     //添加主题按钮
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 2; i++) {
         UIButton *btn = [[UIButton alloc] init];
-        btn.tag = i;
-        CGFloat x = padding + (w + padding) *i;
+        btn.tag = i+10;
+        CGFloat x = w *i;
         btn.frame = CGRectMake(x, y, w, h);
         [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [btn setTitleColor:LQSColor(1, 183, 237, 1.0) forState:UIControlStateSelected];
@@ -81,46 +88,65 @@
         
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:(UIControlEventTouchUpInside)];
         
-        [self.bgView addSubview:btn];
+        [self.btnView addSubview:btn];
         [self setButtonTitle:btn];
     }
     
-    //滑动条
-    UIView *sliderV = [[UIView alloc] initWithFrame:CGRectMake(padding, 31, 120, 3)];
-    sliderV.backgroundColor = LQSColor(1, 183, 237, 1.0);
-    self.sliderbarView = sliderV;
-    [self.bgView addSubview:sliderV];
+    [self.horizontalLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.bgView.mas_bottom);
+        make.height.mas_equalTo(0.5);
+        make.width.mas_equalTo(LQSScreenW);
+    }];
     
 }
+
 
 - (void)setButtonTitle:(UIButton *)sender
 {
     
     switch (sender.tag) {
-        case 0:
+        case 10:
         {
             [sender setTitle:@"版块" forState:(UIControlStateNormal)];
         }
             break;
-        case 1:
+        case 11:
         {
-            [sender setTitle:@"最新" forState:(UIControlStateNormal)];
+            [sender setTitle:@"关注" forState:(UIControlStateNormal)];
         }
             break;
             
-        case 2:
-        {
-            [sender setTitle:@"精华" forState:(UIControlStateNormal)];
-        }
-            break;
             
-        default:
+            default:
             break;
     }
 }
 
+
+- (void)skipLoginVC:(NSNotification *)notification
+{
+    [self presentViewController:notification.object animated:YES completion:nil];
+}
+
+#pragma mark - CustomDelegate
+- (void)latestMarrowTableView:(LQSLatestMarrowTableView *)latestMarrowTableView detailVc:(LQSBBSDetailViewController *)dvc
+{
+    [self.navigationController pushViewController:dvc animated:NO];
+}
+
+- (void)pushToDetailVc:(LQSForumAttentionModel *)model
+{
+    LQSBBSDetailViewController *detailVc = [[LQSBBSDetailViewController alloc]init];
+    detailVc.boardID = [NSString stringWithFormat:@"%zd",model.attentionBoardID];
+    detailVc.topicID = [NSString stringWithFormat:@"%zd",model.attentionTopicID];
+    [self.navigationController pushViewController:detailVc animated:YES];
+    
+}
+
+#pragma mark - EventResponse
 //主题按钮的点击
-- (void)btnClick:(UIButton *)sender{
+- (void)btnClick:(UIButton *)sender
+{
     
     self.btn.selected = NO;
     sender.selected = YES;
@@ -128,7 +154,7 @@
     
     CGPoint center = self.sliderbarView.center;
     center.x = sender.center.x;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:sender.tag inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:(sender.tag-10) inSection:0];
     
     [[NSNotificationCenter defaultCenter]postNotificationName:@"LQSPartClickIndexpath" object:indexPath];
     
@@ -138,12 +164,13 @@
     
 }
 
-
-//三个页面的滚动
-- (void)mainViewScroll:(LQSMainView *)mainView index:(int)index{
+#pragma mark - LQSMainViewDelegate
+//页面的滚动
+- (void)mainViewScroll:(LQSMainView *)mainView index:(int)index
+{
     
     self.btn.selected = NO;
-    UIButton *btn = self.bgView.subviews[index];
+    UIButton *btn = self.btnView.subviews[index];
     btn.selected = YES;
     self.btn = btn;
     
@@ -156,9 +183,63 @@
     
 }
 
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
+
+
+
+#pragma mark - SetterAndGetter
+- (UIView *)bgView
+{
+    if (_bgView == nil) {
+        _bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, LQSScreenW, 36)];
+        
+        _bgView.backgroundColor = [UIColor whiteColor];
+    }
+    return _bgView;
 }
 
+
+- (UIView *)sliderbarView
+{
+    if (_sliderbarView == nil) {
+        _sliderbarView = [[UIView alloc] initWithFrame:CGRectMake(0, 33, (LQSScreenW/2), 3)];
+        _sliderbarView.backgroundColor = LQSColor(1, 183, 237, 1.0);
+        
+    }
+    return _sliderbarView;
+}
+
+- (LQSMainView *)mainView
+{
+    if (_mainView == nil) {
+        UICollectionViewFlowLayout *layout1 = [[UICollectionViewFlowLayout alloc] init];
+        layout1.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        layout1.minimumLineSpacing = 0;
+        layout1.itemSize = CGSizeMake(LQSScreenW, LQSScreenH-148);
+        _mainView = [[LQSMainView alloc]initWithFrame:CGRectMake(0, 36.5, LQSScreenW, LQSScreenH-148) collectionViewLayout:layout1];
+        _mainView.pagingEnabled = YES;
+        _mainView.idelegate = self;
+        
+        
+    }
+    return _mainView;
+}
+
+
+- (UIView *)btnView
+{
+    if (_btnView == nil) {
+        _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, LQSScreenW, 36)];
+    }
+    return _btnView;
+}
+
+- (UIView *)horizontalLine
+{
+    if (_horizontalLine == nil) {
+        _horizontalLine = [[UIView alloc] init];
+        _horizontalLine.backgroundColor = [UIColor lightGrayColor];
+    }
+    return _horizontalLine;
+}
 
 @end
