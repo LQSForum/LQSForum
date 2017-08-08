@@ -49,6 +49,7 @@
 
 #import "LQSSettingViewController.h"
 #import "LQSDiscoverViewController.h"
+#import "LQSNewDiscoverViewController.h"
 #import "LQSForumViewController.h"
 #import "LQSIntroduceViewController.h"
 #import "LQSMessageViewController.h"

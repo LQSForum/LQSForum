@@ -25,6 +25,7 @@
 #import "LQSEmotionTextView.h"
 #import "LQSEmotionKeyboard.h"
 #import "LQSPluginView.h"
+#define kInputBottomViewHeight 55 // 回个话鼓励下楼主栏的高度，也是输入栏的高度
 @interface LQSBBSDetailViewController ()<UITableViewDataSource,UITableViewDelegate,LQSBBSDetailCellDelegate,UITextViewDelegate,LQSPluginViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     
 }
@@ -36,14 +37,16 @@
 @property (nonatomic,strong)UIButton *shildBtn;
 // 临时keyboardFrame
 @property (nonatomic,assign)CGRect tempKBF;
-// 用于判断是否显示表情,yes为显示,no为不显示.
+// 用于判断键盘选择是否显示表情按钮,yes为显示,no为不显示.
 @property (nonatomic,assign)BOOL emotionIsShowing;
 // 拷贝过来的表情view
 @property (nonatomic, strong) LQSEmotionKeyboard *emotionKeyBoard;
 // pluginBoardView
 @property (nonatomic,strong)LQSPluginView *pluginBoardView;
 @property (nonatomic,strong)NSMutableArray *replysArr;
-
+// 标记当前评论页数
+@property (nonatomic, assign)NSInteger pageCount;
+@property (nonatomic, weak)UILabel *replyCountLabel;// 显示评论条数的lable;
 @end
 
 @implementation LQSBBSDetailViewController
@@ -56,55 +59,57 @@
     self.view.backgroundColor = [UIColor whiteColor];
     // 下面这行代码解决pop回本页时tableView自动下移问题.
     self.automaticallyAdjustsScrollViewInsets = NO;
-    NSLog(@"详情页boardID：%@",self.selectModel.board_id);
     [self setupInputbtn];
     [self setUpInputView];
-    [self postForData];
+    [self creatTableViewList];
+    [self.mainList.mj_header beginRefreshing];
+    // 初始化pageCount = 1;
+    self.pageCount = 1;
     
 }
-// 在这里处理一下自动刷新操作。
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
 }
-
+#pragma mark - 自定义方法
 - (void)setUpInputView{
-
-        _inputView = [[UIView alloc]init];
-        [self.view addSubview:_inputView];
-        _inputView.backgroundColor = [UIColor greenColor];
-        [_inputView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.view.mas_left);
-            make.right.equalTo(self.view.mas_right);
-            make.bottom.equalTo(self.view.mas_bottom).offset(44);
-            make.height.equalTo(@44);
-        }];
-        self.textFieldIsShowing = NO;
-        // 加号btn
-        UIButton *plusBtn = [[UIButton alloc]init];
-        [_inputView addSubview:plusBtn];
-        [plusBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_more_n"] forState:UIControlStateNormal];
-        [plusBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_more_h"] forState:UIControlStateHighlighted];
-        [plusBtn addTarget:self action:@selector(plusBtnAct) forControlEvents:UIControlEventTouchUpInside];
-        [plusBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(_inputView.mas_left).offset(5);
-            make.top.equalTo(_inputView.mas_top).offset(7);
-            make.height.equalTo(@30);
-            make.width.equalTo(@30);
-        }];
-        // 笑脸btn
-        UIButton *faceBtn = [[UIButton alloc]init];
-        [_inputView addSubview:faceBtn];
-        self.emotionIsShowing = NO;
-        [faceBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_face_n"] forState:UIControlStateNormal];
-        [faceBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_face_h"] forState:UIControlStateHighlighted];
-        [faceBtn addTarget:self action:@selector(faceBtnAct:) forControlEvents:UIControlEventTouchUpInside];
-        [faceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(plusBtn.mas_right).offset(5);
-            make.top.equalTo(_inputView.mas_top).offset(7);
-            make.height.equalTo(@30);
-            make.width.equalTo(@30);
-        }];
+    
+    _inputView = [[UIView alloc]init];
+    [self.view addSubview:_inputView];
+    _inputView.backgroundColor = [UIColor greenColor];
+    [_inputView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.bottom.equalTo(self.view.mas_bottom).offset(kInputBottomViewHeight);
+        make.height.equalTo(@kInputBottomViewHeight);
+    }];
+    self.textFieldIsShowing = NO;
+    // 加号btn
+    UIButton *plusBtn = [[UIButton alloc]init];
+    [_inputView addSubview:plusBtn];
+    [plusBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_more_n"] forState:UIControlStateNormal];
+    [plusBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_more_h"] forState:UIControlStateHighlighted];
+    [plusBtn addTarget:self action:@selector(plusBtnAct) forControlEvents:UIControlEventTouchUpInside];
+    [plusBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_inputView.mas_left).offset(5);
+        make.top.equalTo(_inputView.mas_top).offset(7);
+        make.height.equalTo(@30);
+        make.width.equalTo(@30);
+    }];
+    // 笑脸btn
+    UIButton *faceBtn = [[UIButton alloc]init];
+    [_inputView addSubview:faceBtn];
+    self.emotionIsShowing = NO;
+    [faceBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_face_n"] forState:UIControlStateNormal];
+    [faceBtn setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_face_h"] forState:UIControlStateHighlighted];
+    [faceBtn addTarget:self action:@selector(faceBtnAct:) forControlEvents:UIControlEventTouchUpInside];
+    [faceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(plusBtn.mas_right).offset(5);
+        make.top.equalTo(_inputView.mas_top).offset(7);
+        make.height.equalTo(@30);
+        make.width.equalTo(@30);
+    }];
     // 输入textView
     self.inputTV = [[LQSEmotionTextView alloc]init];
     self.inputTV.delegate = self;
@@ -116,45 +121,45 @@
         // 设置底部条的高度 = 文字高度 + textView距离上下间距约束
         // 为什么添加10 ？（10 = 底部View距离上（5）底部View距离下（5）间距总和）
         [weakSelf changeF:textHeight];
-//        _bottomHCons.constant = textHeight + 10;
+        //        _bottomHCons.constant = textHeight + 10;
     };
-
+    
     [self.inputTV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(faceBtn.mas_right).offset(5);
-                    make.top.equalTo(_inputView.mas_top).offset(7);
-                    make.bottom.equalTo(_inputView.mas_bottom).offset(-7);
-                    make.right.equalTo(_inputView.mas_right).offset(-40);
-//                    make.height.equalTo(@30);
-
+        make.top.equalTo(_inputView.mas_top).offset(7);
+        make.bottom.equalTo(_inputView.mas_bottom).offset(-7);
+        make.right.equalTo(_inputView.mas_right).offset(-40);
+        //                    make.height.equalTo(@30);
+        
     }];
-        // 发送按钮
-        UIButton *sendBtn = [[UIButton alloc]init];
-        [_inputView addSubview:sendBtn];
-        [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
-        [sendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(_inputTV.mas_right);
-            make.top.equalTo(_inputView.mas_top).offset(5);
-            make.right.equalTo(_inputView.mas_right);
-//            make.bottom.equalTo(_inputView.mas_bottom);
-            make.height.equalTo(@30);
-        }];
-        [sendBtn addTarget:self action:@selector(sendMsgAct) forControlEvents:UIControlEventTouchUpInside];
-
+    // 发送按钮
+    UIButton *sendBtn = [[UIButton alloc]init];
+    [_inputView addSubview:sendBtn];
+    [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
+    [sendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_inputTV.mas_right);
+        make.top.equalTo(_inputView.mas_top).offset(5);
+        make.right.equalTo(_inputView.mas_right);
+        //            make.bottom.equalTo(_inputView.mas_bottom);
+        make.height.equalTo(@30);
+    }];
+    [sendBtn addTarget:self action:@selector(sendMsgAct) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 - (void)changeF:(NSInteger)height{
     NSLog(@"输入文字后计算出的高度:%zd",height);
-//    if (height >40) {
-        [self.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.bottom.equalTo(self.view.mas_bottom).offset(-(kScreenHeight - self.tempKBF.origin.y) - 44 -height);
-            make.height.equalTo(@(height+10));
-        }];
-
-//    }
+    //    if (height >40) {
+    [self.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
+        //            make.bottom.equalTo(self.view.mas_bottom).offset(-(kScreenHeight - self.tempKBF.origin.y) - kInputBottomViewHeight -height);
+        make.height.equalTo(@(height+15));
+    }];
+    
+    //    }
 }
 
 // 输入按钮
 - (void)setupInputbtn{
-//    self.inputView.backgroundColor = [UIColor blueColor];
+    //    self.inputView.backgroundColor = [UIColor blueColor];
     // 输入栏的底层view
     UIView *inputView = [[UIView alloc]init];
     inputView.backgroundColor = [UIColor blueColor];
@@ -163,7 +168,7 @@
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.bottom.equalTo(self.view.mas_bottom);
-        make.height.equalTo(@44);
+        make.height.equalTo(@kInputBottomViewHeight);
     }];
     // 回个话鼓励下楼主
     UIButton *guliBtn = [[UIButton alloc]init];
@@ -176,10 +181,10 @@
     guliBtn.contentEdgeInsets = UIEdgeInsetsMake(0, -30, 0, 0);
     [guliBtn setTitle:@"回个话鼓励下楼主" forState:UIControlStateNormal];
     [guliBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(inputView.mas_left).offset(10);
-                make.top.equalTo(inputView.mas_top).offset(5);
-                make.bottom.equalTo(inputView.mas_bottom).offset(-5);
-                make.right.equalTo(inputView.mas_right).offset(-54);
+        make.left.equalTo(inputView.mas_left).offset(10);
+        make.top.equalTo(inputView.mas_top).offset(5);
+        make.bottom.equalTo(inputView.mas_bottom).offset(-5);
+        make.right.equalTo(inputView.mas_right).offset(-54);
     }];
     [guliBtn.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(guliBtn.mas_left).offset(10);
@@ -195,9 +200,8 @@
     // *条评论label
     UILabel *comontCountLabel = [[UILabel alloc]init];
     [guliBtn addSubview:comontCountLabel];
-    // 评论条数.参数由接口提供
-    NSInteger i = 1;
-    comontCountLabel.text = [NSString stringWithFormat:@"%zd条评论",i];
+    self.replyCountLabel = comontCountLabel;
+    
     [comontCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(guliBtn.mas_right).offset(-8);
         make.top.equalTo(guliBtn.mas_top).offset(5);
@@ -215,10 +219,10 @@
         make.right.equalTo(inputView.mas_right);
         make.top.equalTo(inputView.mas_top);
         make.bottom.equalTo(inputView.mas_bottom);
-        make.width.equalTo(@44);
+        make.width.equalTo(@kInputBottomViewHeight);
     }];
     [shareBtn addTarget:self action:@selector(toolbarShareAct) forControlEvents:UIControlEventTouchUpInside];
-    }
+}
 #pragma mark - 点击输入框的按钮事件
 // 表情键盘的初始化
 - (LQSEmotionKeyboard *)emotionKeyBoard
@@ -283,8 +287,8 @@
     }else{
         NSLog(@"现在键盘是正常键盘");
         [sender setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_keyboard_n"] forState:UIControlStateNormal];
-                [sender setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_keyboard_h"] forState:UIControlStateHighlighted];
-//        [self.inputTV resignFirstResponder];
+        [sender setImage:[UIImage imageNamed:@"dz_toolbar_reply_outer_keyboard_h"] forState:UIControlStateHighlighted];
+        //        [self.inputTV resignFirstResponder];
         self.inputTV.inputView = self.emotionKeyBoard;
         [self.inputTV reloadInputViews];
     }
@@ -308,8 +312,8 @@
     LQSEmotion *emotion = note.userInfo[LQSSelectedEmotion];
     
     // 1.拼接表情
-    [self.inputTV appendEmotion:emotion];
-    
+    // [self.inputTV appendEmotion:emotion];
+    [self.inputTV appendEmotionStrWith:emotion];
 }
 /**
  *  当点击表情键盘上的删除按钮时调用
@@ -317,7 +321,7 @@
 - (void)emotionDidDeleted:(NSNotification *)note
 {
     // 往回删
-    [self.inputTV deleteBackward];
+    [self deleteEmotionWithManul:YES];
 }
 #pragma mark -pluginView的代理事件
 -(void)didSelectBtnAtIndex:(UIButton *)selectedBtn{
@@ -374,7 +378,86 @@
 // 取消事件
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self dismissViewControllerAnimated:YES completion:nil];
-
+    
+}
+// 键盘删除表情文字的处理
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    // text.length == 0的判断用于确定是否输入了新的text，没有这个判断的话，新输入字符也会进行删除操作。
+    if (text.length ==0) {
+        return [self deleteEmotionWithManul:NO];
+    }
+    
+    return YES;
+}
+// manulOrNot标记是否是表情列表的删除键，如果是则执行删除操作。
+- (BOOL)deleteEmotionWithManul:(BOOL)manulOrNot{
+    
+    // 用于针对删除表情特殊字符串处理
+    // 1.特殊情况长按调用系统UIMenuController只选择一个字符串删除
+    if (_inputTV.selectedRange.length == 1) { // 选定的文本长度
+        return YES;
+        //       int loction = _InputTextView.selectedRange.location;// 获取光标位置
+        //       // 获取光标前一个字符串
+        //       unichar strxmlchar = [_InputTextView.text characterAtIndex:(loction -1 )];
+        //       NSString *str=[NSString stringWithFormat:@"%C",strxmlchar];
+        
+    }
+    NSInteger loction = _inputTV.selectedRange.location;// 获取光标位置
+    NSString *frontContent = [_inputTV.text substringToIndex:loction];// 获取光标位置前的字符串
+    // 字符串以结尾比较,存在“]”
+    if ([frontContent hasSuffix:@"]"])
+    {
+        NSInteger stringLength = frontContent.length;
+        NSString *string = nil;
+        BOOL exist = NO;
+        if ( stringLength >= 3)// 表情转义字符的长度（ [1个长度，x占1个长度，,]1个长度，最少3个长度 ）
+        { // 符合表情特殊字符串条件
+            NSString*  tempStr = [frontContent componentsSeparatedByString:@"["].lastObject;
+            string = [NSString stringWithFormat:@"[%@",tempStr];
+            //string = [frontContent substringFromIndex:stringLength - 3];// 截取此时字符串的后四位
+            NSRange range = [string rangeOfString:@"["];// 判断首位是否存在“[”
+            if ( range.location == 0 ) { // 存在表情特殊字符串
+                string = [frontContent substringToIndex:[frontContent rangeOfString:@"[" options:NSBackwardsSearch].location];// 将获取的光标位置前的字符串删减表情特殊字符串（四个字符）
+                exist = YES;
+            }
+            else { // 不存在表情特殊字符串
+                string = [frontContent substringToIndex:stringLength - 1];
+                exist = NO;
+            }
+            
+        }
+        else
+        {
+            return YES;
+        }
+        
+        NSString *backContent = [_inputTV.text substringFromIndex:loction];// 获取光标位置后的字符串
+        if (backContent.length > 0) {
+            // 拼接删除字符后的字符串
+            _inputTV.text = [string stringByAppendingString:backContent];
+        }
+        else{
+            _inputTV.text = string;
+        }
+        NSRange range;
+        range.length = 0;
+        if (exist) {
+            range.location = string.length;
+        }
+        else{
+            range.location = loction - 1;
+        }
+        _inputTV.selectedRange = range; // 调整光标位置
+        return NO;
+        
+    }
+    else{
+        if (manulOrNot == YES) {
+            [self.inputTV deleteBackward];
+        }
+        return YES;
+    }
+    
 }
 #pragma mark -键盘通知的监听处理
 - (void)keyboardWillChangeFrame:(NSNotification *)note
@@ -409,12 +492,12 @@
         }];
     }else{
         [self.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self.view.mas_bottom).offset(44);
+            make.bottom.equalTo(self.view.mas_bottom).offset(kInputBottomViewHeight);
         }];
         [self.shildBtn removeFromSuperview];
-//        self.textFieldIsShowing = NO;
+        //        self.textFieldIsShowing = NO;
     }
-        // 动画时间
+    // 动画时间
     CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     // 动画
     [UIView animateWithDuration:duration animations:^{
@@ -431,22 +514,39 @@
 {
     [self.view addSubview:self.mainList];
     self.view.backgroundColor = [UIColor redColor];
-//    self.mainList.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
-    self.mainList.backgroundColor = [UIColor yellowColor];
+    //    self.mainList.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+    self.mainList.backgroundColor = [UIColor lqs_colorWithHexString:@"F5F5F5"];
+    // 配置上拉加载，下拉刷新
+    _mainList.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(reloadData)];
+    // 使用这个自动回弹到底部的下拉刷新控件，自动刷新的指示效果不是很好。
+    _mainList.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    //_mainList.mj_footer.hidden = YES;
 }
 
 - (UITableView *)mainList
 {
     if (!_mainList) {
-        _mainList = [[UITableView alloc] initWithFrame:CGRectMake(0, 64/*0*/, self.view.width, self.view.height - 64-44) style:UITableViewStylePlain];
+        _mainList = [[UITableView alloc] initWithFrame:CGRectMake(0, 64/*0*/, self.view.width, self.view.height - 64-kInputBottomViewHeight) style:UITableViewStylePlain];
         _mainList.showsVerticalScrollIndicator = NO;
         _mainList.showsHorizontalScrollIndicator = YES;
         _mainList.delegate = self;
         _mainList.dataSource = self;
+        _mainList.autoresizingMask = NO;
+        _mainList.autoresizesSubviews = NO;
         _mainList.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
         _mainList.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     }
     return _mainList;
+}
+- (void)reloadData{
+    self.pageCount = 1;
+    [self postForData];
+}
+- (void)loadMoreData{
+    NSLog(@"loadMoreData");
+    self.pageCount += 1;
+    [self postForData];
+    //[self.mainList.mj_footer endRefreshing];
 }
 #pragma mark - tableView delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -469,8 +569,8 @@
             numOfRow =1;
             break;
         }case 3:{
+            // 在这里判断，如果has_next = 0,则需要加一个没有更多数据了。
             numOfRow =  self.replysArr.count;
-            // 这里的行数，可以加上最后一个“没有更多了”作为最后一个cell。
             break;
         }
             
@@ -483,7 +583,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // 使用先注册cell，然后dequeueReusableCellWithIdentifier withIndexPath的方法会出问题，执行顺序是先height，再cell，然后这里的赋值就没把高度赋值过去。就出现高度问题。还是得用这个!cell,创建cell。
-//    NSLog(@"CELLForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
+    //    NSLog(@"CELLForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:{
@@ -491,7 +591,7 @@
             if (!cell) {
                 cell = [[LQSBBSDetailTitleCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"titleCell"];
             }
-             [(LQSBBSDetailTitleCell *)cell setTopicModel:self.bbsDetailTopicModel];
+            [(LQSBBSDetailTitleCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 1:{
             cell = [tableView dequeueReusableCellWithIdentifier:@"contentCell"];
@@ -505,15 +605,20 @@
             if (!cell) {
                 cell = [[LQSBBSDetailVoteCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"voteCell"];
             }
-             [(LQSBBSDetailVoteCell *)cell setTopicModel:self.bbsDetailTopicModel];
+            [(LQSBBSDetailVoteCell *)cell setTopicModel:self.bbsDetailTopicModel];
             break;
         }case 3:{
+            // 根据cell的indexpath.row判断，是否是没有更多数据的cell;
+            //if ([[NSString stringWithFormat:@"%@",self.bbsDetailModel.has_next]isEqualToString:@"0"]) {
+            
+            // }
             cell = [tableView dequeueReusableCellWithIdentifier:@"posterCell" ];
             if (!cell) {
                 cell = [[LQSBBSDetailReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"posterCell"];
             }
-//            cell.contentView.backgroundColor = [UIColor orangeColor];
+            //            cell.contentView.backgroundColor = [UIColor orangeColor];
             [(LQSBBSDetailReplyCell *)cell setPinglunModel:self.replysArr[indexPath.row]];
+            
             break;
         }
         default:
@@ -521,7 +626,7 @@
     }
     // 让controller成为cell的代理
     ((LQSBBSDetailCell*)cell).delegate = self;
-//    NSLog(@"cellForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
+    //    NSLog(@"cellForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     return cell;
     
 }
@@ -540,7 +645,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"heightForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
+    //NSLog(@"heightForRowAtIndexPath,section:%zd,row:%zd",indexPath.section,indexPath.row);
     
     CGFloat height = 0;
     switch (indexPath.section) {
@@ -623,6 +728,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:@"forum/postlist" forKey:@"r"];
     [dict setObject:@"10" forKey:@"pageSize"];// 每一页要显示的楼层数
+    [dict setObject:[NSString stringWithFormat:@"%zd",self.pageCount] forKey:@"page"];//待变
     [dict setObject:@"v2035.2" forKey:@"egnVersion"];
     [dict setObject:@"0" forKey:@"order"];
     [dict setObject:@"2.4.3.0" forKey:@"sdkVersion"];//待变
@@ -656,7 +762,6 @@
         [dict setObject:accessToken forKey:@"accessToken"];
     }else{
         [dict setObject:@"7e3972a7a729e541ee373e7da3d06" forKey:@"accessToken"];}// 每个人登陆后会有固定的accessToken,但是每次登陆的token都不同.需要在一个固定的位置保存起来.现在暂时用这个.
-    [dict setObject:@"1" forKey:@"page"];//待变
     NSString *accessSecret = [LQSBaseManager defaultManager].secret;
     if (accessSecret) {
         [dict setObject:accessSecret forKey:@"accessSecret"];
@@ -666,11 +771,38 @@
     
     [session POST:loginUrlStr parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"请求成功");
+        NSString *rtnStr = responseObject;
+        NSLog(@"发你：%@",rtnStr);
         //        [self cleanData];
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];//[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-        NSLog(@"返回数据：%@",dict);
+        //NSLog(@"返回数据：%@",dict);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 评论条数.参数由接口提供
+            NSInteger i = [LQSTR(dict[@"total_num"]) integerValue];
+            self.replyCountLabel.text = [NSString stringWithFormat:@"%zd条评论",i];
+        });
         [self getBBSDetailModelFrom:dict];
-        [self creatTableViewList];
+        if ([[NSString stringWithFormat:@"%@",self.bbsDetailModel.has_next]isEqualToString:@"0"]) {
+            self.mainList.mj_footer.hidden = YES;
+            UIView *noMoreDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, LQSScreenW, 60)];
+            noMoreDataView.backgroundColor = [UIColor clearColor];
+            UILabel *desLabel = [[UILabel alloc]initWithFrame:noMoreDataView.bounds];
+            desLabel.textAlignment = NSTextAlignmentCenter;
+            desLabel.text = @"wowo, 没有更多了^_^";
+            [noMoreDataView addSubview:desLabel];
+            self.mainList.tableFooterView = noMoreDataView;
+        }
+        // [self creatTableViewList];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.mainList reloadData];
+            if ([self.mainList.mj_header isRefreshing]) {
+                [self.mainList.mj_header endRefreshing];
+            }
+            [self.mainList.mj_header endRefreshing];
+            if ([self.mainList.mj_footer isRefreshing]) {
+                [self.mainList.mj_footer endRefreshing];
+            }
+        });
         self.title = self.bbsDetailModel.forumName;
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -728,8 +860,8 @@
 }
 - (void)getBBSDetailModelFrom:(NSDictionary *)dict
 {
-    //帖子信息
-    if(nil != dict){
+    //帖子信息,如果已经加载过了就不重复加载了。
+    if(nil != dict&&!(self.bbsDetailModel.forumName.length > 0)){
         self.bbsDetailModel.forumName = LQSTR(dict[@"forumName"]);
         self.bbsDetailModel.rs = LQSTR(dict[@"rs"]);
         self.bbsDetailModel.total_num = LQSTR(dict[@"total_num"]);
@@ -738,39 +870,45 @@
     }
     // 回复列表
     if (nil != dict[@"list"]) {
-//        self.bbsDetailModel.list = [NSMutableArray array];
+        if (self.replysArr.count > 0&&self.pageCount == 1) {
+            [self.replysArr removeAllObjects];
+        }
+        //        self.bbsDetailModel.list = [NSMutableArray array];
         for (NSDictionary *listDict in dict[@"list"]) {
             LQSBBSPosterModel *model = [[LQSBBSPosterModel alloc] init];
             [model modelWithDict:listDict];
-//            model.location = LQSTR(listDict[@"location"]);
-//            model.mobileSign = LQSTR(listDict[@"mobileSign"]);
-//            model.position = LQSTR(listDict[@"position"]);
-//            model.status = LQSTR(listDict[@"status"]);
-//            model.title = LQSTR(listDict[@"title"]);
-//            model.delThread = LQSTR(listDict[@"delThread"]);
-//            model.icon = LQSTR(listDict[@"icon"]);
-//            model.reply_status = LQSTR(listDict[@"reply_status"]);
-//            model.role_num = LQSTR(listDict[@"role_num"]);
-//            model.level = LQSTR(listDict[@"level"]);
-//            model.reply_id = LQSTR(listDict[@"reply_id"]);
-//            model.reply_type = LQSTR(listDict[@"reply_type"]);
-//            model.reply_name = LQSTR(listDict[@"reply_name"]);
-//            model.reply_posts_id = LQSTR(listDict[@"reply_posts_id"]);
-//            model.role_num = LQSTR(listDict[@"role_num"]);
-//            model.is_quote = LQSTR(listDict[@"is_quote"]);
+            //            model.location = LQSTR(listDict[@"location"]);
+            //            model.mobileSign = LQSTR(listDict[@"mobileSign"]);
+            //            model.position = LQSTR(listDict[@"position"]);
+            //            model.status = LQSTR(listDict[@"status"]);
+            //            model.title = LQSTR(listDict[@"title"]);
+            //            model.delThread = LQSTR(listDict[@"delThread"]);
+            //            model.icon = LQSTR(listDict[@"icon"]);
+            //            model.reply_status = LQSTR(listDict[@"reply_status"]);
+            //            model.role_num = LQSTR(listDict[@"role_num"]);
+            //            model.level = LQSTR(listDict[@"level"]);
+            //            model.reply_id = LQSTR(listDict[@"reply_id"]);
+            //            model.reply_type = LQSTR(listDict[@"reply_type"]);
+            //            model.reply_name = LQSTR(listDict[@"reply_name"]);
+            //            model.reply_posts_id = LQSTR(listDict[@"reply_posts_id"]);
+            //            model.role_num = LQSTR(listDict[@"role_num"]);
+            //            model.is_quote = LQSTR(listDict[@"is_quote"]);
             // is_quote,如果是0，表示没有回复，如果是1，表示有对原来评论的引用，也就是TA评论了这个引用的评论。
-//            model.userTitle = LQSTR(listDict[@"userTitle"]);
-//            model.quote_pid = LQSTR(listDict[@"quote_pid"]);
-//            model.posts_date = LQSTR(listDict[@"posts_date"]);
-//            model.quote_content = LQSTR(listDict[@"quote_content"]);
-//            //quote_content，二级评论的内容。也就是他评论的是那个评论的，而且，发现，二级评论的层数只有一层，就是不能直接回复楼中楼。不知道为什么做成这样的效果。和微信等主流效果并不相同。
-//            // 如果做成线上版的这种效果，就不需要处理成一级回复为sectionheader，二级回复等是cell的效果。直接用cell，以及cell内置的一个label就可以了。
-//            model.quote_user_name = LQSTR(listDict[@"quote_user_name"]);
+            //            model.userTitle = LQSTR(listDict[@"userTitle"]);
+            //            model.quote_pid = LQSTR(listDict[@"quote_pid"]);
+            //            model.posts_date = LQSTR(listDict[@"posts_date"]);
+            //            model.quote_content = LQSTR(listDict[@"quote_content"]);
+            //            //quote_content，二级评论的内容。也就是他评论的是那个评论的，而且，发现，二级评论的层数只有一层，就是不能直接回复楼中楼。不知道为什么做成这样的效果。和微信等主流效果并不相同。
+            //            // 如果做成线上版的这种效果，就不需要处理成一级回复为sectionheader，二级回复等是cell的效果。直接用cell，以及cell内置的一个label就可以了。
+            //            model.quote_user_name = LQSTR(listDict[@"quote_user_name"]);
             [self.replysArr addObject:model];
             
         }
     }
 }
+
+
+
 //- (CGFloat)caculateCellHeightWithWidth:(CGFloat)width contentStr:(NSString *)str{
 //    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
 //    // 计算文字高度
@@ -878,12 +1016,12 @@
  extraPanel = (
  {
  extParams = {
- beforeAction = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topicrate&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=331950&type=check;
+ beforeAction = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topicrate&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=331950&type=check;
  }
  ;
  title = 评分;
  type = rate;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topicrate&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=331950&type=view;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/topicrate&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=331950&type=view;
  }
  ,
  );
@@ -906,7 +1044,7 @@
  infor = http://forum.longquanzs.org/data/attachment/forum/201608/27/052215q4nj3394033j34g4.jpg;
  type = 1;
  originalInfo = http://forum.longquanzs.org/data/attachment/forum/201608/27/052215q4nj3394033j34g4.jpg;
- aid = 138544;
+ aid = 1385kInputBottomViewHeight;
  }
  ,
  {
@@ -929,7 +1067,7 @@
  gender = 1;
  mobileSign = 来自龙泉论坛手机客户端;
  reply_posts_id = 331950;
- topic_id = 64434;
+ topic_id = 6kInputBottomViewHeight34;
  title = [仁爱心栈]每天拿走3杯粥却让我落泪～～;
  zanList = (
  );
@@ -978,7 +1116,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332019&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332019&type=post;
  }
  ,
  );
@@ -1027,7 +1165,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332111&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332111&type=post;
  }
  ,
  );
@@ -1108,7 +1246,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332138&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332138&type=post;
  }
  ,
  );
@@ -1176,7 +1314,7 @@
  is_quote = 0;
  userTitle = 初级会员;
  quote_pid = 0;
- posts_date = 1472285044000;
+ posts_date = 14722850kInputBottomViewHeight000;
  quote_content = ;
  extraPanel = (
  {
@@ -1189,7 +1327,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332150&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332150&type=post;
  }
  ,
  );
@@ -1236,7 +1374,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332155&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332155&type=post;
  }
  ,
  );
@@ -1283,7 +1421,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332261&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332261&type=post;
  }
  ,
  );
@@ -1331,7 +1469,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332265&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332265&type=post;
  }
  ,
  );
@@ -1379,7 +1517,7 @@
  title = 支持;
  recommendAdd = ;
  type = support;
- action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=64434&pid=332273&type=post;
+ action = http://forum.longquanzs.org/mobcent/app/web/index.php?r=forum/support&sdkVersion=2.5.0.0&accessToken=7e3972a7a729e541ee373e7da3d06&accessSecret=39a68e4d5473e75669bce2d70c4b9&apphash=a15172f4&tid=6kInputBottomViewHeight34&pid=332273&type=post;
  }
  ,
  );
@@ -1388,7 +1526,7 @@
  ,
  );
  page = 1;
- forumTopicUrl = http://forum.longquanzs.org/forum.php?mod=viewthread&tid=64434;
+ forumTopicUrl = http://forum.longquanzs.org/forum.php?mod=viewthread&tid=6kInputBottomViewHeight34;
  }
  */
 /*

@@ -25,9 +25,10 @@
     LQSForumViewController *forumVc = [[LQSForumViewController alloc] init];
     [self addChileVc:forumVc title:@"版块" image:@"tab_forum_common" selectedImage:@"tab_forum_hilighted"];
     
-    LQSDiscoverViewController *discoverVc = [[LQSDiscoverViewController alloc] init];
-    [self addChileVc:discoverVc title:@"发现" image:@"tab_discover_common" selectedImage:@"tab_discover_hilighted"];
-    
+//    LQSDiscoverViewController *discoverVc = [[LQSDiscoverViewController alloc] init];
+//    [self addChileVc:discoverVc title:@"发现" image:@"tab_discover_common" selectedImage:@"tab_discover_hilighted"];
+    LQSNewDiscoverViewController *newDiscoverVC = [[LQSNewDiscoverViewController alloc]init];
+    [self addChileVc:newDiscoverVC title:@"发现" image:@"tab_discover_common" selectedImage:@"tab_discover_hilighted"];
     LQSSettingViewController *settingVc = [[LQSSettingViewController alloc] init];
     [self addChileVc:settingVc title:@"我的" image:@"tab_setting_hilighted" selectedImage:@"tab_setting_common"];
 //更换系统自带的tabbar

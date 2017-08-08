@@ -20,7 +20,7 @@
         // 创建一个带有图片表情的富文本
         LQSEmotionAttachment *attach = [[LQSEmotionAttachment alloc] init];
         attach.emotion = emotion;
-        attach.bounds = CGRectMake(0, -3, self.font.lineHeight, self.font.lineHeight);
+        attach.bounds = CGRectMake(0, 0, self.font.lineHeight, self.font.lineHeight);
         NSAttributedString *attachString = [NSAttributedString attributedStringWithAttachment:attach];
         
         // 记录表情的插入位置
@@ -39,7 +39,32 @@
         self.selectedRange = NSMakeRange(insertIndex + 1, 0);
     }
 }
-
+-(void)appendEmotionStrWith:(LQSEmotion *)emotion{
+    /*
+     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedText];
+     // 创建一个带有图片表情的富文本
+     LQSEmotionAttachment *attach = [[LQSEmotionAttachment alloc] init];
+     attach.emotion = emotion;
+     attach.bounds = CGRectMake(0, 0, self.font.lineHeight, self.font.lineHeight);
+     NSAttributedString *attachString = [NSAttributedString attributedStringWithAttachment:attach];
+     
+     // 记录表情的插入位置
+     NSInteger insertIndex = self.selectedRange.location;
+     
+     // 插入表情图片到光标位置
+     [attributedText insertAttributedString:attachString atIndex:insertIndex];
+     
+     // 设置字体
+     [attributedText addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attributedText.length)];
+     */
+    // 重新赋值(光标会自动回到文字的最后面)
+    NSMutableString *preStr = [NSMutableString stringWithFormat:@"%@",self.text];
+    [preStr appendString:emotion.chs];
+    self.text = preStr;
+    
+    
+    
+}
 - (NSString *)realText
 {
     // 1.用来拼接所有文字
