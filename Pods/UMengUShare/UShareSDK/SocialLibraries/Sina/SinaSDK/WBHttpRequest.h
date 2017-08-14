@@ -13,8 +13,7 @@
 @class WBHttpRequest;
 
 /**
- 接收并处理来自微博sdk对于网络请求接口的调用响应 以及openAPI
- 如inviteFriend、logOutWithToken的请求
+ 接收并处理来自微博sdk对于网络请求接口的调用响应 以及logOutWithToken的请求
  */
 @protocol WBHttpRequestDelegate <NSObject>
 
