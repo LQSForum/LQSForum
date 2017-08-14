@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DC00E131F4205AF00804B2C /* LQSBaseJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC00E121F4205AF00804B2C /* LQSBaseJSONModel.m */; };
+		2DC00E251F4205C700804B2C /* LQSHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC00E151F4205C700804B2C /* LQSHomePageViewController.m */; };
+		2DC00E261F4205C700804B2C /* LQSRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC00E191F4205C700804B2C /* LQSRecommendViewController.m */; };
+		2DC00E271F4205C700804B2C /* LQSRecommendItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC00E1C1F4205C700804B2C /* LQSRecommendItemModel.m */; };
+		2DC00E281F4205C700804B2C /* LQSRecommendListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC00E1E1F4205C700804B2C /* LQSRecommendListModel.m */; };
+		2DC00E291F4205C700804B2C /* LQSRecommendListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC00E221F4205C700804B2C /* LQSRecommendListTableViewCell.m */; };
+		2DC00E2A1F4205C700804B2C /* LQSRotationPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC00E241F4205C700804B2C /* LQSRotationPictureView.m */; };
+		2DC00E311F42062B00804B2C /* LQSUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC00E2D1F42062B00804B2C /* LQSUIManager.m */; };
+		2DC00E321F42062B00804B2C /* LQSInitUIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC00E301F42062B00804B2C /* LQSInitUIModel.m */; };
 		415C55541CC8CCEE00408B90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C55531CC8CCEE00408B90 /* main.m */; };
 		415C555F1CC8CCEE00408B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415C555E1CC8CCEE00408B90 /* Assets.xcassets */; };
 		415C55621CC8CCEE00408B90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415C55601CC8CCEE00408B90 /* LaunchScreen.storyboard */; };
@@ -244,6 +253,24 @@
 /* Begin PBXFileReference section */
 		00FEB73F9DC5773AF24CCEB9 /* Pods-myOrgForumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myOrgForumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-myOrgForumUITests/Pods-myOrgForumUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2CA7813C1D4388DE00D35288 /* myOrgForum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = myOrgForum.entitlements; sourceTree = "<group>"; };
+		2DC00E111F4205AF00804B2C /* LQSBaseJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSBaseJSONModel.h; sourceTree = "<group>"; };
+		2DC00E121F4205AF00804B2C /* LQSBaseJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSBaseJSONModel.m; sourceTree = "<group>"; };
+		2DC00E141F4205C700804B2C /* LQSHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSHomePageViewController.h; sourceTree = "<group>"; };
+		2DC00E151F4205C700804B2C /* LQSHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSHomePageViewController.m; sourceTree = "<group>"; };
+		2DC00E181F4205C700804B2C /* LQSRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRecommendViewController.h; sourceTree = "<group>"; };
+		2DC00E191F4205C700804B2C /* LQSRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRecommendViewController.m; sourceTree = "<group>"; };
+		2DC00E1B1F4205C700804B2C /* LQSRecommendItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRecommendItemModel.h; sourceTree = "<group>"; };
+		2DC00E1C1F4205C700804B2C /* LQSRecommendItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRecommendItemModel.m; sourceTree = "<group>"; };
+		2DC00E1D1F4205C700804B2C /* LQSRecommendListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRecommendListModel.h; sourceTree = "<group>"; };
+		2DC00E1E1F4205C700804B2C /* LQSRecommendListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRecommendListModel.m; sourceTree = "<group>"; };
+		2DC00E211F4205C700804B2C /* LQSRecommendListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRecommendListTableViewCell.h; sourceTree = "<group>"; };
+		2DC00E221F4205C700804B2C /* LQSRecommendListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRecommendListTableViewCell.m; sourceTree = "<group>"; };
+		2DC00E231F4205C700804B2C /* LQSRotationPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSRotationPictureView.h; sourceTree = "<group>"; };
+		2DC00E241F4205C700804B2C /* LQSRotationPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSRotationPictureView.m; sourceTree = "<group>"; };
+		2DC00E2C1F42062B00804B2C /* LQSUIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSUIManager.h; sourceTree = "<group>"; };
+		2DC00E2D1F42062B00804B2C /* LQSUIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSUIManager.m; sourceTree = "<group>"; };
+		2DC00E2F1F42062B00804B2C /* LQSInitUIModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSInitUIModel.h; sourceTree = "<group>"; };
+		2DC00E301F42062B00804B2C /* LQSInitUIModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQSInitUIModel.m; sourceTree = "<group>"; };
 		415C554F1CC8CCEE00408B90 /* myOrgForum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myOrgForum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		415C55531CC8CCEE00408B90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../../../main.m; sourceTree = "<group>"; };
 		415C555E1CC8CCEE00408B90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../Assets.xcassets; sourceTree = "<group>"; };
@@ -701,6 +728,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DC00E161F4205C700804B2C /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				2DC00E171F4205C700804B2C /* DataSource */,
+				2DC00E181F4205C700804B2C /* LQSRecommendViewController.h */,
+				2DC00E191F4205C700804B2C /* LQSRecommendViewController.m */,
+				2DC00E1A1F4205C700804B2C /* RecommendModel */,
+				2DC00E1F1F4205C700804B2C /* Request */,
+				2DC00E201F4205C700804B2C /* Views */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
+		2DC00E171F4205C700804B2C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		2DC00E1A1F4205C700804B2C /* RecommendModel */ = {
+			isa = PBXGroup;
+			children = (
+				2DC00E1B1F4205C700804B2C /* LQSRecommendItemModel.h */,
+				2DC00E1C1F4205C700804B2C /* LQSRecommendItemModel.m */,
+				2DC00E1D1F4205C700804B2C /* LQSRecommendListModel.h */,
+				2DC00E1E1F4205C700804B2C /* LQSRecommendListModel.m */,
+			);
+			path = RecommendModel;
+			sourceTree = "<group>";
+		};
+		2DC00E1F1F4205C700804B2C /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		2DC00E201F4205C700804B2C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2DC00E211F4205C700804B2C /* LQSRecommendListTableViewCell.h */,
+				2DC00E221F4205C700804B2C /* LQSRecommendListTableViewCell.m */,
+				2DC00E231F4205C700804B2C /* LQSRotationPictureView.h */,
+				2DC00E241F4205C700804B2C /* LQSRotationPictureView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2DC00E2B1F42062B00804B2C /* UIManager */ = {
+			isa = PBXGroup;
+			children = (
+				2DC00E2C1F42062B00804B2C /* LQSUIManager.h */,
+				2DC00E2D1F42062B00804B2C /* LQSUIManager.m */,
+				2DC00E2E1F42062B00804B2C /* Model */,
+			);
+			path = UIManager;
+			sourceTree = "<group>";
+		};
+		2DC00E2E1F42062B00804B2C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2DC00E2F1F42062B00804B2C /* LQSInitUIModel.h */,
+				2DC00E301F42062B00804B2C /* LQSInitUIModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		415C55461CC8CCEE00408B90 = {
 			isa = PBXGroup;
 			children = (
@@ -1232,6 +1327,9 @@
 		564F66181F2B50220098E8A7 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				2DC00E141F4205C700804B2C /* LQSHomePageViewController.h */,
+				2DC00E151F4205C700804B2C /* LQSHomePageViewController.m */,
+				2DC00E161F4205C700804B2C /* Recommend */,
 				564BCBB81F2F2F3200EF9297 /* Model */,
 				564BCBB71F2F2F2900EF9297 /* View */,
 				564BCBB61F2F2F1F00EF9297 /* Controller */,
@@ -1559,6 +1657,7 @@
 		56EA01A31F2C028E00F7350F /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				2DC00E2B1F42062B00804B2C /* UIManager */,
 				568CC2EB1F3067080012845A /* Message */,
 				568CC2B21F304E250012845A /* View */,
 				56EA01A91F2C03E100F7350F /* Model */,
@@ -1597,6 +1696,8 @@
 		56EA01A91F2C03E100F7350F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2DC00E111F4205AF00804B2C /* LQSBaseJSONModel.h */,
+				2DC00E121F4205AF00804B2C /* LQSBaseJSONModel.m */,
 				56EA01AA1F2C040D00F7350F /* LQSBaseModel_Private.h */,
 				56EA01AB1F2C040D00F7350F /* LQSBaseModel.h */,
 				56EA01AC1F2C040D00F7350F /* LQSBaseModel.m */,
@@ -2142,7 +2243,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		70C075022D848D3A3FDDE527 /* [CP] Embed Pods Frameworks */ = {
@@ -2217,7 +2318,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BE6A0856402362E4B251B0F3 /* [CP] Check Pods Manifest.lock */ = {
@@ -2232,7 +2333,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C17B041A92AFEED641A445A6 /* [CP] Copy Pods Resources */ = {
@@ -2290,6 +2391,7 @@
 				E46262511F39F73F00DD2C84 /* LQSNewDiscoverCell.m in Sources */,
 				564BCC151F2F354900EF9297 /* LQSWaterFlowView.m in Sources */,
 				564F65DB1F2B4FA70098E8A7 /* LQSEmotionTextView.m in Sources */,
+				2DC00E311F42062B00804B2C /* LQSUIManager.m in Sources */,
 				564F663C1F2B50220098E8A7 /* LQSForumDetailOptionCell.m in Sources */,
 				564BCBF61F2F343300EF9297 /* GCDAsyncSocket.m in Sources */,
 				568CC2931F3037A10012845A /* YYClassInfo.m in Sources */,
@@ -2300,10 +2402,12 @@
 				568CC2921F3037A10012845A /* NSObject+YYModel.m in Sources */,
 				564BCB6D1F2ED59E00EF9297 /* LQSAccountManagementViewController.m in Sources */,
 				564F663F1F2B50220098E8A7 /* LQSForumDetailTopCell.m in Sources */,
+				2DC00E2A1F4205C700804B2C /* LQSRotationPictureView.m in Sources */,
 				564BCBBE1F2F2FFA00EF9297 /* LQSintroduceMainlistCell.m in Sources */,
 				56EA01941F2C016F00F7350F /* LQFoundPSWViewController.m in Sources */,
 				56EA01E51F2C20A300F7350F /* LQSMessageTableViewCell.m in Sources */,
 				56E84BAC1F31821D009E27D2 /* LQSForumAttentionView.m in Sources */,
+				2DC00E261F4205C700804B2C /* LQSRecommendViewController.m in Sources */,
 				564BCBCB1F2F329800EF9297 /* LQSAddViewHelper.m in Sources */,
 				568CC2B11F304DED0012845A /* NSString+Emoji.m in Sources */,
 				564BCBF71F2F343300EF9297 /* GCDMulticastDelegate.m in Sources */,
@@ -2323,9 +2427,11 @@
 				564F66461F2B50220098E8A7 /* LQSMoreDataTableViewCell.m in Sources */,
 				564BCBA21F2EFC3800EF9297 /* LQSEmailVC.m in Sources */,
 				564F66491F2B50220098E8A7 /* LQSComposeViewController.m in Sources */,
+				2DC00E321F42062B00804B2C /* LQSInitUIModel.m in Sources */,
 				56EA01FB1F2C243B00F7350F /* LQSDetailSettingViewController.m in Sources */,
 				568CC2F31F30673A0012845A /* LQSMessageCenterManager.m in Sources */,
 				E46262481F39F70D00DD2C84 /* LQSDiscDownloadViewController.m in Sources */,
+				2DC00E291F4205C700804B2C /* LQSRecommendListTableViewCell.m in Sources */,
 				56EA01E11F2C205400F7350F /* LQSMessageViewController.m in Sources */,
 				564BCBCC1F2F329800EF9297 /* LQSArticleContentView.m in Sources */,
 				56E84B9A1F317DDD009E27D2 /* UITableView+FDIndexPathHeightCache.m in Sources */,
@@ -2350,6 +2456,7 @@
 				564F663B1F2B50220098E8A7 /* LQSForumDetailHeadView.m in Sources */,
 				564BCBF51F2F343300EF9297 /* AsyncSocket.m in Sources */,
 				564BCBD31F2F32D200EF9297 /* LQSDashangTableViewCell.m in Sources */,
+				2DC00E281F4205C700804B2C /* LQSRecommendListModel.m in Sources */,
 				564F65D71F2B4FA70098E8A7 /* LQSEmotionKeyboard.m in Sources */,
 				E46262521F39F73F00DD2C84 /* LQSDiscoverHeadView.m in Sources */,
 				E46262491F39F70D00DD2C84 /* LQSDiscStoryViewController.m in Sources */,
@@ -2388,8 +2495,10 @@
 				564F66441F2B50220098E8A7 /* LQSMainView.m in Sources */,
 				56EA01971F2C016F00F7350F /* LQUpdateUserViewController.m in Sources */,
 				564F663D1F2B50220098E8A7 /* LQSForumDetailSectionHeadView.m in Sources */,
+				2DC00E131F4205AF00804B2C /* LQSBaseJSONModel.m in Sources */,
 				564F664E1F2B50220098E8A7 /* LQSComposePhotosView.m in Sources */,
 				564F66501F2B50220098E8A7 /* LQSTextView.m in Sources */,
+				2DC00E271F4205C700804B2C /* LQSRecommendItemModel.m in Sources */,
 				568CC2BD1F304E4F0012845A /* LQSTabBarViewController.m in Sources */,
 				568CC2851F3037060012845A /* NSTextAttachment+ArticleContent.m in Sources */,
 				564BCB851F2EE31700EF9297 /* LQSHomePagePersonalPresentTableViewCell.m in Sources */,
@@ -2426,6 +2535,7 @@
 				E46262471F39F70D00DD2C84 /* LQSDiscoverBaseTableViewController.m in Sources */,
 				568CC28B1F3037060012845A /* UIWindow+Extension.m in Sources */,
 				E46262461F39F70D00DD2C84 /* LQSNewDiscoverViewController.m in Sources */,
+				2DC00E251F4205C700804B2C /* LQSHomePageViewController.m in Sources */,
 				564BCBA31F2EFC3800EF9297 /* LQSNickNameVC.m in Sources */,
 				56EA01FE1F2C24BA00F7350F /* LQSSettingPersonalSettingDataModel.m in Sources */,
 				564BCBE51F2F334D00EF9297 /* LQSBBSDetailModel.m in Sources */,
